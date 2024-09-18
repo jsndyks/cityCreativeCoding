@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming BootCamp Lecture: Coding Decisions with Conditionals</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
+  
+   <!-- Column Styling -->
+   <style>
+        .unit-30-cc {margin:4px; background-color:#f8f8f8; padding:0.25em; padding-left:6em; padding-right:6em; border:dashed #e0e0e0 1px} 
+        .unit-70-cc {margin:4px; background-color:#ffffff} 
+   </style>
+  </head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Add summary sentence or two below, which will act as an easy introduction -->
+
+    <!---
+    You can access [this lecture](https://jsndyks.github.io/cityBootCamp/html/decisions/bootCamp.dec.2023.lecture.html) outside of _Moodle_ should you wish to do so.
+
+    <iframe id="myIframe"
+  src="https://jsndyks.github.io/cityBootCamp/html/decisions/bootCamp.dec.2023.lecture.html" width="100%"
+  height="9250px"
+  frameborder="0"
+  scrolling="no"></iframe>
+
+<script src="/theme/cul_moove/js/iframeResizer.min.js"></script>
+<iframe id="myIframe" style="width: 1px; min-width:100%;" src="https://jsndyks.github.io/cityBootCamp/html/decisions/bootCamp.dec.2023.lecture.html"></iframe>
+<script>
+    iFrameResize({log: true}, '#myIframe')
+</script>
+
+-->
+
+    <div class="intro">
+
+            <p>
+                This section introduces the <i>if-statement</i>: a programming language construct which allows you to
+                write code that <b>makes choices as it executes</b>.
+            </p>
+
+            <p><strong>By the end of this session you should be able to:</strong></p>
+
+            <ul>
+                <li>write if-statements in your code so that it makes choices as it executes;</li>
+                <li>use if-statements to choose between different actions based on the mouse position;</li>
+                <li>write nested if-statements and else-if statements;</li>
+                <li>use a variety of different kinds of boolean expressions in the conditions of your if-statements;
+                </li>
+                <li>use randomness and if-statements to simulate throwing dice or tossing coins.</li>
+            </ul>
+
+        </div> <!-- End of intro section -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+                <h3>1. Coding programs that adapt to context</h3>
+                <p>
+                    We may face two of the following situations when writing code:
+                </p>
+
+                <ol>
+                    <li>At the time of writing the code, we know everything and everything is deterministic. We know all the data values and how they
+                        should be processed. Unfortunately, this doesn't happen very often. </li>
+                    <li>There are things we don't know when we write the code, but they are "known unknowns". We know
+                        what kind of data our code has to process and we know the rules for how it should be processed
+                        when it becomes available.</li>
+                </ol>
+
+                <p>
+                    The second of these is the situation we normally have to deal with as programmers. We are expected
+                    to write code which is flexible enough to process many alternative combinations of inputs and user
+                    behaviours by applying known rules. The data values only become known as the code executes, but the
+                    rules can be figured out in advance.
+                </p>
+
+                <p>
+                    Variables and parameterization is one way to achieve this. You have already drawn code that behaves
+                    differently when the user changes their input (e.g. we drew rectangles which traced the user's
+                    cursor). However, parameterization can only take you so far because incoming values are processed in
+                    a uniform way.
+                </p>
+
+                <p>
+                    A fundamental programming concept that brings us much closer to fully flexible programs is 
+                    <b>the if statement</b>
+                </p>
+
+            </div> <!-- End of left column -->
+
+        </div> <!-- End of row -->
+
+        <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/shapeByMouse", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2021/lecture03/images/chooseShape.png");</script>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+
+            <div class="unit-70-cc">
+                <!-- Left column -->
+                <h3>2. Example: choose a shape based on mouse position</h3>
+                <pre class="brush: processing; gutter: false; toolbar: false; ">
+void setup() 
+{
+  size(400, 300);
+  fill(203, 118, 122);
+}
+
+void draw()
+{
+  background(255, 236, 149);
+
+  if (mouseX &lt; width/2)
+  {
+    ellipse(mouseX, mouseY, 80, 80);
+  }
+  else
+  {
+    rect(mouseX, mouseY, 80, 80);
+  }
+}</pre>
+
+                <p>
+                    Execution of an if-statement happens in two stages:
+                </p>
+
+                <ol>
+                    <li>
+                        First the condition is evaluated. The condition is the stuff inside the round brackets,
+                        immediately after the keyword <code>if</code>. In this example the condition is
+                        <code>mouseX &lt; width/2</code>. A condition can be any boolean expression (more about these in
+                        a little while)
+                    </li>
+                    <li>
+                        Then <b>Either</b> the first block of code is executed (the code in between the condition and
+                        the keyword <code>else</code>), <b>Or</b> the second block of code is executed (the code
+                        immediately after the keyword <code>else</code>). The first block will be executed if the
+                        condition evaluated to true, the second if the condition evaluated to false.
+                    </li>
+                </ol>
+
+                <p>
+                    Some terminology: the first block of code is known as the <i>true branch</i> or <i>if branch</i>and
+                    the second is known as the <i>false branch</i> or <i>else branch</i>. For obvious reasons.
+                </p>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30-cc annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br /><br />
+                <script>loadImage("https://staff.city.ac.uk/~jwo/bootcamp2021/lecture03/images/syntax.png", 887, 705, 'The structure of an if-statement');</script>
+                <p>The structure of an if-statement <i>(click to enlarge)</i>.</p>
+                <br /><br />
+                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/shapeByMouse", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2021/lecture03/images/chooseShape.png");</script>
+
+                <p>Controlling shape with the mouse (click on image to activate).</p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+                <h3>3. Example: The Next Station is Angel…</h3>
+
+                <p>
+                    The following code is a modified copy of the scrolling text example from yesterday.
+                </p>
+                <pre class="brush: processing; gutter: false; toolbar: false; ">float xPos;     // Position of text along x-axis
+float vx;       // Speed of text in x-direction
+String message; // The message
+
+void setup()
+{
+  size(600, 100);
+  fill(255, 177, 8);
+  textSize(48);
+
+  xPos = width;  // Initialise xPos to right of sketch
+  vx = -2;       // Set speed in x-direction to -2 (moving left)
+  message = "The next station is Angel...";
+}
+
+void draw()
+{
+  background(64);
+
+  xPos = xPos + vx;  // Change x-position on each redraw
+  text(message, xPos, (height/2) + 20);
+}
+</pre>
+
+                <div class="codeTask">
+                    Modify the code so that the message "wraps around" and scrolls in again from the right each time it
+                    disappears off to the left.
+                </div>
+            </div> <!-- End of left column -->
+
+            <div class="unit-30-cc annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br /><br />
+                <script> loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/nextStation", 600, 600, "https://staff.city.ac.uk/~jwo/bootcamp2021/lecture03/images/scrollingMessage.png");
+                </script>
+                <p>Scrolling text with wraparound (click on image to activate).</p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+                <h3>4. Nested Ifs</h3>
+                <p>
+                    The two branches of an if-statement contain instructions. So far we became used to instructions that
+                    we can write on a single line, such as <code>rect(100, 200, 50, 50);</code> or
+                    <code>fill(255);</code>. However, the if is an instruction, just one that we typically write on
+                    multiple lines. So, there is no reason why one of the instructions contained inside our branches
+                    cannot be an if-statement itself.
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false; ">
+void setup() 
+{
+  size(400, 300);
+}
+
+void draw()
+{
+  background(255);
+
+  if (mouseX &lt; width/2)
+  {
+    if (mouseY &lt; height/2)
+    {
+        fill(255,0,0);
+    }
+    else
+    {
+        fill(0,0,255);
+    }
+    rect(mouseX, mouseY, 80, 80);
+  }
+  else
+  {
+    ellipse(mouseX, mouseY, 80, 80);
+  }
+}
+</pre>
+
+                <div class="codeTask">
+                    Replicate the logic for drawing a rectangle in different colours to the branch responsible for
+                    drawing the ellipse.
+                </div>
+            </div> <!-- End of left column -->
+
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+                <h3>5. Boolean expressions</h3>
+                <p>
+                    Just like an arithmetic expression (such as <code>2 + 7</code> or <code>y * (z - 3)</code>), a
+                    Boolean expression is evaluated to find its value. But there are only two possible values for
+                    boolean
+                    expressions: <b>true</b> and <b>false</b>. The simplest Boolean expressions of all are just the
+                    Boolean literals themselves, <code>true</code> and <code>false</code> (though we don't often use
+                    them in code). More useful are the <i>comparison</i> expressions:
+                </p>
+
+                <table border="1" cellpadding="2" cellspacing="2" width="100%">
+                    <colgroup>
+                        <col width="15%">
+                        <col width="85%">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td valign="top"><code>e1 &lt; e2</code><br /></td>
+                            <td valign="top">evaluates to <b>true</b> if the value of <code>e1</code> is strictly less
+                                than that of <code>e2</code>, else evaluates to <b>false</b><br /></td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><code>e1 &lt;= e2</code><br /></td>
+                            <td valign="top">evaluates to <b>true</b> if the value of <code>e1</code> is less than or
+                                equal to that of <code>e2</code>, else evaluates to <b>false</b><br /> </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><code>e1 &gt; e2</code><br /></td>
+                            <td valign="top">evaluates to <b>true</b> if the value of <code>e1</code> is strictly
+                                greater than that of <code>e2</code>, else evaluates to <b>false</b><br /></td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><code>e1 &gt;= e2</code><br /></td>
+                            <td valign="top">evaluates to <b>true</b> if the value of <code>e1</code> is greater than or
+                                equal to that of <code>e2</code>, else evaluates to <b>false</b><br /></td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><code>e1 == e2</code><br /></td>
+                            <td valign="top">evaluates to <b>true</b> if the values of <code>e1</code> and
+                                <code>e2</code> are equal, else evaluates to <b>false</b> if they are different<br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><code>e1 != e2</code><br /></td>
+                            <td valign="top">evaluates to <b>true</b> if the values of <code>e1</code> and
+                                <code>e2</code> are <i>not</i> equal, else evaluates to <b>false</b> if they are equal
+                                <br />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="aside">What are the values of the following Boolean expressions?
+                    <br /><br />
+                    <ol>
+                        <li><code>9 &lt; 7</code></li>
+                        <li><code>6*4 &lt; 3*8</code></li>
+                        <li><code>(2*32) + 17 &gt;= 64 + 17</code></li>
+                        <li><code>6*4 != 3*8</code></li>
+                        <li><code>mouseX &lt; width/2</code></li>
+                    </ol>
+                </div>
+
+                <p>
+                    And we can build more complex Boolean expressions using the <i>Boolean operators</i> to combine
+                    simple ones. In the following table, <code>b</code>, <code>b1</code>, <code>b2</code> stand for any
+                    Boolean expression:
+                </p>
+
+                <table border="1" cellpadding="2" cellspacing="2" width="100%">
+                    <colgroup>
+                        <col width="15%">
+                        <col width="85%">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td valign="top"><code>b1 &amp;&amp; b2</code><br /></td>
+                            <td valign="top">Boolean AND: evaluates to <b>true</b> if <i>both</i><code>b1</code> and
+                                <code>b2</code> evaluate to <b>true</b>, else evaluates to <b>false</b> (Note:
+                                evaluation proceeds left to right; <code>b2</code> never gets evaluated at all if
+                                <code>b1</code> evaluates to <b>false</b>; sometimes this matters.)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><code>b1 || b2</code><br /></td>
+                            <td valign="top">Boolean OR: evaluates to <b>true</b> if <i>either</i><code>b1</code> or
+                                <code>b2</code> evaluate to <b>true</b>, else evaluates to <b>false</b> (Note:
+                                evaluation proceeds left to right; <code>b2</code> never gets evaluated at all if
+                                <code>b1</code> evaluates to <b>true</b>; sometimes this matters.)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><code>!b</code><br /></td>
+                            <td valign="top">Boolean negation (NOT): evaluates to <b>true</b> if <code>b</code>
+                                evaluates to <b>false</b>, else evaluates to <b>false</b> if <code>b</code> evaluates to
+                                <b>true</b>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="aside">What are the values of the following Boolean expressions?
+                    <br /><br />
+                    <ol>
+                        <li><code>(9 &lt; 7) &amp;&amp; (216 * 19 &gt; 237 * 17)</code></li>
+                        <li><code>!(9 == 7)</code></li>
+                        <li><code>(9 == 7) || (9 != 7)</code></li>
+                        <li><code>(mouseX &lt;= 150 &amp;&amp; mouseX &gt;= 150) || (mouseX != 150)</code></li>
+                    </ol>
+                </div>
+            </div> <!-- End of left column -->
+
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+                <h3>6. Exploring randomness: coins and dice</h3>
+                <p>
+                    Suppose we want to write a sketch called HeadsOrTails which simulates the effect of tossing a coin.
+                    We need some source of randomness, so that our code will sometimes print HEADS, sometimes TAILS,
+                    with both outcomes equally likely, but we can't predict which one we will get on any particular run
+                    of the sketch.Here's our first attempt:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false; ">float randomNumber;
+
+void setup()
+{
+  size(200, 200);
+  fill(0);
+  textSize(48);
+  textAlign(CENTER);
+
+  // Initialise randomNumber between 0 and 2
+  randomNumber = random(2);
+}
+
+void draw()
+{
+  background(230, 255, 230);
+
+  String message;
+
+  message = "TAILS";
+
+  text(message, width/2, height/2);
+}</pre>
+                <p>
+                    The code above declares a variable <code>randomNumber</code> and initialises it in
+                    <code>setup()</code>. The command <code>random(2)</code> returns a random number in the range 0 to
+                    2. We can't predict what number we will get (that's the whole point!) but we do know that we are
+                    equally likely to get a number between 0 and 1 as we are to get a number between 1 and 2 (and if we
+                    do get one between 0 and 1, it is just as likely to be between 0 and 0.5 as it is between 0.5 and 1,
+                    and so on; this is known as a <a
+                        href="https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)" target="_blank">uniform
+                        distribution</a>).
+                </p>
+
+                <div class="codeTask">
+                    The <code>draw()</code> code doesn't actually use the random number yet; it just prints the message
+                    TAILS every time. Modify the code so that the message is TAILS if the number is less than 1 and
+                    HEADS otherwise.
+                </div>
+
+                <div class="aside">
+                    Why do we assign a value to <code>randomNumber</code> in <code>setup()</code> rather than in
+                    <code>draw()</code>?
+                </div>
+            </div> <!-- End of left column -->
+
+            <div class="unit-30-cc annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br /><br />
+                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/coin", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2021/lecture03/images/noCountry.jpg");</script>
+                <p>Toss a coin (<i>click on image to activate</i>).</p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+                <p>
+                    Now let's suppose we want six randomly chosen possible outcomes, rather than just two. In other
+                    words, suppose we want a six-sided die, rather than a coin.
+                </p>
+
+                <p>
+                    First, it's helpful to know that we can expand the range of our random number so that we get a
+                    number in the range 0.0 to 6.0 (see the code below how this can be done). Then we can map each unit
+                    interval in our range to one outcome of our roll.
+                </p>
+
+                <img src="https://staff.city.ac.uk/~jwo/bootcamp2021/lecture03/images/dieNumberLine.png"
+                    alt="six-sided die number line" style="max-width:100%;max-height:100%;">
+
+                <p>
+                    In practice we can achieve this mapping by writing mutually exclusive Boolean expressions which test
+                    if our number is in one of the six intervals:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false; highlight: [10,18,23,28] ">float ran;
+
+void setup()
+{
+  size(200, 200);
+  fill(0);
+  textSize(48);
+  textAlign(CENTER);
+
+  ran = random(6);
+}
+
+void draw()
+{
+  background(255);
+  String message="";
+
+  if (ran &gt;= 0 && ran &lt; 1)
+  {
+    message = "ONE";
+  }
+
+  if (ran &gt;= 1 && ran &lt; 2)
+  {
+    message = "TWO";
+  }
+
+  if (ran &gt;= 2 && ran &lt; 3)
+  {
+    message = "THREE";
+  }
+
+  // Can you write the code for the remaining cases?
+
+  text(message, width/2, height/2);
+}</pre>
+            </div> <!-- End of left column -->
+
+            <div class="unit-30-cc annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br /><br />
+                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/dice", 200, 200, "https://www.staff.city.ac.uk/~jwo/bootcamp2021/lecture03/images/die.png");</script>
+                <p>Roll a six-sided die (<i>click on image to activate</i>).</p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+                <h3>7. Choosing from multiple options: else if</h3>
+                <p>
+                    When we have more than two options to choose from, as was the case with our previous example, it's
+                    common to use the 'else if', a way of writing multiple, mutually exclusive branches within the same
+                    if. The following code snippet implements the roll of the dice using the else if variation:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false; ">if (ran &lt; 1)
+{
+  message = "ONE";
+}
+else if (ran &lt; 2)
+{
+  message = "TWO";
+}
+else if (ran &lt; 3)
+{
+  message = "THREE";
+}
+else if (ran &lt; 4)
+{
+  message = "FOUR";
+}
+else if (ran &lt; 5)
+{
+  message = "FIVE";
+}
+else
+{
+  message = "SIX";
+}</pre>
+                <p>
+                    Note that despite there being multiple alternative branches, it's still the case that only one
+                    branch can execute. This is the case even though in some cases multiple conditions may be true (as
+                    is the case in the example above). In an else if the successive conditions are tested in order, one
+                    at a time. The branch of the first one to evaluate to true is executed, after which the entire if
+                    stops. Thus, even if any subsequent conditions are true, they are never evaluated and their branches
+                    never executed. (Can you figure out what the program above would print if this was not the case?)
+                </p>
+            </div> <!-- End of left column -->
+
+            <div class="unit-30-cc annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br />
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+                <h3>8. Layout</h3>
+                <p>
+                    An alternative and more compact way of arranging the curly braces is the following:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false; ">if (ran &lt; 1) {
+  message = "ONE";
+} else if (ran &lt; 2) {
+  message = "TWO";
+} else if (ran &lt; 3) {
+  message = "THREE";
+} else if (ran &lt; 4) {
+  message = "FOUR";
+} else if (ran &lt; 5) {
+  message = "FIVE";
+} else {
+  message = "SIX";
+}</pre>
+                <p>
+                    One more note is that when there is just one statement in a branch, the curly brackets are optional.
+                    In fact, since in the code above all branches contain single statements, we could remove all of
+                    them! DON'T DO IT! ALWAYS WRITE THE CURLY BRACKETS, even when they are optional. Because if you ever
+                    decide to add more statements to a branch it is very easy to forget to put the curly brackets in,
+                    and this can lead to some very frustrating bugs in your code.
+                </p>
+            </div> <!-- End of left column -->
+
+            <div class="unit-30-cc annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br />
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+                <h3>9. Tips</h3>
+                <p>
+                    <b>Debugging: </b> As your sketches become more ambitious you will find that they are harder to get
+                    right. The art of identifying the errors ("bugs") in your code, and fixing them, is known as
+                    <i>debugging</i>. Bugs can be frustratingly hard to track down. A common experience for programmers
+                    is that we find ourselves thinking:
+                </p>
+
+                <blockquote> "But it makes no sense that my code does <i>X</i> !. I can <i>see</i> that it <i>must</i>
+                    do <i>Y</i>."</blockquote>
+
+                <p>
+                    It is tempting to think that the problem must lie elsewhere, that the bug is not in our code but in
+                    Processing, or Windows, or the computer hardware. But, in fact, it always turns out that the bug
+                    <i>really is in our code</i>. (OK, not <i>always</i>. Very, very occasionally the blame actually
+                    does lie elsewhere.)
+                </p>
+
+                <p>
+                    Here are two techniques which can help:
+                </p>
+                <ol>
+                    <li>
+                        Talk through your code with a fellow programmer. Explain how you expect your code to behave, why
+                        you think it should behave that way, and what is actually happening. It is surprising how often
+                        the simple act of trying to explain your code to another programmer allows you to see why it is
+                        wrong (even when the other programmer can't see the problem).
+                        <br /><br />
+                    </li>
+                    <li>
+                        Use <code>println()</code> statements to print out the values of variables and to give a visible
+                        indication of control flow. For example, suppose you have variables <code>x</code> and
+                        <code>y</code> which are used to position the drawing of your widget, but for some unfathomable
+                        reason your widget does not pop up as you expect it to when the score goes above 999. You might
+                        add:
+                        <br /><br />
+                        <pre class="brush: processing; gutter: false; toolbar: false; class-name: 'shextras'; ">println("value of x:", x);
+println("value of y:", y);</pre>
+                        just before the code which draws the widget.
+                        <ul>
+                            <li>
+                                If you see the message "value of x: 2000" and your window is 600 pixels wide, then you
+                                are on your way to locating the bug.
+                            </li>
+                            <li>
+                                On the other hand, if you don't see <i>any</i> message, then you know that your widget
+                                drawing code is not being executed at all. Perhaps that boolean expression which checks
+                                the score is wrong?
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <p>
+                    <b>Make your boolean expressions legible.</b> You can do this best in two ways. First, split long
+                    and complicated boolean expressions into multiple simpler ones, store the results of those in
+                    boolean variables, then combine the variables back into the larger expression. Second, use variable
+                    names which make your condition read naturally in plain English. Here's an example of turning a
+                    rather lengthy condition into one that reads well:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false; class-name: 'shextras'; ">
+// if ((mouseX &lt; width/2 && mouseY &lt; height/2) || (mouseX &gt; width/2 && mouseY &gt; height/2))
+// {
+//   println("upper left or lower right quadrants");
+// }
+//
+// can be rewritten as
+
+boolean mouseUp = mouseY &lt; height/2;
+boolean mouseRight = mouseX &lt; width/2;
+boolean mouseUpperLeft = mouseUp && mouseLeft;
+boolean mouseLowerRight = !mouseUp && !mouseLeft;
+
+if (mouseUpperLeft || mouseLowerRight)
+{
+  println("upper left or lower right quadrants");
+}</pre>
+
+                <p>
+                    Another benefit of using variables to break up complex conditions is that they become easier to
+                    debug.
+                </p>
+
+                <p>
+                    <b>Don't put semicolons in the middle of your if-statement</b> It's quite common for novice
+                    programmers to develop a 'semicolon reflex' and place one after the <code>if (condition)</code>
+                    line. Resist it and remember that the if-statement is a single command that we tend to write on
+                    multiple lines. Don't through a semicolon in the middle of it.
+                </p>
+            </div> <!-- End of left column -->
+
+            <div class="unit-30-cc annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br />
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+                <h3>10. Summary</h3>
+
+                <ul>
+                    <li>
+                        If-statements are used in code which makes decisions as it executes.
+                    </li>
+                    <li>
+                        A single if-statement chooses between just two alternative branches of code based on the value
+                        of a boolean
+                        expression.
+                    </li>
+                    <li>
+                        Boolean expressions evaluate to either true or false (there is no middle way).
+                    </li>
+                    <li>
+                        By nesting and chaining multiple if-statements we can write code which chooses between multiple
+                        alternatives.
+                    </li>
+                    <li>
+                        The <code>random()</code> command gives us random numbers which we can use to program
+                        (intentionally!) unpredictable behaviours (useful for writing games, for example).
+                    </li>
+                </ul>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30-cc annotation">
+                <!-- Right column -->
+                <br />
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+                <!--- spacer for iFrame -->
+                <p style="padding-top:1em"><hr/></p>
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>
