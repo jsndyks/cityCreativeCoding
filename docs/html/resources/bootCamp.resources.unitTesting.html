@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming BootCamp Resources: Unit Testing</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
+
+</head>
+
+<body>
+    <div id="page">
+
+        <!---
+https://jsndyks.github.io/cityBootCamp/html/resources/bootCamp.resources.unitTesting.html
+
+Add tests to your sketches to assess, improve and establish reliability.<br/>Doing so in a structured manner is good practice in Software Engineering. 
+-->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+
+        <p class="intro">
+            This page summarises how you can add <i>tests</i> to your sketches to give you and others confidence that
+            the code you have written does what you expect it to do.
+            In particular it emphasises <i>unit tests</i>, which test small elements of your code (usually methods) individually.
+            <br /><br />
+        </p>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <p>
+                    As a programmer you will almost certainly have experienced the need to debug (remove errors from)
+                    your code. Some coding errors are more obvious as they are highlighted by Processing and prevent you
+                    from running your sketches. Others can be much harder to detect in that your sketch runs, but
+                    doesn't do quite what you expect. You may have built up strategies for spotting and correcting
+                    <i>logic errors</i> like these such as inserting <code>println()</code> commands or repeating
+                    reading your code until you spot the error. However this is unreliable and time consuming. On this
+                    page, we consider an alternative and more systematic approach known as <i>unit testing</i>.
+                </p>
+
+
+
+                <h3>Setting Up Processing to do Unit Tests</h3>
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+                <p>
+                    By default Processing does not contain the functionality to perform unit tests on your code, so you
+                    need to download the functionality as a <i>Processing library</i>. For convenience this can be
+                    downloaded here as <a href="https://www.staff.city.ac.uk/~jwo/bootcamp2018/junit.zip"
+                        target="_blank">junit.zip</a> which should be unzipped into your Processing <i>libraries</i>
+                    folder in your sketchbook location (e.g. <code>Documents/processing/libraries</code>). If you are
+                    not sure where your sketchbook location is, you can always check it by selecting
+                    <code>Preferences</code> from the Processing menu, which should bring up a window where the first
+                    entry indicates the sketchbook folder.
+                </p>
+
+                <p>
+                    You only need to install the library once, and from that point onward you can perform unit testing
+                    within Processing whenever you need to.
+                </p>
+
+                <p>
+                    The library above is based on <a href="https://junit.org/junit4" target="_blank">JUnit 4</a>, which
+                    is one of the most common frameworks for performing unit testing with Java. The rest of this page
+                    illustrates how to do unit testing and why it can be helpful.
+                </p>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+
+
+                <p>
+                    &nbsp;
+                </p>
+
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <h3>Example: A Rectangle Sketch</h3>
+
+                <p>
+                    Consider the simple rectangle sketch below. It draws two rectangles, one at a fixed location, the
+                    other that follows the mouse pointer. When the moving rectangle 'collides' with the fixed one, the
+                    colour of the larger fixed rectangle changes.
+                </p>
+
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+                <pre class="brush: processing; gutter: false; toolbar: false;">MyRectangle rect1,rect2;    // The two rectangles to display.
+
+void setup()
+{
+  size(400,400);
+  textAlign(CENTER,CENTER);
+  textSize(16);
+
+  rect1 = new MyRectangle(120,100,160,130);
+  rect2 = new MyRectangle(100,100,90,75);
+}
+
+void draw()
+{
+  background(252,245,233);
+  noStroke();
+
+  // Update one of the rectangles with the current mouse position
+  rect2.xPos = mouseX - rect2.w/2;
+  rect2.yPos = mouseY - rect2.h/2;
+
+  // Draw both rectangles.
+  if (rect1.overlapsWith(rect2))
+  {
+    fill(100,50,45);
+  }
+  else
+  {
+    fill(200,103,97);
+  }
+
+  rect(rect1.xPos,rect1.yPos,rect1.w,rect1.h);
+  fill(255);
+  text(nfc(rect1.getArea(),0),rect1.xPos+rect1.w/2,rect1.yPos+rect1.yPos/2);
+
+  fill(177,199,199);
+  rect(rect2.xPos,rect2.yPos,rect2.w,rect2.h);
+}</pre>
+
+                <p>
+                    The sketch relies on a simple class that can store a rectangle's position and size and contains
+                    methods for calculating
+                    the area of the rectangle and determining if the rectangle overlaps with another provided as a
+                    <i>method parameter</i>.
+                    Here's our first attempt at coding such a class:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false;">class MyRectangle
+{
+  float xPos,yPos;      // Top left corner of the rectangle
+  float w,h;            // Width and height of the rectangle.
+
+  MyRectangle(float xPos, float yPos, float w, float h)
+  {
+    this.xPos = xPos;
+    this.yPos = yPos;
+    this.w    = w;
+    this.h    = h;
+  }
+
+  // Calculates the area of the rectangle.
+  float getArea()
+  {
+     return w*h;
+  }
+
+  // Determines if the other rectangle provided as a parameter overlaps with this one.
+  boolean overlapsWith(MyRectangle other)
+  {
+    if ((other.xPos+other.w &lt;= xPos) || (other.xPos &gt;= xPos+w) ||
+        (other.yPos+other.h &lt;= yPos) || (other.yPos &lt;= yPos+h))
+    {
+      return false;
+    }
+    return true;
+  }
+}</pre>
+                <p>
+                    Does the sketch work as expected (you can try it out by copying the code into Processing or clicking
+                    on the image above right)? And perhaps more importantly, how can we know whether or not our programs
+                    will always work as expected? This is where unit testing comes in.
+                </p>
+
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/collision1", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/testing/collision1.png");</script>
+                <p>
+                    A simple colliding rectangle sketch (click to activate). This doesn't quite behave as expected
+                    because of a bug somewhere in the code. What's the problem?
+                </p>
+
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <h3>Making Assertions</h3>
+
+                <p>
+                    The basis of unit testing is to get your code to make <i>assertions</i> about things you know and to
+                    check whether those assertions are true when your code attempts to evaluate them. For example, the
+                    <code>MyRectangle</code> class above incudes a method that calculates the area of a rectangle based
+                    on its width and height. We can check whether it appears to be working by asking it to calculate the
+                    area of a rectangle for which we know the answer:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false; highlight:2">MyRectangle r1 = new MyRectangle(0,0,10,10);
+assertEquals(100,r1.getArea(),0.00001);</pre>
+
+                <p>
+                    Here we have created a rectangle <code>r1</code> that has a width and height of 10. The highlighted
+                    assertion states that we expect that its area will be 100 (10x10) and that therefore a call to
+                    <code>r1</code>'s <code>getArea()</code> method should also equal 100. The third parameter,
+                    <code>0.00001</code> in this instance, specifies the <i>tolerance</i> of the comparison. In other
+                    words we are asserting that the calculation performed by <code>getArea()</code> should be within
+                    0.00001 of 100. This is useful when doing arithmetic calculations on <code>float</code> numbers,
+                    which may lose a small amount of precision. If you are expecting an exact match, you can set this
+                    value to <code>0</code>.
+                </p>
+
+                <p>
+                    If all goes well and our method does what is expected, nothing special will happen. <i>Successful
+                        tests tend to be silent</i>. If the assertion is wrong, when you run the sketch Processing will
+                    generate an error. For example, suppose <code>getArea()</code> (incorrectly) calculated rectangle
+                    area by adding width and height rather than multiplying them. When the sketch is run, the following
+                    error message would be generated:
+                </p>
+
+                <pre
+                    style="background-color: #950a0a;color:#ffffff">AssertionError: expected: &lt;100.0&gt; but was: &lt;20.0&gt;</pre>
+
+                <p>
+                    This is helpful in drawing our attention to problems in our code that we might otherwise have
+                    missed. It becomes especially useful as programs become more complex and therefore more challenging
+                    for the programmer to check all parts of their code thoroughly.
+                </p>
+
+                <p>
+                    Once we have confirmed that a method can return the correct result (area of a 10x10 rectangle being
+                    100 in this example), can we be sure that it always will? We may be confident about simple cases
+                    like 10x10, but a good unit test will check a range of results being sure to test for so-called
+                    <i>edge cases</i> – those that might present a particular problem for calculation. In our
+                    <code>getArea()</code> example could check for cases when width and height are different, when one
+                    or both are zero and when one or both are negative:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false;">MyRectangle r1 = new MyRectangle(0,0,10,10);
+MyRectangle r2 = new MyRectangle(0,0,20,10);
+MyRectangle r3 = new MyRectangle(0,0,20,0);
+MyRectangle r4 = new MyRectangle(0,0,10,-20);
+
+assertEquals(100,r1.getArea(),0.0001);
+assertEquals(200,r2.getArea(),0.0001);
+assertEquals(0,  r3.getArea(),0.0001);
+assertEquals(200,r4.getArea(),0.0001);</pre>
+
+                <p>
+                    If you were to run these four assertions the first three would pass but the test would fail in the
+                    fourth case with the following error:
+                </p>
+
+                <pre
+                    style="background-color: #950a0a;color:#ffffff">AssertionError: expected: &lt;200.0&gt; but was: &lt;-200.0&gt;</pre>
+
+                <p>
+                    Here a more subtle error has been highlighted in that while we are permitted to define a rectangle
+                    with a negative height (useful for drawing rectangles that are positioned 'up' from the origin in
+                    the bottom left corner), we would expect a rectangle of width 10 and height of -20 to be 200 but our
+                    method calculates 10 x -20 = -200. The error points us to where we can make a correction to our
+                    <code>getArea()</code> method, in this case by ensuring the result of an area calculation is never
+                    negative by using Processing's <a href="https://processing.org/reference/abs_.html"
+                        target="_blank">abs()</a> method:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false;">float getArea()
+{
+  return abs(w*h);
+}</pre>
+
+                <p>
+                    After making the correction, running the assertions works without generating any errors. A passed
+                    test!
+                </p>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+
+                <!-- empty -->
+            </div> <!-- end of right column -->
+
+        </div> <!-- End of row -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <h3>Creating Test Classes</h3>
+
+
+                <p>
+                    It is good practice to create unit tests for all the methods you write that might do some
+                    calculation so that you have confidence they will produce expected results. It may feel initially
+                    like extra effort but the benefits come in that confidence so that if a program behaves unexpectedly
+                    you can isolate the cause of the problem much more quickly and with less effort.
+                </p>
+
+
+                <p>
+                    But for any typical program, a comprehensive set of tests will involve many assertions that quickly
+                    start cluttering your code making it more difficult to follow and maintain. Instead, better practice
+                    is to keep all your testing assertions separate in their own classes. For every 'normal' class that
+                    contains methods that do some calculation, you can create a 'shadow' test class that contains one or
+                    more test methods of assertions. So for <code>MyRectangle</code> above we might add the following
+                    test class:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false;">import org.junit.*;             // These two import lines necessary for calling assert methods.
+import static org.junit.Assert.*;
+
+class RectangleTest
+{
+  // Constructor runs all the testing methods.
+  RectangleTest()
+  {
+    areaTest();
+    overlapTest();
+
+    // Will only get to this point if all tests called above complete successfully.
+    println("Test suite completed successfully");
+  }
+
+  @Test
+  void areaTest()
+  {
+    MyRectangle r1 = new MyRectangle(0, 0, 10, 10);
+    MyRectangle r2 = new MyRectangle(0, 0, 20, 10);
+    MyRectangle r3 = new MyRectangle(0, 0, 20, 0);
+    MyRectangle r4 = new MyRectangle(0, 0, 10, -20);
+
+    assertEquals(100,         r1.getArea(), 0.0001);
+    assertEquals(200,         r2.getArea(), 0.0001);
+    assertEquals(0,           r3.getArea(), 0.0001);
+    assertEquals(200,         r4.getArea(), 0.0001);
+    assertEquals(r2.getArea(),r4.getArea(),0.00001);
+  }
+
+  @Test
+  void overlapTest()
+  {
+     // TODO: Add overlapping assertions here.
+  }
+}</pre>
+
+                <p>
+                    Note the <code>@Test</code> before each of the two testing methods. These are known as an
+                    <i>annotations</i>, which indicate the annotated methods are for testing only. This is not required
+                    when using Processing, but adding a <code>@Test</code> annotation is a good habit to get into as
+                    when we move on to using Java later we can use them to make testing easier.
+                </p>
+
+                <p>
+                    To run the tests in Processing we simply create a new <code>RectangleTest</code> object from within
+                    <code>setup()</code> in our main sketch tab:
+                </p>
+
+
+
+                <pre class="brush: processing; gutter: false; toolbar: false;">new RectangleTest()</pre>
+
+                <p>
+                    Our remaining task is then to add the assertions that give us confidence that the
+                    <code>overlapsWith()</code> method does indeed detect when rectangles overlap and when they do not.
+                </p>
+
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+                <p>
+                    We can divide our overlap tests into two groups of assertions – those that check that truly
+                    overlapping rectangles are detected as intersecting and those that check that non-overlapping
+                    rectangles are detected as separate. The figure to the right shows some example rectangles in red
+                    that all overlap in some way with the dark shaded rectangle. Note how these rectangles test a
+                    variety of overlapping conditions such as overlapping on one side only, fully containing, fully
+                    within etc. We can include all these cases together in the <code>overlapTest()</code> method:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false;">@Test
+void overlapTest()
+{
+  MyRectangle r1 = new MyRectangle(300, 250, 50, 100);
+  assertTrue(r1.overlapsWith(new MyRectangle(340,340,100,100)));
+  assertTrue(r1.overlapsWith(new MyRectangle(200,310,200,20)));
+  assertTrue(r1.overlapsWith(new MyRectangle(310,270,25,25)));
+  assertTrue(r1.overlapsWith(new MyRectangle(300,210,50,50)));
+  assertTrue(r1.overlapsWith(new MyRectangle(250,200,250,300)));
+  println("Overlapping rectangle test completed.");
+}</pre>
+
+                <p>
+                    We can create a similar test in its own method for the non-overlapping cases (blue rectangles in the
+                    figure to the right). Note here that we <code>assertFalse</code> rather than <code>assertTrue</code>
+                    as we are expecting all these cases to be returned from <code>overlapsWith()</code> as
+                    <code>false</code>.
+                </p>
+                <pre class="brush: processing; gutter: false; toolbar: false;">@Test
+void noOverlapTest()
+{
+  MyRectangle r1 = new MyRectangle(300, 250, 50, 100);
+  assertFalse(r1.overlapsWith(new MyRectangle(300,350,50,50)));
+  assertFalse(r1.overlapsWith(new MyRectangle(200,270,100,50)));
+  assertFalse(r1.overlapsWith(new MyRectangle(250,150,75,100)));
+  assertFalse(r1.overlapsWith(new MyRectangle(350,200,50,50)));
+  assertFalse(r1.overlapsWith(new MyRectangle(350,300,30,200)));
+  assertFalse(r1.overlapsWith(new MyRectangle(400,300,100,100)));
+  assertFalse(r1.overlapsWith(new MyRectangle(400,300,100,100)));
+  assertFalse(r1.overlapsWith(new MyRectangle(100,300,50,50)));
+  println("Separate rectangles test completed.");
+}</pre>
+
+                <p>
+                    Note also how there is a simple <code>println()</code> message at the end of each test method to
+                    indicate the test has been successfully passed. This can be helpful in guaranteeing that the test
+                    was actually run and passed as opposed to forgetting to call the test in the first place.
+                </p>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+
+                <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/testing/rectIntersect.png" height="543"
+                    alt="Intersecting rectangles for testing">
+                <p>
+                    Intersecting rectangles for testing.
+                </p>
+
+                <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/testing/rectNoIntersect.png"
+                    height="543" alt="Non-intersecting rectangles for testing">
+                <p>
+                    Non-intersecting rectangles for testing.
+                </p>
+
+
+
+            </div> <!-- end of right column -->
+
+        </div> <!-- End of row -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <p>
+                    When we run the test on our <code>MyRectangle</code> class as coded above, it generates the
+                    following error
+                    <br />
+                </p>
+                <pre style="background-color: #950a0a;color:#ffffff">AssertionError</pre>
+
+                and highlights the line:
+                <br /><br />
+                <pre
+                    class="brush: processing; gutter: false; toolbar: false; highlight: 1;">assertTrue(r1.overlapsWith(new MyRectangle(340,340,100,100)));</pre>
+                indicating the first assertion that failed. This relates to the square that should overlap the test
+                rectangle in the bottom-right corner but that our code indicates is (incorrectly) separate. Now the test
+                has highlighted the logic error it becomes easier to detect that the error on our code is due to
+                incorrectly using a <code>&lt;=</code> when a <code>&gt;=</code> should have been used. The correct
+                method is as follows with the corrected line highlighted (compare with the original towards the top of
+                this page):
+                <p></p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false; highlight: 4;">boolean overlapsWith(MyRectangle other)
+{
+  if ((other.xPos+other.w &lt;= xPos) || (other.xPos &gt;= xPos+w) ||
+      (other.yPos+other.h &lt;= yPos) || (other.yPos &gt;= yPos+h))
+  {
+    return false;
+  }
+  return true;
+}</pre>
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+
+                <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2021/images/testing/unitTestFail.jpg" height="700"
+                    alt="Rectangle intersection unit test fail">
+                <p>
+                    Message generated by assertion fail in the overlapping rectangles unit test.
+                </p>
+                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/collision2", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/testing/collision1.png");</script>
+                <p>
+                    The corrected rectangle intersection sketch (click to activate).
+                </p>
+
+            </div> <!-- end of right column -->
+
+        </div> <!-- End of row -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <h3>Conclusions</h3>
+                <p>
+                    Systematic testing of code to ensure it behaves as expected is an important part of the programming
+                    process. It tends to save much more debugging time in the long run than it takes to create a set of
+                    simple unit tests. Organising those tests in their own classes that shadow the methods in your main
+                    classes allows you to perform the tests quickly and routinely while you develop your code and then
+                    exclude them in a final 'production' version.
+                </p>
+
+                <p>
+                    By adding unit tests you force Processing (or Java) to create error messages when things don't work
+                    as expected rather than simply produce incorrect results. This makes things much easier for you as a
+                    programmer as well as for anyone else who uses your code.
+                </p>
+
+                <p>
+                    We have only touched the surface of testing in these examples as there are many more assertions
+                    available in <a href="https://junit.org/junit4" target="_blank">JUnit</a>. We will cover more on
+                    testing in the Java module later in the term.
+                </p>
+
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+
+                <p>&nbsp;</p>
+
+            </div> <!-- end of right column -->
+
+        </div> <!-- End of row -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming BootCamp Resources: Unit Testing</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+
+        <p class="intro">
+            This page summarises how you can add <i>tests</i> to your sketches to give you and others confidence that
+            the code you have written does what you expect it to do. In particular it emphasises <i>unit tests</i>,
+            which test small elements of your code (usually methods) individually.
+            <br /><br />
+        </p>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <p>
+                    As a programmer you will almost certainly have experienced the need to debug (remove errors from)
+                    your code. Some coding errors are more obvious as they are highlighted by Processing and prevent you
+                    from running your sketches. Others can be much harder to detect in that your sketch runs, but
+                    doesn't do quite what you expect. You may have built up strategies for spotting and correcting
+                    <i>logic errors</i> like these such as inserting <code>println()</code> commands or repeating
+                    reading your code until you spot the error. However this is unreliable and time consuming. On this
+                    page, we consider an alternative and more systematic approach known as <i>unit testing</i>.
+                </p>
+
+
+
+                <h3>Setting Up Processing to do Unit Tests</h3>
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+                <p>
+                    By default Processing does not contain the functionality to perform unit tests on your code, so you
+                    need to download the functionality as a <i>Processing library</i>. For convenience this can be
+                    downloaded here as <a href="https://www.staff.city.ac.uk/~jwo/bootcamp2018/junit.zip"
+                        target="_blank">junit.zip</a> which should be unzipped into your Processing <i>libraries</i>
+                    folder in your sketchbook location (e.g. <code>Documents/processing/libraries</code>). If you are
+                    not sure where your sketchbook location is, you can always check it by selecting
+                    <code>Preferences</code> from the Processing menu, which should bring up a window where the first
+                    entry indicates the sketchbook folder.
+                </p>
+
+                <p>
+                    You only need to install the library once, and from that point onward you can perform unit testing
+                    within Processing whenever you need to.
+                </p>
+
+                <p>
+                    The library above is based on <a href="https://junit.org/junit4" target="_blank">JUnit 4</a>, which
+                    is one of the most common frameworks for performing unit testing with Java. The rest of this page
+                    illustrates how to do unit testing and why it can be helpful.
+                </p>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+
+
+                <p>
+                    &nbsp;
+                </p>
+
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <h3>Example: A Rectangle Sketch</h3>
+
+                <p>
+                    Consider the simple rectangle sketch below. It draws two rectangles, one at a fixed location, the
+                    other that follows the mouse pointer. When the moving rectangle 'collides' with the fixed one, the
+                    colour of the larger fixed rectangle changes.
+                </p>
+
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+                <pre class="brush: processing; gutter: false; toolbar: false;">MyRectangle rect1,rect2;    // The two rectangles to display.
+
+void setup()
+{
+  size(400,400);
+  textAlign(CENTER,CENTER);
+  textSize(16);
+
+  rect1 = new MyRectangle(120,100,160,130);
+  rect2 = new MyRectangle(100,100,90,75);
+}
+
+void draw()
+{
+  background(252,245,233);
+  noStroke();
+
+  // Update one of the rectangles with the current mouse position
+  rect2.xPos = mouseX - rect2.w/2;
+  rect2.yPos = mouseY - rect2.h/2;
+
+  // Draw both rectangles.
+  if (rect1.overlapsWith(rect2))
+  {
+    fill(100,50,45);
+  }
+  else
+  {
+    fill(200,103,97);
+  }
+
+  rect(rect1.xPos,rect1.yPos,rect1.w,rect1.h);
+  fill(255);
+  text(nfc(rect1.getArea(),0),rect1.xPos+rect1.w/2,rect1.yPos+rect1.yPos/2);
+
+  fill(177,199,199);
+  rect(rect2.xPos,rect2.yPos,rect2.w,rect2.h);
+}</pre>
+
+                <p>
+                    The sketch relies on a simple class that can store a rectangle's position and size and contains
+                    methods for calculating
+                    the area of the rectangle and determining if the rectangle overlaps with another provided as a
+                    <i>method parameter</i>.
+                    Here's our first attempt at coding such a class:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false;">class MyRectangle
+{
+  float xPos,yPos;      // Top left corner of the rectangle
+  float w,h;            // Width and height of the rectangle.
+
+  MyRectangle(float xPos, float yPos, float w, float h)
+  {
+    this.xPos = xPos;
+    this.yPos = yPos;
+    this.w    = w;
+    this.h    = h;
+  }
+
+  // Calculates the area of the rectangle.
+  float getArea()
+  {
+     return w*h;
+  }
+
+  // Determines if the other rectangle provided as a parameter overlaps with this one.
+  boolean overlapsWith(MyRectangle other)
+  {
+    if ((other.xPos+other.w &lt;= xPos) || (other.xPos &gt;= xPos+w) ||
+        (other.yPos+other.h &lt;= yPos) || (other.yPos &lt;= yPos+h))
+    {
+      return false;
+    }
+    return true;
+  }
+}</pre>
+                <p>
+                    Does the sketch work as expected (you can try it out by copying the code into Processing or clicking
+                    on the image above right)? And perhaps more importantly, how can we know whether or not our programs
+                    will always work as expected? This is where unit testing comes in.
+                </p>
+
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/collision1", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/testing/collision1.png");</script>
+                <p>
+                    A simple colliding rectangle sketch (click to activate). This doesn't quite behave as expected
+                    because of a bug somewhere in the code. What's the problem?
+                </p>
+
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <h3>Making Assertions</h3>
+
+                <p>
+                    The basis of unit testing is to get your code to make <i>assertions</i> about things you know and to
+                    check whether those assertions are true when your code attempts to evaluate them. For example, the
+                    <code>MyRectangle</code> class above incudes a method that calculates the area of a rectangle based
+                    on its width and height. We can check whether it appears to be working by asking it to calculate the
+                    area of a rectangle for which we know the answer:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false; highlight:2">MyRectangle r1 = new MyRectangle(0,0,10,10);
+assertEquals(100,r1.getArea(),0.00001);</pre>
+
+                <p>
+                    Here we have created a rectangle <code>r1</code> that has a width and height of 10. The highlighted
+                    assertion states that we expect that its area will be 100 (10x10) and that therefore a call to
+                    <code>r1</code>'s <code>getArea()</code> method should also equal 100. The third parameter,
+                    <code>0.00001</code> in this instance, specifies the <i>tolerance</i> of the comparison. In other
+                    words we are asserting that the calculation performed by <code>getArea()</code> should be within
+                    0.00001 of 100. This is useful when doing arithmetic calculations on <code>float</code> numbers,
+                    which may lose a small amount of precision. If you are expecting an exact match, you can set this
+                    value to <code>0</code>.
+                </p>
+
+                <p>
+                    If all goes well and our method does what is expected, nothing special will happen. <i>Successful
+                        tests tend to be silent</i>. If the assertion is wrong, when you run the sketch Processing will
+                    generate an error. For example, suppose <code>getArea()</code> (incorrectly) calculated rectangle
+                    area by adding width and height rather than multiplying them. When the sketch is run, the following
+                    error message would be generated:
+                </p>
+
+                <pre
+                    style="background-color: #950a0a;color:#ffffff">AssertionError: expected: &lt;100.0&gt; but was: &lt;20.0&gt;</pre>
+
+                <p>
+                    This is helpful in drawing our attention to problems in our code that we might otherwise have
+                    missed. It becomes especially useful as programs become more complex and therefore more challenging
+                    for the programmer to check all parts of their code thoroughly.
+                </p>
+
+                <p>
+                    Once we have confirmed that a method can return the correct result (area of a 10x10 rectangle being
+                    100 in this example), can we be sure that it always will? We may be confident about simple cases
+                    like 10x10, but a good unit test will check a range of results being sure to test for so-called
+                    <i>edge cases</i> – those that might present a particular problem for calculation. In our
+                    <code>getArea()</code> example could check for cases when width and height are different, when one
+                    or both are zero and when one or both are negative:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false;">MyRectangle r1 = new MyRectangle(0,0,10,10);
+MyRectangle r2 = new MyRectangle(0,0,20,10);
+MyRectangle r3 = new MyRectangle(0,0,20,0);
+MyRectangle r4 = new MyRectangle(0,0,10,-20);
+
+assertEquals(100,r1.getArea(),0.0001);
+assertEquals(200,r2.getArea(),0.0001);
+assertEquals(0,  r3.getArea(),0.0001);
+assertEquals(200,r4.getArea(),0.0001);</pre>
+
+                <p>
+                    If you were to run these four assertions the first three would pass but the test would fail in the
+                    fourth case with the following error:
+                </p>
+
+                <pre
+                    style="background-color: #950a0a;color:#ffffff">AssertionError: expected: &lt;200.0&gt; but was: &lt;-200.0&gt;</pre>
+
+                <p>
+                    Here a more subtle error has been highlighted in that while we are permitted to define a rectangle
+                    with a negative height (useful for drawing rectangles that are positioned 'up' from the origin in
+                    the bottom left corner), we would expect a rectangle of width 10 and height of -20 to be 200 but our
+                    method calculates 10 x -20 = -200. The error points us to where we can make a correction to our
+                    <code>getArea()</code> method, in this case by ensuring the result of an area calculation is never
+                    negative by using Processing's <a href="https://processing.org/reference/abs_.html"
+                        target="_blank">abs()</a> method:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false;">float getArea()
+{
+  return abs(w*h);
+}</pre>
+
+                <p>
+                    After making the correction, running the assertions works without generating any errors. A passed
+                    test!
+                </p>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+
+                <!-- empty -->
+            </div> <!-- end of right column -->
+
+        </div> <!-- End of row -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <h3>Creating Test Classes</h3>
+
+
+                <p>
+                    It is good practice to create unit tests for all the methods you write that might do some
+                    calculation so that you have confidence they will produce expected results. It may feel initially
+                    like extra effort but the benefits come in that confidence so that if a program behaves unexpectedly
+                    you can isolate the cause of the problem much more quickly and with less effort.
+                </p>
+
+
+                <p>
+                    But for any typical program, a comprehensive set of tests will involve many assertions that quickly
+                    start cluttering your code making it more difficult to follow and maintain. Instead, better practice
+                    is to keep all your testing assertions separate in their own classes. For every 'normal' class that
+                    contains methods that do some calculation, you can create a 'shadow' test class that contains one or
+                    more test methods of assertions. So for <code>MyRectangle</code> above we might add the following
+                    test class:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false;">import org.junit.*;             // These two import lines necessary for calling assert methods.
+import static org.junit.Assert.*;
+
+class RectangleTest
+{
+  // Constructor runs all the testing methods.
+  RectangleTest()
+  {
+    areaTest();
+    overlapTest();
+
+    // Will only get to this point if all tests called above complete successfully.
+    println("Test suite completed successfully");
+  }
+
+  @Test
+  void areaTest()
+  {
+    MyRectangle r1 = new MyRectangle(0, 0, 10, 10);
+    MyRectangle r2 = new MyRectangle(0, 0, 20, 10);
+    MyRectangle r3 = new MyRectangle(0, 0, 20, 0);
+    MyRectangle r4 = new MyRectangle(0, 0, 10, -20);
+
+    assertEquals(100,         r1.getArea(), 0.0001);
+    assertEquals(200,         r2.getArea(), 0.0001);
+    assertEquals(0,           r3.getArea(), 0.0001);
+    assertEquals(200,         r4.getArea(), 0.0001);
+    assertEquals(r2.getArea(),r4.getArea(),0.00001);
+  }
+
+  @Test
+  void overlapTest()
+  {
+     // TODO: Add overlapping assertions here.
+  }
+}</pre>
+
+                <p>
+                    Note the <code>@Test</code> before each of the two testing methods. These are known as an
+                    <i>annotations</i>, which indicate the annotated methods are for testing only. This is not required
+                    when using Processing, but adding a <code>@Test</code> annotation is a good habit to get into as
+                    when we move on to using Java later we can use them to make testing easier.
+                </p>
+
+                <p>
+                    To run the tests in Processing we simply create a new <code>RectangleTest</code> object from within
+                    <code>setup()</code> in our main sketch tab:
+                </p>
+
+
+
+                <pre class="brush: processing; gutter: false; toolbar: false;">new RectangleTest()</pre>
+
+                <p>
+                    Our remaining task is then to add the assertions that give us confidence that the
+                    <code>overlapsWith()</code> method does indeed detect when rectangles overlap and when they do not.
+                </p>
+
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+                <p>
+                    We can divide our overlap tests into two groups of assertions – those that check that truly
+                    overlapping rectangles are detected as intersecting and those that check that non-overlapping
+                    rectangles are detected as separate. The figure to the right shows some example rectangles in red
+                    that all overlap in some way with the dark shaded rectangle. Note how these rectangles test a
+                    variety of overlapping conditions such as overlapping on one side only, fully containing, fully
+                    within etc. We can include all these cases together in the <code>overlapTest()</code> method:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false;">@Test
+void overlapTest()
+{
+  MyRectangle r1 = new MyRectangle(300, 250, 50, 100);
+  assertTrue(r1.overlapsWith(new MyRectangle(340,340,100,100)));
+  assertTrue(r1.overlapsWith(new MyRectangle(200,310,200,20)));
+  assertTrue(r1.overlapsWith(new MyRectangle(310,270,25,25)));
+  assertTrue(r1.overlapsWith(new MyRectangle(300,210,50,50)));
+  assertTrue(r1.overlapsWith(new MyRectangle(250,200,250,300)));
+  println("Overlapping rectangle test completed.");
+}</pre>
+
+                <p>
+                    We can create a similar test in its own method for the non-overlapping cases (blue rectangles in the
+                    figure to the right). Note here that we <code>assertFalse</code> rather than <code>assertTrue</code>
+                    as we are expecting all these cases to be returned from <code>overlapsWith()</code> as
+                    <code>false</code>.
+                </p>
+                <pre class="brush: processing; gutter: false; toolbar: false;">@Test
+void noOverlapTest()
+{
+  MyRectangle r1 = new MyRectangle(300, 250, 50, 100);
+  assertFalse(r1.overlapsWith(new MyRectangle(300,350,50,50)));
+  assertFalse(r1.overlapsWith(new MyRectangle(200,270,100,50)));
+  assertFalse(r1.overlapsWith(new MyRectangle(250,150,75,100)));
+  assertFalse(r1.overlapsWith(new MyRectangle(350,200,50,50)));
+  assertFalse(r1.overlapsWith(new MyRectangle(350,300,30,200)));
+  assertFalse(r1.overlapsWith(new MyRectangle(400,300,100,100)));
+  assertFalse(r1.overlapsWith(new MyRectangle(400,300,100,100)));
+  assertFalse(r1.overlapsWith(new MyRectangle(100,300,50,50)));
+  println("Separate rectangles test completed.");
+}</pre>
+
+                <p>
+                    Note also how there is a simple <code>println()</code> message at the end of each test method to
+                    indicate the test has been successfully passed. This can be helpful in guaranteeing that the test
+                    was actually run and passed as opposed to forgetting to call the test in the first place.
+                </p>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+
+                <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/testing/rectIntersect.png" height="543"
+                    alt="Intersecting rectangles for testing">
+                <p>
+                    Intersecting rectangles for testing.
+                </p>
+
+                <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/testing/rectNoIntersect.png"
+                    height="543" alt="Non-intersecting rectangles for testing">
+                <p>
+                    Non-intersecting rectangles for testing.
+                </p>
+
+
+
+            </div> <!-- end of right column -->
+
+        </div> <!-- End of row -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <p>
+                    When we run the test on our <code>MyRectangle</code> class as coded above, it generates the
+                    following error
+                    <br />
+                </p>
+                <pre style="background-color: #950a0a;color:#ffffff">AssertionError</pre>
+
+                and highlights the line:
+                <br /><br />
+                <pre
+                    class="brush: processing; gutter: false; toolbar: false; highlight: 1;">assertTrue(r1.overlapsWith(new MyRectangle(340,340,100,100)));</pre>
+                indicating the first assertion that failed. This relates to the square that should overlap the test
+                rectangle in the bottom-right corner but that our code indicates is (incorrectly) separate. Now the test
+                has highlighted the logic error it becomes easier to detect that the error on our code is due to
+                incorrectly using a <code>&lt;=</code> when a <code>&gt;=</code> should have been used. The correct
+                method is as follows with the corrected line highlighted (compare with the original towards the top of
+                this page):
+                <p></p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false; highlight: 4;">boolean overlapsWith(MyRectangle other)
+{
+  if ((other.xPos+other.w &lt;= xPos) || (other.xPos &gt;= xPos+w) ||
+      (other.yPos+other.h &lt;= yPos) || (other.yPos &gt;= yPos+h))
+  {
+    return false;
+  }
+  return true;
+}</pre>
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+
+                <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2021/images/testing/unitTestFail.jpg" height="700"
+                    alt="Rectangle intersection unit test fail">
+                <p>
+                    Message generated by assertion fail in the overlapping rectangles unit test.
+                </p>
+                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/collision2", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/testing/collision1.png");</script>
+                <p>
+                    The corrected rectangle intersection sketch (click to activate).
+                </p>
+
+            </div> <!-- end of right column -->
+
+        </div> <!-- End of row -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <h3>Conclusions</h3>
+                <p>
+                    Systematic testing of code to ensure it behaves as expected is an important part of the programming
+                    process. It tends to save much more debugging time in the long run than it takes to create a set of
+                    simple unit tests. Organising those tests in their own classes that shadow the methods in your main
+                    classes allows you to perform the tests quickly and routinely while you develop your code and then
+                    exclude them in a final 'production' version.
+                </p>
+
+                <p>
+                    By adding unit tests you force Processing (or Java) to create error messages when things don't work
+                    as expected rather than simply produce incorrect results. This makes things much easier for you as a
+                    programmer as well as for anyone else who uses your code.
+                </p>
+
+                <p>
+                    We have only touched the surface of testing in these examples as there are many more assertions
+                    available in <a href="https://junit.org/junit4" target="_blank">JUnit</a>. We will cover more on
+                    testing in the Java module later in the term.
+                </p>
+
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+
+                <p>&nbsp;</p>
+
+            </div> <!-- end of right column -->
+
+        </div> <!-- End of row -->
+
+            <!--- spacer for iFrame -->
+            <p style="padding-top:1em"><hr/></p>
+
+        <!-- End of content -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>
+        <!-- End of content -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming BootCamp Project Ideas: Slideshow</title>
+
+    <!-- Header, 7th September, 2020 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- iFrame resizing -->
+	<script src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+        <p class="intro">
+            This project involves you creating a PowerPoint style slideshow program that can display a sequence of
+            images.
+        </p>
+
+        <p>
+            Create a Processing program that displays a set of digital images as a slideshow. The slideshow should allow
+            the user to advance to the next image or go back to the previous image using keyboard controls, or
+            automatically using a timer. If the user advances past the last image it should restart at the first image.
+            Consider implementing some visual effects to transition between images (e.g. fading to black between images,
+            or sliding in from the right etc.).
+        </p>
+
+        <p>
+            Here are some hints to help you along if you are wondering where to start with your program.
+        </p>
+
+        <ul>
+            <li>You can use an array to store all the images in memory at once.</li>
+            <li>If an image to be displayed is larger than the Processing window, resize it so the image fits properly
+                when displayed but is not distorted. Have a look at the Processing documentation for <a
+                    href="https://processing.org/reference/image_.html" target="_blank">image()</a> for help.</li>
+            <li>For transitioning between images, consider using <a href="https://processing.org/reference/tint_.html"
+                    target="_blank">tint()</a> to fade in / out, or move the image across the screen by changing the
+                location where it is drawn.</li>
+            <li>Processing has its own built-in timer; for this you may find the method <a
+                    href="https://processing.org/reference/millis_.html" target="_blank">millis()</a> useful.</li>
+        </ul>
+
+        <p>
+            There are plenty of extensions or variations you could add to your slideshow. For example:
+        </p>
+
+        <ul>
+            <li>Automatically load all the .jpg images in a particular folder.</li>
+            <li>Using the <a href="https://processing.org/reference/libraries/sound/" target="_blank">Processing Sound
+                    library</a>, play background music during the slideshow.</li>
+            <li>Display your own showcase of Processing images you have produced during the BootCamp fortnight.</li>
+            <li>Allow simple text to be displayed as part of your slideshow, for example as a title or closing credits.
+            </li>
+        </ul>
+
+        <p>
+            <img src="images/slideshow/slideshow1.png" width="998" height="184" alt="slideshow">
+        </p>
+
+
+        <div><i>Jo Wood, 2021</i></div>
+
+        <!-- End of content -->
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

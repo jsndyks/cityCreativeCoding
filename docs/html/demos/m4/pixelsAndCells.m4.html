@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming Bootcamp Project Ideas: Pixels and Cells</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+
+        <p class="intro">
+            This project explores how you can directly manipulate the colour of the pixels that make up a sketch. You
+            can create 'cells' based on the distance of each pixel in the sketch to a number of randomly located 'cell
+            nuclei' to create interesting patterns and animations.
+        </p>
+
+        <p>
+            The session on Images showed how an image was made up of pixels and that Processing allows you to set the
+            colours of those pixels. You can do the same directly with the pixels of your sketch using the <a
+                href="https://processing.org/reference/loadPixels_.html" target="_blank">loadPixels()</a> and <a
+                href="https://processing.org/reference/updatePixels_.html" target="_blank">updatePixels()</a> methods
+            along with the <a href="https://processing.org/reference/pixels.html" target="_blank">pixels</a> array. For
+            example, the following sketch sets each pixel to a random colour hue.
+        </p>
+
+        <div class="prettyprint">
+            <pre class="brush: processing; gutter: false; toolbar: false;">void setup() {
+  size(200, 200);
+  colorMode(HSB, 360, 100, 100);  // Define colours with hue, saturation and brightness
+}
+          
+void draw() {
+  loadPixels();
+  int i=0;
+  for (int row=0; row&lt;height; row++) {
+    for (int col=0; col&lt;width; col++) {
+      // Assign each pixel a random hue with fixed saturation of 50% and brightness of 90%.
+      pixels[i++] = color(random(0, 360), 50, 90);
+    }
+  }
+  updatePixels();
+}</pre>
+        </div>
+        <div><img src="https://staff.city.ac.uk/~jwo/bootcamp2021/images/pixelsAndCells/randomPixels.jpg" width="200"
+                height="200" alt="Random pixels" /><br /><br /></div>
+
+        <p>
+            Notice that <a href="https://processing.org/reference/pixels.html" target="_blank">pixels</a> is a
+            1d array even though it stores the pixel colours of the 2d rows and columns of the sketch. We use a variable
+            <code>i</code> simply to increment from 0 to the total number of pixels inside the two loops controlling the
+            row and column values to manipulate.
+        </p>
+
+
+        <p>For your project you could take this approach to set some interesting colour values in the pixels array, for
+            example, based on distance from the current mouse position, or dependent some mathematical function.</p>
+
+        <h2>Colouring Cells</h2>
+
+        <p>
+            Here's another approach that might inspire you for your own project. Suppose you have a small number of cell
+            'nuclei' each with a random location and colour:
+        </p>
+
+        <pre class="brush: processing; gutter: false; toolbar: false;">PVector[] nuclei;
+int numCells = 7;
+
+void setup() {
+  size(200, 200);
+  colorMode(HSB, 360, 100, 100);  // Define colours with hue, saturation and brightness
+  nuclei = new PVector[numCells];
+  for (int i=0; i&lt;numCells; i++) {
+    // Each PVector stores (x,y,colourHue) of the nucleus.
+    nuclei[i] = new PVector(random(0, width), random(0, height), random(0, 360));
+  }
+}
+
+void draw() {
+  for (PVector nucleus : nuclei) {
+    fill(nucleus.z,70,90);
+    circle(nucleus.x,nucleus.y,12);  
+  }
+}</pre>
+        <div><img src="https://staff.city.ac.uk/~jwo/bootcamp2021/images/pixelsAndCells/nuclei.png" width="200"
+                height="200" alt="Cell nuclei" /><br />
+            <br />
+        </div>
+
+        <p>
+            For each pixel in the sketch you could set its colour to be the same as the colour of its nearest cell
+            nucleus. You could do this by using Processing's <a href="https://processing.org/reference/dist_.html"
+                target="_blank">dist()</a> method to calculate the distance between each pixel's column and row value
+            and each of the nuclei, to find the nucleus with the shortest distance. Doing this gives what are are known
+            as <a href="https://en.wikipedia.org/wiki/Voronoi_diagram" target="_blank">voronoi regions</a>:
+        </p>
+
+        <div><img src=" https://staff.city.ac.uk/~jwo/bootcamp2021/images/pixelsAndCells/voronoi.png" width="200"
+                height="200" alt="Nearest cell" /> <br /> <br /></div>
+
+        <p>But what if instead of simply using the colour of the nearest nucleus, you modified that colour according to
+            its distance to that nucleus? For example you could set the brightness of the pixel's colour to be
+            proportional to distance. Or perhaps inversely proportional. Your project could explore different colour
+            mappings. Or what if instead of finding the closest nucleus, you found its second closest, or third (known
+            as <a href="https://en.wikipedia.org/wiki/Worley_noise" target="_blank">Worley noise</a>)?
+            Perhaps you could modify the locations of the nuclei. Or what about using the <a
+                href="https://processing.org/reference/noise_.html" target="_blank">noise()</a> method to generate your
+            random locations and colours and make the noise value depend on frame count? What kinds of interesting
+            patterns can you produce?
+        </p>
+
+        <table>
+            <tr>
+                <td><img src=" https://staff.city.ac.uk/~jwo/bootcamp2021/images/pixelsAndCells/cells1.jpg" width="200"
+                        height="200" /></td>
+                <td><img src=" https://staff.city.ac.uk/~jwo/bootcamp2021/images/pixelsAndCells/cells2.jpg" width="200"
+                        height="200" /></td>
+                <td><img src=" https://staff.city.ac.uk/~jwo/bootcamp2021/images/pixelsAndCells/cells3.jpg" width="200"
+                        height="200" /></td>
+                <td><img src=" https://staff.city.ac.uk/~jwo/bootcamp2021/images/pixelsAndCells/cells4.jpg" width="200"
+                        height="200" /></td>
+            </tr>
+        </table>
+
+        <!-- End of content -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

@@ -1,0 +1,272 @@
+Programming Bootcamp Project Ideas: Supershapes
+
+<!-- Header, 16th September, 2021 -->
+
+
+
+<!-- Embedded fonts -->
+
+
+<!-- Custom layout and style -->
+
+
+
+
+
+
+<!-- General browser compatibility handling -->
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+<!-- Formatted source code -->
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+<!-- Sketch popups and hidden text-->
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+
+
+
+<div id="page">
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+    <!-- Content below -->
+    <p class="intro">
+        This project builds on the idea of <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=420954" target="_blank">parametric shapes</a> extending them into the 3d realm. You can create wonderful organic
+        and complex volumes from a series of parametric equations.
+    </p>
+
+    <p>
+        To embark on this project you are strongly recommended first to explore <a href="../parametricShapes/parametricShapes.html" target="_blank">parametric shapes</a> in order to
+        become familiar with the process of representing the boundary of an object as a series of parametric
+        equations.
+    </p>
+    <p>
+        Just as it is possible to define a circle centred at (0,0) with radius <i>r</i> as
+        <br><br>
+        <code>x<sup>2</sup> + y<sup>2</sup> = r<sup>2</sup></code>
+        <br><br>
+        we can consider a 3d sphere of radius <i>r</i> centred at (0,0,0):
+        <br><br>
+        <code>x<sup>2</sup> + y<sup>2</sup> + z<sup>2</sup> = r<sup>2</sup></code>
+        <br><br>
+        Like the circle case, this form of equation answers the question <i>Does a point (x,y,z) sit on the surface
+            of a sphere of radius r?</i> More usefully for drawing purposes we can re-express this in
+        parametric form. For the 3d case, we have two parameters <i>t<sub>1</sub></i> and <i>t<sub>1</sub></i>
+        that we use to determine the <i>x</i>, <i>y</i> and <i>z</i> coordinates that sit on the surface of the
+        sphere:
+        <br><br>
+        <code>x(t<sub>1</sub>,t<sub>2</sub>) = r . cos t<sub>1</sub> . cos t<sub>2</sub></code><br>
+        <code>y(t<sub>1</sub>,t<sub>2</sub>) = r . sin t<sub>1</sub> . cos t<sub>2</sub></code><br>
+        <code>z(t<sub>2</sub>) = r . sin t<sub>2</sub></code>
+        <br><br>
+        You can think of <i>t<sub>1</sub></i> and <i>t<sub>1</sub></i> as representing angles of longitude (how far
+        east-west) and latitude (how far north-south) on a globe.
+    </p>
+
+    <p>Here is a starter sketch that uses those 3 parametric equations to draw some points on a sphere in
+        Processing's 3d mode (see lecture on 3d graphics for more on this):</p>
+    <div class="prettyprint">
+        <pre class="brush: processing; gutter: false; toolbar: false;">void setup()
+{
+  size(300, 300, P3D);
+}
+
+void draw()
+{
+  background(255);
+  
+  translate(width/ 2, height/2, 0); // Origin at centre of screen.
+  rotateX(radians(60)); // Rotate view so we see sphere obliquely.
+  rotateY(radians(30));
+  
+  float r = 100; // Radius of sphere.
+
+  for (float t1=-PI; t1&lt;PI; t1+=0.1) {
+    for (float t2=-HALF_PI; t2&lt;HALF_PI; t2+=0.1) {
+      
+      // Parametric equations
+      float x = r*cos(t1)*cos(t2);
+      float y = r*sin(t1)*cos(t2);
+      float z = r*sin(t2);
+      
+      // Draw a 3d point
+      point(x, y, z);
+    }
+  }
+}</pre>
+    </div>
+
+    <div><img src="https://staff.city.ac.uk/~jwo/bootcamp2021/images/supershapes/spherePoints.png" width="300" height="300" alt="Points on sphere"><br>
+        <br>
+    </div>
+
+    <p>
+        You could use this as the basis of your own project where you think about other 3d parametric equations or
+        other ways of showing those points. But if you'd like to consider the specific class of equations that
+        define <i>supershapes</i>, read on...
+    </p>
+
+    <h2>Creating solid objects</h2>
+
+    <p>
+        Using points to show the surface of the sphere can be confusing as it is hard to distinguish points on the
+        near side of the globe from those on the far side that you'd normally expect to be hidden. Instead we can
+        use those (x,y,z) points to build a shape made up of <a href="https://processing.org/reference/beginShape_.html" target="_blank">triangle strips</a>. Dan
+        Shiffman has an excellent <a href="https://youtu.be/RkuBWEkBrZA" target="_blank">live coding challenge</a>
+        where he explains how to do this. It is worth watching if you are interested in making 3d shapes.
+    </p>
+
+    <p>
+        We create a series of strips running from the 'south pole' to 'north pole' using our 3 parametric equations
+        to define each vertex in the strip. The figure below highlights one of those strips in orange so you can see
+        how together those strips can wrap around the surface of the sphere.
+    </p>
+    <div><img src="https://staff.city.ac.uk/~jwo/bootcamp2021/images/supershapes/sphereStrips.png" width="300" height="300" alt="Triangle strips on sphere"><br>
+        <br>
+    </div>
+
+    <p>
+        Below is a starter sketch that creates a sphere in this way. Make sure you understand how it works before
+        using it (Dan Shiffman's video may help here).
+    </p>
+    <div class="prettyprint">
+        <pre class="brush: processing; gutter: false; toolbar: false;">void setup()
+{
+  size(600, 600, P3D);
+}
+
+void draw()
+{
+  background(255);
+
+  // Set lighting and surface colour.
+  lightSpecular(102, 102, 102);
+  directionalLight(126, 126, 126, 0.2, 0.3, -1);
+  ambientLight(80, 80, 80);
+  fill(255, 128, 64);
+
+  translate(width/ 2, height/2, 0); // Origin at centre of screen.
+  rotateX(radians(40)); // Rotate view so we see sphere obliquely.
+  rotateY(radians(15));
+
+  float r = 200; // Radius of sphere.
+  int numRows = 18; // Resolution of sphere.
+  int numCols = numRows*2;
+  
+  // Calculate surface vertices from parametric equations and store them in pts
+  PVector[][] pts = new PVector[numCols][numRows];
+  for (int col=0; col&lt;numCols; col++) {
+    float t1 = map(col, 0, numCols, -PI, PI);
+    for (int row=0; row&lt;numRows; row++) {
+      float t2 = map(row, 0, numRows-1, -HALF_PI, HALF_PI);
+      float x = r*cos(t1)*cos(t2);
+      float y = r*sin(t1)*cos(t2);
+      float z = r*sin(t2);
+      pts[col][row] = new PVector(x, y, z);
+    }
+  }
+
+  // Draw the sphere
+  for (int col=0; col&lt;numCols; col++) {
+
+    beginShape(TRIANGLE_STRIP);
+    for (int row=0; row&lt;numRows-1; row++) {
+      PVector p1 = pts[col][row];
+      PVector p2 = pts[(col+1)%numCols][row];
+      vertex(p1.x, p1.y, p1.z);
+      vertex(p2.x, p2.y, p2.z);
+    }
+    PVector pTop = pts[col][numRows-1];
+    vertex(pTop.x, pTop.y, pTop.z);
+    endShape();
+  }
+}
+</pre>
+    </div>
+
+    <h2>From Spheres to Supershapes</h2>
+
+    <p>
+        Just like we extended circles to superellipses in 2d, we can extend a sphere to a supershape in 3d. The
+        maths to do this is a little more complicated, but easily computable in Processing.
+    </p>
+
+    <p>Instead of using a fixed radius <i>r</i> to determine how far away any point is from the centre of the
+        sphere, consider two radii - <i>r<sub>1</sub></i> which is the radius of a circle parallel to the equator,
+        and <i>r<sub>2</sub></i> which is the radius of a circle passing through the north and south poles. We can
+        use the following formula:
+    </p>
+
+    <div><img src="https://staff.city.ac.uk/~jwo/bootcamp2021/images/supershapes/superformula.png" width="303" height="31" alt="Superformula"><br><br></div>
+
+    <p>
+        We find <i>r1</i> by setting φ to <code>t1</code> and <i>r2</i> by setting φ to <code>t2</code>.
+        This formula is dependent on 4 constants <i>m</i>, <i>n<sub>1</sub></i>, <i>n<sub>2</sub></i> and
+        <i>n<sub>3</sub></i>. By supplying different values of them to the equation, we can generate different
+        shapes.
+    </p>
+
+    <p>
+        To get you started, here is a snippet of Processing code that can generate the values of
+        <i>r<sub>1</sub></i> and <i>r<sub>2</sub></i> from the values <code>t1</code> and <code>t2</code>.
+    </p>
+    <div class="prettyprint">
+        <pre class="brush: processing; gutter: false; toolbar: false;">float r1 = pow(pow(abs(cos(m*t1/4)), n2) + pow(abs(sin(m*t1/4)), n3), -1/n1);
+float r2 = pow(pow(abs(cos(m*t2/4)), n2) + pow(abs(sin(m*t2/4)), n3), -1/n1);</pre>
+    </div>
+
+    <p>
+        You can then provide these values to the original spherical parametric equations to generate the surface
+        points:
+    </p>
+
+    <div class="prettyprint">
+        <pre class="brush: processing; gutter: false; toolbar: false;">float x = r*r1*cos(t1)*r2*cos(t2);
+float y = r*r1*sin(t1)*r2*cos(t2);
+float z = r*r2*sin(t2);</pre>
+    </div>
+    <p>
+        where <code>r</code> is the base radius of the sphere (100 pixels in the original spherical example above)
+        that is modified by <code>r1</code> and <code>r2</code>.
+    </p>
+
+    <p>Combining this with the starter sketch above should be enough to allow you to create your own supershapes.
+        Below for example is the supershape generated when <i>m=3</i>, <i>n<sub>1</sub>=3</i>,
+        <i>n<sub>2</sub>=7</i> and <i>n<sub>3</sub>=7</i>
+    </p>
+
+    <div><img src="https://staff.city.ac.uk/~jwo/bootcamp2021/images/supershapes/supershape.png" width="300" height="300" alt="Triangle strips on a supershape">
+    </div>
+
+    <h2>Project ideas</h2>
+
+    <ul>
+        <li>Explore what effect different constants <i>m</i>, <i>n<sub>1</sub></i>, <i>n<sub>2</sub></i> and
+            <i>n<sub>3</sub></i> have on the shape. Can you describe their individual or combined effects (e.g.
+            'spikiness', 'number of axes of symmetry' etc.)
+        </li>
+
+        <li>Can you rotate your supershapes (see the 3d lecture)? Perhaps based on <a href="https://processing.org/reference/frameCount.html" target="_blank">frameCount</a> or some mouse
+            interaction.</li>
+
+        <li>Can you allow the constants to change in response to some interaction or frame count? What happens if
+            you make them respond as a function of <i>t<sub>1</sub></i> and <i>t<sub>2</sub></i>?</li>
+
+        <li>What other lighting and surface colouring effects can you produce?</li>
+
+        <li>Are there any other 3d parametric equations that produce interesting shapes?</li>
+    </ul>
+
+    <div><img src="https://staff.city.ac.uk/~jwo/bootcamp2021/images/supershapes/supershapes.jpg" width="1000" height="186" alt="Supershapes"></div>
+
+
+    <!-- End of content -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+</div> <!-- End of page div -->
+<script type="text/javascript">
+    SyntaxHighlighter.all()
+</script>

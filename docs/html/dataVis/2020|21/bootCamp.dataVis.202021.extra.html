@@ -1,0 +1,146 @@
+<html>
+  <head>
+    <title>Programming Bootcamp : Data Visualization - Extra Challenges</title>
+
+    <!-- Header, October, 2020 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css"/>
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+
+    <!-- General browser compatibility handling -->
+  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/processing.min.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+  </head>
+
+  <body>
+    <div id="page">
+
+	  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	  <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+	  <!-- Content below -->
+
+
+    <p>
+      If you have completed the core and coding tasks in the <a href="https://moodle.city.ac.uk/mod/page/view.php?id=1405388">Lecture on Data Visualization</a> then you have have achieved plenty.<br/>
+      But, you want more eh?<br/>
+      OK, that's good.<br/>
+      If you'd like to try some more data visualization challenges and to improve your skills and experience in this area then there are some possibilities for you here.
+    </p>
+
+ <p>
+  These additional exercises give you practice developing data visualization sketches.
+  The options are almost endless, but considering and attempting some of these challenges may help you develop a Data Visualization project.
+ </p>
+
+  <!--div class="tip">
+    <p>
+	 We expect you to show that you can load and use some <b>DATA</b> as part of your project.<br>
+   We'd like to hear about how you do so, and for you explain your use of data in the Friday showcase.
+   </p>
+ </div-->
+
+
+
+<div class="challenge">
+  <p><b>Extra Challenge - Live Bike Data Visualization</b></p>
+  <p>The bike scheme data that you have used so far is from 2015.</p>
+  <p>
+  <b>Live</b> bike data is available from from <a href="https://www.staff.city.ac.uk/~sbbb717/tfl_bikes/latest-tsv.php" target="_blank">https://www.staff.city.ac.uk/~sbbb717/tfl_bikes/latest-tsv.php</a>.
+  Copy your solution from the previous task and modify it to use this live data.
+  </p>
+  <p>
+  <i>Hints:</i>
+  </p>
+  <ul>
+  <li>Open the latest data file in a browser to see the structure of the data.
+</li>
+  <li>You can put the URL directly as the <code>loadStrings()</code> parameter - your sketch will then always use the latest data!
+</li>
+  <li>This file is tab - rather than comma - separated. You'll need to use <code>split(textLines[i], "\t");</code> to split the text on the tab character. The <code>\t</code> represents a tab character in Processing.
+</li>
+  </ul>
+ </div>
+
+  <div class="challenge">
+  <p><b>Extra Challenge - Refactoring Your Visualization</b></p>
+	<p>If you have managed all of that, then try designing a <code>DockingStation</code> class that stores the name and other data that relate to the docking station. Refactor your code from the previous tasks so that data from each docking station is stored in a <code>DockingStation</code> object.</p>
+  <p>
+	<i>Hint: </i> Make another tab and put the code that defines the <code>DockingStation</code> class in there. In your main sketch, you'll be able to create  objects, store them in an array or <code>ArrayList</code> and display graphical representations of them.</p>
+ </div>
+
+ <div class="challenge">
+ <p><b>Extra Challenge - Visualizing a Book</b></p>
+ <p>You may want to see whether you can visualize a text file.
+ The methods you are using here with small data files can be applied to larger files too.</p>
+ <p>See what you can find at <a href="http://www.gutenberg.org" target="_blank">Project Guttenberg</a>, elsewherer online, or in your own filespace.
+   We will be impressed if you can find patterns in your data - and explain the code that enables you to do this data visualization.</p>
+   <p>
+   See whether you can develop the sketches that you produced when we were considering <em>The Time Machine</em> to show where in the book the terms in a particular phrase occur?
+   Or perhaps try this with key characters in a book you know well.<br/>
+   You could apply this approach to find words in a song, or characters in a screenplay.<br/>
+   Your solution might look something like this ...</p>
+   <p>
+   <img src="https://staff.city.ac.uk/~jad7/bootCamp/darkNight.png" width="800" height="180">
+   </p>
+
+   <p>
+   This kind of sketch might enable you to find patterns in text files that you download, particularly if you add some interactions to change the phrases or characters that you are searching for.<br/>
+   For example, you may find data files online, and write sketches in class, that enable you to determine:
+   </p>
+   <ul>
+     <li>When do the terms 'good' and 'bad' appear in a text that you download from <a href="http://www.gutenberg.org" target="_blank">Project Guttenberg</a>?</li>
+     <li>Which pairs of characters tend to appear together most commonly n the screenplay of <em>Star Wars - A New Hope</em> ?</li>
+     <li>Just how often did the <em>The Beatles</em> use the term '<em>yeah</em>' in their lyrics as time passed?</li>
+   </ul>
+ <p>
+  You could even create a revealing data set by transcribing one of your lectures ...
+ </p>
+ </div>
+
+ <div class="challenge">
+   <p><b>Extra Challenge - Find and Visualize Your Own Data</b></p>
+ <p>
+  Can you find your own simple dataset to visualize?</p>
+ <p>Search for, or create, a simple text file containing some words
+ or numbers and write a sketch to show them graphically in some way.
+ </p>
+ <p><i>Kaggle</i> is one good source:</p>
+<ul><li><a href="https://www.kaggle.com">https://www.kaggle.com</a></li></ul>
+ <p>Or, maybe you have some data about your running or cycling or code-commits or other activity that you could use and share?</p>
+</div>
+
+
+
+	  <!-- End of content -->
+    <hr/>
+    <div style="float:right; padding-right:4em">
+      <b>Jason DYKES</b><br/>
+      <i>01 Oct 2020</i>
+    </div>
+    <div style="padding-bottom:2em;clear:both"></div>
+
+	  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div>	<!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+  </body>
+</html>

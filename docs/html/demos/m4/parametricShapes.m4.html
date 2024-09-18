@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming Bootcamp Project Ideas: Parametric Shapes</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+        <p class="intro">
+            This project involves creating pathways from <a href="https://en.wikipedia.org/wiki/Parametric_equation"
+                target="_blank">parametric equations</a>. They can be used to build interesting shapes or moving
+            trajectories along those pathways.
+        </p>
+
+        <p>
+            Consider the equation of a circle of radius <i>r</i> centred at position (0,0):
+            <br /><br />
+            <code>x<sup>2</sup> + y<sup>2</sup> = r<sup>2</sup></code>
+        </p>
+
+        <p>
+            Expressed in this form it allows us to answer the question <i>Does a point (x,y) sit on the circumference of
+                a circle of radius r?</i> (the answer being yes if x-squared plus y-squared is equal to r-squared, or no
+            if not). But when it comes to plotting that circumference it is more useful to ask <i>what are the pairs of
+                coordinates (x,y) that make up the boundary of the circle?</i> We can answer such a question by
+            re-expressing it as a pair of parametric equations that are each function of some parameter <i>t</i>:
+            <br /><br />
+            <code>x(t) = r.cos t</code><br />
+            <code>y(t) = r.sin t</code>
+        </p>
+
+        <p>
+            This is much easier to convert directly into Processing code to draw the circle, where we increment
+            parameter <i>t</i> from 0 to 2&pi; (TAU) and calculate the x and y coordinates of the circle from each value
+            of <i>t</i>:
+        </p>
+
+
+        <div class="prettyprint">
+            <pre class="brush: processing; gutter: false; toolbar: false;">void setup() {
+  size(300, 300);
+}
+
+void draw() {
+  background(255);
+  fill(200, 200, 250);
+  translate(width/2, height/2); // Make (0,0) centre of sketch.
+  float r = 100;                  // Radius of circle
+
+  beginShape();
+  for (float t=0; t&lt;TAU; t+=0.01) {
+    float x = r*cos(t);          // Parametric equations.
+    float y = r*sin(t);
+    vertex(x, y);                // Add point to shape.
+  }
+  endShape(CLOSE);
+}</pre>
+        </div>
+        <img src="https://staff.city.ac.uk/~jwo/bootcamp2021/images/parametricShapes/circle.png" width="150"
+            height="150" alt="Parametric circle"><br>
+
+        <p>
+            Of course if we just wished to draw a circle, we could simply call Processing's <a
+                href="https://processing.org/reference/circle_.html" target="_blank">circle()</a> method. But this
+            approach allows us to do more interesting things if we vary the parametric equations. Here are a few
+            examples to provide ideas for a project:
+        </p>
+
+        <h2>Superellipses</h2>
+        <p>
+            The parametric equations of an ellipse with axes of length <i>a</i> and <i>b</i> are given by:
+            <br /><br />
+            <code>x(t) = a.cos t</code><br />
+            <code>y(t) = b.sin t</code>
+            <br /><br />
+            But we can generalise to create the equations of a <a href="https://en.wikipedia.org/wiki/Superellipse"
+                target="_blank">superellipse</a>:
+            <br /><br />
+            <code>x(t) = a.sgn(cos t).|cos t|<sup>2/n</sup></code><br />
+            <code>y(t) = a.sgn(sin t).|sin t|<sup>2/n</sup></code>
+            <br /><br />
+            where <i>n</i> determines the type of <a href="https://en.wikipedia.org/wiki/Minkowski_distance"
+                target="_blank">Minkowski distance</a> that typically varies between 1 and 5 (but can be higher or
+            lower); |x| means the <a href="https://processing.org/reference/abs_.html" target="_blank">absolute
+                value</a> of x (ignores any minus sign) and <i>sgn x</i> is the sign of x: -1 if negative, +1 if
+            positive or 0 if 0.
+        </p>
+
+        <p>Varying <i>t</i> from -&pi; to &pi; in small increments, we get the following shapes for various values of
+            <i>n</i>. When <i>n</i> &gt; 2, the shapes are called superellipses. When <i>n</i> is around 4 or
+            5 and the radii <i>a</i> and <i>b</i> are equal we get what is sometimes pleasingly called a 'squircle'
+            (half way between a square and a circle), something that <a
+                href="https://medium.com/minimal-notes/rounded-corners-in-the-apple-ecosystem-1b3f45e18fcc">Apple use a
+                lot in their designs</a>.
+        </p>
+        <img src="https://staff.city.ac.uk/~jwo/bootcamp2021/images/parametricShapes/superEllipse.png" width="833"
+            height="147" alt="Parametric superellipses">
+
+        <p>
+            Could you draw some superellipses for your project? Could you control <i>n</i> interactively or change as a
+            function of <i>t</i>? Could you make the shape 'squish' as an animation? How about incorporating colour or
+            randomness to make things more interesting?
+        </p>
+
+        <p>
+            If you'd like to find out more about superellipses, squircles, cirares, their areas and perimeters, see
+            this <a href="https://youtu.be/gjtTcyWL0NA" target="_blank">entertaining video</a> by standup mathematician
+            Matt Parker. Perhaps that might inspire you to see if you can get Processing to calculate the area of a
+            squircle.
+        </p>
+
+        <h2>Lissajous Curves</h2>
+        <p>
+            These are parametric curves like the ellipse but values of <i>t</i> are out of phase for the x and y
+            equations. This can be represented by multiplying <i>t</i> by constants k<sub>1</sub> and k<sub>2</sub>
+            respectively for each equation:
+            <br /><br />
+            <code>x(t) = a.cos(k<sub>1</sub>.t)</code><br />
+            <code>y(t) = b.sin(k<sub>2</sub>.t)</code>
+            <br /><br />
+        </p>
+
+        <img src="https://staff.city.ac.uk/~jwo/bootcamp2021/images/parametricShapes/lissajous.jpg" width="754"
+            height="160" alt="Parametric lissajous figures">
+
+        <p>
+            Can you create some lissajous figures? Can you make the parameters <i>k<sub>1</sub></i> and
+            <i>k<sub>2</sub></i> dependent on the mouse position or some other form of interaction? Can you animate a
+            ball along the trajectory of the lissajous curve?
+        </p>
+
+
+        <h2>Other Parametric Equations</h2>
+        <p>
+            There is no limit on the possible parametric equations you could create. Try creating your own to draw.
+            Here, for example are some with the following form:
+
+            <br /><br />
+            <code>x(t) = r.(cos t - cos<sup>3</sup>(a.t))</code><br />
+            <code>y(t) = r.(sin t - sin<sup>3</sup>(b.t))</code>
+            <br /><br />
+            for various values of <i>a</i> and <i>b</i>:
+        </p>
+        <img src="https://staff.city.ac.uk/~jwo/bootcamp2021/images/parametricShapes/complex.jpg" width="799"
+            height="200" alt="More complex figures">
+
+
+
+
+        <!-- End of content -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

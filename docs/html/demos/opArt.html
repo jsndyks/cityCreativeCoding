@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Programming BootCamp Project Ideas: Op Art</title>
+
+  <!-- Header, 16th September, 2021 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Embedded fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+    rel="stylesheet">
+
+  <!-- Custom layout and style -->
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+  <!-- General browser compatibility handling -->
+  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+  <!-- Formatted source code -->
+  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+  <!-- Sketch popups and hidden text-->
+  <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+  <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+  <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- iFrame resizing -->
+    <script src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+  <div id="page">
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+    <!-- Content below -->
+    <p class="intro">
+      <a href="https://en.wikipedia.org/wiki/Op_art" target="_blank">Op art</a> or 'optical art' is a form of abstract
+      art that emerged as a movement in the 1960s. It explores the differences between what we see and what we
+      understand when looking at an image. It typically involves the use of black and white or contrasting colours to
+      create visual illusions, often generating a sense of movement even when none exists. It provides a good topic for
+      some Processing sketches because it is often made up of a set of repeated simple shapes - something a programming
+      language is good at reproducing.
+    </p>
+
+    <p>
+      Try doing a <a href="https://www.google.co.uk/search?q=image:+op+art&amp;tbm=isch" target="_blank">Google image
+        search for op art</a> to get an idea of the types of op art images that can be produced. Think about how you
+      might recreate some of these images by getting Processing to draw multiple copies of simple shapes in contrasting
+      colours. There is no need to reproduce such images exactly, but they should provide some inspiration for your own
+      designs.
+    </p>
+
+    <p>
+      Some project ideas:
+    </p>
+
+    <ul>
+      <li>Choose a selection of op art designs and try to reproduce something similar with Processing.</li>
+      <li>You could try experimenting with different shapes or transformations.</li>
+      <li>How might you incorporate animation into your sketch?</li>
+      <li>How might you use interaction via the mouse or keyboard to enhance your sketch?</li>
+    </ul>
+
+    <p>
+      Here are some examples, all produced by simple Processing sketches (click buttons to reveal the code that produced
+      them). These are only suggestions so you should feel free to experiment and come up with your own original
+      designs.
+    </p>
+
+    <img src="images/opArt/opArt1.png" height="400" alt="After Movement in Squares by Bridget Riley" /><br />
+    <div>After <i>Movement in Squares</i> by <a href="https://en.wikipedia.org/wiki/Bridget_Riley"
+        target="_blank">Bridget Riley</a> 1961.</div>
+
+    <!-- Hidden code button -->
+    <span><a href="#" class="link-show-code">Show code</a></span>
+    <div class="prettyprint" style="display: none;">
+      <pre class="brush: processing; gutter: false; toolbar: false;">void setup()
+{
+  size(600, 400);
+  noLoop();
+}
+
+void draw()
+{
+  background(255);
+  noStroke();
+  fill(0);
+
+  float maxSquareSize = 40;  // Height and maximum width of each rectangle.
+  float rectWidth = maxSquareSize;
+  float widthChange = -2;    // Amount by which rectangle shrinks in each column
+  float xPos = 0;
+  float yOffset = 0;
+
+  while (xPos &lt; width)
+  {
+    for (float yPos=0; yPos&lt;height; yPos+= 2*maxSquareSize)
+    {
+      rect(xPos, yPos+yOffset, rectWidth, maxSquareSize);
+    }
+
+    xPos      += rectWidth;  // Move to next column,
+    rectWidth += widthChange;  // Change width of rectangles.
+
+    // Alternate each column by offsetting y position every other column.
+    if (yOffset == 0)
+    {
+      yOffset = maxSquareSize;
+    }
+    else
+    {
+      yOffset = 0;
+    }
+
+    // If width has decreased to less than 4, start increasing it.
+    if (rectWidth &lt; 4)
+    {
+      widthChange = 2;
+      rectWidth  = 4;
+    }
+  }
+}</pre>
+    </div>
+
+    <br /><br />
+
+    <img src="images/opArt/opArt2.png" height="400" alt="Rotated squares"><br>
+    <div>Rotated squares.
+      <!-- Hidden code button -->
+      <span><a href="#" class="link-show-code">Show code</a></span>
+      <div class="prettyprint" style="display: none;">
+        <pre class="brush: processing; gutter: false; toolbar: false;">void setup()
+{
+  size(800, 400);
+  noLoop();
+}
+
+void draw()
+{
+  background(255);
+  noStroke();
+  rectMode(CENTER);    // Square positioned by centre coordinates.
+  boolean isBlack = true;
+
+  float squareSize = width;
+  while (squareSize &gt; 12)
+  {
+    // Alternate between black and white.
+    if (isBlack)
+    {
+      fill(0);
+      isBlack = false;
+    }
+    else
+    {
+      fill(255);
+      isBlack = true;
+    }
+
+    // Rotate square by 5 degrees about its centre.
+    translate(width/2, height/2);
+    rotate(radians(5));
+    translate(-width/2, -height/2);
+
+    rect(width/2, height/2, squareSize, squareSize);
+
+    // Shrink size of square a little
+    squareSize -= 16;
+  }
+}</pre>
+      </div>
+    </div>
+
+    <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/opArt3", 600, 600, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/opArt/opArt3.png");</script>
+    <div>Moving offset circles. <i>(click image above to activate) &nbsp;</i>
+      <!-- Hidden code button -->
+      <span><a href="#" class="link-show-code">Show code</a></span>
+      <div class="prettyprint" style="display: none;">
+        <pre class="brush: processing; gutter: false; toolbar: false;">void setup()
+{
+   size(400,400);
+}
+
+void draw()
+{
+  background(255);
+  noStroke();
+ 
+  boolean isBlack = true;
+  
+  float circleSize = 340;
+  while (circleSize &gt; 12)
+  {
+    // Alternate between black and white.
+    if (isBlack)
+    {
+      fill(0);
+      isBlack = false;
+    }
+    else
+    {
+      fill(255);
+      isBlack = true;
+    }
+    
+    // Create small random offset for each circle.
+    float xOffset = noise(circleSize*0.1+frameCount*0.005)*30;
+    float yOffset = noise(circleSize*0.1+frameCount*0.005,1)*30;
+    
+    ellipse(170+xOffset,height/2+yOffset,circleSize,circleSize);
+    
+    // Shrink size of circle a little
+    circleSize -= 16;
+  }
+}</pre>
+      </div>
+
+      <div><i>Jo Wood, 2021</i></div>
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+      <!-- End of content -->
+      <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming BootCamp Project Ideas: Play with Forces</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- iFrame resizing -->
+	<script src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+
+<!-- 
+  A demo that gives you some code to model the forces between connected objects. what can you do with this?
+
+You can access this [Example Demo](https://jsndyks.github.io/cityBootCamp/html/demos/forceBasedMovement.html) outside of _Moodle_ should you wish to do so.
+ -->
+
+        <p class="intro">
+            Play with forces to come up with patterns that are informed by simulations of the physics of physical objects..
+        </p>
+
+        <div class="units-row">
+          <div class="unit-70">
+            <p>If you <code>Show code</code>, you will find some code below that you can use to start your experiments:<br/>click, copy and paste into a <i>Processing</i> sketch.</p>
+          </div> <!-- End of left column -->
+
+          <div class="unit-30 annotation">
+            <p>
+              <img src="images/forceBasedMovement/forceFun.gif" width="300" height="300" alt="Force Animation"><br/>
+            </p>
+          </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+
+        <div>
+            <!-- Hidden code button -->
+            <span><a href="#" class="link-show-code">Show code</a></span>
+            <div class="prettyprint" style="display: none;">
+<pre class="brush: processing; gutter: false; toolbar: false;">
+    float px1, py1, vx1, vy1;    
+    float px2, py2, vx2, vy2;
+    
+    boolean connected;
+    
+    void setup() {
+      size(1000, 1000);
+    
+      px1 = random(width);
+      py1 = random(height);
+      vx1 = random(-5, 5);
+      vy1 = random(-5, 5);
+    
+      px2 = random(width);
+      py2 = random(height);
+      vx2 = random(-10, 10);
+      vy2 = random(-10, 10); 
+    
+      connected = true;
+    }
+    
+    void draw() {
+      background(250);
+      noStroke();
+      ellipseMode(CENTER);
+    
+      fill(0);
+      ellipse(px1, py1, 30, 30);
+      ellipse(px2, py2, 30, 30);
+    
+    
+      stroke(1);
+      if (connected) {
+        line(px1, py1, px2, py2);
+      }
+    
+      // - update velocities using various force 
+      // - computations (i.e., compute forces,
+      // - turn them into velocity vectors, add them
+      // - to the points' existing velocities)
+    
+      // - ex: add coulomb repulsive force to the point velocities
+      float d = dist(px1, py1, px2, py2);
+      float mag = 10000 * 1./(d*d);
+    
+      vx1 = vx1 + mag * (px1 - px2)/d;
+      vy1 = vy1 + mag * (py1 - py2)/d;
+    
+      vx2 = vx2 + mag * (px2 - px1)/d;
+      vy2 = vy2 + mag * (py2 - py1)/d;
+    
+      // -- add spring force to the velocities of the points
+    
+      d = dist(px1, py1, px2, py2);
+      mag = 0.0001*d;
+    
+      vx1 = vx1 - mag * (px1 - px2)/d;
+      vy1 = vy1 - mag * (py1 - py2)/d;
+    
+      vx2 = vx2 - mag * (px2 - px1)/d;
+      vy2 = vy2 - mag * (py2 - py1)/d;  
+    
+    
+      // - update positions with velocities
+      // - (i.e. add velocities to positions)
+      // - and bounce them off walls
+
+      float nextx = px1 + vx1;
+      if (nextx < 0 || nextx > width)
+        vx1 = - vx1;
+      float nexty = py1 + vy1;    
+      if (nexty < 0 || nexty > height)
+        vy1 = - vy1;
+      px1 = px1 + vx1;
+      py1 = py1 + vy1;
+    
+      nextx = px2 + vx2;
+      if (nextx < 0 || nextx > width)
+        vx2 = - vx2;
+      nexty = py2 + vy2;    
+      if (nexty < 0 || nexty > height)
+        vy2 = - vy2;
+      px2 = px2 + vx2;
+      py2 = py2 + vy2;
+    }
+</pre>
+            </div>
+
+            <p style="padding-top:1em">May the Force be with you ...</p>
+
+        <div><p><i>Radu Jianu, 2022</i></p></div>
+
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+        <!-- End of content -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

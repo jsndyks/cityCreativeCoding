@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming Bootcamp Extra Challenges: Images</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <!-- Header, 30th September, 2022 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- JD Extras! -->
+    <link rel="stylesheet" href="https://jsndyks.github.io/cityBootCamp/css/bootCamp.css" type="text/css" />
+
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+
+
+        <p>We have some additional ideas and some exercises that might push one or two of you a little further!<br />
+            If you have completed the task and challenges in the <a
+                href="https://moodle.city.ac.uk/mod/page/view.php?id=2444797">Images lecture</a> and if you are
+            <b>flying</b> through <b><code>#BootCamp</code></b> and don't have enough to do then try the following!
+        </p>
+        <p>If not, complete the <a
+            href="https://moodle.city.ac.uk/mod/page/view.php?id=2444797">Images lecture</a> and have a rest!</p>
+
+        <hr>
+        <h3>Image sequences for animation</h3>
+        <div class="units-row">
+            <div class="unit-70">
+        <p>
+            We have seen that we can use multiple images on the canvas, with different processing and effects.
+            But sometimes we would like to change the image that we show as time progresses.
+            Displaying a series of images in sequence enables us to animate, and this is how we use images to
+            produce movies (25 images per second) and games (canvas updates in relation to interaction with the
+            screen).</p>
+        <p>For example, in a game, a character might have multiple images for different poses as they complete
+            some action.</p>
+            </div>
+        </div>
+
+        <div class="units-row">
+            <div class="unit-70">
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="https://jsndyks.github.io/cityBootCamp/images/man0.png" width="50">
+                            </td>
+                            <td>
+                                <img src="https://jsndyks.github.io/cityBootCamp/images/man1.png" width="50">
+                            </td>
+                            <td>
+                                <img src="https://jsndyks.github.io/cityBootCamp/images/man2.png" width="50">
+                            </td>
+                            <td>
+                                <img src="https://jsndyks.github.io/cityBootCamp/images/man3.png" width="50">
+                            </td>
+                            <td>
+                                <img src="https://jsndyks.github.io/cityBootCamp/images/man4.png" width="50">
+                            </td>
+                            <td>
+                                <img src="https://jsndyks.github.io/cityBootCamp/images/man5.png" width="50">
+                            </td>
+                            <td>
+                                <img src="https://jsndyks.github.io/cityBootCamp/images/man6.png" width="50">
+                            </td>
+                            <td>
+                                <img src="https://jsndyks.github.io/cityBootCamp/images/man7.png" width="50">
+                            </td>
+                        </tr>
+                        <tr style="font-size:90%">
+                            <td align="center">man0.png</td>
+                            <td align="center">man1.png</td>
+                            <td align="center">man2.png</td>
+                            <td align="center">man3.png</td>
+                            <td align="center">man4.png</td>
+                            <td align="center">man5.png</td>
+                            <td align="center">man6.png</td>
+                            <td align="center">man7.png</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Incidentally, many browsers will let you drag these eight images 👆 (one by one) straight from the web page into a folder or even a sketch.</p>
+                <p>
+                    Arrays come in handy storing multiple images that represent a chaarcter in sequence. 
+                    We can create an array of images, just as we have created arrays of integers, floating point numbers and Strings.
+                    Each image can be indexed by its position in the array as shown in the following code snippet.</p>
+            </div>
+        </div>
+
+
+        <div class="units-row">
+            <div class="unit-70">
+                <pre class="brush: processing; gutter: false; toolbar: false; ">      // -- Create an array of eight PImages called 'sprite'.
+      PImage [] sprite = new PImage[8];
+
+      // -- Use a loop to load a different image into each array element.
+      for (int i = 0; i &lt; 8; i=i+1) {
+        sprite[i] = loadImage("man" + i + ".png");
+        // -- Use println() for debugging and reporting :
+        println("Loaded image\t","man" + i + ".png");
+      }
+
+      // -- Draw whichever image is in the element indexed by the variable 'frame'.
+      image(sprite[frame], 0, 0);
+      </pre>
+            </div>
+            <div class="unit-30 annotation">
+              <p>This is just a few lines of code that may be helpful.<br/>
+                You'll need to decide which of these things need to go in <code>setup()</code> to be done once, <code>draw()</code> to be done repeatedly - <code>frameRate</code> times per second, and to be declared at the top of the sketch to ensure global scope.</p>
+          </div>
+        </div>
+
+        <div class="units-row">
+            <div class="unit-70">
+                <div class="challenge">
+                    <p><b>Extra Challenge - Simple Game</b></p>
+                    <p>Download the eight images and drop them into a sketch.</p>
+                    <p>Then see whether you can animate them by building on the code snippet shown above.<br/>
+                        You should try to :</p>
+                    <ol>
+                        <li>load the eight images into a <code>PImage</code> array</li>
+                        <li>draw an image at the mouse position with <code>image</code></li>
+                        <li>make the image dependent upon the progress of the script with <code>frameCount</code> or
+                            <code>millis()</code><br />&nbsp;&nbsp;&nbsp;- try something like
+                            <code>(millis()/100)%8</code>
+                            <br />&nbsp;&nbsp;&nbsp;- just <code>println()</code> this to the console at first if you
+                            don't see what it does
+                        </li>
+                        <li>vary the speed at which the animated runner moves through his running action<br />&nbsp;&nbsp;&nbsp;- try varying the
+                            denominator that you use to divide <code>millis()</code></li>
+                            <li>Move the runner along the screen as the sketch progresses</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="units-row">
+            <div class="unit-70">
+                <p>We can use animated graphics like this to develop characters in games and other applications.</p>
+                <p>For example, a basic side-scrolling game world consisting of a character running in a forest, might:
+                </p>
+                <ol>
+                    <li>Load images</li>
+                    <li>Draw the background, scrolling left (background image position moves a little to the left in each frame)</li>
+                    <li>Check input and update character position - jump?</li>
+                    <li>Draw the current sprite frame (the image of the character)</li>
+                    <li>Check for collisions</li>
+                    <li>End the game if a collision is detected</li>
+                    <li>Otherwise advance the frame</li>
+                    <li>Go to step 2</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="units-row">
+            <div class="unit-70">
+                <div class="coreTask">
+                    <p>The simple game on the right is an example.<br />Try it out!<br />Hit 'space' to protect your
+                        toes and to engage in some <i>very dodgy physics</i>.<br/>You can do better!</p>
+                </div>
+            </div>
+            <div class="unit-30 annotation" style="padding-top:-14em">
+                <script>
+                    loadSketch("https://jsndyks.github.io/cityBootCamp/p5js/ForestRun", 540, 600, "https://jsndyks.github.io/cityBootCamp/images/forest_run.png");
+                </script>
+                <p><br />Click to have a go!</p>
+            </div>
+        </div>
+
+        <div class="units-row">
+            <div class="unit-70">
+                <p>As an alternative, use our two friendly space invaders and animate between these two images.
+                    <br />They might find it interesting to fly through a forest.
+                </p>
+                <p>You would only need an array of two images in this case.</p>
+                <pre class="brush: processing; gutter: false; toolbar: false; ">PImage [] sprite = new PImage[2];</pre>
+            </div>
+            <div class="unit-30 annotation">
+                <div style="float:right; padding-right:2em">
+                    <img src="https://jsndyks.github.io/cityBootCamp/images/invader11.down.png" width="33" height="33"
+                        style="padding:0.5em" />
+                    <img src="https://jsndyks.github.io/cityBootCamp/images/invader11.up.png" width="33" height="33"
+                        style="padding:0.5em" />
+                </div>
+                <p>Right click on these images to download them or drag them into your sketch.</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <p>Now try a couple of challenges to take things a little further ...</p>
+
+        <h3>Charlie's Challenge : Forest Run</h3>
+
+        <p><i>Charlie Watson</i> and our former colleague <i>Greg Slabaugh</i> produced the bones of a game and we hope
+            that some of you might enjoy developing it a little.</p>
+        <hr>
+        <p>OK, just so you know, this task is much harder than the rest and we only expect a few of you who are
+            experienced programmers to take it on.<br/>But some of you seem keen to develop games, so here is a start!</p>
+        <p>It's also quite open ended and open to interpretation, so discuss your ideas with your class tutor and be
+            creative.</p>
+
+        <div class="challenge">
+            <p><b>Extra Challenge - Charlie's Challenge</b></p>
+            <p>Download the Forest Run program.</p>
+            <ul>
+                <li><a href="https://jsndyks.github.io/cityBootCamp/sketches/ForestRun.zip">Forest Run sketch and
+                        data</a></li>
+            </ul>
+
+            <p>Make the game more playable by doing some of the following:</p>
+
+            <ul>
+                <li style="padding-bottom:4px">Using an array, add some scary obstacles along the path, rendered using images.
+                    <br/>Note: in the
+                    directory there is an image called "log.png" that you're welcome to use.
+                    The "camera" in the game is moving horizontally with the player.
+                    So when drawing objects, simply subtract the <code>playerPosition.x</code> from the location.
+                    For example, <code>image(object, location[i].x -playerPosition.x, location[i].y);</code> where
+                    <code>location[i]</code> is the location of the ith object.
+                </li>
+                <li style="padding-bottom:4px">If instead you'd prefer to use your own image instead of "stump.gif", but it lacks a transparent
+                    background, you can use image editing software (like <a href="http://www134.lunapic.com/editor/?action=transparent">LUNAPIC</a>) to make the background transparent.
+                </li>
+                <li style="padding-bottom:4px">Implement a collision detection algorithm to test whether the player has collided with one of the
+                    obstacles.<br/>Note: included in the code is a method <code>collisionDetection()</code>, which can be
+                    used to see if two rectangular image objects are overlapping.<br/>
+                    Since the objects are not exactly rectangular, and there are extra pixels around the objects
+                    (particularly the sprite) in the images, some padding may be required to relax the collision
+                    detection.
+                </li>
+                <li style="padding-bottom:4px">Implement an appropriate action when the player collides with an obstacle<br/>(i.e., life lost or game
+                    over).
+                </li>
+                <li style="padding-bottom:4px">Using another array, add some pickups for the game.<br/>
+                    The data directory contains an image named "coin.jpg"
+                    that you can use for this purpose.
+                </li>
+                <li style="padding-bottom:4px">Apply collision detection to the pickups.<br/>If the player collides with a pickup, make it disappear (stop drawing it).
+                </li>
+                <li style="padding-bottom:4px">Implement a scoring system to keep track of the player's score.
+                </li>
+                <li style="padding-bottom:4px">Implement a heads up display that shows the player's score using the <a href="http://processing.org/reference/text_.html">text()</a> method.
+                </li>
+                <li>Try other cool things - go for it!</li>
+            </ul>
+        </div>
+
+        <div class="challenge">
+            <p><b>Extra Challenge - Jason's Challenge</b></p>
+            <p><b>Jason says ...</b></p>
+            <p>Hang on a moment ... this all feels a little gendered to me.<br />
+                Here's a challenge.<br />
+                Can you fix that?
+            </p>
+        </div>
+
+        <hr>
+
+        <h3>Jason's Sketch : City Ride</h3>
+        <p>Here's another open-ended challenge that encourages you to add your own data ...</p>
+
+        <div class="challenge">
+            <p><b>Extra Challenge - City Ride</b></p>
+            <p>Jason has produced a rudimentary sketch that allows you to interact with geographically positioned
+                photographs that he has taken on his ride to work.
+                <br />You can download the sketch and some pictures, and see if you can adapt it:
+            </p>
+            <ul>
+                <li><a href="https://jsndyks.github.io/cityBootCamp/sketches/cityRide.zip">cityRide sketch and data</a>
+                </li>
+            </ul>
+            <p>Download, unzip and check the code.
+                You'll see that you need to press 'p' to view the photo locations, and click the map symbols that appear
+                to see them.</p>
+            <p>The map data is from the Ordnance Survey and made available for teaching purposes under the condition
+                that is it always used with the following copyright statement:</p>
+            <ul>
+                <li><code>© Crown copyright and database rights 2019 Ordnance Survey (100025252)</code></li>
+            </ul>
+            <p>Can you ...</p>
+            <ol>
+                <li>refactor to use a <code>geoPicture</code> class?</li>
+                <li>add some photos of your own?<br /><i>Press 't' to see the screen coordinates at any position on the
+                        map</i></li>
+                <li>make it much better in wildly imaginative ways as part of your <code><b>#BootCamp</b></code> demo?</li>
+            </ol>
+            <p>&nbsp;</p>
+        </div>
+
+        <!-- End of content -->
+        <hr />
+        <div class="sig">
+            <b>Jason DYKES</b><br />
+            <!-- <i>07 Oct 2021</i> -->
+            <i>30 Sep 2022</i>
+        </div>
+        <div style="padding-bottom:2em;clear:both"></div>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

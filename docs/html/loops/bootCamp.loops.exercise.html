@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming BootCamp Exercises: Loops</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- 
+Try these exercises in which you use **loops** to force the repetition of selected parts of your code.
+
+You can access the [Loops Exercises](https://jsndyks.github.io/cityBootCamp/html/loops/bootCamp.loops.exercise.html) outside of _Moodle_ should you wish to do so.
+         -->
+
+         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Add summary sentence or two below, which will act as an easy introduction -->
+
+
+
+        <p>
+            These exercises give you practice using loops. They should help you understand how these are coded in
+            Processing as well as practice at thinking about how you can make repeated tasks more efficient by
+            placing them inside loops.
+        </p>
+
+        <br /><br />
+        <div class="codeTask">
+            1. If you haven't done so already, create a simple sketch to draw the nine squares from the lecture notes
+            using a single <code>for</code> loop rather than nine separate calls to the <code>rect()</code> method.
+            <br /><br />
+            <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/rectangles.png" width="960"
+                height="110" alt="9 rectangles" />
+            <br /><br />
+            Within the loop body, add a <code>println()</code> statement to display the value of the loop counter
+            variable on each iteration of the loop. Is it what you expected?
+            <br /><br />
+            If you haven't already, try to change the for loop to produce the following effects (discussed during the
+            lecture): create more or fewer rectangles; draw them towards the left or towards the right of the sketch;
+            space them farther or closer together; make them increasingly larger in size; make every alternate rectangle
+            red.
+        </div>
+        <br /><br />
+
+        <div class="challenge">
+            2. Draw a chessboard. Change the loop at exercise 1. to draw 8 rectangles next to each other, and draw the
+            rectangles with alternating colours. Then, add an outer loop to draw 8 such rows. What do you need to change
+            so that every other row alternates rectangle colours differently?
+        </div>
+        <br /><br />
+
+        <div class="codeTask">
+            3. Copy the code from the lecture notes that draws a line of trees (reproduced below) and adapt it so that
+            it draws three lines of trees.
+            <br /><br />
+            <pre class="brush: processing; gutter: false; toolbar: false; ">color leafColour,trunkColour;
+
+void setup()
+{
+  size(800, 400);
+  noStroke();
+  leafColour  = color(82, 144, 97);
+  trunkColour = color(95, 57, 26);
+}
+
+void draw()
+{
+  background(157, 238, 247);   // Sky
+  fill(156, 245, 170);         // Ground.
+  rect(0, height/2, width, height/2);
+
+  for (float xPos=50; xPos&lt;width; xPos=xPos+100)
+  {
+    drawTree(xPos,180);
+  }
+}
+
+// Draws a single tree at the given position.
+void drawTree(float treeX, float treeY)
+{
+  fill(trunkColour);
+  rect(treeX, treeY, 20, 70);
+  fill(leafColour);
+  ellipse(treeX+10, treeY-30, 70, 90);
+}</pre>
+
+            <i>Hint:</i> You will need to create an outer loop to go round the one in the code above. That outer loop
+            will repeat three times, once for each row. The effect should be something like this:
+            <br /><br />
+            <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/woodlandRows.png" width="800"
+                height="400" alt="3 rows of trees">
+        </div>
+        <br /><br />
+
+        <div class="challenge">
+            4. Adapt your three rows of trees sketch from the task above so that the size of the trees gets smaller
+            towards the horizon. Can you adapt the colour to fade towards the horizon too?
+            <br /><br />
+            <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/woodlandPerspective.png"
+                width="800" height="400" alt="Woodland with perspective">
+        </div>
+        <br /><br />
+
+        <div class="challenge">
+            5. Adapt your three rows of trees sketch once again to make it interactive.
+            <br /><br />
+            Build on the underground sign sketch to check whether the mouse is within the trunk or leaves of the tree
+            and change the colour of any tree you are 'touching'.<br /><br /> <b>TIP</b> Calculating whether a point is
+            inside or outside a non-circular ellipse is a little more complicated than for a circle. But we can use our
+            own method do the calculation:
+            <br /><br />
+            <pre class="brush: processing; gutter: false; toolbar: false; ">// Will return true if position (x,y) is within an ellipse(cx,cy,w,h), otherwise false.
+boolean isInEllipse(float x, float y, float cx, float cy, float w, float h) 
+{
+  return (x-cx)*(x-cx)/(w*w/4) + (y-cy)*(y-cy)/(h*h/4) &lt; 1;
+}</pre>
+            Can you also print out the number of the tree you are touching?
+            <br /><br />
+            How about <b>NOT</b> drawing a tree if the mouse is within it?
+            <br><br />
+            Try creating 'interactive clearings' - do not draw trees that are within a certain distance of the mouse
+            position?
+        </div>
+        <br /><br />
+
+        <h2>Check on Progress</h2>
+        <div class="task">
+            To ensure that you have achieved the outcomes associated with this session, consider the following, which
+            allow you to evaluate your progress.
+            <br /><br />
+
+            <div class="checkOutcomes">
+                <input type="checkbox" id="sa1">
+                <label for="sa1">Can I read the code of a Processing sketch and follow the program flow?
+                </label><br />
+                <input type="checkbox" id="sa2">
+                <label for="sa2">Can I create a for loop to repeat a section of code?
+                    <!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521098">For loop</a> -->
+                </label><br />
+
+                <input type="checkbox" id="sa3">
+                <label for="sa3">Can I create a nested loops to manipulate the rows and columns of a grid?
+                    <!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521110">Nested loops</a> -->
+                </label><br />
+            </div>
+            <!-- End of checkOutcomes -->
+
+
+        </div> <!-- End of task -->
+
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

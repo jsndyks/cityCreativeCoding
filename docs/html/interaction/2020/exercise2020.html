@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming BootCamp Exercises: Interaction</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Add summary sentence or two below, which will act as an easy introduction -->
+
+        <p>
+            These exercises give you practice with key and mouse input and updating and changing the state of global
+            variables and thereby changing the behaviour of the sketch.
+        </p>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="coreTask">
+            <h4>1. Traveling square.</h4>
+            <p>
+                Create a new sketch that draws a square in the centre of a square window sized 400 by 400. Use two
+                global variables <code>float x</code> and <code>float y</code> to specify the position of the square:
+                <br />
+            <pre class="brush: processing; gutter: false; toolbar: false; ">void draw()
+{
+  rect(x, y, 60, 60);
+}</pre>
+            <br />
+            Remember you have to declare those variables at the top of your sketch and you should initialise them with
+            appropriate values inside a void setup() so that your square is positioned correctly when your sketch
+            starts.
+            <br /><br />
+            Run your sketch to check it behaves as expected.
+            <br /><br />
+            Now add a keyPressed() method to the sketch which maps the 'w' and 's' keys to incrementing and decrementing
+            the y position by a value of 1 respectively (think about the coordinate system and how pressing 'w' will
+            move the square up) and maps the 'a' and 'd' keys to incrementing and decrementing the x position by a value
+            of 1 respectively.
+            <br /><br />
+            Run your sketch to check you can move the square using the 'A', 'D', 'S' and 'W' keys.
+            <br /><br />
+
+            <b>Extension 1a: </b> Add if statements to prevent the values of x and y becoming less than 0 or more than
+            400.
+            <br /><br />
+            <b>Extension 1b: </b> Add if statements to allow the square to go up to but not past the bounds of the
+            sketch.
+            <br /><br />
+            <b>Extension 2:</b> Add code to the <code>draw()</code> method that displays the x and y position of the
+            rectangle in the bottom corner of the sketch. The text should update when the position of the rectangle is
+            changed.
+            </p>
+        </div>
+        <br /><br />
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="coreTask">
+            <h4>2. Fade to Red.</h4>
+            <p>
+                Add a <code>void setup()</code> method with code to set the size of the sketch to 400 by 400.
+                <br /><br />
+                Initialise the red variable to 0.
+                <br /><br />
+                Add a <code>void draw()</code> method that contains the following code:
+                <br />
+            <pre class="brush: processing; gutter: false; toolbar: false; ">void draw()
+{
+  background(100);
+  fill(red, 0, 0);
+  rect(100, 100, 60, 60);
+}</pre>
+            <br />
+            Use Processing's <code>void keyPressed()</code> method to increment the value of red by 10 for every press
+            of
+            the 'r' key. Decrement the value or red by 10 for every press of the 'b' key.
+            <br /><br />
+            <b>Extension:</b> Add if statements to prevent the value of red becoming less than 0 or more than 255.
+            </p>
+        </div>
+        <br /><br />
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="coreTask">
+            <h4>3. Password Reader.</h4>
+            <p>
+                The following code displays a password request message to the user. Copy the code to your own sketch and
+                make sure it runs.
+                <br />
+            <pre class="brush: processing; gutter: false; toolbar: false; ">
+String welcomeMessage = "Type the password...";
+String successMessage = "Welcome. Shall we play a game?";
+String retryMessage = "Your password is incorrect. No Global Thermonuclear War for you. Please try again";
+String currentMessage;
+
+void setup()
+{
+  size(300, 50);
+  textSize(16);
+  currentMessage = welcomeMessage;
+}
+
+void draw()
+{
+  background(100);
+  text(currentMessage, 20, 20);
+}</pre>
+            Once you have the sketch running use Processing's <code>keyPressed()</code> method to display the success
+            message if the key pressed matches a password, for example, you could choose the password 'p' and display
+            the success message if the key pressed is 'p' and the retry message if not.
+            </p>
+
+            <h4>Extension</h4>
+
+            <p>
+                Add support for passwords longer than one letter. Currently your code checks the global variable key
+                against a single character (e.g. 'p'). To compare strings of characters you need to put each
+                consecutive key press into a String type variable. The code <code>userString = userString + key;</code>
+                will be useful.
+                <br /><br />
+                There are other differences between Strings and characters too. Literal strings that you write in your
+                code have double quotes e.g. in the code below the variable password is set to contain the string
+                literal "swordfish" and the variable userString is set to being an empty string (a string with no
+                letters), which in turn is different to an uninitialized string like blankVariable (which prints out
+                null if you print it).
+                <br />
+
+            <pre class="brush: processing; gutter: false; toolbar: false; ">String password = "swordfish"; // A variable containing a string
+String userString = "";        // A variable containing an empty string
+String blankVariable;           // A variable containing nothing at all (null).</pre>
+            <br />
+            Checking whether two Strings are equal is different to checking whether two characters are equals. Use
+            the following code to check if two Strings are the same: <code>password.equals(userString)</code>
+            <br /><br />
+            The above expression will either return true if the Strings are the same or false otherwise and can be
+            used as the condition of an if statement.
+            <br /><br />
+            <pre class="brush: processing; gutter: false; toolbar: false; ">if ( password.equals(userString) )
+{
+  println("match!");
+}</pre>
+            <br />
+            Note the dot (.) between password and equals. This is how methods are called on objects, more on this in
+            the session on 'classes'
+            <br /><br />
+            The completed version of this will return the retry method for each character you press until you have
+            typed the whole password. If you make a mistake you will need to restart the program as the code treats
+            backspace like any other character. Look at the final challenge for some clues about how to improve this
+            behaviour.
+            </p>
+        </div>
+        <br /><br />
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="coreTask">
+            <h4>4. Target Hunter.</h4>
+
+            <p>
+                Write code so that a white target circle is drawn randomly on the screen. Each time you click it, the
+                circle is redrawn at a random position within the sketch and at a random size.
+                <br /><br />
+                Before you start writing code consider the global variables and the functions you will need to implement
+                the behaviour of your sketch. A sensible approach would be break the behaviour of the sketch down into
+                smaller testable goals, for example:
+            <ul>
+                <li>Make a list of global variables and discuss it with one of the lab staff.</li>
+                <li>Draw a centred circle and test.</li>
+                <li>Add the click detection and test.</li>
+                <li>Update the circle position</li>
+                <li>Update the circle size.</li>
+            </ul>
+
+            <i>Hints:</i>
+            <ul>
+                <li>To detect whether the click is within the circle you can use Processing's <a
+                        href="https://processing.org/reference/dist_.html" target="_blank">dist()</a> method.</li>
+                <li>To test for the click detection consider printing "Hit" to the console.</li>
+                <li>To set the position of the circle to a random position you can use Processing's <a
+                        href="https://processing.org/reference/random_.html" target="_blank">random()</a> method.</li>
+                <li>Make sure you constrain the positions so the circle stays within the sketch.</li>
+            </ul>
+
+            </p>
+        </div>
+        <br /><br />
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="challenge">
+            <h4>5. Password Reader (advanced).</h4>
+            <p>
+                Open your PasswordReader sketch and add the following behaviour:
+            <ul>
+                <li>Enter/Return - check the password only when the either the enter or return key is pressed.</li>
+                <li>Backspace - if the user presses backspace the last key added to the userString should be removed.
+                </li>
+            </ul>
+            Before you start coding discuss the logic (what you program checks for in its if statements and what order
+            this should be done int) with one of the lab staff. Testing for the enter, return and backspace keys is
+            documented in the <a href="https://processing.org/reference/keyCode.html" target="_blank">keyCode</a>
+            documentation, so read this to figure out how to test for one of these keys being pressed.
+            <br /><br />
+            Removing the last letter of a string requires the use of a method (like <code>.equals()</code> method we saw
+            earlier for testing string equality). The following example replaces <code>userString</code> with a copy of
+            it with the final character removed. BUT BE CAREFUL - if the string is empty (or null) the program will
+            crash so check for these conditions before using the code.
+            <br /><br />
+            <pre
+                class="brush: processing; gutter: false; toolbar: false; ">userString = userString.substring(0, userString.length()-1);</pre>
+            You may find that you need to use:
+            <br /><br />
+            <pre
+                class="brush: processing; gutter: false; toolbar: false; ">userString = userString.substring(0, userString.length()-2);</pre>
+            because the backspace character might be added to the <code>userString</code>, so if you only trim off 1
+            character you wind up adding and then immediately removing the backspace key. This depends on how you catch
+            the key values.
+            </p>
+        </div>
+        <br /><br />
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="challenge">
+            <h4>6. Hangman.</h4>
+            <p>
+                Hangman is a paper and pencil guessing game for two or more players. One player thinks of a word, phrase
+                or sentence and the other(s) tries to guess it by suggesting letters or numbers, within a certain number
+                of guesses.
+                <br /><br />
+                Implement a computer version of the game that presents blank spaces representing the number of
+                characters in the word the player is trying to guess. For each incorrectly guessed letter, the computer
+                should store and display the letter (so the user does not suggest it again). Additionally when a letter
+                is guessed incorrectly the computer should draw the next element of the hangman:
+                <br /><br />
+                The hangman is drawn in the following sequence:
+            <ol>
+                <li>Base of gibbet</li>
+                <li>Upright of gibbet</li>
+                <li>Crosspiece of gibbet</li>
+                <li>Noose and head</li>
+                <li>Body</li>
+                <li>Left arm</li>
+                <li>Right arm</li>
+                <li>Left leg</li>
+                <li>Right leg</li>
+            </ol>
+            This gives the player 9 guesses before the hanged man is complete and the game is lost. If the word is
+            complete before the hangman then the player has won. In either case you should display an appropriate
+            message to the player and then either start a new game with the next word or terminate the program.
+            <br /><br />
+            The following is a list of words you can use.
+            <br /><br />
+            <pre class="brush: processing; gutter: false; toolbar: false; ">String word1 = "saxophone";
+String word2 = "trombone";
+String word3 = "harpsichord";
+String word4 = "glockenspiel";
+String word5 = "harmonica";</pre>
+            </p>
+        </div>
+        <br /><br />
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="challenge">
+            <h4>7. Naughts and Crosses.</h4>
+            <p>
+                Naughts and crosses (also known as tic-tac-toe or Xs and Os) is a paper and pencil game for two players,
+                X and O, who take turns marking the spaces in a 3×3 grid. The player who succeeds in placing three of
+                their marks in a horizontal, vertical, or diagonal row wins the game.
+                <br /><br />
+                Implement a computer version of the game that presents a sketch divided in to a 3x3 grid. The player
+                should be able to click on any of the squares in the grid and the screen should update with an X in that
+                square. The computer should randomly select another, empty square in the grid and should update the
+                screen to display an O in that square.
+                <br /><br />
+                Play should continue until all squares in the grid are filled or the player or computer has won. Winning
+                the game consists of either player achieving a row, column or diagonal run of 3 of their symbols.
+                <br /><br />
+                You will need to create 9 variables representing the squares of the grid, code that implements random
+                responses of the computer, code to test for the possible win conditions and code that tests for the end
+                of the game. The game will need to respond to mouse clicks within set areas of the sketch and will need
+                to draw gridlines and symbols.
+            </p>
+
+        </div>
+
+
+        <br /><br />
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <h2>Check on Progress</h2>
+        <div class="task">
+            To ensure that you have achieved the outcomes associated with this session, consider the following, which
+            allow you to evaluate your progress.
+            <br /><br />
+
+            <div class="checkOutcomes">
+                <input type="checkbox" id="sa1"> <label for="sa1">Can I XXX?<br /></label>&nbsp;
+            </div>
+            <div class="checkOutcomes">
+                <input type="checkbox" id="sa2"> <label for="sa2">Can I XXX?<br /></label>&nbsp;
+            </div>
+            <div class="checkOutcomes">
+                <input type="checkbox" id="sa3"> <label for="sa3">Can I XXX?<br /></label>&nbsp;
+            </div>
+            <div class="checkOutcomes">
+                <input type="checkbox" id="sa4"> <label for="sa4">Can I XXX?<br /></label>&nbsp;
+            </div>
+            <div class="checkOutcomes">
+                <input type="checkbox" id="sa5"> <label for="sa5">Can I XXX?<br /></label>&nbsp;
+            </div>
+
+        </div> <!-- End of task -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

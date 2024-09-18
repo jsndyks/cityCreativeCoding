@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming BootCamp Lecture: Interaction</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <!-- Header, 2nd October, 2022 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- JD Extras! -->
+    <link rel="stylesheet" href="https://jsndyks.github.io/cityBootCamp/css/bootCamp.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/bootCamp.css" type="text/css" />
+
+<!-- iFrame -->
+<script type="text/javascript" src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
+    
+
+</head>
+
+<body>
+    <div id="page">
+<!---
+        <p> Work through these notes and examples <i>systematically</i> in class.
+            You'll need to do some reading, some thinking and experiment a little. 
+            You'll need to discuss your progress and your approaches (and your failures) with colleagues and teaching staff.
+            Use your sketchbooks to develop ideas and take notes.
+            Learning actively, taking notes and discussing ideas will enable you to achieve the learning outcomes that we list at the top of the lecture.</p>
+            <p>You can access the <a href="https://jsndyks.github.io/cityBootCamp/html/interaction/2023%7C24/bootCamp.int.2023.lecture.html">Interaction Lecture</a> outside of <em>Moodle</em> should you wish to do so.</p>             
+-->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Add summary sentence or two below, which will act as an easy introduction -->
+
+        <div class="intro">
+            <!--p>
+                This session introduces ways in which you can collect and use <b>input</b> from somebody who is using
+                your <b>Processing</b> application through their <b>interactions</b> with the keyboard and mouse.
+                We'll use these <i>key presses</i> or <i>mouse events</i> to control what happens in our sketches.
+            </p-->
+
+            <p><strong>By the end of this session (lecture, class and subsequent work in your own time) you should be able to:</strong></p>
+
+            <ul>
+                <li>collect and use input that comes from interactions with <b>the mouse</b> in simple sketches;</li>
+                <li>collect and use input that comes from interactions with <b>the keyboard</b> in simple sketches;</li>
+                <li>display the nature of this input;</li>
+                <li>use this input to control flow and behaviour in a sketch;</li>
+                <li>structure a sketch to react to, and develop through, interaction;</li>
+                <li>generate random numbers within a specified range.</li>
+            </ul>
+
+        </div> <!-- End of intro section -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <hr />
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <h3>1. Interaction</h3>
+                <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">1</span> - <b>Interaction</b> : how do we interact with computers?</code></p>
+                <p> We've looked at how to <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=420864">code programs that adapt to context</a> with constructs that allow us to write code that makes choices as it executes: <a href="https://moodle4.city.ac.uk/course/view.php?id=6081#section-5">DECISIONS</a><br/>
+                  <br/>But how do we code programs that adapt to people?<br/>
+
+                    A computer isn't much use without us being able to tell it what to do - without <b>interaction</b>!<br/>
+                </p>
+                <p>
+                    Luckily (<i>actually, there is careful planning and sophisticated functionality involved</i>) <i>Processing</i>
+                    has rich and straightforward capabilities for detecting input from mouse, keyboard and elsewhere and
+                    for using this to allow us to interact rapidly and consistently with sketches.
+                </p>
+                <p>
+                    And we're going to play with the basics today.
+                </p>
+                <p>
+                    First up ... let's think about how we interact with computers:
+                </p>
+                <ul>
+                    <li>we talk to them</li>
+                    <li>we drag mice and trackpads</li>
+                    <li>we swipe and touch and tilt them</li>
+                    <li>we tap on keyboards and wrestle with game controllers</li>
+                    <li>anything else?</li>
+                </ul>
+                <div class="coreTask">
+                    <b>Interacting with Computers</b>
+                    <p>Is that it?<br />Can you think of other ways you interact with computers?<br />You should be able
+                        to come up with at least a few. <br /> Chat with a friend if you're stuck.<br />A chat can usually get you thinking and discussing things with them and will often help out.</p>
+                    <!-- guitar, bike -->
+                </div>
+                <p>Interaction is how we get computers to do things that are useful to us, and how they know what we're
+                    up to and what we want.</p>
+                <p>So, if we're going to make interesting applications we need to know how to collect information about
+                    interactions, how to detect what people are doing, and how to make our programs and sketches respond.</p>
+                <p>Let's start with the keyboard - a handy device that you may have used from time to time - that
+                    enables us to select from a series of letters, that are detected by the computer and used as input
+                    to various programmes and apps that it runs!</p>
+
+                <hr />
+                <h3>2. Keyboard Input</h3>
+                <p>
+                    Happily, <i>Processing</i> sketches are aware of what's going on with the keyboard.
+                    You can find this out and use this in your sketches in a couple of ways.
+                    Firstly, <i>Processing</i> retains a global variable (like <code>mouseX</code> and
+                    <code>mouseY</code>) called <a href="https://processing.org/reference/key.html"
+                        target="_blank">key</a>.
+                    This is a <i>character</i> variable that holds the value of the most recently pressed key on the
+                    keyboard.
+                    It updates whenever a key on the keyboard is pressed - you don't have to ask it to do so, <i>Processing</i> just takes care of it!
+                    Useful!
+                </p>
+                <img src="https://jsndyks.github.io/cityBootCamp/images/interaction/keyboard.png" />
+
+                <h4>Key Sketch</h4>
+                <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">2</span> - <b>key</b> : a variable that contains the last key pressed</code></p>
+                <p>
+                    Here's a sketch that takes advantage of the way that <code>key</code> is updated from the keyboard.
+                    It shows any interactions made through the keyboard on the canvas.
+                </p>
+                <pre class="brush: processing; gutter: false; toolbar: false; ">// -- set up the things that don't change ...
+void setup() {
+  size(400, 400);
+  textSize(128);      // &lt;-- try changing this
+  textAlign(CENTER); // &lt;-- centers text!
+}
+
+// -- do these things 60 times per second ...
+void draw() {
+
+  // -- clear the canvas:
+  background(220);              // &lt;-- try a different colour
+
+  // -- show the value of the key variable in the middle of the canvas:
+  text(key,width/2,height/2); // &lt;-- try a different position
+}</pre>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <div class="coreTask">
+                  <b>Keyboard Interaction - key variable</b>
+                    <p>Read through the code above 👆 to see if you can work out what it does.</p>
+                    <p>Then run the sketch on the right 👉.<br/>
+                        Click it and press some keys and see how the value of <code>key</code> changes.
+                    </p>
+                    <p>Then copy the above code in <i>Processing</i> and see what happens!</p>
+                    <p>Make a few changes as suggested in the '<code>try</code>' comments and check that they have the effects that you expect:</p>
+                        <ul>
+                          <li>change text size</li>
+                          <li>change colour</li>
+                          <li>change text position</li>
+                        </ul>
+                </div>
+
+                <p>There you go - <b>interaction</b>!</p>
+                <p>But of course we can do more, and <i>Processing</i> has some useful features that help with this.</p>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br />
+                <script>loadSketch("https://jsndyks.github.io/cityBootCamp/p5js/keyBig/", 250, 250, "https://jsndyks.github.io/cityBootCamp/images/interaction/p5js.keyBig.png");</script>
+                <p><b>Key Example</b><br />Click the image to activate the sketch.<br/>Then <b>click again</b> inside the popup window. This will get the keyboard focussed on the sketch.<br/>Now you can press keys on the keyboard to see how the value of <b>key</b> changes based upon your interaction with the sketch through the keyboard.<br/>Voila! Interaction!</p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <h4>KeyPressed Sketch</h4>
+                <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">3</span> - <b>keyPressed()</b> : a method that runs when a key is pressed</code></p>
+                <p>
+                    One of the most useful functions for interaction is the <a
+                        href="https://processing.org/reference/keyPressed_.html"><code>keyPressed()</code></a> method.</p>
+                        <p>This method is called and run by a <i>Processing</i> sketch every time a key is pressed.
+                        </p>
+                        <p>This is important so let's say it again: any method that you specify in a sketch, that you give the name <code>keyPressed()</code>, will be run by your sketch every time you press any key on the keyboard.
+                        </p>
+                        <p>This is important so I am going to say it again in bold: <b></b>any method that you specify in a sketch, that you give the name <code>keyPressed()</code>, will be run by your sketch every time you press any key on the keyboard.</b>
+                        </p>
+                        <p>You simply create a new method called <code>keyPressed()</code> as shown below, and <i>Processing</i> will automatically call this method every time it detects a <i>key press</i> interaction: every time a key is pressed on the keyboard</br>Let's try it!</p>
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <pre class="brush: processing; gutter: false; toolbar: false; ">
+// -- set up the things that don't change ...
+void setup() {
+  size(400, 400);
+  background(220);
+  textSize(18);
+  fill(64);
+}
+
+// -- nothing in here for now - an empty draw loop ...
+void draw() {
+  // -- this still runs 60 time per second!
+}
+
+// -- Processing calls this method whenever a key is pressed:
+void keyPressed() {
+  // -- put the value of 'key' in a random position:
+  text(key,random(20,width-20),random(20,height-20));
+}</pre>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <div class="coreTask">
+                  <b>Keyboard Interaction - keyPressed() method</b>
+                    <p>Read through the code again and see if you can work what's new.
+                      <br/>What happens in
+                        <code>keyPressed()</code>?
+                    </p>
+                    <p>Then run the sketch on the right - click it and press some keys and see how the value of
+                        <code>key</code> changes.
+                    </p>
+                    <p>Then copy the above code in <i>Processing</i> and make sure it runs as expected!</p>
+                    <p>As usual, you should make a few changes and check that they have the effects that you expect.</p>
+                    <p>If they don't - discuss!</p>
+                </div>
+
+
+                <h4>Ordered Characters Sketch</h4>
+
+                <p>This is pretty, but we might want to do something a bit more structured with the input, like arrange
+                    it in a way that shows sequence.</p>
+                <img src="https://jsndyks.github.io/cityBootCamp/images/interaction/orderedCharacters.png" />
+                <p>
+                    To do this we'll need to store information about where we put each piece of <code>text()</code> that
+                    we generate in response to a key press being detected in <code>keyPressed()</code>.
+                    <br />
+                    Hopefully you'll be thinking <i>global variables</i> as you are reading this?
+                </p>
+                <p>We'll use a <i>global variable</i> called <code>p</code> to store this positional information about how far along the canvas we want to plot our first letter and increment it by a few pixels each time a key is pressed - in the <code>keyPressed()</code> method so that subsequent letters are printed a bit further along.</p>
+                <p>This should move each successive letter to the right. That is fine while <code>p</code> is less than <code>width</code>.
+                    But our letters will plot off the right hand side of the canvas as we type more keys unless we do
+                    something about this!</p>
+                <p>A little bit of simple maths will work out where we put each successive value of <code>key</code> to the
+                    right of the next ... until we get to the end of the screen canvas, at which point we need to head
+                    back to the left and down a line.</p>
+                <p>It's pretty straightforward ...</p>
+                <ul>
+                    <li style="padding-bottom:0.75em"><code>p%width</code> - uses the <a href="https://processing.org/reference/modulo.html">modulo
+                            operator</a> <code>%</code>.<br />
+                        This calculates the <i>remainder when one number is divided by another</i>.<br/>
+                        So 110%100 is 10.<br/>
+                        As is 210%100.<br/>
+                        This is handy as any number <code>%width</code> gives us a position between <code>0</code> and <code>width</code>.
+                        When we
+                        get a number that is just more than width, this gives us a position back on the left hand side
+                        of the canvas as <code>(width+1)%width</code> is <code>1</code>>! </li>
+                    <li style="padding-bottom:0.75em"><code>24*int(p/width)</code> - firstly <a
+                            href="https://processing.org/reference/divide.html">divide</a>s <code>p</code> by <code>width</code>. It
+                        also uses the <code><a href="https://processing.org/reference/intconvert_.html">int()</a></code>
+                        operator to convert the result to an integer. This means that we get a whole number - the number
+                        of times <code>width</code> completely fits into <code>p</code>.
+                        <br/>
+                        So <code>int((width+1)/width)</code> is 1!<br/>
+                        And <code>int((5*width+1)/width)</code> is 5.<br/>
+                        It follows that int(110/100) is 1. And int(210/100) is 2.
+                        If you think about it, this means we find out how may times <code>p</code> has filled our <code>width</code>
+                        through this part of the calculation. Which tells us how many <i>lines</i> of length
+                        <code>width</code> the characters have taken up. If we then multiply through by a number that is
+                        bigger than our current letter height, like <b>24</b> or something, this will position text that
+                        has a <code>p</code> value that is greater than <code>width</code> down the screen so that it does not
+                        overlap.
+                        I have added another <code>100</code> on in the script that follows so that the text does not start at the very top of
+                        the screen.
+                    </li>
+                </ul>
+                <p>Here's some code that should do the job!</p>
+                <pre class="brush: processing; gutter: false; toolbar: false; ">
+// -- global variable - used to count keypresses and position text
+int p = 0;
+
+void setup() {
+  size(400, 400);
+  background(220);
+  textSize(18);
+  fill(64);
+}
+
+// -- do nothing in the draw loop for now!
+void draw() {}
+
+void keyPressed() {
+  p+=12; // -- add 12 to p each time
+
+  // -- put the char held in 'key' at a screen position
+  // --   that increases in x and y with each key press
+  text(key,p%width, 100 + 24*int(p/width));
+
+  // -- the above just calculates a position for the text as p increases
+  // -- use println() to print out the values to the console if you like
+  // -- remove '/width' and see what happens as you get to the right hand side!
+}</pre>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br />
+                <script>loadSketch("https://jsndyks.github.io/cityBootCamp/p5js/keyPressedRandom/", 250, 250, "https://jsndyks.github.io/cityBootCamp/images/interaction/p5js.keyPressedRand.png");</script>
+                <p><b>KeyPressed Example</b><br />Click to activate and press keys on the keyboard for endless fun.</p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <div class="task">
+                  <b>Keyboard Interaction - adding some order</b>
+                    <p>Check the code and comments, and look at the way the position of the text varies according to the
+                        global variable <code>p</code>.</p>
+                    <p>Then run the sketch on the right - see what happens as you press more keys and get to the end of the canvas!</p>
+                    <p>Make the changes suggested in the comments to make sure that you understand what's going on.</p>
+                    <p>What will happen if you make the number <code>24</code> bigger or smaller?<br/>Try it!<br />
+                        Were you correct?</p>
+                </div>
+
+                <h4>KeyPressed Sketch with Control Flow</h4>
+                <p>This is a good start, but we are likely want to <i>control program flow</i> from the keyboard.</p>
+                <p>With any luck, you'll be thinking about <code>if</code> statements already, and how we might add them
+                    into <code>keyPressed()</code> to respond to interaction from the keyboard.</p>
+                <p>Here's how we might use one in <code>keyPressed()</code> to do things in a sketch depending upon
+                    keyboard input - to clear the screen in this case.</p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false; ">
+  void keyPressed() {
+    // -- change program flow depending on value of key:
+    if (key == ' ') {  // &lt;-- try changing the key that is pressed to clear
+      background(240); // &lt;-- try changing the background colour used
+    } else {
+      p+=12; // -- add 12 to p each time &lt;-- try changing this to p-=4
+
+      // -- put the char held in 'key' at a screen position
+      // --   that increases in x and y with each key press
+      text(key, p%width, 100 + 24*int(p/width));
+    }
+  }
+</pre>
+
+                <p>This code says ...</p>
+                <blockquote>When a key is pressed, if the key is 'space', then fill the canvas with a light
+                    grey,<br />otherwise add 12 to p and then put the value of key on the canvas at a position depending
+                    on the value of p.</blockquote>
+                <p>It's useful to be able to express your code like this - do practice!<br/>
+                This is all we need you to be able to do at the end of <code><b>#BootCamp</b></code>: write a little bit of code that does something that you were unable to do previously - and <i>explain what it does</i>.</p>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br />
+                <script>loadSketch("https://jsndyks.github.io/cityBootCamp/p5js/keyPressedX/", 250, 250, "https://jsndyks.github.io/cityBootCamp/images/interaction/p5js.keyPressedX.png");</script>
+                <p><b>KeyPressed with Order Example</b>.<br />Click to activate and press keys on the keyboard.
+                    Keep typing keys until you get beyond the right hand side. Then stop.</p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <div class="coreTask">
+                  <b>Keyboard Interaction - Conditions</b>
+                    <p>But for now, try the <b>KeyPressed with Condition Example</b> sketch shown to the right - it uses interaction to control flow in the sketch.</p>
+                    <p>Then implement this yourself by copying the code from above to add this condition to the
+                        <code>keyPressed()</code> method in your sketch.
+                        Remember to save the sketch and give it a meaningful new name.
+                    </p>
+                    <p>The comments in the code suggest <b>three changes</b> that you should make.<br />Try these
+                        out.<br />In each case ...</p>
+                    <ul>
+                        <li><b>PREDICT</b>: Be brave - have a think - <b>predict</b> that you think will happen - this is a great way to learn;</li>
+                        <li><b>CHANGE</b>: Make the <b>change</b> as requested;</li>
+                        <li><b>OBSERVE</b>: Run the sketch and <b>observe</b> what happens;</li>
+                        <li><b>THINK</b>: Have a <b>think</b>, about the prediction and the observation, and maybe discuss this with a friend (or an enemy - they can be useful people to get onside);</li>
+                        <li><b>LEARN</b>: OK, so what have you managed to <b>learn</b> either through a correct or incorrect prediction and your observations and thinking and discussion?
+                        </li>
+                        <li><b>CONFIRM</b>: Make a different change to <b>confirm</b> your thoughts and go through the <b>predict</b>,
+                            <b>change</b>, <b>observe</b>, <b>think</b>, <b>learn</b>, <b>confirm</b> cycle again!
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="aside">
+                    <h5>Important Aside!</h5>
+                    <p>Learning to <b>predict</b>, <b>change</b>, <b>observe</b> (behaviour, bug reports, etc.),
+                        <b>think</b> (and discuss), <b>learn</b>, <b>confirm</b> will really help you in BootCamp, and
+                        throughout your studies. It's what we all do to try to develop knowledge and skills.
+                        Remember that your teachers are here to help you with this - and they use the same approach to programme, debug, and develop their research and teaching knowledge and skills.<br/>
+                        We get things wrong. We are continually learning. We learn by teaching an observing and interacting with you.<br/>
+                        We love learning so much that we have dedicated our careers to it!<br/>
+                        And our job is to teach you to learn. Let us know how we are doing!
+                    </p>
+                </div>
+
+                <div class="challenge">
+                    <p>If you want an extra challenge then see whether you can edit your sketch to add features so
+                        that...</p>
+                    <ol>
+                        <li>the text starts at the left hand side every time you press the space bar?</li>
+                        <li>the text runs from right to left and bottom to top as you type keys?</li>
+                    </ol>
+                </div>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br />
+                <script>loadSketch("https://jsndyks.github.io/cityBootCamp/p5js/keyPressedSpace/", 250, 250, "https://jsndyks.github.io/cityBootCamp/images/interaction/p5js.keyPressedSpace.png");</script>
+                <p><b>KeyPressed with Condition Example</b><br />Click to activate, and be sure to make the
+                    window big enough to see all of the sketch.
+                    Interact with the sketch by pressing keys on the keyboard.<br/>
+                    Try pressing the space-bar to clear the
+                    screen.</p>
+
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <h4>ColourKey Sketch</h4>
+                <p>So far, our interaction has resulted in a <i>truly terrible</i> world processing package. Shocking.
+                    Awful. Sorry about that!</p>
+                <p>But we have been messing about like this to make sure you understand how to:</p>
+                <ul>
+                    <li>Relate a key press to the <code>key</code> variable</li>
+                    <li>Check which key has been pressed</li>
+                    <li>See how we can detect and act on a key press with the <code>keyPressed()</code> method</li>
+                    <li>Combine interactions with stuff you have learned before to do useful things - controlling the
+                        flow in your sketch</li>
+                </ul>
+                <p>Hopefully you understand all of this and can do some of it, which makes it all worthwhile.</p>
+                <p>However, it's <b>very important</b> that you don't get mixed up and think that <code>key</code> and
+                    <code>keyPressed()</code> only enable us to do things with text. That's not the case - we can do
+                    much more interesting things by responding to interaction through the keyboard.
+                </p>
+                <p>
+                    You can use the <code>keyPressed()</code> method to modify the contents of variables in your sketch
+                    that do all sorts of things.
+                    By combining void <code>keyPressed()</code> with the conditional code from the previous session, and
+                    as we have seen above, you can modify any type of variable depending on the value of the input.
+                </p>
+
+                <!-- <p class="focusOFF"><code>#4</p> -->
+                <p>
+                    In the sketch below, a rectangle is drawn using the the <a
+                        href="https://processing.org/reference/rect_.html" target="_blank"><code>rect()</code></a> method. The
+                    rectangle is filled with colour (by a call to <a href="https://processing.org/reference/fill_.html"
+                        target="_blank"><code>fill()</code></a>) using three global variables called <code>r</code>, <code>g</code> and
+                    <code>b</code>. These represent the red, green and blue components of the colour.
+                    Initially, the amount of red in the colour is 0 out of 255, the amount of green is 0 out of 255 and
+                    likewise the amount of blue in the colour is 0 out of 255. So the overall colour given by
+                    <code>fill(r, g, b)</code> is made of no red, no green and no blue.
+                    That's a deep dark nightly new-moon <b>black</b>: <span style="background-color:#000">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                </p>
+                <pre class="brush: processing; gutter: false; toolbar: false; ">int r, g, b;
+
+void setup() {
+  size(200, 200);
+  r = 0;
+  g = 0;
+  b = 0;
+}
+
+void draw() {
+  background(254, 232, 134);
+  fill(r, g, b);
+  rect(50, 50, 100, 100);
+}</pre>
+
+                <p>But we can do something about this!<br />We can make our sombre rectangle 🙁 much more cheery 😁 with
+                    some keyboard interaction.</p>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <div class="coreTask">
+                  <b>Colour Key</b>
+                  <p>Add a <code>keyPressed()</code> method with code that changes the rectangle's
+                    fill colour to green if the <span class="key">g</span> key is pressed and blue if the
+                    <span class="key">b</span> key is pressed and red if the <span class="key">r</span> key is pressed.
+                    <br /><br />
+                    This code snippet is likely to be useful:
+                    <br /><br /></p>
+                    <pre class="brush: processing; gutter: false; toolbar: false; ">if (key == 'r')
+{
+  // Change the value of r
+}</pre>
+                </div>
+
+                <div class="challenge">
+                    <h5>Colour Key Challenge</h5>
+                    <p>If you have done that and want to try a little more, well you now have a structure in
+                        <code>keyPressed()</code> that will allow you to make more subtle changes to each colour
+                        component.
+                    </p>
+                    <p>Try using the <span class="key">G</span> and the <span class="key">g</span> keys to
+                        <i>increase</i> and <i>decrease</i> the amount of green in the colour by some increment respectively.
+                    </p>
+                    <p>You might want to try this for the other colour components too with the <span
+                            class="key">B</span>, <span class="key">b</span>, <span class="key">R</span> and <span
+                            class="key">r</span> keys.</p>
+                    <p>See if you can use <a href="https://processing.org/reference/constrain_.html"><code>constrain()</code></a> to limit the red, green and blue component values to the range 0-255.</p>
+                </div>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/colourKey", 250, 250, "https://www.staff.city.ac.uk/~jwo/bootcamp2021/lecture04/images/colourKey.png");</script>
+                <p><b>ColourKey Example</b><br />Click to activate and try pressing the 'R', 'G' and 'B' keys.</p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <p>So far so good. We can click keys on the keyboard and get our sketches to do things in
+                    response.<br />
+                    This is the fundamental thing with interaction.</p>
+                    <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">4</span> - <b>Summary</b> : keyboard variables &amp; methods in Processing</code></p>
+                <p>Here is a summary of the keyboard event handling methods
+                    and variables that are available in <i>Processing</i>.
+                    You'll note that we haven't covered everything, so you should follow up on this in your own time.</p>
+                <p>For example, <code><a href="https://processing.org/reference/keyCode.html">keyCode</a></code> is a
+                    useful variable that enables us to use keys other than the character keys.</p>
+                <h4>Event handling : keyboard</h4>
+                <table>
+                    <tr>
+                        <td rowspan="3"><b>Variables</b></td>
+                        <td><a href="https://processing.org/reference/key.html" target="_blank">key</a></td>
+                        <td>A global char variable that holds the value of the most recently pressed key.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://processing.org/reference/keyPressed.html" target="_blank">keyPressed</a>
+                        </td>
+                        <td>A global Boolean variable that is true while any key is being pressed and false
+                            otherwise.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://processing.org/reference/keyCode.html" target="_blank">keyCode</a>
+                        </td>
+                        <td>A global variable that holds the value of the most recently pressed key if this was a special
+                            non-character key, such as the arrow keys or ALT, CONTROL, SHIFT, etc.
+                            The key variable is set to "CODED" if this is the case.<br /><code>if (key == CODED) {}</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3"><b>Methods</b></td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://processing.org/reference/keyPressed_.html" target="_blank">keyPressed()</a>
+                        </td>
+                        <td>A method that is called in response to a key being pressed.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://processing.org/reference/keyReleased_.html"
+                                target="_blank">keyReleased()</a></td>
+                        <td>A method that is called in response to a key being released.</td>
+                    </tr>
+                </table>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br />
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <hr />
+                <h3>3. What About the Mouse?</h3>
+                <p>
+                    So, we have a useful series of variables and methods to enable us to interact with and through the
+                    keyboard.
+                    But that only gets us so far - we can only specify a limited set of things as defined by the keys.<br/>
+                    What if we want to identify locations on the screen.<br/>Quickly.<br/>With precision?<br />
+                    I think you know where this is going, right?<br />
+                </p>
+
+                <img src="https://jsndyks.github.io/cityBootCamp/images/interaction/stuMouse.png" />
+
+                <p>Well, in the 1970s researchers at the <i>Xerox Research Centre</i> in <i>Palo Alto</i>, California were asking
+                    themselves the same question:</p>
+                <blockquote>What if we want to identify locations on the screen?<br />Quickly. With precision?<br />How
+                    do we do that?</blockquote>
+                <p>So they invented the mouse!</p>
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <h3>&nbsp;</h3>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>🐁</p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <p>It's hard to imagine just how innovative this mode of interaction was back then, and the kind of
+                    computing and interaction it has enabled.</p>
+                <p>One of these innovators was <b><a href="https://dl.acm.org/profile/81406592524">Stuart K. Card</a></b>, who worked in and subsequently led a hugely creative and productive team at
+                    Xerox PARC from the mid 1970s until 2010.
+                    One of the many things that he and his colleagues were thinking about back then (probably more
+                    deeply than we just did) was how to get computers to know what we need of them.
+                    They wanted to come up with devices that were easy to use and provided efficient and precise
+                    interactions.
+                </p>
+                <p>In their mouse prototypes, wheels and rollers generated electronic signals (and squeaked a bit
+                    sometimes), that reliably allowed a computer user to specify positions on a desk, that could in turn
+                    be converted into positions on a screen.
+                    This gives us an effective flexible and efficient new means of interacting with computers.</p>
+                <p>Here are some prototypes, taken from a fascinating article and interview in <a
+                        href="https://web.archive.org/web/20210323215123/https://www.notion.so/blog/stu-card">Notion</a>: <a
+                        href="https://web.archive.org/web/20210323215123/https://www.notion.so/blog/stu-card">Stu Card on inventing the future</a>.
+                </p>
+
+                <table cellspacing="4" cellpadding="4" border="0">
+                    <tr>
+                        <td>
+                            <a href="https://web.archive.org/web/20210323215123/https://www.notion.so/blog/stu-card"
+                                title="The outside of an early mouse prototype."><img
+                                    src="https://www.notion.so/cdn-cgi/image/w=3840,q=100/https://images.ctfassets.net/spoqsaf9291f/4Sm2xHEXWftLIrPqrLBaV9/122d64ee43eb3f2b7cf69db345a28b42/STU-17.jpeg"
+                                    alt="The outside of an early mouse prototype" width="100%" height="auto"
+                                    style="width: 100%;" /></a>
+                        </td>
+                        <td>
+                            <a href="https://web.archive.org/web/20210323215123/https://www.notion.so/blog/stu-card"
+                                title="The inside of an early mouse prototype."><img
+                                    src="https://www.notion.so/cdn-cgi/image/w=3840,q=100/https://images.ctfassets.net/spoqsaf9291f/7hPCU6DqHLUf9I8qtMQEoE/6f7aad8a785bfc1fd9f572bce594046e/STU-15.jpeg"
+                                    alt="The inside of an early mouse prototype." width="100%" height="auto"
+                                    style="width: 100%;" /></a>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="figCaption">
+                            The outside of an early mouse prototype.<br />
+                            Source: <a href="https://web.archive.org/web/20210323215123/https://www.notion.so/blog/stu-card">Notion Labs, Inc.</a>
+                        </td>
+                        <td class="figCaption">
+                            The inside of an early mouse prototype.<br />
+                            Source: <a href="https://web.archive.org/web/20210323215123/https://www.notion.so/blog/stu-card">Notion Labs, Inc.</a>
+                        </td>
+                    </tr>
+                </table>
+
+
+                <div class="aside">
+                    <p>
+                        The article '<a href="https://web.archive.org/web/20210323215123/https://www.notion.so/blog/stu-card">Stu Card on inventing the future</a>'
+                        is a half hour read.<br /> It is full of wisdom from one of the pioneers of the subject you are
+                        now focussing on for a few years.<br /> It's inspiring stuff.<br />
+                        <b>I recommend you take time to read it</b>.</p>
+                        <p>You might ask ...<br>
+                            &nbsp;&nbsp;Do I have to read it? Well, no.<br/>
+                            &nbsp;&nbsp;Do I need to read it? Well, no, you don't.<br/>
+                            &nbsp;&nbsp;Do I get any credit or points if I read it? Nope - no direct credit related benefits at all.<br/>
+                            &nbsp;&nbsp;So why should I read it?
+                        </p>
+                    Wll, doing some background reading about the subjects, technologies and people you are learning with and about will help you greatly in your time as a student. It's informative, and fun. It gives you context and grounds your learning.
+                    You are at University to learn - and you are learning from experts.
+                    Embrace this, and learn as much as you can.
+                    Remember to find time to do it.</p>
+                </div>
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <img src="https://www.notion.so/cdn-cgi/image/w=200,q=100/https://images.ctfassets.net/spoqsaf9291f/59pwajkZivZw28kkjUlYUo/55f9dc0c7623470f87b7b72381276c82/STU-11.jpeg"
+                    width="200" />
+                <p class="figCaption">
+                    Stu Card with an early mouse.<br />What a great way to interact with a computer!<br />
+                    Source: <a href="https://web.archive.org/web/20210323215123/https://www.notion.so/blog/stu-card">Notion Labs, Inc.</a>
+                </p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <p>
+                    I'm lucky enough to have met Stu, who really is one of the great innovators in 20th Century
+                    Computing.</p>
+                <p> I presented him with a much deserved <a
+                        href="http://ieeevis.org/year/2017/info/awards/test-of-time-awards">Test of Time Award </a> at
+                    the IEEE VIS conference in 2017 in Phoenix, Arizona.<br />He gave a <a
+                        href="https://www.gicentre.net/jsndyks/infovistestoftime1997">fantastic acceptance speech</a>
+                    too, which was full of wisdom.<br />It wasn't about 🐁 at all.<br />It was about 🐢s and
+                    🐇s.<br />It was a great honour to meet Stu and learn from him.</p>
+
+                    <div class="aside">
+                        <p>
+                            I strongly suggest you read that <a
+                        href="https://www.gicentre.net/jsndyks/infovistestoftime1997">fantastic acceptance speech</a>
+                    too.<br/>It really is full of wisdom and might teach you a few things about learning ... which you will be doing a lot of in the next 3 years!
+                    <br/> 🐢 🐇
+                        </p>
+                    </div>
+
+                <p>Nowadays, we have <i>trackpads</i> and <i>touch</i> and all sorts of other ways of identifying
+                    coordinates and parts of the screen as we interact with computers.
+                    But most of these derive from ideas first captured in the mouse by Stu and the Xerox pioneers   .</p>
+                <p>Most mouse actions are about identifying areas of the screen, and <i>Processing</i> has some
+                    excellent features for capturing where on the screen we are focusing as we use a mouse or similar
+                    device.</p>
+                    <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">5</span> - <b>Summary</b> : mouse (cursor) variables &amp; methods in Processing</code></p>
+                <p>These methods and variables are in some ways similar to those used with the keyboard. 
+                    And you know some of them and have already used them in some of your sketches.
+                    Let's start with a summary table.</p>
+                <h4>Event handling : mouse</h4>
+                <table>
+                    <tr>
+                        <td rowspan="4"><b>Variables</b></td>
+                        <td><a href="https://processing.org/reference/mouseX.html" target="_blank">mouseX</a></td>
+                        <td>A global float variable that holds the x coordinate of the mouse pointer.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://processing.org/reference/mouseY.html" target="_blank">mouseY</a></td>
+                        <td>A global float variable that holds the y coordinate of the mouse pointer.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://processing.org/reference/mousePressed.html"
+                                target="_blank">mousePressed</a></td>
+                        <td>A global Boolean variable that is true while the mouse left button is pressed.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://processing.org/reference/mouseButton.html" target="_blank">mouseButton</a>
+                        </td>
+                        <td>A global variable that is equal the constant <code>LEFT</code> when the left button is
+                            pressed and <code>RIGHT</code> when the right button is pressed.</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5"><b>Methods</b></td>
+                        <td><a href="https://processing.org/reference/mouseClicked_.html"
+                                target="_blank">mouseClicked()</a></td>
+                        <td>A method that is called in response to the mouse left button being pressed and released.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://processing.org/reference/mousePressed_.html"
+                                target="_blank">mousePressed()</a></td>
+                        <td>A method that is called in response to the mouse left button being pressed.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://processing.org/reference/mouseReleased_.html"
+                                target="_blank">mouseReleased()</a></td>
+                        <td>A method that is called in response to the mouse left button being released.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://processing.org/reference/mouseMoved_.html" target="_blank">mouseMoved()</a>
+                        </td>
+                        <td>A method that is called in response to the mouse being moved with no buttons being pressed.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://processing.org/reference/mouseDragged_.html"
+                                target="_blank">mouseDragged()</a></td>
+                        <td>A method that is called in response to the mouse being moved while the left button is
+                            pressed.</td>
+                    </tr>
+                </table>
+
+                <p>OK, so you already know the global variables <code>mouseX</code> and <code>mouseY</code>.
+                    These tell you something about how your sketch is being interacted with.</p>
+                <p>Then we get to the <i>methods</i>, which are called whenever we <i>click</i>, <i>press</i>,
+                    <i>release</i>, <i>move</i> or <i>drag</i> the mouse. Or whatever peripheral we are using to control
+                    <i>where</i> on the screen we want to focus.
+                </p>
+                <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">6</span> - <b>mouseClicked()</b> : a method that runs when you click the 🐁</code></p>
+                <p>
+                    <i>Processing</i> supplies special methods for all of these events.<br/>
+                    For example, <a href="https://processing.org/reference/mouseClicked_.html"
+                        target="_blank">mouseClicked()</a> - <i>Processing</i> automatically detects a click of the mouse
+                    and calls any method that you add to your sketch with this name whenever that happens.
+                    So, if the mouse is clicked in a sketch, <i>Processing</i> looks for a method in the sketch called <a
+                        href="https://processing.org/reference/mouseClicked_.html" target="_blank">mouseClicked()</a>,
+                    and if it finds that you have defined one in your sketch, then it runs it.<br/>
+                    This is, of course, a bit like <a
+                    href="https://processing.org/reference/keyPressed_.html"><code>keyPressed()</code></a>, and works in much the same way.<br/>
+                    Code in this method can do anything - <code>println()</code>, <code>background(255,0,0)</code>, whatever.<br/>
+                    You decide what happens when the mouse is clicked.<br/>
+                    You decide what happens upon the detected interaction.<br/>
+                    Try these ideas! And others! Be creative!
+                </p>
+
+                <!--p>So, what does this give us? Well, plenty! Let's have a play with them by trying them in use.</p-->
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <img src="https://jsndyks.github.io/cityBootCamp/images/interaction/stuCard.171003.small.jpg"
+                    width="200" />
+                <p class="figCaption">
+                    A photo of Stu Card taking a photo of the 'data trophy' that we made for him at IEEE VIS.
+                    This was taken in 2017, shortly after his <a
+                        href="https://www.gicentre.net/jsndyks/infovistestoftime1997">wonderfully inspiring acceptance
+                        speech</a> about 🐢s &amp; 🐇s<br />
+                    Source: Jason Dykes.
+                </p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <div class="coreTask">
+                  <b>Mouse Interaction - mouseClicked() method</b>
+                    <p>
+                        Improve your <code>keyPressed()</code> sketch - <i>the rudimentary unusable frustrating 'WordProcessor'</i> - so that:</p>
+
+                    <ol>
+                        <li>rather than having a key clear the screen, this happens <i>when a mouse click occurs</i>.
+                        </li>
+                        <li>when a key is pressed the letter is positioned <i>wherever the mouse is pointing</i></li>
+                    </ol>
+                    <p>Remember to save the sketch with a meaningful new name.</p>
+                    <p>This code snippet gives you what you need in <code>mouseClicked()</code> but you'll need to take
+                        some code out of <code>keyPressed</code> as well to enable you to use the space key:</p>
+                    <pre class="brush: processing; gutter: false; toolbar: false; ">
+void mouseClicked() {
+    // -- clear the screen:
+    background(220);
+}</pre>
+                </div>
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br />
+                <script>loadSketch("https://jsndyks.github.io/cityBootCamp/p5js/keyPressedMouse/", 250, 250, "https://jsndyks.github.io/cityBootCamp/images/interaction/p5js.keyPressedMouse.png");</script>
+                <p><b>KeyPressed Move Example</b><br />Click to activate, click to focus in the sketch and then press keys on the keyboard.
+                    <br />Move mouse to position subsequent text.
+                    <br />Click to clear the text.
+                </p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <div class="challenge">
+                    <p>
+                        The sketch to the right clears the screen if you click the right mouse button, but selects a
+                        position for new text if you click the left button.<br />
+                        Try it!<br/>
+                        Can you make a sketch to do this?
+                    </p>
+                    <p>
+                        You'll need two global variables for text position <code>textX, textY</code>, and you'll need to
+                        set these to <code>mouseX</code> and <code>mouseY</code> when the mouse button is clicked.</p>
+                    <p>This code snippet shows how to use the value of <code>mouseButton</code> to vary what happens
+                        depending upon which mouse button has been clicked.</p><br />
+                    <pre class="brush: processing; gutter: false; toolbar: false; ">
+if (mouseButton == LEFT) {
+    // -- left button - update text position:
+    textX = mouseX;
+    textY = mouseY;
+  } else {
+    // -- right button - clear the screen:
+    background(220);
+  }</pre>
+                </div>
+
+            </div> <!-- End of left column -->
+
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br /><br />
+                <script>loadSketch("https://jsndyks.github.io/cityBootCamp/p5js/keyPressedClick/", 250, 250, "https://jsndyks.github.io/cityBootCamp/images/interaction/p5js.keyPressedClick.png");</script>
+                <p><b>KeyPressed Click Example</b><br />Click to activate and press keys on the keyboard.
+                    <br />Left click to reposition subsequent text.
+                    <br />Right click to clear the text.
+                </p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <hr />
+                <h3>4. Interaction and State?</h3>
+
+                <p>You should by now have your sketches working in all sorts of ways in response to interactions made through your keyboard and mouse.
+                    That's great.</p>
+
+                    <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">7</span> - <b>State</b> : recording what is going on in your sketch</code></p>
+                    <p>But in explaining how to do things we have led you into <b>bad habits</b>.<br/>
+                    That's not so great!<br/>So let's unpick things a little.
+                </p>
+
+                <p>This next section is an important bit, so make sure you have read it and understood it.<br/>
+                Be a good friend - make sure your friends and neighbours have read it and understood it too.<br/>
+                It will save you and them a lot of time (and perhaps some programming pain).</p>
+
+                <h4>Detecting, Recording and Doing - How to Structure a Sketch for Interaction</h4>
+
+                <p>Often people don't read those big red titles 👆.<br/>So I am going to write it again in black here.<br/>This section is about: "<b>How to Structure a Sketch for Interaction</b>".<br/>And you need to know this in order to make reliable interactive sketches.
+                </p>
+
+                <p>The key thing is that empty <code>draw()</code> loop!</p>
+                <p>The <code>draw()</code> loop is the place to draw and do things.<br />
+                    The event handling methods like <code>keyPressed()</code> and <code>mouseClicked()</code> are not the place for this.<br />
+                    <b>Do not draw or do things in event handling methods like <code>keyPressed()</code> and <code>mouseClicked()</code><br/></b>
+                    These methods are best for changing and recording <i>system state</i> - the way the sketch is configured at any time.<br />
+                    The <code>draw()</code> loop is then the place to act on that state - to do the things requires by the interaction.</p>
+                <p>In summary ... (actually read through this code 👇) ...</p>
+                <pre class="brush: processing; gutter: false; toolbar: false; ">
+// -- GLOBAL VARIABLES
+// -- Declare and initialise variables that describe
+// --   the initial state of your system, here.
+// -- You will vary these to record the way that the state
+// --   of your system varies over time in response to interactions.
+
+// -- THE MAIN DRAW LOOP!
+
+void draw() {
+  // -- Do things in here
+  // --   based upon variables set in the event handling methods
+  // --   that describe the system state.
+}
+
+// -- THE EVENT HANDLING METHODS!
+
+void keyPressed() {
+  // -- Set variables here that describe the state of your sketch
+  // --   based upon interactions and input.
+  // -- These will be acted on in the draw() loop.
+}
+
+void mouseClicked() {
+  // -- Set variables here that describe the state of your sketch
+  // --   based upon interactions and input.
+  // -- These will be acted on in the draw() loop.
+}</pre>
+                <p>So ... even more bluntly ... <b>Don't draw things in the event handling methods!</b>.</p>
+                <p>Here is a refactoring of the <code>keyPressed</code> sketches that structures things as we advise
+                    above.</p>
+                <p>It's a little longer than the other examples, but should be readable.<br/>
+                    Take your time to read it through and see how we have refactored things in line with this new advice.</p>
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <pre class="brush: processing; gutter: false; toolbar: false; ">
+// -- GLOBALS : declare and initialise global variables
+// --   that describe system state - false before interaction:
+boolean clearScreen = false;  // -- do we clear the screen?
+boolean addText = false;      // -- do we add text?
+boolean isRed = false;        // -- do we make text red?
+
+// -- SET UP : initialise and do things that don't change :
+void setup() {
+  size(400, 400);
+  background(220);
+  textSize(18);
+}
+
+// -- ACT : do things in here (like draw) based upon system state!
+void draw() {
+
+  // -- check whether to make text red:
+  if (isRed) {
+    // -- set fill to red:
+    fill(255, 0, 0);
+    isRed = false;
+  } else {
+    fill(64);
+  }
+
+  // -- check whether to add text:
+  if (addText) {
+    // -- add text at the mouse position:
+    text(key, mouseX, mouseY);
+    addText = false;
+  }
+
+  // -- check whether to clear screen:
+  if (clearScreen) {
+    // -- clear the screen: random light grey!
+    background(int(random(180, 240)));
+    // -- reset system state:
+    clearScreen = false;
+  }
+}
+
+// -- INTERACT : detect things in these event handling methods
+// --   that establish and record system state:
+void keyPressed() {
+  // -- set variable to record current state:
+  addText = true;
+
+  // -- set variable to record current state:
+  if (key == 'r' || key =='R') {
+    isRed = true;
+  }
+}
+
+void mouseClicked() {
+  // -- set variable to record current state:
+  clearScreen = true;
+}</pre>
+
+                <p>One of the reasons we didn't organise the other examples in this way was to keep them short and sweet
+                    as we introduced concepts.</p>
+                <p>But we need you to understand how to ...</p>
+                <ul>
+                    <li>detect and capture interaction</li>
+                    <li>use it to set variables that describe the state of your system (sketch)</li>
+                    <li>check these in the <code>draw()</code> loop to control flow based upon inputs acquired through
+                        interaction</li>
+                </ul>
+                <p>This gives you plenty of scope for producing exciting, imaginative, quick, interactive sketches.</p>
+                <p>So let's try to add something to this skeleton sketch!</p>
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br />
+                <script>loadSketch("https://jsndyks.github.io/cityBootCamp/p5js/keyPressedMouseState/", 250, 250, "https://jsndyks.github.io/cityBootCamp/images/interaction/p5js.keyPressedMouseState.png");</script>
+                <p><b>KeyPressed Mouse State Example</b><br />Click to activate and press keys on the keyboard.
+                    <br />Move the mouse to position subsequent text.
+                    <br />Left click to clear the text.
+                    <br />Try pressing the 'r' key.
+                </p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+              <div class="coreTask">
+                <b>Mouse Interaction - Controlling Flow</b>
+                    <p>Create a sketch using the skeleton code provided above.<br />Run it and experiment a
+                        little.<br />
+                        Can you see how <code>isRed</code> works?<br/>Can you see how we make decisions based upon its value and how we interact to change that?</p>
+                    <p>Then <b>extend the sketch</b> by adding a global variable, an event handling method and a control statement to :</p>
+                    <ul>
+                        <li>make the screen clear in yellow if the mouse is in the right half of the screen, but grey otherwise</li>
+                    </ul>
+                    <p>Helpful information:</p>
+                    <ol>
+                        <li>the <code>mouseMoved()</code> method is called every time the mouse is moved and these are
+                            the times when you need to check where the mouse is</li>
+                        <li>the mouse is in the right half of the screen when <code>mouseX &gt; width/2</code></li>
+                        <li>a good global variable name and initial value might be something
+                            like:<br>&nbsp;&nbsp;<code>boolean isYellow = false;</code> or
+                            perhaps<br />&nbsp;&nbsp;<code>boolean mouseIsRight = false;</code></li>
+                    </ol>
+
+                </div>
+                <div class="aside">
+                    <h5>Important Reminder!</h5>
+                    <p>Remember that learning to <b>predict</b>, <b>change</b>, <b>observe</b> (behaviour, bug reports,
+                        etc.), <b>think</b> (and discuss), <b>learn</b>, <b>confirm</b> will really help you make
+                        progress.<br />Remember that your teachers are here to help you with this!</p>
+                </div>
+
+                <!-- https://web.archive.org/web/20210323215123/https://www.notion.so/blog/stu-card -->
+            </div>
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br />
+                <script>loadSketch("https://jsndyks.github.io/cityBootCamp/p5js/keyPressedMouseStateExercise/", 250, 250, "https://jsndyks.github.io/cityBootCamp/images/interaction/p5js.keyPressedMouseStateExercise.png");</script>
+                <p><b>KeyPressed Mouse State Example</b><br />Click to activate and press keys on the keyboard.
+                    <br />Move mouse to reposition subsequent text.
+                    <br />Click to clear the text:<br /> - grey if the mouse is in<br />&nbsp;&nbsp;&nbsp;the left half
+                    of the screen<br /> -yellow otherwise.
+                </p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">8</span> - <b>Persistence</b>: make sure your state variables are maintained</code></p>
+                <h4>Persistent Record of Interaction</h4>
+
+                <p>These little examples are intended to show you what is possible, and we haven't really worked with
+                    examples where interactions persist and accumulate.
+                    So, let's try an example that will challenge you a little and help you see how this can be achieved.</p>
+                <p>We're going to count the number of times a sketch is clicked.
+                    Remember that <code>mouseClicked()</code> is called, if you have defined it, every time the mouse is clicked.
+                    This is a great start!
+                </p>
+
+                <div class="coreTask">
+                  <b>Interaction - Persistence</b>
+                    <p>Using the code below as a start point get <code>clickCount</code> to increment every time the
+                        mouse is clicked.<br />
+                        This variable should record the number of times the canvas has been clicked in your sketch.</p>
+                        <p>You'll need to write code to increment <code>clickCount</code> in a <code>mouseClicked()</code> method.</p>
+                </div>
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <pre class="brush: processing; gutter: false; toolbar: false; ">
+int clickCount = 0;
+
+void setup()
+{
+  size(300,300);
+  textSize(72);
+  fill(200);
+}
+
+void draw(){
+  background(254, 232, 134);
+  fill(0);
+  text(clickCount, width/2, height/2);
+}</pre>
+
+                <p>We'd like you to try some of the following extensions to this task.<br />
+                    They all vary the way your sketch looks based upon accumulating interactions.</p>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br />
+                <script>loadSketch("https://jsndyks.github.io/cityBootCamp/p5js/clickCount/", 250, 250, "https://jsndyks.github.io/cityBootCamp/images/interaction/p5js.clickCount.png");</script>
+                <p><b>ClickCount Example</b><br />Click to activate and click in the sketch.
+                    <br />This sketch achieves some of what we ask for ... but we'd like you to extend it further!
+                </p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <div class="coreTask">
+                  <b>Interaction - Persistence Freestyling</b>
+                    <p>
+                        <b>Extension 1</b>: Make the background colour different when more than 10 clicks have
+                        occurred<br />
+                        and, or when the number ends in 2 (or 3, or 5 or something - 8 even, you decide).<br/>(the <a
+                            href="https://processing.org/reference/modulo.html">modulo operator</a> <code>%</code> will
+                        be useful here). <br/>Remember to store the <i>state</i> of the sketch in a boolean variable ... something like <code>boolean isMoreThanTen</code>.
+                    </p>
+                    <p>
+                        <b>Extension 2</b>: Add a <code>rect()</code> at the centre of the canvas that increases in size
+                        each time the mouse is clicked.<br />
+                        <code><a href="https://processing.org/reference/rectMode_.html">rectMode(CENTER)</a></code>
+                        should help here.
+                    </p>
+                  </div>
+                  <div class="task">
+                    <b>Interaction - More Persistence Freestyling</b>
+                    <p>Here are some more interesting things you could try with your newfound coding capability!</p>
+                    <p>
+                        <b>Extension 3</b>: You should have already used the <code><a
+                            href="https://processing.org/reference/random_.html" target="_blank">random()</a></code> method.<br/>
+                            If not, don't worry, it's easy - check here <code><a
+                            href="https://processing.org/reference/random_.html" target="_blank">random()</a></code><br/>
+                        Modify your code to add and display a second variable <code>randomNum</code>, that contains a
+                        different random value between 0 and 99 each time the mouse is clicked.
+                    </p>
+                    <p>
+                        <b>Extension 4</b>: Now see whether you can show the <b>average</b> of all the random numbers that have been produced by your sketch on each click.
+                        This will require a third variable that contains the <code>runningTotal</code> of all the random
+                        numbers generated during the various clicks.<br />
+                        It should be apparent that <code>runningTotal/clickCount</code> will give you the average.<br />
+                        But watch out - dividing any number by zero results in an error, so you will need a condition to
+                        make sure that you only calculate the average <code>if (clickCount &gt;0)</code>.
+                    </p>
+                </div>
+                <div class="challenge">
+                    <p>
+                        <b>Challenge - Extension 5</b>: If you enjoyed that and want to do more, then try showing how
+                        the average varies as clicks increase <i>with a graphic</i>.<br />
+                        Plot a small circle, with the x position showing the number of clicks - this needs to increase
+                        as the number of clicks increases.<br />
+                        The y position of the circle should depend on the <b>average</b> that you have calculated.<br />
+                        What happens to this average over time?<br />
+                    </p>
+                </div>
+
+                <h4>Hang on, that's not an interface!</h4>
+                <p>You are now equipped with many ways of interacting with sketches and should be able to produce
+                    wonderfully interactive work. All it requires is a bit of practice and a lot of imagination.
+                    And a few of those <b>predict</b>, <b>change</b>, <b>observe</b>, <b>think</b> (and discuss), <b>learn</b>, <b>confirm</b> loops ...
+                    that <i>Stu Card</i> and his <i>Xerox Research Centre</i> colleagues would have used when they were designing their interface devices back in the 1970s.</p>
+
+                <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">9</span> - <b>HUH?</b> : that's not a graphical user interface?</code></p>
+                <p>We have deliberately <b>not</b> focussed on some of the standard windows style interface elements
+                    here - we're getting under the bonnet of these interfaces to give you scope for making more
+                    interesting, innovative and inspiring interactions!<br />But maybe we should show you how you can
+                    use what you know to make them!</p>
+                <p>Here's a basic example:</p>
+                <pre class="brush: processing; gutter: false; toolbar: false; ">int x, y, size;
+boolean isIn = false;    // -- is the mouse in the rect()?
+boolean isOn = false;    // -- is the checkbutton on?
+
+void setup()
+{
+  size(400, 400);
+  x = width/4;
+  y = height/4;
+  size = width/15;
+}
+
+// -- The draw() loop - here is where we control flow and draw things!
+void draw()
+{
+  if (isOn) {
+    // -- yellow if on!
+    background(255, 255, 140);
+  } else {
+    // -- white if not!
+    background(255);
+  }
+
+  // -- change colour to be used in rect based on status:
+  if (isIn) {
+    fill(255, 128, 64);
+  } else if (isOn) {
+    fill(255, 0, 0);
+  } else {
+    fill(240);
+  }
+
+  // -- the main rectangle - always shown :
+  rect(x, y, size, size);
+
+  fill(64, 200);
+  // -- things to show based on status!
+  if (isOn) {
+    // -- middle rectangle and reminder text :
+    rect(x+size*0.25, y+size*0.25, size*0.5, size*0.5);
+    text("Remember to turn me off before you leave ...", 120, height-10);
+    text("On", x+size*1.5, 15+height/4);
+  } else {
+    text("Off", x+size*1.5, 15+height/4);
+  }
+}
+
+
+// -- Event handling methods:
+// --   here is where we detect interactions and capture them in variables...
+
+// -- Processing will call this method whenever the mouse is moved:
+void mouseMoved()
+{
+  // -- is mouse position inside the rectangle?
+  if  ((mouseX &gt; x/2) && (mouseY &gt;y) && (mouseX &lt; x+size) && (mouseY &lt; y+size))
+  {
+    isIn = true;
+  } else {
+    isIn = false;
+  }
+}
+
+// -- Processing will call this method whenever the mouse is clicked:
+void mouseClicked()
+{
+  // -- is mouse position inside the rectangle?
+  if  ((mouseX &gt; x/2) && (mouseY &gt;y) && (mouseX &lt; x+size) && (mouseY &lt; y+size))
+  {
+    // -- switch isON to whatever it is not - shorthand follows on the next line (try it):
+    // -- isOn = !isOn
+    if (isOn) {
+      isOn = false;
+    } else {
+      isOn = true;
+    }
+  }
+}</pre>
+
+                <p>The key thing to see here is the way that we check whether the mouse is in the rectangle or not with
+                    some basic comparisons of the mouse position with the extent of the rectangle.</p>
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <div class="coreTask">
+                  <b>Building an 'Interface'</b>
+                    <p>Run the example sketch to the right - click the check-button to see what happens!</p>
+                    <p>Then copy the code from above into <i>Processing</i> and run the sketch to see how it works.</p>
+                    <p>Work through the code to understand how we know whether the mouse (cursor) is in the rectangle or not.</p>
+                    <p>This allows us to interact with the mouse and other peripherals to identify and select spaces and
+                        shapes on screen.<br />
+                        It's quite clever really - all invented by the folks at Xerox in the 1970s!</p>
+                    <p>But what we do with this capability is down to us as programmers.<br />
+                        Can you edit the code that checks whether the mouse (cursor) is <i>in</i> the rectangle, so that it responds as though you
+                        are in it, when you are actually 10 pixels away from it?</p>
+                </div>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br />
+                <script>loadSketch("https://jsndyks.github.io/cityBootCamp/p5js/checkButtonV0/", 250, 250, "https://jsndyks.github.io/cityBootCamp/images/interaction/p5js.checkButtonV0.png");</script>
+                <p><b>CheckButton Example</b><br />Click to activate and click in the sketch.
+                    <br />A lonely checkButton.<br />It's just a rectangle that changes colour when you interact with it.<br/>Give it a try!
+                </p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <p>Of course we could extend things a little ... we want you to be creative in <code>#BootCamp</code>!</p>
+                <p>You don't need checkboxes and check-buttons and conventions.<br/>Be creative and daring! Surprise us!</p>
+                <p>Think outside the (check) box!</p>
+                <p>And if you do use familiar interface forms like buttons and checkboxes  - make sure they do something interesting, exciting, dynamic and creative!</p>
+                <p>Oh, and make sure all of your sentences end with exclamation marks! 😉</p>
+                <div class="coreTask">
+                  <b>Be Creative! Don't be constrained by the 'Interface's you see!</b>
+                  <p>
+                    Where was I?<br/>Oh yeah, try the <i>CheckButton example</i> to the right.
+                  </p>
+                </div>
+                To make good use of a homegrown interface element like this, we often use our own 'methods' - collections of <i>Processing</i> code and capability that allow us to define and call on functionality whenever we need it - like when a button is pressed.
+                We will cover methods very soon.
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br />
+                <script>loadSketch("https://jsndyks.github.io/cityBootCamp/p5js/checkButtonCrazy/", 250, 250, "https://jsndyks.github.io/cityBootCamp/images/interaction/p5js.checkButtonCrazy.gif");</script>
+                <p><b>Another CheckButton Example</b><br />Click to activate and click in the sketch.
+                    <br />Here's an example of a dynamic sketch that responds to 🐁 interaction!
+                </p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <hr />
+                <h3>5. Summary </h3>
+
+                <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">10</span> - <b>Session Summary</b> : go make interactive sketches!</code></p>
+                <ul>
+                    <li style="padding-top:1em; padding-bottom:1em">
+                        <i>Processing</i> provides some useful capability for interaction - see the <b>Event handling : keyboard
+</b> and <b>Event handling : mouse</b> tables and follow the links to the <a href="https://processing.org/reference/">Processing Reference</a> materials for explanations and examples.<br/><b>Really - try the examples out and experiment with them</b>. There is great stuff in there that will help you understand and inspire you to do creative things.
+                    </li>
+
+                    <li style="padding-top:1em; padding-bottom:1em">
+                        Structure your sketches to differentiate methods that detect interaction and collect and store
+                        this input, from the <code>draw()</code> method, that uses this information to control flow and
+                        behaviours.<br/>
+                        You change the state of your scripts in the event detection methods like <code>keyPressed()</code> and <code>mouseMoved()</code>.<br/>
+                        You actually do things in <code>draw()</code>.
+                    </li>
+                    <li style="padding-top:1em; padding-bottom:1em">
+                        We'd like you to use this knowledge <b>creatively</b> in designing interesting interactive sketches - and enjoy doing so as you progress through <code>#BootCamp</code>.
+                    </li>
+                    <li style="padding-top:1em; padding-bottom:1em">
+                        Begin by working through these notes, examples and tasks ... then move on to the <a
+                            href="https://moodle4.city.ac.uk/mod/page/view.php?id=420875">practical exercises</a>.
+                            <br/>
+                            Use the <a href="https://processing.org/reference/">Processing Reference</a> materials to help, and remember to
+                            <b>predict</b>, <b>change</b>, <b>observe</b>, <b>think</b> (and discuss), <b>learn</b>, <b>confirm</b> as you go.
+                                Your colleagues and teachers will be important sounding boards in this process.
+                                Chat to them and help others as you go through this process multiple times.
+                    </li>
+                    <li style="padding-top:1em; padding-bottom:1em">
+                        You should be able to figure out how this sketch on the right works: <b>can you</b>?
+                    </li>
+                </ul>
+                <p style="padding-top:8em; padding-left:4em">🐁</p>
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                      <!-- Right hand column for small images, popup sketches and annotations. -->
+                      <h3>&nbsp;</h3>
+                      <p style="padding-top:4em"></p>
+                      <script>loadSketch("https://jsndyks.github.io/cityBootCamp/p5js/moveMouse/", 250, 250, "https://jsndyks.github.io/cityBootCamp/images/interaction/p5js.moveMouse.png");</script>
+                      <p><b>Mouse Move Example</b><br />Here's one final sketch that responds to interaction through the  🐁.
+                        <br/><br/>Try keyboard interaction<br/>(<span class="key">t</span>, <span class="key">r</span>, etc.)<br/> oh,  and mouse clicks.
+                      </p>
+                  <!--
+                  char mouse = '🐁';
+                  let mouse = "🐁";
+                  let turtle = "🐢";
+                  let rabbit = "🐇";
+                  let duck = "🦆";
+                  let lobster = "🦞";
+                  let crab = "🦀";
+                  let badger = "🦡";
+                  let squirrel = "🐿";
+                  let hedgehog = "🦔";
+                  let pig = "🐖";
+                  let squid = "🦑";
+                  let cat = "🐈‍⬛";
+                  let kangaroo = "🦘";
+                  if (key == 'q') animal = squid;
+                  if (key == 'p') animal = pig;
+                  if (key == 'h') animal = hedgehog;
+                  if (key == 'b') animal = badger;
+                  if (key == 's') animal = squirrel;
+                  if (key == 'c') animal = crab;
+                  if (key == 'l') animal = lobster;
+                  if (key == 'd') animal = duck;
+                  if (key == 'r') animal = rabbit;
+                  if (key == 't') animal = turtle;
+                  if (key == 'm') animal = mouse;
+                  if (key == 'f') animal = cat;
+                  if (key == 'k') animal = kangaroo;
+                   -->
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+        <hr />
+        <hr />
+        <div class="sig">
+            <b>Jason DYKES</b><br />
+            <!-- <i>08 Oct 2021</i> -->
+            <!-- <i>04 Oct 2022</i> -->
+            <i>22 Sep 2023</i>
+        </div>
+        <div style="padding-bottom:2em;clear:both" />
+            <!--- spacer for iFrame -->
+            <p style="padding-top:1em"><hr/></p>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

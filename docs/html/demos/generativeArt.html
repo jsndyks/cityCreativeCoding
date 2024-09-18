@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming BootCamp Project Ideas: Agent-based Generative Art</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- iFrame resizing -->
+	<script src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+
+        <p class="intro">
+            <a href="http://en.wikipedia.org/wiki/Generative_art" target="_blank">Generative art</a> involves
+            constructing artwork from sets of relatively simple rules that allow the work to build itself as a computer
+            program is run. Agent-based generative art places those rules inside many <i>agents</i> that interact with
+            their environment to produce visual patterns.
+        </p>
+
+        <p>
+            For generative art projects you will create one or more <i>classes</i> to contain simple rules for
+            describing an agent's behaviour. For examples, have a look at the <a
+                href="https://moodle4.city.ac.uk/mod/page/view.php?id=466630" target="_new">bouncing ball</a> and <a
+                href="https://moodle4.city.ac.uk/mod/page/view.php?id=464458" target="_new">randomness</a> pages to see how classes
+            can be created and used to control the visual appearance of a sketch.
+        </p>
+
+        <p>
+            As a general guide, start by creating a simple class representing an agent. It is likely that as a minimum,
+            your agent will contain two variables representing its screen position (<code>x</code> and <code>y</code>)
+            as well as some rules that change its location. Next create a simple sketch that draws on the screen using
+            this single agent. Then try adding several agents by creating an array of them. You should experiment with
+            changes to both the visual appearance of your drawing (colour, line and fill styles etc.) as well as the
+            rules that define your agent's behaviour.
+        </p>
+
+        <p>
+            How you design your agent is up to you. The key is to experiment to come up with something you like. If you
+            are stuck for ideas, here are a few to get you started:
+        </p>
+
+        <ul>
+            <li>Create agents that respond to movement of the mouse. Allow them to leave 'trails' so they build up your
+                picture as they move around.</li>
+            <li>Use your agents to provide the vertices of some simple shapes (e.g. three agents could represent the
+                three corners of a triangle).</li>
+            <li>Create agents that interact with each other in some way (see the <a
+                    href="https://moodle4.city.ac.uk/mod/page/view.php?id=464458" target="_new">bouncing ball</a> page for an
+                example).</li>
+            <li>Create agents that have rules for changing their size and colour as well as position. Experiment with
+                different visual appearances.</li>
+        </ul>
+
+        <p>
+            Even small changes to an agent's behaviour can have a big effect on the visual appearance of a sketch.
+            Below are the results of minor changes to the <a
+                href="https://moodle4.city.ac.uk/mod/page/view.php?id=464458#generative" target="_blank">random Perlin
+                noise sketch</a>. The different images were produced using the same agent code but altering
+            characteristics like line thickness, number of agents and Perlin distance.
+        </p>
+
+
+        <div class="units-row">
+            <div class="unit-33"><img src="images/generative/generative2.png" width="300" height="300"></div>
+            <div class="unit-33"><img src="images/generative/generative4.png" width="300" height="300"></div>
+            <div class="unit-33"><img src="images/generative/generative7.png" width="300" height="300"></div>
+        </div>
+        <br>
+        <div class="units-row">
+            <div class="unit-33"><img src="images/generative/generative5.png" width="300" height="300"></div>
+            <div class="unit-33"><img src="images/generative/generative1.png" width="300" height="300"></div>
+            <div class="unit-33"><img src="images/generative/generative6.png" width="300" height="300"></div>
+        </div>
+
+
+        <div><i>Jo Wood, 2021</i></div>
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+        <!-- End of content -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

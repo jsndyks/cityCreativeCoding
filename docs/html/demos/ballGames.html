@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming BootCamp Project Ideas: Ballgames</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- iFrame resizing -->
+	<script src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
+
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+
+        <p class="intro">
+            Drawing coloured balls on screen is easy with Processing. Making those balls move and interact with their
+            environment is a little more challenging, but the code to do this can be simplified by creating a <a
+                href="https://moodle4.city.ac.uk/mod/page/view.php?id=466630" target="_new">simple Ball class</a>. In this project you
+            will develop a simple game that uses a Ball class as basis for your design.
+        </p>
+
+        <p>
+            Firstly, make sure you have read the page on <a
+                href="https://moodle4.city.ac.uk/mod/page/view.php?id=466630" target="_new">developing a simple Ball class</a>. That
+            page took you as far as allowing the balls to bounce off each other within your sketch. Think about how you
+            might add some further interaction (both between balls as well as the 'player' of the game). For example you
+            might make some balls 'eat' others that they bump in to. You might allow one ball controllable with the
+            mouse and the objective of the game might be to avoid the carnivorous balls.
+        </p>
+
+        <p>
+            There are plenty of possibilities for developing the bouncing ball sketch into something more interesting.
+            For some inspiration have a look at the game <a href="https://www.osmos-game.com" target="_blank">Osmos</a>.
+            You don't have to recreate this game, but it is an example of how adding relatively simple rules to the
+            balls (when two collide, the larger one eats the smaller one and grows a little) can make things
+            interesting.
+        </p>
+
+        <p>
+            Here are some possible rules to add to your ball sketch (but feel free to ignore these or add your own):
+        </p>
+
+        <ul>
+            <li>When two balls collide, the larger one eats the smaller and grows by the size of the eaten one</li>
+            <li>The larger the ball is, the more slowly it moves</li>
+            <li>When two balls of the same colour collide they merge; when balls of a different colour collide they
+                bounce</li>
+            <li>Balls shrink slowly unless they come into contact with 'food'</li>
+        </ul>
+
+        <p>
+            <img src="images/ball/sizedBalls.png" width="1000" height="500" alt="Bouncing balls"><br>
+            Bouncing balls that grow when they eat smaller ones.
+        </p>
+
+
+        <div><i>Jo Wood, 2021</i></div>
+
+
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

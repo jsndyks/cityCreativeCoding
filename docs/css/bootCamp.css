@@ -1,0 +1,32 @@
+/*
+ * Extra CSS for Moodle : BootCamp
+ * JD : 2021
+ * 07/10/21
+ * 02/10/22
+ *
+ */
+
+  pre {margin-left:2em; padding-top:8px; padding-bottom:8px; padding-left:2em;}
+  p {padding-top:0.5em; padding-bottom:0.5em; margin-top:0.5em; margin-bottom:0.5em; }
+
+  .key {font-weight:bold; padding:6px; margin:2px; padding-top:2px; padding-bottom:2px; background-color:#e0e0e0; border:1px solid #c0c0c0; border-right:2px solid #909090; border-bottom:2px solid #909090; }
+
+  .todo {margin:2em; background-color:#fffff0}
+
+  .figCaption {margin:1em; color:#606060; font-style:italic; font-size: 90%}
+
+  .checkOutcomes {padding:1em; margin-left:3em}
+
+  .focusON_orig {float:left; padding:0.75em; margin-right:1em; margin-top:0.25em;margin-bottom:1.5em;  color:#b44; background-color:#f84; text-align:right; clear:both; border-right:4px solid #b44; font-size:150%;}
+  .focusON {float:right; padding:0.75em; margin-left:0; margin-top:2.5em;margin-bottom:0.5em;  color:#ddd; background-color:#6AA0CF; text-align:left; clear:both; border-left:4px solid #0070A6; font-size:125%; width:100%}
+  .focusNum {font-size:200%; font-weight:bold; color:#C3E9FF;}
+  .focusHash {font-size:125%; font-weight:bold; color:#C3E9FF}
+  .focusON code {color:#fff;  background-color:#6AA0CF}
+
+  .focusOFF {display:none; padding:0px; color:#229; background-color:#fff; }
+
+  .focusLecture {display:block; padding:4px; margin:4px; background-color:#ff9; border-left:4px solid #b44;}
+
+  .figCaption {margin:1em; color:#606060; font-style:italic; font-size: 90%}
+
+  .sig {float:right; padding-right:4em; clear:both}

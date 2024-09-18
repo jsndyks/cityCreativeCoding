@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming BootCamp Resources: Adding Randomness to Sketches</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+      <!-- iFrame -->
+  <script type="text/javascript" src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
+
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+
+        <!---
+            
+https://jsndyks.github.io/cityBootCamp/html/resources/bootCamp.resources.randomness.html
+
+Various methods in Processing enable us to generate sequences of 'random' numbers with different characteristics. These can be really effective in bringing sketches to life and adding variety and interest to your work.
+
+--->
+
+        <p class="intro">
+            This page describes how to use Processing's various methods for generating random numbers. Randomness can be
+            used to add interest and variation to your sketches.
+        </p>
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <h3>Types of randomness</h3>
+                <p>
+                    Sometimes in your programs you might want to introduce some randomness. This might be as part of a
+                    game, to add some visual interest or to sample from a dataset. Processing provides at least three
+                    ways to generate random numbers to help you achieve this.
+                </p>
+
+                <h4>Uniform random numbers</h4>
+
+                <p>
+                    The most common is the <code><a href="https://processing.org/reference/random_.html"
+                        target="_blank">random()</a></code> method. This will generate a random number between a specified
+                    minimum and maximum. So for example to generate a <code>float</code> number between 1 and just less
+                    than 13, you could use:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false;">float myVariable = random(1,13);</pre>
+
+                <p>
+                    Note that this will generate decimal (<code>float</code>) numbers within that range, not just whole
+                    numbers. Every time a new call to <code>random()</code> is made, a new random number will be
+                    generated. So calling the example above six times might give you numbers like the following (if you
+                    try this you will get a different set of numbers):
+                </p>
+                <pre class="brush: processing; gutter: false; toolbar: false;">11.232058
+10.712559
+ 9.973865
+ 7.722609
+12.922253
+ 3.445576</pre>
+
+                <p>
+                    If you need to generate random whole numbers, you can convert the <code>float</code> number into an
+                    <code>int</code>. This can be useful when, for example, choosing a random position inside an array.
+                    Here's an example that generates a whole random number between 0 and 99:
+                </p>
+
+                <pre
+                    class="brush: processing; gutter: false; toolbar: false;">int myVariable = (int)random(0,100);</pre>
+
+                <p>
+                    The <code>(int)</code> part of the expression converts the <code>float</code> into an
+                    <code>int</code> by truncating the decimal part of the number being generated. Here is the output
+                    produced by calling the rounded random number generator 100 times:
+                </p>
+                <pre class="brush: processing; gutter: false; toolbar: false;">50 82 21 99 39 58  6 34 12 28 38 33 81 27 98 28 78 65  5 92 40 92 68 49 17
+74 61 31 98  0 11 19  2 11 61 27 13 99 93 26 50 11 82 14 77 97 66 16 85 72
+23 16 66 93 93 56 97 95 38 90 17 95 33 68 69  5 16 14 35 12 85 48 29 88 69
+50 98 89 51 87 38 81 59 59 36 70 93 41 39 25 36 83 57  0  7  0 60 55 94 66</pre>
+
+                <p>
+                    Note that this generates numbers between 0 and 99 and not 0 and 100. This is because the maximum
+                    value returned by <code>random()</code> is just less than, but not including, the second number
+                    provided to it. Because we are truncating (i.e. ignoring the digits after the decimal point) and not
+                    rounding the number in this example, even a value like 99.99999 will be rounded downwards to 99.
+                </p>
+
+                <p>
+                    Here is a simple sketch that uses <code>random()</code> to draw a line with a random y coordinates:
+                </p>
+
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+                <pre class="brush: processing; gutter: false; toolbar: false; highlight:18">void setup()
+{
+ size(400,300);
+ noLoop();      // Only draw the sketch once.
+}
+
+void draw()
+{
+  background(247,239,218);
+  strokeWeight(0.5);
+  noFill();
+  float maxHeight = 100;
+
+  beginShape();
+  for (float xPos = 0; xPos&lt;width; xPos++)
+  {
+    // Place line vertex at random vertical displacement from centre.
+    float yPos = 0.5*height + random(-maxHeight,maxHeight);
+    vertex(xPos,yPos);
+  }
+  endShape();
+}</pre>
+
+                <p>
+                    Note that in <code>setup()</code>, the command <code>noLoop()</code> was called to stop the sketch
+                    from redrawing itself many times. The reason for this is that each time <code>draw()</code> is
+                    called, a new set of random numbers are generated. This would create a flickering effect in our
+                    sketch, which we may not wish. You can see this effect by copying the example above and then
+                    removing the <code>noLoop()</code> line.
+                </p>
+
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+
+                <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/random/uniformRandom.png" height="400"
+                    alt="A line with uniform random y-values">
+                <p>
+                    A sketch with uniform random y-values. Each vertex height has an equal chance of being anywhere
+                    between the vertical centre-maxHeight and the vertical centre+maxHeight.
+                </p>
+
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <p>
+                    There are two important properties of the numbers generated by <code>random()</code>. Firstly, each
+                    random number is independent of all other random numbers generated. That means that the y-position
+                    of the line at any x-position has no effect on the y-position nearby. Secondly, any number between
+                    the minimum and maximum values specified (<code>-maxHeight</code> and <code>maxHeight</code> in the
+                    example above) is equally likely to be generated when running the sketch. This can be seen by
+                    plotting the frequency of numbers generated by <code>random()</code>.
+                </p>
+
+                <p>
+                    If we generate 1 million numbers using <code>random()</code>, each ranging somewhere between 0 and
+                    100, we will find that there will be about the same frequency of numbers between 0 and 1 as there
+                    are between 1 and 2, 2 and 3, 3 and 4 etc. This is known as a <i>uniform</i> or <i>rectangular</i>
+                    distribution.
+                </p>
+
+                <p> This may be good enough for many situations, but as we shall see, there are some alternative random
+                    number generators that can be more useful.
+                </p>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+
+                <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/random/uniformFreq.png" height="312"
+                    alt="Frequency distribution of numbers from random()">
+                <p>
+                    Uniform or 'rectangular' distribution of 1,000,000 numbers produced with calls to random(0,100). The
+                    vertical axis is proportional to the likelihood that a given number will be drawn from the random
+                    distribution and is equal for all numbers within the range.
+                </p>
+
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <h4>Gaussian or normally distributed random numbers</h4>
+
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+                <p>
+                    Imagine throwing darts at the bullseye of a dartboard. Unless you are very good, there are likely to
+                    be some random variation in the accuracy of your throws. After doing this for some time, there will
+                    be many holes around the centre of the board - most close to the bullseye, but some a little further
+                    out. One or two might be a long way out. This is an example of a <i>Gaussian</i> or normally
+                    distributed random distribution. There is still randomness, but there will be more values closer to
+                    some central number than far from it.
+                </p>
+
+                <p>
+                    In Processing you can generate a Gaussian random number with the command <code><a
+                        href="https://processing.org/reference/randomGaussian_.html"
+                        target="_blank">randomGaussian()</a></code>. Unlike the <code>random()</code> method, this one doesn't
+                    take any parameter specifying the range of numbers. It always produces random numbers with a mean of
+                    0 and a spread (known as standard deviation) of 1. This means the effect range is not precisely
+                    defined, but is likely to range roughly between -3 and 3. In order to scale those random numbers to
+                    a different range, you need to multiply the result by some factor. So for example to modify our
+                    sketch above to use Gaussian rather than uniform random vertices, you could replace the highlighted
+                    line with:
+                </p>
+
+                <pre
+                    class="brush: processing; gutter: false; toolbar: false;">float yPos = 0.5*height + 0.3*maxHeight*randomGaussian();</pre>
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+
+                <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/random/gaussianRandom.png" height="312"
+                    alt="Sketch modified to use Gaussian random numbers">
+                <p>
+                    Sketch modified to use Gaussian random numbers. Note how the height of the line is now more likely
+                    to be near the vertical centre than far from it.
+                </p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <p>
+                    We still use the variable <code>maxHeight</code> to control the vertical scale of the line (set to
+                    100 pixels either side of the vertical centre line). But now we multiply this by the random numbers
+                    provided by <code>randomGaussian()</code>, and further multiply the result by 0.3 to give us an
+                    approximate range of plus/minus <code>maxHeight</code>.
+                </p>
+
+                <p>
+                    Gaussian random numbers also have the property of independence - that is any one random number has
+                    no influence over the value of the next random number generated. But unlike the uniform
+                    distribution, not all numbers are equally likely to be drawn. Numbers close to the mean are much
+                    more common than those that are a long way from it.
+                </p>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+                <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/random/gaussianFreq.png" height="355"
+                    alt="Gaussian or normal distribution">
+                <p>
+                    Gaussian or 'normal' distribution of 1,000,000 numbers with a mean of 50 and standard deviation of
+                    15.
+                </p>
+
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <h4>Perlin Noise</h4>
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <p>
+                    Processing has a third type of random number generator that can be very useful for generating
+                    visually interesting patterns. This is known as Perlin noise and is often used in CGI to produce
+                    smoke and cloudlike effects.
+                </p>
+
+                <p>
+                    Unlike the previous two random number generators, Perlin noise is <i>autocorrelated</i>. That means
+                    that when a random number is generated, it is partly dependent on the value of the previous random
+                    number that was last generated. This allows some structure to added to the randomness and can
+                    produce some quite lifelike patterns.
+                </p>
+
+                <p>
+                    To create Perlin noise, use the <code><a href="https://processing.org/reference/noise_.html"
+                        target="_blank">noise()</a></code> method. It requires one or more <i>distance</i> parameters. The best
+                    way of understanding what they do is to imagine a crumpled up sheet of paper. If that paper was
+                    partially uncrumpled so it created a bumpy surface this would be a little like a 2-dimensional
+                    Perlin noise surface with the crumples providing the randomness. The distance parameter simply
+                    determines where on that surface, the random value is to be found. The value itself is equivalent to
+                    the height of the paper. So if two <code>noise()</code> calls are made with similar (but not
+                    identical) distance values, they would have similar (but not identical random values). The more
+                    different the distance values are, the more likely the random values are to be different to one
+                    another.
+                </p>
+
+                <p>
+                    To modify our sketch to use Perlin noise, use the <code><a
+                        href="https://processing.org/reference/noise_.html" target="_blank">noise()</a></code> method and
+                    replace the original highlighted line with the one below:
+                </p>
+                <pre
+                    class="brush: processing; gutter: false; toolbar: false; ">float yPos = 0.5*height + (2*noise(0.05*xPos)-1)*maxHeight;</pre>
+
+                <p>
+                    Here, we set the distance value passed to the <code>noise()</code> method to be 0.05 times the value
+                    of <code>xPos</code>. In other words, 5% of the horizontal position of the line. You can try
+                    changing the value of 0.05 to other values to see the effect on the random numbers generated.
+                </p>
+            </div> <!-- End of left column -->
+
+
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+
+                <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/random/perlinRandom.png" height="300"
+                    alt="Sketch modified to use Perlin noise">
+                <p>
+                    Sketch modified to use the noise() method. The number sequence controlling the height of the line is
+                    autocorrelated (one random number influences the next random number in the sequence).
+                </p>
+                <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/random/perlinFreq.png" height="380"
+                    alt="Distribution from the noise() method">
+                <p>
+                    Distribution of 1,000,000 numbers generated by noise() scaled between 0 and 100. This distribution
+                    is approximately Gaussian.
+                </p>
+
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <p>
+                    To explore the effect of changing the distance parameter to <code>noise()</code>, we could use mouse
+                    interaction to control it. In the example below, we modify the line drawing sketch to set the
+                    distance function to be a fraction of the horizontal mouse position. Note also that because the
+                    sketch will change as the mouse is moved, we need to remove the <code>noLoop()</code> command from
+                    inside <code>setup()</code>.
+                </p>
+
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+                <pre class="brush: processing; gutter: false; toolbar: false;">void setup()
+{
+ size(400,300);
+}
+
+void draw()
+{
+  background(247,239,218);
+  strokeWeight(0.5);
+  noFill();
+  float maxHeight = 100;
+
+  beginShape();
+  for (float xPos = 0; xPos&lt;width; xPos++)
+  {
+    float scale = 0.001*mouseX;       // Scale distance by mouse position.
+    float yPos = 0.5*height + (2*noise(scale*xPos)-1)*maxHeight;
+    vertex(xPos,yPos);
+  }
+  endShape();
+}</pre>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/random1", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/random/perlinSketch1.png");</script>
+                <p>
+                    Interactive control over Perlin distance. Click image to activate and move mouse left and right to
+                    change the scaling of the parameter passed to noise().
+                </p>
+
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <p>
+                    So far we have controlled the selection of the random Perlin noise number by specifying a single
+                    number as a parameter to <code>noise()</code>. You can think of this number representing the
+                    horizontal distance away from the left hand edge of our crumpled piece of paper. Different values of
+                    this distance will represent different points on the surface of the paper. It is also possible to
+                    specify two distance parameter to <code>noise()</code>, where the first number represents the
+                    horizontal distance and the second the vertical distance. This gives us greater control over the
+                    variation in randomness in our sketches.
+                </p>
+
+                <p>
+                    Below is a minor modification (highlighted) to the interactive sketch that now uses both the mouse X
+                    position and Y position to vary the noise function.
+                </p>
+
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+                <pre class="brush: processing; gutter: false; toolbar: false;highlight:[17,18];">void setup()
+{
+ size(400,300);
+}
+
+void draw()
+{
+  background(247,239,218);
+  strokeWeight(0.5);
+  noFill();
+  float maxHeight = 100;
+
+  beginShape();
+  for (float xPos = 0; xPos&lt;width; xPos++)
+  {
+    float scale = 0.001*mouseX;       // Scale distance by mouse x-position.
+    float distance = 0.01*mouseY;     // Noise sample from mouse y-position.
+    float yPos = 0.5*height + (2*noise(scale*xPos,distance)-1)*maxHeight;
+    vertex(xPos,yPos);
+  }
+  endShape();
+}</pre>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/random2", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/random/perlinSketch2.png");</script>
+                <p>
+                    Interactive control over 2-dimensional Perlin noise. Click image to activate and move mouse left and
+                    right to change the scaling and up and down to change the second dimension of the noise sampling.
+                </p>
+
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <h3 id="generative">Generative art with Perlin noise</h3>
+
+                <p>
+                    Let's bring together these ideas of randomness to produce some 'generative art' that draws lines on
+                    screen that are influenced by both the <code>random()</code> and <code>noise()</code> methods. The
+                    example we will build was
+                    inspired by the excellent book <a href="http://www.generative-gestaltung.de/1/lang/en"
+                        target="_blank">Generative Design</a> that contains many examples of using Processing to build
+                    beautiful generative artworks.
+                </p>
+
+                <p>
+                    We will start by building an <i>agent</i> - a simple <i>class</i> that has its own behaviour. In
+                    this case the agent will simply be a particle that has a location on screen and a random direction
+                    of movement. You can think of an agent as being a tiny robot that can be programmed to do its own
+                    thing according to the rules you give it in your code.
+                </p>
+
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+                <pre class="brush: processing; gutter: false; toolbar: false;">class Particle
+{
+  float x, y;           // Position of particle
+  float prevX, prevY;   // Previous position before it moved.
+  float direction;      // Direction in which the particle moves (in radians).
+
+  // Creates a new particle with a random location and direction of movement.
+  Particle()
+  {
+    x = random(0, width);
+    y = random(0, height);
+    prevX = x;
+    prevY = y;
+    direction = random(0, radians(360));
+  }
+
+  // Moves the particle after randomly modifying the direction of movement.
+  void move()
+  {
+    if ((x &lt; 0) || (y &lt; 0) || (x &gt; width) || (y &gt; height))
+    {
+      // Particle has moved off screen so reset it in new random location.
+      x = random(0, width);
+      y = random(0, height);
+      prevX = x;
+      prevY = y;
+      direction = random(0, radians(360));
+    }
+    else
+    {
+      // Store previous position before we move particle.
+      prevX = x;
+      prevY = y;
+
+      // Use noise() to change direction.
+      float noiseScale = 0.05;
+      direction = noise(noiseScale*x, noiseScale*y)*radians(360);
+
+      // Move to new location based on new direction.
+      x = x + cos(direction);
+      y = y + sin(direction);
+    }
+  }
+}</pre>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+
+                <p>
+                    The variables x and y hold the location of the particle. Because we will later be drawing a line
+                    from the particle's old position to its new one, we also create two variables prevX and prevY which
+                    store the particle's (x,y) position before it moved. Movement itself is controlled by the direction
+                    variable.
+                </p>
+
+                <p>
+                    When a particle is first created, it is given a (uniform) random location and direction.
+                </p>
+
+                <p>
+                    The move() method updates the value of x and y to a new location while storing the old values of x
+                    and y. If the location of the particle is outside the bounds of the sketch, it is moved to a new
+                    random location with a random direction.
+                </p>
+
+                <p>
+                    Otherwise the noise() method is used to update the direction variable and then move the particle
+                    using the updated direction. The random value of noise() is determined by the current location of
+                    the particle, scaled by the variable noiseScale.
+                </p>
+
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <p>
+                    The <code>Particle</code> class does not itself do any drawing, or creation of the sketch. For that
+                    we need to create the standard Processing <code>setup()</code> and <code>draw()</code> methods:
+                </p>
+
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+                <pre class="brush: processing; gutter: false; toolbar: false;">Particle particle;
+
+void setup()
+{
+  size(400, 300);
+  particle = new Particle();
+
+  background(247, 239, 218);
+}
+
+void draw()
+{
+  line(particle.prevX, particle.prevY, particle.x, particle.y);
+  particle.move();
+}</pre>
+
+                <p>
+                    Note how the <code>background()</code> command is called from within <code>setup()</code> and not
+                    <code>draw()</code>. This means that the sketch is only cleared once at the start. Processing's
+                    <code>line()</code> method is used to draw a line between the previous position of the agent (stored
+                    in the variables <code>prevX</code> and <code>prevY</code>) and its current position (<code>x</code>
+                    and <code>y</code>). As the particle moves about, the position of the short line gradually changes
+                    but because the screen is not being cleared on each redraw, it will leave a 'trail' behind it of all
+                    the old lines.
+                </p>
+
+                <p>
+                    The sketch itself is rather slow to develop as a new trail is only ever started when it previously
+                    hits the edge of the sketch area. But the beauty of designing agents is that once built it is easy
+                    to add many more of them. So we can make a minor change to our main sketch to create an array of 500
+                    particles rather than just the one:
+                </p>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+
+                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/particle1", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/random/generative1.png");</script>
+                <p>
+                    A single particle leaving a trail behind it. Whenever it reaches the edge it respawns in a new
+                    random location (click image to activate).
+                </p>
+
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <pre class="brush: processing; gutter: false; toolbar: false;">Particle[] particles;    // Declare array of particles.
+
+void setup()
+{
+  size(400, 300);
+
+  // Initialise 500 particle objects.
+  particles = new Particle[500];
+  for (int i=0; i&lt;particles.length; i++)
+  {
+    particles[i] = new Particle();
+  }
+
+  background(247, 239, 218);
+}
+
+void draw()
+{
+  // Draw and move each of the particles.
+  for (Particle p : particles)
+  {
+    line(p.prevX, p.prevY, p.x, p.y);
+    p.move();
+  }
+}</pre>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+
+                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/particles1", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/random/generative2.png");</script>
+                <p>
+                    500 particles leaving trails behind them (click image to activate sketch).
+                </p>
+
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <h4>Improving the visual appearance</h4>
+                <p>
+                    Our final modifications to the sketch will improve its visual appeal. The example above soon becomes
+                    quite dark as many black lines accumulate over the sketch area. We can set the line thickness to
+                    less than 1 pixel wide so that lines appear more delicate. Additionally we can use Perlin noise to
+                    change the colour of the lines according to their position. This is done conveniently by using a
+                    hue-saturation-brightness (HSB) colour scheme and only varying the hue of the colour randomly. The
+                    saturation and brightness of the colour are fixed to 70% and 60% respectively.
+                </p>
+
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <pre class="brush: processing; gutter: false; toolbar: false; highlight: [15,16,22,26]">Particle[] particles;    // Declare array of particles.
+
+void setup()
+{
+  size(400, 300);
+
+  // Initialise 500 particle objects.
+  particles = new Particle[500];
+  for (int i=0; i&lt;particles.length; i++)
+  {
+    particles[i] = new Particle();
+  }
+
+  // Use Hue Saturation Brightness colour mode
+  colorMode(HSB,1,1,1);
+  background(0.12, 0.11, 0.95);
+}
+
+void draw()
+{
+  // Draw and move each of the particles.
+  strokeWeight(0.2);
+  for (Particle p : particles)
+  {
+    // Set line colour using 2d Perlin noise.
+    stroke(noise(0.04*p.x,0.04*p.y)*1.4,0.7,0.6);
+    line(p.prevX, p.prevY, p.x, p.y);
+    p.move();
+  }
+}</pre>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+
+                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/particles2", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/random/generativeColour.png");</script>
+                <p>
+                    500 coloured particles (click image to activate sketch).
+                </p>
+
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+		<div style="padding-bottom:2em;clear:both" />
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+        <!-- End of content -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

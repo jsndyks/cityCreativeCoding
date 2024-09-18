@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Programming BootCamp Project Ideas: Geometric Animation</title>
+
+  <!-- Header, 16th September, 2021 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Embedded fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+    rel="stylesheet">
+
+  <!-- Custom layout and style -->
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+  <!-- General browser compatibility handling -->
+  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+  <!-- Formatted source code -->
+  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+  <!-- Sketch popups and hidden text-->
+  <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+  <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+  <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- iFrame resizing -->
+    <script src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+  <div id="page">
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+    <!-- Content below -->
+
+    <p class="intro">
+      Processing makes animation easy because anything placed in the <code>draw()</code> loop is automatically drawn at
+      60 frames per second. If we change the position of features by some small amount on each redraw we can 'move' them
+      across the screen. Processing keeps track of how many times <code>draw()</code> has been called with the special
+      variable <code>frameCount</code>. We can use this to make some interesting geometric animations reminiscent of <a
+        href="https://en.wikipedia.org/wiki/Lissajous_curve" target="_blank">Lissajous figures</a> and the <a
+        href="https://en.wikipedia.org/wiki/Spirograph" target="_blank">Spirograph toy</a>.
+    </p>
+
+    <div>
+      <img src="images/beesAndBombs/colouredExamples.jpg" width="100%"
+        alt="Stills from animations with variations of parameter t" />
+      <br /><br />
+    </div>
+
+    <p>
+      Consider the following simple sketch that animates a single point round the circumference of a circle:
+    </p>
+    <pre class="brush: processing; gutter: false; toolbar: false;">int radius;
+
+void setup()
+{
+  size(500, 500);
+  radius = 150;
+}
+
+void draw()
+{
+  background(0);
+  stroke(255);
+  strokeWeight(10);
+
+  float t = frameCount/20.0;
+  point(width/2 + radius*cos(t), height/2 + radius*sin(t));
+}</pre>
+
+    <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2019/p5js/beesAndBombs1", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2019/p5js/beesAndBombs1/screenshot.png");</script>
+    <div>Animated point. <i>(click image above to activate) &nbsp;</i></div>
+
+    <p>
+      The important variable here is <code>t</code> which increments a small amount each time <code>draw()</code> is
+      called. This allows us to use <code>t</code> in the positioning of features in our sketch.
+    </p>
+
+
+    <p>
+      We can make things more interesting by drawing several animated points rather than just one. Here we use a
+      simple <code>for</code> loop to draw 11 points (determined by <code>numPoints</code>) on a circle, offsetting
+      each by a small amount determined by <code>t</code>.
+    </p>
+
+    <pre class="brush: processing; gutter: false; toolbar: false;">int radius, numPoints;
+
+void setup()
+{
+  size(500, 500);
+  radius    = 150;
+  numPoints = 11;
+}
+
+void draw()
+{
+  background(0);
+  stroke(255);
+  strokeWeight(10);
+
+  float t = frameCount/40.0;
+  for (int p=0; p&lt;numPoints; p++)
+  {
+    point(width/2  + radius*cos(0.1*t*p/numPoints + t), 
+          height/2 + radius*sin(0.1*t*p/numPoints + t));
+  }
+}</pre>
+
+    <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2019/p5js/beesAndBombs2", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2019/p5js/beesAndBombs2/screenshot.png");</script>
+    <div>Animated points. <i>(click image above to activate) &nbsp;</i></div>
+
+    <p> There's no reason why these moving positions should necessarily be shown as points. We might instead join
+      them together with lines, either with <a href="https://processing.org/reference/beginShape_.html"
+        target="_blank">beginShape()</a>, <a href="https://processing.org/reference/vertex_.html"
+        target="_blank">vertex()</a> and <a href="https://processing.org/reference/endShape_.html"
+        target="_blank">endShape()</a> or with <a href="https://processing.org/reference/line_.html"
+        target="_blank">line()</a>. This can form an interesting evolving pattern, especially if we replace
+      <code>background</code> with a transparent fill to leave 'ghost' images:
+    </p>
+
+    <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2019/p5js/beesAndBombs3", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2019/p5js/beesAndBombs3/screenshot.png");</script>
+    <div>Animated polygon. <i>(click image above to activate) &nbsp;</i><br /><br /></div>
+
+    <p>
+      You could vary the colour of each line in response to one or more of the variables in the sketch. This works
+      particularly well in <a href="https://processing.org/reference/colorMode_.html" target="_blank">HSB mode</a>.
+      You could additionally alter the positioning of the line endpoints in response to <code>mouseX</code> and
+      <code>mouseY</code>.
+    </p>
+    <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/colouredLines", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2021/images/geometricAnimation/colouredExample.jpg");</script>
+    <div>Coloured, animated lines. <i>(click image above to activate and try moving the mouse within the window)
+        &nbsp;</i></div>
+
+    <h3>Project Ideas</h3>
+
+    <p>
+      The examples above are just a start. How might you build on the idea to create your own sketches? In case you
+      are feeling uninspired, here are a few suggestions:
+    </p>
+
+    <ul>
+      <li>Try experimenting with different numbers of points, different values of t and different functions for
+        determining the x and y positions of each vertex/point location.</li>
+      <li>Try different drawing styles by varying colour, line thickness etc. Can you make them change as a
+        function of <code>t</code>?</li>
+      <li>Can you combine multiple shapes in a single sketch?</li>
+      <li>You can make <code>t</code> cycle repeatedly between 0 and 1 over a fixed number of frames (201 in the
+        example below):
+        <pre>float framesInCycle = 201;
+float t = (float)(frameCount%framesInCycle) / framesInCycle;</pre>
+        What repeating sequences can you generate with this approach? For inspiration you may wish to look at the work
+        of artist <a href="https://dribbble.com/beesandbombs" target="_blank">Bees And Bombs</a> who uses processing
+        to generate beautiful geometric animated sequences.
+      </li>
+    </ul>
+
+    <div><i>Jo Wood, 2021</i></div>
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+    <!-- End of content -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  </div> <!-- End of page div -->
+  <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

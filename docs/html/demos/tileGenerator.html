@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming BootCamp Project Ideas: Tile Generator</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- iFrame resizing -->
+	<script src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+
+        <p class="intro">
+            This project involves using Processing to generate tiled patterns, or <i>tessellations</i>. Tiles can be
+            easily generated with Processing since it involves using loops to repeatedly draw simple shapes. By varying
+            the shape drawn and the colours used to fill the shapes, attractive patterns can be produced.
+        </p>
+
+        <p>
+            Tessellations are space-filling shapes that fit together to form sometimes intricate patterns. There is a
+            huge variety of possible tessellations and this project involves you getting creative with Processing to
+            produce some visually pleasing tiling patterns. For inspiration you might like to try doing a Google image
+            search for <a href="https://www.google.co.uk/search?q=image:tessellated+tiling&amp;source=lnms&amp;tbm=isch"
+                target="_blank">tessellated tiling</a>
+        </p>
+
+
+        <h3>Square Grids</h3>
+
+        <p>
+            A simple way of starting would be to create a regular grid of square tiles. You might chose to colour these
+            in interesting ways. To create a regular grid in Processing, you can use nested <code>for</code> loops - one
+            counting through the rows in your grid, the other inside it counting through the columns.
+        </p>
+
+        <p>
+            You can add further interest by adding a small random variation to each corner or <i>vertex</i> of the shape
+            you are drawing. While strictly not a tessellation (because it can lead to gaps and overlaps), it can
+            produce a visually pleasing effect.
+            <br /><br />
+            <img src="images/tessellation/tessellation1.png" width="1000" height="300"
+                alt="Simple square tiling with random displacement"><br>
+        </p>
+
+        <p>
+            Interesting patterns can be generated even from the most basic of shapes. For example, by randomly choosing
+            between four orientations of square tiles made up of two triangles each, a so-called <a
+                href="https://en.wikipedia.org/wiki/Truchet_tiling" target="_blank">Truchet tiling</a> can be generated.
+        </p>
+
+        <p>
+            <img src="images/tessellation/tessellation2.png" width="610" height="152" alt="four triangular tiles"><br> A
+            random choice can be made from these four tiles to
+            produce tessellation similar to the following:
+            <br /><br />
+            <img src="images/tessellation/tessellation3.png" width="1000" height="300"
+                alt="Simple triangular tiling with random orientation"><br>
+        </p>
+
+        <p>
+            Think about what other shapes you might choose to draw. For example, by replacing the four triangular tiles
+            with two tiles composed of simple arcs of circles (generated in Processing with the <a
+                href="https://processing.org/reference/arc_.html" target="_blank">arc()</a> method) a curved maze effect
+            can be created.
+        </p>
+
+        <p>
+            <img src="images/tessellation/tessellation4.png" width="303" height="146"
+                alt="two curved Truchet tiles"><br>
+            <br />
+            <img src="images/tessellation/tessellation5.png" width="1000" height="300"
+                alt="Truchet tiling with random orientation"><br>
+        </p>
+
+        <p>
+            Using fill colours for the quarter circles gives rise to four combinations from which solid maze-like paths
+            can be created.
+        </p>
+
+        <p>
+            <img src="images/tessellation/tessellation6.png" width="610" height="153" alt="solid curved Truchet tiles">
+            <br /><br />
+            <img src="images/tessellation/tessellation7.png" width="1000" height="300"
+                alt="Solid Truchet tiling with random orientation"><br>
+        </p>
+
+        <h3>Hexagonal Grids</h3>
+
+        <p>
+            You can consider further possibilities by arranging shapes on a hexagonal rather than square grid. The
+            principle is much the same in that you will also need to use nested loops to iterate through the rows and
+            columns of the grid. The only difference is that every other row is slightly offset from the row above and
+            below it.
+        </p>
+
+        <p>
+            It is often useful, before you start coding, to sketch out your design on paper first. So for example, to
+            create a cube-like tessellation based on a hexagonal grid, you might end up sketching something like the
+            following.
+            <br /><br />
+            <img src="images/tessellation/tessellation8.png" width="312" height="263"
+                alt="Construction of a cube tesseral cell"><br>
+        </p>
+
+        <p>
+            This cube shape is built up by drawing a diamond shape (using Processing's <a
+                href="https://processing.org/reference/quad_.html" target="_blank">quad()</a> method.) and then rotating
+            the diamond clockwise by 120 degrees to give the yellow right face, then another 120 degrees to give the red
+            left face. You will probably find it easiest to put the code to draw a single tile (like this cube) in its
+            own method so you can call it multiple times from inside your nested <code>for</code> loops. This also makes
+            it easier to modify your tile to produce different visual effects.
+        </p>
+
+        <p>
+            <img src="images/tessellation/tessellation9.png" width="1000" height="300"
+                alt="Simple cube tessellation"><br />
+            Tessellation hexagons to suggest simple cube shapes.
+        </p>
+
+        <p>
+            <img src="images/tessellation/tessellation10.png" width="1000" height="300"
+                alt="Hollow cube tessellation"><br />
+            Tessellation of hexagon shapes with addition of two triangles per face to suggest hollow cubes.
+        </p>
+
+        <p>
+            <img src="images/tessellation/tessellation11.png" width="1000" height="300"
+                alt="Randomised hollow cube tessellation"><br />
+            Tessellation of hollow cubes with random colouring and small random variation in the positioning of
+            vertices.
+        </p>
+
+        <p>
+            For this project, you can design your own choice of tiles and colouring. Some possible variations include
+            those below, but you are encouraged also to come up with your own ideas.
+        </p>
+
+        <ul>
+            <li>Introduce some random colouring in your tiles. Think about your colour choice to enhance the appearance
+                of the tessellation.</li>
+            <li>Introduce a random choice of different tiles and see the effect of combining them.</li>
+            <li>How might you use interaction (from the mouse or keyboard) to influence the sketch?</li>
+            <li>Consider animating your tessellation, for example by gradually changing the size or orientation of the
+                tiles.</li>
+        </ul>
+
+        <div><i>Jo Wood, 2021</i></div>
+
+        <!-- End of content -->
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

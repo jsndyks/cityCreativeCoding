@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming BootCamp Exercises: Coding Decisions</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Add summary sentence or two below, which will act as an easy introduction -->
+
+    <!---
+    You can access [this page](https://jsndyks.github.io/cityBootCamp/html/decisions/bootCamp.dec.2023.exercise.html) outside of _Moodle_ should you wish to do so.
+
+    <iframe id="myIframe"
+  src="https://jsndyks.github.io/cityBootCamp/html/decisions/bootCamp.dec.2023.exercise.html" width="100%"
+  height="5500px"
+  frameborder="0"
+  scrolling="no"></iframe>
+
+<script src="/theme/cul_moove/js/iframeResizer.min.js"></script>
+<iframe id="myIframe" style="width: 1px; min-width:100%;" src="https://jsndyks.github.io/cityBootCamp/html/decisions/bootCamp.dec.2023.exercise.html"></iframe>
+<script>
+    iFrameResize({log: true}, '#myIframe')
+</script>
+
+-->
+
+    <p>
+            These exercises develop your ability to use if-statements in your code.
+        </p>
+
+
+        <div class="codeTask">
+            This exercise is an adaptation of the “Heads or Tails” sketch from the lecture:
+            <br /><br />
+            <pre class="brush: processing; gutter: false; toolbar: false; ">float randomNumber;
+
+void setup()
+{
+  size(200, 200);
+  fill(0);
+  textSize(48);
+  textAlign(CENTER);
+
+  randomNumber = random(2.0);
+}
+
+void draw()
+{
+  background(230, 255, 230);
+
+  String message;
+  if (randomNumber &lt; 1.0) {
+    message = "TAILS";
+  } else {
+    message = "HEADS";
+  }
+  text(message, width/2, height/2);
+}</pre>
+            Copy this code into a new sketch. Save the sketch with the name “TwoCoins”.
+            <br /><br />
+            The aim is to extend this code so that it simulates two coin tosses instead of just one. The possible
+            combinations for two coin tosses are TT, TH, HT, HH. Your sketch should print one of three messages:
+            <br /><br />
+            <ul>
+                <li>“TWO TAILS” (combination TT)</li>
+                <li>“TWO HEADS” (combination HH)</li>
+                <li>“MIXED” (combinations TH and HT)</li>
+            </ul>
+            Develop your solution in three stages:
+            <br /><br />
+            <ol>
+                <li>
+                    Declare an additional variable at the top of the sketch (call it something like
+                    <code>randomNumber2</code>) and initialise it in <code>setup()</code> to a random number in the
+                    range 0 to 2. Check that your sketch runs (you won't see any new behaviour yet).
+                    <br /><br />
+                </li>
+
+                <li>
+                    Modify the if-statement in <code>draw()</code> so that the condition tests if <em>both</em> the
+                    random numbers are less than 1. You should use the <code>&amp;&amp;</code> operator to do this.
+                    Modify the message variable assignments so that the first one is “TWO TAILS” and the second one is
+                    “WORK IN PROGRESS!”. Check that your sketch runs and behaves as expected. If you run it lots of
+                    times you should find that it displays the message “TWO TAILS” roughly a quarter of the time.
+                    <br /><br />
+                </li>
+
+                <li>
+                    Extend the if-statement with extra cases to test for other combinations and set the message variable
+                    appropriately. Check that your sketch runs and behaves as expected. If you run it lots of times you
+                    should find that it displays “TWO TAILS” roughly a quarter of the time, “TWO HEADS” roughly a
+                    quarter of the time, “MIXED” roughly half the time.
+                </li>
+            </ol>
+        </div>
+
+        <div class="aside">
+            <p><b></b>ASIDE:</b></p>
+            <p>
+            Randomness has many uses.<br/>
+            we have produced a whole page on <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=465023">a whole
+                Randomness</a> that you can use to find out more.
+                </p>
+        </div>
+        <br /><br />
+
+        <div class="coreTask">
+            For this task, create a new sketch and start with a blank page: strictly NO copy and paste.
+            <br /><br />
+            <ol>
+                <li>
+                    Add the usual <code>setup()</code> and <code>draw()</code> methods to your sketch. In
+                    <code>setup()</code>, set the size of the sketch window to 200 pixels wide by 300 pixels high. To
+                    start with, your sketch will simply draw a white-filled circle at a randomly chosen position.
+                    Declare <code>x</code> and <code>y</code> variables at the top of the sketch. Then, in
+                    <code>setup()</code>, initialise <code>x</code> and <code>y</code> with randomly chosen values (use
+                    value ranges which guarantee that the point <code>(x,y)</code> is inside the sketch window). In
+                    <code>draw()</code>, add code to draw a white-filled circle of radius 50, centered at
+                    <code>(x,y)</code> on a grey background.
+                    <br /><br />
+                    Run your sketch several times and check that the circle is visible every time (many times, only part
+                    of the circle will be visible, when the centre is close to an edge, but it should always be
+                    partially visible).
+                    <br /><br />
+                </li>
+
+                <li>
+                    Add extra code to draw a white rectangle on top of the circle. The rectangle should be 130 pixels
+                    wide and 20 pixels high, centred at <code>(x,y)</code>. The overall shape should look similar to an
+                    underground sign.
+                    <br /><br />
+                </li>
+
+                <li>
+                    Add code so that whenever the mouse is inside the rectangle, the rectangle is filled blue instead of
+                    white.
+                    <br /><br />
+                </li>
+
+                <li>
+                    Add code so that whenever the mouse is <i>not</i> inside the rectangle, but <i>is</i> inside the
+                    circle, the circle is filled red instead of white.
+                    <div class="tip">
+                        The <code>dist()</code> command can be used to find the distance between two points. It is
+                        documented in the official <a href="https://processing.org/reference/dist_.html">Processing
+                            Reference Documentation</a>. A point is inside a circle if its distance from the centre is
+                        less than the radius.
+                    </div>
+                </li>
+
+                <li>Test the logic of your code. There are four key cases:
+                    <ol>
+                        <li>Mouse entirely outside the shape:<br />
+                            <img src="https://staff.city.ac.uk/~sj353/bootcamp2017/Day2AM/testCase-1.jpg" width="70"
+                                height="70" alt="test-case 1" />
+                        </li>
+                        <li>Mouse inside rectangle but outside circle:<br />
+                            <img src="https://staff.city.ac.uk/~sj353/bootcamp2017/Day2AM/testCase-2.jpg" width="70"
+                                height="70" alt="test-case 2" />
+                        </li>
+                        <li>Mouse inside rectangle <i>and</i> inside circle:<br>
+                            <img src="https://staff.city.ac.uk/~sj353/bootcamp2017/Day2AM/testCase-3.jpg" width="70"
+                                height="70" alt="test-case 3" />
+                        </li>
+                        <li>Mouse inside circle but outside rectangle:<br>
+                            <img src="https://staff.city.ac.uk/~sj353/bootcamp2017/Day2AM/testCase-4.jpg" width="70"
+                                height="70" alt="test-case 4" />
+                        </li>
+                    </ol>
+                    <br /><br />
+                </li>
+
+                <li>
+                    Modify the code which initialises <code>x</code> and <code>y</code> so that the <i>whole</i> of the
+                    "underground sign" is always visible (making full use of the sketch window area).
+                </li>
+            </ol>
+        </div>
+
+        <div class="codeTask">
+            In this exercise and the next you will develop an animated ball bouncing inside a box. We start by adapting
+            the scrolling text example from the lecture:
+            <br /><br />
+            <pre class="brush: processing; gutter: false; toolbar: false; ">float xPos; // x-position
+float vx; // speed in x-direction
+
+void setup()
+{
+  size(400,300);
+  fill(255,177,8);
+  textSize(48);
+
+  xPos = width/2;  // Initialise xPos to centre of sketch
+  vx = -2; // Set speed in x-direction to -2 (moving left)
+}
+
+void draw()
+{
+  background(64);
+
+  String message = "The next station is Angel...";
+
+  xPos = xPos + vx;  // Change x-position on each redraw
+
+  text(message,xPos,(height/2) + 20);
+}</pre>
+            <ol>
+
+
+                <li>
+                    Copy this code into a new sketch and save it with the name "BouncingBall". Delete the line of code
+                    in <code>draw()</code> which creates the String variable <code>message</code>.
+                    <br /><br />
+                </li>
+
+                <li>
+                    Delete the final line of code (<code>text(message, ...</code>) and replace it with code which
+                    instead draws a circle centred at position <code>(xPos, height/2)</code>. Use a radius of about 50
+                    pixels (you can change this later but, for now, a nice big fat ball makes it easier to see what is
+                    happening). Best practice is to add an extra variable <code>radius</code> to your sketch (initialise
+                    to 50 in <code>setup()</code>) and use that in <code>draw()</code> instead of the literal
+                    <code>50</code>.
+                    <br /><br />
+                    Check that your sketch works as expected. The ball should start in the centre of the sketch and move
+                    slowly to the left, eventually disappearing off screen.
+                    <br /><br />
+                </li>
+
+                <li>
+                    Now we want to make the ball bounce when it hits the edge of the window, rather than go straight
+                    through. Add an if-statement at the end of <code>draw()</code> to check if the ball has reached the
+                    left-hand edge of the window. Since the ball is moving more than one pixel in each frame, you should
+                    test if the edge of the ball is <em>less than or equal</em> to zero (it might actually have started
+                    to “penetrate the wall” but don't worry, the visual appearance will be fine).
+                    <br /><br />
+                    If the ball has reached the left-hand edge of the window your code should change the x-speed
+                    (variable <code>vx</code>) so that in future frames it will move in the opposite direction. The
+                    simplest way to do this is simply to assign a new value to <code>vx</code> which is the
+                    <em>negation</em> of its old value: <code>vx = -vx;</code> (so if <code>vx</code> is -2 before this
+                    assignment, it will be --2 = 2 afterwards).
+                    <div class="tip">
+                        Hint: the left hand edge of a circle is at an x-position which is <code>radius</code> pixels to
+                        the left of its centre.
+                    </div>
+                    Check that your sketch works as expected. The ball should start in the centre of the sketch and move
+                    slowly to the left. When it reaches the left edge it should “bounce”, reversing direction and moving
+                    back across the screen to the right.
+                    <br /><br />
+                </li>
+
+                <li>
+                    Add an extra if-statement to deal with the ball colliding with the right-hand edge of the window.
+                    (Or combine this case into the existing if-statement by modifying the boolean expression.)
+                    <br /><br />
+                    Check that your sketch works as expected. The ball should now move backwards and forwards across the
+                    window, bouncing when it reaches left and right edges.
+                </li>
+            </ol>
+        </div>
+        <br /><br />
+
+        <div class="codeTask">
+            In this exercise you add movement in the y-direction to your bouncing ball sketch. You might worry that
+            simultaneous movement in two dimensions will introduce all sorts of new complexities into your code. Luckily
+            for us, we can treat movement in the two directions independently, using very similar code for both cases,
+            and everything works out fine.
+            <br /><br />
+            <ol>
+                <li>
+                    Add extra variables <code>yPos</code> and <code>vy</code> to your sketch. In <code>setup()</code>,
+                    initialise <code>yPos</code> to be halfway down the screen and initialise <code>vy</code> to 1 pixel
+                    per frame.
+                    <br /><br />
+                    In <code>draw()</code>, modify the code which draws the ball so that it uses variable
+                    <code>yPos</code> instead of <code>height/2</code>. Next to the assignment which adds
+                    <code>vx</code> to <code>xPos</code>, add a new assignment which does the same for <code>vy</code>
+                    and <code>yPos</code>.
+                    <br /><br />
+                    Check that your sketch works as expected. The ball should now move in a diagonal direction but it
+                    won't yet bounce off the top or bottom edges of the window.
+                    <br /><br />
+                </li>
+
+                <li>
+                    Add code to make the ball bounce off the top and bottom edges. Copy and adapt the code you already
+                    have for dealing with the left and right edges, replacing <code>xPos</code> and <code>vx</code> by
+                    <code>yPos</code> and <code>vy</code> as appropriate.
+                    <br /><br />
+                    Check that your sketch works as expected. The ball should now move in diagonal directions bouncing
+                    of all four walls. Congratulations!
+                    <br /><br />
+                </li>
+                <li>
+                    Play around with the initialisation values in your sketch to see how they affect behaviour (window
+                    size, fill colour, ball radius, initial position, velocity).
+                </li>
+
+            </ol>
+
+        </div>
+        <div class="aside">
+            <p><b>Aside</b>:</p>
+            <p>Once you have coded a ball bouncing in a box you will naturally want to add more sophisticated behaviours.<br/>
+            Multiple balls? Balls of different sizes? Balls which collide with and bounce off other balls?<br/>All is
+            possible!<br/>
+            The necessary coding techniques are covered in future sessions. If you want a sneak preview, have
+            a look at the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=468962">the Bouncing Balls</a> page in
+            the Processing Resources in Moodle.</p>
+        </div>
+        <br /><br />
+
+        <div class="codeTask">
+            Modify your bouncing ball so that it changes colour each time it bounces. You will need one or more new
+            global (sketch-wide) variables to represent the current colour of the ball (for example you could have three
+            variables, one each for red, green and blue). Then you can modify the code which draws the ball so that it
+            sets the fill colour using these new variables, and modify the code which detects a bounce so that it
+            assigns new values to them.
+
+            <div class="tip">
+                If you assign random values for red, green and blue, remember that the maximum range for each colour
+                component is 0 to 255.
+            </div>
+        </div>
+
+        <h3>Extension exercises</h3>
+
+        <div class="codeTask">
+            Modify your colour changing code so that the ball only changes colour on every third bounce.
+        </div>
+
+        <div class="challenge">
+            <ol>
+                <li>
+                    Write a sketch called “Hunt” which draws a circle at a randomly chosen position. Now modify the
+                    sketch so that it only draws the circle when the mouse is inside the circle (so the user has to hunt
+                    for the invisible circle using the mouse).
+                    <br /><br />
+                </li>
+                <li>
+                    To add a bit of interest to the Hunt game, allow only limited time for the user to find the circle;
+                    when time is up, reveal the circle and display a GAME OVER message.
+
+                    <div class="tip">
+                        The variable <code>frameCount</code> keeps track of how many times <code>draw()</code> has been
+                        executed since the sketch started running. You can use this to test if the user has run out of
+                        time (for example, the default frame rate is 60 frames per second, so five seconds is up when
+                        <code>frameCount</code> exceeds 5 x 60 = 300). When the game is over you can freeze the action
+                        by setting the frame rate to zero using command <code>frameRate(0)</code>.
+                    </div>
+                </li>
+            </ol>
+        </div>
+        <br /><br />
+
+        <h2>Check on Progress</h2>
+        <div class="task">
+            To ensure that you have achieved the outcomes associated with this session, consider the following, which
+            allow you to evaluate your progress.
+            <br /><br />
+
+            <div class="checkOutcomes">
+                <input id="sa1" type="checkbox">
+                <label for="sa1" style="padding:1em">Can I write an <code>if</code> statement that chooses between two alternatives when my code
+                    executes?</label><br>
+                <!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=519098">If</a> -->
+                <!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=519099">If else</a> -->
+
+                <input id="sa2" type="checkbox">
+                <label for="sa2" style="padding:1em">Can I write a sequence of nested or chained <code>if</code> statements that run through a number
+                    of alternatives?</label><br>
+                <!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=519100">Nested if</a> -->
+
+                <input id="sa3" type="checkbox">
+                <label for="sa3" style="padding:1em">Do I know the Processing/Java syntax for boolean AND, OR and NOT and can I write
+                    boolean expressions which use these operators to build complex tests from simple ones?</label><br>
+                <!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=519101">AND, OR and NOT</a> -->
+
+            </div>
+            <!-- End of checkOutcomes -->
+
+        </div>
+        <!-- End of task -->
+
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming Bootcamp Project Ideas: Information Art</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+
+        <p class="intro">
+            The idea of this project is to create some visually interesting artwork that is influenced by some data you
+            have found on the web. This may be any data source ranging from text to images to statistical data. You can
+            use some of the techniques covered in the Data Visualization session to help you assemble and process the
+            data you wish to use.
+        </p>
+
+        <p>
+            <a href="https://en.wikipedia.org/wiki/Information_art" target="_blank">Information art</a> - as the name
+            suggests - is art produced by taking information and turning it into art. The artistic work often does not
+            resemble the information from which it was derived and is simply used as (sometimes arbitrary) input to form
+            of the artwork.
+        </p>
+
+        <p>
+            During the first week of the bootcamp, Charlie showed an example of encoding the letters that make up words
+            as colours as a form of art, pointing out that to a computer, it's all numbers anyway. Data is easy to find
+            on the web. You might use texts from <a href="https://www.gutenberg.org" target="_blank">Project
+                Gutenberg</a> (book text), the or the content of a URL to produce some art.
+        </p>
+
+        <p>
+            How you approach this is up to you, but the following might help you to get started. You can use
+            <a href="https://processing.org/reference/Array.html" target="_blank">arrays</a>,
+            <a href="https://processing.org/reference/loadStrings_.html" target="_blank">loadStrings()</a>,
+            <a href="https://processing.org/reference/split_.html" target="_blank">split()</a> and
+            <a href="https://processing.org/reference/for.html" target="_blank">for loops</a> to turn the data you have
+            found into variables you can process in your Processing sketches.
+        </p>
+
+        <p>
+            How you choose to represent data visually is up to you and you are encouraged to experiment, but here are
+            some suggestions to get you thinking:
+        </p>
+
+        <ul>
+            <li>Create a collage of all the images in the top stories of a news website. <i>Hint:</i> you can put URLs
+                directly into <a href="https://processing.org/reference/loadStrings_.html"
+                    target="_blank">loadStrings()</a> and <a href="https://processing.org/reference/loadImage_.html"
+                    target="_blank">loadImage()</a> rather than having to assemble them yourself.</li>
+            <li>Turn paragraphs of text into coloured shapes, perhaps where the size is the length of the paragraph and
+                colour based on the average ASCII character code. <i>Hint: </i> you can turn a letter into a number with
+                String's <code>getCharAt()</code> method: e.g. <code>println("Hello world".getCharAt(0));</code> will
+                display the ASCII code number of the first character of the String <code>Hello world</code>.
+            </li>
+        </ul>
+
+        <p>
+            <img src="https://staff.city.ac.uk/~jwo/bootcamp2018/images/datavis/informationArt.png" width="1000"
+                height="351" alt="we are the city">
+        </p>
+
+
+        <!-- End of content -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

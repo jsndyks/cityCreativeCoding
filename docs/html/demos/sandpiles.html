@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming BootCamp Project Ideas: Sandpiles</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- iFrame resizing -->
+	<script src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+        <p class="intro">
+            This project involves modelling piles of sand and visualizing the results by colouring each pile according
+            to how high it is (i.e. how many grains of sand are stacked on top of each other). What makes this an
+            interesting project is that a very simple model of sand pile behaviour, which is easily codeable in
+            Processing, can produce infinitely complex and beautiful patterns.
+        </p>
+
+
+
+        <h3>A Simple Sandpile model</h3>
+
+        <p>
+            Imagine a flat plane onto which we can drop one or more grains of sand. To keep things simple we can divide
+            that plane into a grid of cells just like the coordinate system used in Processing. Below we symbolise a
+            sandpile with 3 grains of sand all balanced on top of each other in a single grid cell.
+            <br /><br />
+            <img src="images/sandpiles/sandpile3.png" width="339" height="339" alt="A sand pile with 3 grains">
+            <br />
+        </p>
+
+        <p>
+            If we were to drop another grain onto the same cell we could imagine the pile collapsing and the 4 grains
+            spread to adjacent cells:
+        </p>
+
+        <table>
+            <tbody>
+                <tr>
+                    <td><img src="images/sandpiles/sandpile4a.png" width="300" height="300" alt="iteration 1"></td>
+                    <td><img src="images/sandpiles/sandpile4b.png" width="300" height="300" alt="iteration 2"></td>
+                </tr>
+            </tbody>
+        </table>
+        <p></p>
+
+        <p>
+            We now have the basis for a simple set of rules governing the stability of a sandpile:
+        </p>
+
+        <pre>For each cell in the grid:
+  If a grid cell contains 3 or fewer sand grains, the cell is stable.
+  Else, remove 4 sand grains from the cell and add one grain to each of the 4 adjacent cells.
+Repeat until all cells are stable. </pre>
+
+
+        <p>
+            This is what happens when you start with a single (unstable) cell containing 16 sand grains:
+        </p>
+
+        <p></p>
+        <table>
+            <tbody>
+                <tr>
+                    <td><img src="images/sandpiles/sandpile16a.png" width="200" height="200" alt="iteration 1"></td>
+                    <td><img src="images/sandpiles/sandpile16b.png" width="200" height="200" alt="iteration 2"></td>
+                    <td><img src="images/sandpiles/sandpile16c.png" width="200" height="200" alt="iteration 3"></td>
+                    <td><img src="images/sandpiles/sandpile16d.png" width="200" height="200" alt="iteration 4"></td>
+                </tr>
+                <tr>
+                    <td><img src="images/sandpiles/sandpile16e.png" width="200" height="200" alt="iteration 5"></td>
+                    <td><img src="images/sandpiles/sandpile16f.png" width="200" height="200" alt="iteration 6"></td>
+                    <td><img src="images/sandpiles/sandpile16g.png" width="200" height="200" alt="iteration 7"></td>
+                    <td>&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>
+            In the examples above, the pattern looks quite predictable, but if you start with many more grains in a
+            single cell, some interesting and surprising patterns develop. For more details, see <a
+                href="https://nautil.us/issue/23/dominoes/the-amazing-autotuning-sandpile" target="_blank">The Amazing
+                Autotuning Sandpile</a>.
+        </p>
+
+        <p>
+            <img src="images/sandpiles/sandpilesFull.png" width="920" height="291"
+                alt="Sandpiles showing transition from chaos to order"><br>
+        </p>
+
+        <h3>Project ideas</h3>
+
+        <p>
+            For your project you could code this simple sandpile model in Processing. The grid cells can be represented
+            in a 2d array and you can create a method that processes the array following the sandpile rules above. To
+            visualize the sandpile you can draw a series of rectangles, one for each grid cell, setting the colour of
+            the rectangle according to the number of sand grains (which will be one of 0, 1, 2 or 3 if the sandpile is
+            stable).
+        </p>
+
+        <ul>
+            <li>What happens if you start with 100 grains in a single cell? What about 1,000 or 10,000 or 100,000?</li>
+            <li>The model above assumes that a cell becomes unstable with 4 or more grains. What happens if you set that
+                value to a higher number?</li>
+            <li>Can you get Processing to animate the development of the sandpile as the grains start spreading?</li>
+        </ul>
+
+
+        <div><i>Jo Wood, 2021</i></div>
+
+        <!-- End of content -->
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

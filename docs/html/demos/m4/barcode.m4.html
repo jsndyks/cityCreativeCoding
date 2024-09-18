@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming Bootcamp Project Ideas: Generating Barcodes</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+
+        <p class="intro">
+            This project involves generating graphical barcodes that store small amounts of data. These can be read by
+            most mobile phones' cameras as well as dedicated barcode readers.
+        </p>
+
+        <p>
+            The barcodes that appear on most packaged items for purchase are capable of storing 11 numbers. In this
+            project you will write your own barcode generator using the common <a
+                href="https://en.wikipedia.org/wiki/Universal_Product_Code#Numbering" target="_blank">UPC-A</a>
+            standard. Most modern mobile phones will have the ability to read UPC barcodes via their camera, but you may
+            wish to check your phone can by pointing your camera at the following:
+        </p>
+
+        <div><img src="https://staff.city.ac.uk/~jwo/bootcamp2021/images/barcode/barcodeTest.png" width="400"
+                height="196" alt="Test barcode" /></div>
+
+        <p>
+            It should pick up the number <b><code>202110040000</code></b>. If it does, you are good go with writing your
+            own barcode generator!
+        </p>
+
+        <p>
+            A bar code is made up of a collection of <i>modules</i> of a fixed width that can be either black or white.
+            The modules are grouped together in blocks as indicated in the figure below (the gaps between each block are
+            to make the diagram clearer; in reality all modules are adjacent):
+        </p>
+
+        <div><img src="https://staff.city.ac.uk/~jwo/bootcamp2021/images/barcode/barEncoding.png" width="1004"
+                height="292" alt="Bar encoding structure" /><br /><br />
+        </div>
+
+        <p>
+            Reading from left to right the barcode starts with 9 white modules followed by a set of 3 indicating the
+            start of the bar. The start will always be black-white-black. The first 6 digits to be stored are then each
+            represented by 6 blocks of 7 modules (see below for how each digit is represented). The middle of the bar
+            code is always represented by a sequence of 5: white-black-white-black-white. This is followed by another 6
+            digits, the last of which is a special 'check digit'. Finally the bar is terminated by a special end
+            sequence black-white-black and another 9 module quiet zone.
+        </p>
+
+        <p>The fact that the marker blocks are longer than the digit blocks is just to aid human reading of the bar
+            code. There is no need to vary the length of the lines in order for a scanner to read the code.
+        </p>
+
+        <h2>Encoding Digits</h2>
+
+        <p>Each of the 12 digits that make up the data stored by the barcode is encoded with a block of 7 modules. The
+            first 6 use 'left encoding' as shown in the figure below. The second 6 use 'right encoding'. For example if
+            the first digit was a 6, it would be represented by white-black-white-black-black-black-black stripes. If
+            the eighth digit was also a 6, it would be represented by black-white-black-white-white-white-white stripes.
+        </p>
+
+        <p>
+            Thinking about how items might be scanned in a shop, why do you think there are separate 'left' and 'right'
+            encodings? What is the relationship between a left- and right-encoding of a given digit? Try counting up the
+            number of black stipes in each encoding to give you a clue for why this is the case.
+        </p>
+
+        <div><img src="https://staff.city.ac.uk/~jwo/bootcamp2021/images/barcode/digitEncoding.png" width="275"
+                height="590" alt="Digit encoding" />
+        </div>
+
+        <h3>The Check Digit</h3>
+
+        <p>A barcode can store data comprising 11 digits, but as you can see, the encoding itself has space for 12.
+            That 12th digit is a special 'check digit' and is used to ensure there are no mistakes in printing or
+            reading the barcode. It is calculated from the first 11 digits as follows:
+        </p>
+
+        <ol>
+            <li>Add the digits at odd-numbered positions (1st, 3rd, 5th etc.) and multiply by 3</li>
+            <li>Add the digits at even-numbered positions (2nd, 4th, 6th etc.) to the result.</li>
+            <li>Calculate the sum's <a href="https://processing.org/reference/modulo.html" target="_blank">modulo</a>
+                base 10 (i.e. the last digit of this sum) and call it <i>m</i>.</li>
+            <li>If <i>m</i> is zero, then the check digit is <code>0</code>; otherwise the check digit is
+                <code>10 − m</code>.
+            </li>
+        </ol>
+
+        <h2>Project Ideas</h2>
+        <p>The above information should be enough for you to create your own barcode writer in Processing. You can draw
+            lines with Processing's <a href="https://processing.org/reference/line_.html" target="_blank">line()</a>
+            method and you can control the colour of the line with <a
+                href="https://processing.org/reference/stroke_.html" target="_blank">stroke()</a>. You should be able to
+            create your own method that when given an 11 digit number (best represented as an array of 11
+            <code>Strings</code>or <code>chars</code>), it draws the relevant sequence of black and white lines as
+            detailed above. You can test whether your writer works by using your phone's camera.
+        </p>
+
+        <p>
+            Here are some further variations and extensions you might want to consider, but feel free to think up your
+            own:
+        </p>
+
+        <ul>
+            <li>Convert your date of birth into a number and then a barcode</li>
+            <li>Can you draw several bar codes for representing multiple numbers?</li>
+            <li>Can you encode some short text by storing its <a href="https://www.asciitable.com"
+                    target="_blank">ASCII</a> numbers? <i>Hint:</i> you can convert the letter A into its ASCII number
+                with <a href="https://processing.org/reference/intconvert_.html" target="_blank">int('A')</a> and you
+                can convert a number 65 back into a letter with <a
+                    href="https://processing.org/reference/charconvert_.html" target="_blank">char(65)</a>. The
+                uppercase letters A-Z and the space character all require two digits each.</li>
+            <li>Can you use Processing to hide a bar code in a larger picture (probably one with some other stripes
+                in it) so that it is not visible to a person, but your camera is still able to read it? Note that bar
+                code readers do not require the bars to be vertical. This form of hidden encoding is known as <a
+                    href="https://moodle.city.ac.uk/mod/page/view.php?id=2058808" target="_blank">steganography</a>.
+            </li>
+            <li>Could you produce a <a href="https://en.wikipedia.org/wiki/QR_code" target="_blank">QR-code</a>
+                generator for storing larger volumes of text?</li>
+
+        </ul>
+
+        <!-- End of content -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

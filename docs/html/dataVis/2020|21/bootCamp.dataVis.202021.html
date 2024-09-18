@@ -1,0 +1,1251 @@
+<html>
+  <head>
+    <title>Programming Bootcamp Lecture: Data Visualization</title>
+
+    <!-- Header, October, 2020 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css"/>
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+
+    <!-- General browser compatibility handling -->
+  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/processing.min.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+  </head>
+
+  <body>
+    <div id="page">
+
+	  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	  <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+	  <!-- Content below -->
+
+      <div class="intro">
+
+			<p>
+        This session introduces the idea of <b>data visualization</b> — turning data into graphics. In particular it focusses on how to read text from files into <em>Processing</em> and how to <i>parse</i> the text to extract words and numbers that you can use as variables in your sketches. This means that you can read data and use it to position, shape and colour elements in your sketch.</p>
+      <p>
+        In doing so it may give you ideas about ways in which you can use data visualization in your project.
+        The various challenges are designed to help you develop project ideas.
+        We'd love to see some <b>data</b> in your projects!
+			</p>
+    </div>  <!-- End of intro section -->
+
+<hr/>
+      <div class="intro" style="padding-top:2em">
+
+        <p><strong>If you read through these lecture notes, attempt the tasks and exercises and use the resources that we have made available, then by the end of this session you should be able to:</strong></p>
+
+			<ul>
+				<li>Drag and drop data files into your <em>Processing</em> code window;</li>
+				<li>Create a sketch to read a text file using <code>loadStrings()</code>;</li>
+        <li>Split a line of text into <i>tokens</i> representing individual words or numbers;</li>
+        <li>Rescale a number from one range to another using the <code>map()</code> command;</li>
+        <li>Use data that you have read from a file and rescaled to change the colour, size or appearance of graphics in your sketch.</li>
+      </ul>
+
+      <p>Remember, that to achieve this you will need to read these notes through and ...</p>
+      <div class="codeTask">complete all of the <b>coding tasks</b> that you see, either in the lecture when we try things out, or in the lab afterwards with the help of your teachers.</div>
+      <div class="coreTask">complete all of the <b>core tasks</b> that are included, either in the lecture or in the lab.</div>
+
+      <p>If you have completed the <b>coding tasks</b> and would like to try some more challenging tasks, then ...</p>
+      <div class="challenge">try some of the <b>challenges</b> to test yourself and learn a little more.
+        <br/><br/>But also, know that you can come back to these later and that we don't expect everybody to try them - these are to challenge the students in the group who have some previous experience of programming.
+      </div>
+
+      <p>If you have completed all the work on this page and want to learn more, the try the optional <b><a href="https://moodle.city.ac.uk/mod/page/view.php?id=1649144">Extra Challenges</a></b> on <i>Live Data</i>, <i>Bikes</i> and <i>Books</i>.
+      This could well be fun for some of you and may give you ideas for using data visualization in your <b><code>#BootCamp</code></b>projects.</p>
+
+
+			</div>  <!-- End of intro section -->
+
+
+<hr>
+
+      <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+      <div class="units-row">
+        <div class="unit-70">   <!-- Left column -->
+          <h3>0. Before we start</h3>
+          <p>Before we get going, you'll need some data and to know a key method - <code>loadStrings()</code>.
+          <br/>
+        So be sure to complete these two tasks first of all.<br/>
+        They will ensure that you know how to use <code>loadStrings()</code>.</p>
+
+      <div class="codeTask">
+        <p><b>loadStrings() Example:</b></p>
+        <p>
+        We will be using a simple data file when live coding in the lecture - <a href="https://jsndyks.github.io/cityBootCamp/data/namesData.txt" target="_blank">namesData.txt</a><br/>
+        So please <strong>download this data file in advance</strong>.
+        You should right-click the link above to download and save a copy.<br/>
+        It's important that you <strong>make sure you know where the file has been saved</strong> on your laptop.
+      <br/>
+        You can add the file to a <em>Processing</em> sketch by dragging it into the sketch code window.<br/>
+        Data were generated through the <a href="https://www.mockaroo.com">mockaroo</a> Random Data Generator.
+      </p>
+      <p>
+        When you have done so, open a new sketch and use <code>loadStrings("namesData.txt")</code> to load the contents of the file into an array of <code>Strings</code>s.<br/>
+        Each line of the file will be loaded into an element of the array, in turn.</p>
+        <p style="padding-bottom:1em">
+        Try the following two-line sketch.
+        It will load the file and print two of the array elements that have been loaded into the <code>lines</code> array.
+      </p>
+        <pre class="brush: processing; gutter: false; toolbar: false;">
+          // Read a text file into an array names 'lines' with loadStrings()
+          String[] lines = loadStrings("namesData.txt");
+
+          // Print the number of lines loaded from namesData.txt into the lines array :
+          println(lines.length);
+
+          // Print the first String in the array to the console :
+          println(lines[0]);
+
+          // Print the second String in the array to the console :
+          println(lines[1]);    </pre>
+          <p>You should see this, and should be able to figure out how to show the other lines in the data file.</p>
+          	<img src="https://jsndyks.github.io/cityBootCamp/images/loadStringsOutput.png" width="720" height="80"/>
+      </div>
+      <div class="challenge">
+        <p><b>Challenge - Update the Text File</b><br/>
+        If you know how to edit a text file, then make some changes to the names, save the file and re-run the sketch, just to prove to yourself that the sketch is reading from a file on your computer.</p>
+      </div>
+
+
+    </div>
+  </div>
+
+<div class="units-row" style="padding-top:3em">
+  <div class="unit-70">   <!-- Left column -->
+  <p>So far, so good - you have data and are reading it into a sketch that responds to the data.</p>
+  <p>Let's build this sketch a little, to process and display the data in different ways.</p>
+
+  </div>
+  </div>
+
+  <div class="units-row">
+    <div class="unit-70">   <!-- Left column -->
+  <div class="codeTask">
+    <p>Download the code provided to the right as the basis of your sketch.</p>
+    <p>Now you need to extend the skeleton sketch that reads data to ...</p>
+    <ol>
+      <li>Print each line of the data file from top to bottom;</li>
+      <li>Print each line of the data file from bottom to top;</li>
+      <li>Use <code>text()</code> the put each line of text on the canvas;
+      <br/>&nbsp;&nbsp;&nbsp;&nbsp;(<i>You'll need to increase the <b>y position</b> of the text each time the loop is executed</i>)</li>
+    </ol>
+    </div>
+    <p>Everything else that we do in this session will build upon this basic idea, that you should now have got the hang of.</p>
+    <ol>
+      <li>load text from a file into an array of strings</li>
+      <li>access line of text from element of array</li>
+      <li>use line of text in sketch</li>
+    </ol>
+    <p>We will <b>soon</b> learn to ...</p>
+    <ol start="4">
+      <li>split each line into separate text strings</li>
+      <li>convert these strings into numbers</li>
+      <li>transform these numbers into positions on the canvas</li>
+    </ol>
+    <p>This will enable us to load data from a file somewhere on our computers, and then process this data to effect what we display in our sketches.<br/>That's (a good part of) <b>data visualization</b>.<br/>
+    So let's look at some!</p>
+</div>
+<div class="unit-30" id="annotation">   <!-- Right column -->
+    <p style="padding-top:3em">Here's a skeleton sketch that we will use in the lecture:</p>
+    <ul>
+      <li>skeleton sketch and data - <a href="https://jsndyks.github.io/cityBootCamp/data/namesData.zip">namesData.zip</a></li>
+    </ul>
+    <p>Download, unzip, open, edit!</p>
+</div>
+
+</div>
+
+<hr>
+
+      <div class="units-row">
+        <div class="unit-70">   <!-- Left column -->
+		  <h3>1. Introduction to data visualization</h3>
+
+          <p>
+						So far, most of the sketches you have built have involved creating some form of visual representation
+						that you as a programmer have controlled (e.g. by putting numbers into your program code or asking <em>Processing</em>
+						to generate random numbers for you), or you as a user have influenced (e.g. by moving the mouse or pressing
+						keys).
+					</p>
+
+					<p>
+						Data visualization is all about making graphical representations of data. These data are usually created
+						externally, outside your program, and you write code to read those data into your program and show them
+						graphically. The data can be of all sorts of things - daily temperatures, Twitter messages, Moodle usage stats, code commits, data generated in real time by sensors in the City or complex model outputs that might, for example, be predicting patterns of disease.
+					</p>
+
+					<p>
+						Data can be turned into graphics in very different ways and for many different purposes. These range from
+						more <b>artistic representations</b> with more focus on the visual and interactive design than the data that
+						underlie them; more <b>communicative representations</b> where a story is be told using data; or more
+						<b>scientific representations</b> that help investigate scientific questions in by assisting scientists in
+						finding	patterns in data and relationships between datasets. Each of these will have different implications
+						for visual design, but they all follow the same general pattern of transforming some form of dataset into
+						some form of graphical depiction.
+					</p>
+
+					<h4>Examples</h4>
+
+				  <p>
+						The web has many, many creative visual representations of data. This is in part due to the popularity and
+					  importance of <a href="http://en.wikipedia.org/wiki/Open_data" target="_blank">Open Data</a> and because
+						many of the various technologies that enable people to process this data - such as <em>Processing</em>.
+            Other languages and programming frameworks are also common.
+            Here are just a few examples of sites that contain interesting and informative data visualization:
+					</p>
+
+					<ul>
+						<!--<li><a href="http://infosthetics.com/" target="_blank">infosthetics.com</a>-->
+						<!--<li><a href="http://www.visualizing.org/" target="_blank">http://www.visualizing.org/</a> -->
+            <li><a href="http://www.visualcomplexity.com/" target="_blank">visualcomplexity.com/</a> - on
+              <a href="http://www.visualcomplexity.com/vc/search.cfm?input=music" target="_blank">music</a>,
+              <a href="http://www.visualcomplexity.com/vc/search.cfm?input=transport" target="_blank">transport</a>,
+              <a href="http://www.visualcomplexity.com/vc/search.cfm?input=football" target="_blank">football</a>,
+              <a href="http://www.visualcomplexity.com/vc/search.cfm?input=twitter" target="_blank">social media</a>, etc.
+						</li><li><a href="http://www.informationisbeautifulawards.com" target="_blank">www.informationisbeautifulawards.com</a></li>
+						<li><a href="http://mappinglondon.co.uk/category/data/" target="_blank">mappinglondon.co.uk/category/data</a> - e.g. <a href="https://mappinglondon.co.uk/2014/the-football-tribes/">The Football Tribes</a>
+					</li></ul>
+
+          <h4>Example 1 - Personal Activity Tracking</h4>
+          <p>
+          Ben Fry, one of the original authors of <em>Processing</em>, has founded a visualization company, which is helping <a target="_blank" href="https://fathom.info/projects/">a whole host of clients in government and industry</a> make sense of their data through <em>visualization</em>.<br/>
+          Have a look at <em>Fathom</em>'s <a href="https://fathom.info/yearinnikefuel/">Year in Nike Fuel</a> to see how personal data from activity trackers have been transformed into meaningful and revealing graphics through data visualization.
+          </p>
+          <iframe src="https://player.vimeo.com/video/151097197" width="690" height="387" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+          <i>Year in Nike Fuel</i> by <a href="https://fathom.info/yearinnikefuel/" target="_blank">Fathom </a>.
+          <!---iframe src="https://player.vimeo.com/video/151097197?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe--->
+
+          <!---
+					<h4>Rise of Empires</h4>
+
+					<p>
+						Animation of historical post-colonial independence from four major naval empires:
+					</p>
+
+					<iframe src="https://player.vimeo.com/video/11506746" width="690" height="387" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					<p>
+						<i>Empires' Decline Revisited</i> by <a href="http://vimeo.com/pmcruz" target="_blank">Pedro Miguel Cruz</a>.
+					</p>
+          --->
+
+          <p style="padding-top:3em">
+						And here are some specific examples created with <em>Processing</em>:
+					</p>
+
+
+					<h4>Example 2 - Code Development by a Community</h4>
+
+					<p>
+					Animation showing 10 years of software development of the Eclipse open source project.
+				  </p>
+					<iframe src="https://player.vimeo.com/video/1130828" width="690" height="387" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+					<p>
+						<i>CodeSwarm</i> by	<a href="http://vimeo.com/michaelogawa" target="_blank">Michael Ogawa</a>.
+					</p>
+
+
+					<h4>Examples 3 - London Bikeshare Scheme</h4>
+
+					<p>
+						'Boris bike' movement data represented in two different ways:
+					</p>
+
+				  <iframe src="https://player.vimeo.com/video/19486470" width="690" height="387" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+					<p>
+						<i>London Hire Bikes animation</i> by	<a href="http://vimeo.com/sociablephysics" target="_blank">Sociable Physics</a>.
+					</p>
+
+				  <iframe src="https://player.vimeo.com/video/66477874" width="690" height="387" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+					<p>
+						<i>We are the city</i> by <a href="http://vimeo.com/jowood" target="_blank">Jo Wood</a>.
+					</p>
+
+          <h4>Other Examples - Visual Complexity</h4>
+          <p>There are many other interesting examples online.
+            You should spend some time interpreting these - they may inspire you with project ideas.</p>
+<br/><br/>
+            <div class="coreTask">
+          <p>Find two interesting examples that use <em>Processing</em> on the <em>Visual Complexity</em> website.<br/>
+          What do they show? How might this be useful, and to whom?</p>
+          <ul>
+          <li><a href="http://www.visualcomplexity.com/vc/search.cfm?input=processing" target="_blank">http://www.visualcomplexity.com/</a></li>
+          </ul>
+          <p>Can you begin to see which methods might be used and what kind of data might be required in each case?</p>
+        </div>
+
+
+
+					</div>  <!-- End of left column -->
+
+				 <div class="unit-30" id="annotation">   <!-- Right column -->
+
+				 <p><br/></p>
+
+
+				 </div>	<!-- end of right column -->
+      </div>  <!-- End of row -->
+
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<hr>
+
+				<div class="units-row">
+        <div class="unit-70">   <!-- Left column -->
+
+					<h3>2. Getting simple text data into a sketch</h3>
+          <p>
+						So how do we make a connection between the data we might want to visualize and our coding instructions?
+						Thankfully <em>Processing</em> offers us several built-in methods for reading data, whether it comes from text files, activity trackers, remote databases or the Web.
+					</p>
+
+					<p>
+						Perhaps the easiest to use is the <a href="http://processing.org/reference/loadStrings_.html" target="_blank">loadStrings()</a>
+						method that reads in a text file into an array of <code>String</code>s. To see how it works, lets adapt the
+						sketch from a few days ago that displays some names stored in an array:
+					</p>
+
+					</div></div>
+          <div class="units-row">
+            <div class="unit-70">   <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+					<pre class="brush: processing; gutter: false; toolbar: false;">String[] names;
+
+void setup()
+{
+  size(300,580);
+  fill(0);
+  textSize(14);  // -- try changing the size of the text
+
+  names = loadStrings("names.txt");
+}
+
+void draw()
+{
+  background(255);
+  float yPos = 25;  // -- try changing the starting position on the Y axis
+
+  for (String name : names)
+  {
+    text(name,20,yPos);
+    yPos = yPos+28; // -- try changing the line by line vertical offset
+  }
+}</pre>
+					<p>
+						Notice that nowhere in the code is there any list of the actual names to display. Instead the <code>loadStrings()</code>
+						method looks for a data file called <code>names.txt</code> that contains the actual names. Each line from this
+						file is read into a separate element in an array that we've called <code>names</code> in this example.
+            The <code>draw()</code> method then uses a for-each loop to iterate through this array, displaying each element one-by-one. So the output of our sketch is determined by the data. More names in the file, will give us more names on the canvas, with the same code.
+					</p>
+
+					<p>
+						In order for <em>Processing</em> to know where to look to find the file <code>names.txt</code>, it needs to be created somewhere and then dragged into the <em>Processing</em> window.
+            This will make a copy of the file in the <em>Processing</em> sketch.
+					</p>
+<!--  -->
+					<div class="codeTask">
+						<p>Try this code for yourself -- copy it into a sketch from above.</p>
+            <p>Make sure you have a copy of <a href="https://jsndyks.github.io/cityBootCamp/data/names.txt" target="_blank">names.txt</a>
+						(<i>right-click to save a copy</i>) and that you drag it into your <em>Processing</em> sketch code window.</p>
+            <p>Change things around as suggested by the comments.</p>
+             <pre class="brush: processing; gutter: false; toolbar: false;">// -- try things out that are written like this!</pre>
+            <p>Additionally, are you able to adapt the sketch to:</p>
+            <ol>
+              <li>shift each successive line a little to the right</li>
+              <li>use variables for <code>textSize</code> and the offset added to <code>yPos</code> so that the two are related</li>
+              <li>change the size and spacing of the text <i>interactively</i> with the 'z' and 'x' keys using <code>keyPressed()</code></li>
+            </ol>
+          <!--- http://staff.city.ac.uk/~jwo/bootcamp2016/lecture10/pde/nameList/data/names.txt --->
+            </div>
+            <div class="challenge">
+              <p><b>Challenge - Make The Sketch More Robust</b><br/>
+              If you've got that done and would like to try some more challenging modifications, then ...</p>
+              <ol start="4">
+                <li>Try changing a few of the names in the text file (but nothing in the sketch code) and re-run the sketch to check it shows the new list. Add your name, and the name of somebody else in the class.</li>
+                <li>See whether you can modify the sketch so that the text size and the spacing between the lines is always sufficient to display all the names in the sketch window, regardless of the number it items in the list?<br/><i>You'll need to edit and save the text file a few times to check this</i><br/>
+              <i>Hint:</i> You can find out how many names are in the list by using <code>names.length</code> that will report the
+              size of the array holding all the names once the file has been read using <code>loadStrings()</code>.
+            </li>
+          </ol>
+            </div>
+					</div>  <!-- End of left column -->
+
+				 <div class="unit-30" id="annotation">   <!-- Right column -->
+
+				 <script>loadImage('https://jsndyks.github.io/cityBootCamp/images/names.png',100,355, 'output from names sketch');</script>
+				 <p>Output from the names sketch</p>
+
+				 </div>	<!-- end of right column -->
+      </div>  <!-- End of row -->
+
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+        <h4>An interactive example</h4>
+					<div class="units-row">
+        <div class="unit-70">   <!-- Left column -->
+
+          <p>
+						Instead of a simple list of names, we can use the same approach to read in a larger text file. For example,
+						<a href="http://www.gutenberg.org" target="_blank">Project Guttenberg</a> provides a repository for free
+						electronic copies of thousands of books.
+            We can use this repository as a source of data for our sketches.
+            Below is a sketch that displays the contents of H.G. Wells' classic book '<em>The Time Machine</em>'
+						<a href="https://jsndyks.github.io/cityBootCamp/data/theTimeMachine.txt" target="_blank">stored in a text file</a>.</p>
+						<p>Each line of text in the file contains a whole paragraph and one line is displayed in the sketch at a time.
+            You can change the line that is displayed interactively - use the '&lt;' and '&gt;' keys to display the book, one paragraph at a time.
+            Clicking the 'space bar' will display line 10 - this is the first line of the content of the book - the title:
+					</p>
+          <!--- http://staff.city.ac.uk/~jwo/bootcamp2016/lecture10/pde/gulliver/data/gulliversTravels.txt --->
+
+					</div>
+          <div class="unit-30" id="annotation">   <!-- Right column -->
+  <img src="https://www.gutenberg.org/cache/epub/35/pg35.cover.medium.jpg" width="140" height="210" style="border:1px #d0d0d0 solid">
+
+          </div>
+        </div>
+          <p>&nbsp;</p>
+          <div class="units-row"><div class="unit-70">   <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+					<pre class="brush: processing; gutter: false; toolbar: false;">            String[] textLines;  // Lines of text from file.
+            int lineToDisplay;
+
+            void setup()
+            {
+              size(600,400);
+              textLines = loadStrings("https://jsndyks.github.io/cityBootCamp/data/theTimeMachine.txt");
+              lineToDisplay = 142;    // See above that loadStrings() will load from an online file
+
+              textSize(14);
+              fill(0);
+            }
+
+            void draw()
+            {
+              background(255);
+              text(textLines[lineToDisplay],5,5,width-10,height-10);
+            }
+
+            void keyPressed()
+            {
+              if ((key == '&lt;') &amp;&amp; (lineToDisplay &gt; 0))
+              {
+                lineToDisplay = lineToDisplay-1;
+              }
+              else if ((key == '&gt;') &amp;&amp; (lineToDisplay &lt; textLines.length-1))
+              {
+                lineToDisplay = lineToDisplay+1;
+              }
+              else if (key == ' ')
+              {
+                // Line 10 is the first line of the book - it contains the title
+                lineToDisplay = 10;
+              }
+            }</pre>
+
+					<p>
+						The only element of this sketch that may be new is that we are using a slightly different version of <em>Processing</em>'s
+						<a href="https://processing.org/reference/text_.html"><code>text()</code></a> method that takes 5 parameters — the text string to display, the position of the
+						top-left of the text area and the width and height of the text area. When specified like this (i.e. as a rectangle),
+						<em>Processing</em> will attempt to lay out the text, line by line, within the rectangle. This saves us having to update
+						the position of each line as we did in the first example.
+					</p>
+
+					<p>
+						The <code>keyPressed()</code> method handles skipping forward and backward using the '&lt;' and '&gt;' keys by
+						updating the variable <code>lineToDisplay</code> with the array index corresponding to the
+						currently displayed line.
+					</p>
+
+					</div>  <!-- End of left column -->
+
+				 <div class="unit-30" id="annotation">   <!-- Right column -->
+
+				 <script>loadImage('https://staff.city.ac.uk/~jad7/bootCamp/theTimeMachine.png',600,400, 'Paragraph from The Time Machine sketch');</script>
+				 <p>Paragraph from The Time Machine sketch <i>(click to enlarge)</i>.<br/>It all sounds a little bit like attending Boot Camp ...</p>
+         <p>But hey - you get a free book at BootCamp.<br/>You could always read it ...?<br/>
+           What can beat a little classic literature?</p>
+
+				 </div>	<!-- end of right column -->
+      </div>  <!-- End of row -->
+
+      <div class="units-row">
+        <div class="unit-70">
+      <div class="codeTask">
+        <p>Open a new <em>Processing Sketch</em> and either ...</p>
+          <ul>
+            <li>download <a href="https://jsndyks.github.io/cityBootCamp/data/theTimeMachine.txt">the text file containing the book</a>, and drag it into the sketch, or</li>
+            <li>read the file in from the remote URL</li>
+          </ul>
+        <p>Now copy the code from the example above into your <em>Processing Sketch</em> and try out the interactions specified in <code>keyPressed()</code>.</p>
+        <p>What do the <code>&amp;&amp; (lineToDisplay &gt; 0)</code> and <code>&amp;&amp; (lineToDisplay &lt; textLines.length-1)</code>
+        tests do?<br/>
+        Why are they necessary?</p>
+      </div>
+
+      <div class="aside">
+        You will learn how to apply more sophisticated processing of arrays in the Java module. This will allow you,
+        for example, to sort elements of the array into alphabetical order, or to count the number of occurrances
+        of each word.
+      </div>
+    </div>	<!-- end of right column -->
+    <div class="unit-30" id="annotation">
+      <p style="padding-top:8em">Well done - you have just created a rudimentary digital book reader.<br/>
+        It should work for any book stored as a text file.<br/>
+        As long as the title is on line 10!</p>
+    </div>  <!-- End of left column -->
+ </div>  <!-- End of row -->
+
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<hr>
+
+					<div class="units-row">
+        <div class="unit-70">   <!-- Left column -->
+
+					<h3>3. Extracting tokens from a line of text</h3>
+          <p>
+            The text that we have loaded so far is largely <i>unstructured</i>.
+            While each line in the file is a line or paragraph of the book, and they are in the order in which they should be read, the text within the lines does not have any specific structure.
+            But data are often, and most usefully, stored in text text files with more explicit structure.</p>
+            <p>
+            For example, each line may be a <em>record</em> about a thing that we are interested in, such as a day of the week.
+            It may contain multiple pieces of information about the thing, such as your  maximum heart rate as recorded by an activity tracker.
+            Here is an example text file that might be the basis of the <em>Year of NikeFuel</em> data visualization we saw above - <a href="https://jsndyks.github.io/cityBootCamp/data/hourlyBPM.txt" target="_blank">hourlyBPM.txt</a>. Each row is a day. Each line contains the name of the day and then 24 numbers that show maximum heart rate for each hour of the day:
+          </p>
+          <!--p>&nbsp;</p-->
+          <pre>Monday,54,52,52,54,55,54,120,77,135,72,62,62,75,82,58,62,66,75,121,66,82,120,66,54
+Tuesday,56,53,54,52,58,63,121,79,137,71,59,64,75,82,55,64,71,75,119,69,85,120,65,57
+Wednesday,62,52,51,53,59,65,122,77,139,68,62,62,76,79,57,63,69,73,121,66,84,118,68,59
+Thursday,62,50,50,56,56,67,125,77,140,71,59,61,79,76,60,63,69,71,118,69,84,117,71,59
+Friday,61,50,49,59,56,65,128,74,139,67,56,60,77,79,62,60,69,73,117,68,86,118,69,59
+Saturday,58,53,46,59,55,65,130,75,80,137,88,92,106,76,62,68,72,72,71,118,86,116,72,56
+Sunday,55,51,49,62,65,62,127,75,77,140,85,89,105,77,61,66,74,71,73,121,86,114,70,55</pre><p></p>
+          <p>
+						We have seen that the <code>loadStrings()</code> method is very useful when you wish to read in lines of text into an array, line by line.
+            But sometimes we may wish to go further than this and extract the individual elements <i>within</i>
+						each line.
+            For example, the words that make up a sentence or the numbers in the kinds of comma separated lists of numbers (or rows of numbers) shown above.
+            These elements are often referred to as <i>tokens</i> and the process of extracting them as <i>parsing</i>.
+					</p>
+
+					<p>
+						<em>Processing</em> provides a useful command to help with parsing tokens — <a href="http://processing.org/reference/split_.html" target="_blank">split()</a>.
+						This method will take a string and a <i>separator</i> as parameters and split the text up into an array of
+						smaller strings, using the separator character to divide the text.
+					</p>
+
+          <p>Read that sentence one more time!</p>
+
+          <p>Let's say that again and take it slowly ...<br/>
+            If a <i>String</i> (such as one that you load from a line of a text file) contains a series of characters that are separated by a <i>separator</i> (such as a comma), then <a href="http://processing.org/reference/split_.html" target="_blank">split()</a> will convert the <i>String</i> into an array containing each of the parts of the <i>String</i> that are separated by the <i>separator</i>.
+          </p>
+
+          <div class="codeTask">
+            <p>Let's try a simple example.<br/>
+              Load the following code into a new sketch and check the console to see the output from <code>println()</code>.</p>
+              <p>Use the suggestions in the two <code>IDEA</code> comments to experiment and make sure you understand.</p>
+          </div>
+          <pre class="brush: processing; gutter: false; toolbar: false; highlight:[15];">// -- create a String:
+String someText = "BootCamp is a fantastic experience";
+// -- IDEA - try changing the String to contain different text ...
+
+// -- Create an array containing the Strings that are the result of
+// --   splitting the original String:
+String [] splitText = split(someText,' ');
+// -- IDEA - try changing the separator to 'a' or 'e' or somethign else ...
+
+// -- Loop through each String in the array and print it to the console
+// --   along with number of the array element:
+for (int i=0; i&lt;splitText.length; i++) {
+  println(i + "&lt; " + splitText[i]);
+}</pre>
+
+					<p>
+            Now we can read lines of text from a file and split each line up into arrays we can use the contents of files to inform our sketches. So we have an array or lines, and an array of <i>tokens</i> for each line that splits the line contents according to a particular <i>separator</i>.</p>
+          <p>Let's think about unstructured text first.
+						As an example, suppose we wished to display each of the words of a sentence in different colours:
+					</p>
+
+					</div></div> <div class="units-row"><div class="unit-70">   <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+					<pre class="brush: processing; gutter: false; toolbar: false; highlight:[15];">            String textLine;
+
+            void setup()
+            {
+              size(250,700);
+              textSize(10);
+              textLine = "The night came like the turning out of a lamp, and in another moment came tomorrow. The laboratory grew faint and hazy, then fainter and ever fainter. Tomorrow night came black, then day again, night again, day again, faster and faster still. An eddying murmur filled my ears, and a strange, dumb confusedness descended on my mind.";
+            }
+
+            void draw()
+            {
+              background(255);
+              float yPos = 18;
+
+              String[] tokens = split(textLine," ");
+
+              for (String token : tokens)
+              {
+                fill(random(50,200),random(50,200), random(50,200));
+                text(token,10,yPos);
+                yPos = yPos+12;
+              }
+
+              noLoop();    // Stops the draw() loop from repeating.
+            }</pre>
+
+					<p>
+						Here, the <i>separator</i> is the " " (i.e. a space), which is what we normally use to separate
+						words from one another in a sentence. The returned result after calling the method is an array of <code>String</code>s,
+						which in this example we have named as the array variable <code>tokens</code>. We then use a 'for-each' loop to iterate through
+						that array, displaying each word in turn in a different random colour at a different vertical position.
+					</p>
+
+					<div class="codeTask">
+            <p>Create a new <em>Processing</em> sketch and copy in the code from the example above.<br/>
+              See whether you can explain the code - talk to a colleague, or talk to yourself out loud!<br/><i>Don't worry, nobody is listening!</i></p>
+						<p>Why is the <code>noLoop()</code> command used in the example?</p>
+            <p>Can you predict what would happen if you removed it?<br/>
+            Have a think, and then give it a try to see whether you were correct.</p>
+					</div>
+          <p>Let's try a few more things out with the same sketch ...</p>
+          <div class="codeTask">
+						<p>What happens if you change the <i>separator</i> used in the <code>split()</code> statement?</p>
+            <p>Try the following separators, and then make some up for yourself.<br/>
+            Can you predict what will happen in each case before you run the code?</p>
+            <ul>
+              <li><code>"e"</code></li>
+              <li><code>"."</code></li>
+              <li><code>"and"</code></li>
+              <li><code>"day"</code></li>
+              <li><code>"again"</code></li>
+            </ul>
+					</div>
+
+          <div class="challenge">
+            <p><b>Challenge - Split on Key Press</b><br/>
+
+            Can you add an interaction so that the text is split by a particular letter whenever you press that key?<br/>
+            So, pressing 'a' on the keyboard will split by the letter <b>a</b>, pressing 'b' will split by the letter <b>b</b>, etc.
+          </p>
+          <p>
+            <em>Hint: you will need to use a variable as the <i>separator</i> in <code>split()</code> - <em>Processing</em> creates one that could be useful when <code>keyPressed()</code> is called.</em>
+          </p>
+          </div>
+
+
+					</div>  <!-- End of left column -->
+
+				 <div class="unit-30" id="annotation">   <!-- Right column -->
+
+				 <script>loadImage('https://staff.city.ac.uk/~jad7/bootCamp/splitText.png',250,700, 'Coloured words');</script>
+				 <p>Output from the coloured words sketch.</p>
+         <!--- http://staff.city.ac.uk/~jwo/bootcamp2016/lecture10/images/colouredWords.png --->
+
+
+				 </div>	<!-- end of right column -->
+      </div>  <!-- End of row -->
+
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+					<div class="units-row">
+        <div class="unit-70">   <!-- Left column -->
+
+					<h4>Extracting numeric values</h4>
+          <p>
+						The same principle can be used to extract numeric values from a line of structured text, like the ones we saw in the heart rate data above.
+            As we have seen, numbers
+						in a text file might be separated by commas rather than spaces, so it becomes a simple matter of passing a comma <code>","</code>
+						rather than a space <code>" "</code> to the <code>split()</code> method.
+					</p>
+
+					<p>
+						Here's an example that reads in a set of numbers representing daily temperatures and displays a series of
+						rectangles that are sized according to the temperature of each day. Note that in this example (and the one
+						above) we are assigning the value of the <code>textLine</code> variable explicitly within our code, but a
+						real data visualization application is likely to read these values from a file using the approaches that we have already learned about.
+					</p>
+          <!--p>One important difference is that we have to convert the <code>String</code> into a floating point number, with <code>float()</code>.</p-->
+
+					</div></div> <div class="units-row"><div class="unit-70">   <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<pre class="brush: processing; gutter: false; toolbar: false; highlight:[20]">String textLine;
+
+void setup()
+{
+  size(400, 200);
+  noStroke();
+  fill(250, 110, 10);
+  textLine = "14,16,18,19,19";    // Daily maximum temperatures in the next 5 days.
+}
+
+void draw()
+{
+  background(255);
+  float xPos = 30;
+
+  String[] tokens = split(textLine, ",");
+
+  for (String token : tokens)
+  {
+    float temperature = float(token);    // Convert text into a number.
+    rect(xPos, 100, 65, temperature);
+    xPos = xPos + 70;
+  }
+}</pre>
+
+				<p>
+					The only command that may be new to you in this example is the use of a method called <code>float()</code>
+					that converts the text of a number parsed from the <code>String</code> into an actual numeric <code>float</code> variable.
+				</p>
+
+					</div>  <!-- End of left column -->
+
+				 <div class="unit-30" id="annotation">   <!-- Right column -->
+
+				 <script>loadImage('https://jsndyks.github.io/cityBootCamp/images/tempBars1.png',400,200, 'Daily temperatures');</script>
+				 <p>Daily temperatures shown as rectangles sized according to numeric temperature values</p>
+
+
+				 </div>	<!-- end of right column -->
+      </div>  <!-- End of row -->
+
+
+			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+					<div class="units-row">
+        <div class="unit-70">   <!-- Left column -->
+
+
+          <p>
+						An obvious problem with the sketch is that the bar heights do not vary very much since we are representing
+						the data (degrees Celsius) directly as pixel units (e.g. 19 degrees Celsius is shown as a rectangle 19 pixels
+						high).
+					</p>
+
+
+					<p>
+						It is quite common in data visualization to want to rescale data values so they match the sizes in pixel units
+						we wish to use. We could achieve this by multiplying each data value (stored in the <code>temperature</code> variable
+						above) by some value, say 4, so that 19 Celsius becomes 19*4 = 76 pixels tall. But a more general approach
+						would be to use <em>Processing</em>'s <a href="http://processing.org/reference/map_.html" target="_blank">map()</a> command that rescales any number from one
+						range to another:
+					</p>
+
+					</div></div> <div class="units-row"><div class="unit-70">   <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+					<pre class="brush: processing; gutter: false; toolbar: false; highlight:[21]">String textLine;
+
+void setup()
+{
+  size(400, 200);
+  noStroke();
+  fill(250, 110, 10);
+  textLine = "14,16,18,19,19";    // Daily maximum tmperatures in the next 5 days.
+}
+
+void draw()
+{
+  background(255);
+  float xPos = 30;
+
+  String[] tokens = split(textLine, ",");
+
+  for (String token : tokens)
+  {
+    float temperature = float(token);    // Convert text into a number.
+    float barHeight = map(temperature,0,30, 1,160);
+    rect(xPos, 20, 65, barHeight);
+    xPos = xPos + 70;
+  }
+}</pre>
+
+					<p>
+						<code>map()</code> requires 5 parameters to be specified. The first is the number we wish to rescale. In the example above it
+						is the value held in the <code>temperature</code> variable. The next pair of parameters are the minimum
+						and maximum data values we can expect our data value to fall between.
+            This is the <i>range</i> that we <i>map <b>from</b></i> or the <i>source</i> range.
+            With UK temperatures, we will work
+						on the assumption that our temperature range is between 0 and 30 degrees Celsius.
+            The final pair of numbers
+						represent the minimum and maxium rescaled values.
+            This is the <i>range</i> that we <i>map <b>to</b></i> or the <i>target</i> range.
+            In this case these values represent the number of pixels
+						corresponding to the data minimum and data maximum respectively.
+					</p>
+          <div class="codeTask">
+            <b>Map Basics:</b>
+            <p><code>map()</code> is a method that returns a float, based upon 5 input arguments :<br/>
+               <code>map(value, sourceMin, sourceMax, targetMin, targetMax)</code></p>
+            <p style="padding-bottom:1em" >Copy these two lines of code into a new new <em>Processing</em> sketch and vary the <em>first three arguments</em> to see how the <code>value</code> on the range <code>sourceMin</code>-<code>sourceMax</code> looks on the target range from <code>0</code> to <code>width</code>.</p>
+<pre class="brush: processing; gutter: false; toolbar: false; highlight:[21]">float x = map(10, 0,100, 0,width);
+line(x,0, x,height);</pre>
+            </div>
+
+
+          <div class="codeTask">
+            <b>Temperature Chart:</b>
+            <p>Copy the code from the previous 'temperature' example into a new <em>Processing</em> sketch, and then ...</p>
+            <ol>
+              <li>add some more data (comma separated integers) to <code>textLine</code><br/><i>You should get more bars</i></li>
+              <li>change the ranges of the <em>value</em> and the <em>target</em> used in the
+                 <a href="https://processing.org/reference/map_.html" target="_blank"><code>map()</code></a>
+                 command - experiment with different ranges<br/>
+               Remember : <code>map(value, sourceMin, sourceMax, targetMin, targetMax)</code>
+             <br/><i>You should get different sized bars</i></li>
+              <li>add data values that are beyond the current source range - try negative values in <code>textLine</code></li>
+              <li>try to make the bars move up, rather than down, from the baseline with a new <code>baseline</code> variable:<br/>
+                <code>rect(xPos, baseline-barHeight, 65, barHeight);</code></li>
+            </ol>
+          </div>
+
+
+					<div class="challenge">
+            <p><b>Challenge - Freezing Temperatures</b><br/>
+            If a temperature was negative (e.g. -3<sup>o</sup> C), it would currently not be shown correctly in this
+						example. Could you adapt the code to show colours in blue if the temperature is negative and orange if the temperatures are positive?
+            <br/>
+            Could you make the positive temperature bars align upwards and the negative
+						ones downwards from a midpoint representing 0<sup>o</sup>C ?</p>
+            <p>
+            Try it out with this weirdly varying sequence of daily temperatures over a fortnight:<br/> <code>textLine = "4,3,1,-2,-3,-5,2,4,7,9,12,13,16"</code>
+          </p>
+					</div>
+
+          <!--div>
+          <p>Complete the <b>Freezing Temperatures</b> challenge from the Lecture notes too.
+          You will need to use an <code>if</code> statement to change the <code>fill</code> colour that you use, depending on the numeric value that you are considering.<br>
+          The code will need to doing something like this ...</p>
+          <ol>
+            <li><code>split()</code> the line of text by commas</li>
+            <li>consider each token in turn with a <code>for</code> loop</li>
+            <li>use <code>float</code> to convert the text token it into a number</li>
+            <li><code>map()</code> the number into a range that will give it a reasonable height on the canvas</li>
+            <li>check <code>if</code> the number is positive (greater than zero)</li>
+            <li>set the <code>fill()</code> colour according to this check</li>
+            <li>set the <code>rect()</code> vertical position according to this check</li>
+            <li>increase the value of a variable that contains the horizontal position of the bar</li>
+            <li>draw the <code>rect()</code> so that it is positioned horizontally according to the token order, and sized, positioned vertically, and coloured according to the number found in the token</li>
+          </ol>
+          </div-->
+
+          <div class="challenge">
+            <p><b>Challenge - Heart Rate Data</b><br/>
+            Can you create something that looks like the <em>NikeFuel</em> example with the heart rate data in <a href="https://jsndyks.github.io/cityBootCamp/data/hourlyBPM.txt" target="_blank">hourlyBPM.txt</a>?</p>
+            <p>
+              Use <code>rect()</code> to create bars, or explore
+            <code><a href="https://processing.org/reference/beginShape_.html" target="_blank">beginShape()</a></code>, <code>endShape()</code> and <code>vertex()</code> for shapes that show hourly rates in a continuous curve.<br/>
+            Remember to use transparent <code>fill()</code> colours by adding a fourth argument to <code>color(red, green, blue, opacity)</code>.<br/>
+            This <em>alpha</em> channel specifies the <i>opacity</i>, and a transparent colour has a low alpha number.<br/>
+            You will need to vary the colour for each day of the week (each line of the data file).
+            </p>
+					</div>
+
+					</div>  <!-- End of left column -->
+
+				 <div class="unit-30" id="annotation">   <!-- Right column -->
+
+				  <script>loadImage('https://jsndyks.github.io/cityBootCamp/images/tempBars2.png',400,200, 'Daily temperatures');</script>
+				 <p>Daily temperatures rescaled with the map() command</p>
+
+
+				 </div>	<!-- end of right column -->
+      </div>  <!-- End of row -->
+
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+					<div class="units-row">
+        <div class="unit-70">   <!-- Left column -->
+				<p></p>
+
+<hr>
+
+				<h3>4. Example: Showing Bikeshare data</h3>
+
+      </div>
+    </div>
+
+    <div class="units-row">
+      <div class="unit-70">   <!-- Left column -->
+        <p>
+					Let's bring together the three things we have been focussing on :</p>
+          <ul>
+            <li>reading of text files - <code>loadStrings()</code></li>
+            <li>parsing of lines of text into tokens - <code>split()</code></li>
+            <li>converting text strings into numbers - <code>float()</code></li>
+            </ul>
+          <p>We can do so with a data visualization example.<br/>
+          Our example attempts to visualize data from the <a href="https://tfl.gov.uk/modes/cycling/santander-cycles" target="_blank">London Cycle Hire Scheme</a>.
+
+				</p><p>
+					Transport for London release some very large datasets that include the <a href="http://cycling.data.tfl.gov.uk/" target="_blank">times and places of all journeys
+					made using the bikes</a>. This could be great source of data and ideas for your <code><b>#BootCamp</b></code> project.
+            But for now we are going to use a simpler dataset that records how many bikes
+					are docked at a series of docking stations at various points in time.
+          The first few rows and columns of this table of data look like this:
+        </p>
+					<img src="https://jsndyks.github.io/cityBootCamp/images/formattedStationStatus.png" width="1530" height="427">
+
+				<p style="padding-top:2em">
+					Each row (apart from the first 'header' row) contains data about a particular bicycle docking station. It
+					has its own unique numeric identifier, or ID (column 0); a name (column 1); a geographic location specified as a pair of
+					Ordnance Survey map coordinates (columns 2 and 3); the number of bikes capable of being docked at the station
+					(column 4); and then the number of bikes actually docked at the station at 30 minute intervals from midnight
+					to midnight (columns 5 to the end).
+				</p>
+
+				<p>
+					The full table can be downloaded as <a href="https://jsndyks.github.io/cityBootCamp/data/bikeShare.txt" target="_blank">bikeShare.txt</a>
+					(right-click to download).
+          Each bike station has its own line in the file and each value in every row is separated
+					with a comma. This makes it an ideal format for reading with <code>loadStrings()</code> and parsing with
+					<code>split()</code>.
+				</p>
+
+
+					</div>
+          <div class="unit-30" id="annotation">   <!-- Right column -->
+            <a href="https://jsndyks.github.io/cityBootCamp/images/bikeStation.noBikes.jpg"><img src="https://jsndyks.github.io/cityBootCamp/images/bikeStation.noBikes.jpg" width=300/></a>
+            <p>No bikes!</p>
+            <a href="https://jsndyks.github.io/cityBootCamp/images/bikeStation.oneBike.jpg"><img src="https://jsndyks.github.io/cityBootCamp/images/bikeStation.oneBike.jpg" width=300/></a>
+            <p>One bike</p>
+            <a href="https://jsndyks.github.io/cityBootCamp/images/bikeStation.manyBikes.jpg"><img src="https://jsndyks.github.io/cityBootCamp/images/bikeStation.manyBikes.jpg" width=300/></a>
+            <p>Plenty of bikes!</p>
+          </div>
+        </div>
+
+        <div class="units-row"><div class="unit-70">   <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+          <h5>Bike Bar Graph</h5>
+          <p>
+            The following sketch shows how we might read the data file, store the numbers in a series of arrays and use them to display how many bikes were docked at the
+            first 25 stations in the table at 9:00am in the morning.
+          </p>
+        </div>
+      </div>
+
+          <div class="units-row"><div class="unit-70">   <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+					<pre class="brush: processing; gutter: false; toolbar: false;">// -- Bike Station Bar Graph Sketch
+String[] stations;
+int[]    availableBikes;
+int[]    capacities;
+
+void setup()
+{
+  size(600, 405);
+  textAlign(LEFT,TOP);
+  strokeWeight(0.5);
+
+  String[] textLines = loadStrings("bikeShare.txt");
+
+  // Create arrays for the data (ignoring header line - textLines[0]).
+  stations       = new String[textLines.length];
+  availableBikes = new int[textLines.length];
+  capacities     = new int[textLines.length];
+
+  // Iterate and store station name, capacity and number of bikes for each station.
+  for (int i=1; i&lt;textLines.length; i=i+1)
+  {
+    // Split the line into values separated by a comma
+    String[] values = split(textLines[i], ",");
+
+    stations[i]       = values[1];
+    availableBikes[i] = int(values[23]); // Column no. 23 is 9am
+    capacities[i]     = int(values[4]);
+  }
+}
+
+
+void draw()
+{
+  background(255);
+  float yPos= 2;
+
+  // Show the first 25 stations with number of bikes at 9:00am
+  for (int i=1; i&lt;=25; i=i+1)
+  {
+    fill(0);
+    text(stations[i], 5, yPos);
+
+    noStroke();
+    fill(50,50,200,100);
+    rect(220,yPos+1,availableBikes[i]*8,14); // &lt;-- available rect
+
+    noFill();
+    stroke(0);
+    rect(220,yPos+1,capacities[i]*8,14);     // &lt;-- capacities rect
+
+    yPos += 16;
+  }
+}</pre>
+
+
+					</div>  <!-- End of left column -->
+
+				 <div class="unit-30" id="annotation">   <!-- Right column -->
+
+					 <script>loadImage('https://jsndyks.github.io/cityBootCamp/images/stations25.png',600,405, 'Bike station status - bar chart');</script>
+				 <p>Output from bikeshare sketch <i>(click to enlarge)</i></p>
+          <br/>
+         <script>loadImage('https://jsndyks.github.io/cityBootCamp/images/stations55.spine.png',600,405, 'Bike station status - spine plot');</script>
+       <p>A <em>spine plot</em> of the bikeshare data allows us to compare relative numbers of available bikes.</p>
+       <p>Can you edit the code to make one?<br/>Height is based on <b>capacity</b><br/>Fill is based on <b>availability</b><br/><i>(click to enlarge)</i></p>
+
+				 </div>	<!-- end of right column -->
+      </div>  <!-- End of row -->
+
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+					<div class="units-row">
+        <div class="unit-70">   <!-- Left column -->
+
+          <h5>Bike Map</h5>
+          <p>
+						Rather than visualizing this information as a series of bars, we could use the location data for each docking station to produce a simple map.
+            All we do here is plot a symbol for each station at a position on the canvas that is based upon the geographic information that we have read from the file.
+            For example, we might show each station as a circle.
+            We could make the size of the circle relate to the number of bikes that the station is capable of storing (its capacity):
+					</p>
+
+					</div></div> <div class="units-row"><div class="unit-70">   <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+					<pre class="brush: processing; gutter: false; toolbar: false;">// -- Bike Station Map Sketch
+String[]  stations;
+int[]     capacities;
+PVector[] locations;     // &lt;-- use a PVector to store station coordinates
+
+float NORTH = 184600;    // Geographic coordinates defining the boundaries
+float SOUTH = 177280;    //  of the area we are studying.
+float EAST  = 539250;    // We will use map() to convert from the source range of
+float WEST  = 523000;    //  geographic coordinates, to the target - our canvas
+
+void setup()
+{
+  size(600, 405);
+
+  String[] textLines = loadStrings("bikeShare.txt");
+
+  // Create arrays for the data (ignoring header line).
+  stations   = new String[textLines.length-1];
+  capacities = new int[textLines.length-1];
+  locations  = new PVector[textLines.length-1];
+
+  // Iterate and store name, location and capacity for each station.
+  for (int i=1; i&lt;textLines.length; i=i+1)
+  {
+    // Split the line into values separated by a comma
+    String[] values = split(textLines[i], ",");
+
+    stations[i-1]   = values[1];
+    capacities[i-1] = int(values[4]);
+    locations[i-1]  = new PVector(int(values[2]),int(values[3]));
+  }
+}
+
+void draw()
+{
+  background(255);
+  noStroke();
+  fill(0,0,180, 70);
+
+  for (int i=0; i&lt;stations.length; i=i+1)
+  {
+    PVector location = locations[i];
+    int capacity     = capacities[i];
+    // Scale the locations (coordinates) to the canvas with map()
+    float xPos = map(location.x, WEST, EAST, 10, width-10);
+    float yPos = map(location.y, NORTH, SOUTH, 10, height-10);
+
+    ellipse(xPos,yPos,capacity,capacity);
+  }
+}</pre>
+
+					<p>
+						Here we read in values from columns 2 and 3 representing the coordinates of each docking station. These
+						numbers are Ordnance Survey grid coordinates at 1m resolution. To fit the data ontot he screen we need to translate them into locations on the canvas in pixels. The <code>map()</code> command for rescaling the numbers will do this for us. But to get the scaling right, we need to know the geographic range of
+						our data is. Here we store this in the variables <code>NORTH</code>, <code>SOUTH</code>, <code>EAST</code>
+						and <code>WEST</code>. These are the geographic extents of our data.
+					</p>
+
+          <div class="codeTask">
+            <p>Copy the code from the <i>Bike Station Bar Graph Sketch</i> and get it to run in <em>Processing</em>.</p>
+            <p>Run the sketch and then adapt it to ...</p>
+            <ol>
+              <li>Show data for 50 stations</li>
+              <li>Show the data for 5pm</li>
+              <li>Colour bars in red if there are fewer than 3 bikes available</li>
+            </ol>
+          </div>
+          <div class="challenge">
+            <p><b>Challenge - Adding Interaction to the Cycling Data Scripts</b><br/>
+              Of course, there are many other things you can usefully do here.<br/>
+              See whether you can ...</p>
+            <ol start="4">
+                  <li>Show the differences between two times<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<i>Hint: This will involve calculating differences between two <code>floats</code> that you extract from the array of <code>values</code> and you will end up with negative numbers - but we have thought about how to visualize negative numbers in the lecture.</i></li>
+                  <li>Only show stations that have particular names or geographic locations<br/>
+                  <em>Hint: You'll have to record the station name as a <code>String</code> when you read values from the lines of text.</em></li>
+                  <li>Use squares or bars in the map instead of circles;</li>
+                  <li>Scale the circles (or squares or bars) differently, to make them bigger or smaller;</li>
+            </ol>
+          </div>
+
+					<p>
+						There is plenty more you could do with these data, and you should chat with your colleagues and the teaching staff about possibilities for trying some of these and using data in your projects.
+            The examples above should give you a good starting point for using data to determine the position and style of shapes in your sketch.
+            This is fundamental to <em>data visualization</em>.
+					</p>
+
+          <div class="challenge">
+            <p><b>Challenge - Adding MORE Interaction to the Cycling Data Scripts</b><br/>
+            Why not make things even MORE interactive?</p>
+            <ol start="8">
+            <li>Can you add an interaction to the bar graph that allows us to scroll up and down through the data file, while always showing data for 25 stations?<br/>
+            <em>Hint: you will need to replace the numeric values used to identify the column in which the 9:00am data is stored, and the lines that are used in the loop, with variables that change in response to particular inputs.</em>
+          </li>
+          <li>Can you scale the circles (or squares or bars) differently in response to key presses that make them bigger or smaller;</li>
+          <li>
+          Can you change the time that is shown dynamically, showing data for successive time periods?<br/>
+          This could be according to some input (keyboard, mouse) or time (animation)<br/>
+          You could do this for the graph or the map.<br/>
+          <em>Hint: You will need to read in one or more of the columns containing the number of bikes docked at the station.
+        	If you wish to be show more than one time of day in the same sketch, you will probably need to store the bike numbers
+        	in a 2d array where 1 dimension is the docking station and the other is the time of day.</em></li>
+         </ol>
+          </div>
+
+					</div>  <!-- End of left column -->
+
+				 <div class="unit-30" id="annotation">   <!-- Right column -->
+
+				 <script>loadImage('https://jsndyks.github.io/cityBootCamp/images/bikeshareMap.png',600,405, 'Bikeshare map');</script>
+				 <p>Output from the bikeshare map sketch</p>
+       </div>	<!-- end of right column -->
+      </div>  <!-- End of row -->
+
+
+				<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<hr>
+
+					<h3>5. Summary</h3>
+
+          <p>You now have what you need to do some basic data visualization, and hopefully you can look back at the movies we introduced earlier and begin to imagine the kinds of data and the types of sketch and commands that may have been used to produce them. It's worth looking back and having a think about how these designs might have been implemented.</p>
+          <p>The most important thing is that you know that:</p>
+					<ul>
+					<li>
+						Data visualization is all about turning data into graphics.
+					</li>
+					<li>
+						This usually involves reading from a data file and storing the data in variables so they can be used in your sketches.
+					</li>
+					<li>
+						<em>Processing</em> contains a useful method for reading lines of text from a file — <code>loadStrings()</code>
+					</li>
+					<li>
+						Elements within a line of text such as words or numbers can be <i>parsed</i> and extracted in <em>Processing</em> using
+						the <code>split()</code> method.
+					</li>
+          <li>
+						We can use <code>map()</code> to re-scale our data from the original numeric range of the data set to a range that allows us to create graphics by plotting shapes that represent the numbers in screen coordinates.
+					</li>
+        </ul>
+          <p>If you do know these things, and you can use these methods and understand how to draw shapes with variables, then you are pretty much set - <b>the World is your Data Visualization oyster</b> ...</p>
+
+          <p>Remember, that we expect you all to complete all of the <i>code tasks</i> and <i>core tasks</i>.</p>
+          <p>Remember that we don't expect this to be straightforward. We expect you to experiment, use your debugging skills and to discuss solutions and approaches and problems and errors with student colleagues and teaching staff. You will recall what we learned last week: that if you want to be a good coder, you need to code, and the more you practice the easier it gets.</p>
+
+<hr>
+<!---
+          <h3>6. Reading</h3>
+          <p>It's BootCamp - so there is no reading.</p>
+          <p>But if you are interested in data visualization and want to find out more, we have a <b><a href="https://libraryservices.city.ac.uk/">library</a></b>, which has some excellent and sources - inspiring and informative.
+          You'll find that quite a lot of the material is available online too!</p>
+
+					<div class="challenge">
+          <p>
+              <b>Finding out More ...</b><br/>
+ 					  There are some fantastic books that explain approaches to designing <b>effective</b> data visualization.</p>
+          <p>
+					  You may wish to have a look at Isabel Meirelles lovely book on <a href="http://isabelmeirelles.com/book-design-for-information/" target="_blank">Design for Information</a>. It's full of exciting ideas and they are beautifully explained. You can get the whole thing <a href="http://tinyurl.com/yy9rtwgj">fully online</a> through the City library.
+          </p>
+          <p>
+            A more comprehensive and scholarly coverage of approaches to information visualization is provided by Tamara Munzner in <a href="https://www.cs.ubc.ca/~tmm/vadbook/" target="_blank">Visualization Analysis and Design</a>.
+          </p>
+          <p>
+					  There are multiple copies of both books available in the university library:
+            </p><ul>
+              <li><a target="_blank" href="https://library.city.ac.uk/record=b1906639">Meirelles (2013)</a></li>
+              <li><a target="_blank" href="https://library.city.ac.uk/record=b2050388">Munzner (2015)</a></li>
+            </ul>
+          <p>See if you can use any of the ideas in the books to inform your data visualization.</p>
+          </div>
+--->
+          <h3>6. Check on Learning Outcomes</h3>
+          <div class="task">
+            <p>So, you should be able to check each of these boxes having completed the lecture and the tasks.
+              If not, head back and read through the text, try the examples and discuss your efforts with your class teachers.</p>
+
+            <div class="checkOutcomes">
+           	<input type="checkbox" id="sa1">  <label for="sa1">I can drag a data file into <em>Processing</em> so it can be read by my code<br/></label><br/>
+             <input type="checkbox" id="sa2">  <label for="sa2">I can read a simple text file using <code>loadStrings()</code><br/></label><br/>
+             <input type="checkbox" id="sa3">  <label for="sa3">I can parse a line of text into tokens using <code>split()</code><br/></label><br/>
+             <input type="checkbox" id="sa4">  <label for="sa4">I can re-scale a number from one range to another using <code>map()</code><br/></label><br/>
+             <input type="checkbox" id="sa5">  <label for="sa5">I can use these capabilities to change the colour, size or appearance of graphics according to data read from file in a simple sketch<br/></label><br/>
+
+            </div>	<!-- End of checkOutcomes -->
+          </div>
+
+          <p>If you have completed all the work on this page and want to learn more, the try the optional <b><a href="https://moodle.city.ac.uk/mod/page/view.php?id=1649149">Extra Challenges</a></b> where we look at <i>Live Data</i>, <i>Refactoring with Classes</i> and <i>Star Wars</i> (kind of).</p>
+          <p>This could well be fun for some of you and may give you ideas for using data visualization in your <b><code>#BootCamp</code></b>projects.</p>
+
+
+					<!--
+
+					<div class="homework">
+						You may find the following helpful if you'd like to find out more about data visualization.
+					  <br /><br />
+
+					<ul>
+						<li><a href="xxx" target="_blank">xxx</a> &mdash; xxx.</li>
+						<li><a href="xxx" target="_blank">xxx</a> &mdash; xxx.</li>
+						<li><a href="xxx" target="_blank">xxx</a> &mdash; xxx.</li>
+						<li><a href="xxx" target="_blank">xxx</a> &mdash; xxx.</li>
+						<li><a href="xxx" target="_blank">xxx</a> &mdash; xxx.</li>
+					</ul>
+
+					</div>
+
+					-->
+
+
+      <!-- End of content -->
+      <hr/>
+      <div style="float:right; padding-right:4em">
+        <b>Jason DYKES</b><br/>
+        <i>056 Oct 2020</i>
+      </div>
+      <div style="padding-bottom:2em;clear:both"/>
+	  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div>	<!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+  </body>
+</html>

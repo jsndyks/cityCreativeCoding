@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Programming BootCamp Project Ideas: Step Sequencer</title>
+
+  <!-- Header, 16th September, 2021 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Embedded fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+    rel="stylesheet">
+
+  <!-- Custom layout and style -->
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+  <!-- General browser compatibility handling -->
+  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+  <!-- Formatted source code -->
+  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+  <!-- Sketch popups and hidden text-->
+  <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+  <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+  <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- iFrame resizing -->
+    <script src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+  <div id="page">
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+    <!-- Content below -->
+
+    <p class="intro">
+      A sequencer is a device for creating musical 'loops' by triggering sounds at regular intervals. Hardware
+      sequencers first became widely available in the 1980s, being particularly popular for rhythm and bass sequencing.
+      You can take advantage of Processing's ability to keep track of time to create your own software sequencer by
+      triggering samples based on frame count or with Processing's <a
+        href="https://processing.org/reference/millis_.html" target="_blank">millis()</a> method.
+    </p>
+
+    <div>
+      <img src="images/stepSequencer/tr909.jpg" width="100%" alt="Roland TR--909 Drum Machine" />
+      <br /><br />
+    </div>
+
+    <p>
+      To start you off, here is a basic sketch for keeping track of a 4-bar sequence of 16 notes. Instead of printing
+      out the <code>tick</code> value you can trigger one or more samples using the <code>play()</code> of a loaded
+      sample.
+    </p>
+
+    <pre class="brush: processing; gutter: false; toolbar: false;">import processing.sound.*;   // Import the library that does the sound handling.
+
+int startTime;   // Time when sketch starts.
+int bpm;         // Speed of sequence in beats per minute
+int tick;        // Current 1/16th note (semiquaver) being played
+int measures;    // Number of beats in repeating sequence
+
+void setup()
+{
+  bpm = 60;
+  measures = 16;
+  tick = -1;
+  startTime = millis();  // Compare current time with this to find time elapsed.
+}
+
+void draw()
+{
+  int elapsed = ((int)(bpm*(millis()-startTime)/15000))%measures;
+  if (elapsed != tick)
+  {
+    tick = elapsed%measures;
+    println(tick);
+  }
+}</pre>
+
+
+    <h3>Project Ideas</h3>
+
+    <ul>
+      <li>Find some public domain samples and build a drum machine using percussion sounds. Use interaction to allow the
+        operator to create their own rhythms.</li>
+      <li>Generate sequences programmatically, perhaps with some randomness.</li>
+      <li>Use the <a href="https://processing.org/reference/libraries/sound/index.html" target="_blank">sound
+          library</a> to generate synthesised sounds, perhaps like the influential <a
+          href="https://en.wikipedia.org/wiki/Roland_TB-303" target="_blank">Roland TB-303</a> bass sequencer.</li>
+      <li>Experiment with <a href="https://en.wikipedia.org/wiki/Polyrhythm" target="_blank">polyrhythms</a> to create
+        interesting evolving rhythmic patterns.</li>
+      <li>Combine some sequence with visuals, perhaps that are triggered by the sounds in your sequence.</li>
+    </ul>
+
+    <div><i>Jo Wood, 2021</i></div>
+
+    <!-- End of content -->
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  </div> <!-- End of page div -->
+  <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

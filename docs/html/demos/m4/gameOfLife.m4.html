@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming Bootcamp Project Ideas: Game of Life</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+
+        <p class="intro">
+            Long before Minecraft there was John Conway's <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life"
+                target="_blank"> Game of Life</a>. This was an early example of what are known as <i>cellular
+                automata</i> - simple rules applied to cells in a grid that can lead to complex patterns of behaviour.
+        </p>
+
+        <p>
+            <i>Cells</i> are arranged in a simple grid and simple rules are applied to each of these cells that have the
+            potential to change the state of the cell. A cell can have one of two states: it is either <i>alive</i> or
+            <i>dead</i>. If it is alive it is shown as a black square, if it is dead it is not drawn. Each cell is
+            compared with its eight neighbours in order to determine its new state. The rules applied in Conway's
+            original Game of Life were as follows:
+        </p>
+
+        <ul>
+            <li>If a living cell has fewer than two neighbours it will die ('<i>underpopulation</i>').</li>
+            <li>If a living cell has more than three neighbours it will die ('<i>overpopulation</i>').</li>
+            <li>If a dead cell has exactly three neighbours it will be replaced with a new living cell ('<i>birth</i>').
+            </li>
+        </ul>
+
+        <p>
+            In all other cases, the state of the cell remains unaffected (e.g. a dead cell with two neighbours remains
+            dead; a living cell with two neighbours remains alive). The application of these rules over two iterations
+            is shown for a simple configuration below:
+        </p>
+
+
+
+        <img src="https://staff.city.ac.uk/~jwo/bootcamp2018/images/life/lifeSimple.png" height="271"
+            alt="Game of Life: Simple iterations"><br>
+        <br><br>
+
+        <p>
+            At time t=0, cell <b>e</b> with neighbours <b>a</b>, <b>b</b>, <b>c</b>, <b>d</b>, <b>f</b>, <b>g</b>,
+            <b>h</b> and <b>i</b> has exactly three living neighbours (cells <b>c</b>, <b>f</b> and <b>h</b>), so it
+            will remain alive at time t=1. Dead cell <b>b</b> also has three neighbours (<b>c</b>, <b>e</b> and
+            <b>f</b>) so 'gives birth' and becomes alive at time t=1. Likewise for cell <b>i</b> (with three living
+            neighbours <b>e</b>, <b>f</b> and <b>h</b>). If the same rules are applied at time t=1, cells <b>e</b> and
+            <b>f</b> will both die through overpopulation (they both have five living neighbours). The result in this
+            example is the stable configuration shown at t=2 known as a 'beehive'.
+        </p>
+
+        <p>
+            By applying these simple rules <i>iteratively</i> to various starting configurations, a number of
+            interesting patterns can be seen to develop. Some will <i>oscillate</i> between states, some, like 'gliders'
+            will appear to move across the grid, while others stabilise as a 'still life'.
+        </p>
+
+
+        <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/life", 800, 800, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/life/lifeComplex.png");</script>
+        <div>More complex patterns produced after several iterations <i>(click image above to activate)</i></div>
+        <br><br>
+
+        <p>
+            By changing the way cells is displayed, it is possible to produce some visually interesting representations,
+            for example by colouring each live cell by its location and age, or by showing cells as 3D blocks.
+        </p>
+
+
+        <div class="units-row">
+            <div class="unit-33"><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/life/lifeColoured.png"
+                    width="300"></div>
+            <div class="unit-33"><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/life/life3d.png"
+                    width="300"></div>
+            <div class="unit-33"><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/life/life3d2.png"
+                    width="300"></div>
+        </div>
+
+        <br><br>
+
+        <p>
+            There are many, many ways in which you could use cellular automata, but here are some possible project ideas
+            to get you thinking:
+        </p>
+
+        <ul>
+            <li>Using the the standard game of life rules, try experimenting with different visual representations such
+                as circles, instead of squares. Try relating the size, colour or other appearance to characteristics of
+                the cell such as its age or location.</li>
+            <li>Experiment with different sets of rules that determine if a cell lives or dies. Can you find any stable
+                rules?</li>
+            <li>Use interaction to add or remove cells. Could you allow the addition of 'preset' shapes such as <a
+                    href="https://en.wikipedia.org/wiki/Glider_(Conway%27s_Life)" target="_blank">gliders</a>, or <a
+                    href="https://en.wikipedia.org/wiki/Methuselah_(cellular_automaton)"
+                    target="_blank">Methuselahs</a>.</li>
+            <li>Cells don't have to have 8 neighbours (i.e. square). What would hex-life look like? Or even cells with
+                more neighbours than could be drawn on a plane?</li>
+            <li>3d life? Could you create a minecraft-like environment to show the life cells? Could you create new 3d
+                rules for cell generation?</li>
+        </ul>
+
+        <!-- End of content -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

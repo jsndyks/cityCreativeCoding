@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Programming Bootcamp : Vera Molnar</title>
+
+  <!-- Header, 16th September, 2021 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Embedded fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+    rel="stylesheet">
+
+  <!-- Custom layout and style -->
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+  <!-- General browser compatibility handling -->
+  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+  <!-- Formatted source code -->
+  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+  <!-- Sketch popups and hidden text-->
+  <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+  <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+  <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+</head>
+
+<body>
+  <div id="page">
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+    <h2>Vera Molnár - (Des) Ordres</h2>
+
+    <div>
+      
+    <p><a href="https://en.wikipedia.org/wiki/Vera_Moln%C3%A1r">Vera Molnár</a> began working with computers in 1968 and established herself as pioneer of algorithmic art by programming pen plotters in Basic and Fortran.</p>
+    <p><a href="https://dam.org/museum/artists_ui/artists/molnar-vera/">Her work</a> is showcased in the <a href="https://dam.org/museum/">Digital Art Museum</a>, and I really enjoyed an exhibition hosted at <a href="https://www.dagstuhl.de/en/about-dagstuhl/kunst/">Schloss Dagstuhl</a> in the summer of 2022.<p>
+    
+    <p>I find the <a href="https://dam.org/museum/artists_ui/artists/molnar-vera/des-ordres/">Des Ordres</a> - "<em>some order</em>" and perhaps "<em>disorder</em>" - exhibit particularly compelling.</p>
+    <p>The <a href="https://dam.org/museum/">Digital Art Museum</a> describes these pieces as involving ...</p>
+      <blockquote>a pattern of concentric squares which is randomly disrupted
+        in order to highlight the contrast between order and disorder
+        and create tensions in the ortogonal structure,
+        as if the squares were subject to a vibrating force</blockquote>
+    </div>
+  
+    <p><b>Let's see whether we can recreate some of this ordered disorder using our <em>Processing</em> skills</b>...<br/>
+      and whether we learn anything about order, disorder, aesthetic, what Vera was doing and perhaps <em>Processing</em> in the process.</p>
+  
+    <hr/>
+
+    <div style="float:right; padding-left:1em;padding-bottom:1em;padding-top:2em">
+      <img src="https://jsndyks.github.io/cityBootCamp/images/vera.01.png" width=125/>
+    </div>
+
+    <h3>1. Draw a Square</h3>
+    <p>Use the <code><a href="https://processing.org/reference/quad_.html">quad()</a></code> method to do so - it takes eight parameters that specify four coordinate pairs (x,y), one for each corner, clockwise from top left.</p>
+    <p>Your quad should be square, centred on <code>xPos</code>,<code>yPos</code> and <code>sSize</code> by <code>sSize</code> in dimensions.</p>
+    <pre class="brush: processing; gutter: false; toolbar: false; highlight: [18]">
+      void setup()
+      {
+        size(600, 600);
+      }
+      
+      void draw()
+      {
+        background(255);
+        stroke(32);
+        noFill();
+      
+        float xPos   = 100;
+        float yPos   = 100;
+        float sSize  = 100;
+        float sHalf  = sSize/2;
+      
+        quad(
+          // -- add the eight arguments here ...
+        );
+      }
+</pre>
+
+        <!-- Hidden code button -->
+        <span><a href="#" class="link-show-code">Click to Show Solution - But Have a Try First! Coding Takes Practice and Requires 'Doing'! </a></span>
+        <div class="prettyprint" style="display: none;">
+          <pre class="brush: processing; gutter: false; toolbar: false; highlight: [18]">
+            quad(
+              // -- add the eight arguments here ...
+              xPos - sHalf, yPos - sHalf,
+              xPos + sHalf, yPos - sHalf,
+              xPos + sHalf, yPos + sHalf,
+              xPos - sHalf, yPos + sHalf
+            );
+          </pre>
+          </div>
+
+<hr/>
+
+<div style="float:right; padding-left:1em;padding-bottom:1em;padding-top:2em">
+  <img src="https://jsndyks.github.io/cityBootCamp/images/vera.02.png" width=125/>
+</div> 
+
+    <h3>2. Create a Method to Draw a vQuad</h3>
+    <p>Use <code><a href="https://processing.org/reference/quad_.html">quad()</a></code> in the method, which should take three arguments, as shown.</p>
+    <p>It should, once again create a square, centred on <code>xPos</code>,<code>yPos</code> and be <code>sSize</code> by <code>sSize</code> in dimensions. SAo the output should look the same as before.</p>
+    <p>You should be able to move most of the code from above into the method.</p>
+    <pre class="brush: processing; gutter: false; toolbar: false; highlight: [16  ]">
+      void setup()
+      {
+        size(600, 600);
+      }
+      
+      void draw()
+      {
+        background(255);
+        stroke(32);
+        noFill();
+      
+        float xPos   = 100;
+        float yPos   = 100;
+        float sSize  = 100;
+      
+        vQuad(xPos, yPos, sSize);
+      }</pre>
+
+        <!-- Hidden code button -->
+        <span><a href="#" class="link-show-code">Click to Show Solution - But Have a Try First! Coding Takes Practice and Requires 'Doing'! </a></span>
+        <div class="prettyprint" style="display: none;">
+          <pre class="brush: processing; gutter: false; toolbar: false; highlight: [18]">
+            void vQuad (float x, float y, float s) {
+
+              float sHalf = s/2;
+            
+              quad(
+                x - sHalf, y - sHalf,
+                x + sHalf, y - sHalf,
+                x + sHalf, y + sHalf,
+                x - sHalf, y + sHalf
+              );
+            }
+          </pre>
+          </div>
+ <hr/>
+
+ <div style="float:right; padding-left:1em;padding-bottom:1em;padding-top:2em">
+  <img src="https://jsndyks.github.io/cityBootCamp/images/vera.03.png" width=125/>
+</div>
+
+    <h3>3. Give the vQuad some Randomness</h3>
+    <p>Adapt the <code><a href="https://processing.org/reference/quad_.html">quad()</a></code> method to take a 4th parameter that adds some randomness to the quad coordinates.</p>
+    <p>Your <code><a href="https://processing.org/reference/quad_.html">quad()</a></code> will no longer be square, as each coordinate should vary randomly by an amount up to the number given as the 4th argument.</p>
+    <p>If your 4th argument, the degree of randomness, is <code>r</code>, then adding <code>random(-r, r)</code> to each of the 8 coordinates will achieve this effect.</p>
+    <pre class="brush: processing; gutter: false; toolbar: false; highlight: [16]">
+      void setup()
+      {
+        size(600, 600);
+      }
+      
+      void draw()
+      {
+        background(255);
+        stroke(32);
+        noFill();
+      
+        float xPos   = 100;
+        float yPos   = 100;
+        float sSize  = 100;
+      
+        vQuad(xPos, yPos, sSize, 5);
+      }
+      </pre>
+
+        <!-- Hidden code button -->
+        <span><a href="#" class="link-show-code">Click to Show Solution - But Have a Try First! Coding Takes Practice and Requires 'Doing'! </a></span>
+        <div class="prettyprint" style="display: none;">
+          <pre class="brush: processing; gutter: false; toolbar: false; highlight: [18]">
+            void vQuad (float x, float y, float s, float r) {
+
+              float sHalf = s/2;
+            
+              quad(
+                x - sHalf + random(-r, r), y - sHalf + random(-r, r),
+                x + sHalf + random(-r, r), y - sHalf + random(-r, r),
+                x + sHalf + random(-r, r), y + sHalf + random(-r, r),
+                x - sHalf + random(-r, r), y + sHalf + random(-r, r)
+              );
+            }        
+          </pre>
+          </div>
+
+<hr/>
+
+<div style="float:right; padding-left:1em;padding-bottom:1em;padding-top:2em">
+  <img src="https://jsndyks.github.io/cityBootCamp/images/vera.04.png" width=125/>
+</div>
+
+    <h3>4. Create a Method to Draw vQuads within a vQuad</h3>
+    <p>Now we need a new method <code>vQuads</code> that calls the <code>vQuad</code> method multiple times, each time creating a <code>vQuad</code> in the same position, but of a decreasing size.</p>
+    <p>So <code>vQuads</code> will need to take <b>five</b>parameters that specify:
+      <br/>the central position in x and y, the size (of the outer <code>vQuad</code>), the randomness to use and the number of <code>vQuad</code>s to be drawn.</p>
+
+    <pre class="brush: processing; gutter: false; toolbar: false; highlight: [17]">
+      void setup()
+      {
+        size(600, 600);
+      }
+      
+      void draw()
+      {
+        background(255);
+        stroke(32);
+        noFill();
+        randomSeed(37196299); // <-- any number in here keeps random numbers the same in each draw() loop
+      
+        float xPos   = 200;
+        float yPos   = 200;
+        float sSize  = 200;
+      
+        vQuads(xPos, yPos, sSize, 5, 6); // <-- this method will need to call vQuad multipl times according to the 5th argument
+      }
+    </pre>
+      
+      <!-- Hidden code button -->
+        <span><a href="#" class="link-show-code">Click to Show Solution - But Have a Try First! Coding Takes Practice and Requires 'Doing'! </a></span>
+        <div class="prettyprint" style="display: none;">
+    <pre class="brush: processing; gutter: false; toolbar: false; highlight: [8]">
+      void vQuads (float x, float y, float s, float r, int n) {
+
+        for (int i=1; i<=n; i++) {
+          vQuad(x, y, s*i/n, r);
+        }
+      }
+    </pre>
+        </div>
+
+        <hr/>
+
+        <div style="float:right; padding-left:1em;padding-bottom:1em;padding-top:2em">
+          <img src="https://jsndyks.github.io/cityBootCamp/images/vera.05.png" width=125/>
+        </div>
+
+    <h3>5. Randomly Omit Some of the Quads</h3>
+    <p>Add a 6th argument to <code>vQuads</code> that can vary from 0-1, and is the likelihood that each <code>vQuad</code> will be drawn.</p>
+    <p>A value of <code>1</code> will mean that every <code>vQuad</code> is drawn, and have no effect.
+      A value of <code>0.1</code> will result in very sparse <code>vQuads</code> with only one in ten calls to <code>vQuad</code> resulting in a <code>quad()</code> being drawn.</p>
+
+      <p>Here is the code that calls <code>vQuads</code>, with the new parameter.</p>
+      <pre class="brush: processing; gutter: false; toolbar: false; highlight: [17]">
+void setup()
+{
+  size(600, 600);
+}
+
+void draw()
+{
+  background(255);
+  stroke(32);
+  noFill();
+  randomSeed(37196299);
+
+  float xPos   = 200;
+  float yPos   = 200;
+  float sSize  = 200;
+
+  vQuads(xPos, yPos, sSize, 5, 6, 0.5); // <-- half of the calls to vQuad will draw a quad in this case
+}
+</pre>
+
+<p>If you pass an argument <code>p</code> to <code>vQuads</code>, that is between 0 and 1, then this code snippet may come in handy in the update to <code>vQuads</code>:</p>
+<pre class="brush: processing; gutter: false; toolbar: false; highlight: [2]">
+  if (random(0,1) &lt;p) {
+    // -- call to vQuad();
+  }
+</pre>
+
+      <!-- Hidden code button -->
+      <span><a href="#" class="link-show-code">Click to Show Solution - But Have a Try First! Coding Takes Practice and Requires 'Doing'! </a></span>
+      <div class="prettyprint" style="display: none;">
+  <pre class="brush: processing; gutter: false; toolbar: false; highlight: [8]">
+    void vQuads (float x, float y, float s, float r, int n, float p) {
+
+      for (int i=1; i&lt;=n; i++) {
+        if (random(0,1) &lt;p) {
+          vQuad(x, y, s*i/n, r);
+        }
+      }
+    }
+  </pre>
+      </div>
+
+      <hr/>
+
+      <div style="float:right; padding-left:1em;padding-bottom:1em;padding-top:2em">
+        <img src="https://jsndyks.github.io/cityBootCamp/images/vera.06.png" width=125/>
+      </div>
+
+      <h3>6. Create a Square Grid of vQuads</h3>
+      <p>Your <code>draw()</code> loop only draws one set of <code>vQuads</code>.</p>
+      <p>Adjust this so that for any grid size, <code>gSize</code>, you create a <code>gSize</code> x <code>gSize</code> array of <code>vQuads</code>.</p>
+        <pre class="brush: processing; gutter: false; toolbar: false; highlight: [11]">
+          void draw()
+          {
+            background(255);
+            stroke(32);
+            noFill();
+            randomSeed(37196299);
+          
+            float gSize = 10;
+            float sSize = width/gSize;
+          
+            // -- Add loops around this call to vQuads.
+                vQuads(x,y, sSize, 5, 6, 0.5);
+            // -- They should vary x and y to produce a grid of vQuads
+          }
+  </pre>
+  
+        <!-- Hidden code button -->
+        <span><a href="#" class="link-show-code">Click to Show Solution - But Have a Try First! Coding Takes Practice and Requires 'Doing'! </a></span>
+        <div class="prettyprint" style="display: none;">
+          <p>This should work!</p>
+    <pre class="brush: processing; gutter: false; toolbar: false; highlight: [8,9,11,12,13,14,16,17]">
+      void draw()
+      {
+        background(255);
+        stroke(32);
+        noFill();
+        randomSeed(37196299);
+      
+        float gSize = 10;
+        float sSize = width/gSize;
+      
+        for (int col=0; col&lt;gSize; col++) {
+          for (int row=0; row&lt;gSize; row++) {
+            float x = col*sSize;
+            float y = row*sSize;
+            vQuads(x,y, sSize, 5, 6, 0.5);
+          }
+        }
+      }
+    </pre>
+        </div>      
+
+        <hr/>
+
+        <div style="float:right; padding-left:1em;padding-bottom:1em;padding-top:2em">
+          <img src="https://jsndyks.github.io/cityBootCamp/images/vera.07.png" width=125/>
+        </div>
+
+        <h3>7. Finishing Off - Space and More Randonmess</h3>
+        <p>What we have, looks quite a lot like <a href="https://dam.org/museum/artists_ui/artists/molnar-vera/des-ordres/">Des Ordres</a>, but still a little too ordered and a bit squished up.</p>
+        <p>Can you adapt the <code>vQuads</code> to :</p>
+        <ul>
+          <li>make them a little smaller than the space into which they are plotted?</li>
+          <li>randomise their actual sizes slightly?</li>
+        </ul>
+    
+            <!-- Hidden code button -->
+            <span><a href="#" class="link-show-code">Click to Show Solution - But Have a Try First! Coding Takes Practice and Requires 'Doing'! </a></span>
+            <div class="prettyprint" style="display: none;">
+              <pre class="brush: processing; gutter: false; toolbar: false; highlight: [3,7]">    
+                void vQuads (float x, float y, float s, float r, int n, float p) {
+
+                  s=s*0.9;  // &lt;-- Make the vQuads a little smaller - this could of course be set by a parameter for scaling
+                  
+                  for (int i=1; i&lt;=n; i++) {
+                    if (random(0, 1) &lt;p) {
+                      vQuad(x, y, i*s/n + random(-5,5), r); // &lt;-- add randomness to spacing - again paramterisable!
+                    }
+                  }
+                }
+              </pre>
+            </div>
+<hr/>
+
+<div style="float:right; padding-left:1em;padding-bottom:1em;padding-top:2em">
+  <img src="https://jsndyks.github.io/cityBootCamp/images/vera.08.png" width=125/>
+</div>
+
+<h3>8. Go Further - Explain &amp; Explore</h3>
+
+<h4>Explain</h4>
+<p>Can you tweak the various parameters and assess the results to try to work out what Vera Molnár was varying when she generated some of the patterns used in <a href="https://dam.org/museum/artists_ui/artists/molnar-vera/des-ordres/">Des Ordres</a>?</p>
+<p>You can vary ...</p>
+<ul>
+  <li>grid resolution</li>
+  <li>quad size</li>
+  <li>numbers of quads within quads</li>
+  <li>randomness of quad corner coordinate variation</li>
+  <li>randomness of inter-quad spacing</li>
+  <li>randomness of quad omission</li>
+  <li>line width and colour</li>
+  <li>variation of line width and colour</li>
+  <li>other things?</li>
+</ul>
+
+<h4>Explore</h4>
+<p>Uses your imagination and creative talent to add different twists to these designs.<br/>
+Can you ...</p>
+<ul>
+  <li>animate in interesting ways?</li>
+  <li>use data?</li> 
+  <li>use colour?</li> 
+  <li>use circles?</li> 
+  <li>add sound?</li> 
+  <li>do something even more interesting and imaginitive?</li> 
+</ul>
+    <!-- Hidden code button -->
+    <span><a href="#" class="link-show-code">Click to Show Solution - But Have a Try First! Coding Takes Practice and Requires 'Doing'! </a></span>
+    <div class="prettyprint" style="display: none;">
+      <p>There are no answers here - you are on your own.</p>
+      <p>Surprise us.</p>
+      <p>Inform us.</p>
+      <p>Enjoy yourself.</p>
+      <p>Show us what you have in your demo.</p>
+      </div>
+
+
+    <!-- End of content -->
+            <hr />
+            <div class="sig">
+                <b>Jason DYKES</b><br />
+                <i>10 Oct 2022</i>
+            </div>
+            <div style="padding-bottom:2em;clear:both" />
+
+<!-- https://i2.wp.com/dam.org/museum/wp-content/uploads/2020/09/Molnar1974DesOrdres1-copy-scaled.jpg -->  
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Footer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  </div> <!-- End of page div -->
+  <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

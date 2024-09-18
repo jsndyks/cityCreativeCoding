@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming BootCamp Project Ideas: Steganography</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- iFrame resizing -->
+	<script src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+
+        <p class="intro">
+            This project involves generating hidden messages through <a
+                href="https://en.wikipedia.org/wiki/Steganography" target="_blank" ?>steganography</a>.
+                That is, the art of concealing some text or image in plain sight.
+        </p>
+
+        <p>
+            If you want to send a secret message to someone you can encrypt it with some kind of code or cypher. But one
+            of the problems with encryption is that it is usually obvious that a message has been encrypted and so can
+            attract attention of others wanting to decrypt it. Alternatively you can hide a message in such a way that
+            no one but the intended recipient of the message even knows there is a message to find. Hiding such messages
+            is known as steganography.
+        </p>
+
+        <p>
+            For this project, you can think creatively about how you might use Processing to create some digital object
+            such as some text, an image or some sound that hides within it some other message. Here are a couple of
+            examples to consider, but you may be able to come up with others.
+        </p>
+
+        <h2>Text Steganography</h2>
+        <p>
+            In the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=420919">Data Visualization</a> session you learned how to read a text file into Processing.
+            You could read a large text such as <a href="https://www.gutenberg.org/files/36/36-0.txt" target="_blank">War of the Worlds</a> from Project Gutenberg
+            and select sentences from it to hide a message of your choice.<br/>
+            For example, look at the last word of each sentence in the middle paragraph below to uncover a hidden message.
+        </p>
+
+        <pre>“Now as I stood and examined it, finding a pleasure in the mere touch
+of the contrivance, the thing I had expected happened. The bronze
+panels suddenly slid up and struck the frame with a clang. I was in the
+dark—trapped. So the Morlocks thought. At that I chuckled gleefully.
+
+“I feel assured it’s this business of the Time Machine,” I said, and
+took up the Psychologist’s account of our previous <b>meeting</b>. “It sounds
+plausible enough tonight,” said the Medical Man; “but wait until <b>tomorrow</b>. 
+I can’t argue this <b>night</b>”. I looked  into the thickness of the wood and 
+thought of what it might <b>hide</b>. There were numbers of guns, pistols, and 
+<b>rifles</b>. I felt assured that the Time Machine was  only to be recovered
+by boldly penetrating these mysteries of <b>underground</b>.
+
+“I could already hear their murmuring laughter as they came towards me.
+Very calmly I tried to strike the match. I had only to fix on the
+levers and depart then like a ghost. But I had overlooked one little
+thing. The matches were of that abominable kind that light only on the
+box.</pre>
+
+        <p>
+            You should be able to use Processing's <a href="https://processing.org/reference/String.html"
+                target="_blank">String methods</a> such as <a href="https://processing.org/reference/split_.html"
+                target="_blank">split()</a> and <a
+                href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#startsWith(java.lang.String)">startsWith()</a>
+            to extract and search for words in the text. This should allow you to select parts of the text that contain
+            words of your choice.
+        </p>
+
+
+        <h2>Image Steganography</h2>
+        <p>
+            Can you tell the difference between these two rectangles?
+        </p>
+
+        <div><img src="images/steganography/colourDiff.png" width="300" height="150" alt="Two oranges" /></div>
+
+        <p>
+            Although they look the same, the first is coloured with <code>fill(200, 100, 50)</code> and the second with
+            <code>fill(201, 99, 51)</code>. We can use such small differences in colour value to hide other information.
+            The data are stored digitally, but we cannot perceive the hidden data in the image pixel colours.
+        </p>
+
+        <p>We can even store entire hidden images. The image below left contains a hidden image by varying the
+            transparency of each image pixel between 240 and 255 – allowing 16 levels of grey to be stored in each pixel
+            undetected. Because the transparency does not vary very much (between 240 and 255) it is not detectable when
+            viewing casually. Yet if you extract those transparency values (using <a
+                href="https://processing.org/reference/alpha_.html" target="_blank">alpha()</a>) and use them to
+            determine a grey level between 0-255, you get the image below right.</p>
+
+        <table>
+            <tr>
+                <td><img src="images/steganography/imageSteg1.png" width="300" height="400" alt="Public image" /></td>
+                <td><img src="images/steganography/imageSteg2.png" width="300" height="400" alt="Hidden image" /></td>
+            </tr>
+        </table>
+
+        <p>
+            For your project you could create a sketch that will hide one image inside another using the least important
+            parts of pixel colour values so they are undetectable when displayed. You can then write an 'image decoder'
+            that extracts and displays the hidden image. Here are a few hints to help you get started:
+        </p>
+        <ul>
+            <li>Make sure you have read through the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=420908">Images Lecture Notes</a> and have had some practice at manipulating images.</li>
+            <li>You can load images from files with <a href="https://processing.org/reference/loadImage_.html"
+                    target="_blank">loadImage()</a></li>
+            <li>You can create new images in processing with <a
+                    href="https://processing.org/reference/createImage_.html" target="_blank">createImage()</a> and you
+                can set a new image to be the same dimensions as an existing one with
+                <code>PImage newImg = createImage(oldImg.width, oldImg.height, ARGB);</code>
+            </li>
+            <li>If you wish to read the pixel values of an image you must fist call <a
+                    href="https://processing.org/reference/loadPixels_.html" target="_blank">loadPixels()</a> before you
+                use the <a href="https://processing.org/reference/pixels.html" target="_blank">pixels</a> array.</li>
+            <li>If you wish to change the pixel values of an image you must call <a
+                    href="https://processing.org/reference/updatePixels_.html" target="_blank">updatePixels()</a> after
+                you have changed the image's <a href="https://processing.org/reference/pixels.html"
+                    target="_blank">pixels</a> array.</li>
+            <li>You can extract the red, green, blue, brightness and transparency values of a pixel with <a
+                    href="https://processing.org/reference/red_.html" target="_blank">red()</a>, <a
+                    href="https://processing.org/reference/green_.html" target="_blank">green()</a>, <a
+                    href="https://processing.org/reference/blue_.html" target="_blank">blue()</a>, <a
+                    href="https://processing.org/reference/brightness_.html" target="_blank">brightness()</a> and <a
+                    href="https://processing.org/reference/alpha_.html" target="_blank">alpha()</a> respectively.</li>
+            <li>You can set the <i>i</i>th pixel value in the <a href="https://processing.org/reference/pixels.html"
+                    target="_blank">pixels</a> array with <code>pixels[i] = color(XXX)</code> where <code>XXX</code> is
+                any colour description such as <code>(200,100,50).</code></li>
+        </ul>
+
+        <p>
+            To make this project more fun you might wish to find a partner and give each other a steganographic object
+            (text or image) and challenge each other to try to find the secret data embedded within it.<br/>This will give
+            you practice at both encoding and decoding messages.
+        </p>
+
+
+        <div><i>Jo Wood, 2021</i></div>
+
+        <!-- End of content -->
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming Bootcamp Project Ideas: Exploring the Collatz Conjecture</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+
+        <p class="intro">
+            This project involves exploring properties of the <i>Collatz sequence</i> – a simple progression of
+            integers that turns out to be remarkably difficult to predict.
+        </p>
+
+        <p>
+            Think of a (Natural) number. If that number is even, halve it; if it is odd, multiply it by three and
+            add one. Now apply the same rule to the value you have just calculated. Repeat until your number reaches 1.
+        </p>
+
+        <p>Or if you prefer it expressed more formally:</p>
+        <img src="https://staff.city.ac.uk/~jwo/bootcamp2021/images/collatz/collatzEquation.png" width="264" height="49"
+            alt="Collatz sequence function" /><br /><br />
+
+        <p>For example:
+        <ul>
+            <li>Starting with <b>4</b>: 4 → 2 → 1</li>
+            <li>Starting with <b>5</b>: 5 → 16 → 8 → 4 → 2 → 1</li>
+            <li>Starting with <b>12</b>: 12 → 6 → 3 → 10 → 5 → 16 → 8 → 4 → 2 → 1</li>
+            <li>Starting with <b>13</b>: 13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1</li>
+            <li>Starting with <b>17</b>: 17 → 52 → 26 → 13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1</li>
+        </ul>
+
+        </p>
+
+        <p>The <i>Collatz conjecture</i> states that any positive whole number will eventually end up at 1 when
+            following this sequence of operations. Your task is to prove this is the case for all positive integers (and
+            if you do you <a href="https://mathprize.net/posts/collatz-conjecture/" target="_blank">win a prize</a>).
+        </p>
+
+        <p>
+            As this turns out to be one of the hardest unsolved problems in mathematics, let's set ourselves a simpler
+            task. Can you visualize the various Collatz sequences of numbers or their properties with Processing?
+        </p>
+
+        <img src="https://staff.city.ac.uk/~jwo/bootcamp2021/images/collatz/firstMillion.jpg" width="693" height="197"
+            alt="First million Collatz sequences" />
+        <p>The first million Collatz sequences.</p>
+
+        <h2>Project Ideas</h2>
+
+        <p>There are lots of possible approaches you could take for your project; here are some suggestions to inspire
+            you, but perhaps you have your own ideas:</p>
+
+        <ul>
+            <li>Write a method in Processing that takes a single integer parameter and applies the Collatz rules to it
+                repeatedly until it gets to 1. Remember the <a href="https://processing.org/reference/modulo.html"
+                    target="_blank">modulo operator</a> in Processing is a <code>%</code> symbol, which can be used to
+                determine if a number is odd or even. You may also find <a
+                    href="https://processing.org/reference/IntList.html" target="_blank">IntList</a> useful for storing
+                a list of integers of variable length.</li>
+            <li>Try plotting the sequence of numbers generated for any given start number. What sort of patterns do you
+                get? Do some starting numbers produce more interesting patterns than others?</li>
+            <li>Some sequences are longer than others. Try plotting the starting number against the length of the
+                sequence it produces (e.g. 4 generates a sequence of 3 numbers; 5 a sequence of 6 numbers; 12 a sequence
+                of 10 numbers etc.). Any interesting patterns?</li>
+            <li>For any given starting number, what is the largest number in the sequence it generates (e.g. starting
+                with 4, the highest number is 4; for 5 the highest number is 16; for 12 the highest number is 16; for 17
+                the highest number is 40)? Try plotting the start number against the highest number. Or the length of
+                the sequence against the highest number in the sequence. Any interesting patterns?</li>
+            <li>Collatz sequences are sometimes called 'hailstone numbers' because they go up and down before eventually
+                falling to 1, just like the <a href="https://youtu.be/6M-ycZLSF1w?q=1" target="_blank">formation of
+                    hailstones in a cloud</a>. Could you animate a circle moving up and down based on a Collatz
+                sequence, gradually getting larger as it does so? Could you animate hundreds of these 'hailstones'
+                together?</li>
+            <li>Collatz sequences can be expressed as a <i>tree</i> of connected numbers. For example considering just
+                the odd numbers in the examples above, 5 is connected to 1 (5 → 16 → 8 → 4 → 2 → 1) and 13 is connected
+                to 5 (13 → 40 → 20 → 10 → 5) and 17 is connected to 13 (17 → 52 → 26 → 13). Can you visualize these
+                connected numbers in processing, using lines to connect numbers? Are there <a
+                    href="https://youtu.be/LqKpkdRRLZw?q=1" target="_blank">creative ways to show Collatz trees</a>?
+            </li>
+            <li>Could you extend the idea of the Collatz sequence to <a
+                    href="https://www.mathsisfun.com/numbers/complex-numbers.html" target="_blank">complex numbers</a>?
+                Can you visualize the results? Perhaps as a <a
+                    href="https://moodle.city.ac.uk/mod/page/view.php?id=2058750" target="_blank">fractal</a>?</li>
+            <li>Can you use Collatz sequences to generate more creative representations? For example could you use the
+                numbers to control the colour of some feature, or generate sound or some kind of animation?</li>
+        </ul>
+
+        <!-- End of content -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

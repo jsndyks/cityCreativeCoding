@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming BootCamp Project Ideas: My Alphabet</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
+
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- 
+            A demo that gets you thinking about creating a font, or your own alphabet definition, with some ideas about how to do this.
+
+            You can access this [Example Demo](https://jsndyks.github.io/cityBootCamp/html/demos/bootCamp.demo.alphabet.html) outside of _Moodle_ should you wish to do so.
+         -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+
+        <p class="intro">
+            Why not play with the alphabet and create your own characters? <br/>
+            Here is one way and one solution - but surely you can do something more interesting?
+        </p>
+
+        <p>This <em>Processing</em> sketch that shows you one way to do this.</p>
+
+        <ul><li><code><a href="https://jsndyks.github.io/cityBootCamp/sketches/crazyAlphabet/crazyAlphabet.pde">crazyAlphabet.pde</a></code></li></ul>
+
+        <p>This example uses a <a href="https://processing.org/reference/StringDict.html"><code>StringDict</code></a>, which is worth a look. It allows you to convert from one string (such as a character or letter in this case) to another (such as a set of coordinates through which the letter might be represented on screen).</p>
+
+        <p>So, for example the letter <code>A</code> might be represented by the coordinate pairs <code>0,100 50,0 50,0 100,100 25,50 75,50</code>, whereas the letter <code>B</code> is a little more complex and may need more points - <code>0,0 80,0 80,0 100,10 100,10 100,30 100,30 80,40 80,40 0,40 80,40 100,50 100,50 100,80 100,80 80,100 80,100 0,100 0,100 0,0</code>.</p>
+
+        <pre class="brush: processing; gutter: false; toolbar: false;">
+
+// -- create a StringDict to relate one string with another: 
+StringDict font = new StringDict();
+
+// -- relate the String "A" with a String containing a set of coordinates, same for "B", etc.
+font.set("A", "0,100 50,0 50,0 100,100 25,50 75,50");  
+font.set("B", "0,0 80,0 80,0 100,10 100,10 100,30 100,30 80,40 80,40 0,40 80,40 100,50
+  100,50 100,80 100,80 80,100 80,100 0,100 0,100 0,0");
+
+// -- etc!
+
+</pre>
+
+    <p>If you do this for multiple letters, well you can create a graphical representation for the whole alphabet.</p>
+
+        <p>
+            <img style="border:1px dashed #e0e0e0;padding:4px; margin:0.25em" src="https://jsndyks.github.io/cityBootCamp/sketches/crazyAlphabet/crazyAlphabet.white01.png"
+                width="360" height="100" alt="A Crazy Alphabet">
+        </p>
+
+        <p>This all gets interesting when the letters are a little less well structured or well defined:</p>
+
+        <p style="margin-top:0.1em; margin-bottom:0.1em; padding-top:0.1em; padding-bottom:0.1em">
+            <img style="border:1px dashed #e0e0e0;padding:4px; margin:0.25em" src="https://jsndyks.github.io/cityBootCamp/sketches/crazyAlphabet/crazyAlphabet.white03.png"
+                width="360" height="100" alt="A Different Crazy Alphabet">
+        </p>
+
+        <p style="margin-top:0.1em; margin-bottom:0.1em; padding-top:0.1em; padding-bottom:0.1em">
+            <img style="border:1px dashed #e0e0e0;padding:4px; margin:0.25em" src="https://jsndyks.github.io/cityBootCamp/sketches/crazyAlphabet/crazyAlphabet.white04.png"
+                width="360" height="100" alt="Another Crazy Alphabet">
+        </p>
+
+        <p style="margin-top:0.1em; margin-bottom:0.1em; padding-top:0.1em; padding-bottom:0.1em">
+            <img style="border:1px dashed #e0e0e0;padding:4px; margin:0.25em" src="https://jsndyks.github.io/cityBootCamp/sketches/crazyAlphabet/crazyAlphabet.white05.png"
+                width="360" height="100" alt="More Crazy Alphabets">
+        </p>
+
+        <p style="margin-top:0.1em; margin-bottom:0.1em; padding-top:0.1em; padding-bottom:0.1em">
+            <img style="border:1px dashed #e0e0e0;padding:4px; margin:0.25em" src="https://jsndyks.github.io/cityBootCamp/sketches/crazyAlphabet/crazyAlphabet.white02.png"
+                width="360" height="100" alt="An Alternative Crazy Alphabet">
+        </p>
+
+        <p>Think creatively about what else we might be able to do with this kind of idea ...</p>
+        <ul>
+            <li>Can you create a <a href="https://en.wikipedia.org/wiki/Cipher">cypher</a>?</li> 
+            <li>Can you create text that is revealed, increasingly readable, over time or as some task or puzzle is completed?</li>
+            <li>What happens when you randomly reallocate letters?</li>
+            <li>Can you create an alphabet that is only visible when you look at it in certain ways?
+                <br/>(deliberately vague ...!)
+            </li> 
+            <li>How else might you be able to creatively use a <a href="https://processing.org/reference/StringDict.html"><code>StringDict</code></a>?</li>
+        </ul>
+
+        <p>Do something interesting - surprise us, and yourself!</p>
+
+        <div style="padding-bottom:2em;clear:both"></div>
+        
+        <hr>
+        <b>Jason Dykes</b><br/>
+        02/10/2023
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+
+        <!-- End of content -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

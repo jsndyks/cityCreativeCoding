@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Programming Bootcamp Resources: Bouncing Balls</title>
+
+  <!-- Header, 16th September, 2021 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Embedded fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+    rel="stylesheet">
+
+  <!-- Custom layout and style -->
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+  <!-- General browser compatibility handling -->
+  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+  <!-- Formatted source code -->
+  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+  <!-- Sketch popups and hidden text-->
+  <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+  <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+  <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
+
+</head>
+
+<body>
+  <div id="page">
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+    <!-- Content below -->
+
+    <p class="intro">
+      This page shows you how to build a set of coloured bouncing balls that interact with the edge of your sketch
+      as well as each other. It uses a <i>class</i> to make it easier to organise the code that describes a ball's
+      state and its behaviour.
+    </p>
+
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <div class="units-row">
+      <div class="unit-70">
+        <!-- Left column -->
+        <h3>A simple ball</h3>
+        <p>
+          Let's start with a simple sketch to draw a static coloured ball on screen. This just uses Processing's
+          basic drawing commands to drawn a filled circle on screen:
+        </p>
+
+        <pre class="brush: processing; gutter: false; toolbar: false; ">void setup()
+{
+  size(400,400);
+}
+
+void draw()
+{
+  background(254, 244, 232);  // Pale background.
+
+  noStroke();                 // No line around ball
+  fill(214,93,69);            // Colour me orange.
+
+  circle(130,250,30);         // Ball has a diameter of 30 pixels.
+}</pre>
+      </div> <!-- End of left column -->
+    </div> <!-- End of row -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <div class="units-row">
+      <div class="unit-70">
+        <!-- Left column -->
+
+        <p>
+          We could make things a bit more flexible by replacing the 'hard-coded' position and size values with
+          variables that store their contents. That way, we could change the size or position of the ball simply
+          by changing the variables' contents:
+        </p>
+
+        <pre class="brush: processing; gutter: false; toolbar: false; ">float x,y;                    // Ball position.
+float diameter;               // Ball diameter.
+color colour;                 // Ball colour.
+
+void setup()
+{
+  size(400,400);
+  x = 130;
+  y = 250;
+  diameter = 30;
+  colour = color(214,93,69);
+}
+
+void draw()
+{
+  background(254, 244, 232);  // Pale background.
+
+  noStroke();
+  fill(colour);
+  circle(x,y,diameter);
+}</pre>
+
+        <p>
+          Although we have made things a bit easier to change by storing the important characteristics of the ball
+          in their own variables (<code>x</code>, <code>y</code>, <code>diameter</code> and <code>colour</code>),
+          it would be difficult to alter the code to show several balls at once without major changes. So let's look
+          at a more flexible alternative.
+        </p>
+
+        <h3>A simple ball class</h3>
+
+        <p>
+          A <i>class</i> is simply a way of grouping the bits of code that describe something into a single unit.
+          Let's consider what our simple ball sketch would look like in the form of a class:
+        </p>
+
+
+        <pre class="brush: processing; gutter: false; toolbar: false; ">class Ball
+{
+  float x, y;                   // Ball position.
+  float diameter;               // Ball diameter.
+  color colour;                 // Ball colour.
+
+  // Constructor - this is called whenever a new ball is created.
+  Ball()
+  {
+    // Initialise the state of the ball.
+    x = 130;
+    y = 250;
+    diameter = 30;
+    colour = color(214, 93, 69);
+  }
+
+  void draw()
+  {
+    noStroke();
+    fill(colour);
+    circle(x, y, diameter);
+  }
+}</pre>
+        <p>
+          This class is pretty similar to our previous sketch in that it still contains the variables that define
+          a ball's position, size and colour as well as code to draw the ball on screen. There are a few key differences
+          though.
+        </p>
+
+        <p>
+          The first line declares the class with the keyword <code>class</code> and gives it a name
+          (<code>Ball</code>). By convention, names of classes should start with a capital letter. The remaining code is
+          enclosed in a pair of braces (<code>{</code> and <code>}</code>). In addition to the variables that define the
+          state of the class (<code>x</code>, <code>y</code>, <code>diameter</code> and <code>colour</code>), the class
+          contains two methods - <code>Ball()</code> and <code>draw()</code>. The first of these, <code>Ball</code>, is
+          important and is known as a <i>constructor</i>. A constructor is a method inside a class that shares the same
+          name as the class itself and should contain any initialisation code. You can think of it a bit like a sketch's
+          <code>setup()</code> method - it is called just once and so should contain any code required for one-off setup
+          of the ball. In this example, we initialise the position, diameter and colour of the ball.
+        </p>
+
+        <p>
+          Importantly, defining a class won't actually make anything happen in your sketch. Instead, what we have done
+          is
+          created the potential for a ball to be created without, at this stage, actually creating one. To make a new
+          ball
+          we need to create an <i>object</i> out of this class. This can be done in the main sketch as follows:
+        </p>
+
+        <pre class="brush: processing; gutter: false; toolbar: false; ">Ball ball1;              // Declare a ball object from the class.
+
+void setup()
+{
+  size(400,400);
+  ball1 = new Ball();   // Create the new ball object here.
+}
+
+void draw()
+{
+  background(254, 244, 232);  // Pale background.
+  ball1.draw();
+}
+</pre>
+        <p>
+          Creating a new object out of a class is a bit like declaring and initialising a variable. In our example, the
+          first line of the sketch declares a new object (<code>ball1</code>) of type <code>Ball</code>), much as we
+          might
+          have declared a variable <code>diameter</code> of type <code>float</code>. As with simple variables, the
+          convention
+          is to name objects with lower-case letters. And just like a variable we need to initialise the object as well
+          as
+          declare it. This is done with the line <code>ball1 = new Ball()</code>. The <code>new</code> keyword will
+          create
+          the new object from the class by jumping to the <i>constructor</i> inside that class. In this example it will
+          create the ball and initialise its position, size and colour.
+        </p>
+
+        <p>
+          Any other methods inside a class won't actually be called unless we explicitly do so. We can do this my naming
+          the object created from the class, then a dot, then the name of the method we wish to call. In our example we
+          get the ball to draw itself with the line <code>ball1.draw();</code>. The result is a much simpler looking
+          main
+          sketch than we started with since all the code that handles the ball initialisation and drawing is kept
+          separate
+          inside the <code>Ball</code> class.
+        </p>
+
+
+        <h3>Why create classes?</h3>
+
+        <p>
+          So far, our new Ball class and object doesn't do anything more than our very first ball sketch. So why go to
+          all
+          the bother of creating classes and objects? There are at least two principal advantages of putting code inside
+          classes. Firstly, it can be simpler to create code when you think in terms of classes. All the stuff that
+          relates
+          to a ball is kept in its own class away from the code that might do other things in your sketch. For example,
+          if
+          we were making a tennis game, we might make another completely separate class called <code>Racquet</code> that
+          handles the drawing and characteristics of a tennis racquet.
+        </p>
+
+        <p>
+          Keeping code in separate classes like this can make changing them much easier since, with good design, we can
+          change the code inside a class without having to change code elsewhere in our sketch. So for example, suppose
+          we wanted to make our ball a random colour, a random size and appear at a random position. We could do this by
+          just changing four lines inside the Ball's constructor:
+        </p>
+
+      </div> <!-- End of left column -->
+
+      <div class="unit-30 annotation">
+        <!-- Right column -->
+        <p>
+          <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/ball/singleBall1.png" height="400"
+            alt="Single ball">
+          A first attempt at a ball.
+        </p>
+      </div> <!-- end of right column -->
+    </div> <!-- End of row -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <div class="units-row">
+      <div class="unit-70">
+        <!-- Left column -->
+
+        <pre class="brush: processing; gutter: false; toolbar: false; highlight: [11, 12, 13, 14]">class Ball
+{
+  float x, y;                   // Ball position.
+  float diameter;               // Ball diameter.
+  color colour;                 // Ball colour.
+
+  // Constructor - this is called whenever a new ball is created.
+  Ball()
+  {
+    // Initialise the state of the ball with some random values.
+    diameter = random(10,40);
+    x = random(diameter, width-diameter);
+    y = random(diameter, height-diameter);
+    colour = color(random(170,250), random(70,130), random(40,80));
+  }
+
+  void draw()
+  {
+    noStroke();
+    fill(colour);
+    circle(x, y, diameter, circle);
+  }
+}</pre>
+        Here we use Processing's <a href="https://www.processing.org/reference/random_.html"
+          target="_blank">random()</a>
+        method to set a random diameter, position, and colour for the ball. The two numbers or <i>parameters</i> in the
+        brackets of <code>random()</code> represent the lower and upper values between which, a random value is
+        selected.
+        <p></p>
+
+        <p>
+          The rest of the Ball class and the main sketch code remains as before, but now, whenever the sketch is run,
+          the
+          ball will appear in a random location with a random size and colour.
+        </p>
+
+        <p>
+          The second advantage of creating classes and objects is that it is very easy to create many objects all from
+          the same class. Leaving the <code>Ball</code> class exactly as above, we can create an array of 50 balls with
+          a simple loop.
+        </p>
+
+      </div> <!-- End of left column -->
+
+      <div class="unit-30 annotation">
+        <!-- Right column -->
+        <p>
+          <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/ball/singleBall2.png" height="400"
+            alt="single ball">
+          A ball object with a random position, size and colour.
+        </p>
+
+      </div> <!-- end of right column -->
+    </div> <!-- End of row -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+
+    <div class="units-row">
+      <div class="unit-70">
+        <!-- Left column -->
+
+
+        <pre class="brush: processing; gutter: false; toolbar: false;">Ball[] balls;                // Declare an array of ball objects.
+
+void setup()
+{
+  size(400,400);
+  balls = new Ball[50];     // Create 50 new balls.
+  for (int i=0; i&lt;balls.length; i++)
+  {
+    balls[i] = new Ball();
+  }
+}
+
+void draw()
+{
+  background(254, 244, 232); // Pale background.
+  for (Ball ball : balls)
+  {
+    ball.draw();
+  }
+}</pre>
+        <p>
+          Although all the balls use the same class, each ball object has its own position, size and colour and can be
+          referenced using an array index between 0 and 49 in this example. Note how that in the <code>draw()</code>
+          method, we use a 'for-each' loop to <i>iterate</i> over the array, getting each ball to draw itself in turn.
+        </p>
+
+        <h3>Getting the balls moving</h3>
+
+      </div> <!-- End of left column -->
+
+      <div class="unit-30 annotation">
+        <!-- Right column -->
+
+        <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/ball/manyBalls.png" height="400"
+          alt="many balls">
+        Many ball objects from the same class.
+      </div> <!-- end of right column -->
+    </div> <!-- End of row -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+    <div class="units-row">
+      <div class="unit-70">
+        <!-- Left column -->
+
+        <p>
+          So far the balls we have drawn have remained static, so let's get them moving. Following the principle behind
+          class design, we will place the movement code inside the Ball class. Its movement can be defined by two
+          <i>components</i>: <code>dx</code> which determines by how many pixels the ball moves in the horizontal
+          direction
+          and <code>dy</code> that determines by how much it moves in the vertical direction. The larger the value, the
+          faster the ball will move in that particular direction.
+        </p>
+
+        <p>
+          We can therefore make a ball move by adding the values <code>dx</code> and <code>dy</code> to the ball's
+          position (stored as <code>x</code> and <code>y</code>) each time the ball is moved:
+        </p>
+
+        <pre class="brush: processing; gutter: false; toolbar: false; highlight: [6, 16, 17, 27,28,29,30,31]">class Ball
+{
+  float x, y;                   // Ball position.
+  float diameter;               // Ball diameter.
+  color colour;                 // Ball colour.
+  float dx,dy;                  // Movement increments.
+
+  // Constructor - this is called whenever a new ball is created.
+  Ball()
+  {
+    // Initialise the state of the ball with some random values.
+    diameter = random(10,40);
+    x = random(diameter, width-diameter);
+    y = random(diameter, height-diameter);
+    colour = color(random(170,250), random(70,130), random(40,80));
+    dx = random(-2,2);
+    dy = random(-2,2);
+  }
+
+  void draw()
+  {
+    noStroke();
+    fill(colour);
+    circle(x, y, diameter);
+  }
+
+  void move()
+  {
+    x = x+dx;
+    y = y+dy;
+  }
+}</pre>
+
+        <p>
+          As long as our new <code>move()</code> method is called from inside the main sketch's <code>draw()</code>
+          method, each ball will move in a random direction at a random speed. However, once the balls have moved
+          off the screen, they will never be seen again. So we need to make one further modification, which is to check
+          whether the ball has hit the edge of the screen, and if so, reverse its direction (effectively 'bouncing' it
+          off the edge). This can be done by modifying the <code>move()</code> method to check the
+          (<code>x</code>,<code>y</code>) position of the ball against the sketch window coordinates and changing the
+          value
+          of <code>dx</code> or <code>dy</code> if the ball is found to be at an edge:
+        </p>
+
+
+      </div> <!-- end of left column -->
+
+      <div class="unit-30 annotation">
+        <!-- Right column -->
+
+        <p>
+          <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/ball/components.png" height="292"
+            alt="Movement components of a ball">
+          Movement of ball defined by components dx and dy in the horizontal and vertical directions.
+        </p>
+
+
+      </div> <!-- end of right column -->
+    </div> <!-- End of row -->
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+    <div class="units-row">
+      <div class="unit-70">
+        <!-- Left column -->
+
+
+
+        <pre class="brush: processing; gutter: false; toolbar: false; highlight: [3,4,5,6,7]">void move()
+{
+  // Make balls bounce off edge.
+  if (x &lt;= diameter/2) dx = abs(dx);
+  if (y &lt;&lt;= diameter/2) dy = abs(dy);
+  if (x &gt;= width-diameter/2) dx = -abs(dx);
+  if (y &gt;= height-diameter/2) dy = -abs(dy);
+
+  x = x+dx;
+  y = y+dy;
+}</pre>
+
+        <p>
+          We now have a set of bouncing balls floating around in our sketch.
+        </p>
+
+      </div> <!-- end of left column -->
+
+      <div class="unit-30 annotation">
+        <!-- Right column -->
+
+        <p>
+          Question: Why is <code>diameter/2</code> used in the check to see if a ball has bounced off the edge?
+        </p>
+
+        <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/ballMove", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/ball/movingBalls1.png");</script>
+        <p>
+          Moving balls (click image to activate).
+        </p>
+      </div> <!-- end of right column -->
+    </div> <!-- End of row -->
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+    <div class="units-row">
+      <div class="unit-70">
+        <!-- Left column -->
+
+        <h3>Collision detection</h3>
+
+        <p>
+          The final enhancement we will make to the balls is an ability to bounce off each other when they collide. To
+          do this we need to add a new behaviour to the Ball class - the ability to detect whether or not it is next to
+          another ball (in other words to detect a collision). So let's first add this detection as a new method to
+          Ball:
+        </p>
+
+      </div> <!-- end of left column -->
+    </div> <!-- End of row -->
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <div class="units-row">
+      <div class="unit-70">
+        <!-- Left column -->
+
+        <pre class="brush: processing; gutter: false; toolbar: false;">boolean hasCollidedWith(Ball anotherBall)
+{
+  if (dist(x, y, anotherBall.x, anotherBall.y) &lt;= (diameter+anotherBall.diameter)/2)
+  {
+    return true;
+  }
+  return false;
+}</pre>
+
+        <p>
+          Assuming we have managed to detect two colliding balls, we also need to make the balls 'bounce' off each
+          other. The maths to do this is a little more complicated than we have seen so far, but in essence, we are
+          simply altering the movement values <code>dx</code> and <code>dy</code> to change the direction of the two
+          colliding balls.
+        </p>
+
+
+      </div> <!-- end of left column -->
+
+      <div class="unit-30 annotation">
+        <!-- Right column -->
+
+        <p>
+          This method uses Processing's <code>dist()</code> method to calculate the distance between 'this' ball
+          and the other one provided to the method. If the distance is less than the sum of the two radii, the two
+          balls must be overlapping or in contact.
+        </p>
+      </div> <!-- end of right column -->
+    </div> <!-- End of row -->
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+    <div class="units-row">
+      <div class="unit-70">
+        <!-- Left column -->
+
+        <pre class="brush: processing; gutter: false; toolbar: false;">void bounce(Ball anotherBall)
+{
+  // Calculate bounce angle of the two balls.
+  float collisionAngle = atan2(anotherBall.y-y, anotherBall.x-x);
+  float collisionX = cos(collisionAngle);
+  float collisionY = sin(collisionAngle);
+  float collisionXTangent = cos(collisionAngle+HALF_PI);
+  float collisionYTangent = sin(collisionAngle+HALF_PI);
+  float collisionPx = x + diameter/2*collisionX;
+  float collisionPy = y + diameter/2*collisionY;
+
+  float v1 = sqrt(dx*dx + dy*dy);
+  float v2 = sqrt(anotherBall.dx*anotherBall.dx+anotherBall.dy*anotherBall.dy);
+
+  float d1 = atan2(dy, dx);
+  float d2 = atan2(anotherBall.dy, anotherBall.dx);
+
+  float v1x = v1*cos(d1-collisionAngle);
+  float v1y = v1*sin(d1-collisionAngle);
+
+  float v2x = v2*cos(d2-collisionAngle);
+  float v2y = v2*sin(d2-collisionAngle);
+
+  dx = collisionX*v2x + collisionXTangent*v1y;
+  dy = collisionY*v2x + collisionYTangent*v1y;
+
+  x = collisionPx - 0.5*diameter*collisionX;
+  y = collisionPy - 0.5*diameter*collisionY;
+
+  anotherBall.dx = collisionX*v1x + collisionXTangent*v2y;
+  anotherBall.dy = collisionY*v1x + collisionYTangent*v2y;
+
+  anotherBall.x = collisionPx + 0.5*anotherBall.diameter*collisionX;
+  anotherBall.y = collisionPy + 0.5*anotherBall.diameter*collisionY;
+}</pre>
+
+        <p>
+          Even if you can't follow the geometry involved in calculating the bounce directions, using this new
+          <code>bounce()</code> method is easy. We just compare each ball with each of the 49 others and if any pair
+          is found to have collided, we apply the new <code>bounce()</code> method to them both.
+        </p>
+      </div> <!-- end of left column -->
+
+      <div class="unit-30 annotation">
+        <!-- Right column -->
+
+        <p>
+          <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/ball/collisions.png" height="586"
+            alt="Calculating collision of two balls">
+          Calculating collision of two balls.
+        </p>
+
+
+      </div> <!-- end of right column -->
+    </div> <!-- End of row -->
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+    <div class="units-row">
+      <div class="unit-70">
+        <!-- Left column -->
+
+        <pre class="brush: processing; gutter: false; toolbar: false;">void draw()
+{
+  background(254, 244, 232);  // Pale background.
+
+  // First draw the balls in their current position.
+  for (Ball ball : balls)
+  {
+    ball.draw();
+  }
+
+  // Check to see if any balls have collided
+  for (int i=0; i&lt;balls.length; i++)
+  {
+    // Compare each ball with any untested others
+    for (int j=i+1; j&lt;balls.length; j++)
+    {
+      if (balls[i].hasCollidedWith(balls[j]))
+      {
+        balls[i].bounce(balls[j]);
+      }
+    }
+  }
+
+  // Finally move all the balls by one step.
+  for (Ball ball : balls)
+  {
+    ball.move();
+  }
+}</pre>
+        <p>
+          We now have all the code for our bouncing balls sketch. You may wish to use this code as the basis for your
+          own sketches that need to move many interacting objects around your sketch window.
+        </p>
+      </div> <!-- end of left column -->
+
+      <div class="unit-30 annotation">
+        <!-- Right column -->
+
+        <p>
+          <br><br><br><br>
+        </p>
+        <p>
+          The outer for loop <code>i</code> counts through each of the balls from 0 to 49. For each ball at position
+          <code>i</code> in the Ball array it then starts the inner for loop <code>j</code> comparing it with each of
+          the other balls. But <code>j</code> goes from <code>i+1</code> to 49 since if we have previously compared
+          <code>i</code> with <code>j</code> we do not need to compare <code>j</code> with <code>i</code> again.
+        </p>
+
+        <p>
+          If this doesn't make sense, imagine we had only four balls in our array. The checks for collision would be
+          between:
+          <br>
+          ball0 - ball1 <i>(i=0, j=i+1)</i><br>
+          ball0 - ball2 <i>(i=0, j=i+2)</i><br>
+          ball0 - ball3 <i>(i=0, j=i+3)</i><br>
+          ball1 - ball2 <i>(i=1, j=i+1)</i><br>
+          ball1 - ball3 <i>(i=1, j=i+2)</i><br>
+          ball2 - ball3 <i>(i=2, j=i+1)</i><br>
+        </p>
+
+      </div> <!-- end of right column -->
+    </div> <!-- End of row -->
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+    <div class="units-row">
+      <div class="unit-70">
+        <!-- Left column -->
+        <pre class="brush: processing; gutter: false; toolbar: false;">Ball[] balls;           // Declare an array of ball objects.
+
+void setup()
+{
+  size(400, 400);
+  balls = new Ball[50];  // Create 100 new balls.
+  for (int i=0; i&lt;balls.length; i++)
+  {
+    balls[i] = new Ball();
+  }
+}
+
+void draw()
+{
+  background(254, 244, 232);  // Pale background.
+
+  // First draw the balls in their current position.
+  for (Ball ball : balls)
+  {
+    ball.draw();
+  }
+
+  // Check to see if any balls have collided
+  for (int i=0; i&lt;balls.length; i++)
+  {
+    // Compare each ball with any untested others
+    for (int j=i+1; j&lt;balls.length; j++)
+    {
+      if (balls[i].hasCollidedWith(balls[j]))
+      {
+        balls[i].bounce(balls[j]);
+      }
+    }
+  }
+
+  // Finally move all the balls by one step.
+  for (Ball ball : balls)
+  {
+    ball.move();
+  }
+}</pre>
+
+        <pre class="brush: processing; gutter: false; toolbar: false;">class Ball
+{
+  float x, y;                   // Ball position.
+  float diameter;               // Ball diameter.
+  color colour;                 // Ball colour.
+  float dx, dy;                  // Movement increments.
+
+  // Constructor - this is called whenever a new ball is created.
+  Ball()
+  {
+    // Initialise the state of the ball with some random values.
+    diameter = random(10, 40);
+    x = random(diameter, width-diameter);
+    y = random(diameter, height-diameter);
+    colour = color(random(170, 250), random(70, 130), random(40, 80));
+    dx = random(-2, 2);
+    dy = random(-2, 2);
+  }
+
+  void draw()
+  {
+    noStroke();
+    fill(colour);
+    circle(x, y, diameter);
+  }
+
+  void move()
+  {
+    // Make balls bounce off edge.
+    if (x &lt;= diameter/2) dx = abs(dx);
+    if (y &lt;= diameter/2) dy = abs(dy);
+    if (x &gt;= width-diameter/2) dx = -abs(dx);
+    if (y &gt;= height-diameter/2) dy = -abs(dy);
+
+    x = x+dx;
+    y = y+dy;
+  }
+
+  boolean hasCollidedWith(Ball anotherBall)
+  {
+    if (dist(x, y, anotherBall.x, anotherBall.y) &lt;= (diameter+anotherBall.diameter)/2)
+    {
+      return true;
+    }
+    return false;
+  }
+
+  void bounce(Ball anotherBall)
+  {
+    // Calculate bounce angle of the two balls.
+    float collisionAngle = atan2(anotherBall.y-y, anotherBall.x-x);
+    float collisionX = cos(collisionAngle);
+    float collisionY = sin(collisionAngle);
+    float collisionXTangent = cos(collisionAngle+HALF_PI);
+    float collisionYTangent = sin(collisionAngle+HALF_PI);
+    float collisionPx = x + diameter/2*collisionX;
+    float collisionPy = y + diameter/2*collisionY;
+
+    float v1 = sqrt(dx*dx + dy*dy);
+    float v2 = sqrt(anotherBall.dx*anotherBall.dx+anotherBall.dy*anotherBall.dy);
+
+    float d1 = atan2(dy, dx);
+    float d2 = atan2(anotherBall.dy, anotherBall.dx);
+
+    float v1x = v1*cos(d1-collisionAngle);
+    float v1y = v1*sin(d1-collisionAngle);
+
+    float v2x = v2*cos(d2-collisionAngle);
+    float v2y = v2*sin(d2-collisionAngle);
+
+    dx = collisionX*v2x + collisionXTangent*v1y;
+    dy = collisionY*v2x + collisionYTangent*v1y;
+
+    x = collisionPx - 0.5*diameter*collisionX;
+    y = collisionPy - 0.5*diameter*collisionY;
+
+    anotherBall.dx = collisionX*v1x + collisionXTangent*v2y;
+    anotherBall.dy = collisionY*v1x + collisionYTangent*v2y;
+
+    anotherBall.x = collisionPx + 0.5*anotherBall.diameter*collisionX;
+    anotherBall.y = collisionPy + 0.5*anotherBall.diameter*collisionY;
+  }
+}</pre>
+      </div> <!-- end of left column -->
+
+      <div class="unit-30 annotation">
+        <!-- Right column -->
+
+        <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/ballExample", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/ball/movingBalls2.png");</script>
+        <p>
+          Colliding balls (click image to activate).
+        </p>
+
+      </div> <!-- end of right column -->
+    </div> <!-- End of row -->
+
+            <!--- spacer for iFrame -->
+            <p style="padding-top:1em"><hr/></p>
+
+    <!-- End of content -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  </div> <!-- End of page div -->
+  <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>
