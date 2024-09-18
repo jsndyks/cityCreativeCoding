@@ -1,0 +1,648 @@
+<head>
+	<title>Programming Bootcamp Lecture: Variables</title>
+
+	<!-- Header, 16th September, 2021 -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Embedded fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&amp;display=swap" rel="stylesheet">
+
+	<!-- Custom layout and style -->
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css">
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css">
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css">
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css">
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css">
+
+	<!-- General browser compatibility handling -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+	<!-- Formatted source code -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+	<!-- Sketch popups and hidden text-->
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <style>
+      .unit-30-cc {margin:4px; background-color:#f8f8f8; padding:0.25em; border:dashed #e0e0e0 1px} 
+      .unit-70-cc {margin:4px; background-color:#ffffff} 
+	 </style>
+
+</head>
+
+<body>
+<div id="page">
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+	<!-- Add summary sentence or two below, which will act as an easy introduction -->
+
+	<div class="intro">
+
+		<p>
+			This session introduces the idea of the <i>variable</i> — a named portion of the computer's memory used
+			for
+			storing data. Using variables is one way to make your programs more efficient, easier to read and
+			adaptable.
+		</p>
+
+		<p><strong>By the end of this session you should be able to:</strong></p>
+
+		<ul>
+			<li>use Processing's built-in variables for storing mouse position and sketch size;</li>
+			<li>declare and initialise your own variables;</li>
+			<li>use <code>println()</code> to show the contents of a variable in the Processing console;</li>
+			<li>use variables for storing numbers, text and colours;</li>
+			<li>use appropriate variable scope in your coding design;</li>
+			<li>animate graphical objects in your sketch.</li>
+		</ul>
+
+	</div> <!-- End of intro section -->
+
+
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70">
+			<!-- Left column -->
+			<h3>1. What is a variable?</h3>
+			<p>
+				In the previous session you were introduced to a moving rectangle sketch that drew a rectangle whose
+				corner was at the current mouse position. We managed this by using two special <i>variables</i>
+				provided by Processing — <code>mouseX</code> and <code>mouseY</code>. They are known as variables
+				because their value can vary (as the mouse moves in this case). Even though the <i>value</i> of a
+				variable can change, its <i>name</i> does not. At any point in our sketch code we can use the same
+				name <code>mouseX</code> confident that it will contain the value of the current mouse position in
+				pixel coordinates. This leads us to our first simple definition of a variable:
+			</p>
+
+			<div class="tip">
+				A <b>variable</b> is a named portion of a computer's memory that can store data. The data can be
+				retrieved and updated within your program.
+			</div>
+
+			<p>
+				In the case of <code>mouseX</code> and <code>mouseY</code> the data value stored in each is a simple
+				number (referring to the pixel coordinates of the current mouse position). Behind the scenes
+				Processing keeps constant track of the position of your mouse and updates those variables with new
+				numbers every time the position changes.
+			</p>
+
+		</div>
+	</div>
+	<div class="units-row">
+		<div class="unit-70">
+			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+			<div class="task">
+				Copy the following code into Processing and try running it:
+				<br><br>
+				<div><div id="highlighter_493691" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing keyword1">void</code> <code class="processing function4 bold">setup</code><code class="processing plain">()</code></div><div class="line number2 index1 alt1"><code class="processing plain">{</code></div><div class="line number3 index2 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">size</code><code class="processing plain">(400,300);</code></div><div class="line number4 index3 alt1"><code class="processing plain">}</code></div><div class="line number5 index4 alt2">&nbsp;</div><div class="line number6 index5 alt1"><code class="processing keyword1">void</code> <code class="processing function4 bold">draw</code><code class="processing plain">()</code></div><div class="line number7 index6 alt2"><code class="processing plain">{</code></div><div class="line number8 index7 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">println</code><code class="processing plain">(</code><code class="processing keyword4">mouseX</code><code class="processing plain">);</code></div><div class="line number9 index8 alt2"><code class="processing plain">}</code></div></div></td></tr></tbody></table></div></div>
+			</div>
+
+			<p>
+				The code above uses the new command
+				<code><a href="https://processing.org/reference/println_.html" target="_blank">println()</a></code>
+				to display the value stored in the variable <code>mouseX</code>. The value appears in Processing's
+				'console' (the black window below where you normally type in code). If you run the program and move
+				the mouse left and right in the sketch you should see the number change as the mouse's horizontal
+				x-position changes.
+			</p>
+
+
+			<p>
+				Processing has a number of built-in variables in addition to <code>mouseX</code> and
+				<code>mouseY</code>. Of particular use are those called <code>width</code> and <code>height</code>,
+				which store the width and height of the sketch (as determined by the numbers you provide with the
+				<code>size()</code> command). These built-in variables are shown as pink when coding in the
+				Processing window. We shall see why <code>width</code> and <code>height</code> are so useful a
+				little later on. But for now, you can modify the code above to show all four of the variables we
+				have considered so far:
+			</p>
+
+			<div><div id="highlighter_306787" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing keyword1">void</code> <code class="processing function4 bold">setup</code><code class="processing plain">()</code></div><div class="line number2 index1 alt1"><code class="processing plain">{</code></div><div class="line number3 index2 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">size</code><code class="processing plain">(400,300);</code></div><div class="line number4 index3 alt1"><code class="processing plain">}</code></div><div class="line number5 index4 alt2">&nbsp;</div><div class="line number6 index5 alt1"><code class="processing keyword1">void</code> <code class="processing function4 bold">draw</code><code class="processing plain">()</code></div><div class="line number7 index6 alt2"><code class="processing plain">{</code></div><div class="line number8 index7 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">println</code><code class="processing plain">(</code><code class="processing keyword4">mouseX</code><code class="processing plain">, </code><code class="processing keyword4">mouseY</code><code class="processing plain">, </code><code class="processing keyword4">width</code><code class="processing plain">, </code><code class="processing keyword4">height</code><code class="processing plain">);</code></div><div class="line number9 index8 alt2"><code class="processing plain">}</code></div></div></td></tr></tbody></table></div></div>
+
+			<p>
+				If you were to run the program again, moving the mouse around the sketch window the console would
+				display four numbers on each line corresponding to the mouse's x-position, y-position, the sketch's
+				width and the sketch's height:
+				<br>
+			</p>
+			<pre style="background: #000; color: #fff;">87 118 400 300
+255 117 400 300
+298 160 400 300
+310 195 400 300
+318 236 400 300
+281 239 400 300</pre>
+			<p>
+				Note how the last two numbers on each line do not change because the sketch's width and height
+				remain unchanged as the mouse is moved.
+			</p>
+
+			<div class="tip">
+				Using <code>println()</code> can be helpful when you need to know the value stored inside a
+				variable. This is especially true as your programs become more complicated and you need to
+				<i>debug</i> them. And remember the output from <code>println()</code> doesn't appear in your sketch
+				(unlike the rectangles and circles we have been drawing in previous sketches), but instead in
+				Processing's coding console.
+			</div>
+
+		</div> <!-- End of left column -->
+
+		<div class="unit-30 annotation">
+			<!-- Right column -->
+
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2021/lecture02/images/console.png', 557, 483, 'Processing console showing the mouseX variable');</script><div><a href="https://www.staff.city.ac.uk/~jwo/bootcamp2021/lecture02/images/console.png" onclick="return hs.htmlExpand(this, { objectType: 'iframe', minWidth: 557})"><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2021/lecture02/images/console.png" width="557" height="483" alt="Processing console showing the mouseX variable"></a></div>
+			<p>Processing console showing the contents of the mouseX variable <i>(click to enlarge)</i></p>
+
+		</div> <!-- end of right column -->
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+	<div class="units-row">
+		<div class="unit-70">
+			<!-- Left column -->
+
+			<h3>2. Declaring and initialising our own variables</h3>
+
+			<p>
+				We can, in addition to using Processing's built-in variables, create our own new variables. Creating
+				a variable involves declaring a <i>type</i>, a <i>name</i> and a <i>value</i>. For the moment, will
+				just consider variable types that can store numbers. These are referred to as <code>float</code>
+				variables. We then just have to give our variable a name and a value. The name should always start
+				with lower-case letters and not contain any spaces or special characters. For example,
+			</p>
+
+
+			<div><div id="highlighter_153940" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing keyword5">float</code> <code class="processing plain">cost = 1.99;</code></div></div></td></tr></tbody></table></div></div>
+
+			<p>
+				Here we create a variable called <code>cost</code> and place the value 1.99 inside it. This line is
+				doing two things — it is both <i>declaring</i> the variable's type and name (the type is
+				<code>float</code>, the name is <code>cost</code>) and <i>initialising</i> its value (in this case
+				with <code>1.99</code>).
+			</p>
+
+			<p>
+				We could have chosen to do the declaration and the initialisation with two separate lines like this:
+			</p>
+
+			<div><div id="highlighter_961510" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing keyword5">float</code> <code class="processing plain">cost;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="processing comments">// This is the variable declaration.</code></div><div class="line number2 index1 alt1"><code class="processing plain">cost = 1.99;&nbsp;&nbsp;&nbsp; </code><code class="processing comments">// This is the variable initialisation.</code></div></div></td></tr></tbody></table></div></div>
+
+
+			<p>
+				Note the use of the use of the <code>=</code> symbol, which is referred to as the <i>assignment
+				operator</i>. That means it takes whatever value is on the right of the <code>=</code> symbol
+				and stores that value in the variable named on the left of the <code>=</code>.
+			</p>
+
+
+			<h4>Doing arithmetic on variables</h4>
+
+			<p>
+				When we assign a value to a variable, Processing will do any arithmetic you ask it to when
+				calculating the value. For example
+			</p>
+
+			<div><div id="highlighter_39349" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing plain">cost = 1.50 + 2.99;</code></div></div></td></tr></tbody></table></div></div>
+
+			<p>
+				would add 1.5 to 2.99 before storing the result (4.49) in the <code>cost</code> variable. This
+				ability to do calculations is going to save you a lot of time as you develop more sophisticated
+				programs. Other arithmetic operators you are likely to use include subtraction (<code>-</code>),
+				multiplication (<code>*</code>) and division (<code>/</code>). These can be combined to do more
+				complex sums. For example:
+			</p>
+
+			<div><div id="highlighter_143762" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing keyword5">float</code> <code class="processing plain">snackPrice = 0.50;</code></div><div class="line number2 index1 alt1"><code class="processing keyword5">float</code> <code class="processing plain">drinkPrice = 1.20;</code></div><div class="line number3 index2 alt2"><code class="processing keyword5">float</code> <code class="processing plain">changeOwed;</code></div><div class="line number4 index3 alt1">&nbsp;</div><div class="line number5 index4 alt2"><code class="processing keyword5">float</code> <code class="processing plain">totalCost = snackPrice + drinkPrice;</code></div><div class="line number6 index5 alt1"><code class="processing keyword5">float</code> <code class="processing plain">discount&nbsp; = totalCost * 0.10;</code></div><div class="line number7 index6 alt2">&nbsp;</div><div class="line number8 index7 alt1"><code class="processing plain">changeOwed = 10.00 - (totalCost - discount);</code></div></div></td></tr></tbody></table></div></div>
+
+			<p>
+				Let's use our new ability to create our own variables to simplify the drawing of multiple shapes in
+				a sketch:
+			</p>
+
+		</div> <!-- End of left column -->
+
+		<div class="unit-30 annotation">
+			<!-- Right column -->
+
+
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture02/images/variableAnatomy.png', 350, 300, 'The components of a variable declaration and initialisation');</script><div><a href="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture02/images/variableAnatomy.png" onclick="return hs.htmlExpand(this, { objectType: 'iframe', minWidth: 350})"><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture02/images/variableAnatomy.png" width="350" height="300" alt="The components of a variable declaration and initialisation"></a></div>
+			<p>Declaring and initialising a float variable</p>
+
+
+		</div> <!-- end of right column -->
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+	<div class="units-row">
+		<div class="unit-70">
+			<!-- Left column -->
+
+			<div><div id="highlighter_820266" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing keyword1">void</code> <code class="processing function4 bold">setup</code><code class="processing plain">()</code></div><div class="line number2 index1 alt1"><code class="processing plain">{</code></div><div class="line number3 index2 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">size</code><code class="processing plain">(400,400);</code></div><div class="line number4 index3 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">fill</code><code class="processing plain">(0);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="processing comments">// Black fill colour.</code></div><div class="line number5 index4 alt2"><code class="processing plain">}</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2"><code class="processing keyword1">void</code> <code class="processing function4 bold">draw</code><code class="processing plain">()</code></div><div class="line number8 index7 alt1"><code class="processing plain">{</code></div><div class="line number9 index8 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">background</code><code class="processing plain">(255);</code></div><div class="line number10 index9 alt1">&nbsp;</div><div class="line number11 index10 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing keyword5">float</code> <code class="processing plain">centreX = </code><code class="processing keyword4">width</code> <code class="processing plain">/ 2;</code></div><div class="line number12 index11 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing keyword5">float</code> <code class="processing plain">centreY = </code><code class="processing keyword4">height</code> <code class="processing plain">/ 2;</code></div><div class="line number13 index12 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing keyword5">float</code> <code class="processing plain">faceSize = 200;</code></div><div class="line number14 index13 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing keyword5">float</code> <code class="processing plain">earSize = 120;</code></div><div class="line number15 index14 alt2">&nbsp;</div><div class="line number16 index15 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">ellipse</code><code class="processing plain">(centreX,centreY,faceSize,faceSize);</code></div><div class="line number17 index16 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">ellipse</code><code class="processing plain">(centreX-70,centreY-70,earSize,earSize);</code></div><div class="line number18 index17 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">ellipse</code><code class="processing plain">(centreX+70,centreY-70,earSize,earSize);</code></div><div class="line number19 index18 alt2"><code class="processing plain">}</code></div></div></td></tr></tbody></table></div></div>
+
+
+			<p>
+				Notice how the variable <code>centreX</code> is assigned the value <code>width/2</code>. Processing
+				will find the width of the sketch (which is 400 in this example), divide that number by two and then
+				assign it to the variable <code>centreX</code>.
+			</p>
+
+			<p>
+				We can also apply similar types of arithmetic to the numbers provided to the <code>ellipse()</code>
+				command. In the example above, we draw two 'ears' as smaller circles that are 70 pixels above the
+				centre of the large 'face' circle and 70 pixels to the left and right respectively.
+			</p>
+
+			<p>
+				Why should we go to all the effort to declare and initialise these variables when we could have just
+				put the number directly into the <code>ellipse()</code> command? The answer is that it makes it very
+				easy for us to change parts of our program without having to recalculate all the new numbers that
+				might result. For example try the following:
+			</p>
+
+		</div> <!-- End of left column -->
+
+		<div class="unit-30 annotation">
+			<!-- Right column -->
+
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture02/images/mickey.png', 400, 400, 'Three circles');</script><div><a href="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture02/images/mickey.png" onclick="return hs.htmlExpand(this, { objectType: 'iframe', minWidth: 400})"><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture02/images/mickey.png" width="400" height="400" alt="Three circles"></a></div>
+			<p>Three circles all using our own variables centreX, centreY, faceSize and earSize.</p>
+
+
+
+		</div> <!-- end of right column -->
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+	<div class="units-row">
+		<div class="unit-70">
+			<!-- Left column -->
+
+			<div class="codeTask">
+				Copy the face sketch code above into Processing. Try changing the size of the sketch by replacing
+				the 400s in the <code>size()</code> command to different values. Note how whatever you set the size
+				to, the face is always drawn at the centre of the sketch. You can also change the value of
+				<code>faceSize</code> and <code>earSize</code> to change the shape of the face.
+			</div>
+
+		</div> <!-- End of left column -->
+
+		<div class="unit-30 annotation">
+			<!-- Right column -->
+
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture02/images/mickeyBigEars.png', 800, 300, 'Mickey big ears');</script><div><a href="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture02/images/mickeyBigEars.png" onclick="return hs.htmlExpand(this, { objectType: 'iframe', minWidth: 800})"><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture02/images/mickeyBigEars.png" width="800" height="300" alt="Mickey big ears"></a></div>
+			<p>Mickey big ears created by changing the values assigned to the faceSize and earSize variables.</p>
+
+
+		</div> <!-- end of right column -->
+	</div> <!-- End of row -->
+
+
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+	<div class="units-row">
+		<div class="unit-70">
+			<!-- Left column -->
+
+			<h3>3. Variable types</h3>
+
+			<p>
+				Remember that when we declare a variable we have to state what <i>type</i> of variable it is. So
+				far, we have only considered one type —<code>float</code>. This is a useful type when you need to
+				store numbers that might have a decimal point in them (such as our <code>cost</code> examples
+				above). But Processing has many different types of variables, each suited to storing different types
+				of data.
+			</p>
+
+			<p>
+				Here are some examples of other types that you may find useful.
+			</p>
+
+			<h4>The <code>String</code> type</h4>
+
+			<p>
+				If you wish to store some text, such as someone's name, you can store the letters that make up the
+				text in a variable type called a <code>String</code> (note the use of the upper-case 'S'). String
+				variables are declared and initialised just as we did for <code>float</code> types, but instead of
+				assigning numbers, we assign text in quotation marks:
+			</p>
+
+			<div><div id="highlighter_429569" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing keyword1">void</code> <code class="processing function4 bold">setup</code><code class="processing plain">()</code></div><div class="line number2 index1 alt1"><code class="processing plain">{</code></div><div class="line number3 index2 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">size</code><code class="processing plain">(400,200);</code></div><div class="line number4 index3 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">fill</code><code class="processing plain">(0);</code></div><div class="line number5 index4 alt2"><code class="processing plain">}</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2"><code class="processing keyword1">void</code> <code class="processing function4 bold">draw</code><code class="processing plain">()</code></div><div class="line number8 index7 alt1"><code class="processing plain">{</code></div><div class="line number9 index8 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">background</code><code class="processing plain">(255);</code></div><div class="line number10 index9 alt1 highlighted"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing keyword5">String</code> <code class="processing plain">welcomeMessage = </code><code class="processing literal1">"Hello from Bootcamp"</code><code class="processing plain">;</code></div><div class="line number11 index10 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">textAlign</code><code class="processing plain">(</code><code class="processing literal2">CENTER</code><code class="processing plain">,</code><code class="processing literal2">CENTER</code><code class="processing plain">);</code></div><div class="line number12 index11 alt1 highlighted"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">text</code><code class="processing plain">(welcomeMessage,</code><code class="processing keyword4">width</code><code class="processing plain">/2,</code><code class="processing keyword4">height</code><code class="processing plain">/2);</code></div><div class="line number13 index12 alt2"><code class="processing plain">}</code></div></div></td></tr></tbody></table></div></div>
+			<p>
+				Instead of providing the text "<code>Hello from Bootcamp</code>" directly to Processing's <a href="https://processing.org/reference/text_.html" target="_blank">text()</a> command, we assign
+				it to a variable we have called <code>welcomeMessage</code> and then pass the contents of that
+				variable to <code>text()</code>. Note also that we are doing some simple arithmetic to find
+				<code>width/2</code> and <code>height/2</code> in order to position the text in the centre of the
+				sketch.
+			</p>
+
+			<h4>The <code>int</code> type</h4>
+
+			<p>
+				This is another type of variable for storing numbers, but in the case of <code>int</code> variables,
+				their values can only be whole numbers (i.e. without a decimal point). For example:
+			</p>
+
+			<div><div id="highlighter_119685" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing keyword5">int</code> <code class="processing plain">numberOfCircles = 12;</code></div></div></td></tr></tbody></table></div></div>
+
+			<p>
+				<code>int</code> (short for 'integer') variables are commonly used when counting things. For
+				example:
+			</p>
+
+			<div><div id="highlighter_238375" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing keyword5">int</code> <code class="processing plain">counter = 0;</code></div><div class="line number2 index1 alt1"><code class="processing plain">counter = counter + 1;</code></div></div></td></tr></tbody></table></div></div>
+
+			<p>
+				We will see some examples of using <code>int</code> variables to count in the next session.
+			</p>
+
+			<h4>The <code>color</code> type</h4>
+
+			<p>
+				Processing allows you to store a colour value in its own variable type called <code>color</code>
+				(note the American spelling). This is useful if you wish to use the same colour in several places in
+				your sketch. Here's an example:
+			</p>
+
+		</div>
+	</div>
+	<div class="units-row">
+		<div class="unit-70">
+			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<div><div id="highlighter_307929" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing keyword1">void</code> <code class="processing function4 bold">setup</code><code class="processing plain">()</code></div><div class="line number2 index1 alt1"><code class="processing plain">{</code></div><div class="line number3 index2 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">size</code><code class="processing plain">(400, 400);</code></div><div class="line number4 index3 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">noStroke</code><code class="processing plain">();</code></div><div class="line number5 index4 alt2"><code class="processing plain">}</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2"><code class="processing keyword1">void</code> <code class="processing function4 bold">draw</code><code class="processing plain">()</code></div><div class="line number8 index7 alt1"><code class="processing plain">{</code></div><div class="line number9 index8 alt2 highlighted"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing keyword5">color</code> <code class="processing plain">skyColour&nbsp;&nbsp;&nbsp; = </code><code class="processing function1">color</code><code class="processing plain">(157, 238, 247);</code></div><div class="line number10 index9 alt1 highlighted"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing keyword5">color</code> <code class="processing plain">groundColour = </code><code class="processing function1">color</code><code class="processing plain">(156, 245, 170);</code></div><div class="line number11 index10 alt2 highlighted"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing keyword5">color</code> <code class="processing plain">leafColour&nbsp;&nbsp; = </code><code class="processing function1">color</code><code class="processing plain">(82, 144, 97);</code></div><div class="line number12 index11 alt1 highlighted"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing keyword5">color</code> <code class="processing plain">trunkColour&nbsp; = </code><code class="processing function1">color</code><code class="processing plain">(95, 57, 26);</code></div><div class="line number13 index12 alt2">&nbsp;</div><div class="line number14 index13 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">background</code><code class="processing plain">(skyColour);</code></div><div class="line number15 index14 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">fill</code><code class="processing plain">(groundColour);</code></div><div class="line number16 index15 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">rect</code><code class="processing plain">(0, </code><code class="processing keyword4">height</code><code class="processing plain">/2, </code><code class="processing keyword4">width</code><code class="processing plain">, </code><code class="processing keyword4">height</code><code class="processing plain">/2);</code></div><div class="line number17 index16 alt2">&nbsp;</div><div class="line number18 index17 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing keyword5">float</code> <code class="processing plain">treeX = 100;</code></div><div class="line number19 index18 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing keyword5">float</code> <code class="processing plain">treeY = 180;</code></div><div class="line number20 index19 alt1">&nbsp;</div><div class="line number21 index20 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing comments">// Draw first tree</code></div><div class="line number22 index21 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">fill</code><code class="processing plain">(trunkColour);</code></div><div class="line number23 index22 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">rect</code><code class="processing plain">(treeX, treeY, 20, 70);</code></div><div class="line number24 index23 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">fill</code><code class="processing plain">(leafColour);</code></div><div class="line number25 index24 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">ellipse</code><code class="processing plain">(treeX+10, treeY-30, 70, 90);</code></div><div class="line number26 index25 alt1">&nbsp;</div><div class="line number27 index26 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing comments">// Draw second tree to the right and down a bit</code></div><div class="line number28 index27 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing plain">treeX = treeX + 100;</code></div><div class="line number29 index28 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing plain">treeY = treeY + 30;</code></div><div class="line number30 index29 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">fill</code><code class="processing plain">(trunkColour);</code></div><div class="line number31 index30 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">rect</code><code class="processing plain">(treeX, treeY, 20, 70);</code></div><div class="line number32 index31 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">fill</code><code class="processing plain">(leafColour);</code></div><div class="line number33 index32 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">ellipse</code><code class="processing plain">(treeX+10, treeY-30, 70, 90);</code></div><div class="line number34 index33 alt1">&nbsp;</div><div class="line number35 index34 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing comments">// Draw third tree to the right and up a bit</code></div><div class="line number36 index35 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing plain">treeX = treeX + 100;</code></div><div class="line number37 index36 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing plain">treeY = treeY - 30;</code></div><div class="line number38 index37 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">fill</code><code class="processing plain">(trunkColour);</code></div><div class="line number39 index38 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">rect</code><code class="processing plain">(treeX, treeY, 20, 70);</code></div><div class="line number40 index39 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">fill</code><code class="processing plain">(leafColour);</code></div><div class="line number41 index40 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">ellipse</code><code class="processing plain">(treeX+10, treeY-30, 70, 90);</code></div><div class="line number42 index41 alt1"><code class="processing plain">}</code></div></div></td></tr></tbody></table></div></div>
+
+			<p>
+				The tree sketch above uses four <code>color</code> variables to store the colours of the sky,
+				ground, tree leaves and trunk. The <code>background()</code>, and <code>fill()</code> commands then
+				make use of the values in these variables without us having to type in the same RGB numbers each
+				time we draw a tree. Note also how the code to draw each tree is exactly the same, the only thing
+				that changes is the contents of the two variables <code>treeX</code> and <code>treeY</code>.
+			</p>
+
+			<p>
+				There are plenty of other variable types that we will come across later on, including types to store
+				true/false values (<a href="https://processing.org/reference/boolean.html" target="_blank"><code>boolean</code></a>), single characters (<a href="https://processing.org/reference/char.html" target="_blank"><code>char</code></a>), images
+				(<a href="https://processing.org/reference/PImage.html" target="_blank"><code>PImage</code></a>),
+				fonts (<a href="https://processing.org/reference/PFont.html" target="_blank"><code>PFont</code></a>)
+				and plenty of others. But for now, being able to store numbers, text and colours in variables should
+				be sufficient.
+			</p>
+
+		</div> <!-- End of left column -->
+
+		<div class="unit-30 annotation">
+			<!-- Right column -->
+
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture02/images/woodland.png', 400, 400, 'Three trees');</script><div><a href="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture02/images/woodland.png" onclick="return hs.htmlExpand(this, { objectType: 'iframe', minWidth: 400})"><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture02/images/woodland.png" width="400" height="400" alt="Three trees"></a></div>
+			<p>Three trees using color variables to store trunk and leaf colours.</p>
+
+		</div> <!-- end of right column -->
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+	<div class="units-row">
+		<div class="unit-70">
+			<!-- Left column -->
+
+			<h3>4. Variable scope</h3>
+
+			<p>
+				Remember that when using variables in Processing you do two things — you <i>declare</i> the
+				variable, which is when you say what type of variable it is and give it a name; and you
+				<i>initialise</i> it, which is when you assign a value to the variable. One of the reasons why it is
+				important to separate <i>declaration</i> from <i>initialisation</i> is that where a variable is
+				declared determines its <i>scope</i>.
+			</p>
+
+			<p>
+				The scope of a variable is the term given to where in your code that variable is recognised. The
+				general rule is <b><i>a variable can only be used in the same block of code in which it is
+				declared</i></b>. We can regard a 'block' as meaning within the pair of braces such as those
+				that define a start and end of a method.
+			</p>
+
+			<p>
+				In practice this means that if you declare a variable inside, say, the <code>setup()</code> method,
+				it could not be used inside the <code>draw()</code> method as each would be different blocks of
+				code.
+			</p>
+
+			<p>
+				So would we ever need to use a variable in both the <code>setup()</code> and <code>draw()</code>
+				methods? And if so, where should we declare such variables? The answer is yes we do sometimes need
+				to use the same variables in several methods and to allow this to happen we simply declare the
+				variable outside of all methods.
+			</p>
+
+			<p>
+				One of the reasons we might wish to declare a variable outside of the <code>draw()</code> method in
+				particular is that it allows Processing to recall the value of the variable each time the method is
+				called (remembering that <code>draw()</code> happens 60 times a second). Changing the value of a
+				variable inside <code>draw()</code> is one way of creating simple animations. The following code
+				draws some text at position (<code>xPos</code>,<code>100</code>) where <code>xPos</code> decreases
+				its value by one every time it is redrawn:
+			</p>
+
+		</div>
+	</div>
+	<div class="units-row">
+		<div class="unit-70">
+			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<div><div id="highlighter_835219" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2 highlighted"><code class="processing keyword5">float</code> <code class="processing plain">xPos;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="processing comments">// Declare xPos with sketch-wide scope.</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="processing keyword1">void</code> <code class="processing function4 bold">setup</code><code class="processing plain">()</code></div><div class="line number4 index3 alt1"><code class="processing plain">{</code></div><div class="line number5 index4 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">size</code><code class="processing plain">(600, 200);</code></div><div class="line number6 index5 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">fill</code><code class="processing plain">(0);</code></div><div class="line number7 index6 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">textSize</code><code class="processing plain">(48);</code></div><div class="line number8 index7 alt1">&nbsp;</div><div class="line number9 index8 alt2 highlighted"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing plain">xPos = </code><code class="processing keyword4">width</code><code class="processing plain">;&nbsp;&nbsp;&nbsp; </code><code class="processing comments">// Initialise xPos to right of sketch (600);</code></div><div class="line number10 index9 alt1"><code class="processing plain">}</code></div><div class="line number11 index10 alt2">&nbsp;</div><div class="line number12 index11 alt1"><code class="processing keyword1">void</code> <code class="processing function4 bold">draw</code><code class="processing plain">()</code></div><div class="line number13 index12 alt2"><code class="processing plain">{</code></div><div class="line number14 index13 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">background</code><code class="processing plain">(255);</code></div><div class="line number15 index14 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing keyword5">String</code> <code class="processing plain">message = </code><code class="processing literal1">"Hello again from the coding bootcamp..."</code><code class="processing plain">;</code></div><div class="line number16 index15 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">text</code><code class="processing plain">(message, xPos, </code><code class="processing keyword4">height</code><code class="processing plain">/2);</code></div><div class="line number17 index16 alt2">&nbsp;</div><div class="line number18 index17 alt1 highlighted"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing plain">xPos = xPos - 1;&nbsp; </code><code class="processing comments">// Decrease the value of xPos by one on each redraw</code></div><div class="line number19 index18 alt2"><code class="processing plain">}</code></div></div></td></tr></tbody></table></div></div>
+			<p>
+				The variable <code>xPos</code> is declared as a <code>float</code> in the first line. This allows it
+				to be used at any point in the sketch. It is initialised in the last line of <code>setup()</code>
+				with the value of the width of the sketch (which is 600 in this case). In the <code>draw()</code>
+				method some text is drawn using the current value of <code>xPos</code> (still 600 the first time it
+				is drawn). The last line of <code>draw()</code> then decreases the value stored in <code>xPos</code>
+				by 1. Remembering that <code>draw()</code> is repeatedly called 60 times a second, the text is then
+				redrawn at position <code>xPos</code> which is now 599 before being reduced by one to 598 etc. The
+				result is the text appears to scroll across the screen as <code>xPos</code> gradually decreases in
+				value from 600 down to 0 and beyond.
+			</p>
+
+			<div class="tip">
+				Try to declare variables to be as 'local' as possible in scope. That is, if a variable is only
+				needed in a single block of code, declare it inside the braces that define that block.
+			</div>
+
+		</div> <!-- End of left column -->
+
+		<div class="unit-30 annotation">
+			<!-- Right column -->
+
+			<script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/scrollingText", 600, 600, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture02/images/scrollingText.png");</script><div><a href="https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/scrollingText/index.html" onclick="return hs.htmlExpand(this, { objectType: 'iframe', minWidth: 600})"><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture02/images/scrollingText.png" width="600" alt="click to see sketch"></a></div>
+			<p>
+				Scrolling text sketch (<i>click to activate</i>).
+			</p>
+
+		</div> <!-- end of right column -->
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70">
+			<!-- Left column -->
+
+			<p>
+				Here is another example that uses the same principle of declaring some variables outside the
+				<code>draw()</code> method so we can animate by slowly changing their values in the
+				<code>draw()</code> method. It is based on the Mickey Mouse sketch we created above, but this time,
+				we will change the values of <code>faceSize</code> and <code>earSize</code> by 1% on each redraw:
+			</p>
+
+			<div><div id="highlighter_591865" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing comments">// Sketch-wide variable declarations</code></div><div class="line number2 index1 alt1"><code class="processing keyword5">float</code> <code class="processing plain">faceSize;</code></div><div class="line number3 index2 alt2"><code class="processing keyword5">float</code> <code class="processing plain">earSize;</code></div><div class="line number4 index3 alt1">&nbsp;</div><div class="line number5 index4 alt2"><code class="processing keyword1">void</code> <code class="processing function4 bold">setup</code><code class="processing plain">()</code></div><div class="line number6 index5 alt1"><code class="processing plain">{</code></div><div class="line number7 index6 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">size</code><code class="processing plain">(400, 400);</code></div><div class="line number8 index7 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">fill</code><code class="processing plain">(0);</code></div><div class="line number9 index8 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing plain">faceSize = 18;&nbsp;&nbsp;&nbsp; </code><code class="processing comments">// Variable initialisation.</code></div><div class="line number10 index9 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing plain">earSize = 12;</code></div><div class="line number11 index10 alt2"><code class="processing plain">}</code></div><div class="line number12 index11 alt1">&nbsp;</div><div class="line number13 index12 alt2"><code class="processing keyword1">void</code> <code class="processing function4 bold">draw</code><code class="processing plain">()</code></div><div class="line number14 index13 alt1"><code class="processing plain">{</code></div><div class="line number15 index14 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">background</code><code class="processing plain">(255);</code></div><div class="line number16 index15 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing keyword5">float</code> <code class="processing plain">centreX = </code><code class="processing keyword4">width</code> <code class="processing plain">/ 2;</code></div><div class="line number17 index16 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing keyword5">float</code> <code class="processing plain">centreY = </code><code class="processing keyword4">height</code> <code class="processing plain">/ 2;</code></div><div class="line number18 index17 alt1">&nbsp;</div><div class="line number19 index18 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">ellipse</code><code class="processing plain">(centreX, centreY, faceSize, faceSize);</code></div><div class="line number20 index19 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">ellipse</code><code class="processing plain">(centreX-faceSize/3, centreY-faceSize/3, earSize, earSize);</code></div><div class="line number21 index20 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">ellipse</code><code class="processing plain">(centreX+faceSize/3, centreY-faceSize/3, earSize, earSize);</code></div><div class="line number22 index21 alt1">&nbsp;</div><div class="line number23 index22 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing plain">faceSize = faceSize * 1.01;</code></div><div class="line number24 index23 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing plain">earSize = earSize * 1.01;</code></div><div class="line number25 index24 alt2"><code class="processing plain">}</code></div></div></td></tr></tbody></table></div></div>
+
+		</div> <!-- End of left column -->
+
+		<div class="unit-30 annotation">
+			<!-- Right column -->
+
+			<script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/mickeyZoom", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture02/images/mickeyZoom.png");</script><div><a href="https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/mickeyZoom/index.html" onclick="return hs.htmlExpand(this, { objectType: 'iframe', minWidth: 400})"><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture02/images/mickeyZoom.png" width="400" alt="click to see sketch"></a></div>
+			<p>
+				Zooming Mickey (<i>click to activate</i>).
+			</p>
+
+		</div> <!-- end of right column -->
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70">
+			<!-- Left column -->
+
+			<p>
+				There is one more important implication to the fact that variables are bound to the block of code in
+				which they are declared: <b><i>a variable's identity is defined not just by its name but also by
+				it's scope</i></b>. Consider the following version of the scrolling text code:
+			</p>
+
+			<div><div id="highlighter_239834" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing keyword1">void</code> <code class="processing function4 bold">setup</code><code class="processing plain">()</code></div><div class="line number2 index1 alt1"><code class="processing plain">{</code></div><div class="line number3 index2 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">size</code><code class="processing plain">(600,200);</code></div><div class="line number4 index3 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">fill</code><code class="processing plain">(0);</code></div><div class="line number5 index4 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">textSize</code><code class="processing plain">(48);</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2 highlighted"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing keyword5">float</code> <code class="processing plain">xPos = </code><code class="processing keyword4">width</code><code class="processing plain">/2;&nbsp;&nbsp;&nbsp; </code><code class="processing comments">// Initialise xPos to right of sketch (300);</code></div><div class="line number8 index7 alt1"><code class="processing plain">}</code></div><div class="line number9 index8 alt2">&nbsp;</div><div class="line number10 index9 alt1"><code class="processing keyword1">void</code> <code class="processing function4 bold">draw</code><code class="processing plain">()</code></div><div class="line number11 index10 alt2"><code class="processing plain">{</code></div><div class="line number12 index11 alt1 highlighted"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing keyword5">float</code> <code class="processing plain">xPos = </code><code class="processing keyword4">width</code><code class="processing plain">/2;</code></div><div class="line number13 index12 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">background</code><code class="processing plain">(255);</code></div><div class="line number14 index13 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing keyword5">String</code> <code class="processing plain">message = </code><code class="processing literal1">"Hello again from the coding bootcamp..."</code><code class="processing plain">;</code></div><div class="line number15 index14 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">text</code><code class="processing plain">(message,xPos,</code><code class="processing keyword4">height</code><code class="processing plain">/2);</code></div><div class="line number16 index15 alt1">&nbsp;</div><div class="line number17 index16 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing plain">xPos = xPos - 1;&nbsp; </code><code class="processing comments">// Decrease the value of xPos by one on each redraw</code></div><div class="line number18 index17 alt1"><code class="processing plain">}</code></div></div></td></tr></tbody></table></div></div>
+
+
+			<p>
+				If you copy and run this code in Processing you will notice that your text stays put. This is
+				because the variable xPos in the setup method is not the same as the variable xPos in the draw
+				method. They are two independent variables declared in different scopes that happen to have the same
+				name.
+			</p>
+
+			<p>
+				So why is the text not moving? Our setup method declares and initializes a variable called xPos.
+				However, as soon as our program exits the setup method, this variable ceases to exit.
+			</p>
+
+			<p>
+				Our program will then repeatedly run through the draw method. Every time our program enters draw, a
+				new variable xPos is created and initialized. This variable is particular to that draw run and is
+				discarded when the method exits. The change we make to this xPos is lost together with the variable
+				itself. During the next draw iteration, a brand new instance of xPos will be created and initialized
+				to the same constant value: width/2. Our text will thus be drawn in the same position over and over
+				again.
+			</p>
+
+			<p>
+				Another problem occurs when two variables with the same name exist in overlapping scopes. This is
+				called <i><b>variable shadowing</b></i>. Lets look at the following example:
+			</p>
+
+			<div><div id="highlighter_368933" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing keyword5">float</code> <code class="processing plain">xPos = </code><code class="processing keyword4">width</code><code class="processing plain">; </code><code class="processing comments">//Declare global xPos</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="processing keyword1">void</code> <code class="processing function4 bold">setup</code><code class="processing plain">()</code></div><div class="line number4 index3 alt1"><code class="processing plain">{</code></div><div class="line number5 index4 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">size</code><code class="processing plain">(600,200);</code></div><div class="line number6 index5 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">fill</code><code class="processing plain">(0);</code></div><div class="line number7 index6 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">textSize</code><code class="processing plain">(48);</code></div><div class="line number8 index7 alt1">&nbsp;</div><div class="line number9 index8 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing plain">xPos = </code><code class="processing keyword4">width</code><code class="processing plain">;&nbsp;&nbsp;&nbsp; </code><code class="processing comments">// Initialise global xPos to right of sketch (600);</code></div><div class="line number10 index9 alt1"><code class="processing plain">}</code></div><div class="line number11 index10 alt2">&nbsp;</div><div class="line number12 index11 alt1"><code class="processing keyword1">void</code> <code class="processing function4 bold">draw</code><code class="processing plain">()</code></div><div class="line number13 index12 alt2"><code class="processing plain">{</code></div><div class="line number14 index13 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing keyword5">float</code> <code class="processing plain">xPos = </code><code class="processing keyword4">width</code><code class="processing plain">; </code><code class="processing comments">// Notice: declare and initialise a local xPos</code></div><div class="line number15 index14 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">background</code><code class="processing plain">(255);</code></div><div class="line number16 index15 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing keyword5">String</code> <code class="processing plain">message = </code><code class="processing literal1">"Hello again from the coding bootcamp..."</code><code class="processing plain">;</code></div><div class="line number17 index16 alt2 highlighted"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">text</code><code class="processing plain">(message,xPos,</code><code class="processing keyword4">height</code><code class="processing plain">/2);</code></div><div class="line number18 index17 alt1">&nbsp;</div><div class="line number19 index18 alt2 highlighted"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing plain">xPos = xPos - 1;&nbsp; </code><code class="processing comments">// Decrease the value of xPos by one on each redraw</code></div><div class="line number20 index19 alt1"><code class="processing plain">}</code></div></div></td></tr></tbody></table></div></div>
+
+			<p>
+				Notice that here we declare xPos variables twice, once having global scope (at the top) and once in
+				the draw method. Again, even though the variables have the same name they are different since they
+				are defined in different blocks of code.</p>
+
+			<p>
+				The problem occurs in the draw method where, given their scopes, both xPos variables should be
+				visible. As such, which variable do the highlighted lines use? The rule is that in such cases the
+				name identifies the variable with the more specific scope (in our case the xPos declared in draw).
+				We say that xPos declared in draw shadows the global variable with the same name.
+			</p>
+
+		</div> <!-- End of left column -->
+
+		<div class="unit-30 annotation">
+			<!-- Right column -->
+
+			<br>
+
+		</div> <!-- end of right column -->
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70">
+			<!-- Left column -->
+
+			<h3>5. Summary and Further Reading</h3>
+
+			<ul>
+				<li> Processing contains a number of its own variables for storing the mouse position and sketch
+					size. </li>
+
+				<li>You can create your own variables for storing numbers, text, colours and other features. This
+					involves declaring the variable name and type and then assigning a value to the variable. </li>
+
+				<li> Variable names should be lower-case and should be given explanatory names. </li>
+
+				<li> The <code>println()</code> command can be used to display the contents of a variable, which can
+					be useful when debugging a program.</li>
+
+				<li> You can use the <code>draw()</code> loop to incrementally change the contents of a variable to
+					create an animation effect.
+				</li>
+
+				<li> Variables are identified not just by their name but also by their scope. Make sure you work
+					with the correct variable by considering not just its name but also its scope! </li>
+			</ul>
+
+
+			<div class="aside">
+				You may find the following helpful if you'd like to find out more about variables and their use in
+				animation.
+				<br><br>
+
+				<ul>
+					<li><a href="https://processing.org/reference/" target="_blank">Processing reference</a> — Have
+						a look at the 'Data' and 'Operators' sections for details of some variable types and
+						mathematical operators.</li>
+				</ul>
+
+			</div>
+
+		</div> <!-- End of left column -->
+
+		<div class="unit-30 annotation">
+			<!-- Right column -->
+
+			<br>
+
+		</div> <!-- end of right column -->
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+</div> <!-- End of page div -->
+<script type="text/javascript">SyntaxHighlighter.all()</script>
+
+
+</body>
