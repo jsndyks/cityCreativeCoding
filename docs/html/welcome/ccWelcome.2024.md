@@ -1,34 +1,36 @@
-<hr/>
-<p><b>Creative Coding</b> begins on <b>Tuesday, 1st October at 9am</b> in <b>A132, The Great Hall</b>.</p>
+<style> 
+code {color:#444; background-color:#f0f0f0; padding:2px; padding-left:0.75em; padding-right:0.75em}>
+</style>
+
+<p><code>#CreativeCoding</code> begins on <b>Tuesday, 1st October at 9am</b> in <b>A132, The Great Hall</b>.</p>
+
+Remember to check [MyTimetable](https://mytimetable.city.ac.uk/) to find the rooms in which subsequent <code>#CreativeCoding</code> tutorial sessions take place.
 
 <!---
 Watch <a href="https://cityuni-my.sharepoint.com/:v:/g/personal/radu_jianu_city_ac_uk/EcZGjXg1ts9OuC4ErEu3SHEBddjZpmvREYpbaydIajklSQ?e=U2sKd9&amp;nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZyIsInJlZmVycmFsQXBwUGxhdGZvcm0iOiJXZWIiLCJyZWZlcnJhbE1vZGUiOiJ2aWV3In19">this quick intro video</a> about Bootcamp and what you should expect.--->
 
 <div style="float:left;">
-<img src="docs/images/logo/ccLogo.original.jpg" width=200 height=200 style="margin:0.25em"/>
+<img src="https://jsndyks.github.io/cityCreativeCoding/docs/images/logo/ccLogo.original.jpg" width=100 height=100 style="margin:0.25em; margin-right:1em"/>
 </div>
 
 <p>
-<i>Creative Coding</i> is a term-long programming experience designed for both completely new and experienced programmers.
+<code>#CreativeCoding</code> is a term-long programming experience designed for both completely new and experienced programmers.<br/>
 We will start from the very basics of programming and gradually move into interesting, applied programming such as digital art and data visualization.
 </p>
 
-<p>We will essentially teach you _Java_, but rely on an environment called <b>Processing</b> – that will introduce key programming concepts and enable you to create interactive, graphical, animated applications with much less effort than regular Java.</p>
+<p>We will essentially teach you <i>Java</i>, but rely on an environment called <b>Processing</b> – that will introduce key programming concepts and enable you to create interactive, graphical, animated applications with much less effort than regular Java.</p>
 
-<p><i>Creative Coding</i> is <b>not assessed</b>.
+<p><code>#CreativeCoding</code> is <b>not assessed</b>.
 But engaging fully will give you experience, knowledge and skills that will provide important grounding and contribute to your future studies.
 
 As you start life at University, we want to give you some freedom to experiment and play with programming and show you the cool stuff it lets you do in a zero risk environment.
 We also want you get to know us and your colleagues, and get used to University life through this activity.
 Most importantly, we want you to <b>have some fun</b> with a shared data and coding experience in your first term.</p>
 
-<div style="background-color:#ffffe0; padding:1em; margin:2px; border:0px solid #ddd">
-    <p style="color:#933"> <b><u>Important:</u></b> On Tuesday we plan to hit the ground running.<br/>
-    We expect you to bring charged laptops to the lecture with Processing installed.<br/>
+<b>Important:</b> On Tuesday we plan to hit the ground running.<br/>
 
-We expect you to have completed the [Creative Coding Preparation]() activities.
-
-</p>
+- We expect you to bring charged laptops to the lecture with Processing installed.
+- We expect you to have completed the [<code>#CreativeCoding</code> Preparation]() activities beforehand.
 
 </div>
 
