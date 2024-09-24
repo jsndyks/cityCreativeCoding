@@ -39,3 +39,11 @@
 
   .unit-30-cc {margin:4px; background-color:#f8f8f8; padding:0.25em; border:dashed #e0e0e0 1px} 
   .unit-70-cc {margin:4px; background-color:#ffffff} 
+
+  /*
+  * crop image 
+  */
+  .imgCropBanner {
+      /* Example: clip away the element from the top, right, bottom, and left edges */
+    clip-path: inset(40% 0px 40% 0px);
+}
