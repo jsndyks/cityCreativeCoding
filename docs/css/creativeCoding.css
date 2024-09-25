@@ -48,4 +48,5 @@
     clip-path: inset(40% 0px 40% 0px);
   }
 .imgCentre {  display: block; margin-left: auto; margin-right: auto;}
-
+figcaption {text-align:center}
+h3 {padding-top:0.25em; margin-top:1em; border-top:1px dashed #e0e0e0}
