@@ -46,5 +46,6 @@
   .imgCropBanner {
       /* Example: clip away the element from the top, right, bottom, and left edges */
     clip-path: inset(40% 0px 40% 0px);
-    .imgCentre {  display: block; margin-left: auto; margin-right: auto;}
-}
+  }
+.imgCentre {  display: block; margin-left: auto; margin-right: auto;}
+
