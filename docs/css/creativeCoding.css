@@ -48,7 +48,7 @@
     clip-path: inset(40% 0px 40% 0px);
   }
 figure {  display: block; margin-left: auto; margin-right: auto; width:75%}
-figure img {[border:dashed #e0e0e0 1px; padding:4px]}
+figure img {border:dashed #e0e0e0 1px; padding:4px}
 figcaption {width:90%; text-align:center; color:#909090; padding-top:0.5em; font-size:90%}
 h3 {padding-top:0.25em; margin-top:1em; border-top:1px dashed #e0e0e0}
 .codeTask h5 {padding-top:0.05em; padding-bottom:0.25em; color: #606090}
