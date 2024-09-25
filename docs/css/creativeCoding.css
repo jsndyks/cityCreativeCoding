@@ -37,7 +37,7 @@
    * -- removing side columns ...
    */
 
-  .unit-30-cc {margin:4px; background-color:#f8f8f8; padding:0.25em; border:dashed #e0e0e0 1px} 
+  .unit-30-cc {margin:4px; background-color:#ffffff; padding:0.25em; border:dashed #e0e0e0 0px} 
   .unit-70-cc {margin:4px; background-color:#ffffff} 
 
   /*
@@ -48,6 +48,6 @@
     clip-path: inset(40% 0px 40% 0px);
   }
 figure {  display: block; margin-left: auto; margin-right: auto; width:80%}
-figcaption {width:90%; text-align:center; color:#909090}
+figcaption {width:90%; text-align:center; color:#909090; padding-top:0.5em; font-size:100%}
 h3 {padding-top:0.25em; margin-top:1em; border-top:1px dashed #e0e0e0}
 .codeTask h5 {padding-top:0.05em; padding-bottom:0.25em; color: #606090}
