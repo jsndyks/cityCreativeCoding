@@ -26,11 +26,11 @@ As you start life at University, we want to give you some freedom to experiment 
 We also want you get to know us and your colleagues, and get used to University life through this activity.
 Most importantly, we want you to <b>have some fun</b> with a shared data and coding experience in your first term.</p>
 
-<p>At the end of term, your tutors will provide a short report on your <code>#CreativeCoding</code> activity that they may use in subsequent reference writing.</p>
+<p>At the end of term, your tutors will provide a short report on your <code>#CreativeCoding</code> activity that they may use in subsequent reference writing: a <b>Creative Coding Commentary</b> that will report on your initiative, participation, creativity, group-work capability in <code>#CreativeCoding</code> and the tutorials </p>
 
 <b>Important:</b> On Tuesday we plan to hit the ground running.<br/>
 
-- We expect you to bring <b>charged laptops</a> to the lecture with <i>Processing</i> installed.
+- We expect you to bring <b>charged laptops</b> to the lecture with <i>Processing</i> installed.
 - We expect you to have <b>completed the preparation</b> beforehand - the <code>#CreativeCoding</code> Preparation Activities and the Dear Data Diaries work are described below
 
 </div>
