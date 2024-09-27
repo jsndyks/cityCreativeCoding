@@ -2,11 +2,11 @@
 code {color:#444; background-color:#f0f0f0; padding:2px; padding-left:0.75em; padding-right:0.75em}
 </style>
 
-<div style="float:left;">
+<!--div style="float:left;">
 <img src="https://jsndyks.github.io/cityCreativeCoding/images/logo/ccLogo.original.jpg" width=100 height=100 style="margin:0.25em; margin-right:1em"/>
-</div>
+</div-->
 
-<p><code>#CreativeCoding</code> begins on <b>Tuesday, 1st October at 9am</b> in <b>A132, The Great Hall</b>.</p>
+<p>Our <code>#CreativeCoding</code> activity begins on <b>Tuesday, 1st October at 9am</b> in <b>A132, The Great Hall</b>.</p>
 
 <p>Remember to check <a href="https://mytimetable.city.ac.uk/">MyTimetable</a> to find the rooms in which subsequent <code>#CreativeCoding</code> tutorial sessions take place.</p>
 
