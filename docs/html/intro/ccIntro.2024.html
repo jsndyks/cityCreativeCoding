@@ -137,7 +137,7 @@
 			<h4>Tips</h4>
 
 			<div class="tip">
-				Brief tips or common mistakes will be highlighted like this.
+				Brief tips or common mistakes will be highlighted like this.<br/>
 				Watch out for them as they could save you much time and effort.
 			</div>
 
@@ -503,16 +503,16 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 			<p>
 				So far, our sketches have been a little dull and grey. Thankfully, <i>Processing</i>allows you to style
 				the drawing of shapes
-				using various colours and line thicknesses. You can do this with the commands
-				<a href="https://processing.org/reference/stroke_.html" target="_blank">stroke()</a>,
-				<a href="https://processing.org/reference/fill_.html" target="_blank">fill()</a> and
-				<a href="https://processing.org/reference/strokeWeight_.html" target="_blank">strokeWeight()</a>
-				among others.
+				using various colours and line thicknesses. You can do this with the commands ...</p>
+				<ul>
+				<li><a href="https://processing.org/reference/stroke_.html" target="_blank">stroke()</a>,</li>
+				<li><a href="https://processing.org/reference/fill_.html" target="_blank">fill()</a> and</li>
+				<li><a href="https://processing.org/reference/strokeWeight_.html" target="_blank">strokeWeight()</a></li>
+				</ul>
+				<p> ...among others.<br/>
 				Unlike the drawing primitives, setting a drawing style doesn't immediately draw something on screen.
-				Instead it
-				sets the style of any drawing done in your sketch <i>after the style has been set</i>. You can think
-				of it as
-				selecting the colour and type of pen to use before you start drawing something.
+				Instead it sets the style of any drawing done in your sketch <i>after the style has been set</i>.
+				You can think of it as selecting the colour and type of pen to use before you start drawing something.
 			</p>
 
 		</div>
@@ -538,7 +538,7 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 				Processing's
 				<i>color selector</i> from the <code>Tools</code> menu. (Alternatively, there are similar tools on
 				the web, such as
-				<a href="https://www.w3schools.com/colors/colors_picker.asp" target="_blank">this one</a>.)
+				<a href="https://www.w3schools.com/colors/colors_picker.asp" target="_blank">W3 Schools HTML Color Picker</a>.)
 			</p>
 
 			<p>
@@ -550,7 +550,9 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 				add the following line to the beginning of our sketch:
 			</p>
 
-			<div><div id="highlighter_949157" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing function1">background</code><code class="processing plain">(200,200,255);</code></div></div></td></tr></tbody></table></div></div>
+			<pre class="brush: processing; gutter: false; toolbar: false; ">
+background(200,200,255);
+			</pre>
 
 			<p>
 				The thickness of shape outlines that appear on the coloured background can be controlled with the <a href="https://processing.org/reference/strokeWeight_.html" target="_blank">strokeWeight()</a>
@@ -577,7 +579,7 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 		<div class="unit-30-cc annotation">
 			<!-- Right column -->
 
-			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/colourSelector.png', 432, 316, 'Processing colour selector');</script><div><a href="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/colourSelector.png" onclick="return hs.htmlExpand(this, { objectType: 'iframe', minWidth: 432})"><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/colourSelector.png" width="432" height="316" alt="Processing colour selector"></a></div>
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/colourSelector.png', 432, 316, 'Processing colour selector');</script>
 
 			<p>
 				Processing's colour selector allows you to find the (r,g,b) numbers for any selected colour.
@@ -602,7 +604,26 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 		<div class="unit-70-cc">
 			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-			<div><div id="highlighter_471274" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing function1">size</code><code class="processing plain">(400, 300);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="processing comments">// Sketch is 400 pixels wide and 300 tall.</code></div><div class="line number2 index1 alt1"><code class="processing function1">background</code><code class="processing plain">(254,232,134); </code><code class="processing comments">// Yellow background colour.</code></div><div class="line number3 index2 alt2">&nbsp;</div><div class="line number4 index3 alt1"><code class="processing function1">strokeWeight</code><code class="processing plain">(4);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="processing comments">// Thick outline</code></div><div class="line number5 index4 alt2"><code class="processing function1">stroke</code><code class="processing plain">(78,38,11);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="processing comments">// Dark brown outline colour.</code></div><div class="line number6 index5 alt1"><code class="processing function1">line</code><code class="processing plain">(150,100,350,200);</code></div><div class="line number7 index6 alt2">&nbsp;</div><div class="line number8 index7 alt1"><code class="processing function1">strokeWeight</code><code class="processing plain">(0.6);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="processing comments">// Thin outline.</code></div><div class="line number9 index8 alt2"><code class="processing function1">noFill</code><code class="processing plain">();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="processing comments">// No internal colouring.</code></div><div class="line number10 index9 alt1"><code class="processing function1">rect</code><code class="processing plain">(150,190,80,60);</code></div><div class="line number11 index10 alt2">&nbsp;</div><div class="line number12 index11 alt1"><code class="processing function1">fill</code><code class="processing plain">(252,135,135);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="processing comments">// Pink internal fill colour.</code></div><div class="line number13 index12 alt2"><code class="processing function1">ellipse</code><code class="processing plain">(300,100,40,60);</code></div><div class="line number14 index13 alt1">&nbsp;</div><div class="line number15 index14 alt2"><code class="processing function1">strokeWeight</code><code class="processing plain">(1.5);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="processing comments">// Medium outline.</code></div><div class="line number16 index15 alt1"><code class="processing function1">fill</code><code class="processing plain">(133,180,117);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="processing comments">// Green internal fill colour.</code></div><div class="line number17 index16 alt2"><code class="processing function1">triangle</code><code class="processing plain">(50,140, 100,140, 75, 210);</code></div><div class="line number18 index17 alt1">&nbsp;</div><div class="line number19 index18 alt2"><code class="processing function1">noStroke</code><code class="processing plain">();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="processing comments">// No outline.</code></div><div class="line number20 index19 alt1"><code class="processing function1">quad</code><code class="processing plain">(30,20, 150,50, 110,110, 40,90);</code></div></div></td></tr></tbody></table></div></div>
+			<pre class="brush: processing; gutter: false; toolbar: false; ">size(400, 300);          // Sketch is 400 pixels wide and 300 tall.
+background(254,232,134); // Yellow background colour.
+
+strokeWeight(4);         // Thick outline
+stroke(78,38,11);        // Dark brown outline colour.
+line(150,100,350,200);
+
+strokeWeight(0.6);       // Thin outline.
+noFill();                // No internal colouring.
+rect(150,190,80,60);
+
+fill(252,135,135);       // Pink internal fill colour.
+ellipse(300,100,40,60);
+
+strokeWeight(1.5);       // Medium outline.
+fill(133,180,117);       // Green internal fill colour.
+triangle(50,140, 100,140, 75, 210);
+
+noStroke();              // No outline.
+quad(30,20, 150,50, 110,110, 40,90);</pre>
 
 
 			<p>
@@ -627,7 +648,7 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 		<div class="unit-30-cc annotation">
 			<!-- Right column -->
 
-			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/styledPrimitives.png', 400, 300, 'Styled shapes');</script><div><a href="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/styledPrimitives.png" onclick="return hs.htmlExpand(this, { objectType: 'iframe', minWidth: 400})"><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/styledPrimitives.png" width="400" height="300" alt="Styled shapes"></a></div>
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/styledPrimitives.png', 400, 300, 'Styled shapes');</script>
 			<p>Applying styles to shape drawing.</p>
 
 		</div> <!-- end of right column -->
@@ -644,29 +665,38 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 			<p>
 				We can draw shapes, and we can colour them. Now lets look at how we can get our sketches to move. To
 				understand how we
-				do this, we need to introduce one further programming concept - that of the <i>method</i>. We will
+				do this, we need to introduce one further programming concept - that of the <i>method</i>.
+				We will
 				look at methods more
-				fully later in the week, but for now we will consider a method as simply a collection of commands
-				that are grouped together
-				to do something.
+				fully later in <code>#CreativeCoding</code>, but for now we will consider a method as simply a collection of commands
+				that are grouped together to do something.
 			</p>
 
 			<p>
-				Processing has two built-in methods that are usually part of a sketch - the <i>setup method</i> and
-				the <i>draw method</i>.
+				<i>Processing</i> has two built-in methods that are usually part of a sketch -
+				the <i>setup method</i> and the <i>draw method</i>.
 				As the names suggest, the <code>setup()</code> method is used to group together any commands that
-				are needed to set up the
-				sketch. These typically include things like setting the size of the sketch and sometimes selecting
+				are needed to set up the sketch.
+				These typically include things like setting the size of the sketch and sometimes selecting
 				the stroke and fill
-				colours (assuming they don't change during the lifetime of the sketch). The <code>draw()</code>
-				method, as you might expect
+				colours (assuming they don't change during the lifetime of the sketch).
+				The <code>draw()</code> method, as you might expect
 				is where we group together all the commands that do our sketch drawing.
 			</p>
 
 			<p>
 				The code to create these two methods looks like this:
 			</p>
-			<div><div id="highlighter_785250" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing keyword1">void</code> <code class="processing function4 bold">setup</code><code class="processing plain">()</code></div><div class="line number2 index1 alt1"><code class="processing plain">{</code></div><div class="line number3 index2 alt2"><code class="processing spaces">&nbsp;&nbsp;&nbsp;</code><code class="processing comments">// Code to set up the sketch goes here.</code></div><div class="line number4 index3 alt1"><code class="processing plain">}</code></div><div class="line number5 index4 alt2">&nbsp;</div><div class="line number6 index5 alt1"><code class="processing keyword1">void</code> <code class="processing function4 bold">draw</code><code class="processing plain">()</code></div><div class="line number7 index6 alt2"><code class="processing plain">{</code></div><div class="line number8 index7 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing comments">// Drawing code goes here.</code></div><div class="line number9 index8 alt2"><code class="processing plain">}</code></div></div></td></tr></tbody></table></div></div>
+
+			<pre class="brush: processing; gutter: false; toolbar: false; ">void setup()
+{
+   // Code to set up the sketch goes here.
+}
+
+void draw()
+{
+  // Drawing code goes here.
+}</pre>
 
 			<p>
 				Both <code>setup()</code> and <code>draw()</code> have the word <code>void</code> in front of them,
@@ -681,6 +711,10 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 				part of block of code (in
 				these examples either the <code>setup()</code> or <code>draw()</code> methods).
 			</p>
+			<div class="tip">
+				<p>Pressing <code>CTRL-T</code> on a Windows machine or <code>COMMAND-T</code> on a Mac, will automatically indent your code and make it more readable.</p>
+				<p>Do this regularly!</p>
+			</div>
 
 			<p>
 				Our sketch then involves adding the commands we wish to both methods. Here, for example is code to
@@ -688,7 +722,17 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 				a yellow background using our two methods:
 			</p>
 
-			<div><div id="highlighter_603657" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing keyword1">void</code> <code class="processing function4 bold">setup</code><code class="processing plain">()</code></div><div class="line number2 index1 alt1"><code class="processing plain">{</code></div><div class="line number3 index2 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">size</code><code class="processing plain">(400,300);</code></div><div class="line number4 index3 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">background</code><code class="processing plain">(255,236,149);</code></div><div class="line number5 index4 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">fill</code><code class="processing plain">(203,118,122);</code></div><div class="line number6 index5 alt1"><code class="processing plain">}</code></div><div class="line number7 index6 alt2">&nbsp;</div><div class="line number8 index7 alt1"><code class="processing keyword1">void</code> <code class="processing function4 bold">draw</code><code class="processing plain">()</code></div><div class="line number9 index8 alt2"><code class="processing plain">{</code></div><div class="line number10 index9 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">rect</code><code class="processing plain">(40,40,120,80);</code></div><div class="line number11 index10 alt2"><code class="processing plain">}</code></div></div></td></tr></tbody></table></div></div>
+			<pre class="brush: processing; gutter: false; toolbar: false; ">void setup()
+{
+  size(400,300);
+  background(255,236,149);
+  fill(203,118,122);
+}
+
+void draw()
+{
+  rect(40,40,120,80);
+}</pre>
 
 		</div>
 	</div>
@@ -708,9 +752,9 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 				<code>setup()</code> method
 				(i.e. placed between the curly braces following the <code>void setup()</code> line) will only ever
 				be executed once — as soon
-				as the sketch in run. However any code inside the <code>draw()</code> method isn't just executed
+				as the sketch is run. However any code inside the <code>draw()</code> method isn't just executed
 				once, but <i>repeats 60 times
-				a second</i>.
+				a second</i> for as long as the sketch is running.
 			</p>
 
 			<p>
@@ -726,14 +770,24 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 				<code>mouseX</code> and
 				<code>mouseY</code> gives us our first dynamic sketch:
 			</p>
-			<div><div id="highlighter_246538" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing keyword1">void</code> <code class="processing function4 bold">setup</code><code class="processing plain">()</code></div><div class="line number2 index1 alt1"><code class="processing plain">{</code></div><div class="line number3 index2 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">size</code><code class="processing plain">(400, 300);</code></div><div class="line number4 index3 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">background</code><code class="processing plain">(255, 236, 149);</code></div><div class="line number5 index4 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">fill</code><code class="processing plain">(203, 118, 122);</code></div><div class="line number6 index5 alt1"><code class="processing plain">}</code></div><div class="line number7 index6 alt2">&nbsp;</div><div class="line number8 index7 alt1"><code class="processing keyword1">void</code> <code class="processing function4 bold">draw</code><code class="processing plain">()</code></div><div class="line number9 index8 alt2"><code class="processing plain">{</code></div><div class="line number10 index9 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">rect</code><code class="processing plain">(</code><code class="processing keyword4">mouseX</code><code class="processing plain">, </code><code class="processing keyword4">mouseY</code><code class="processing plain">, 120, 80);</code></div><div class="line number11 index10 alt2"><code class="processing plain">}</code></div></div></td></tr></tbody></table></div></div>
+			<pre class="brush: processing; gutter: false; toolbar: false; ">void setup()
+{
+  size(400, 300);
+  background(255, 236, 149);
+  fill(203, 118, 122);
+}
+
+void draw()
+{
+  rect(mouseX, mouseY, 120, 80);
+}</pre>
 
 		</div> <!-- End of left column -->
 
 		<div class="unit-30-cc annotation">
 			<!-- Right column -->
 
-			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/processingFlow.png', 305, 350, 'Processing program flow');</script><div><a href="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/processingFlow.png" onclick="return hs.htmlExpand(this, { objectType: 'iframe', minWidth: 610})"><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/processingFlow.png" width="610" height="700" alt="Processing program flow"></a></div>
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/processingFlow.png', 610, 700, 'Processing program flow');</script>
 
 
 		</div> <!-- end of right column -->
@@ -769,7 +823,7 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 		<div class="unit-30-cc annotation">
 			<!-- Right column -->
 
-			<script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/movingRect", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/movingRectangle.png");</script><div><a href="https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/movingRect/index.html" onclick="return hs.htmlExpand(this, { objectType: 'iframe', minWidth: 400})"><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/movingRectangle.png" width="400" alt="click to see sketch"></a></div>
+			<script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/movingRect", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/movingRectangle.png");</script>
 			<p>A moving rectangle sketch (click to activate)</p>
 		</div> <!-- end of right column -->
 	</div> <!-- End of row -->
@@ -782,7 +836,7 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 		<div class="unit-70-cc">
 			<!-- Left column -->
 
-			<h3>6. Summary and Further Reading</h3>
+			<h3>6. Summary and Further Information</h3>
 
 			<ul>
 				<li>
@@ -815,7 +869,7 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 
 			<div class="aside">
 				You may find the following helpful if you'd like to find out more about getting started with
-				Processing and drawing shapes
+				<i>Processing</i> and drawing shapes
 				<br><br>
 
 				<ul>
@@ -823,7 +877,7 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 						with Processing</a> — A guide to installing <i>Processing</i>navigating its menus and buttons.
 					</li>
 					<li><a href="https://hello.processing.org" target="_blank">Hello Processing</a> — an interactive
-						video tutorial from Dan Shiffman that will get you started with <i>Processing</i> .</li>
+						video tutorial from <i>Dan Shiffman</i> that we recommended as excellent preparation to get you started with <i>Processing</i> .</li>
 				</ul>
 
 			</div>
