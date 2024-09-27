@@ -157,7 +157,24 @@
 		<div class="unit-70-cc">
 			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-			<div><div id="highlighter_490840" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing keyword1">void</code> <code class="processing function4 bold">setup</code><code class="processing plain">()</code></div><div class="line number2 index1 alt1"><code class="processing plain">{</code></div><div class="line number3 index2 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">size</code><code class="processing plain">(400,300);</code></div><div class="line number4 index3 alt1">&nbsp;</div><div class="line number5 index4 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">textAlign</code><code class="processing plain">(</code><code class="processing literal2">CENTER</code><code class="processing plain">,</code><code class="processing literal2">CENTER</code><code class="processing plain">);</code></div><div class="line number6 index5 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">textSize</code><code class="processing plain">(32);</code></div><div class="line number7 index6 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">fill</code><code class="processing plain">(120);</code></div><div class="line number8 index7 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">stroke</code><code class="processing plain">(200);</code></div><div class="line number9 index8 alt2"><code class="processing plain">}</code></div><div class="line number10 index9 alt1">&nbsp;</div><div class="line number11 index10 alt2"><code class="processing keyword1">void</code> <code class="processing function4 bold">draw</code><code class="processing plain">()</code></div><div class="line number12 index11 alt1"><code class="processing plain">{</code></div><div class="line number13 index12 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">background</code><code class="processing plain">(255);</code></div><div class="line number14 index13 alt1">&nbsp;</div><div class="line number15 index14 alt2"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing function1">text</code><code class="processing plain">(</code><code class="processing literal1">"Hello Creative Coders"</code><code class="processing plain">,</code><code class="processing keyword4">mouseX</code><code class="processing plain">,</code><code class="processing keyword4">mouseY</code><code class="processing plain">+40);</code></div><div class="line number16 index15 alt1"><code class="processing spaces">&nbsp;&nbsp;</code><code class="processing plain">circle(</code><code class="processing keyword4">mouseX</code><code class="processing plain">,</code><code class="processing keyword4">mouseY</code><code class="processing plain">,35);</code></div><div class="line number17 index16 alt2"><code class="processing plain">}</code></div></div></td></tr></tbody></table></div></div>
+			<pre class="brush: processing; gutter: false; toolbar: false; ">void setup()
+				{
+				  size(400,300);
+				
+				  textAlign(CENTER,CENTER);
+				  textSize(32);
+				  fill(120);
+				  stroke(200);
+				}
+				
+				void draw()
+				{
+				  background(255);
+				
+				  text("Hello Creative Coders",mouseX,mouseY+40);
+				  circle(mouseX,mouseY,35);
+				}</pre>
+				
 
 			<p>
 				We've made it as easy as possible to copy code from these pages directly into <i>Processing</i> so you can
