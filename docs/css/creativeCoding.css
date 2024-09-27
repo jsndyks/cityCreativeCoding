@@ -40,6 +40,7 @@
   .unit-30-cc {margin:4px; background-color:#ffffff; padding:0.25em; border:dashed #e0e0e0 0px} 
   .unit-70-cc {margin:4px; background-color:#ffffff} 
 
+  .unit-30-cc .rightCol {float:right}
   /*
   * crop image 
   */
