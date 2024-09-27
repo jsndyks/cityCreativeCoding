@@ -10,9 +10,6 @@ code {color:#444; background-color:#f0f0f0; padding:2px; padding-left:0.75em; pa
 
 <p>Remember to check <a href="https://mytimetable.city.ac.uk/">MyTimetable</a> to find the rooms in which subsequent <code>#CreativeCoding</code> tutorial sessions take place.</p>
 
-<!---
-Watch <a href="https://cityuni-my.sharepoint.com/:v:/g/personal/radu_jianu_city_ac_uk/EcZGjXg1ts9OuC4ErEu3SHEBddjZpmvREYpbaydIajklSQ?e=U2sKd9&amp;nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZyIsInJlZmVycmFsQXBwUGxhdGZvcm0iOiJXZWIiLCJyZWZlcnJhbE1vZGUiOiJ2aWV3In19">this quick intro video</a> about Bootcamp and what you should expect.--->
-
 <p>
 <code>#CreativeCoding</code> is a term-long programming experience designed for both completely new and experienced programmers.<br/>
 We will start from the very basics of programming and gradually move into interesting, applied programming such as digital art and data visualization.
