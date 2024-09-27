@@ -3,7 +3,8 @@ let faceSize,earSize;
 
 function setup() {
   createCanvas(400, 400);
-  fill(32,32);
+  fill(32,250);
+  noStroke();
   faceSize = 18;
   earSize = 12;
 }

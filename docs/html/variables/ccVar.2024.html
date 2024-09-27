@@ -683,9 +683,9 @@ void draw()
 
 			<p>
 				There is one more important implication to the fact that variables are bound to the block of code in
-				which they are declared: <b><i>a variable's identity is defined not just by its name but also by
-				it's scope</i></b>. Consider the following version of the scrolling text code:
-			</p>
+				which they are declared:</p>
+				<ul><li><b><i>a variable's identity is defined not just by its name but also by it's scope</i></b>.</li></ul>
+				<p>Consider the following version of the scrolling text code:</p>
 
 			<pre class="brush: processing; gutter: false; toolbar: false; highlight: [7,12]">void setup()
 {
@@ -708,32 +708,33 @@ void draw()
 
 
 			<p>
-				If you copy and run this code in <i>Processing</i> you will notice that your text stays put. This is
-				because the variable xPos in the setup method is not the same as the variable xPos in the draw
-				method. They are two independent variables declared in different scopes that happen to have the same
-				name.
+				If you copy and run this code in <i>Processing</i> you will notice that your text stays put.
+				This is because the variable <code>xPos</code> in the setup method is not the same as the variable <code>xPos</code> in the draw
+				method.
+				They are two independent variables declared in different scopes that happen to have the same name.
 			</p>
 
 			<p>
-				So why is the text not moving? Our setup method declares and initializes a variable called xPos.
+				So why is the text not moving?<br/>
+				Our setup method declares and initializes a variable called <code>xPos</code>.
 				However, as soon as our program exits the setup method, this variable ceases to exit.
 			</p>
 
 			<p>
 				Our program will then repeatedly run through the draw method. Every time our program enters draw, a
-				new variable xPos is created and initialized. This variable is particular to that draw run and is
-				discarded when the method exits. The change we make to this xPos is lost together with the variable
-				itself. During the next draw iteration, a brand new instance of xPos will be created and initialized
-				to the same constant value: width/2. Our text will thus be drawn in the same position over and over
+				new variable <code>xPos</code> is created and initialized. This variable is particular to that draw run and is
+				discarded when the method exits. The change we make to this <code>xPos</code> is lost together with the variable
+				itself. During the next draw iteration, a brand new instance of <code>xPos</code> will be created and initialized
+				to the same constant value: <code>width/2</code>. Our text will thus be drawn in the same position over and over
 				again.
 			</p>
 
 			<p>
-				Another problem occurs when two variables with the same name exist in overlapping scopes. This is
-				called <i><b>variable shadowing</b></i>. Lets look at the following example:
+				Another problem occurs when two variables with the same name exist in overlapping scopes.
+				This is called <i><b>variable shadowing</b></i>. Lets look at the following example:
 			</p>
 
-			<pre class="brush: processing; gutter: false; toolbar: false; highlight: [17,19]">float xPos = width; //Declare global xPos
+			<pre class="brush: processing; gutter: false; toolbar: false; highlight: [17,19]">float xPos = width; // -- Declare global xPos
 
 void setup()
 {
@@ -741,39 +742,34 @@ void setup()
   fill(0);
   textSize(48);
 
-  xPos = width;    // Initialise global xPos to right of sketch (600);
+  xPos = width;    // -- Initialise global xPos to right of sketch (600);
 }
 
 void draw()
 {
-  float xPos = width; // Notice: declare and initialise a local xPos
+  float xPos = width; // -- Notice: declare and initialise a local xPos
   background(255);
   String message = "Hello again Creative Coders...";
   text(message,xPos,height/2);
 
-  xPos = xPos - 1;  // Decrease the value of xPos by one on each redraw
+  xPos = xPos - 1;  // -- Decrease the value of xPos by one on each redraw
 }</pre>
 
 			<p>
-				Notice that here we declare xPos variables twice, once having global scope (at the top) and once in
+				Notice that here we declare <code>xPos</code> variables twice, once having global scope (at the top) and once in
 				the draw method. Again, even though the variables have the same name they are different since they
 				are defined in different blocks of code.</p>
 
 			<p>
-				The problem occurs in the draw method where, given their scopes, both xPos variables should be
-				visible. As such, which variable do the highlighted lines use? The rule is that in such cases the
-				name identifies the variable with the more specific scope (in our case the xPos declared in draw).
-				We say that xPos declared in draw shadows the global variable with the same name.
+				The problem occurs in the draw method where, given their scopes, both <code>xPos</code> variables should be
+				visible. As such, which variable do the highlighted lines use?</p>
+				<p>The rule is that in such cases the name identifies the variable with the more specific scope
+					(in our case the <code>xPos</code> declared in draw).
+				We say that <code>xPos</code> declared in draw shadows the global variable with the same name.
 			</p>
 
 		</div> <!-- End of left column -->
 
-		<div class="unit-30-cc annotation">
-			<!-- Right column -->
-
-			<br />
-
-		</div> <!-- end of right column -->
 	</div> <!-- End of row -->
 
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -782,37 +778,94 @@ void draw()
 		<div class="unit-70-cc">
 			<!-- Left column -->
 
-			<h3>5. Summary and Further Reading</h3>
+			<h3>5. Practice and Exercises</h3>
+
+			<div class="coreTask">
+				<b>Variable Arithmetic</b><br/>
+				<p>Create a new sketch with just a <code>setup()</code> method.</p>
+				<p>In <code>setup()</code> declare and initialise some variables to represent the following:</p>
+				<pre>number of apples: 12
+number of bananas: 7
+number of oranges: 6</pre>
+				<p>Use a simple arithmetic expression on the variables to find the total number of fruit and display the result using <code>println()</code>.</p>
+				<p>Change the numbers of fruit and check that your sketch works as expected.</p>
+			
+			</div>
+		
+			<br><br>
+		
+			<div class="coreTask">
+				<b>Traveling Circle</b>
+				<ol>
+					<li><p>Write a sketch that draws a circle in the centre of a square window.<br/>
+						Use two variables <code>x</code> and <code>y</code> to specify the position of the circle:</p>
+						<pre class="brush: processing; gutter: false; toolbar: false;">ellipse(x, y, 60, 60);</pre>
+						<p>Remember you have to <i>declare</i> those variables (both with type <code>float</code>) at the top
+						of your sketch and you should initialise them with appropriate values inside <code>setup()</code> so
+						that your circle is positioned correctly when your sketch starts.</p>
+						<p>Run your sketch to check it behaves as expected.</p>
+					</li>
+		
+					<li><p>Now add assignment statements to the end of your <code>draw()</code> method so that the values of
+						<code>x</code> and
+						<code>y</code> both increase by 1 every time <code>draw()</code> is executed<br/>
+						(remember, <code>draw()</code> will be executed automatically, 60 times every second while your sketch is running).</p>
+						<p>What effect do you think this will have? Run your sketch to see if you were right.</p>
+					</li>
+		
+					<li><p>Modify your sketch so that the circle travels diagonally upwards towards the top-left corner of the canvas.</p></li>
+				</ol>
+			</div>
+		
+			<br>
+			<br>
+		
+			<div class="coreTask">
+				<b>Traveling Circles</b><br/>
+				Make a copy of your Traveling circle sketch. Modify this new sketch so that it
+				draws multiple circles instead of just one. Make all your circles start in the centre of the sketch window
+				but move them in different directions
+				(e.g. four circles could move each to one of the four corners).
+				<br><br>
+				Create some colour variables and use them to fill each circle with its own colour.
+			</div>
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+
+			<h3>6. Summary and Further Reading</h3>
 
 			<ul>
-				<li> <i>Processing</i> contains a number of its own variables for storing the mouse position and sketch
-					size. </li>
+				<li> <i>Processing</i> contains a number of its own variables for storing information about the sketch, such as the mouse position and sketch size. </li>
 
-				<li>You can create your own variables for storing numbers, text, colours and other features. This
-					involves declaring the variable name and type and then assigning a value to the variable. </li>
+				<li>There are many sorts of variables, for storing numbers, text, colours and other features.</li>
 
-				<li> Variable names should be lower-case and should be given explanatory names. </li>
+				<li>You can create your own variables of any type.
+					This involves declaring the variable name and type and then assigning a value to the variable. </li>
 
-				<li> The <code>println()</code> command can be used to display the contents of a variable, which can
-					be useful when debugging a program.</li>
+				<li>Variable names should be lower-case and should be given explanatory names. </li>
 
-				<li> You can use the <code>draw()</code> loop to incrementally change the contents of a variable to
-					create an animation effect.
-				</li>
+				<li>The <code>println()</code> command can be used to display the contents of a variable, which can be useful when debugging a program.</li>
 
-				<li> Variables are identified not just by their name but also by their scope. Make sure you work
-					with the correct variable by considering not just its name but also its scope! </li>
+				<li>You can use the <code>draw()</code> loop to incrementally change the contents of a variable to create an animation effect.</li>
+
+				<li>Variables are identified not just by their name but also by their scope.
+					Make sure you work with the correct variable by considering not just its name but also its scope! </li>
 			</ul>
 
 
 			<div class="aside">
-				You may find the following helpful if you'd like to find out more about variables and their use in
-				animation.
-				<br /><br />
+				<p>
+					You may find the following helpful if you'd like to find out more about variables and their use in animation.
+				</p>
 
 				<ul>
-					<li><a href="https://processing.org/reference/" target="_blank"><i>Processing</i> reference</a> — Have
-						a look at the 'Data' and 'Operators' sections for details of some variable types and
+					<li><a href="https://processing.org/reference/" target="_blank"><i>Processing</i> reference</a> —
+						Have a look at the 'Data' and 'Operators' sections for details of some variable types and
 						mathematical operators.</li>
 				</ul>
 
@@ -820,12 +873,6 @@ void draw()
 
 		</div> <!-- End of left column -->
 
-		<div class="unit-30-cc annotation">
-			<!-- Right column -->
-
-			<br />
-
-		</div> <!-- end of right column -->
 	</div> <!-- End of row -->
 
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
