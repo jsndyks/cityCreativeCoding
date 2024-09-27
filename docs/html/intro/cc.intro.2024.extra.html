@@ -3,7 +3,7 @@
 <html>
 
 <head>
-	<title>Introducing Processing: Practical Exercises</title>
+	<title>Introducing Processing: Extra Exercises</title>
 
 	<!-- Header, 16th September, 2021 -->
 	<meta charset="utf-8">
@@ -48,134 +48,43 @@
 	<!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
 	<!-- Add summary sentence or two below, which will act as an easy introduction -->
 
-	<p>Before you attempt any of these exercises, make sure you completed all the coding and
-	core tasks in the lecture notes!</p>
-
-	<p>
-		These first exercises will give you practice at assembling commands inside Processing's <code>draw()</code>
-		and <code>setup()</code> methods to draw collections of simple shapes. Attempt as many exercises as you can
-		but don't worry if you don't manage to complete
-		all these tasks within the lab session and remember to prioritise the
-		core tasks.
-	</p>
-
-	<div class="coreTask">
-		Start with the moving rectangle sketch from the lecture notes (reproduced below). For this task it is OK to
-		copy and paste the code directly into Processing (using the Edit Copy / Paste menus or keyboard shortcuts
-		<code>Ctrl-C</code> and <code>Ctrl-V</code>). Run the sketch to check it works as expected.
-		<br><br>
-		<pre class="brush: processing; gutter: false; toolbar: false; ">// Sketch to draw a rectangle that follows the mouse.
-void setup()
-{
-  size(400, 300);
-  background(255, 236, 149);
-  fill(203, 118, 122);
-}
-
-void draw()
-{
-  rect(mouseX, mouseY, 120, 80);
-}</pre>
-		<br>
-		Try moving the <code>background()</code> line from <code>setup()</code> to the beginning of
-		<code>draw()</code> (after the opening brace <code>{</code> but before the <code>rect()</code>line). What
-		effect does this have on the sketch when you run it? Why is this? What happens when you move the
-		<code>fill()</code> line to different parts of the sketch?
-	</div>
-
-	<br><br>
-
-	<div class="coreTask">
-		Create a new sketch called 'Underground'. Start with a blank page: strictly NO copy and paste for this task.
-		<br><br>
-		Add the usual <code>setup()</code> and <code>draw()</code> methods to your sketch. In <code>setup()</code>,
-		set the sketch window size to 600 pixels wide by 400 pixels high. In <code>draw()</code>, add code that
-		draws a London underground symbol in the centre of the sketch window, similar to this:
-		<br>
-		<img src="https://staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/undergroundNoLabel.png" width="342" height="296" alt="underground=">
-		<br>
-		<i>Hint:</i> You will find this task much easier if you sketch out the design on paper first so you can get
-		a better idea of how the coordinate system relates to the position of your shapes.
-		<br><br>
-		<img src=" https://staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/undergroundSketch.png" width="600" height="400" alt="underground=">
-		<br><br>
-		Remember to save your sketch using Processing's <code>File-&gt;Save</code> menu (or <code>Ctrl-S</code> if
-		you prefer keyboard shortcuts).
-	</div>
-
-	<br><br>
+	<p>Before you attempt any of these exercises, make sure you completed all the coding and tasks in the core notes!</p>
 
 
-	<div class=" coreTask">
-		Create a new sketch that draws a simple rectangle that changes its size or colour depending on the position
-		of the mouse.
-		<br><br>
-		<i>Hint:</i> you will have to use the special variables <code>mouseX</code> and <code>mouseY</code> instead
-		of one or more of the numbers you would normally provide with a processing command.
-		<br><br>
-		<i>Hint:</i> if you use the mouse position to control colours, it may be convenient to size your sketch 256
-		x 256, so that the values of <code>mouseX</code> and <code>mouseY</code> are always in the range 0--255
-		(valid values for RGB colour components).
-	</div>
-
-	<br><br>
-
-
-
-	<div class="codeTask">
-		Modify your 'Underground' sketch so that it displays some text across the blue bar. Something like this:
-		<br>
-		<img src="https://staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/underground.png" width="339" height="284" alt="underground=">
-		<br>
-		To display text you will need to browse the <a href="https://processing.org/reference" target="_blank">Processing reference pages</a> and in particular look for the commands <a href="https://processing.org/reference/text_.html" target="_blank">text()</a> and <a href="https://processing.org/reference/textAlign_.html" target="_blank">textAlign()</a>
-	</div>
-
-	<br><br>
-
-	<div class="codeTask">
-		Create a new sketch that draws a picture made up of some simple shapes. See if you can use more shapes than
-		just rectangles and circles and use a range of colour and line styles.
+	<div class="challenge">
+		<p>
+		Create a new sketch that draws a picture made up of some simple shapes.</p>
+		<p>See if you can use more shapes than just rectangles and circles and use a range of colour and line styles.</p>
+		<p>Use the <a href="https://processing.org/reference/">Processing Reference</a> documentation to find and use at least one command that we have not yet introduced or mentioned.</p>
 	</div>
 
 	<br><br>
 
 
 	<div class="challenge">
+		<p>
 		Modify your underground sketch so that it moves or changes size in response to the mouse.
-		<br><br>
-		<i>Hint:</i> As with the previous task you will need to use <code>mouseX</code> and <code>mouseY</code> but
+	</p>
+		<p>
+		<i>Hint:</i> As with the core tasks you will need to use <code>mouseX</code> and <code>mouseY</code> but
 		this time you may need to add or subtract numbers from these values to draw some of the shapes in the right
 		place.
-	</div>
-
-	<br><br>
-
-
-	<h2>Check on Progress</h2>
-	<div class="task">
-		To ensure that you have achieved the outcomes associated with this session, consider the following, which
-		allow you to evaluate your progress.
-		<br><br>
-
-		<div class="checkOutcomes">
-			<input type="checkbox" id="sa1"> <label for="sa1">Can I draw simple shapes in Processing such as
-			rectangles, circles and triangles?<br></label>&nbsp;
-		</div>
-		<div class="checkOutcomes"><input type="checkbox" id="sa2"> <label for="sa2">Do I know where to look to find
-			the Processing command reference, examples and tutorials?</label><br>
-			<input type="checkbox" id="sa3"> <label for="sa3">Can I change the visual appearance of shapes such as
-				their fill colour and their outline thickness?<br></label><br>
-		</div>
-		<div class="checkOutcomes">
-			<input type="checkbox" id="sa4"> <label for="sa4">Can I create a simple sketch that responds to mouse
-			movement?</label><br>
-		</div> <!-- End of checkOutcomes -->
-
+		</p>
+		<p>
+		Make your sketch original - try changing something to give it some character.<br/>
+		Use the use the creativity techniques that we have touched upon, such as the <a href="https://rl.talis.com/3/city/items/33961998-4f2b-46a4-b164-08904a3190c6.html">SCAMPER</a> framework to do so.	
+		</p>
 
 	</div> <!-- End of task -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<div style="padding-bottom:2em;clear:both"></div>
+        
+	<!--- spacer for iFrame -->
+	<p style="padding-top:1em"><hr/></p>
+
 
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-</div> <!-- End of page div -->
+  </div> <!-- End of page div -->
 <script type="text/javascript">SyntaxHighlighter.all()</script>
 </body>
 
