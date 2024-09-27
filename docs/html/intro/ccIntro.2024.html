@@ -43,21 +43,21 @@
 	<div class="intro">
 
 		<p>
-			This session introduces <i>Processing</i>: a coding platform for creating graphical and interactive
+			This session introduces <i>Processing</i> : a coding platform for creating graphical and interactive
 			applications. This is a great environment for learning to code and developing your programming skills.
 		</p>
 
 		<p><strong>By the end of this session you should be able to:</strong></p>
 
 		<ul>
-			<li>run and save <i>Processing</i> sketches on your computer;</li>
-			<li>use <i>Processing</i> commands to draw and colour simple shapes such as rectangles and circles;</li>
+			<li>run and save <i>Processing</i>sketches on your computer;</li>
+			<li>use <i>Processing</i>commands to draw and colour simple shapes such as rectangles and circles;</li>
 			<li>organise your program instructions into two special methods <code>setup()</code> and
 				<code>draw()</code>;
 			</li>
 			<li>create simple sketches that change in response to mouse movement;</li>
 			<li>use Processing's <a href="https://processing.org/reference" target="_blank">reference pages</a> to
-				find out more about the <i>Processing</i> language.</li>
+				find out more about the <i>Processing</i>language.</li>
 		</ul>
 
 	</div> <!-- End of intro section -->
@@ -144,9 +144,9 @@
 			<h4>Copying code</h4>
 
 			<p>
-				The programs you will be writing with <i>Processing</i> are known as <i>Sketches</i>. In the lecture notes
+				The programs you will be writing with <i>Processing</i>are known as <i>Sketches</i>. In the lecture notes
 				you will often see sketch code like that below. You can usually copy the code straight from these
-				pages into <i>Processing</i> by selecting the code then using the <code>Edit-&gt;Copy</code> option (or
+				pages into <i>Processing</i>by selecting the code then using the <code>Edit-&gt;Copy</code> option (or
 				<code>Ctrl-C</code>) from your browser and <code>Edit-&gt;Paste</code> (or <code>Ctrl-V</code>) in
 				Processing .
 			</p>
@@ -177,7 +177,7 @@ void draw()
 				
 
 			<p>
-				We've made it as easy as possible to copy code from these pages directly into <i>Processing</i> so you can
+				We've made it as easy as possible to copy code from these pages directly into <i>Processing</i>so you can
 				get sketches quickly up and running.<br/>However, you will not learn to code properly if you simply copy
 				code without understanding it.
 			</p>
@@ -203,24 +203,24 @@ void draw()
 		<div class="unit-70-cc">
 			<!-- Left column -->
 
-			<h3>2. Your first <i>Processing</i> sketch</h3>
+			<h3>2. Your first <i>Processing</i>sketch</h3>
 
 			<div class="task">
-				<p>Before starting this section make sure you have <i>Processing</i> installed on your computer.</p>
+				<p>Before starting this section make sure you have <i>Processing</i>installed on your computer.</p>
 				<p>If you
-				haven't done so already, see the instructions for downloading and installing <i>Processing</i> in the first
+				haven't done so already, see the instructions for downloading and installing <i>Processing</i>in the first
 				section of <a href="https://processing.org/tutorials/gettingstarted/" target="_blank">Getting
 				Started with Processing</a></p>
 			</div>
 
 			<p>
 				By the end of <code>#CreativeCoding</code> you will be producing exciting apps including simple games, interactive
-				graphics and data visualizations with <i>Processing</i>. These apps are known as 'sketches' and over the course of this term you
+				graphics and data visualizations with <i>Processing</i> . These apps are known as 'sketches' and over the course of this term you
 				will be producing a sketchbook full of your own. But first let's start with something simple.
 			</p>
 
 			<div class="codeTask">
-				<p>Start <i>Processing</i> and type the following line of code.</p>
+				<p>Start <i>Processing</i>and type the following line of code.</p>
 				<pre class="brush: processing; gutter: false; toolbar: false; ">rect(20,30,70,35);</pre>
 				<p>Then press the 'Run' button (right-pointing
 				triangle)
@@ -237,13 +237,14 @@ void draw()
 			<p>
 				If all goes well you should see a white rectangle on a grey background. Hardly the most exciting
 				sketch
-				but it does demonstrate the first important idea behind coding. <b><i>A computer program is a set
-				of precise instructions that gets the machine to do stuff</i></b>. In <i>Processing</i>(and in the
+				but it does demonstrate the first important idea behind coding:<br/>
+				<i>A computer program is a set
+				of precise instructions that gets the machine to do stuff</i></b>.</p>
+				<p>In <i>Processing</i> (and in the
 				Java and many other languages) those instructions are generally <b>ordered</b> and tell
 				the computer how to achieve certain tasks. In this case our simple program consists of a single
-				instruction that tells <i>Processing</i>to draw a rectangle (<code>rect</code>) positioned at coordinates
-				(20,30)
-				with a width of 70 pixels and a height of 35 pixels.
+				instruction that tells <i>Processing</i> to draw a rectangle (<code>rect</code>) positioned at coordinates
+				(20,30) with a width of 70 pixels and a height of 35 pixels.
 			</p>
 
 			<p>
@@ -276,8 +277,10 @@ void draw()
 		<div class="unit-70-cc">
 			<!-- Left column -->
 
-			<div><div id="highlighter_740906" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing function1">rect</code><code class="processing plain">(20,30,70,35);</code></div><div class="line number2 index1 alt1"><code class="processing plain">circle(62,60,40);</code></div></div></td></tr></tbody></table></div></div>
-
+			<pre class="brush: processing; gutter: false; toolbar: false; ">rect(20,30,70,35);
+circle(62,60,40);</pre>
+				
+				
 			<p>
 				The second command <code>circle</code> works in a similar way to the first command but this time
 				draws an circle centred at position (62,60) with a diameter of 40 pixels.
@@ -322,13 +325,15 @@ void draw()
 				in which things happen in our programs by changing the order of coding instructions.
 			</p>
 
-			<div class="aside">Processing uses the Java programming language as a way of issuing instructions to the
-				computer. Java is known as an <b>object-oriented language</b> because it encourages you to organise
-				your code into units known as <i>objects</i> and <i>classes</i> (more on this early next week). It
-				can also be thought of as a <b>procedural language</b> because it requires you to issue ordered
+			<div class="aside">
+				<p><i>Processing</i> uses the <i>Java</i> programming language as a way of issuing instructions to the
+				computer.</p>
+				<p><i>Java</i> is known as an <b>object-oriented language</b> because it encourages you to organise
+				your code into units known as <i>objects</i> and <i>classes</i> (more on this later).</p>
+				<p>It can also be thought of as a <b>procedural language</b> because it requires you to issue ordered
 				instructions on <b>how</b> you want the computer to behave. In contrast, some other programming
 				languages are described as <b>declarative</b> because they require you to declare the task you want
-				solving rather than how it should be solved.
+				solving rather than how it should be solved.</p>
 			</div>
 
 		</div> <!-- End of left column -->
@@ -351,7 +356,7 @@ void draw()
 			<h3>3. The graphical coordinate system</h3>
 			<p>
 				Our sketches so far have been rather small and unexciting. We can set the size of a sketch with
-				another <i>Processing</i>command called, you've guessed it, <code>size</code>. Adding this as the first
+				another <i>Processing</i> command called, you've guessed it, <code>size</code>. Adding this as the first
 				line of our sketch:
 			</p>
 
@@ -363,8 +368,8 @@ void draw()
 			<div><div id="highlighter_254290" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing function1">size</code><code class="processing plain">(260,200);</code></div><div class="line number2 index1 alt1"><code class="processing plain">circle(62,60,40);</code></div><div class="line number3 index2 alt2"><code class="processing function1">rect</code><code class="processing plain">(20,30,70,35);</code></div></div></td></tr></tbody></table></div></div>
 
 			<p>
-				draws exactly the same circle and rectangle of the same size, but this time on a larger 'canvas'
-				that is 260 pixels wide and 200 tall. The size command is issued once, at the start of your sketch
+				These three commands draw exactly the same circle and rectangle of the same size, but this time on a larger 'canvas'
+				that is 260 pixels wide and 200 tall. The <code>size</code> command is issued once, at the start of your sketch
 				since its size would not normally change during its lifetime.
 			</p>
 
@@ -401,7 +406,7 @@ void draw()
 			</p>
 
 			<p>
-				As we will be doing lots of drawing with <i>Processing</i>during <code>#CreativeCoding</code> it is important you are
+				As we will be doing lots of drawing with <i>Processing</i> during <code>#CreativeCoding</code> it is important you are
 				comfortable with the principle of using coordinates to specify location and size. To recap: <b>A
 				location of something is specified with two numbers in the order (x,y) that indicate the
 				distance from the top-left corner in the horizontal and vertical directions respectively.</b>
@@ -412,15 +417,21 @@ void draw()
 			</p>
 
 			<div class="tip">
-				Keep a pencil and pad of paper handy when you are designing your sketches. Drawing out what you are
-				intending to do will help you keep track of your coding. This is especially valuable as your
-				programs become more complicated.
+				<p>Keep your Notebooks and a pen and pencil handy when you are designing your sketches.
+				Drawing out what you are intending to do will help you keep track of your coding.
+				This is especially valuable as your programs become more complicated.</p>
+				<p>We say this repeatedly to students and are always surprised by :</p>
+				<ul>
+					<li>How few students take the time to draw out their sketches on paper</li>
+					<li>How much more efficiently and impressively these students make progress</li>
+				</ul>
+				<p>Use your sketchbooks!</p>
 			</div>
 
 
 			<p>
 				Using our newly enlarged canvas, we can explore some of the other shape drawing commands available
-				in <i>Processing</i>. In addition to the rectangle and circle, we can draw triangles, lines and irregular
+				in <i>Processing</i> . In addition to the rectangle and circle, we can draw triangles, lines and irregular
 				quadrilaterals. All use the same coordinate system for specifying either locations of the shape
 				(e.g. the centre of a circle; corner of a rectangle; vertices of a triangle or quadrilateral), or
 				its size (e.g. width and height of a rectangle or ellipse). The example below is a sketch that draws
@@ -432,8 +443,8 @@ void draw()
 		<div class="unit-30-cc annotation">
 			<!-- Right column -->
 
-			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/coordinates.png', 453, 357, 'The <i>Processing</i> coordinate system');</script><div><a href="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/coordinates.png" onclick="return hs.htmlExpand(this, { objectType: 'iframe', minWidth: 453})"><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/coordinates.png" width="453" height="357" alt="The <i>Processing</i> coordinate system"></a></div>
-			<p>Specifying locations in the <i>Processing</i> coordinate system <i>(click to enlarge)</i></p>
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/coordinates.png', 453, 357, 'The Processing coordinate system');</script>
+			<p>Specifying locations in the <i>Processing</i>coordinate system <i>(click to enlarge)</i></p>
 
 		</div> <!-- end of right column -->
 	</div> <!-- End of row -->
@@ -444,21 +455,29 @@ void draw()
 		<div class="unit-70-cc">
 			<!-- Left column -->
 
-			<div><div id="highlighter_235769" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing function1">size</code><code class="processing plain">(400, 300);</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="processing function1">line</code><code class="processing plain">(150,100,350,200);</code></div><div class="line number4 index3 alt1"><code class="processing function1">rect</code><code class="processing plain">(150,190,80,60);</code></div><div class="line number5 index4 alt2"><code class="processing function1">ellipse</code><code class="processing plain">(300,100,40,60);</code></div><div class="line number6 index5 alt1"><code class="processing function1">triangle</code><code class="processing plain">(50,140, 100,140, 75, 210);</code></div><div class="line number7 index6 alt2"><code class="processing function1">quad</code><code class="processing plain">(30,20, 150,50, 110,110, 40,90);</code></div></div></td></tr></tbody></table></div></div>
+			<pre class="brush: processing; gutter: false; toolbar: false; ">size(400, 300);
+
+line(150,100,350,200);
+rect(150,190,80,60);
+ellipse(300,100,40,60);
+triangle(50,140, 100,140, 75, 210);
+quad(30,20, 150,50, 110,110, 40,90);</pre>
 
 			<p>
 				Each of the pairs of numbers after a drawing command corresponds to some location in our sketch
 				using the same coordinate system. To see how the number relate to the properties of the shape, you
 				can browse the <a href="https://processing.org/reference/" target="_blank">Processing Reference</a>
-				(for example, here is the reference for the <a href="https://processing.org/reference/quad_.html" target="_blank">quad()</a> drawing command).
+				(for example, here is the reference for the <a href="https://processing.org/reference/quad_.html" target="_blank"><code>quad()</code></a> drawing command).
 			</p>
 
 
 			<div class="tip">
+				<p>
 				Make use of the <a href="https://processing.org/reference/" target="_blank">Processing Reference</a>
 				when you wish to learn more about how a processing command works or you wish to explore the
-				capabilities of the language. You can bookmark the web page or access an offline version via
-				Processing's <code>Help-&gt;Reference</code> menu.
+				capabilities of the language.</p>
+				<p>You can bookmark the web page or access an offline version via <i>Processing</i>'s <code>Help-&gt;Reference</code> menu.</p>
+				<p>Learning how to search through, use and apply this reference material will help you immeasurably in <code>#CreativeCoding</code>, so please invest in exploring,  understanding and utilising it.</p>
 			</div>
 
 
@@ -467,7 +486,7 @@ void draw()
 		<div class="unit-30-cc annotation">
 			<!-- Right column -->
 
-			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/primitives.png', 400, 300, 'Shape primitives');</script><div><a href="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/primitives.png" onclick="return hs.htmlExpand(this, { objectType: 'iframe', minWidth: 400})"><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/primitives.png" width="400" height="300" alt="Shape primitives"></a></div>
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/primitives.png', 400, 300, 'Shape primitives');</script>
 			<p>Some shape primitives</p>
 
 		</div> <!-- end of right column -->
@@ -482,7 +501,7 @@ void draw()
 			<h3>4. Drawing styles</h3>
 
 			<p>
-				So far, our sketches have been a little dull and grey. Thankfully, <i>Processing</i> allows you to style
+				So far, our sketches have been a little dull and grey. Thankfully, <i>Processing</i>allows you to style
 				the drawing of shapes
 				using various colours and line thicknesses. You can do this with the commands
 				<a href="https://processing.org/reference/stroke_.html" target="_blank">stroke()</a>,
@@ -593,7 +612,7 @@ void draw()
 				is to add
 				<i>comments</i> to our code. These are the grey lines that start with a <code>//</code>. Whenever
 				you include these two
-				symbols, the rest of the line is then ignored by <i>Processing</i> so you are free to write text to explain
+				symbols, the rest of the line is then ignored by <i>Processing</i>so you are free to write text to explain
 				what the code does.
 			</p>
 
@@ -685,7 +704,7 @@ void draw()
 			</p>
 
 			<p>
-				The answer lies in an important behaviour of all <i>Processing</i> sketches. Any code placed inside the
+				The answer lies in an important behaviour of all <i>Processing</i>sketches. Any code placed inside the
 				<code>setup()</code> method
 				(i.e. placed between the curly braces following the <code>void setup()</code> line) will only ever
 				be executed once — as soon
@@ -729,11 +748,11 @@ void draw()
 			<!-- Left column -->
 
 			<p>
-				<code>mouseX</code> and <code>mouseY</code> are special <i>Processing</i> <i>variables</i> that keep track
+				<code>mouseX</code> and <code>mouseY</code> are special <i>Processing</i><i>variables</i> that keep track
 				of the location of the
 				mouse pointer and report the horizontal (<code>mouseX</code>) and vertical (<code>mouseY</code>)
 				coordinates in pixel units.
-				Every time the code in the <code>draw()</code> method is repeated, <i>Processing</i> will check the values
+				Every time the code in the <code>draw()</code> method is repeated, <i>Processing</i>will check the values
 				these two special variables
 				and draw the rectangle at the location represented by them.
 			</p>
@@ -741,7 +760,7 @@ void draw()
 
 			<p>
 				We will delve a little more deeply into using variables in the next session, but now you should be
-				able to draw a range of shapes in a <i>Processing</i> sketch, control their colour and appearance and make
+				able to draw a range of shapes in a <i>Processing</i>sketch, control their colour and appearance and make
 				your sketch respond to changes in the mouse position.
 			</p>
 
@@ -777,7 +796,7 @@ void draw()
 				</li>
 
 				<li>
-					A <i>Processing</i> command usually consists of a keyword (such as <code>rect</code> or
+					A <i>Processing</i>command usually consists of a keyword (such as <code>rect</code> or
 					<code>size</code>) followed by brackets,
 					some numbers and a semicolon.
 				</li>
@@ -787,7 +806,7 @@ void draw()
 					executed in sequence from top to bottom.
 				</li>
 
-				<li>Most <i>Processing</i> sketches contain at least two special <i>methods</i> —<code>setup()</code> which
+				<li>Most <i>Processing</i>sketches contain at least two special <i>methods</i> —<code>setup()</code> which
 					contains the
 					one-off setting up instructions, and <code>draw()</code> that contains the instructions repeated
 					60 times a second.</li>
@@ -801,10 +820,10 @@ void draw()
 
 				<ul>
 					<li><a href="https://processing.org/tutorials/gettingstarted" target="_blank">Getting Started
-						with Processing</a> — A guide to installing <i>Processing</i> navigating its menus and buttons.
+						with Processing</a> — A guide to installing <i>Processing</i>navigating its menus and buttons.
 					</li>
 					<li><a href="https://hello.processing.org" target="_blank">Hello Processing</a> — an interactive
-						video tutorial from Dan Shiffman that will get you started with <i>Processing</i>.</li>
+						video tutorial from Dan Shiffman that will get you started with <i>Processing</i> .</li>
 				</ul>
 
 			</div>
