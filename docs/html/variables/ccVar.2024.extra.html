@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Introducing Processing: Practical Exercises</title>
+
+	<!-- Header, 16th September, 2021 -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Embedded fonts -->
+	<link
+			href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+			rel="stylesheet">
+
+	<!-- Custom layout and style -->
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+	<!-- General browser compatibility handling -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+	<!-- Formatted source code -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+	<!-- Sketch popups and hidden text-->
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- JD Extras! -->
+    <link rel="stylesheet" href="https://jsndyks.github.io/cityCreativeCoding/css/creativeCoding.css" type="text/css" />
+    
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+
+
+
+
+<div id="page">
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+	<!-- Add summary sentence or two below, which will act as an easy introduction -->
+
+	<p>Before you attempt any of these exercises, make sure you completed all the coding and
+		core tasks in the lecture notes!</p>
+
+	<p>
+		These exercises give you practice declaring variables, assigning values to them and modifying them to create
+		simple animations. Attempt as many exercises as you can but on't worry if you don't manage to complete
+		all these tasks within the lab session and remember to prioritise the
+		core tasks.
+	</p>
+
+	<div class="coreTask">
+		Create a new sketch with just a <code>setup()</code> method. In <code>setup()</code> declare and initialise
+		some variables to represent the following:
+		<br> <br>
+		<pre>number of apples: 12
+number of bananas: 7
+number of oranges: 6</pre>
+		Use a simple arithmetic expression on the variables to find the total number of fruit and display the result
+		using <code>println()</code>.
+	</div>
+
+	<br><br>
+
+	<div class="coreTask">
+		<b>Traveling circle</b>.
+		<ol>
+			<li>Write a sketch that draws a circle in the centre of a square window. Use two variables
+				<code>x</code> and <code>y</code> to specify the position of the circle:
+				<br>
+				<pre class="brush: processing; gutter: false; toolbar: false;">ellipse(x, y, 60, 60);</pre>
+				Remember you have to <i>declare</i> those variables (both with type <code>float</code>) at the top
+				of your sketch and you should initialise them with appropriate values inside <code>setup()</code> so
+				that your circle is positioned correctly when your sketch starts.
+				<br>Run your sketch to check it behaves as expected.
+			</li>
+
+			<li>Now add assignment statements to the end of your <code>draw()</code> method so that the values of
+				<code>x</code> and
+				<code>y</code> both increase by 1 every time <code>draw()</code> is executed (remember,
+				<code>draw()</code> will be executed automatically, 60 times every second while your sketch is
+				running).
+				<br>What effect do you think this will have? Run your sketch to see if you were right.
+			</li>
+
+			<li>Modify your sketch so that the circle travels diagonally upwards towards the top-left corner of the
+				window.</li>
+		</ol>
+	</div>
+
+	<br>
+	<br>
+
+	<div class="coreTask">
+		<b>Traveling circles</b>. Make a copy of your Traveling circle sketch. Modify this new sketch so that it
+		draws multiple circles instead of just one. Make all your circles start in the centre of the sketch window
+		but move them in different directions
+		(e.g. four circles could move each to one of the four corners).
+		<br><br>
+		Create some colour variables and use them to fill each circle with its own colour.
+	</div>
+
+	<br>
+	<br>
+
+	<div class="challenge">
+		How many variables did you use in the traveling circles task? Because of the symmetry of moving four
+		circles each to their own corner, it can be achieved with only a single variable (plus a bit of arithmetic).
+		<br><br>
+		Can you modify your sketch to use only a single variable (in addition to Processing's built-in variables
+		such as <code>width</code> and <code>height</code>)?
+	</div>
+
+	<div class="challenge">
+		Code a digital timer, showing the number of hours, minutes and seconds which have elapsed since the sketch
+		started running. Some useful things to know:
+		<ul>
+			<li> Processing has a built-in integer variable <code>frameCount</code> which keeps track of how many
+				times <code>draw()</code> has been executed since the sketch started running. And by default,
+				<code>draw()</code> is executed 60 times per second.
+			</li>
+			<li> For integers <code>a</code> and <code>b</code>, <code>a / b</code> evaluates to the <i>integer
+				division</i> of <code>a</code> by <code>b</code>. For example, <code>4 / 5</code> = 0,
+				<code>7 / 5</code> = 1, <code>16 / 5</code> = 3.
+			</li>
+			<li> For integers <code>a</code> and <code>b</code>, <code>a % b</code> evaluates to the
+				<i>remainder</i> of the integer division <code>a / b</code>. For example, <code>4 % 5</code> = 4,
+				<code>7 % 5</code> = 2, <code>16 % 5</code> = 1.
+			</li>
+			<li> <code>textWidth(s)</code> is the display width in pixels of the String <code>s</code>.</li>
+			<li> <code>nf()</code> can be used to format a number as a String with a fixed number of digits.</li>
+			<li> For Strings <code>a</code> and <code>b</code>, <code>a + b</code> is the string obtained by joining
+				<code>a</code> and <code>b</code> end to end (string concatenation). And if <code>a</code> is a
+				String but <code>b</code> is <i>not</i> a String, then <code>b</code> will first be converted to a
+				String, before concatenating with <code>a</code>.
+			</li>
+		</ul>
+	</div>
+
+
+	<br>
+	<br>
+
+	<h2>Check on Progress</h2>
+	<div class="task">
+		To ensure that you have achieved the outcomes associated with this session, consider the following, which
+		allow you to evaluate your progress.
+		<br><br>
+
+		<div class="checkOutcomes">
+			<input type="checkbox" id="sa1">
+			<label for="sa1">Can I use <code>width</code> and <code>height</code> in my sketches to make by code
+				independent of sketch size?</label><br>
+			<!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=519088">Using width and height</a> -->
+
+			<input type="checkbox" id="sa2">
+			<label for="sa2">Can I declare and initialise variables for storing numbers, text and
+				colours?</label><br>
+			<!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=519090">Integers</a> -->
+			<!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=519091">Colours</a> -->
+			<!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=519092">Strings</a> -->
+
+			<input type="checkbox" id="sa3">
+			<label for="sa3">Do I know when to declare a variable inside a method and when it should be declared at
+				the top of a sketch?</label><br>
+
+			<input type="checkbox" id="sa4">
+			<label for="sa4">Can I create simple animations by modifying one or more variables inside the
+				<code>draw()</code> method?</label><br>
+			<!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=519094">Animations with global variables</a> -->
+
+		</div>
+		<!-- End of checkOutcomes -->
+
+
+	</div>
+	<!-- End of task -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<div style="padding-bottom:2em;clear:both"></div>
+        
+	<!--- spacer for iFrame -->
+	<p style="padding-top:1em"><hr/></p>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+</div> <!-- End of page div -->
+<script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>
