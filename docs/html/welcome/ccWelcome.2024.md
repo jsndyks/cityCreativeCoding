@@ -1,5 +1,5 @@
 <style> 
-code {color:#444; background-color:#f0f0f0; padding:2px; padding-left:0.75em; padding-right:0.75em}>
+code {color:#444; background-color:#f0f0f0; padding:2px; padding-left:0.75em; padding-right:0.75em}
 </style>
 
 <div style="float:left;">
@@ -18,7 +18,11 @@ Watch <a href="https://cityuni-my.sharepoint.com/:v:/g/personal/radu_jianu_city_
 We will start from the very basics of programming and gradually move into interesting, applied programming such as digital art and data visualization.
 </p>
 
-<p>We will essentially teach you <i>Java</i>, but rely on an environment called <b>Processing</b> – that will introduce key programming concepts and enable you to create interactive, graphical, animated applications with much less effort than regular Java.</p>
+<img style="display: block; margin-left: auto; margin-right: auto; width:95%" src="https://jsndyks.github.io/cityCreativeCoding/images/ccLogos/ccLogosx5.row1.png"/>
+
+<p>Remember your <i>Fib Friend Badge</i> - find a couple of people with the same code and share something meaningful about yourself with them ... and talk about University, <code>CreativeCoding</code> and fun stuff.</p>
+
+<p>In <code>#CreativeCoding</code> we will essentially learn <i>Java</i>, and this is a great introduction to the language, But we will rely on an environment called <b>Processing</b> – that will introduce key programming concepts and enable you to create interactive, graphical, animated applications with much less effort than regular Java.</p>
 
 <p><code>#CreativeCoding</code> is <b>not assessed</b>.
 But engaging fully will give you experience, knowledge and skills that will provide important grounding and contribute to your future studies.
@@ -28,18 +32,10 @@ Most importantly, we want you to <b>have some fun</b> with a shared data and cod
 
 <p>At the end of term, your tutors will provide a short report on your <code>#CreativeCoding</code> activity that they may use in subsequent reference writing: a <b>Creative Coding Commentary</b> that will report on your initiative, participation, creativity, group-work capability in <code>#CreativeCoding</code> and the tutorials </p>
 
-<b>Important:</b> On Tuesday we plan to hit the ground running.<br/>
+<p><b>Important:</b> On Tuesday we plan to hit the ground running.</p>
 
-- We expect you to bring <b>charged laptops</b> to the lecture with <i>Processing</i> installed.
-- We expect you to have <b>completed the preparation</b> beforehand - the <code>#CreativeCoding</code> Preparation Activities and the Dear Data Diaries work are described below
-
-</div>
-
-<!---
-<p>*Finding rooms on campus is an acquired skill! Refer to the image below and the following rule:
-    the first letter of the room tell you what building you should head to (ex: A = College Building),
-    the next number or characters tell you the floor (ex: LG = lower ground; G = ground; 1 = first floor),
-    and the rest are the number of the room on that floor. Good luck!</p>
-
-<p><img width="500px" src="https://radujianu.github.io/bootcamp/campusmap.png"></p>
---->
+<ul>
+<li>We expect you to bring <b>charged laptops</b> to the lecture with <i>Processing</i> installed.</li>
+<li>We expect you to have <b>completed the preparation</b> beforehand - the <code>#CreativeCoding</code> Preparation Activities, the Dear Data Diaries work and the GitHub setup are essential preparation</li>
+</ul>
+<p>Details follow ...</p>
