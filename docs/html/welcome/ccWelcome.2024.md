@@ -6,7 +6,7 @@ code {color:#444; background-color:#f0f0f0; padding:2px; padding-left:0.75em; pa
 <img src="https://jsndyks.github.io/cityCreativeCoding/images/logo/ccLogo.original.jpg" width=100 height=100 style="margin:0.25em; margin-right:1em"/>
 </div-->
 
-<p>Our <code>#CreativeCoding</code> activity begins on <b>Tuesday, 1st October at 9am</b> in <b>A132, The Great Hall</b>.</p>
+<p>Our <code>#CreativeCoding</code> activity begins ...<br/>&nbsp;&nbsp;&nbsp;&nbsp;on <b>Tuesday, 1st October at 9am</b> in <b>A132, The Great Hall</b>.</p>
 
 <p>Remember to check <a href="https://mytimetable.city.ac.uk/">MyTimetable</a> to find the rooms in which subsequent <code>#CreativeCoding</code> tutorial sessions take place.</p>
 
@@ -18,6 +18,8 @@ We will start from the very basics of programming and gradually move into intere
 <img style="display: block; margin-left: auto; margin-right: auto; width:95%" src="https://jsndyks.github.io/cityCreativeCoding/images/ccLogos/ccLogosx5.row1.png"/>
 
 <p>Remember your <i>Fib Friend Badge</i> - find a couple of people with the same code and share something meaningful about yourself with them ... and talk about University, <code>CreativeCoding</code> and fun stuff.</p>
+
+<hr/>
 
 <p>In <code>#CreativeCoding</code> we will essentially learn <i>Java</i>, and this is a great introduction to the language, But we will rely on an environment called <b>Processing</b> – that will introduce key programming concepts and enable you to create interactive, graphical, animated applications with much less effort than regular Java.</p>
 
