@@ -59,9 +59,9 @@
 		<p><strong>By the end of this session you should be able to:</strong></p>
 
 		<ul>
-			<li>use Processing's built-in variables for storing mouse position and sketch size;</li>
+			<li>use <i>Processing's</i>  built-in variables for storing mouse position and sketch size;</li>
 			<li>declare and initialise your own variables;</li>
-			<li>use <code>println()</code> to show the contents of a variable in the Processing console;</li>
+			<li>use <code>println()</code> to show the contents of a variable in the <i>Processing</i> console;</li>
 			<li>use variables for storing numbers, text and colours;</li>
 			<li>use appropriate variable scope in your coding design;</li>
 			<li>animate graphical objects in your sketch.</li>
@@ -80,7 +80,7 @@
 			<p>
 				In the previous session you were introduced to a moving rectangle sketch that drew a rectangle whose
 				corner was at the current mouse position. We managed this by using two special <i>variables</i>
-				provided by Processing — <code>mouseX</code> and <code>mouseY</code>. They are known as variables
+				provided by <i>Processing</i> — <code>mouseX</code> and <code>mouseY</code>. They are known as variables
 				because their value can vary (as the mouse moves in this case). Even though the <i>value</i> of a
 				variable can change, its <i>name</i> does not. At any point in our sketch code we can use the same
 				name <code>mouseX</code> confident that it will contain the value of the current mouse position in
@@ -95,7 +95,7 @@
 			<p>
 				In the case of <code>mouseX</code> and <code>mouseY</code> the data value stored in each is a simple
 				number (referring to the pixel coordinates of the current mouse position). Behind the scenes
-				Processing keeps constant track of the position of your mouse and updates those variables with new
+				<i>Processing</i> keeps constant track of the position of your mouse and updates those variables with new
 				numbers every time the position changes.
 			</p>
 
@@ -106,7 +106,7 @@
 			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 			<div class="task">
-				Copy the following code into Processing and try running it:
+				Copy the following code into <i>Processing</i> and try running it:
 				<br /><br />
 				<pre class="brush: processing; gutter: false; toolbar: false; ">void setup()
 {
@@ -122,7 +122,7 @@ void draw()
 			<p>
 				The code above uses the new command
 				<code><a href="https://processing.org/reference/println_.html" target="_blank">println()</a></code>
-				to display the value stored in the variable <code>mouseX</code>. The value appears in Processing's
+				to display the value stored in the variable <code>mouseX</code>. The value appears in <i>Processing's</i> 
 				'console' (the black window below where you normally type in code). If you run the program and move
 				the mouse left and right in the sketch you should see the number change as the mouse's horizontal
 				x-position changes.
@@ -130,11 +130,11 @@ void draw()
 
 
 			<p>
-				Processing has a number of built-in variables in addition to <code>mouseX</code> and
+				<i>Processing</i> has a number of built-in variables in addition to <code>mouseX</code> and
 				<code>mouseY</code>. Of particular use are those called <code>width</code> and <code>height</code>,
 				which store the width and height of the sketch (as determined by the numbers you provide with the
 				<code>size()</code> command). These built-in variables are shown as pink when coding in the
-				Processing window. We shall see why <code>width</code> and <code>height</code> are so useful a
+				<i>Processing</i> window. We shall see why <code>width</code> and <code>height</code> are so useful a
 				little later on. But for now, you can modify the code above to show all four of the variables we
 				have considered so far:
 			</p>
@@ -171,7 +171,7 @@ void draw()
 				variable. This is especially true as your programs become more complicated and you need to
 				<i>debug</i> them. And remember the output from <code>println()</code> doesn't appear in your sketch
 				(unlike the rectangles and circles we have been drawing in previous sketches), but instead in
-				Processing's coding console.
+				<i>Processing's</i>  coding console.
 			</div>
 
 		</div> <!-- End of left column -->
@@ -179,8 +179,8 @@ void draw()
 		<div class="unit-30-cc annotation">
 			<!-- Right column -->
 
-			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2021/lecture02/images/console.png', 557, 483, 'Processing console showing the mouseX variable');</script>
-			<p>Processing console showing the contents of the mouseX variable <i>(click to enlarge)</i></p>
+			<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/variables/img/varsInConsole.png', 695, 595, 'Processing console showing the mouseX mouseY and other variables');</script>
+			<p><i>Processing</i> console showing the contents of the mouseX variable <i>(click to enlarge)</i></p>
 
 		</div> <!-- end of right column -->
 	</div> <!-- End of row -->
@@ -195,7 +195,7 @@ void draw()
 			<h3>2. Declaring and initialising our own variables</h3>
 
 			<p>
-				We can, in addition to using Processing's built-in variables, create our own new variables. Creating
+				We can, in addition to using <i>Processing's</i>  built-in variables, create our own new variables. Creating
 				a variable involves declaring a <i>type</i>, a <i>name</i> and a <i>value</i>. For the moment, will
 				just consider variable types that can store numbers. These are referred to as <code>float</code>
 				variables. We then just have to give our variable a name and a value. The name should always start
@@ -230,7 +230,7 @@ cost = 1.99;    // This is the variable initialisation.</pre>
 			<h4>Doing arithmetic on variables</h4>
 
 			<p>
-				When we assign a value to a variable, Processing will do any arithmetic you ask it to when
+				When we assign a value to a variable, <i>Processing</i> will do any arithmetic you ask it to when
 				calculating the value. For example
 			</p>
 
@@ -372,7 +372,7 @@ void draw()
 				Remember that when we declare a variable we have to state what <i>type</i> of variable it is. So
 				far, we have only considered one type —<code>float</code>. This is a useful type when you need to
 				store numbers that might have a decimal point in them (such as our <code>cost</code> examples
-				above). But Processing has many different types of variables, each suited to storing different types
+				above). But <i>Processing</i> has many different types of variables, each suited to storing different types
 				of data.
 			</p>
 
@@ -403,7 +403,7 @@ void draw()
   text(welcomeMessage,width/2,height/2);
 }</pre>
 			<p>
-				Instead of providing the text "<code>Hello Creative Coders</code>" directly to Processing's <a
+				Instead of providing the text "<code>Hello Creative Coders</code>" directly to <i>Processing's</i>  <a
 					href="https://processing.org/reference/text_.html" target="_blank">text()</a> command, we assign
 				it to a variable we have called <code>welcomeMessage</code> and then pass the contents of that
 				variable to <code>text()</code>. Note also that we are doing some simple arithmetic to find
@@ -435,7 +435,7 @@ counter = counter + 1;</pre>
 			<h4>The <code>color</code> type</h4>
 
 			<p>
-				Processing allows you to store a colour value in its own variable type called <code>color</code>
+				<i>Processing</i> allows you to store a colour value in its own variable type called <code>color</code>
 				(note the American spelling). This is useful if you wish to use the same colour in several places in
 				your sketch. Here's an example:
 			</p>
@@ -528,7 +528,7 @@ void draw()
 			<h3>4. Variable scope</h3>
 
 			<p>
-				Remember that when using variables in Processing you do two things — you <i>declare</i> the
+				Remember that when using variables in <i>Processing</i> you do two things — you <i>declare</i> the
 				variable, which is when you say what type of variable it is and give it a name; and you
 				<i>initialise</i> it, which is when you assign a value to the variable. One of the reasons why it is
 				important to separate <i>declaration</i> from <i>initialisation</i> is that where a variable is
@@ -557,7 +557,7 @@ void draw()
 
 			<p>
 				One of the reasons we might wish to declare a variable outside of the <code>draw()</code> method in
-				particular is that it allows Processing to recall the value of the variable each time the method is
+				particular is that it allows <i>Processing</i> to recall the value of the variable each time the method is
 				called (remembering that <code>draw()</code> happens 60 times a second). Changing the value of a
 				variable inside <code>draw()</code> is one way of creating simple animations. The following code
 				draws some text at position (<code>xPos</code>,<code>100</code>) where <code>xPos</code> decreases
@@ -703,7 +703,7 @@ void draw()
 
 
 			<p>
-				If you copy and run this code in Processing you will notice that your text stays put. This is
+				If you copy and run this code in <i>Processing</i> you will notice that your text stays put. This is
 				because the variable xPos in the setup method is not the same as the variable xPos in the draw
 				method. They are two independent variables declared in different scopes that happen to have the same
 				name.
@@ -780,7 +780,7 @@ void draw()
 			<h3>5. Summary and Further Reading</h3>
 
 			<ul>
-				<li> Processing contains a number of its own variables for storing the mouse position and sketch
+				<li> <i>Processing</i> contains a number of its own variables for storing the mouse position and sketch
 					size. </li>
 
 				<li>You can create your own variables for storing numbers, text, colours and other features. This
@@ -806,7 +806,7 @@ void draw()
 				<br /><br />
 
 				<ul>
-					<li><a href="https://processing.org/reference/" target="_blank">Processing reference</a> — Have
+					<li><a href="https://processing.org/reference/" target="_blank"><i>Processing</i> reference</a> — Have
 						a look at the 'Data' and 'Operators' sections for details of some variable types and
 						mathematical operators.</li>
 				</ul>
