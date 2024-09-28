@@ -182,10 +182,10 @@ void draw()
 
             </div> <!-- End of left column -->
 
-            <div class="unit-70-cc annotation">
+            <div class="unit-30-cc annotation">
                 <!-- Right hand column for small images, popup sketches and annotations. -->
                 <br /><br />
-                <figure>
+                <figure class="width50">
                 <script>loadImage("https://staff.city.ac.uk/~jwo/bootcamp2021/lecture03/images/syntax.png", 887, 705, 'The structure of an if-statement');</script>
                 <p>The structure of an if-statement <i>(click to enlarge)</i>.</p>
                 <br /><br />
@@ -193,7 +193,7 @@ void draw()
 
                 <figcaption>Controlling shape with the mouse (click on image to activate).</figcaption>
                 </figure>
-                
+
             </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
@@ -204,7 +204,7 @@ void draw()
                 <h3>3. Example: The Next Station is Angel ...</h3>
 
                 <p>
-                    The following code is a modified copy of the scrolling text example from yesterday.
+                    The following code is a modified copy of the scrolling text example that we have used previously.
                 </p>
                 <pre class="brush: processing; gutter: false; toolbar: false; ">float xPos;     // Position of text along x-axis
 float vx;       // Speed of text in x-direction
@@ -231,12 +231,19 @@ void draw()
 </pre>
 
                 <div class="codeTask">
-                    Modify the code so that the message "wraps around" and scrolls in again from the right each time it
-                    disappears off to the left.
+                    <h5>Wrap Around:</h5>
+                    <p>You should be able to use an <code>if</code> statement to 
+                    modify the code so that the message "wraps around" and scrolls in again from the right each time it
+                    disappears off to the left.</p>
+                    <ul>
+                    <li>Check the <a href="https://processing.org/reference/if.html"><code>if</code> statement reference documentation</a> to ensure that you get the syntax correct</li>
+                    <li>Draw the sketch in your sketchbook to help you work out what needs to change and under what condition to achieve the effect</li>
+                    </ul>
+
                 </div>
             </div> <!-- End of left column -->
 
-            <div class="unit-70-cc annotation">
+            <div class="unit-30-cc annotation">
                 <!-- Right hand column for small images, popup sketches and annotations. -->
                 <br /><br />
                 <script> loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/nextStation", 600, 600, "https://staff.city.ac.uk/~jwo/bootcamp2021/lecture03/images/scrollingMessage.png");
@@ -251,11 +258,12 @@ void draw()
                 <!-- Left column -->
                 <h3>4. Nested Ifs</h3>
                 <p>
-                    The two branches of an if-statement contain instructions. So far we became used to instructions that
-                    we can write on a single line, such as <code>rect(100, 200, 50, 50);</code> or
-                    <code>fill(255);</code>. However, the if is an instruction, just one that we typically write on
-                    multiple lines. So, there is no reason why one of the instructions contained inside our branches
-                    cannot be an if-statement itself.
+                    The two branches of an if-statement contain instructions.
+                    So far we have become used to quite short sets of instructions that we can write on a single line, such as <code>rect(100, 200, 50, 50);</code> or
+                    <code>fill(255);</code>.
+                    However, the <code>if</code> statement is an instruction, just one that we typically write on multiple lines.
+                    So, there is no reason why one of the instructions contained inside our branches
+                    cannot be an <code>if</code> statement itself.
                 </p>
 
                 <pre class="brush: processing; gutter: false; toolbar: false; ">
@@ -288,15 +296,14 @@ void draw()
 </pre>
 
                 <div class="codeTask">
-                    Replicate the logic for drawing a rectangle in different colours to the branch responsible for
-                    drawing the ellipse.
+                    <h5>Change the Ellipse Colour</h5>
+                    <p>
+                    Use the logic that we have applied to drawing the rectangle in different colours according to the Y position
+                    to the branch responsible for drawing the ellipse, so that the colour of the ellipse will change in the same way.
+                    </p>
                 </div>
             </div> <!-- End of left column -->
 
-            <div class="unit-70-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-                <br />
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -415,7 +422,7 @@ void draw()
                 </div>
             </div> <!-- End of left column -->
 
-            <div class="unit-70-cc annotation">
+            <div class="unit-30-cc annotation">
                 <!-- Right hand column for small images, popup sketches and annotations. -->
                 <br />
             </div> <!-- end of right column -->
@@ -479,7 +486,7 @@ void draw()
                 </div>
             </div> <!-- End of left column -->
 
-            <div class="unit-70-cc annotation">
+            <div class="unit-30-cc annotation">
                 <!-- Right hand column for small images, popup sketches and annotations. -->
                 <br /><br />
                 <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/coin", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2021/lecture03/images/noCountry.jpg");</script>
@@ -548,7 +555,7 @@ void draw()
 }</pre>
             </div> <!-- End of left column -->
 
-            <div class="unit-70-cc annotation">
+            <div class="unit-30-cc annotation">
                 <!-- Right hand column for small images, popup sketches and annotations. -->
                 <br /><br />
                 <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/dice", 200, 200, "https://www.staff.city.ac.uk/~jwo/bootcamp2021/lecture03/images/die.png");</script>
@@ -601,7 +608,7 @@ else
                 </p>
             </div> <!-- End of left column -->
 
-            <div class="unit-70-cc annotation">
+            <div class="unit-30-cc annotation">
                 <!-- Right hand column for small images, popup sketches and annotations. -->
                 <br />
             </div> <!-- end of right column -->
@@ -638,7 +645,7 @@ else
                 </p>
             </div> <!-- End of left column -->
 
-            <div class="unit-70-cc annotation">
+            <div class="unit-30-cc annotation">
                 <!-- Right hand column for small images, popup sketches and annotations. -->
                 <br />
             </div> <!-- end of right column -->
@@ -740,7 +747,7 @@ if (mouseUpperLeft || mouseLowerRight)
                 </p>
             </div> <!-- End of left column -->
 
-            <div class="unit-70-cc annotation">
+            <div class="unit-30-cc annotation">
                 <!-- Right hand column for small images, popup sketches and annotations. -->
                 <br />
             </div> <!-- end of right column -->
@@ -777,7 +784,7 @@ if (mouseUpperLeft || mouseLowerRight)
 
             </div> <!-- End of left column -->
 
-            <div class="unit-70-cc annotation">
+            <div class="unit-30-cc annotation">
                 <!-- Right column -->
                 <br />
             </div> <!-- end of right column -->
