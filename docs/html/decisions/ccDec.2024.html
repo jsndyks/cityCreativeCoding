@@ -436,10 +436,10 @@ void draw()
                 <!-- Left column -->
                 <h3>6. Exploring randomness: coins and dice</h3>
                 <p>
-                    Suppose we want to write a sketch called HeadsOrTails which simulates the effect of tossing a coin.
+                    Suppose we want to write a sketch called <i>HeadsOrTails</i> that simulates the effect of tossing a coin.
                     We need some source of randomness, so that our code will sometimes print HEADS, sometimes TAILS,
                     with both outcomes equally likely, but we can't predict which one we will get on any particular run
-                    of the sketch.Here's our first attempt:
+                    of the sketch. Here's our first attempt:
                 </p>
 
                 <pre class="brush: processing; gutter: false; toolbar: false; ">float randomNumber;
@@ -477,14 +477,19 @@ void draw()
                 </p>
 
                 <div class="codeTask">
-                    The <code>draw()</code> code doesn't actually use the random number yet; it just prints the message
-                    TAILS every time. Modify the code so that the message is TAILS if the number is less than 1 and
-                    HEADS otherwise.
+                    <h5>Heads or Tails?</h5>
+                    <p>
+                    The <code>draw()</code> code doesn't actually use the random number yet - it just prints the message
+                    TAILS every time.</p>
+                    <p>Modify the code so that the message is TAILS if the number is less than 1 and HEADS otherwise.
+                    </p>
                 </div>
 
                 <div class="aside">
-                    Why do we assign a value to <code>randomNumber</code> in <code>setup()</code> rather than in
-                    <code>draw()</code>?
+                    Here's a question!<br/>
+                    Why do we assign a value to <code>randomNumber</code> in <code>setup()</code> rather than in the <code>draw()</code>?<br/>
+                    See what happens if you change this.<br/>
+                    Can you predict what will happen before you run the code?
                 </div>
             </div> <!-- End of left column -->
 
