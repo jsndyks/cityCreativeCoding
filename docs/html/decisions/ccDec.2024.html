@@ -66,19 +66,18 @@
     <div class="intro">
 
             <p>
-                This section introduces the <i>if-statement</i>: a programming language construct which allows you to
+                This section introduces the <code>if</code> statement: a programming language construct which allows you to
                 write code that <b>makes choices as it executes</b>.
             </p>
 
             <p><strong>By the end of this session you should be able to:</strong></p>
 
-            <ul>
-                <li>write if-statements in your code so that it makes choices as it executes;</li>
-                <li>use if-statements to choose between different actions based on the mouse position;</li>
-                <li>write nested if-statements and else-if statements;</li>
-                <li>use a variety of different kinds of boolean expressions in the conditions of your if-statements;
-                </li>
-                <li>use randomness and if-statements to simulate throwing dice or tossing coins.</li>
+            <ul class="objectives">
+                <li>write <code>if</code> statements in your code so that it makes decisions, depending upon conditions, as it executes;</li>
+                <li>use <code>if</code> statements to choose between different actions based on the mouse position;</li>
+                <li>write nested <code>if</code> statements and <code>else-if</code> statements to make decisions based upon complex and composite conditions;</li>
+                <li>use a variety of different kinds of boolean expressions in the conditions of your <code>if</code> statements;</li>
+                <li>use randomness and <code>if</code> statements to simulate throwing dice or tossing coins.</li>
             </ul>
 
         </div> <!-- End of intro section -->
@@ -90,14 +89,15 @@
                 <!-- Left column -->
                 <h3>1. Coding programs that adapt to context</h3>
                 <p>
-                    We may face two of the following situations when writing code:
+                    We may face two situations when writing code:
                 </p>
 
                 <ol>
-                    <li>At the time of writing the code, we know everything and everything is deterministic.<br/>We know all the data values and how they
-                        should be processed.<br/><i>Unfortunately, this doesn't happen very often.</i></li>
-                    <li>There are things we don't know when we write the code, but they are "known unknowns".<br/>We know
-                        what kind of data our code has to process and we know the rules for how it should be processed
+                    <li>We may know everything that is likely to happen when code is running, everything is entirely predictable.<br/>
+                        We know all data values and how they should be processed, everything is predetermined.<br/>
+                        <i>This would make coding pretty straightforward, but it doesn't happen very often.</i></li>
+                    <li>There are things we don't know when we write the code, that will only transpire as the code is running, but they are "<i>known unknowns</i>".<br/>
+                        We know what kind of data our code has to process and we know the rules for how it should be processed
                         when it becomes available.<br/><i>This is usually the case.</i></li>
                 </ol>
 
@@ -151,7 +151,7 @@ void draw()
 }</pre>
 
                 <p>
-                    Execution of an if-statement happens in two stages:
+                    Execution of an <code>if</code> statement happens in two stages:
                 </p>
 
                 <ol>
@@ -186,8 +186,8 @@ void draw()
                 <!-- Right hand column for small images, popup sketches and annotations. -->
                 <p>The statement shown above could be used (has been used) in a sketch that results in the behaviours shown below - try the sketch out and move the cursor around.</p> 
                 <figure class="width50">
-                <script>loadImage("https://staff.city.ac.uk/~jwo/bootcamp2021/lecture03/images/syntax.png", 500, 400, 'The structure of an if-statement');</script>
-                <figcaption>The structure of an if-statement <i>(click to enlarge)</i>.</figcaption>
+                <script>loadImage("https://staff.city.ac.uk/~jwo/bootcamp2021/lecture03/images/syntax.png", 500, 400, 'The structure of an <code>if</code> statement');</script>
+                <figcaption>The structure of an <code>if</code> statement <i>(click to enlarge)</i>.</figcaption>
                 </figure>
 
                 <figure class="width50">
@@ -259,7 +259,7 @@ void draw()
                 <!-- Left column -->
                 <h3>4. Nested Ifs</h3>
                 <p>
-                    The two branches of an if-statement contain instructions.
+                    The two branches of an <code>if</code> statement contain instructions.
                     So far we have become used to quite short sets of instructions that we can write on a single line, such as <code>rect(100, 200, 50, 50);</code> or
                     <code>fill(255);</code>.
                     However, the <code>if</code> statement is an instruction, just one that we typically write on multiple lines.
@@ -761,9 +761,9 @@ if (mouseUpperLeft || mouseLowerRight)
                 </p>
 
                 <p>
-                    <b>Don't put semicolons in the middle of your if-statement</b> It's quite common for novice
+                    <b>Don't put semicolons in the middle of your <code>if</code> statement</b> It's quite common for novice
                     programmers to develop a 'semicolon reflex' and place one after the <code>if (condition)</code>
-                    line. Resist it and remember that the if-statement is a single command that we tend to write on
+                    line. Resist it and remember that the <code>if</code> statement is a single command that we tend to write on
                     multiple lines. Don't through a semicolon in the middle of it.
                 </p>
             </div> <!-- End of left column -->
@@ -776,12 +776,12 @@ if (mouseUpperLeft || mouseLowerRight)
                 <!-- Left column -->
                 <h3>10. Summary</h3>
 
-                <ul>
+                <ul class="summary">
                     <li>
-                        If-statements are used in code which makes decisions as it executes.
+                        <code>if</code> statements are used in code that makes decisions as it executes.
                     </li>
                     <li>
-                        A single if-statement chooses between just two alternative branches of code based on the value
+                        A single <code>if</code> statement chooses between just two alternative branches of code based on the value
                         of a boolean
                         expression.
                     </li>
@@ -789,7 +789,7 @@ if (mouseUpperLeft || mouseLowerRight)
                         Boolean expressions evaluate to either true or false (there is no middle way).
                     </li>
                     <li>
-                        By nesting and chaining multiple if-statements we can write code which chooses between multiple
+                        By nesting and chaining multiple <code>if</code> statements we can write code which chooses between multiple
                         alternatives.
                     </li>
                     <li>
