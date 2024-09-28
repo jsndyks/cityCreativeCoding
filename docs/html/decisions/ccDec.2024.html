@@ -486,10 +486,13 @@ void draw()
                 </div>
 
                 <div class="aside">
+                    <h5>A Question!</h5>
+                    <p>
                     Here's a question!<br/>
                     Why do we assign a value to <code>randomNumber</code> in <code>setup()</code> rather than in the <code>draw()</code>?<br/>
                     See what happens if you change this.<br/>
                     Can you predict what will happen before you run the code?
+                </p>
                 </div>
             </div> <!-- End of left column -->
 
@@ -506,22 +509,22 @@ void draw()
             <div class="unit-70-cc">
                 <!-- Left column -->
                 <p>
-                    Now let's suppose we want six randomly chosen possible outcomes, rather than just two. In other
-                    words, suppose we want a six-sided die, rather than a coin.
+                    Now let's suppose we want six randomly chosen possible outcomes, rather than just two.
+                    In other words, suppose we want a six-sided die, rather than a coin.
                 </p>
 
                 <p>
                     First, it's helpful to know that we can expand the range of our random number so that we get a
-                    number in the range 0.0 to 6.0 (see the code below how this can be done). Then we can map each unit
-                    interval in our range to one outcome of our roll.
+                    number in the range 0.0 to 6.0 (see the code below how this can be done).
+                    Then we can map each unit interval in our range to one outcome of our roll.
                 </p>
 
                 <img src="https://staff.city.ac.uk/~jwo/bootcamp2021/lecture03/images/dieNumberLine.png"
                     alt="six-sided die number line" style="max-width:100%;max-height:100%;">
 
                 <p>
-                    In practice we can achieve this mapping by writing mutually exclusive Boolean expressions which test
-                    if our number is in one of the six intervals:
+                    In practice we can achieve this mapping by writing mutually exclusive Boolean expressions that test
+                    whether our number is in each of the six intervals in turn:
                 </p>
 
                 <pre class="brush: processing; gutter: false; toolbar: false; highlight: [10,18,23,28] ">float ran;
@@ -565,7 +568,7 @@ void draw()
             <div class="unit-30-cc annotation">
                 <!-- Right hand column for small images, popup sketches and annotations. -->
                 <br /><br />
-                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/dice", 200, 200, "https://www.staff.city.ac.uk/~jwo/bootcamp2021/lecture03/images/die.png");</script>
+                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/dice", 100, 100, "https://www.staff.city.ac.uk/~jwo/bootcamp2021/lecture03/images/die.png");</script>
                 <p>Roll a six-sided die (<i>click on image to activate</i>).</p>
             </div> <!-- end of right column -->
         </div> <!-- End of row -->
@@ -577,8 +580,8 @@ void draw()
                 <h3>7. Choosing from multiple options: else if</h3>
                 <p>
                     When we have more than two options to choose from, as was the case with our previous example, it's
-                    common to use the 'else if', a way of writing multiple, mutually exclusive branches within the same
-                    if. The following code snippet implements the roll of the dice using the else if variation:
+                    common to use the <code>else if</code>. This gives a way of writing multiple, mutually exclusive branches within the same
+                    <code>if</code> statement.<br/>The following code snippet implements the roll of the dice using the <code>else if</code> variation:
                 </p>
 
                 <pre class="brush: processing; gutter: false; toolbar: false; ">if (ran &lt; 1)
@@ -611,14 +614,21 @@ else
                     is the case in the example above). In an else if the successive conditions are tested in order, one
                     at a time. The branch of the first one to evaluate to true is executed, after which the entire if
                     stops. Thus, even if any subsequent conditions are true, they are never evaluated and their branches
-                    never executed. (Can you figure out what the program above would print if this was not the case?)
+                    never executed.
+                    <!-- (Can you figure out what the program above would print if this was not the case?) -->
                 </p>
+
+                <div class="aside">
+                    <h5>What if?</h5>
+                    <p>
+                    We just learned that the branch of the first statement in an <code>IF, ELSE IF</code> to evaluate to true is executed,
+                    after which the entire <code>if</code> stops. So only one branch is ever executed.
+                    If any subsequent conditions are true, they are never evaluated and their branches never executed.</p>
+                    <p>But what would happen in the above program if this was not the case - if <i>any</i> branch that was true in an <code>ELSE IF</code> evaluated?</p>
+
+                </div>
             </div> <!-- End of left column -->
 
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-                <br />
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -646,16 +656,14 @@ else
                 <p>
                     One more note is that when there is just one statement in a branch, the curly brackets are optional.
                     In fact, since in the code above all branches contain single statements, we could remove all of
-                    them! DON'T DO IT! ALWAYS WRITE THE CURLY BRACKETS, even when they are optional. Because if you ever
+                    them! But ...<br/>
+                    DON'T DO IT!<br/>
+                    ALWAYS WRITE THE CURLY BRACKETS, even when they are optional.</p>
+                    <p>Because if you ever
                     decide to add more statements to a branch it is very easy to forget to put the curly brackets in,
                     and this can lead to some very frustrating bugs in your code.
                 </p>
             </div> <!-- End of left column -->
-
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-                <br />
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -665,7 +673,7 @@ else
                 <h3>9. Tips</h3>
                 <p>
                     <b>Debugging: </b> As your sketches become more ambitious you will find that they are harder to get
-                    right. The art of identifying the errors ("bugs") in your code, and fixing them, is known as
+                    right first time. The art of identifying the errors ("bugs") (🪲) in your code, and fixing them, is known as
                     <i>debugging</i>. Bugs can be frustratingly hard to track down. A common experience for programmers
                     is that we find ourselves thinking:
                 </p>
@@ -675,29 +683,29 @@ else
 
                 <p>
                     It is tempting to think that the problem must lie elsewhere, that the bug is not in our code but in
-                    Processing, or Windows, or the computer hardware. But, in fact, it always turns out that the bug
+                    <i>Processing</i>, or Windows, or the computer hardware. But, in fact, it always turns out that the bug
                     <i>really is in our code</i>. (OK, not <i>always</i>. Very, very occasionally the blame actually
                     does lie elsewhere.)
                 </p>
 
                 <p>
-                    Here are two techniques which can help:
+                    Here are two techniques that can help:
                 </p>
                 <ol>
                     <li>
-                        Talk through your code with a fellow programmer. Explain how you expect your code to behave, why
-                        you think it should behave that way, and what is actually happening. It is surprising how often
+                        <b>Talk through your code with a fellow programmer.</b><br/>
+                        Explain how you expect your code to behave, why
+                        you think it should behave that way, and what is actually happening.
+                        It is surprising how often
                         the simple act of trying to explain your code to another programmer allows you to see why it is
                         wrong (even when the other programmer can't see the problem).
-                        <br /><br />
                     </li>
                     <li>
-                        Use <code>println()</code> statements to print out the values of variables and to give a visible
-                        indication of control flow. For example, suppose you have variables <code>x</code> and
-                        <code>y</code> which are used to position the drawing of your widget, but for some unfathomable
-                        reason your widget does not pop up as you expect it to when the score goes above 999. You might
-                        add:
-                        <br /><br />
+                        <b>Reveal  the values of variables and to give a visible indication of control flow.</b><br/>
+                        For example, suppose you have variables <code>x</code> and
+                        <code>y</code>, which are used to position the drawing of your widget, but for some unfathomable
+                        reason your widget does not pop up as you expect it to when the score goes above 999.
+                        You might add use <code>println()</code> to reveal the values:
                         <pre class="brush: processing; gutter: false; toolbar: false; class-name: 'shextras'; ">println("value of x:", x);
 println("value of y:", y);</pre>
                         just before the code which draws the widget.
@@ -708,18 +716,24 @@ println("value of y:", y);</pre>
                             </li>
                             <li>
                                 On the other hand, if you don't see <i>any</i> message, then you know that your widget
-                                drawing code is not being executed at all. Perhaps that boolean expression which checks
+                                drawing code is not being executed at all. Perhaps that Boolean expression which checks
                                 the score is wrong?
                             </li>
                         </ul>
-                    </li>
+                        You can also use <code>text()</code> to display the values of variables on the <i>Processing</i> canvas.
+                        Sometimes we create a whole list of values that change dynamically as we are debugging.
+                        <pre class="brush: processing; gutter: false; toolbar: false; class-name: 'shextras'; ">if (inDebugMode) {
+  text("x is "+x, 20, 20);
+  text("y is "+y, 20, 40);
+  text("frameCount is "+frameCount, 20, 60);</pre></li>
+                            <li>Learn to use the <i>Processing</i> <a href="https://processing.org/environment/#debug-1">Debugger</a> tool as part of your programming workflow.</li>
                 </ol>
 
                 <p>
                     <b>Make your boolean expressions legible.</b> You can do this best in two ways. First, split long
                     and complicated boolean expressions into multiple simpler ones, store the results of those in
-                    boolean variables, then combine the variables back into the larger expression. Second, use variable
-                    names which make your condition read naturally in plain English. Here's an example of turning a
+                    boolean variables, then combine the variables back into the larger expression.<br/>Second, use variable
+                    names that make your condition read naturally in plain English. Here's an example of turning a
                     rather lengthy condition into one that reads well:
                 </p>
 
@@ -742,8 +756,7 @@ if (mouseUpperLeft || mouseLowerRight)
 }</pre>
 
                 <p>
-                    Another benefit of using variables to break up complex conditions is that they become easier to
-                    debug.
+                    Another benefit of using variables to break up complex conditions is that they become easier to debug.
                 </p>
 
                 <p>
@@ -753,11 +766,6 @@ if (mouseUpperLeft || mouseLowerRight)
                     multiple lines. Don't through a semicolon in the middle of it.
                 </p>
             </div> <!-- End of left column -->
-
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-                <br />
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
