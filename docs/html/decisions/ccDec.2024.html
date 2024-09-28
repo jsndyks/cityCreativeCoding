@@ -94,38 +94,34 @@
                 </p>
 
                 <ol>
-                    <li>At the time of writing the code, we know everything and everything is deterministic. We know all the data values and how they
-                        should be processed. Unfortunately, this doesn't happen very often. </li>
-                    <li>There are things we don't know when we write the code, but they are "known unknowns". We know
+                    <li>At the time of writing the code, we know everything and everything is deterministic.<br/>We know all the data values and how they
+                        should be processed.<br/><i>Unfortunately, this doesn't happen very often.</i></li>
+                    <li>There are things we don't know when we write the code, but they are "known unknowns".<br/>We know
                         what kind of data our code has to process and we know the rules for how it should be processed
-                        when it becomes available.</li>
+                        when it becomes available.<br/><i>This is usually the case.</i></li>
                 </ol>
 
                 <p>
-                    The second of these is the situation we normally have to deal with as programmers. We are expected
-                    to write code which is flexible enough to process many alternative combinations of inputs and user
-                    behaviours by applying known rules. The data values only become known as the code executes, but the
-                    rules can be figured out in advance.
+                    As the second of these situations is the one we normally have to deal with as programmers, we are expected
+                    to write code that is flexible enough to process many alternative situations - combinations of inputs and user
+                    behaviours by applying known rules.
+                    The precise context only becomes known as the code executes, but the rules can be figured out in advance.
                 </p>
 
                 <p>
                     Variables and parameterization is one way to achieve this. You have already drawn code that behaves
-                    differently when the user changes their input (e.g. we drew rectangles which traced the user's
+                    differently when the user changes their input (e.g. we drew rectangles that traced the user's
                     cursor). However, parameterization can only take you so far because incoming values are processed in
                     a uniform way.
                 </p>
 
                 <p>
                     A fundamental programming concept that brings us much closer to fully flexible programs is the
-                    <b>the if statement</b>
+                    <b>the <code>if</code> statement</b>
                 </p>
 
             </div> <!-- End of left column -->
 
-            <div class="unit-70-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-                <br />
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -161,21 +157,27 @@ void draw()
                 <ol>
                     <li>
                         First the condition is evaluated. The condition is the stuff inside the round brackets,
-                        immediately after the keyword <code>if</code>. In this example the condition is
-                        <code>mouseX &lt; width/2</code>. A condition can be any boolean expression (more about these in
-                        a little while)
+                        immediately after the keyword <code>if</code>.<br/>
+                        In this example the condition is
+                        <code>mouseX &lt; width/2</code>.<br/>
+                        A condition can be any boolean expression (more about these in a little while)
                     </li>
                     <li>
-                        Then <b>Either</b> the first block of code is executed (the code in between the condition and
-                        the keyword <code>else</code>), <b>Or</b> the second block of code is executed (the code
-                        immediately after the keyword <code>else</code>). The first block will be executed if the
+                        Then ...
+                        <ul>
+                            <li><b>Either</b> the first block of code is executed (the code in between the condition and
+                                the keyword <code>else</code>),</li>
+                                <li><b>Or</b> the second block of code is executed (the code
+                                    immediately after the keyword <code>else</code>).</li>
+                        </ul>
+                        The first block of code will be executed if the
                         condition evaluated to true, the second if the condition evaluated to false.
                     </li>
                 </ol>
 
                 <p>
                     Some terminology: the first block of code is known as the <i>true branch</i> or <i>if branch</i>and
-                    the second is known as the <i>false branch</i> or <i>else branch</i>. For obvious reasons.
+                    the second is known as the <i>false branch</i> or <i>else branch</i>.
                 </p>
 
             </div> <!-- End of left column -->
@@ -183,12 +185,15 @@ void draw()
             <div class="unit-70-cc annotation">
                 <!-- Right hand column for small images, popup sketches and annotations. -->
                 <br /><br />
+                <figure>
                 <script>loadImage("https://staff.city.ac.uk/~jwo/bootcamp2021/lecture03/images/syntax.png", 887, 705, 'The structure of an if-statement');</script>
                 <p>The structure of an if-statement <i>(click to enlarge)</i>.</p>
                 <br /><br />
                 <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/shapeByMouse", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2021/lecture03/images/chooseShape.png");</script>
 
-                <p>Controlling shape with the mouse (click on image to activate).</p>
+                <figcaption>Controlling shape with the mouse (click on image to activate).</figcaption>
+                </figure>
+                
             </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
@@ -196,7 +201,7 @@ void draw()
         <div class="units-row">
             <div class="unit-70-cc">
                 <!-- Left column -->
-                <h3>3. Example: The Next Station is Angel…</h3>
+                <h3>3. Example: The Next Station is Angel ...</h3>
 
                 <p>
                     The following code is a modified copy of the scrolling text example from yesterday.
