@@ -159,20 +159,41 @@
         <div class="units-row">
             <!--- Column LEFT --->
             <div class="unit-70">
-                <pre class="brush: processing; gutter: false; toolbar: false; highlight: [4,5,6,7,8] ">// -- global variables : Change these in turn, and in combination.
+                <p>Much of the learning you do at University can be approached in the same way - and we'd like you to think about this right at the outset, in <code>#CreativeCoding</code>.</p>
+                <p>Let's imagine you are completing one of the tasks that we set. We'd like you to think about <b>PAROT Talk</b>!</p>
+                <p>Yeah, that's right ... we want you to 🦜.</p>
+                <p>Now, learning <a href="https://en.wiktionary.org/wiki/parrot_fashion">Parrot Fashion</a> involves learning ...</p>
+                <blockquote>In the manner of a parrot; with thoughtless repetition of what others have said<br/><a href="https://en.wiktionary.org/wiki/parrot_fashion">Wiktionary (2024)</a></blockquote>
+                <p>But we are asking for the opposite of that.<br/>
+                We would like you to ... <i>plan</i>, <i>attempt</i>, <i>run</i>, <i>observe</i>, <i>think</i> and then perhaps <i>talk</i>, before going again.</p>
+                <p>In completing a small <code>#CreativeCoding</code> coding task, you might ... </p>
+                <ul>
+                    <li><b>p</b>lan -  your approach, with some sketches and thinking about what you are trying to achieve, and what your approach may be</li>
+                    <li><b>a</b>ttempt - to solve the problem based upon this planning, for example by writing some carefully considered and fully documented code</li>
+                    <li><i>r</i>un - the approach, try it out, for example in <i>Processing</i> by clicking the 'run' button</li>
+                    <li><i>o</i>bserve - what happened? Did it do what you expected, or something else?<br/>Watch carefully, check any debug messages, and any reporting that you have added to the approach (if you didn't add any at first, add these to your plan next time).</li>
+                    <li><b>t</b>hink - can you explain what happened, why things went wrong (if they did)?<br/>How does reflecting deeply on your attempt and subsequent observation inform your planning for next time? What have you learned? What do you not understand?</li>
+                    <li><i>talk</i> - communicate with colleagues by explaining your thinking, showing them your attempt and gaining alternative and perhaps even diverse perspectives.<br/>Talk to your teachers, electronically or in person. Check any documentation.</li>
+                </ul>
+                <p>... and then start another cycle until the ask is complete.</p>
+
+                <p>We would like you to try this when you undertake <code>#CreativeCoding</code> tasks.<br/> For example: run this code, and change the five global variables that control the way in which the sketch changes over time. Every time you make a change, go through a PAROT (talk) cycle, and if things did not turn out as you expected, go again into cycle two. Several cycles should help you understand what  each of the global variables do, and how the <i>Processing</i> <code>rect()</code> and <code>frameRate()</code> methods work and how the <code>mouseX</code>, <code>mouseY</code> and <code>frameCount</code> variables vary.</p>
+ 
+
+<pre class="brush: processing; gutter: false; toolbar: false; highlight: [4,5,6,7,8] ">// -- global variables : Change these FIVE in turn, and in combination.
 // -- Use PAROT talk to learn their effects.
                     
-float mouseXDiv = 1;           // <-- change number that mouseY is divided by
-float mouseYDiv = 1;           // <-- change number that mouseX is divided by
-float rectRatio  = 0.5;        // <-- change the aspect ratio of the rectangle
-float widthFactor = 2;
-float framesPerSecond = 60;    // <-- change frameRate from 1-60
+float mouseXDiv = 1;           // &lt;-- change number that mouseY is divided by
+float mouseYDiv = 1;           // &lt;-- change number that mouseX is divided by
+float rectRatio  = 0.5;        // &lt;-- change the aspect ratio of the rectangle
+float widthFactor = 2;         // &lt;-- change the speed at which the rectangle changes size
+float framesPerSecond = 60;    // &lt;-- change frameRate from 1-60
                     
                     
 void setup() {
   size(400, 300);
-  background(255, 236, 149);  // <-- change each of the colour components between 0 and 255
-  fill(203, 118, 122);        // <-- change each of the colour components between 0 and 255
+  background(255, 236, 149);  // &lt;-- change each of the colour components between 0 and 255
+  fill(203, 118, 122);        // &lt;-- change each of the colour components between 0 and 255
 }
                     
                     
@@ -188,13 +209,25 @@ void draw() {
   // -- draw a rectangle at x,y with the specified height and width:
   rect(x, y, rectWidth, rectHeight);
 }</pre>
+<p>We think that you can usefully apply this reflective approach to learning at various scales at University: </p>
+    <ul>
+        <li>completing a small section of a programme</li>
+        <li>completing a larger programme</li>
+        <li>undertaking an assessment</li>
+        <li>taking a module</li>
+        <li>completing a year of your course</li>
+        <li>your whole degree? Maybe, if you go on to do another one?</li>
+        <li>life? Now we are getting philosophical</li>
+    </ul>
+    <p>We encourage you to adopt <b>PAROT Talk</b>, or something similar, as you are experimental, reflective and systematic in your learning.</p>
                 </div>
 
 
             <!--- Column RIGHT --->
             <div class="unit-30 annotation">
                 <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/parotTalk/", 400, 300, "https://jsndyks.github.io/cityCreativeCoding/html/welcome/img/cc.PAROTTalk.sketch.png");</script>
-                <p>Try the original script by clicking above.</p>
+                <p>Try the original script, shown to the left, by clicking above.</p>
+                <p>To try the exercise, copy and paste the code from the left into the <i>Processing</i> API.</p>
             </div>
         </div>
 
