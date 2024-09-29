@@ -160,36 +160,34 @@
             <!--- Column LEFT --->
             <div class="unit-70">
                 <pre class="brush: processing; gutter: false; toolbar: false; highlight: [4,5,6,7,8] ">// -- global variables : Change these in turn, and in combination.
-                    // -- Use PAROT talk to learn their effects.
+// -- Use PAROT talk to learn their effects.
                     
-                    float mouseXDiv = 1;           // <-- change number that mouseY is divided by
-                    float mouseYDiv = 1;           // <-- change number that mouseX is divided by
-                    float rectRatio  = 0.5;        // <-- change the aspect ratio of the rectangle
-                    float widthFactor = 2;
-                    float framesPerSecond = 60;    // <-- change frameRate from 1-60
-                    
-                    
-                    void setup() {
-                      size(400, 300);
-                      background(255, 236, 149);  // <-- change each of the colour components between 0 and 255
-                      fill(203, 118, 122);        // <-- change each of the colour components between 0 and 255
-                    }
+float mouseXDiv = 1;           // <-- change number that mouseY is divided by
+float mouseYDiv = 1;           // <-- change number that mouseX is divided by
+float rectRatio  = 0.5;        // <-- change the aspect ratio of the rectangle
+float widthFactor = 2;
+float framesPerSecond = 60;    // <-- change frameRate from 1-60
                     
                     
-                    void draw() {
-                      frameRate(framesPerSecond);  // -- sets number of frames per second.
+void setup() {
+  size(400, 300);
+  background(255, 236, 149);  // <-- change each of the colour components between 0 and 255
+  fill(203, 118, 122);        // <-- change each of the colour components between 0 and 255
+}
                     
-                      // -- calculate position and dimensions of rectangle depending on global variables:
-                      float x = mouseX / mouseXDiv;
-                      float y = mouseY / mouseYDiv;
-                      float rectWidth = frameCount / widthFactor;
-                      float rectHeight = rectWidth * rectRatio;
                     
-                      // -- draw a rectangle at x,y with the specified height and width:
-                      rect(x, y, rectWidth, rectHeight);
-                    }
+void draw() {
+  frameRate(framesPerSecond);  // -- sets number of frames per second.
                     
-</pre>
+  // -- calculate position and dimensions of rectangle depending on global variables:
+  float x = mouseX / mouseXDiv;
+  float y = mouseY / mouseYDiv;
+  float rectWidth = frameCount / widthFactor;
+  float rectHeight = rectWidth * rectRatio;
+                    
+  // -- draw a rectangle at x,y with the specified height and width:
+  rect(x, y, rectWidth, rectHeight);
+}</pre>
                 </div>
 
 
