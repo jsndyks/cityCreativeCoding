@@ -42,6 +42,13 @@
 
   .rightCol {float:right; width :40%}
   
+  /* -- New Colours!
+   */
+
+  .coreTask {background-color: #def}
+  .codingTask {background-color: #ff8}
+  .challenge {background-color: #fdd}
+
   /*
   * crop image 
   */

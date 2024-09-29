@@ -778,6 +778,106 @@ if (mouseUpperLeft || mouseLowerRight)
 
                 <p style="padding:1em;background-color:#ff8">JD to add these in from the <a href="https://jsndyks.github.io/cityCreativeCoding/html/decisions/ccDec.2024.extra.html">Exercises Page</a> on Sun 29th.</p>
 
+        <div class="coreTask">
+            <h5>Inside or Out?</h5>
+            <p>We'd like you to use what you have learned to detect an react to input from the mouse / cursor while a sketch is running.</p>
+            <p>For this task, create a new sketch and start with a blank page.<br/>
+                So start with the <i>Processing</i> classic empty sketch:</p>
+                <pre class="brush: processing; gutter: false; toolbar: false; ">
+void setup() 
+{
+
+}
+
+void draw()
+{
+
+}</pre>
+            <p>Copy and past the above a new sketch - strictly NO copy and paste after this!</p>
+            <ol>
+                <li>
+                    <p>
+                    <!-- Add the usual <code>setup()</code> and <code>draw()</code> methods to your sketch. -->
+                    In <code>setup()</code>, set the <code><a href="https://processing.org/reference/size_.html">size()</a></code> of the sketch window to
+                    200 pixels wide by 300 pixels high.<br/>
+                    To start with, your sketch will simply draw a white-filled circle at a randomly chosen position.
+                    Declare <code>x</code> and <code>y</code> variables at the top of the sketch.<br/>
+                    Then, in <code>setup()</code>, initialise <code>x</code> and <code>y</code> with randomly chosen values.
+                    Use <code><a href="https://processing.org/reference/random_.html">random()</a></code> for this with  value ranges (upper and lower limits)
+                    that guarantee that the point <code>(x,y)</code> is inside the sketch window.<br/>
+                    In <code>draw()</code>, add code to draw a white-filled circle of radius 50, centered at
+                    <code>(x,y)</code> on a grey background - with <code><a href="https://processing.org/reference/background_.html">background()</a></code>.
+                    </p>
+                    <p>
+                    Run your sketch several times and check that the circle is visible every time (many times, only part
+                    of the circle will be visible, when the centre is close to an edge, but it should always be
+                    partially visible).
+                    </p>
+                </li>
+
+                <li>
+                    <p>
+                    Add extra code to draw a white rectangle on top of the circle with <code><a href="https://processing.org/reference/rect_.html">rect()</a></code>.<br/>
+                    The rectangle should be 130 pixels wide and 20 pixels high, centred at <code>(x,y)</code>.<br/>
+                    The overall shape should look similar to an underground sign.
+                    </p>
+                </li>
+
+                <li>
+                    <p>
+                    Now, add code so that whenever the mouse is inside the rectangle, the rectangle is filled blue instead of
+                    white.<br/>
+                    You will need to use:
+                    <code><a href="https://processing.org/reference/mouseX.html">mouseX</a></code>, 
+                    <code><a href="https://processing.org/reference/mouseY.html">mouseY</a></code>,
+                    and an <code><a href=""https://processing.org/reference/if.html">if</a></code> statement
+                    that changes the <code><a href="https://processing.org/reference/fill_.html">fill()</a></code> depending upon where the mouse is in relation to the rectangle.</p> 
+                    <p><b>IMPORTANT:</b> use your sketchbook and draw the shapes to help you work out how to detect whether the mouse / cursor is within the rectangle!</p>
+                </li>
+
+                <li>
+                    <p>
+                    Add code so that whenever the mouse is <i>not</i> inside the rectangle, but <i>is</i> inside the
+                    circle, the circle is filled red instead of white.</p>
+
+                    <div class="tip">
+                        <p>
+                        The <code><a href="https://processing.org/reference/dist_.html">dist()</a></code> command will be helpful here!<br/>
+                        It can be used to find the distance between two points, two pairs of (x,y) coordinates.<br/>
+                        It is documented nicely in the <a href="https://processing.org/reference/dist_.html">Processing Reference Documentation</a>, which you should check.<br/>
+                        A point is inside a circle if its distance from the centre of the circle is less than the circle's radius: draw it in your sketchbook, this will help you figure it out!
+                    </p>
+                    </div>
+                </li>
+
+                <li>Test the logic of your code. There are four key cases:
+                    <ol>
+                        <li>Mouse / cursor entirely outside the shape:<br />
+                            <img src="https://jsndyks.github.io/cityCreativeCoding/html/decisions/img/ccDec.testCase-1.jpg" width="70"
+                                height="70" alt="test-case 1" />
+                        </li>
+                        <li>Mouse / cursor  inside rectangle but outside circle:<br />
+                            <img src="https://jsndyks.github.io/cityCreativeCoding/html/decisions/img/ccDec.testCase-2.jpg" width="70"
+                                height="70" alt="test-case 2" />
+                        </li>
+                        <li>Mouse / cursor  inside rectangle <i>and</i> inside circle:<br>
+                            <img src="https://jsndyks.github.io/cityCreativeCoding/html/decisions/img/ccDec.testCase-3.jpg" width="70"
+                                height="70" alt="test-case 3" />
+                        </li>
+                        <li>Mouse / cursor  inside circle but outside rectangle:<br>
+                            <img src="https://jsndyks.github.io/cityCreativeCoding/html/decisions/img/ccDec.testCase-4.jpg" width="70"
+                                height="70" alt="test-case 4" />
+                        </li>
+                    </ol>
+                </li>
+
+                <li>
+                    Modify the code that initialises <code>x</code> and <code>y</code> so that the <i>whole</i> of the
+                    "underground sign" is always visible (making full use of the sketch window area).
+                </li>
+            </ol>
+        </div>
+
             </div> <!-- End of left column -->
         </div> <!-- End of row -->
 

@@ -63,14 +63,19 @@
 
 -->
 
-    <p>
-            These exercises develop your ability to use if-statements in your code.
+<p>Before you try out these optional exercises, please make sure that you have worked through and understood 
+    all of the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=798914">Decisions : Core</a> concepts and exercises.</p>
+
+         <p>
+            These additional optional exercises will help you develop your ability to use <code>if</code> statements in your code.
         </p>
 
 
         <div class="codeTask">
-            This exercise is an adaptation of the “Heads or Tails” sketch from the lecture:
-            <br /><br />
+            <h5>Two Coins?</h5>
+            <p>
+            This exercise is an adaptation of the “Heads or Tails” sketch from the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=798914">Decisions : Core</a> activity :
+        </p>
             <pre class="brush: processing; gutter: false; toolbar: false; ">float randomNumber;
 
 void setup()
@@ -95,130 +100,62 @@ void draw()
   }
   text(message, width/2, height/2);
 }</pre>
+            <p>
             Copy this code into a new sketch. Save the sketch with the name “TwoCoins”.
-            <br /><br />
-            The aim is to extend this code so that it simulates two coin tosses instead of just one. The possible
-            combinations for two coin tosses are TT, TH, HT, HH. Your sketch should print one of three messages:
-            <br /><br />
+        </p>
+            <p>
+                The aim is to extend this code so that it simulates two coin tosses instead of just one.<br/>
+                The possible combinations for two coin tosses are TT, TH, HT, HH.
+                Your sketch should print one of three messages:
+            </p>
             <ul>
                 <li>“TWO TAILS” (combination TT)</li>
                 <li>“TWO HEADS” (combination HH)</li>
                 <li>“MIXED” (combinations TH and HT)</li>
             </ul>
+            <p>
             Develop your solution in three stages:
-            <br /><br />
+            </p>
             <ol>
                 <li>
                     Declare an additional variable at the top of the sketch (call it something like
                     <code>randomNumber2</code>) and initialise it in <code>setup()</code> to a random number in the
-                    range 0 to 2. Check that your sketch runs (you won't see any new behaviour yet).
-                    <br /><br />
+                    range 0 to 2.<br/>Check that your sketch runs (you won't see any new behaviour yet).
                 </li>
 
                 <li>
-                    Modify the if-statement in <code>draw()</code> so that the condition tests if <em>both</em> the
-                    random numbers are less than 1. You should use the <code>&amp;&amp;</code> operator to do this.
+                    Modify the if-statement in <code>draw()</code> so that the condition tests whether <em>both</em> the
+                    random numbers are less than 1 with an <code>if</code> statement.<br/>
+                    You should use the <code>&amp;&amp;</code> operator to do this.<br/>
                     Modify the message variable assignments so that the first one is “TWO TAILS” and the second one is
-                    “WORK IN PROGRESS!”. Check that your sketch runs and behaves as expected. If you run it lots of
+                    “WORK IN PROGRESS!”. Check that your sketch runs and behaves as expected. If you run it repeatedly many
                     times you should find that it displays the message “TWO TAILS” roughly a quarter of the time.
-                    <br /><br />
                 </li>
 
                 <li>
                     Extend the if-statement with extra cases to test for other combinations and set the message variable
-                    appropriately. Check that your sketch runs and behaves as expected. If you run it lots of times you
-                    should find that it displays “TWO TAILS” roughly a quarter of the time, “TWO HEADS” roughly a
+                    appropriately.<br/>Check that your sketch runs and behaves as expected.<br/>
+                    If you run it lots of times you should find that it displays “TWO TAILS” roughly a quarter of the time, “TWO HEADS” roughly a
                     quarter of the time, “MIXED” roughly half the time.
                 </li>
             </ol>
         </div>
 
-        <div class="aside">
+        <!---div class="aside">
             <p><b></b>ASIDE:</b></p>
             <p>
             Randomness has many uses.<br/>
             we have produced a whole page on <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=465023">a whole
                 Randomness</a> that you can use to find out more.
                 </p>
-        </div>
-        <br /><br />
+        </div--->
 
-        <div class="coreTask">
-            For this task, create a new sketch and start with a blank page: strictly NO copy and paste.
-            <br /><br />
-            <ol>
-                <li>
-                    Add the usual <code>setup()</code> and <code>draw()</code> methods to your sketch. In
-                    <code>setup()</code>, set the size of the sketch window to 200 pixels wide by 300 pixels high. To
-                    start with, your sketch will simply draw a white-filled circle at a randomly chosen position.
-                    Declare <code>x</code> and <code>y</code> variables at the top of the sketch. Then, in
-                    <code>setup()</code>, initialise <code>x</code> and <code>y</code> with randomly chosen values (use
-                    value ranges which guarantee that the point <code>(x,y)</code> is inside the sketch window). In
-                    <code>draw()</code>, add code to draw a white-filled circle of radius 50, centered at
-                    <code>(x,y)</code> on a grey background.
-                    <br /><br />
-                    Run your sketch several times and check that the circle is visible every time (many times, only part
-                    of the circle will be visible, when the centre is close to an edge, but it should always be
-                    partially visible).
-                    <br /><br />
-                </li>
-
-                <li>
-                    Add extra code to draw a white rectangle on top of the circle. The rectangle should be 130 pixels
-                    wide and 20 pixels high, centred at <code>(x,y)</code>. The overall shape should look similar to an
-                    underground sign.
-                    <br /><br />
-                </li>
-
-                <li>
-                    Add code so that whenever the mouse is inside the rectangle, the rectangle is filled blue instead of
-                    white.
-                    <br /><br />
-                </li>
-
-                <li>
-                    Add code so that whenever the mouse is <i>not</i> inside the rectangle, but <i>is</i> inside the
-                    circle, the circle is filled red instead of white.
-                    <div class="tip">
-                        The <code>dist()</code> command can be used to find the distance between two points. It is
-                        documented in the official <a href="https://processing.org/reference/dist_.html">Processing
-                            Reference Documentation</a>. A point is inside a circle if its distance from the centre is
-                        less than the radius.
-                    </div>
-                </li>
-
-                <li>Test the logic of your code. There are four key cases:
-                    <ol>
-                        <li>Mouse entirely outside the shape:<br />
-                            <img src="https://jsndyks.github.io/cityCreativeCoding/html/decisions/img/ccDec.testCase-1.jpg" width="70"
-                                height="70" alt="test-case 1" />
-                        </li>
-                        <li>Mouse inside rectangle but outside circle:<br />
-                            <img src="https://jsndyks.github.io/cityCreativeCoding/html/decisions/img/ccDec.testCase-2.jpg" width="70"
-                                height="70" alt="test-case 2" />
-                        </li>
-                        <li>Mouse inside rectangle <i>and</i> inside circle:<br>
-                            <img src="https://jsndyks.github.io/cityCreativeCoding/html/decisions/img/ccDec.testCase-3.jpg" width="70"
-                                height="70" alt="test-case 3" />
-                        </li>
-                        <li>Mouse inside circle but outside rectangle:<br>
-                            <img src="https://jsndyks.github.io/cityCreativeCoding/html/decisions/img/ccDec.testCase-4.jpg" width="70"
-                                height="70" alt="test-case 4" />
-                        </li>
-                    </ol>
-                    <br /><br />
-                </li>
-
-                <li>
-                    Modify the code which initialises <code>x</code> and <code>y</code> so that the <i>whole</i> of the
-                    "underground sign" is always visible (making full use of the sketch window area).
-                </li>
-            </ol>
-        </div>
 
         <div class="codeTask">
-            In this exercise and the next you will develop an animated ball bouncing inside a box. We start by adapting
-            the scrolling text example from the lecture:
+            <h5>Bouncing Ball</h5>
+            <p>
+            In this exercise and the next you will develop an animated ball bouncing inside a box.<br/>
+            We start by adapting the scrolling text example from the lecture:
             <br /><br />
             <pre class="brush: processing; gutter: false; toolbar: false; ">float xPos; // x-position
 float vx; // speed in x-direction
