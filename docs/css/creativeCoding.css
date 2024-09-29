@@ -26,7 +26,7 @@
 
   .focusOFF {display:none; padding:0px; color:#229; background-color:#fff; }
 
-  .focusLecture {display:block; padding:4px; margin:4px; background-color:#ff9; border-left:4px solid #b44;}
+  .focusLecture {display:block; padding:4px; margin:4px; background-color:#b0e0ff; border-left:4px solid #8cf; float:left}
 
   .figCaption {margin:1em; color:#606060; font-style:italic; font-size: 90%}
 
