@@ -87,6 +87,9 @@
   .homework::before {
     content: "homework";
   }
+  .aside::before {
+    content: "aside ...";
+  }
   .challenge::before {
     content: "EXTRA CHALLENGE";
   }
