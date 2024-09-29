@@ -120,7 +120,7 @@
                 <p>Now <code>#CreativeCoding</code> lectures are a little different to some other lectures, and you will have laptops out and are likely to be dealing with short introductions to self-paced activity in many cases. But taking notes like this in lectures will give you some pointers for activity and discussion in the labs, and subsequently in your own time. We do have time scheduled for discussion in the labs and through the online channels, through which we can explore the concepts, and issues introduced in the lectures.</p>
 
                 <p>So - take structured notes, and figure out a good way to do this so that you participate actively and effectively in lectures.
-                    How might you structure not-taking, the layout of your notes pages, for <code>#CreativeCoding</code>?<br/>
+                    How might you structure note-taking, the layout of your notes pages, for <code>#CreativeCoding</code>?<br/>
                     Your teachers and classmates can advise you - and you can likely advise them.<br/>
                     You may want to use your notebooks - for <code>#CreativeCoding</code> at any rate.
                 </p>
@@ -142,7 +142,8 @@
                 <p>The effervescent <a href="https://thecodingtrain.com/about">Dan Shiffman</a> has produced a fantastic 1-hour interactive (exhausting) introduction to the Processing language:</p>
                 <ul><li><a href="https://hello.processing.org/" target="_new">Hello Processing: Processing Hour of Code</a>.</li></ul>
                 <p>It is a fun and informative introduction, that will get you started with <i>Processing</i> very quickly.</p>
-                <p>If you have an hour spare or are new to all of this kind of thing and finding your feet with <i>Processing</i>, it's highly recommended.</p>
+                <p>If you have an hour spare or are new to all of this kind of thing and finding your feet with <i>Processing</i>, it's highly recommended.<br/>
+                    We would like you to try it.</p>
             </div>
 
             <!--- Column RIGHT --->
@@ -152,19 +153,67 @@
             </div>
         </div>
 
-
-        <!--- ROW : FeedBack -->
-        <h3>Student Suggestions</h3>
+        <!--- Parot Talk --->
+        <!--- ROW : Parot -->
+        <h3>PAROT Talk</h3>
         <div class="units-row">
             <!--- Column LEFT --->
             <div class="unit-70">
-            <p>I asked some former students who survived <code>#CreativeCoding</code> what their advice would be for anybody about to start the course.<br/>
+                <pre class="brush: processing; gutter: false; toolbar: false; highlight: [4,5,6,7,8] ">// -- global variables : Change these in turn, and in combination.
+                    // -- Use PAROT talk to learn their effects.
+                    
+                    float mouseXDiv = 1;           // <-- change number that mouseY is divided by
+                    float mouseYDiv = 1;           // <-- change number that mouseX is divided by
+                    float rectRatio  = 0.5;        // <-- change the aspect ratio of the rectangle
+                    float widthFactor = 2;
+                    float framesPerSecond = 60;    // <-- change frameRate from 1-60
+                    
+                    
+                    void setup() {
+                      size(400, 300);
+                      background(255, 236, 149);  // <-- change each of the colour components between 0 and 255
+                      fill(203, 118, 122);        // <-- change each of the colour components between 0 and 255
+                    }
+                    
+                    
+                    void draw() {
+                      frameRate(framesPerSecond);  // -- sets number of frames per second.
+                    
+                      // -- calculate position and dimensions of rectangle depending on global variables:
+                      float x = mouseX / mouseXDiv;
+                      float y = mouseY / mouseYDiv;
+                      float rectWidth = frameCount / widthFactor;
+                      float rectHeight = rectWidth * rectRatio;
+                    
+                      // -- draw a rectangle at x,y with the specified height and width:
+                      rect(x, y, rectWidth, rectHeight);
+                    }
+                    
+</pre>
+                </div>
+
+
+            <!--- Column RIGHT --->
+            <div class="unit-30 annotation">
+                <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/parotTalk/", 400, 300, "https://jsndyks.github.io/cityCreativeCoding/html/welcome/img/cc.PAROTTalk.sketch.png");</script>
+                <p>Try the original script by clicking above.</p>
+            </div>
+        </div>
+
+        <!--- ROW : FeedBack -->
+        <h3>Student Suggestions &amp; BootCamp</h3>
+        <div class="units-row">
+            <!--- Column LEFT --->
+            <div class="unit-70">
+            <p><code>#CreativeCoding</code> is based on the materials and approaches used in our <code>#BootCamp</code> activity. For many years we have run a two-week intensive introduction to coding at the start of year 1. But we have changed things a little this time as we redesign our learning activities. <code>#BootCamp</code> as intensive, perhaps <i>too intensive</i>, and we didn't like the lack of time, the negativity around the term, and the lack of clearly defined outputs.</p>
+            <p>Nevertheless, our <code>#BootCamp</code> experiences, and those of former <code>#BootCamp</code> students are worth considering as we begin to learn through <code>#CreativeCoding</code>.</p>
+            <p>I asked some former students who survived <code>#BootCamp</code> what their advice would be for anybody about to start the course.<br/>
             Here is their guidance and feedback for you:</p>
-            <blockquote style="margin-bottom:0.25em">Start to learn the <b>main concepts of conditions</b> early on in BootCamp:<br/><code>if</code>, <code>while</code>, <code>do ... while</code>, <code>for</code> loops.<br/> This helps immensely in most of the coursework related to Java</blockquote>
+            <blockquote style="margin-bottom:0.25em">Start to learn the <b>main concepts of conditions</b> early on in the course:<br/><code>if</code>, <code>while</code>, <code>do ... while</code>, <code>for</code> loops.<br/> This helps immensely in most of the coursework related to Java</blockquote>
             <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">... and get a hand from teaching staff if you find these concepts challenging.</p>
-            <blockquote style="margin-bottom:0.25em">Try to grasp the notion of <b>classes</b> and <b>objects</b>, but don’t worry if you can not, as this is taught several times during the first year.</blockquote>
+            <blockquote style="margin-bottom:0.25em">Try to grasp the notion of <b>classes</b> and <b>objects</b>, but don't worry if you can not, as this is taught several times during the first year.</blockquote>
             <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">... once again, discuss these concepts with staff as we work through week 1.</p>
-            <blockquote style="margin-bottom:0.25em">If you already have experience of coding then some of BootCamp will seem very simple but its always good to get practice in and <b>try to challenge yourself</b> on some of the tasks. There are always ideas for taking things further - maybe add a new feature or additional aspects to the sketch you are working on.</blockquote>
+            <blockquote style="margin-bottom:0.25em">If you already have experience of coding then some of the concepts and exercises will seem very simple but its always good to get practice in and <b>try to challenge yourself</b> on some of the tasks. There are always ideas for taking things further - maybe add a new feature or additional aspects to the sketch you are working on.</blockquote>
             <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">... if you know how to code, just have fun coding new stuff and seeing what <i>Processing</i> and its libraries can do - look for the red 'challenges' to guide you.</p>
             <blockquote style="margin-bottom:0.25em">To students who don't have experience with coding don't focus too much on getting the math calculations perfect like the size of a shape to be exactly like in the example and focus on <b>understanding what the code is doing and how it works</b>.</blockquote>
             <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">... yes, we do not need you to copy what we have done exactly. Focus on understanding the concepts and not the detail of replication.</p>
@@ -175,7 +224,7 @@
             <!--- Column RIGHT --->
             <div class="unit-30 annotation">
                 <img src="https://jsndyks.github.io/cityCreativeCoding/html/welcome/img/showcase.IMG_5212.jpeg" width="200" />
-                <p>Students at <code>#CreativeCoding</code>.</p>
+                <p>Students at <code>#BootCamp</code>.</p>
             </div>
         </div>
 
@@ -186,10 +235,10 @@
             <div class="unit-70">
                 <p>Of course, computers can do all sorts - they can problem solve, find information and write code for you very effectively.</p>
                 <p>OpenAI's <a href="https://chat.openai.com/chat">ChatGPT</a> is very good at writing <i>Processing</i> sketches as you will discover if you try it out or watch the <a href="https://cityuni-my.sharepoint.com/:v:/g/personal/j_dykes_city_ac_uk/EccRuu5vIRBGqzXAOsAv3HQBybcV6pLSINqvHj_L2nDjdQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&e=U6dFbD" target="_new">AI at BootCamp</a video to the right 👉.</p>
-                <p>But we'd like you to try to complete the tasks and solve the challenges without using AI please. 
-                    Doing so will give you the skills and outlook that you require to solve more complex challenges as you move through your course.
+                <p><b>But we'd like you to try to complete the tasks and solve the challenges without using AI please. </b></p>
+                  <p>Doing so will give you the skills and outlook that you require to solve more complex challenges as you move through your course.
                     We need to know that you have a grounding, a foundation in the kind of creative computing that we are focussing on here.</p>
-                  <p>So let's keep the AI out of <code>#CreativeCoding</code> - we have plenty of use for it, and to learn about it as we go through the course, but you will only succeed in the course if you have the skills and experience that we are trying to give you in year 1. 
+                  <p>So let's keep the AI out of <code>#CreativeCoding</code> - we have plenty of use for it, and to learn about it as we go through the degree course, but you will only succeed in the wider degree if you have the skills and experience that we are trying to give you in year 1. 
                     And that requires you to take the time to complete these task and exercises, think them through, get them wrong, understand them and painstakingly type the code that is required to do this.</p>
                     <p>So, once again - <b> keep the AI out of <code>#CreativeCoding</code> if you want to learn the essentials of coding</b>.<br/>
                     We think that you do.</p>
@@ -205,53 +254,7 @@ https://cityuni-my.sharepoint.com/:v:/g/personal/j_dykes_city_ac_uk/EccRuu5vIRBG
             </div>
         </div>
 
-        <!--- ROW : Fika! -->
-        <h3>Fika Friday</h3>
-        <div class="units-row">
-            <!--- Column LEFT --->
-            <div class="unit-70">
-                <p><a href="https://hejsweden.com/en/have-coffee-breaks-called-fika-swedish/">Fika</a> is '<i>coffee</i>' backwards in 19th century Swedish!</p>
-                <ul><li>kaffi -> ffi-ka -> fika</li></ul>
-                <p>But it describes a tradition in which people who are often working together stop to meet, chat, exchange knowledge, opinions and work out where they are at. Usually with a coffee, but other options are available.</p>
-                <p>It is also one of my favourite cafés - <a href="https://www.facebook.com/fikacafes/">Fika</a> is a great place to stop when you are in Oakham.
-                    Call in next time you are passing through Rutland!</p>
-                <p>We are finishing <code>#CreativeCoding</code> with <b>fika</b> Friday as we want to encourage you to take time to stop, reflect and discuss your learning, your progress and your learning needs throughout your degree. We want to set up some good practice here. And we want to reward you for a full and busy two weeks and get you to discuss your experiences, your successes and failures, and ours too, with colleagues, tutors and others in the Department of Computer Science.</p>
-                <p>So please come along - we will ask you to sign up in advance so that we can cater for everybody.</p>
-                <p>We also want to give you a target - at our <b>fika</b> Friday we would like you to ...</p>
-                <ul>
-                    <li><b>show up</b> - have something to eat and drink</li>
-                    <li><b>meet your personal tutor</b> - your academic guide for the next few years, somebody you need to get to know</li>
-                    <li><b>identify and explain</b> - an interesting piece of <code>code</code> that you could not have written at the start of <code>#CreativeCoding</code> and explain what it does</li>
-                    <li><b>show</b> - something that you have produced</li>
-                    <li><b>see</b> - what others have done, and chat to them. Find out how they did it, what they learned, and get them to <b>explain</b> - <b>fika</b>!</li>
-                </ul>
-            </div>
 
-            <!--- Column RIGHT --->
-            <div class="unit-30 annotation">
-                <img src="https://jsndyks.github.io/cityCreativeCoding/html/welcome/img/fika.neon.IMG_8298.jpeg" width="200" /><br/>
-                <img src="https://jsndyks.github.io/cityCreativeCoding/html/welcome/img/fika.sign.IMG_8290.jpeg" width="200" />
-            <p>Fika café - not here!</p>
-            </div>
-        </div>
-
-        <div class="units-row">
-            <!--- Column LEFT --->
-            <div class="unit-70">
-                <p>Our <b>Fika Friday</b> is at the end of week 2 - on <b>13th October</b>, from <b>10am-12 noon</b>.</p>
-                <p>It's at <i><b><a href="https://maps.app.goo.gl/1QYyVsqwaDe1HEbY6">The Crypt on The Green</a></b></i> - a nice venue that is just down the road from the Uni at <i><a href="https://maps.app.goo.gl/ijSTdqWYkKygnRN17">Clerkenwell Green</a></i>.</p>
-                <p>You will be asked to sign up beforehand, to prepare an example sketch that contains code that you can explain, and to bring laptops so that you can showcase your work and tell us how <code>#CreativeCoding</code> has been for you.</p>
-                <p>We will provide drinks and snacks and cover a whole host of food and dietary preferences - although if you have a specific allergy, please let us know.</p>
-                <p>It should be a nice way to celebrate the end of your first two weeks at Uni, and to meet, chat, exchange knowledge, opinions and work out where you are at.<br/>With a coffee.<br/>Or an alternative.<br/>And a snack.</p>
-            </div>
-
-            <!--- Column RIGHT --->
-            <div class="unit-30 annotation">
-                <img src="https://jsndyks.github.io/cityCreativeCoding/html/welcome/img/crypt.IMG_1419.jpeg" width="200" /><br/>
-                <img src="https://jsndyks.github.io/cityCreativeCoding/html/welcome/img/pingpong.IMG_1416.jpeg" width="200" />
-            <p>Fika in The Crypt<br/>Here's where to come!</p>
-            </div>
-        </div>
         
         <!-- End of content -->
         <hr />
@@ -259,7 +262,8 @@ https://cityuni-my.sharepoint.com/:v:/g/personal/j_dykes_city_ac_uk/EccRuu5vIRBG
             <b>Jason DYKES</b><br />
             <!-- <i>28 Sep 2023</i> -->
             <!-- <i>29 Sep 2023</i> -->
-            <i>30 Sep 2023</i>
+            <!-- <i>30 Sep 2023</i> -->
+            <i>29 Sep 2024</i>
         </div>
 
         <div style="padding-bottom:2em;clear:both"></div>
