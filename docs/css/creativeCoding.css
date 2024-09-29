@@ -61,11 +61,11 @@
   .task,
   .codeTask,
   .codeTask::before {
-    background-color: #def;
+    background-color: #d8e8f8;
   }
   .coreTask,
   .coreTask::before {
-    background-color: #ff8;
+    background-color: #f8f888;
   }
   .homework,
   .homework::before {
@@ -74,12 +74,12 @@
   }
   .challenge,
   .challenge::before {
-    background-color: #ffe7e7;
+    background-color: #ffe8e8;
     border-color: #ffb0b0;
   }
   
   .codeTask::before {
-    content: "{coding task} - plan, attempt, run, observe, think, talk";
+    content: "{coding task} 🦜";
   }
   .coreTask::before {
     content: "CORE TASK";
@@ -94,9 +94,11 @@
   /* -- New Colours!
    */
 
-  .coreTask {background-color: #def}
-  .codingTask {background-color: #ff8}
-  .challenge {background-color: #fdd}
+  /*
+  .codingTask {background-color: #d8e8f8}
+  .coreTask {background-color: #f8f888}
+  .challenge {background-color: #ffe8e8}
+  */
 
   /*
   * crop image 
@@ -109,6 +111,7 @@ figure {  display: block; margin-left: auto; margin-right: auto; width:75%}
 /* figure .width50 {  display: block; margin-left: auto; margin-right: auto; width:50%} */
 figure img {border:dashed #e0e0e0 1px; padding:4px}
 figcaption {width:90%; text-align:center; color:#909090; padding-top:0.5em; font-size:90%}
+code {color:#228; background-color:#d8f0ff}
 h3 {padding-top:0.25em; margin-top:1em; border-top:1px dashed #e0e0e0}
 .codeTask h5 {padding-top:0.05em; padding-bottom:0.25em; color: #606090}
 .coreTask h5 {padding-top:0.05em; padding-bottom:0.25em; color: #906060}
