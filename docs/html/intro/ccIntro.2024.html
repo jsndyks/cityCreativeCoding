@@ -58,7 +58,7 @@
 			</li>
 			<li>create simple sketches that change in response to mouse movement;</li>
 			<li>use Processing's <a href="https://processing.org/reference" target="_blank">reference pages</a> to
-				find out more about the <i>Processing</i>language.</li>
+				find out more about the <i>Processing</i> language.</li>
 		</ul>
 
 	</div> <!-- End of intro section -->
@@ -87,6 +87,7 @@
 				Anything that looks like this is a 'coding task'. This is your chance to have a go doing something
 				rather than just reading about it. Usually you should have a go doing the task at that point in the
 				page before continuing to read further.</p>
+				<p>Remember PAROT talk (🦜) as an approach to learning by doing.</p>
 				<p>Sometimes we will do these tasks together in the lecture room, but mostly you will do them in the
 				lab classes or in your own time before the next lecture.</p>
 				<p>Remember, don't just persuade yourself that you <i>could</i> do the task; actually do it.
@@ -98,13 +99,16 @@
 
 			<h4>Core tasks</h4>
 			<div class="coreTask">
-				These are 'core tasks' that directly develop and test the core skills introduced in each session.
-				It is very important that you complete these tasks.
+				<p>
+				These are 'core tasks' that are not necessarily to do with coding, but are set to directly develop and test the core skills introduced in each session.
+				It is easy to skip over the, but it's very important that you complete these tasks.
 				During the labs, and as you plan your work, you should prioritise completion of the core tasks before any others.
-				<br><br>
+			</p>
+			<p>
 				You have widely differing backgrounds and skills. Some of you might race through all the exercises in a lab,
 				but most of you will still have some work left to do at the end.
 				After the labs, we strongly encourage you to finish <i>all core tasks</i> in your own time as homework.
+			</p>
 			</div>
 
 			<!--
@@ -119,13 +123,15 @@
 			<h4>Challenges</h4>
 
 			<div class="challenge">
-				These are coding tasks that are a bit more challenging.
+				<p>
+				These are <i>Optional</i>coding tasks that are a bit more challenging - they may interest and perhaps stretch those of you who find the core tasks straightforward.
 				They may require you to use features and
 				techniques that go a bit beyond what we have covered so far in the classes.
 				So do have a go trying them, but don't panic if you are unable to complete them.
-				<br><br>
+			</p><p>
 				If you attempt a challenge but find you can't do it, try to work out <i>why</i> you can't.
 				Part of learning to program well is being able to identify why something isn't working.
+			</p>
 			</div>
 
 			<h4>Asides</h4>
@@ -145,9 +151,9 @@
 			<h4>Copying code</h4>
 
 			<p>
-				The programs you will be writing with <i>Processing</i>are known as <i>Sketches</i>. In the lecture notes
+				The programs you will be writing with <i>Processing</i> are known as <i>Sketches</i>. In the lecture notes
 				you will often see sketch code like that below. You can usually copy the code straight from these
-				pages into <i>Processing</i>by selecting the code then using the <code>Edit-&gt;Copy</code> option (or
+				pages into <i>Processing</i> by selecting the code then using the <code>Edit-&gt;Copy</code> option (or
 				<code>Ctrl-C</code>) from your browser and <code>Edit-&gt;Paste</code> (or <code>Ctrl-V</code>) in
 				Processing .
 			</p>
@@ -204,28 +210,29 @@ void draw()
 		<div class="unit-70-cc">
 			<!-- Left column -->
 
-			<h3>2. Your first <i>Processing</i>sketch</h3>
+			<h3>2. Your first <i>Processing</i> sketch</h3>
 
-			<div class="task">
-				<p>Before starting this section make sure you have <i>Processing</i>installed on your computer.</p>
+			<div class="coreTask">
+				<p>Before starting this section make sure you have <i>Processing</i> installed on your computer.</p>
 				<p>If you
-				haven't done so already, see the instructions for downloading and installing <i>Processing</i>in the first
+				haven't done so already, see the instructions for downloading and installing <i>Processing</i> in the first
 				section of <a href="https://processing.org/tutorials/gettingstarted/" target="_blank">Getting
 				Started with Processing</a></p>
 			</div>
 
 			<p>
 				By the end of <code>#CreativeCoding</code> you will be producing exciting apps including simple games, interactive
-				graphics and data visualizations with <i>Processing</i> . These apps are known as 'sketches' and over the course of this term you
+				graphics and data visualizations with <i>Processing</i>. These apps are known as 'sketches' and over the course of this term you
 				will be producing a sketchbook full of your own. But first let's start with something simple.
 			</p>
 
 			<div class="codeTask">
-				<p>Start <i>Processing</i>and type the following line of code.</p>
+				<p>Start <i>Processing</i> and type the following line of code.</p>
 				<pre class="brush: processing; gutter: false; toolbar: false; ">rect(20,30,70,35);</pre>
 				<p>Then press the 'Run' button (right-pointing
 				triangle)
 				to show your sketch.</p>
+				<p>If all goes well you should see a white rectangle on a grey background.</p>
 
 			</div>
 
@@ -236,9 +243,7 @@ void draw()
 			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 			<p>
-				If all goes well you should see a white rectangle on a grey background. Hardly the most exciting
-				sketch
-				but it does demonstrate the first important idea behind coding:<br/>
+				This is hardly the most exciting sketch but it does demonstrate the first important idea behind coding:<br/>
 				<i>A computer program is a set
 				of precise instructions that gets the machine to do stuff</i></b>.</p>
 				<p>In <i>Processing</i> (and in the
@@ -327,6 +332,7 @@ circle(62,60,40);</pre>
 			</p>
 
 			<div class="aside">
+				<h5>Aside:</h5>
 				<p><i>Processing</i> uses the <i>Java</i> programming language as a way of issuing instructions to the
 				computer.</p>
 				<p><i>Java</i> is known as an <b>object-oriented language</b> because it encourages you to organise
@@ -432,7 +438,7 @@ circle(62,60,40);</pre>
 
 			<p>
 				Using our newly enlarged canvas, we can explore some of the other shape drawing commands available
-				in <i>Processing</i> . In addition to the rectangle and circle, we can draw triangles, lines and irregular
+				in <i>Processing</i>. In addition to the rectangle and circle, we can draw triangles, lines and irregular
 				quadrilaterals. All use the same coordinate system for specifying either locations of the shape
 				(e.g. the centre of a circle; corner of a rectangle; vertices of a triangle or quadrilateral), or
 				its size (e.g. width and height of a rectangle or ellipse). The example below is a sketch that draws
@@ -445,7 +451,7 @@ circle(62,60,40);</pre>
 			<!-- Right column -->
 
 			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/coordinates.png', 453, 357, 'The Processing coordinate system');</script>
-			<p>Specifying locations in the <i>Processing</i>coordinate system <i>(click to enlarge)</i></p>
+			<p>Specifying locations in the <i>Processing</i> coordinate system <i>(click to enlarge)</i></p>
 
 		</div> <!-- end of right column -->
 	</div> <!-- End of row -->
@@ -477,7 +483,7 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 				Make use of the <a href="https://processing.org/reference/" target="_blank">Processing Reference</a>
 				when you wish to learn more about how a processing command works or you wish to explore the
 				capabilities of the language.</p>
-				<p>You can bookmark the web page or access an offline version via <i>Processing</i>'s <code>Help-&gt;Reference</code> menu.</p>
+				<p>You can bookmark the web page or access an offline version via <<i>Processing</i>'s <code>Help-&gt;Reference</code> menu.</p>
 				<p>Learning how to search through, use and apply this reference material will help you immeasurably in <code>#CreativeCoding</code>, so please invest in exploring,  understanding and utilising it.</p>
 			</div>
 
@@ -502,7 +508,7 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 			<h3>4. Drawing styles</h3>
 
 			<p>
-				So far, our sketches have been a little dull and grey. Thankfully, <i>Processing</i>allows you to style
+				So far, our sketches have been a little dull and grey. Thankfully, <i>Processing</i> allows you to style
 				the drawing of shapes
 				using various colours and line thicknesses. You can do this with the commands ...</p>
 				<ul>
@@ -634,7 +640,7 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 				is to add
 				<i>comments</i> to our code. These are the grey lines that start with a <code>//</code>. Whenever
 				you include these two
-				symbols, the rest of the line is then ignored by <i>Processing</i>so you are free to write text to explain
+				symbols, the rest of the line is then ignored by <i>Processing</i> so you are free to write text to explain
 				what the code does.
 			</p>
 
@@ -753,7 +759,7 @@ void draw()
 			</p>
 
 			<p>
-				The answer lies in an important behaviour of all <i>Processing</i>sketches. Any code placed inside the
+				The answer lies in an important behaviour of all <i>Processing</i> sketches. Any code placed inside the
 				<code>setup()</code> method
 				(i.e. placed between the curly braces following the <code>void setup()</code> line) will only ever
 				be executed once — as soon
@@ -832,13 +838,13 @@ void draw()
 			<h3>6. Exercises</h3>
 
 			<p>
-				These first exercises will give you practice at assembling commands inside <i>Processing</i>'s <code>draw()</code>
+				These first exercises will give you practice at assembling commands inside <<i>Processing</i>'s <code>draw()</code>
 				and <code>setup()</code> methods to draw collections of simple shapes.
 				Attempt as many exercises as you can in class, but don't worry if you don't manage to complete
 				all these tasks within the lab session and try to spend time completing the work subsequently.
 			</p>
 		
-			<div class="coreTask">
+			<div class="codeTask">
 				<p>
 				Start with the moving rectangle sketch from the lecture notes (reproduced below).
 				For this task it is acceptable to copy and paste the code directly into <i>Processing</i> (using the Edit Copy / Paste menus or keyboard shortcuts
@@ -868,7 +874,7 @@ void draw()
 		
 			<br><br>
 		
-			<div class="coreTask">
+			<div class="codeTask">
 				<p>Create a new sketch called 'Underground'.<br/>Start with a blank page: strictly NO copy and paste for this task.
 				</p>
 				<p>
@@ -891,7 +897,7 @@ void draw()
 			<br><br>
 		
 		
-			<div class="coreTask">
+			<div class="codeTask">
 				<p>
 				Create a new sketch that draws a simple rectangle that changes its size or colour depending on the position
 				of the mouse.
@@ -910,7 +916,7 @@ void draw()
 		
 		
 		
-			<div class="coreTask">
+			<div class="codeTask">
 				<p>Modify your 'Underground' sketch so that it displays some text across the blue bar.<br/>
 				Something like this:
 				</p>
@@ -968,10 +974,10 @@ void draw()
 
 				<ul>
 					<li><a href="https://processing.org/tutorials/gettingstarted" target="_blank">Getting Started
-						with Processing</a> — A guide to installing <i>Processing</i>navigating its menus and buttons.
+						with Processing</a> — A guide to installing <i>Processing</i> navigating its menus and buttons.
 					</li>
 					<li><a href="https://hello.processing.org" target="_blank">Hello Processing</a> — an interactive
-						video tutorial from <i>Dan Shiffman</i> that we recommended as excellent preparation to get you started with <i>Processing</i> .</li>
+						video tutorial from <i>Dan Shiffman</i> that we recommended as excellent preparation to get you started with <i>Processing</i>.</li>
 				</ul>
 
 			</div>
