@@ -42,6 +42,55 @@
 
   .rightCol {float:right; width :40%}
   
+  /*
+   * -- Jo's Original : https://www.staff.city.ac.uk/~jwo/moodle/css/master.css
+   */
+   .aside {
+    background-color: #efe;
+    border-color: #bcb;
+    line-height: 1.6;
+  }
+  .tip {
+    background-color: #fafafa;
+    border-color: #999;
+    padding: 0.7em;
+    box-shadow: 8px 8px 5px #999;
+    border-radius: 12px;
+    margin-bottom: 2em;
+  }
+  .task,
+  .codeTask,
+  .codeTask::before {
+    background-color: #def;
+  }
+  .coreTask,
+  .coreTask::before {
+    background-color: #ff8;
+  }
+  .homework,
+  .homework::before {
+    background-color: #f9f9ff;
+    border-color: #999;
+  }
+  .challenge,
+  .challenge::before {
+    background-color: #ffe7e7;
+    border-color: #ffb0b0;
+  }
+  
+  .codeTask::before {
+    content: "{coding task} - plan, attempt, run, observe, think, talk";
+  }
+  .coreTask::before {
+    content: "CORE TASK";
+  }
+  .homework::before {
+    content: "homework";
+  }
+  .challenge::before {
+    content: "EXTRA CHALLENGE";
+  }
+  
   /* -- New Colours!
    */
 
