@@ -424,10 +424,6 @@ void draw()
                 </div>
             </div> <!-- End of left column -->
 
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-                <br />
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -874,6 +870,103 @@ void draw()
                 <li>
                     Modify the code that initialises <code>x</code> and <code>y</code> so that the <i>whole</i> of the
                     "underground sign" is always visible (making full use of the sketch window area).
+                </li>
+            </ol>
+        </div>
+
+                <div class="codeTask">
+            <h5>Bouncing Ball</h5>
+            <p>
+            In this exercise and the next you will develop an animated ball bouncing inside a box.<br/>
+            We start by adapting the scrolling text example from the lecture:
+            <br /><br />
+            <pre class="brush: processing; gutter: false; toolbar: false; ">float xPosition;  // -- Horizontal starting position on 'x' axis in coordinate space
+float xVelocity; // -- Horizontal speed in x-direction
+
+void setup()
+{
+  size(400,300);
+  fill(255,177,8);
+  textSize(48);
+
+  xPosition = width/2;  // -- Initialise xPosition to centre of sketch
+  xVelocity = -2; // -- Initialise speed in x-direction to -2 (moving left)
+}
+
+void draw()
+{
+  background(64);
+
+  String message = "The next station is Angel...";
+
+  xPosition = xPosition + xVelocity;  // -- Change position in x on each redraw by velocity in x
+
+  text(message,xPosition,(height/2) + 20);
+}</pre>
+            <ol>
+
+
+                <li>
+                    <p>
+                    Copy this code into a new sketch and save it with the name "BouncingBall".<br/>
+                    Delete the line of code in <code>draw()</code> that creates the String variable <code>message</code>.
+                    </p>
+                </li>
+
+                <li>
+                    <p>
+                    Delete the final line of code (<code>text(message, ...</code>) and replace it with code that
+                    instead draws a circle centred at position <code>(xPosition, height/2)</code>.<br/>
+                    Use a radius of about 50 pixels (you can change this later but, for now, a nice big fat ball makes it easier to see what is
+                    happening).<br/>
+                    Best practice is to add an extra variable <code>radius</code> to your sketch (initialise to 50 in <code>setup()</code>)
+                    and use that in <code>draw()</code> instead of the literal <code>50</code>.
+                    </p>
+                    <p>
+                    Check that your sketch works as expected.<br/>
+                    The ball (the circle) should start in the centre of the sketch and move
+                    slowly to the left, eventually disappearing off screen.
+                    </p>
+                </li>
+
+                <li>
+                    <p>
+                    Now we want to make the ball bounce when it hits the edge of the window, rather than go straight
+                    through. Add an <code>if</code> statement at the end of <code>draw()</code> to check whether the ball has reached the
+                    left-hand edge of the window. Since the ball is moving more than one pixel in each frame, you should
+                    test whether the edge of the ball is <em>less than or equal</em> to zero (it might actually have started
+                    to “penetrate the wall” but don't worry, the visual appearance will be fine).
+                    </p>
+                    <p>
+                    If the ball has reached the left-hand edge of the window your code should change the speed
+                    (variable <code>xVelocity</code>) so that in future frames it will move in the opposite direction.
+                    The simplest way to do this is simply to assign a new value to <code>xVelocity</code> which is the
+                    <em>negation</em> of its old value: <code>xVelocity = -xVelocity;</code><br/>
+                    This statement multiplies the current value held in <code>xVelocity</code> by -1 and replaces the value of <code>xVelocity</code> with this new number, the  <em>negation</em> of the old value.
+                    (so if <code>xVelocity</code> is -2 before this assignment, it will be --2 = 2 afterwards).</p>
+                    <div class="tip">
+                        <p>
+                        <b>Hint:</b> the left hand edge of a circle is at an x-position that is <code>radius</code> pixels to
+                        the left of its centre.</p>
+                        <p>Once again, <i>drawing</i> a sketch will help here, help you figure out the condition that you need to make the ball (circle) bounce.</p>
+                    </div>
+                    <p>
+                    Check that your sketch works as expected. The ball should start in the centre of the sketch and move
+                    slowly to the left. When it reaches the left edge it should “bounce”, reversing direction and moving
+                    back across the screen to the right.
+                    </p>
+                </li>
+
+                <li>
+                    <p>
+                    Add an extra <code>if</code> statement to deal with the ball colliding with the right-hand edge of the window.
+                    (Or combine this case into the existing <code>if</code> statement by modifying the boolean expression.)
+                    </p>
+                    <p>
+                    Check that your sketch works as expected.<br/>
+                    The ball should now move backwards and forwards across the
+                    window, bouncing when it reaches left and right edges.
+                    </p>
                 </li>
             </ol>
         </div>
