@@ -119,5 +119,10 @@ h3 {padding-top:0.25em; margin-top:1em; border-top:1px dashed #e0e0e0}
 .challenge h5 {padding-top:0.05em; padding-bottom:0.25em; color: #903030}
 
 .challenge li {padding-top:0.5em; padding-bottom:0.5em}
-.objectives li {padding-top:0.5em; padding-bottom:0.5em; background-color:#f0f0f0}
-.summary li {padding-top:0.5em; padding-bottom:0.5em; background-color:#f0f0f0}
+.objectives li {padding-top:0.5em; padding-bottom:0.5em; background-color:#ffffff}
+.summary li {padding-top:0.5em; padding-bottom:0.5em; background-color:#ffffff}
+
+.summary {
+  font-size: larger;
+  font-family: 'Roboto Slab', serif;
+}
