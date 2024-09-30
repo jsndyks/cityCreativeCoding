@@ -46,7 +46,7 @@
    * -- Jo's Original : https://www.staff.city.ac.uk/~jwo/moodle/css/master.css
    */
    .aside {
-    background-color: #e8f8e8;
+    background-color: #e8f8e880;
     border-color: #bcb;
     line-height: 1.6;
   }
@@ -61,11 +61,11 @@
   .task,
   .codeTask,
   .codeTask::before {
-    background-color: #f0f8ff;
+    background-color: #f0f8ff80;
   }
   .coreTask,
   .coreTask::before {
-    background-color: #ffffe0;
+    background-color: #ffffe0a0;
   }
   .homework,
   .homework::before {
