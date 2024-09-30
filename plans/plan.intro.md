@@ -1,10 +1,10 @@
 ## Plan : Introduction
 
-### 0 - _XX_ Intro / Induction : 10
+### 0 - _05_ Intro / Induction : 05
 
 - stand up : Find Friend, Share, Fun Plans
 
-### 1 - _XX_ Welcome : 15
+### 1 - _10_ Welcome : 15
 
 - Nice Notebooks : **image - degrees**
 - Academic Autonomy :
@@ -13,45 +13,38 @@
 - Pretty Polly :
   **creativeCoding , this lecture**
 - Other Tips :
-  NoteTaking, AI, Copying - it's the journey
+  NoteTaking, AI, Copying
+  - _it's the journey_
 
-### 2 - _20_ Key : 20
+### 2 - _10_ First Sketch : 25
 
-Three challenges
+- rect (boring)
+- rect (original & **form**)
+- circle (boring) _order_
+- circle (missed & **form**) 🦜 <CLAP>
 
-### 3 - _25_ KeyPressed() : 25
+? who used their sketchbooks?
 
-Copy - try...
+### 3 - _10_ Coordinates : 35
 
-- IF - key == ' ' background(255);
-  Save for later!
+- location _from top left_
+- shapes **experiment**
+- save ?GitHub? <CLAP>
 
-### 4 - color - ignore!
+### 4 - _10_ Colour : 45
 
-### 5 - _30_ Event Handling Keyboard : 30
+- talk through _The example below_
+- **play** 🦜
 
-### 6 - _32_ Event Handling Mouse : 32
+### 6 - _10_ Setup & Draw : 55
 
-### 7 - _35_ mouseClicked() : 35
+- **image - flow**
+- talk through _flow example_
+- explain **mouseY**, **mouseY**
 
-Try this - clear screen:
-background(255);
+### 7 - _05_ Autonomy : 60
 
-### 8 - _40_ Bad Habits : 40
-
-- Show summary / skeleton
-
-- Copy & run bigger sketch
-- Talk through **separation**
-
-### 9 - clickCount : - ignore
-
-### 10 - _45_ interface? : 45
-
-Run the example.
-
-### 11 - _50_ Summary : 50
-
-- reference materials
-- lecture
-- practical exercise
+- exercises
+- summary
+- objectives
+- extras

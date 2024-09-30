@@ -275,7 +275,9 @@ void draw()
 			<pre class="brush: processing; gutter: false; toolbar: false; ">rect(left,right,width,height);</pre>
 			<p>Note that the rectangle must be fully visible on the <i>Processing</i> canvas - fully within the 100 x 100 square.</p>
 			<p>When you have produced a valid rectangle, enter the arguments in this form and we can compare your solution with others:</p>
-			<ul><li><a href="https://forms.gle/gmDMq3EdKcY2Z4mAA">Rectangle Argument Collection Form</a></li></ul>
+			<ul>
+				<li><a href="https://forms.gle/gmDMq3EdKcY2Z4mAA">Rectangle Argument Collection Form</a></li>
+			</ul>
 			</div>
 		
 			<p>
@@ -346,6 +348,18 @@ circle(62,60,40);</pre>
 				which commands are executed, but for now it is important not to forget that we can control the order
 				in which things happen in our programs by changing the order of coding instructions.
 			</p>
+
+			<div class="codeTask">
+				<h5>Avoiding The Overlap</h5>
+				<p>Replace your original <code>circle()</code> instruction with new arguments, that will ensure that the circle does not overlap the rectangle.<br/>
+				Think about <i>where</i> you might put the circle to make this happen.</p>
+				<pre class="brush: processing; gutter: false; toolbar: false; ">circle(x-coordinate,y-coordinate,radius);</pre>
+				<p>Note that the circle must be fully visible on the <i>Processing</i> canvas - fully within the 100 x 100 square.</p>
+				<p>When you have produced a valid circle, that does not overlap, enter the arguments in this form and we can compare your solution with others:</p>
+				<ul>
+					<li><a href="https://forms.gle/z7McYs6Q8Vhg1tGv5">Circle Argument Collection Form</a></li>
+				</ul>
+				</div>
 
 			<div class="aside">
 				<h5>Aside:</h5>
@@ -867,17 +881,17 @@ void draw()
 				<code>Ctrl-C</code> and <code>Ctrl-V</code>). Run the sketch to check it works as expected.
 			</p>
 				<pre class="brush: processing; gutter: false; toolbar: false; ">// Sketch to draw a rectangle that follows the mouse.
-		void setup()
-		{
-		  size(400, 300);
-		  background(255, 236, 149);
-		  fill(203, 118, 122);
-		}
-		
-		void draw()
-		{
-		  rect(mouseX, mouseY, 120, 80);
-		}</pre>
+void setup()
+{
+	size(400, 300);
+	background(255, 236, 149);
+	fill(203, 118, 122);
+}
+
+void draw()
+{
+	rect(mouseX, mouseY, 120, 80);
+}</pre>
 				<p>
 				Try moving the <code>background()</code> line from <code>setup()</code> to the beginning of
 				<code>draw()</code> (after the opening brace <code>{</code> but before the <code>rect()</code>line).</p>
