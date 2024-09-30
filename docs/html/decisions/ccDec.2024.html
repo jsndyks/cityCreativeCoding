@@ -284,40 +284,39 @@ void draw()
                 </p>
  -->
 
-                <pre class="brush: processing; gutter: false; toolbar: false; ">
-void setup() 
+                <pre class="brush: processing; gutter: false; toolbar: false; ">void setup()
 {
   size(400, 300);
 }
 
 void draw()
 {
-  background(255);
+  background(18, 48, 193);
 
-  if (mouseX &lt; width/2)
+  if (mouseY &lt; height/2)
   {
-    if (mouseY &lt; height/2)
+    if (mouseX &lt; width/2)
     {
-        fill(255,0,0);
-    }
+      fill(250, 207, 35);  // colour for sun
+    } 
     else
     {
-        fill(0,0,255);
+      fill(255, 255, 255);  // colour for moon
     }
-    rect(mouseX, mouseY, 80, 80);
-  }
+    ellipse(mouseX, mouseY, 80, 80);
+  } 
   else
   {
-    ellipse(mouseX, mouseY, 80, 80);
+    fill(50, 50, 15);  // colour for ground
+    rect(mouseX, mouseY, 80, 80);
   }
-}
-</pre>
+}</pre>
 
                 <div class="codeTask">
                     <h5>Change the Ellipse Colour</h5>
                     <p>
-                    Use the logic that we apply above to drawing the <i>rectangle</i> in different colours according to the Y position
-                    to the branch responsible for drawing the <i>ellipse</i>, so that the colour of the ellipse will change in the same way that the rectangle does.
+                    Use the logic that we apply above to drawing the <i>ellipse</i> in different colours according to the Y position
+                    to the branch responsible for drawing the <i>rectangle</i>, so that the colour of the rectangle will change in the same way that the ellipse does.
                     </p>
                 </div>
             </div> <!-- End of left column -->
@@ -634,10 +633,12 @@ else
                 <div class="aside">
                     <h5>What if?</h5>
                     <p>
-                    We just learned that the branch of the first statement in an <code>IF, ELSE IF</code> to evaluate to true is executed,
-                    after which the entire <code>if</code> stops. So only one branch is ever executed.
+                    We just learned that the branch of the first statement in an <code>IF, ELSE IF</code> to evaluate to true is executed.
+                    After this has happened, the entire <code>if</code> statement stops.
+                    So only one branch is ever executed.
                     If any subsequent conditions are true, they are never evaluated and their branches never executed.</p>
-                    <p>But what would happen in the above program if this was not the case - if <i>any</i> branch that was true in an <code>ELSE IF</code> evaluated?</p>
+                    <p>But, imagine that <i>any</i> branch that evaluated to true in an <code>ELSE IF</code> statement was executed:<br/>
+                        what would happen in the above program if this was the case?</p>
 
                 </div>
             </div> <!-- End of left column -->
@@ -740,7 +741,7 @@ println("value of y:", y);</pre>
   text("x is "+x, 20, 20);
   text("y is "+y, 20, 40);
   text("frameCount is "+frameCount, 20, 60);</pre></li>
-                            <li>Learn to use the <i>Processing</i> <a href="https://processing.org/environment/#debug-1">Debugger</a> tool as part of your programming workflow.</li>
+                            <li>Learn to use the <i>Processing</i> <a href="https://processing.org/environment/#debug-1" target="_new">Debugger</a> tool as part of your programming workflow.</li>
                 </ol>
 
                 <p>
@@ -777,7 +778,7 @@ if (mouseUpperLeft || mouseLowerRight)
                     <b>Don't put semicolons in the middle of your <code>if</code> statement</b> It's quite common for novice
                     programmers to develop a 'semicolon reflex' and place one after the <code>if (condition)</code>
                     line. Resist it and remember that the <code>if</code> statement is a single command that we tend to write on
-                    multiple lines. Don't through a semicolon in the middle of it.
+                    multiple lines. Don't put a semicolon in the middle of it.
                 </p>
             </div> <!-- End of left column -->
         </div> <!-- End of row -->
@@ -841,7 +842,7 @@ void draw()
                     You will need to use:
                     <code><a href="https://processing.org/reference/mouseX.html">mouseX</a></code>, 
                     <code><a href="https://processing.org/reference/mouseY.html">mouseY</a></code>,
-                    and an <code><a href=""https://processing.org/reference/if.html">if</a></code> statement
+                    and an <code><a href="https://processing.org/reference/if.html">if</a></code> statement
                     that changes the <code><a href="https://processing.org/reference/fill_.html">fill()</a></code> depending upon where the mouse is in relation to the rectangle.</p> 
                     <p><b>IMPORTANT:</b> use your sketchbook and draw the shapes to help you work out how to detect whether the mouse / cursor is within the rectangle!</p>
                 </li>
