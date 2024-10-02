@@ -370,7 +370,7 @@ void draw()
 }</pre>
             <div class="codeTask">
                 <h4>Your First Method - Definition</h4>
-                <p>Add this method definition to your sketch <em>outside</em> <code>draw()</code>.</p>
+                <p>Add the <code>drawAimingLine()</code> method definition to your sketch <em>outside</em> <code>draw()</code>.</p>
             </div>
             <p>
                 The method definition has four components:
@@ -631,10 +631,10 @@ void draw()
             <div class="coreTask">
                 <h5>Video : Parameters &amp; Scope</h5>
                 <p>Let's finish this section on <i>parameters</i> with an explanation of parameters and <i>scope</i> from our colleague <i>Dr Radu Jianu</i>, that we have dug out of the City CS archives!
-                It's a 4 minute watch and arrives direct from way back when, but it's a great explanation and is still very helpful!</p>
+                It's a <i>4 minute watch</i> and arrives direct from way back when, but it's a great explanation and is still very helpful!</p>
                 <p>It uses a simple example to show how parameters are passed into a method and explains their scope.<br/>
                 It should really help clarify.</p>
-            <a href="https://cityuni-my.sharepoint.com/:v:/g/personal/j_dykes_city_ac_uk/EUfVRWHE8KVChQhNHFJmkbwBSLpz6Du0sfCaSUGcqvQZsg?e=typd6d"><img style="padding:1.5em;padding-top:0px" width="450" src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/cc.video.parameters.png" alt="parameters video"></a>
+            <a href="https://cityuni-my.sharepoint.com/:v:/g/personal/j_dykes_city_ac_uk/EUfVRWHE8KVChQhNHFJmkbwBSLpz6Du0sfCaSUGcqvQZsg?e=typd6d"><img style="padding:1.5em;padding-top:0px" width="400" src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/cc.video.parameters.png" alt="parameters video"></a>
             </div>
         </div>
     <!-- End of left column -->
@@ -647,13 +647,13 @@ void draw()
             <!-- Left column -->
             <h3>6. Return values</h3>
             <p>
-                There is one more feature of method definitions to consider. It isn't needed in the PathFinder
-                project, but it is used in one of the core tasks for this session. We can define methods so that
-                they return a value when they finish, and the calling code can
+                There is one more important feature of method definitions to consider. It isn't needed in the PathFinder
+                project, but it is used in one of the core tasks for this session and in many practical applications.
+                We can define methods so that they return <i>a value</i> when they finish, and the calling code can
                 then use that value. If we define such a method, then it is usually called in a slightly different
-                way (as part of an expression) so that its value can be used by the calling code. You have already
-                written these kinds of method calls when you
-                used <code>random()</code> and <code>dist()</code>. For example:
+                way (as part of an expression) so that the returned value can be used by the calling code after the method has executed.
+                You have already written these kinds of method calls when you used <code>random()</code> and <code>dist()</code>.<br/>
+                For example:
             </p>
             <pre class="brush: processing; gutter: false; toolbar: false; ">if (dist(mouseX, mouseY, ballX, ballY) &lt; radius) {
    println("Well done! You hit the ball.");
@@ -672,20 +672,15 @@ void draw()
                 Notice the two essential differences compared to the method definitions we have seen previously:
             </p>
             <ol>
-                <li>The return type is <code>float</code> rather than <code>void</code>. As you might imagine, this
+                <li>The return type is <code>float</code> rather than <code>void</code>.<br/>
+                    As you might imagine, this
                     declares that the method is going to return a value of type <code>float</code>.</li>
-                <li>At the end of the method body there is a <code>return</code> statement. The expression after the
-                    keyword
-                    <code>return</code> is evaluated to provide the value returned to the calling code.
+                <li>At the end of the method body there is a <code>return</code> statement.<br/>
+                    The expression after the keyword <code>return</code> is evaluated to provide the value returned to the calling code.
                 </li>
             </ol>
         </div>
         <!-- End of left column -->
-        <div class="unit-30-cc annotation">
-            <!-- Right column -->
-
-        </div>
-        <!-- end of right column -->
     </div>
     <!-- End of row -->
 
@@ -695,27 +690,26 @@ void draw()
             <!-- Left column -->
             <h3>7. Summary and Further Resources</h3>
             <ul>
-                <li>Methods are named pieces of code which can be called from other pieces of code. When a method
-                    finishes execution, control returns to the calling code.</li>
+                <li>Methods are named pieces of code that can be called from other pieces of code.
+                    When a method finishes execution, control returns to the calling code.</li>
                 <li>Using methods allows us to build code in a modular way and to write code once and use it many
                     times. Because methods are reusable they allow us to avoid code duplication.</li>
                 <li>Methods can be defined with parameters to make them even more reusable; argument values are
                     provided by the calling code and automatically assigned to the method parameters before the
                     method body is executed.</li>
-                <li>We can also write methods which return a value. Such methods are called by using them in
-                    expressions.</li>
+                <li>We can also write methods which return a value.
+                    Such methods are called by using them in expressions.</li>
             </ul>
 
             <div class="homework">
+                <h5>Reading</h5>
                 <p>
-                You will find more about defining methods in Chapter 7 of <i>Learning Processing</i>
-                by Daniel Shiffman.<br/>
-                This handy resource is available <a href="http://readinglists.city.ac.uk/items/27D2B53F-3DDE-EE72-F5EC-B1EBA9256FBF.html?referrer=%2Flists%2F3D1A6C7D-6690-EF98-BF4B-3B5B5788FBF7.html%23item-27D2B53F-3DDE-EE72-F5EC-B1EBA9256FBF" target="_blank">
-                    online from the library as an e-book</a>. (By the way, the online presentation of the book is a
-                bit confusing. Chapter 7 is inside '<em>Lesson 3: Organisation</em>' which appears as item 6 in the online
-                table of contents! Go figure.)
+                You will find more about defining methods in Chapter 7 of <i>Learning Processing</i> by Daniel Shiffman.<br/>
+                This handy resource is available <a href="https://rl.talis.com/3/city/items/dcb7c01f-f917-4827-9813-e253ec335e79.html" target="_blank"> online from the library as an e-book</a>.<br/>
+                Do watch out though! The online presentation of the book is a bit confusing.
+                Chapter 7 is inside '<em>Lesson 3: Organisation</em>' which appears as item 6 in the online table of contents! Go figure.
                 <br/>
-                <br/>Note: Dan Shiffman uses the term "<em>functions</em>" to refer to methods - for now we can consider these to be the same thing!
+                Also note that Dan Shiffman uses the term "<em>functions</em>" to refer to methods - for now we can consider these to be the same thing!
                 </p>
             </div>
         </div>
