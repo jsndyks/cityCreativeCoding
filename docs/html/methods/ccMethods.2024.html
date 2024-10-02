@@ -477,14 +477,14 @@ void draw()
             </p>
 
             <ol>
-                <li>In the true-branch of the outermost if-statement. The relevant code is:
+                <li>In the true-branch of the outermost <code>IF</code> statement. The relevant code is:
                     <br/>
                     <br/>
                     <pre class="brush: processing; gutter: false; toolbar: false; ">    noStroke();
     fill(0,0,255);
     circle(xPos, yPos, 2 * radius);</pre>
                 </li>
-                <li>In the false-branch of the outermost if-statement. The relevant code is:
+                <li>In the false-branch of the outermost <code>IF</code> statement. The relevant code is:
                     <br/>
                     <br/>
                     <pre class="brush: processing; gutter: false; toolbar: false; ">    noStroke();
@@ -494,7 +494,8 @@ void draw()
             </ol>
             <p>
                 Of course, it is no coincidence that these chunks of code are identical: I copy-pasted the first to
-                get the second. This is known as code duplication and it is BAD. It is bad because if we ever need
+                get the second. This is known as code duplication and it is <b>BAD</b>.<br/>
+                It is bad because if we ever need
                 to debug or modify the intended behaviour of that code,
                 we have to make the same changes multiple times. Not only is that wasted effort, it is also error
                 prone. And imagine how bad the problem becomes if the code is hundreds of lines long and duplicated
@@ -506,9 +507,12 @@ void draw()
             </p>
 
             <div class="codeTask">
+                <h5>A Method to Draw a Ball</h5>
+                <p>
                 Make this change in your copy of PathFinder.
                 Take care to choose a good name for your method!
-                Make sure you haven't broken anything.
+                Make sure you haven't broken anything - PAROT (Talk)? 
+             </p>
             </div>
             <br/>
         </div>
