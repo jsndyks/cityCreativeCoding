@@ -369,7 +369,7 @@ void draw()
   line(xPos,yPos,mouseX,mouseY);
 }</pre>
             <div class="codeTask">
-                <h4>Your First Method</h4>
+                <h4>Your First Method - Definition</h4>
                 <p>Add this method definition to your sketch <em>outside</em> <code>draw()</code>.</p>
             </div>
             <p>
@@ -418,14 +418,23 @@ void draw()
 
             <pre class="brush: processing; gutter: false; toolbar: false; ">    drawAimingLine();</pre>
             <div class="codeTask">
-                Put this call inside <code>draw()</code>, <em>replacing</em> the two lines of code we started with.
+                <h4>Your First Method - Call the Method</h4>
+                <p>Put this call inside <code>draw()</code>, <em>replacing</em> the two lines of code we started with.</p>
             </div>
             <div class="tip">
                 Note that we now have two methods with similar names:
                 <code>draw()</code> (executed automatically, 60 times a second, by <i>Processing</i>) and
-                <code>drawAimingLine()</code> (executed only when our code explicitly calls it).
+                <code>drawAimingLine()</code> (executed only when our code explicitly calls it).<br/>
                 Try not to get them mixed up!
             </div>
+
+            <div style="float:right; padding:4px; border:dashed 1px #a0a0a0; margin:12px">
+            <figure>
+            <a href="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/methodFlow.png"><img src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/methodFlow.png" alt="method flow control-flow diagram" width="300"/></a>
+			<figcaption>The control flow of a method call.</figcaption>
+            </figure>
+            </div>
+
             <p>
                 Now, whenever the else-branch in <code>draw()</code> executes, this is what will happen:
             </p>
@@ -443,19 +452,15 @@ void draw()
                 This 'flow of control' is illustrated by the diagram on the right.
             </p>
             <div class="codeTask">
-                After making the changes above, make sure your sketch still works. It should behave <em>exactly the
-                    same as before</em>. Remember, when we refactor code, our aim is to improve its structure,
+                <h4>Your First Method - Check the Flow</h4>
+                <p>After making the changes above, make sure your sketch still works.
+                    It should behave <em>exactly the same as before</em>.</p>
+                <p>Remember, when we refactor code, our aim is to improve its structure,
                 <em>not</em> to change its behaviour.
+                </p>
             </div>
-            <br/>
         </div>
         <!-- End of Left column -->
-        <div class="unit-30-cc annotation">
-            <!-- Right column -->
-            <img src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/methodFlow.png" alt="method flow control-flow diagram">
-            <p>The control flow of a method call.</p>
-        </div>
-        <!-- end of right column -->
     </div>
     <!-- End of row -->
 
