@@ -61,41 +61,19 @@
 
 -->
     <p>
-        In these exercises you will practice how to write your own methods (method <i>definition</i>) and how to use
+        In these <b>optional additional exercises</b> you can practice how to write your own methods (method <i>definition</i>) and how to use
         them in your code (method <i>call</i>).
     </p>
     <p>Only attempt these <b>optional exercises</b> if you have completed and understood 
         all of the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=801749">Methods : Core</a> concepts and exercises.</p>
 
 
-
-
-
-
-    <div class="coreTask">
-        <ol>
-            <li>Save a third version of your sketch with the name "RoundelPosScale" (or similar).</li>
-            <li>Add one more parameter to your <code>roundel</code> method. This parameter should be used to control
-                the <i>scale</i> of the roundel (a scale of 1.0 will draw the roundel at the same size as before, a
-                scale of 0.5 will draw it at half size, a scale of 2.0 will draw it at double size, etc).
-                Refactor your <code>draw()</code> method to use a scale parameter of 1.0 in each
-                of the existing calls to <code>roundel</code> (everything should look the same as before when you
-                run the sketch).
-            </li>
-            <li>
-                In <code>draw()</code>, modify the scale parameters in the calls to <code>roundel</code> so that
-                each one is drawn
-                at a different scale. The result should look something like this:<br/>
-                <img src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/RoundelPosScale.jpg" alt="RoundelPos sketch" width="200" height="200"><br/>
-            </li>
-        </ol>
-    </div>
-
-    <div class="codeTask">
+    <div class="challenge">
+        <h5>PathFinder Refactoring</h5>
+        <p>
         Complete the refactoring of the PathFinder sketch that we started in the lecture. Here's a reminder of what
         the <code>draw()</code> code should look like when the sketch is fully refactored:
-        <br/>
-        <br/>
+        </p>
         <pre class="brush: processing; gutter: false; toolbar: false; ">void draw()
 {
   background(255);
@@ -173,24 +151,28 @@
     </ol>
   </div>
 -->
+<!-- 
+<div class="codeTask">
 
-    <h3>Extension exercises</h3>
-
-    <div class="codeTask">
         Change the sketch so that the ball is set in motion by pressing the spacebar, rather than by pressing the
         mouse: remove the <code>mousePressed()</code> method, add a <code>keyPressed()</code> method.
     </div>
+ -->
 
-    <div class="challenge">
+ <div class="challenge">
+    <h5>PathFinder Interaction</h5>
+    <p>
         While in aiming mode, allow the user to move pegs by clicking on them and dragging with the mouse. You will
-        need to define three mouse event handlers:
-        <code>mousePressed()</code>,
-        <code>mouseReleased()</code>,
-        <code>mouseDragged()</code>. You will need to add one or more new global variables to keep track of which
-        peg is being moved during a drag operation.
+        need to define three mouse event handlers:</p>
+        <ul>
+        <li><code>mousePressed()</code>,</li>
+        <li><code>mouseReleased()</code>,</li>
+        <li><code>mouseDragged()</code>. You will need to add one or more new global variables to keep track of which
+        peg is being moved during a drag operation.</li>
+        </ul>
     </div>
 
-
+<!---
     <h2>Check on Progress</h2>
     <div class="task">
         To ensure that you have achieved the outcomes associated with this session, consider the following, which
@@ -201,7 +183,6 @@
         <div class="checkOutcomes">
             <input id="sa1" type="checkbox">
             <label for="sa1" style="padding:1em">Can I define a method with no parameters and call it within my sketch?
-                <!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=519125">Methods</a>  -->
             </label>
             <br/>
             <input id="sa2" type="checkbox">
@@ -219,9 +200,9 @@
             <label for="sa5" style="padding:1em">Can I define and use methods that return a value within my sketches?</label>
             <br/>
         </div>
-        <!-- End of checkOutcomes -->
 
     </div>
+    --->
     <!-- End of task -->
 
             <!--- spacer for iFrame -->
