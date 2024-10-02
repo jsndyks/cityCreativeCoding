@@ -509,8 +509,8 @@ void draw()
             <div class="codeTask">
                 <h5>A Method to Draw a Ball</h5>
                 <p>
-                Make this change in your copy of PathFinder.
-                Take care to choose a good name for your method!
+                Make this change in your copy of PathFinder.<br/>
+                Take care to choose a good name for your method!<br/>
                 Make sure you haven't broken anything - PAROT (Talk)? 
              </p>
             </div>
@@ -527,9 +527,8 @@ void draw()
             <h3>5. Parameters</h3>
             <p>
                 In many cases, for a method to be genuinely reusable, we need to allow the calling code to provide
-                it with extra information which can vary from one call to the next. The code which checks for
-                collisions between the ball
-                and pegs in PathFinder illustrates the issue.
+                it with extra information that can vary from one call to the next.
+                The code that checks for collisions between the ball and pegs in PathFinder illustrates the issue.
             </p>
 
             <p>
@@ -554,7 +553,7 @@ void draw()
       frameRate(0);
     }</pre>
             <p>
-                Ok, so we know how to deal with this. We define a method:
+                Ok, so we know how to deal with this? We define a method where the code can be written once, and call the method multiple times :
             </p>
             <pre class="brush: processing; gutter: false; toolbar: false; ">void checkForPegCollision()
 {
@@ -565,7 +564,7 @@ void draw()
     frameRate(0);
   }
 }</pre>
-            Then we can replace the previous mess by:
+            Then we can replace the previous mess with the much more elegant and readable:
             <pre class="brush: processing; gutter: false; toolbar: false; ">    checkForPegCollision();
     checkForPegCollision();
     checkForPegCollision();</pre>
@@ -576,14 +575,15 @@ void draw()
                 <code>peg1X,peg1Y</code>
                 in the distance check, the second one uses
                 <code>peg2X,peg2Y</code>, and the third one uses
-                <code>peg3X,peg3Y</code>. If we refactor the code as suggested, we will just be checking three times
+                <code>peg3X,peg3Y</code>.<br/>
+                If we refactor the code as suggested, we will just be checking three times
                 for collisions
                 with peg 1, rather than checking each peg in turn.
 
             </p>
             <p>
                 The solution is to <i>parameterise</i> <code>checkForPegCollision()</code> so that the calling code
-                can specify <em>which</em> peg position to check. The new version looks like this (lines which
+                can specify <em>which</em> peg position to check.<br/>The new version looks like this (lines which
                 differ from the previous version are highlighted):
             </p>
             <pre class="brush: processing; gutter: false; toolbar: false; highlight: [1,3] ">void checkForPegCollision(float x, float y)
@@ -598,32 +598,30 @@ void draw()
             Notice that the parameter list for <code>checkForPegCollision</code> is no longer empty. Each entry in a
             parameter list has the same structure as a variable declaration: a type followed by a name. And that's
             because a parameter
-            <i>is</i> a variable. It is a local variable (in scope only within the method being defined) which gets
-            initialised afresh each time the method is called. Also notice how the code now uses the parameters
+            <i>is</i> a variable. It is a local variable (in scope, and so available for use, <i>only within the method being defined</i>), which gets initialised afresh each time the method is called.
+            Also notice how the code now uses the parameters
             <code>x</code>
             and <code>y</code> in the distance check, instead of the global variables <code>peg1X</code> and
             <code>peg2X</code>.
             <p>
                 We can use this version to check for collisions with pegs at any <code>(x,y)</code> position we like
-                (even positions where there are no pegs, if the fancy takes us). We specify the actual values
-                for <code>x</code> and <code>y</code> only when we <em>call</em> the method. For example, if we
-                wanted to
-                check for a collision with a peg at position (29, 176) we would write the call:
+                (even positions where there are no pegs, if we like). We specify the actual values
+                for <code>x</code> and <code>y</code> only when we <em>call</em> the method.<br/>
+                For example, if we wanted to check for a collision with a peg at position (29, 176) we would add the call:
             </p>
             <pre class="brush: processing; gutter: false; toolbar: false; ">    checkForPegCollision(29, 176)</pre>
-            So, our three calls can now each specify different values for <code>x</code> and <code>y</code>:
+            So, by adding <i>parameters</i> to our method definition, our three calls can now each specify different values for <code>x</code> and <code>y</code>:
             <pre class="brush: processing; gutter: false; toolbar: false; ">    checkForPegCollision(peg1X, peg1Y);
     checkForPegCollision(peg2X, peg2Y);
     checkForPegCollision(peg3X, peg3Y);</pre>
 
-
+                <p>We hope you can see that:</p>
+                <ol type="a">
+                    <li>This is really useful</li>
+                    <li>It is what existing methods available in <i>Processing</i> do - <code>rect()</code>, <code>color()</code>, <code>size()</code>, <code>ellipse()</code>, etc.</li>
+                </ol>
         </div>
         <!-- End of left column -->
-        <div class="unit-30-cc annotation">
-            <!-- Right column -->
-
-        </div>
-        <!-- end of right column -->
     </div>
     <!-- End of row -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -631,7 +629,7 @@ void draw()
         <div class="unit-70-cc">
             <!-- Left column -->
             <div class="coreTask">
-                <p>Let's finish this section on <i>parameters</i> with an explanation from <i>Radu</i>.<br/>
+                <p>Let's finish this section on <i>parameters</i> with an explanation from our colleague <i>Dr Radu Jianu</i>.<br/>
                 It should help clarify.</p>
             <a href="https://cityuni-my.sharepoint.com/:v:/g/personal/j_dykes_city_ac_uk/EUfVRWHE8KVChQhNHFJmkbwBSLpz6Du0sfCaSUGcqvQZsg?e=typd6d"><img style="padding:1.5em;padding-top:0px" width="450" src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/cc.video.parameters.png" alt="parameters video"></a>
             </div>
@@ -639,10 +637,8 @@ void draw()
     <!-- End of left column -->
         <div class="unit-30-cc annotation">
         <!-- Right column -->
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
         <p> Take a look at this<br/><a href="https://cityuni-my.sharepoint.com/:v:/g/personal/j_dykes_city_ac_uk/EUfVRWHE8KVChQhNHFJmkbwBSLpz6Du0sfCaSUGcqvQZsg?e=fEXWYc">short video on method parameters and scope</a>.</p>
-            <p>It uses a simple example to show how parameters are passed into a method and explains their scope.</p>
+        <p>It uses a simple example to show how parameters are passed into a method and explains their scope.</p>
     
         </div>
     <!-- end of right column -->
