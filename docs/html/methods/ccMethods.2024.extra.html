@@ -70,21 +70,47 @@
 
         <div class="figRight">
             <figure>
-            <a href="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/Roundel.jpg"><img src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/Roundel.jpg" alt="Roundel" height="200"/></a>
+            <a href="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/Roundel.jpg"><img src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/Roundel.jpg" alt="Roundel" width="200"/></a>
 			<figcaption>Robot heads drawn by a <code>drawRobot</code></code>.</figcaption>
             </figure>
         </div>
 
         <div class="figRight">
             <figure>
-            <a href="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/cc.methods.drawRobot.1.png"><img src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/cc.methods.drawRobot.1.png" alt="Robots drawn by a new method" height="200"/></a>
+            <a href="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/cc.methods.drawRobot.1.png"><img src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/cc.methods.drawRobot.1.png" alt="Robots drawn by a new method" width="200"/></a>
 			<figcaption>Robot heads drawn by a <code>drawRobot</code>.</figcaption>
             </figure>
         </div>
 
+
+        <div class="coreTask">
+            <ol>
+                <li>Starting from scratch (no copy/paste), write a simple sketch to draw a composite shape - a shape that consists of at least three other shapes - in the centre of the sketch window, like the "roundel" below:<br/>
+                    <img src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/Roundel.jpg" alt="Roundel sketch" width="200" height="200"><br/>
+                    (This is a reduced-size screen-shot of a 400x400 sketch.)<br/>
+                    Save your sketch with an appropriate name like "Roundel".
+                </li>
+                <li>But, be creative here - you might want to draw a simple: tree, dog, car, house, alien gloop monster, or like me ... the head of a robot</li>
+                <li>
+                    Now refactor your sketch so that the drawing code for the roundel (or other composite shape) is in a separate method called
+                    <code>roundel()</code> or some shape-specific equivalent (like <code>alienGloopMonster()</code>).
+                    Note that this method has an empty parameter list.
+                    After refactoring, your <code>draw()</code> method should look like this:
+                    <pre class="brush: processing; gutter: false; toolbar: false; ">void draw()
+    {
+      background(192);
+      roundel();  // &lt;-- or whatever the method is called 
+    }</pre>
+                    Remember: refactoring should <i>not</i> change behaviour, so the sketch should still look like the
+                    above screen-shot when you run it.
+                </li>
+            </ol>
+        </div>
+
+
         <div class="coreTask">
         <ol>
-            <li>Save a new version of your sketch (use Save As… on the File menu) with the name "RoundelPos" (or some appropriate alternative).</li>
+            <li>Save a new version of your sketch (use <i>Save As...</i> on the File menu) with the name "RoundelPos" (or some appropriate alternative).</li>
             <li>Modify your <code>roundel</code> (or other) method so that it has two parameters, <code>x</code> and
                 <code>y</code>, which it uses to position the centre of the composite shape.
                 Refactor your <code>draw()</code> method to use the new version of your code.
@@ -94,7 +120,7 @@
   background(192);
   roundel(width/2, height/2);
 }</pre>
-             <p>At this stage, your new sketch should <i>still</i> look like the above screen-shot when you run it.</p>
+             <p>At this stage, your new sketch should <i>still</i> look like the screen-shot seen here when you run it.</p>
 
             </li>
             <li>
