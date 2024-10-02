@@ -114,6 +114,9 @@ figure {  display: block; margin-left: auto; margin-right: auto; width:75%}
 /* figure .width50 {  display: block; margin-left: auto; margin-right: auto; width:50%} */
 figure img {border:dashed #e0e0e0 1px; padding:4px}
 figcaption {width:90%; text-align:center; color:#909090; padding-top:0.5em; font-size:90%}
+.figRight {float:right};
+.figClear {clear:both};
+
 /*
 code {color:#6AA0CF; background-color:#f0f8ff}
  */
