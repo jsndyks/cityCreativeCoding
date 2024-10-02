@@ -319,20 +319,21 @@ void draw()
                 We need them because they enable us to:
             </p>
             <ol>
-                <li>Write code which is <em>easier to understand</em>.</li>
+                <li>Write code that is <em>easy to understand</em> - much easier than code that does not use methods;</li>
                 <li>Build complex programs in a <i>modular</i> way: build big things by first building smaller
-                    things and then composing them together.</li>
-                <li>Write <i>reusable</i> code: write a piece of code once and use it many times.</li>
+                    things and then composing them together;</li>
+                <li>Write <i>reusable</i> code: write a piece of code once and use it many times;</li>
             </ol>
             <p>
                 You have already been using and defining methods in your sketches:
             </p>
             <ul>
-                <li>Methods pre-defined by <i>Processing</i> and used by you in your sketches: <code>rect()</code>,
+                <li>Methods pre-defined by <i>Processing</i> and used by you in your sketches:<br/>
+                    <code>rect()</code>,
                     <code>circle()</code>,
                     <code>line()</code>, <code>stroke()</code>, <code>fill()</code>, <code>dist()</code> etc.
                 </li>
-                <li>Methods defined by you and which <i>Processing</i> calls when running your sketches:
+                <li>Methods defined by you and which <i>Processing</i> calls when running your sketches:<br/>
                     <code>setup()</code>,
                     <code>draw()</code>, <code>keyPressed()</code>.
                 </li>
@@ -344,10 +345,6 @@ void draw()
             </p>
         </div>
         <!-- End of left column -->
-        <div class="unit-30-cc annotation">
-            <!-- Right column -->
-        </div>
-        <!-- end of right column -->
     </div>
     <!-- End of row -->
 
@@ -357,8 +354,8 @@ void draw()
             <!-- Left column -->
             <h3>3. PathFinder Reloaded</h3>
             <p>
-                Let's write a method to draw the “aiming line”. The existing code which does this job is
-                two lines of code in the else-branch at the very end of <code>draw()</code>:
+                Let's write a method to draw the “aiming line”. The existing code that does this job is
+                two lines that you can see in the else-branch at the very end of <code>draw()</code> - here they are:
             </p>
             <pre class="brush: processing; gutter: false; toolbar: false; ">  stroke(0);
   line(xPos,yPos,mouseX,mouseY);</pre>
@@ -372,7 +369,8 @@ void draw()
   line(xPos,yPos,mouseX,mouseY);
 }</pre>
             <div class="codeTask">
-                Add this method definition to your sketch <em>outside</em> <code>draw()</code>.
+                <h4>Your First Method</h4>
+                <p>Add this method definition to your sketch <em>outside</em> <code>draw()</code>.</p>
             </div>
             <p>
                 The method definition has four components:
@@ -381,21 +379,26 @@ void draw()
                 <li>A <i>return type</i>. In this example the return type is <code>void</code> which declares that
                     this method doesn't return a value when it executes (some methods, like <code>dist()</code>, do
                     return values).</li>
-                <li>A <i>name</i>. In this example the name is <code>drawAimingLine</code>. It is VERY important to
-                    choose good names for your methods. A good name is one which tells us concisely and accurately
+                <li>A <i>name</i>. In this example the name of the method is <code>drawAimingLine</code>. It is VERY important to
+                    choose good names for your methods. A good name is one that tells us concisely and accurately
                     what is the intended purpose of the method. Bad names for
                     this method would be things like <code>myMethod</code> (tells us nothing useful at all),
                     <code>aim</code> (OK, so it's something to do with aiming; but what exactly?)
                     <code>drawAL</code> (an abbreviation of “draw aiming line”, but why abbreviate when the full
                     version is easier to understand and takes only milliseconds longer to type?).
                 </li>
-                <li>A <i>parameter list</i>. That's the round brackets part immediately after the method name. In
-                    this example the parameter list is empty. We will consider the more general case later.</li>
-                <li>The <i>method body</i>. That's the curly brackets part. This is the code which will be executed
-                    each time our method is used.</li>
+                <li>A <i>parameter list</i>. That's the part in round brackets immediately after the method name.
+                    In this example the parameter list is empty. We will consider the more general case later.</li>
+                <li>The <i>method body</i>. That's the part in the curly brackets.
+                    This is the code which will be executed each time our method is used.</li>
             </ol>
             <p>
+                In general terms ...
             </p>
+            <pre class="brush: processing; gutter: false; toolbar: false; ">  returnType methodName(information that we give the method to process) {
+    things that we want the method to do, usually with a semicolon at the end;
+  };</pre>
+
         </div>
         <!-- End of Left column -->
     </div>
