@@ -2,40 +2,42 @@
 
 <html  dir="ltr" lang="en" xml:lang="en">
 <head>
-    <title>Programming BootCamp Lecture: Methods</title>
+    <title>CreativeCoding Lecture: Methods</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- Embedded fonts -->
-	    <link
-        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
-        rel="stylesheet">
+	<link
+			href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+			rel="stylesheet">
 
 	<!-- Custom layout and style -->
-	   <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
-    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
-    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
-    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
-    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
-	
-	
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+	<!-- General browser compatibility handling -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+	<!-- Formatted source code -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+	<!-- Sketch popups and hidden text-->
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+	<!-- JD Extras! -->
+    <link rel="stylesheet" href="https://jsndyks.github.io/cityCreativeCoding/css/creativeCoding.css" type="text/css" />
+    
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
 </head>
 <body>	
-
-
-<!-- General browser compatibility handling -->
-<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
-
-<!-- Formatted source code -->
-<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
-<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
-
-<!-- Sketch popups and hidden text-->
-<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
-<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
-<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
-
-<!-- iFrame -->
-<script type="text/javascript" src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
-
 
 <div id="page">
 
@@ -45,16 +47,16 @@
     <!-- Add summary sentence or two below, which will act as an easy introduction -->
 
     <!---
-    You can access [this lecture](https://jsndyks.github.io/cityBootCamp/html/methods/bootCamp.methods.lecture.html) outside of _Moodle_ should you wish to do so.
+    You can access [this lecture](https://jsndyks.github.io/cityCreativeCoding//html/methods/ccMethods.2024.html) outside of _Moodle_ should you wish to do so.
 
     <iframe id="myIframe"
-  src="https://jsndyks.github.io/cityBootCamp/html/methods/bootCamp.methods.lecture.html" width="100%"
+  src="https://jsndyks.github.io/cityCreativeCoding//html/methods/ccMethods.2024.html" width="100%"
   height="10000px"
   frameborder="0"
   scrolling="no"></iframe>
 
 <script src="/theme/cul_moove/js/iframeResizer.min.js"></script>
-<iframe id="myIframe" style="width: 1px; min-width:100%;" src="https://jsndyks.github.io/cityBootCamp/html/methods/bootCamp.methods.lecture.html"></iframe>
+<iframe id="myIframe" style="width: 1px; min-width:100%;" src="https://jsndyks.github.io/cityCreativeCoding//html/methods/ccMethods.2024.html"></iframe>
 <script>
     iFrameResize({log: true}, '#myIframe')
 </script>
@@ -71,25 +73,28 @@
         <p><strong>By the end of this session you should be able to:</strong>
         </p>
         <ul>
-            <li>Write simple method definitions without parameters and write code which calls these methods.</li>
-            <li>Write more complex method definitions with parameters and write code which calls these methods,
+            <li>Write simple method definitions without parameters and write code that calls these methods.</li>
+            <li>Write more complex method definitions with parameters and write code that calls these methods,
                 providing appropriate values for each parameter.</li>
-            <li>Refactor the PathFinder sketch to use method definitions and method calls.</li>
+            <li>Refactor the <i>PathFinder</i> sketch to use method definitions and method calls.</li>
         </ul>
     </div>
     <!-- End of intro section -->
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <div class="units-row">
-        <div class="unit-70">
+        <div class="unit-70-cc">
             <!-- Left column -->
             <h3>1. PathFinder</h3>
 
-            <p>
-                Here's the code:
+            <p>We have used <i>Processing</i> to develop a simple game. The game uses many of the concepts and much of the language that we have introduced so far.
+        <br/>
+                Here's the code. Have a look through:
             </p>
 
-            <pre class="brush: processing; gutter: false; toolbar: false; ">// ball position
+            <pre class="brush: processing; gutter: false; toolbar: false; ">// -- Global variables are defined first
+
+// ball position
 float xPos;
 float yPos;
 
@@ -101,7 +106,7 @@ float vy;
 float radius;
 
 // is ball in play?
-boolean inPlayMode;
+boolean inPlayMode;     // &lt;-- boolean variable, can only hold values of TRUE and FALSE.
 
 // peg size
 float pegRadius;
@@ -111,7 +116,7 @@ float peg1X, peg1Y;
 float peg2X, peg2Y;
 float peg3X, peg3Y;
 
-void setup()
+void setup()            // &lt;-- Whatever commands we put in here will be executed once.
 {
   size(500, 400);
 
@@ -128,20 +133,21 @@ void setup()
   peg3X = width - 24;
   peg3Y = 70;
 
-  background(255);
+  background(255);      // &lt;-- Fill the canvas in white (or another colour if you like)
   textSize(48);
 
   xPos = width - radius;
   yPos = height - radius;
 
-  inPlayMode = false;
+  inPlayMode = false;   // &lt;-- Initialise 'inPlayMode' to FALSE
 }
 
+// -- A new method 
 void mousePressed()
 {
-  if (inPlayMode)
+  if (inPlayMode)       // &lt;-- Check whether this is TRUE, else change vx and vy, and set inPlayMode to TRUE 
   {
-    // do nothing, ball is already in play
+    // -- do nothing, ball is already in play
   } 
   else 
   {
@@ -157,10 +163,13 @@ void draw()
 
   fill(255, 0, 0);
   stroke(0);
+
+  // -- Draw some shapes
   circle(peg1X, peg1Y, 2 * pegRadius);
   circle(peg2X, peg2Y, 2 * pegRadius);
   circle(peg3X, peg3Y, 2 * pegRadius);
 
+  // -- Lots of decisions that define the game!
   if (inPlayMode)
   {
     xPos = xPos + vx;
@@ -213,11 +222,21 @@ void draw()
   }
 }
 </pre>
+
+<script>
+    loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/pathfinder", 350, 280, "https://staff.city.ac.uk/~jwo/bootcamp2021/lecture05/images/pathfinder.png");
+</script>
+<p>PathFinder demo (click on image to activate).</p>
+
             <div class="codeTask">
-                Create your own PathFinder sketch containing a copy of this code.
+                <h5>Play PathFinder</h5>
+                <p>Click the sketch above and play a couple of times.</p>
+                <p>Now, create your own PathFinder sketch containing a copy of the code that we have provided above.</p>
+                <p>Save the sketch, and run it and play it a couple of times to get the hang of what it does.<br/>
+                    Make sure that your copy of the sketch behaves in the same way as the sketch that we have provided above.</p>
             </div>
             <p>
-                That code is quite a mouthful. But don't despair! When structured properly, the code will
+                That code is quite a mouthful. Maybe it's a bit scary? But don't despair! When structured properly, the code will
                 be much easier to understand. We are going to <em>refactor</em> the code to improve its structure.
                 Here's a sneak preview of what our refactored <code>draw()</code>
                 will look like:
@@ -258,22 +277,12 @@ void draw()
             </div>
         </div>
         <!-- End of left column -->
-        <div class="unit-30 annotation">
-            <!-- Right column -->
-            <br/><br/>
-            <br/><br/>
-            <script>
-                loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/pathfinder", 350, 280, "https://staff.city.ac.uk/~jwo/bootcamp2021/lecture05/images/pathfinder.png");
-            </script>
-            <p>PathFinder demo (click on image to activate).</p>
-        </div>
-        <!-- end of right column -->
     </div>
     <!-- End of row -->
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <div class="units-row">
-        <div class="unit-70">
+        <div class="unit-70-cc">
             <!-- Left column -->
             <h3>2. Methods</h3>
             <p>
@@ -292,7 +301,7 @@ void draw()
                 <br/>Depending on the specific programming language, there may, in fact, be some difference in
                 meaning between these words, but for present purposes we can safely consider them all to be
                 equivalent. We will try to stick to the term 'method' consistently
-                during <code>#BootCamp</code> but, if you read around the subject, you will find other authors using different
+                during our <code>#CreativeCoding</code> activity but, if you read around the subject, you will find other authors using different
                 terms (<a href="http://readinglists.city.ac.uk/items/27D2B53F-3DDE-EE72-F5EC-B1EBA9256FBF.html?referrer=%2Flists%2F3D1A6C7D-6690-EF98-BF4B-3B5B5788FBF7.html%23item-27D2B53F-3DDE-EE72-F5EC-B1EBA9256FBF" target="_blank">Daniel Shiffman</a>,
                 for example, usually says "function").
             </p>
@@ -319,23 +328,23 @@ void draw()
                 You have already been using and defining methods in your sketches:
             </p>
             <ul>
-                <li>Methods pre-defined by Processing and used by you in your sketches: <code>rect()</code>,
+                <li>Methods pre-defined by <i>Processing</i> and used by you in your sketches: <code>rect()</code>,
                     <code>circle()</code>,
                     <code>line()</code>, <code>stroke()</code>, <code>fill()</code>, <code>dist()</code> etc.
                 </li>
-                <li>Methods defined by you and which Processing calls when running your sketches:
+                <li>Methods defined by you and which <i>Processing</i> calls when running your sketches:
                     <code>setup()</code>,
                     <code>draw()</code>, <code>keyPressed()</code>.
                 </li>
             </ul>
             <p>
-                However, all the above are in some sense "special", in that Processing either defines them (so you
+                However, all the above are in some sense "special", in that <i>Processing</i> either defines them (so you
                 can use them in your sketches) or knows about them in advance (and uses them in particular ways if
                 <i>you</i> define them).
             </p>
         </div>
         <!-- End of left column -->
-        <div class="unit-30 annotation">
+        <div class="unit-30-cc annotation">
             <!-- Right column -->
         </div>
         <!-- end of right column -->
@@ -344,7 +353,7 @@ void draw()
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <div class="units-row">
-        <div class="unit-70">
+        <div class="unit-70-cc">
             <!-- Left column -->
             <h3>3. PathFinder Reloaded</h3>
             <p>
@@ -394,7 +403,7 @@ void draw()
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <div class="units-row">
-        <div class="unit-70">
+        <div class="unit-70-cc">
             <!-- Left column -->
             Having defined a method in our sketch, what will it do when we run the sketch? Absolutely nothing. That
             is to say, it won't do anything unless we <i>call</i> it from somewhere else in our code. To call a
@@ -410,7 +419,7 @@ void draw()
             </div>
             <div class="tip">
                 Note that we now have two methods with similar names:
-                <code>draw()</code> (executed automatically, 60 times a second, by Processing) and
+                <code>draw()</code> (executed automatically, 60 times a second, by <i>Processing</i>) and
                 <code>drawAimingLine()</code> (executed only when our code explicitly calls it).
                 Try not to get them mixed up!
             </div>
@@ -438,9 +447,9 @@ void draw()
             <br/>
         </div>
         <!-- End of Left column -->
-        <div class="unit-30 annotation">
+        <div class="unit-30-cc annotation">
             <!-- Right column -->
-            <img src="https://jsndyks.github.io/cityBootCamp/html/methods/img/methodFlow.png" alt="method flow control-flow diagram">
+            <img src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/methodFlow.png" alt="method flow control-flow diagram">
             <p>The control flow of a method call.</p>
         </div>
         <!-- end of right column -->
@@ -449,7 +458,7 @@ void draw()
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <div class="units-row">
-        <div class="unit-70">
+        <div class="unit-70-cc">
             <!-- Left column -->
             <h3>4. Method Reuse versus Code Duplication</h3>
 
@@ -499,7 +508,7 @@ void draw()
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <div class="units-row">
-        <div class="unit-70">
+        <div class="unit-70-cc">
             <!-- Left column -->
             <h3>5. Parameters</h3>
             <p>
@@ -596,7 +605,7 @@ void draw()
 
         </div>
         <!-- End of left column -->
-        <div class="unit-30 annotation">
+        <div class="unit-30-cc annotation">
             <!-- Right column -->
 
         </div>
@@ -605,16 +614,16 @@ void draw()
     <!-- End of row -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <div class="units-row">
-        <div class="unit-70">
+        <div class="unit-70-cc">
             <!-- Left column -->
             <div class="coreTask">
                 <p>Let's finish this section on <i>parameters</i> with an explanation from <i>Radu</i>.<br/>
                 It should help clarify.</p>
-            <a href="https://cityuni-my.sharepoint.com/:v:/g/personal/j_dykes_city_ac_uk/EUfVRWHE8KVChQhNHFJmkbwBSLpz6Du0sfCaSUGcqvQZsg?e=typd6d"><img style="padding:1.5em;padding-top:0px" width="450" src="https://jsndyks.github.io/cityBootCamp/html/methods/img/bootCamp.video.parameters.png" alt="parameters video"></a>
+            <a href="https://cityuni-my.sharepoint.com/:v:/g/personal/j_dykes_city_ac_uk/EUfVRWHE8KVChQhNHFJmkbwBSLpz6Du0sfCaSUGcqvQZsg?e=typd6d"><img style="padding:1.5em;padding-top:0px" width="450" src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/cc.video.parameters.png" alt="parameters video"></a>
             </div>
         </div>
     <!-- End of left column -->
-        <div class="unit-30 annotation">
+        <div class="unit-30-cc annotation">
         <!-- Right column -->
         <p>&nbsp;</p>
         <p>&nbsp;</p>
@@ -628,7 +637,7 @@ void draw()
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <div class="units-row">
-        <div class="unit-70">
+        <div class="unit-70-cc">
             <!-- Left column -->
             <h3>6. Return values</h3>
             <p>
@@ -666,7 +675,7 @@ void draw()
             </ol>
         </div>
         <!-- End of left column -->
-        <div class="unit-30 annotation">
+        <div class="unit-30-cc annotation">
             <!-- Right column -->
 
         </div>
@@ -676,9 +685,9 @@ void draw()
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <div class="units-row">
-        <div class="unit-70">
+        <div class="unit-70-cc">
             <!-- Left column -->
-            <h3>7. Summary and further reading</h3>
+            <h3>7. Summary and Further Resources</h3>
             <ul>
                 <li>Methods are named pieces of code which can be called from other pieces of code. When a method
                     finishes execution, control returns to the calling code.</li>
