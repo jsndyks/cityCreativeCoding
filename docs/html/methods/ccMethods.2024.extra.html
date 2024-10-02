@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html  dir="ltr" lang="en" xml:lang="en">
+<head>
+    <title>Programming BootCamp Lecture: Methods Exercises</title>
+
+		
+	
+		
+	<!-- Embedded fonts -->
+	    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+	<!-- Custom layout and style -->
+	   <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+	
+	
+</head>
+<body>	
+
+
+
+
+
+<!-- General browser compatibility handling -->
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+<!-- Formatted source code -->
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+<!-- Sketch popups and hidden text-->
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+<!-- iFrame -->
+<script type="text/javascript" src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
+
+
+<div id="page">
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+
+<!-- 
+    You can access [this page](https://jsndyks.github.io/cityBootCamp/html/methods/bootCamp.methods.exercise.html) outside of _Moodle_ should you wish to do so.
+
+    <iframe id="myIframe"
+  src="https://jsndyks.github.io/cityBootCamp/html/methodsbootCamp.methods.exercises.html" width="100%"
+  height="3250px"
+  frameborder="0"
+  scrolling="no"></iframe>
+
+<script src="/theme/cul_moove/js/iframeResizer.min.js"></script>
+<iframe id="myIframe" style="width: 1px; min-width:100%;" src="https://jsndyks.github.io/cityBootCamp/html/methods/bootCamp.methods.exercises.html"></iframe>
+<script>
+    iFrameResize({log: true}, '#myIframe')
+</script>
+
+-->
+    <p>
+        In these exercises you will practice how to write your own methods (method <i>definition</i>) and how to use
+        them in your code (method <i>call</i>).
+    </p>
+
+    <div class="coreTask">
+        <ol>
+            <li>Starting from scratch (no copy/paste), write a simple sketch to draw a "roundel" in the centre of
+                the sketch window, like the one below:<br/>
+                <img src="https://jsndyks.github.io/cityBootCamp/html/methods/img/Roundel.jpg" alt="Roundel sketch" width="200" height="200"><br/>
+                (This is a reduced-size screen-shot of a 400x400 sketch.)<br/>
+                Save your sketch with the name "Roundel".
+            </li>
+            <li>
+                Now refactor your sketch so that the drawing code for the roundel is in a separate method called
+                <code>roundel()</code>. Note that this method has an empty parameter list. After refactoring, your
+                <code>draw()</code> method should look like this:
+                <pre class="brush: processing; gutter: false; toolbar: false; ">void draw()
+{
+  background(192);
+  roundel();
+}</pre>
+                Remember: refactoring should <i>not</i> change behaviour, so the sketch should still look like the
+                above screen-shot when you run it.
+            </li>
+        </ol>
+    </div>
+
+    <div class="coreTask">
+        <ol>
+            <li>Save a new version of your sketch (use Save As… on the File menu) with the name "RoundelPos".</li>
+            <li>Modify your <code>roundel</code> method so that it has two parameters, <code>x</code> and
+                <code>y</code>, which it
+                uses to position the centre of the roundel. Refactor your <code>draw()</code> method to use the new
+                version of <code>roundel</code>. After refactoring, your <code>draw()</code> method should look like
+                this:
+                <pre class="brush: processing; gutter: false; toolbar: false; ">void draw()
+{
+  background(192);
+  roundel(width/2, height/2);
+}</pre>
+                At this stage, your new sketch should <i>still</i> look like the above screen-shot when you run it.
+            </li>
+            <li>
+                Add additional calls to <code>roundel</code> in your <code>draw()</code> method, so that the sketch
+                now looks like this:<br/>
+                <img src="https://jsndyks.github.io/cityBootCamp/html/methods/img/RoundelPos.jpg" alt="RoundelPos sketch" width="200" height="200"><br/>
+            </li>
+        </ol>
+    </div>
+
+    <div class="coreTask">
+        <ol>
+            <li>Save a third version of your sketch with the name "RoundelPosScale".</li>
+            <li>Add one more parameter to your <code>roundel</code> method. This parameter should be used to control
+                the <i>scale</i> of the roundel (a scale of 1.0 will draw the roundel at the same size as before, a
+                scale of 0.5 will draw it at half size, a scale of 2.0 will draw it at double size, etc). Refactor
+                your <code>draw()</code> method to use a scale parameter of 1.0 in each
+                of the existing calls to <code>roundel</code> (everything should look the same as before when you
+                run the sketch).
+            </li>
+            <li>
+                In <code>draw()</code>, modify the scale parameters in the calls to <code>roundel</code> so that
+                each one is drawn
+                at a different scale. The result should look something like this:<br/>
+                <img src="https://jsndyks.github.io/cityBootCamp/html/methods/img/RoundelPosScale.jpg" alt="RoundelPos sketch" width="200" height="200"><br/>
+            </li>
+        </ol>
+    </div>
+
+    <div class="codeTask">
+        Complete the refactoring of the PathFinder sketch that we started in the lecture. Here's a reminder of what
+        the <code>draw()</code> code should look like when the sketch is fully refactored:
+        <br/>
+        <br/>
+        <pre class="brush: processing; gutter: false; toolbar: false; ">void draw()
+{
+  background(255);
+
+  drawPeg(peg1X, peg1Y);
+  drawPeg(peg2X, peg2Y);
+  drawPeg(peg3X, peg3Y);
+
+  if (inPlayMode)
+  {
+    moveBall();
+
+    drawBall();
+
+    bounceOffWalls();
+
+    checkForPegCollision(peg1X, peg1Y);
+    checkForPegCollision(peg2X, peg2Y);
+    checkForPegCollision(peg3X, peg3Y);
+  }
+  else
+  {
+    drawBall();
+
+    drawAimingLine();
+  }
+}</pre>
+        In the lecture we covered these methods:
+        <ul>
+            <li> <code>drawAimingLine</code>
+            </li>
+            <li> <code>drawBall</code>
+            </li>
+            <li> <code>checkForPegCollision</code>
+            </li>
+        </ul>
+        In addition, you need to define the methods:
+        <ul>
+            <li> <code>moveBall</code>
+            </li>
+            <li> <code>bounceOffWalls</code>
+            </li>
+            <li> <code>drawPeg</code>
+            </li>
+        </ul>
+
+        But remember, all the relevant code is already there in the sketch; you only need to restructure it.
+        <div class="tip">
+            <em>DO NOT</em> try to make all the changes in one massive edit. Make one change at a time. After each
+            change, run the sketch to make sure that nothing has broken before moving on to the next change.
+        </div>
+    </div>
+
+    <!--
+  <div class="codeTask">
+    To help with aiming, add some grid lines to the sketch. Define a new method
+    <code>drawGrid()</code> and call it near the beginning of <code>draw()</code>. Draw vertical and horizontal lines at a few key intervals. Use a pale gray stroke colour (such as <code>stroke(240)</code>) so that the lines are visible but not too obtrusive.
+    <div class="tip">
+      Ideally you would draw a fairly fine-grained grid (every 10 pixels, for example). But the only sane way to do this is to use for-loops, which we haven't covered yet (we will soon).
+    </div>
+  </div>
+
+  <div class="codeTask">
+    Add a “bounce counter” to the sketch. The aim of the game is to a find a cyclic path for the ball which it will follow indefinitely without ever hitting a peg. But hey, bouncing round a lot of times before bumping into a peg is better than only managing
+    a few. So let's keep count of how many times the ball has bounced off the walls and display this as a running count in a corner of the sketch:
+    <ol>
+
+      <li>Add a new global variable (type <code>int</code>) to keep count of bounces. Initialise it to zero in <code>setup()</code>.
+
+      </li>
+      <li>Modify your <code>bounceOffWalls()</code> method to update your counter variable.</li>
+
+      <li>Define a new method to display the bounce count in a corner of the sketch window and call your new method from an appropriate place in <code>draw()</code>.</li>
+
+    </ol>
+  </div>
+-->
+
+    <h3>Extension exercises</h3>
+
+    <div class="codeTask">
+        Change the sketch so that the ball is set in motion by pressing the spacebar, rather than by pressing the
+        mouse: remove the <code>mousePressed()</code> method, add a <code>keyPressed()</code> method.
+    </div>
+
+    <div class="challenge">
+        While in aiming mode, allow the user to move pegs by clicking on them and dragging with the mouse. You will
+        need to define three mouse event handlers:
+        <code>mousePressed()</code>,
+        <code>mouseReleased()</code>,
+        <code>mouseDragged()</code>. You will need to add one or more new global variables to keep track of which
+        peg is being moved during a drag operation.
+    </div>
+
+
+    <h2>Check on Progress</h2>
+    <div class="task">
+        To ensure that you have achieved the outcomes associated with this session, consider the following, which
+        allow you to evaluate your progress.
+        <br/>
+        <br/>
+
+        <div class="checkOutcomes">
+            <input id="sa1" type="checkbox">
+            <label for="sa1" style="padding:1em">Can I define a method with no parameters and call it within my sketch?
+                <!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=519125">Methods</a>  -->
+            </label>
+            <br/>
+            <input id="sa2" type="checkbox">
+            <label for="sa2" style="padding:1em">Given an informal description of a simple behaviour, can I choose a good name for a
+                method and figure out what code to write in the method body?</label>
+            <br/>
+            <input id="sa3" type="checkbox">
+            <label for="sa3" style="padding:1em">Do I know which parts of my sketch code will be executing before, during and after a
+                method call?</label>
+            <br/>
+            <input id="sa4" type="checkbox">
+            <label for="sa4">Can I define and use parameterized methods within my sketches?</label>
+            <br/>
+            <input id="sa5" type="checkbox">
+            <label for="sa5" style="padding:1em">Can I define and use methods that return a value within my sketches?</label>
+            <br/>
+        </div>
+        <!-- End of checkOutcomes -->
+
+    </div>
+    <!-- End of task -->
+
+            <!--- spacer for iFrame -->
+            <p style="padding-top:1em"><hr/></p>
+
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+</div> <!-- End of page div -->
+<script type="text/javascript">
+    SyntaxHighlighter.all()
+</script>
+
+</body>
+</html>
