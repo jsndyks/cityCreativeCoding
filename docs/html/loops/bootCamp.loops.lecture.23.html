@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming Bootcamp Lecture: Loops</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Add summary sentence or two below, which will act as an easy introduction -->
+
+        <div class="intro">
+
+            <p>
+                This session introduces the idea of <i>loops</i> to force the repetition of selected parts of your code.
+            </p>
+
+            <p><strong>By the end of this session you should be able to:</strong></p>
+
+            <ul>
+                <li>follow the flow of a program;</li>
+                <li>create a for loop for repeating a block of code a fixed number of times;</li>
+                <li>recognise unnecessary repeated lines of code and replace them with a loop;</li>
+                <li>use nested loops to work with gridded structures</li>
+            </ul>
+
+        </div> <!-- End of intro section -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <h3>1. Program Flow and Loops</h3>
+                <p>
+                    When coding you have come to rely on the fact that instructions are usually executed in the order
+                    you provide them in your code. Within a method such as <code>setup()</code>, <code>draw()</code> or
+                    the ones you create yourself, program flow moves from top to bottom one instruction at a time.
+                </p>
+
+
+                <p>
+                    We have seen how we can modify this rule slightly by providing <i>conditional blocks</i> of code
+                    that are only executed if a particular condition is met. If it is not met, than the block of code is
+                    skipped. Even so, this still follows the general rule of code execution moving from 'top to bottom'
+                    within any one method.
+                </p>
+
+                <p>
+                    We have also seen how we can move whole blocks of code into their own methods and call those methods
+                    at any time. This has allowed us to make repeated calls to a single block of code. Even though the
+                    use of methods makes program flow a little more complex, within any one method, we still follow the
+                    rule of moving 'downward' though each line of code from the top to the bottom of the method.
+                </p>
+
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br /><br />
+                <br /><br />
+                <script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/programFlow.png', 500, 516, 'Program flow in a method');</script>
+
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <p>
+                    We can modify program flow further through the creation of <i>loops</i>. These are blocks of code
+                    that are repeated time after time — when program execution gets to the end of the loop it returns
+                    back to the start of the loop before repeating.
+                </p>
+
+                <div class="tip">
+                    A loop is simply a block of code that is repeated a certain number of times. It will usually apply
+                    some form of test to check whether it should repeat or not. This allows the loop to be repeated a
+                    fixed number of times. Repeating some code in a programming language is known as <i>iteration</i>.
+                </div>
+
+                <p>
+                    You have already taken advantage of one kind of loop — the <code>draw()</code> loop which does that
+                    repetition of all the code inside <code>draw()</code> 60 times every second.
+                </p>
+
+                <p>
+                    In addition to repeating the whole of <code>draw()</code> we can make smaller blocks of code repeat
+                    by creating our own loops. These are very useful when we know we have to get the computer to do
+                    something many times and we want to save ourselves the bother of coding each instruction multiple
+                    times.
+                </p>
+
+                <p>
+                    For example, suppose we wished to draw nine squares in a line:
+                    <br />
+                    <img src="https://staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/rectangles.png" width="960"
+                        height="110" alt="9 rectangles">
+                    <br />
+                    One approach might be to issue the <code>rect()</code> command, once for each square. Something like
+                    this:
+                </p>
+                <pre class="brush: processing; gutter: false; toolbar: false; ">rect( 40,50,80,80);
+rect(140,50,80,80);
+rect(240,50,80,80);
+rect(340,50,80,80);
+rect(440,50,80,80);
+rect(540,50,80,80);
+rect(640,50,80,80);
+rect(740,60,80,80);
+rect(840,50,80,80);</pre>
+
+                <p>
+                    As well as being a little tedious to type, repeating code like this makes it unnecessarily
+                    complicated to edit (e.g. suppose we wished to change the size of each square) as well as
+                    error-prone (did you spot the mistake in line 8?). Instead of writing the same commands or lines of
+                    code many times, loops allow us to write the code once, placing it inside a loop that requests the
+                    code is repeated many times.
+                </p>
+
+                <div class="tip">
+                    If you find yourself writing very similar code many times, the chances are that it can be improved
+                    in both efficiency and clarity by using a loop to bring out the regularity. One of the skills in
+                    programming is in being able to recognise that a particular task can be broken down into a repeated
+                    set of simpler tasks.
+                </div>
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <br /><br />
+                <br /><br />
+                <br /><br />
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/loopFlow.png', 500, 524, 'Program flow with a loop');</script>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <h3>2. The <code>for</code> loop</h3>
+                <p>
+                    One of the commonest forms of loops in Processing (and other languages) is the 'for' loop. The
+                    example below shows how it might be used to draw those nine squares:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false; ">for (int i=0; i&lt;9; i=i+1)
+{
+  rect(40 + i*100, 50, 80,80);
+}
+</pre>
+
+                <p>
+                    A for loop has two parts — a <i>header</i> and a <i>body</i>. The body is the block of code between
+                    the curly braces: this is the code that will be repeated. The header is the line beginning with
+                    '<code>for</code> comprising three elements each separated by a semicolon. Those three elements are:
+                </p>
+
+                <ol>
+                    <li>A <b>loop counter declaration and initialisation</b>. In the example above it is the code
+                        <code>int i=0;</code>. This declaration is just like any other variable declaration in that we
+                        say what type of variable is being declared (the <code>int</code> type in this example) and we
+                        give it a name. It is common to give loop counters short names such as <code>i</code>, but you
+                        are free to give more explanatory names if you wish such as <code>counter</code>. That counter
+                        variable is only useable within the loop itself.
+                        <br /><br />
+                    </li>
+
+                    <li>A <b>conditional test</b>. This is the test that is carried out every time the loop repeats, and
+                        only if the result of the test is <code>true</code> will the body of the loop be executed. By
+                        allowing the result of the test to sometimes be <code>false</code> we can get the loop to repeat
+                        only a fixed number of times. In our example above the conditional test is <code>i&lt;9;</code>.
+                        In other words, the loop code will only be executed if the loop counter <code>i</code> is less
+                        than 9.
+                        <br /><br />
+                    </li>
+
+                    <li>A <b>loop counter assignment</b> that applies some update to the loop counter. Typically this is
+                        to increase the value of the counter by one on each repeat. This is necessary otherwise the
+                        conditional test would never allow the loop to finish. In our example this element is
+                        <code>i=i+1</code> but in principle it could be any form of assignment such as decreasing the
+                        counter by one or increasing it by 10.
+                    </li>
+                </ol>
+
+                <div class="tip">
+                    The rules of variable declaration and scope also apply to loops. Variables <i>declared</i> in the
+                    header or within the braces of a loop are only usable within the loop itself.
+                </div>
+
+                <p>
+                    A couple of other things to note when using for loops. The header line has no semicolon at the end.
+                    This is consistent with the coding of methods and conditional (<code>if</code>) blocks in that that
+                    semicolon is replaced with an open and close brace. It is only within the block of code inside the
+                    braces that the lines will have semicolons.
+                </p>
+
+                <p>
+                    The code inside the braces of the loop should be indented. Again this is consistent with the way we
+                    have used indentation with braces when writing code in a method.
+                </p>
+
+                <p>
+                    Notice also that in our example, we have used the loop counter variable <code>i</code> as part of
+                    the <code>rect()</code> command. This allows us to position each rectangle at a different
+                    x-coordinate every time the loop is repeated (0, 100, 200, 300 etc.).
+                </p>
+
+                <div class="codeTask">
+                    Taking the example for loop code above, put this in a sketch to draw the nine squares. You will need
+                    to set the sketch's size to be large enough to show all nine of them, and you may wish to set a
+                    <code>fill()</code> colour for the rectangles.
+                    <br /><br />
+                    Within the loop body, add a <code>println()</code> statement to display the value of <code>i</code>
+                    on each iteration of the loop. Is it what you expected?
+                </div>
+
+                <p>
+                    Any code can go inside the body of a loop. For example, here is a modification to the woodland
+                    sketch we have previously developed, this time using a for loop to draw many trees.
+                </p>
+            </div> <!-- End of left column -->
+
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br />
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <pre class="brush: processing; gutter: false; toolbar: false; highlight:[17,18,19,20]; ">color leafColour,trunkColour;
+
+void setup()
+{
+  size(800, 400);
+  noStroke();
+  leafColour  = color(82, 144, 97);
+  trunkColour = color(95, 57, 26);
+}
+
+void draw()
+{
+  background(157, 238, 247);   // Sky
+  fill(156, 245, 170);         // Ground.
+  rect(0, height/2, width, height/2);
+
+  for (float xPos=50; xPos&lt;width; xPos=xPos+100)
+  {
+    drawTree(xPos,180);
+  }
+}
+
+// Draws a single tree at the given position.
+void drawTree(float treeX, float treeY)
+{
+  fill(trunkColour);
+  rect(treeX, treeY, 20, 70);
+  fill(leafColour);
+  ellipse(treeX+10, treeY-30, 70, 90);
+}</pre>
+
+                <p>
+                    There are several other kinds of looping commands in Processing (see, for example, the further
+                    reading section below).
+                </p>
+            </div> <!-- End of left column -->
+
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/woodland.png', 800, 400, 'Loop used to draw several trees');</script>
+                <p>
+                    Loop used to draw several trees <i>(click to enlarge)</i>.
+                </p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <h3>3. Nesting Loops</h3>
+                <p>
+                    Let's return to a simple for loop that displays a row of shapes:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false;">for (int col=0; col&lt;10; col = col+1)
+{
+  circle(20 + col*40,height/2, 30);
+}</pre>
+
+                <p>
+                    As we have seen, the loop allows us to code the <code>circle()</code> command only once, but for it
+                    to be called 10 times as the loop repeats. We can think of all four lines of code comprising the
+                    entire loop as a single activity that draws a row of circles.
+                </p>
+            </div> <!-- End of left column -->
+
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <br /><br />
+                <br /><br />
+                <script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/circleRow.png', 400, 65, 'Row of circles');</script>
+                <p>Row of circles from a single for loop.</p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+                <p>
+                    Just as we placed the <code>circle()</code> command inside a loop, we can do the same thing for our
+                    row drawing code. In other words, we <i>nest</i> one loop inside another. This allows us to draw
+                    many rows of circles:
+                </p>
+                <pre class="brush: processing; gutter: false; toolbar: false;">for (int row=0; row&lt;10; row = row+1)
+{
+  for (int col=0; col&lt;10; col = col+1)
+  {
+    circle(20 + col*40, 20 + row*40, 30);
+  }
+}</pre>
+
+                <p>
+                    It is important to note that just because we have two loops in the code above doesn't mean we are
+                    only repeating something twice. Because we have placed the inner loop <i>inside</i> the body of the
+                    outer loop, the <code>code()</code> command is called 10 x 10 = 100 times. Note how the
+                    indentation helps us to recognise this nested structure.
+                </p>
+
+                <div class="tip">
+                    When you nest loops inside other loops or blocks of code, indentation becomes increasingly helpful
+                    as a way of making your code clearer to read. You can get Processing to apply that indentation
+                    automatically at any time by pressing <code>Control-T</code> (or <code>Cmd-T</code> on a Mac).
+                </div>
+
+                <p>
+                    Nested loops are very useful when we deal with gridded structures and layouts.
+                </p>
+            </div> <!-- End of left column -->
+
+
+            <div class="unit-30 annotation">
+                <!-- Right hand column for small images, popup sketches and annotations. -->
+                <script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/circleGrid.png', 400, 400, 'Grid of circles');</script>
+                <p>
+                    Grid of circles from a two nested loops.
+                </p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70">
+                <!-- Left column -->
+
+                <h3>4. Summary and Further Reading</h3>
+
+                <ul>
+                    <li>
+                        While program flow is dominantly from top-to-bottom, we have seen how we can force flow to
+                        repeat sections of code using loops.
+                    </li>
+
+                    <li>
+                        A for loop declares, initialises a loop counter, performs a conditional test on the counter to
+                        determine if it should repeat and changes the value of the counter on each <i>iteration</i> of
+                        the loop.
+                    </li>
+
+                    <li>
+                        Loops can be <i>nested</i> inside one another to provide a convenient way of handling gridded
+                        structures.
+                    </li>
+                </ul>
+
+
+                <div class="homework">
+                    You may find the following helpful if you'd like to find out more about loops:
+                    <br><br>
+
+                    <ul>
+                        <li><a href="https://processing.org/reference/for.html" target="_blank">Processing reference:
+                                'for loops'</a> — The two types of for loops with Processing examples.</li>
+                        <li><a href="https://processing.org/reference/while.html" target="_blank">Processing reference:
+                                'while loops'</a> — The 'while loop' with Processing example.</li>
+                    </ul>
+
+                </div>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30 annotation">
+                <!-- Right column -->
+                <br />
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>
