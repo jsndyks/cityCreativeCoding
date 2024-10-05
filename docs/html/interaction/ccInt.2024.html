@@ -125,10 +125,10 @@
                     You can find this out and use this in your sketches in a couple of ways.
                     Firstly, <i>Processing</i> retains a global variable (like <code>mouseX</code> and
                     <code>mouseY</code>) called <a href="https://processing.org/reference/key.html"
-                        target="_blank">key</a>.
+                        target="_blank"><code>key</code></a>.
                     This is a <i>character</i> variable that holds the value of the most recently pressed key on the
                     keyboard.
-                    It updates whenever a key on the keyboard is pressed - you don't have to ask it to do so, <i>Processing</i> just takes care of it!
+                    It updates whenever a key on the keyboard is pressed - you don't have to ask it to do so, <i>Processing</i> just takes care of it while any sketch runs. It has been there the whole time!
                     Useful!
                 </p>
                 <img src="https://jsndyks.github.io/cityBootCamp/images/interaction/keyboard.png" />
@@ -139,28 +139,26 @@
                     Here's a sketch that takes advantage of the way that <code>key</code> is updated from the keyboard.
                     It shows any interactions made through the keyboard on the canvas.
                 </p>
-                <pre class="brush: processing; gutter: false; toolbar: false; ">// -- set up the things that don't change ...
-void setup() {
-  size(400, 400);
-  textSize(128);      // &lt;-- try changing this
-  textAlign(CENTER); // &lt;-- centers text!
-}
+                <pre class="brush: processing; gutter: false; toolbar: false; ">  // -- set up the things that don't change ...
+    void setup() {
+    size(400, 400);
+    textSize(128);      // &lt;-- try changing this
+    textAlign(CENTER); // &lt;-- centers text!
+    }
 
-// -- do these things 60 times per second ...
-void draw() {
+    // -- do these things 60 times per second ...
+    void draw() {
 
-  // -- clear the canvas:
-  background(220);              // &lt;-- try a different colour
+    // -- clear the canvas:
+    background(220);              // &lt;-- try a different colour
 
-  // -- show the value of the key variable in the middle of the canvas:
-  text(key,width/2,height/2); // &lt;-- try a different position
-}</pre>
+    // -- show the value of the key variable in the middle of the canvas:
+    text(key,width/2,height/2); // &lt;-- try a different position
+    }
+</pre>
 
             </div> <!-- End of left column -->
 
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -168,7 +166,14 @@ void draw() {
             <div class="unit-70-cc">
                 <!-- Left column -->
                 <div class="coreTask">
-                  <b>Keyboard Interaction - key variable</b>
+                    <div class="figRight" style="margin-top:2em">
+                        <figure>
+                            <script>loadSketch("https://jsndyks.github.io/cityBootCamp/p5js/keyBig/", 300, 250, "https://jsndyks.github.io/cityBootCamp/p5js/keyBig/p5js.keyBig.png");</script>
+                            <figcaption><p><b>Key Example</b><br />Click the image to activate the sketch.<br/>Then <b>click again</b> inside the popup window. This will get the keyboard focussed on the sketch.<br/>Now you can press keys on the keyboard to see how the value of <b>key</b> changes based upon your interaction with the sketch through the keyboard.<br/>Voila! Interaction!</p></figcaption>
+                        </figure>
+                        </div>
+                    
+                    <b>Keyboard Interaction - key variable</b>
                     <p>Read through the code above 👆 to see if you can work out what it does.</p>
                     <p>Then run the sketch on the right 👉.<br/>
                         Click it and press some keys and see how the value of <code>key</code> changes.
@@ -186,13 +191,6 @@ void draw() {
                 <p>But of course we can do more, and <i>Processing</i> has some useful features that help with this.</p>
 
             </div> <!-- End of left column -->
-
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-                <br />
-                <script>loadSketch("https://jsndyks.github.io/cityBootCamp/p5js/keyBig/", 250, 250, "https://jsndyks.github.io/cityBootCamp/images/interaction/p5js.keyBig.png");</script>
-                <p><b>Key Example</b><br />Click the image to activate the sketch.<br/>Then <b>click again</b> inside the popup window. This will get the keyboard focussed on the sketch.<br/>Now you can press keys on the keyboard to see how the value of <b>key</b> changes based upon your interaction with the sketch through the keyboard.<br/>Voila! Interaction!</p>
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
