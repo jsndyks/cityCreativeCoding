@@ -168,7 +168,7 @@
                 <div class="coreTask">
                     <div class="figRight" style="margin-top:2em">
                         <figure>
-                            <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyBig/", 300, 250, "https://jsndyks.github.io/cityCreativeCoding/p5js/keyBig/p5js.keyBig.png");</script>
+                            <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyBig/", 300, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyBig.png");</script>
                             <figcaption><p><b>Key Example</b><br />Click the image to activate the sketch.<br/>Then <b>click again</b> inside the popup window. This will get the keyboard focussed on the sketch.<br/>Now you can press keys on the keyboard to see how the value of <b>key</b> changes based upon your interaction with the sketch through the keyboard.<br/>Voila! Interaction!</p></figcaption>
                         </figure>
                         </div>
@@ -250,7 +250,8 @@
                 <div class="coreTask">
                     <div class="figRight" style="margin-top:2em">
                         <figure>
-                            <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedRandom/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedRand.png");</script>                            <figcaption>Click the image to see and try a solution.</figcaption>
+                            <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedRandom/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedRand.png");</script>
+                            <figcaption>Click the image to see and try a solution.</figcaption>
                         </figure>
                         </div>
 
@@ -290,7 +291,7 @@
                     back to the left and down a line.</p>
                 <p>It's pretty straightforward ...</p>
                 <ul>
-                    <li style="padding-bottom:0.75em"><code>p%width</code> - uses the <a href="https://processing.org/reference/modulo.html">modulo
+                    <li style="padding-bottom:0.75em"><code>p % width</code> - uses the <a href="https://processing.org/reference/modulo.html">modulo
                             operator</a> <code>%</code>.<br />
                         This calculates the <i>remainder when one number is divided by another</i>.<br/>
                         So 110%100 is 10.<br/>
@@ -320,34 +321,35 @@
                 </ul>
                 <p>Here's some code that should do the job!</p>
                 <pre class="brush: processing; gutter: false; toolbar: false; ">
-// -- global variable - used to count keypresses and position text
-int p = 0;
+    // -- global variable - used to count keypresses and position text
+    int p = 0;
 
-void setup() {
-  size(400, 400);
-  background(220);
-  textSize(18);
-  fill(64);
-}
+    void setup() {
+    size(400, 400);
+    background(220);
+    textSize(18);
+    fill(64);
+    }
 
-// -- do nothing in the draw loop for now!
-void draw() {}
+    // -- do nothing in the draw loop for now!
+    void draw() {}
 
-void keyPressed() {
-  p+=12; // -- add 12 to p each time
+    void keyPressed() {
+    p+=12; // -- add 12 to p each time
 
-  // -- put the char held in 'key' at a screen position
-  // --   that increases in x and y with each key press
-  text(key,p%width, 100 + 24*int(p/width));
+    // -- put the char held in 'key' at a screen position
+    // --   that increases in x and y with each key press
+    text(key,p%width, 100 + 24*int(p/width));
 
-  // -- the above just calculates a position for the text as p increases
-  // -- use println() to print out the values to the console if you like
-  // -- remove '/width' and see what happens as you get to the right hand side!
-}</pre>
+    // -- the above just calculates a position for the text as p increases
+    // -- use println() to print out the values to the console if you like
+    // -- remove '/width' and see what happens as you get to the right hand side!
+    }</pre>
 
             </div> <!-- End of left column -->
         </div> <!-- End of row -->
 
+        <P>HERE!</P>
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <div class="units-row">
             <div class="unit-70-cc">
