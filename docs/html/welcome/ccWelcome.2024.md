@@ -30,6 +30,8 @@ We will start from the very basics of programming and gradually move into intere
 
 <p>Use <a href="https://mytimetable.city.ac.uk/">MyTimetable</a> to find the rooms in which <code>#CreativeCoding</code> lectures and tutorial sessions take place as we <i>Hijack!</i> some of your regular Year one modules!</p>
 
+<hr/>
+
 <img style="display: block; margin-left: auto; margin-right: auto; width:95%" src="https://jsndyks.github.io/cityCreativeCoding/images/ccLogos/ccLogosx5.row1.png"/>
 
 <p>Remember your <i><b>Fib Friend Badge</b></i> - find a couple of people with the same code and share something meaningful about yourself with them ... and talk about University, <code>CreativeCoding</code> and fun stuff.</p>
@@ -45,7 +47,7 @@ We also want you get to know us and your colleagues, and get used to University 
 Most importantly, we want you to <b>have some fun</b> with a shared data and coding experience in your first term.</p>
 
 <p>At the end of term, your tutors will provide a short report on your <code>#CreativeCoding</code> activity that they may use in subsequent reference writing: a <b>Creative Coding Commentary</b> that will report on your initiative, participation, creativity, group-work capability in <code>#CreativeCoding</code> and the tutorials </p>
-
+<hr/>
 <p><b>Important:</b> We plan to hit the ground running.</p>
 
 <ul>
