@@ -1,3 +1,4 @@
+
 function setup() {
   createCanvas(800,100);
 }
@@ -6,7 +7,7 @@ function setup() {
 function draw() {
   background(250);
   
-  for (int i=0; i<width; i+=100) {
+  for (let i=0; i<width; i+=100) {
     if (mouseX > i && mouseX <i+90) {
       fill(255,128,32);
     } else {
