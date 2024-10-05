@@ -50,7 +50,7 @@
 
         <p>
             These exercises give you practice using loops. They should help you understand how these are coded in
-            Processing as well as practice at thinking about how you can make repeated tasks more efficient by
+            <i>Processing</i> as well as practice at thinking about how you can make repeated tasks more efficient by
             placing them inside loops.
         </p>
 
@@ -60,24 +60,28 @@
             <p>
             Adapt your three rows of trees sketch once again to make it interactive.
             </p>
+            <p>
             Build on the underground sign sketch to check whether the mouse is within the trunk or leaves of the tree
             and change the colour of any tree you are 'touching'.<br /><br /> <b>TIP</b> Calculating whether a point is
             inside or outside a non-circular ellipse is a little more complicated than for a circle. But we can use our
             own method do the calculation:
-            <br /><br />
+            </p>
             <pre class="brush: processing; gutter: false; toolbar: false; ">// Will return true if position (x,y) is within an ellipse(cx,cy,w,h), otherwise false.
 boolean isInEllipse(float x, float y, float cx, float cy, float w, float h) 
 {
   return (x-cx)*(x-cx)/(w*w/4) + (y-cy)*(y-cy)/(h*h/4) &lt; 1;
 }</pre>
-            Can you also print out the number of the tree you are touching?
-            <br /><br />
-            How about <b>NOT</b> drawing a tree if the mouse is within it?
-            <br><br />
-            Try creating 'interactive clearings' - do not draw trees that are within a certain distance of the mouse
-            position?
+            <p>
+                Can you also print out the number of the tree you are touching?
+            </p>
+            <p>
+                How about <b>NOT</b> drawing a tree if the mouse is within it?
+            </p>
+            <p>
+                Try creating 'interactive clearings' - do not draw trees that are within a certain distance of the mouse position?<br/>
+                Here the <code>dist()</code> method will be useful - look it up if you need to know how it works.
+            </p>
         </div>
-        <br /><br />
 
 <!-- 
         <h2>Check on Progress</h2>
