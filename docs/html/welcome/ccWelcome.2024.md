@@ -22,7 +22,7 @@ We will start from the very basics of programming and gradually move into intere
 <!-- <figure></figure> -->
 
 <!-- <a href="https://jsndyks.github.io/cityCreativeCoding/html/tutors/img/creativeCoding.2024.schedule.v6.png"> -->
-<img src="https://jsndyks.github.io/cityCreativeCoding/html/tutors/img/creativeCoding.2024.schedule.v61.png" width="80%" style="margin-left:10%; margin-right:10%"/>
+<div style="padding:1em"><img src="https://jsndyks.github.io/cityCreativeCoding/html/tutors/img/creativeCoding.2024.schedule.v61.png" width="80%" style="margin-left:10%; margin-right:10%"/></div>
 <!-- </a> -->
 
 <!--  -->
