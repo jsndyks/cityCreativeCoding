@@ -216,6 +216,7 @@
                         <p>This is so important that I am going to say it again in bold:<br/>&nbsp;&nbsp;<b>any method that you specify in a sketch, that you give the name <code>keyPressed()</code>, will be run by your sketch every time you press any key on the keyboard.</b>
                         </p>
                         <p>You simply create a new method called <code>keyPressed()</code>, just as you have made methods to do all sorts of other things and as shown below, and <i>Processing</i> will automatically call this method every time it detects a <i>key press</i> interaction: every time a key is pressed on the keyboard</br>Let's try it!</p>
+                        <p>Note that we use <code><a href="https://processing.org/reference/random_.html">random(low,high)</a></code> to produce random positions within a range, as specified by the first (lower) and second (upper) parameters to the <code><a href="https://processing.org/reference/random_.html">random(low,high)</a></code> method.</p>
             </div> <!-- End of left column -->
 
         </div> <!-- End of row -->
@@ -933,7 +934,7 @@ void mouseClicked() {
                 <p>Often people don't read those big red titles 👆.<br/>So I am going to write it again in black here.<br/>This section is about: "<b>How to Structure a Sketch for Interaction</b>".<br/>And you need to know this in order to make reliable interactive sketches.
                 </p>
 
-                <p>The key thing is that empty <code>draw()</code> loop!</p>
+                <p>The key thing is the empty <code>draw()</code> loop that we have seen a few times in the examples used above when introducing concepts. We don't want an empty <code>draw()</code> loop!</p>
                 <p>The <code>draw()</code> loop is the place to draw and do things.<br />
                     The event handling methods like <code>keyPressed()</code> and <code>mouseClicked()</code> are not the place for this.<br />
                     <b>Do not draw or do things in event handling methods like <code>keyPressed()</code> and <code>mouseClicked()</code><br/></b>
@@ -968,16 +969,25 @@ void mouseClicked() {
   // --   based upon interactions and input.
   // -- These will be acted on in the draw() loop.
 }</pre>
+<div class="figRight" style="margin-top:1em">
+    <figure>
+        <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedMouseState/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedMouseState.png");</script>
+        <figcaption>
+            <b>KeyPressed Mouse State Example</b><br />Click to activate and press keys on the keyboard.
+            <br />Move the mouse to position subsequent text.
+            <br />Left click to clear the text.
+            <br />Try pressing the 'r' key.        
+        </figcaption>
+    </figure>
+</div>
+
                 <p>So ... even more bluntly ... <b>Don't draw things in the event handling methods!</b>.</p>
                 <p>Here is a refactoring of the <code>keyPressed</code> sketches that structures things as we advise
                     above.</p>
-                <p>It's a little longer than the other examples, but should be readable.<br/>
-                    Take your time to read it through and see how we have refactored things in line with this new advice.</p>
+                <p>The code is reproduced below and the sketch should be over to the right 👉</p>
+                <p>The code itself is a little longer than the other examples, but should be readable.<br/>
+                    Take your time to read it through carefully and see how we have refactored things in line with this new advice.</p>
             </div> <!-- End of left column -->
-
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -1045,7 +1055,7 @@ void mouseClicked() {
 
                 <p>One of the reasons we didn't organise the other examples in this way was to keep them short and sweet
                     as we introduced concepts.</p>
-                <p>But we need you to understand how to ...</p>
+                <p>But now that the concepts are introduced, we need you to understand how to ...</p>
                 <ul>
                     <li>detect and capture interaction</li>
                     <li>use it to set variables that describe the state of your system (sketch)</li>
@@ -1055,24 +1065,24 @@ void mouseClicked() {
                 <p>This gives you plenty of scope for producing exciting, imaginative, quick, interactive sketches.</p>
                 <p>So let's try to add something to this skeleton sketch!</p>
             </div> <!-- End of left column -->
-
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-                <br />
-                <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedMouseState/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedMouseState.png");</script>
-                <p><b>KeyPressed Mouse State Example</b><br />Click to activate and press keys on the keyboard.
-                    <br />Move the mouse to position subsequent text.
-                    <br />Left click to clear the text.
-                    <br />Try pressing the 'r' key.
-                </p>
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <div class="units-row">
             <div class="unit-70-cc">
-              <div class="coreTask">
-                <b>Mouse Interaction - Controlling Flow</b>
+                <div class="figCode" style="margin-top:1em">
+                    <figure>
+                        <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedMouseStateExercise/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedMouseStateExercise.png");</script>
+                        <figcaption>
+                            <b>KeyPressed Mouse State Example</b><br />Click to activate and press keys on the keyboard.
+                            Move mouse to reposition subsequent text.
+                            <br />Click to clear the text: - grey if the mouse is in the left half of the screen  - yellow otherwise.
+                        </figcaption>
+                    </figure>
+                    </div>
+                
+                    <div class="codeTask">
+                    <b>Mouse Interaction - Controlling Flow</b>
                     <p>Create a sketch using the skeleton code provided above.<br />Run it and experiment a
                         little.<br />
                         Can you see how <code>isRed</code> works?<br/>Can you see how we make decisions based upon its value and how we interact to change that?</p>
@@ -1093,23 +1103,18 @@ void mouseClicked() {
                 </div>
                 <div class="aside">
                     <h5>Important Reminder!</h5>
-                    <p>Remember that learning to <b>predict</b>, <b>change</b>, <b>observe</b> (behaviour, bug reports,
-                        etc.), <b>think</b> (and discuss), <b>learn</b>, <b>confirm</b> will really help you make
-                        progress.<br />Remember that your teachers are here to help you with this!</p>
+                    <p>Remember that learning to
+                        <b>plan / predict</b>, <b>attempt</b>, <b>run</b>, <b>observe</b> (behaviour, bug reports, etc.),
+                        <b>think</b> and <b>talk</b> (discuss, compare, reflect, learn)</b> will really help you make progress with this task, this kind of task and more widely.
+                        <!---
+                        <b>predict</b>, <b>change</b>, <b>observe</b> (behaviour, bug reports,
+                        etc.), <b>think</b> (and discuss), <b>learn</b>, <b>confirm</b>
+                        --->
+                        <br />Remember that your teachers are here to help you with this - on the discussion boards and in the scheduled practical classes!</p>
                 </div>
 
                 <!-- https://web.archive.org/web/20210323215123/https://www.notion.so/blog/stu-card -->
             </div>
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-                <br />
-                <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedMouseStateExercise/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedMouseStateExercise.png");</script>
-                <p><b>KeyPressed Mouse State Example</b><br />Click to activate and press keys on the keyboard.
-                    <br />Move mouse to reposition subsequent text.
-                    <br />Click to clear the text:<br /> - grey if the mouse is in<br />&nbsp;&nbsp;&nbsp;the left half
-                    of the screen<br /> -yellow otherwise.
-                </p>
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -1127,18 +1132,24 @@ void mouseClicked() {
                     This is a great start!
                 </p>
 
-                <div class="coreTask">
+                <div class="figCode" style="margin-top:1em">
+                    <figure>
+                <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/clickCount/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.clickCount.png");</script>
+                <figcaption><b>ClickCount Example</b><br />Click to activate and click in the sketch.
+                    <br />This sketch achieves some of what we ask for ... but we'd like you to extend it further!
+                    </figcaption>
+                </figure>
+                </div>
+
+                <div class="codeTask">
                   <b>Interaction - Persistence</b>
                     <p>Using the code below as a start point get <code>clickCount</code> to increment every time the
                         mouse is clicked.<br />
                         This variable should record the number of times the canvas has been clicked in your sketch.</p>
-                        <p>You'll need to write code to increment <code>clickCount</code> in a <code>mouseClicked()</code> method.</p>
+                        <p>You'll need to write code to increment the global <code>clickCount</code> variable in a <code>mouseClicked()</code> method.</p>
                 </div>
             </div> <!-- End of left column -->
 
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -1162,26 +1173,18 @@ void draw(){
   text(clickCount, width/2, height/2);
 }</pre>
 
-                <p>We'd like you to try some of the following extensions to this task.<br />
+                <p>We'd like you to try two extensions to this task. There are more listed on the optional <a href="">Interaction : Extras</a> page if you'd like to test yourself a little further.<br />
                     They all vary the way your sketch looks based upon accumulating interactions.</p>
 
             </div> <!-- End of left column -->
 
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-                <br />
-                <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/clickCount/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.clickCount.png");</script>
-                <p><b>ClickCount Example</b><br />Click to activate and click in the sketch.
-                    <br />This sketch achieves some of what we ask for ... but we'd like you to extend it further!
-                </p>
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <div class="units-row">
             <div class="unit-70-cc">
                 <!-- Left column -->
-                <div class="coreTask">
+                <div class="codeTask">
                   <b>Interaction - Persistence Freestyling</b>
                     <p>
                         <b>Extension 1</b>: Make the background colour different when more than 10 clicks have
@@ -1197,42 +1200,13 @@ void draw(){
                         should help here.
                     </p>
                   </div>
-                  <div class="task">
-                    <b>Interaction - More Persistence Freestyling</b>
-                    <p>Here are some more interesting things you could try with your newfound coding capability!</p>
-                    <p>
-                        <b>Extension 3</b>: You should have already used the <code><a
-                            href="https://processing.org/reference/random_.html" target="_blank">random()</a></code> method.<br/>
-                            If not, don't worry, it's easy - check here <code><a
-                            href="https://processing.org/reference/random_.html" target="_blank">random()</a></code><br/>
-                        Modify your code to add and display a second variable <code>randomNum</code>, that contains a
-                        different random value between 0 and 99 each time the mouse is clicked.
-                    </p>
-                    <p>
-                        <b>Extension 4</b>: Now see whether you can show the <b>average</b> of all the random numbers that have been produced by your sketch on each click.
-                        This will require a third variable that contains the <code>runningTotal</code> of all the random
-                        numbers generated during the various clicks.<br />
-                        It should be apparent that <code>runningTotal/clickCount</code> will give you the average.<br />
-                        But watch out - dividing any number by zero results in an error, so you will need a condition to
-                        make sure that you only calculate the average <code>if (clickCount &gt;0)</code>.
-                    </p>
-                </div>
-                <div class="challenge">
-                    <p>
-                        <b>Challenge - Extension 5</b>: If you enjoyed that and want to do more, then try showing how
-                        the average varies as clicks increase <i>with a graphic</i>.<br />
-                        Plot a small circle, with the x position showing the number of clicks - this needs to increase
-                        as the number of clicks increases.<br />
-                        The y position of the circle should depend on the <b>average</b> that you have calculated.<br />
-                        What happens to this average over time?<br />
-                    </p>
-                </div>
+
 
                 <h4>Hang on, that's not an interface!</h4>
                 <p>You are now equipped with many ways of interacting with sketches and should be able to produce
                     wonderfully interactive work. All it requires is a bit of practice and a lot of imagination.
-                    And a few of those <b>predict</b>, <b>change</b>, <b>observe</b>, <b>think</b> (and discuss), <b>learn</b>, <b>confirm</b> loops ...
-                    that <i>Stu Card</i> and his <i>Xerox Research Centre</i> colleagues would have used when they were designing their interface devices back in the 1970s.</p>
+                    And a few of those <b>PAROT (Talk)</b> loops ... that <i>Stu Card</i> and his <i>Xerox Research Centre</i>
+                    colleagues would have used when they were designing their interface devices back in the 1970s.</p>
 
                 <p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">9</span> - <b>HUH?</b> : that's not a graphical user interface?</code></p>
                 <p>We have deliberately <b>not</b> focussed on some of the standard windows style interface elements
@@ -1320,7 +1294,7 @@ void mouseClicked()
 }</pre>
 
                 <p>The key thing to see here is the way that we check whether the mouse is in the rectangle or not with
-                    some basic comparisons of the mouse position with the extent of the rectangle.</p>
+                    some basic comparisons of the mouse position with the extent of the rectangle that we draw to look like a button.</p>
             </div> <!-- End of left column -->
 
             <div class="unit-30-cc annotation">
@@ -1332,8 +1306,16 @@ void mouseClicked()
         <div class="units-row">
             <div class="unit-70-cc">
                 <!-- Left column -->
+                <div class="figCode" style="margin-top:1em">
+                    <figure>
+                        <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/checkButtonV0/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.checkButtonV0.png");</script>
+                        <figcaption><b>CheckButton Example</b><br />Click to activate and click in the sketch.
+                        <br />A lonely checkButton.<br />It's just a rectangle that changes colour when you interact with it.<br/>Give it a try!
+                        </figcaption>
+                    </figure>
+                    </div>
 
-                <div class="coreTask">
+                <div class="codeTask">
                   <b>Building an 'Interface'</b>
                     <p>Run the example sketch to the right - click the check-button to see what happens!</p>
                     <p>Then copy the code from above into <i>Processing</i> and run the sketch to see how it works.</p>
@@ -1342,20 +1324,13 @@ void mouseClicked()
                         shapes on screen.<br />
                         It's quite clever really - all invented by the folks at Xerox in the 1970s!</p>
                     <p>But what we do with this capability is down to us as programmers.<br />
-                        Can you edit the code that checks whether the mouse (cursor) is <i>in</i> the rectangle, so that it responds as though you
-                        are in it, when you are actually 10 pixels away from it?</p>
+                        Can you edit the code that checks whether the mouse (cursor) is <i>in</i> the rectangle, so that it responds as though the mouse if in the rectangle, when it is are actually 10 pixels away from it?<br/> or 10 pixels above it?</p>
+                    <p>Excellent in computing is all about making the computer do things, react to interactions, in ways that make intuitive sense to the people who are using the systems, and providing software and hardware designs that achieve this.<br/>
+                        Creative thinking is a big part of good and innovative design.</p>
                 </div>
 
             </div> <!-- End of left column -->
 
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-                <br />
-                <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/checkButtonV0/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.checkButtonV0.png");</script>
-                <p><b>CheckButton Example</b><br />Click to activate and click in the sketch.
-                    <br />A lonely checkButton.<br />It's just a rectangle that changes colour when you interact with it.<br/>Give it a try!
-                </p>
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
 
@@ -1363,30 +1338,35 @@ void mouseClicked()
         <div class="units-row">
             <div class="unit-70-cc">
                 <!-- Left column -->
-                <p>Of course we could extend things a little ... we want you to be creative in <code>#BootCamp</code>!</p>
-                <p>You don't need checkboxes and check-buttons and conventions.<br/>Be creative and daring! Surprise us!</p>
+                <p>Of course we could extend things a little ... we want you to be creative in <code>#CreativeCoding</code>!</p>
+                <p>You don't need checkboxes and check-buttons and conventions.<br/>Be original and daring! Surprise us!</p>
                 <p>Think outside the (check) box!</p>
                 <p>And if you do use familiar interface forms like buttons and checkboxes  - make sure they do something interesting, exciting, dynamic and creative!</p>
                 <p>Oh, and make sure all of your sentences end with exclamation marks! 😉</p>
+
+                <div class="figCore" style="margin-top:3em">
+                    <figure>
+                      <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/checkButtonCrazy/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.checkButtonCrazy.gif");</script>
+                      <figcaption><b>Another CheckButton Example</b><br />Click to activate and click in the sketch.
+                        <br />Here's an example of a dynamic sketch that responds to 🐁 interaction!
+                      </figcaption>
+                </figure>
+                </div>
                 <div class="coreTask">
-                  <b>Be Creative! Don't be constrained by the 'Interface's you see!</b>
+                  <b>Be Creative! Don't be constrained by the 'Interfaces' you see!</b>
                   <p>
                     Where was I?<br/>Oh yeah, try the <i>CheckButton example</i> to the right.
                   </p>
+                  <p>
+                    To make good use of a homegrown interface element like this, we often use our own 'methods' - collections of <i>Processing</i> code and capability that allow us to define and call on functionality whenever we need it - like when a button is pressed.</p>
+                  <p>
+                    We can re-use these to build sophisticated software systems with efficiency.<br/>
+                    More on this soon!
+                    </p>
                 </div>
-                To make good use of a homegrown interface element like this, we often use our own 'methods' - collections of <i>Processing</i> code and capability that allow us to define and call on functionality whenever we need it - like when a button is pressed.
-                We will cover methods very soon.
+ 
 
             </div> <!-- End of left column -->
-
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-                <br />
-                <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/checkButtonCrazy/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.checkButtonCrazy.gif");</script>
-                <p><b>Another CheckButton Example</b><br />Click to activate and click in the sketch.
-                    <br />Here's an example of a dynamic sketch that responds to 🐁 interaction!
-                </p>
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
 
@@ -1398,7 +1378,48 @@ void mouseClicked()
                 <h3>5. Summary </h3>
 
                 <p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">10</span> - <b>Session Summary</b> : go make interactive sketches!</code></p>
-                <ul>
+
+                <div class="figRight" style="margin-top:1em">
+                    <figure>
+                <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/moveMouse/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.moveMouse.png");</script>
+                <figcaption><b>Mouse Move Example</b><br />Here's one final sketch that<br/> responds to interaction through the  🐁.
+                  <br/><br/>Try keyboard interaction<br/>(<span class="key">t</span>, <span class="key">r</span>, etc.)<br/> oh,  and mouse clicks.
+                </figcaption>
+            </figure>
+            </div>
+            <!--
+            char mouse = '🐁';
+            let mouse = "🐁";
+            let turtle = "🐢";
+            let rabbit = "🐇";
+            let duck = "🦆";
+            let lobster = "🦞";
+            let crab = "🦀";
+            let badger = "🦡";
+            let squirrel = "🐿";
+            let hedgehog = "🦔";
+            let pig = "🐖";
+            let squid = "🦑";
+            let cat = "🐈‍⬛";
+            let kangaroo = "🦘";
+            if (key == 'q') animal = squid;
+            if (key == 'p') animal = pig;
+            if (key == 'h') animal = hedgehog;
+            if (key == 'b') animal = badger;
+            if (key == 's') animal = squirrel;
+            if (key == 'c') animal = crab;
+            if (key == 'l') animal = lobster;
+            if (key == 'd') animal = duck;
+            if (key == 'r') animal = rabbit;
+            if (key == 't') animal = turtle;
+            if (key == 'm') animal = mouse;
+            if (key == 'f') animal = cat;
+            if (key == 'k') animal = kangaroo;
+             -->
+
+
+                <div>
+                <ul class="summary">
                     <li style="padding-top:1em; padding-bottom:1em">
                         <i>Processing</i> provides some useful capability for interaction - see the <b>Event handling : keyboard
 </b> and <b>Event handling : mouse</b> tables and follow the links to the <a href="https://processing.org/reference/">Processing Reference</a> materials for explanations and examples.<br/><b>Really - try the examples out and experiment with them</b>. There is great stuff in there that will help you understand and inspire you to do creative things.
@@ -1412,71 +1433,33 @@ void mouseClicked()
                         You actually do things in <code>draw()</code>.
                     </li>
                     <li style="padding-top:1em; padding-bottom:1em">
-                        We'd like you to use this knowledge <b>creatively</b> in designing interesting interactive sketches - and enjoy doing so as you progress through <code>#BootCamp</code>.
+                        We'd like you to use this knowledge <b>creatively</b> in designing interesting interactive sketches - and enjoy doing so as you progress through <code>#CreativeCoding</code>.
                     </li>
                     <li style="padding-top:1em; padding-bottom:1em">
                         Begin by working through these notes, examples and tasks ... then move on to the <a
                             href="https://moodle4.city.ac.uk/mod/page/view.php?id=420875">practical exercises</a>.
                             <br/>
                             Use the <a href="https://processing.org/reference/">Processing Reference</a> materials to help, and remember to
-                            <b>predict</b>, <b>change</b>, <b>observe</b>, <b>think</b> (and discuss), <b>learn</b>, <b>confirm</b> as you go.
-                                Your colleagues and teachers will be important sounding boards in this process.
-                                Chat to them and help others as you go through this process multiple times.
+                            b>plan / predict</b>, <b>attempt</b>, <b>run</b>, <b>observe</b> and <b>think</b> systematically as you go - and <b>talk</b> about this process.<br/>
+                                Your colleagues and teachers will be important sounding boards as you do so.
+                                Chat to them and help others as you iterate through this process multiple times.
                     </li>
                     <li style="padding-top:1em; padding-bottom:1em">
                         You should be able to figure out how this sketch on the right works: <b>can you</b>?
                     </li>
                 </ul>
-                <p style="padding-top:8em; padding-left:4em">🐁</p>
-            </div> <!-- End of left column -->
+                </div>
 
-            <div class="unit-30-cc annotation">
-                      <!-- Right hand column for small images, popup sketches and annotations. -->
-                      <h3>&nbsp;</h3>
-                      <p style="padding-top:4em"></p>
-                      <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/moveMouse/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.moveMouse.png");</script>
-                      <p><b>Mouse Move Example</b><br />Here's one final sketch that responds to interaction through the  🐁.
-                        <br/><br/>Try keyboard interaction<br/>(<span class="key">t</span>, <span class="key">r</span>, etc.)<br/> oh,  and mouse clicks.
-                      </p>
-                  <!--
-                  char mouse = '🐁';
-                  let mouse = "🐁";
-                  let turtle = "🐢";
-                  let rabbit = "🐇";
-                  let duck = "🦆";
-                  let lobster = "🦞";
-                  let crab = "🦀";
-                  let badger = "🦡";
-                  let squirrel = "🐿";
-                  let hedgehog = "🦔";
-                  let pig = "🐖";
-                  let squid = "🦑";
-                  let cat = "🐈‍⬛";
-                  let kangaroo = "🦘";
-                  if (key == 'q') animal = squid;
-                  if (key == 'p') animal = pig;
-                  if (key == 'h') animal = hedgehog;
-                  if (key == 'b') animal = badger;
-                  if (key == 's') animal = squirrel;
-                  if (key == 'c') animal = crab;
-                  if (key == 'l') animal = lobster;
-                  if (key == 'd') animal = duck;
-                  if (key == 'r') animal = rabbit;
-                  if (key == 't') animal = turtle;
-                  if (key == 'm') animal = mouse;
-                  if (key == 'f') animal = cat;
-                  if (key == 'k') animal = kangaroo;
-                   -->
-            </div> <!-- end of right column -->
-        </div> <!-- End of row -->
-        <hr />
-        <hr />
-        <div class="sig">
-            <b>Jason DYKES</b><br />
+            </div> <!-- End of left column -->
+          </div> <!-- End of row -->
+
+        <!-- <hr /> -->
+        <!-- <div class="sig"> -->
+            <!-- <b>Jason DYKES</b><br /> -->
             <!-- <i>08 Oct 2021</i> -->
             <!-- <i>04 Oct 2022</i> -->
-            <i>22 Sep 2023</i>
-        </div>
+            <!-- <i>22 Sep 2023</i> -->
+        <!-- </div> -->
         <div style="padding-bottom:2em;clear:both" />
             <!--- spacer for iFrame -->
             <p style="padding-top:1em"><hr/></p>
