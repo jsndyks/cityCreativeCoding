@@ -31,7 +31,7 @@
 	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
 
 	<!-- JD Extras! -->
-    <link rel="stylesheet" href="https://jsndyks.github.io/cityCreativeCoding/css/creativeCoding.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" />
     
     <!-- iFrame -->
     <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
@@ -165,13 +165,16 @@
         <div class="units-row">
             <div class="unit-70-cc">
                 <!-- Left column -->
+
+                <div class="figCore" style="margin-top:1em">
+                    <figure>
+                        <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyBig/", 300, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyBig.png");</script>
+                        <!-- <div style="clear:both"/> -->
+                        <figcaption><p><b>Key Example</b><br />Click the image to activate the sketch.<br/>Then <b>click again</b> inside the popup window. This will get the keyboard focussed on the sketch.<br/>Now you can press keys on the keyboard to see how the value of <b>key</b> changes based upon your interaction with the sketch through the keyboard.<br/>Voila! Interaction!</p></figcaption>
+                    </figure>   
+                </div>
+
                 <div class="coreTask">
-                    <div class="figRight" style="margin-top:2em">
-                        <figure>
-                            <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyBig/", 300, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyBig.png");</script>
-                            <figcaption><p><b>Key Example</b><br />Click the image to activate the sketch.<br/>Then <b>click again</b> inside the popup window. This will get the keyboard focussed on the sketch.<br/>Now you can press keys on the keyboard to see how the value of <b>key</b> changes based upon your interaction with the sketch through the keyboard.<br/>Voila! Interaction!</p></figcaption>
-                        </figure>   
-                        </div>
                     
                     <b>Keyboard Interaction - key variable</b>
                     <p>Read through the code above 👆 to see if you can work out what it does.</p>
@@ -189,6 +192,7 @@
 
                 <p>There you go - <b>interaction</b>!</p>
                 <p>But of course we can do more, and <i>Processing</i> has some useful features that help with this.</p>
+                <p>Let's have a look at some of these and how we can use them.</p>
 
             </div> <!-- End of left column -->
         </div> <!-- End of row -->
@@ -205,9 +209,9 @@
                         href="https://processing.org/reference/keyPressed_.html"><code>keyPressed()</code></a> method.</p>
                         <p>This method is called and run by a <i>Processing</i> sketch every time a key is pressed.
                         </p>
-                        <p>This is important so let's say it again: any method that you specify in a sketch, that you give the name <code>keyPressed()</code>, will be run by your sketch every time you press any key on the keyboard.
+                        <p>This is important so let's say it again:<br/>&nbsp;&nbsp;any method that you specify in a sketch, that you give the name <code>keyPressed()</code>, will be run by your sketch every time you press any key on the keyboard.
                         </p>
-                        <p>This is so important that I am going to say it again in bold: <b>any method that you specify in a sketch, that you give the name <code>keyPressed()</code>, will be run by your sketch every time you press any key on the keyboard.</b>
+                        <p>This is so important that I am going to say it again in bold:<br/>&nbsp;&nbsp;<b>any method that you specify in a sketch, that you give the name <code>keyPressed()</code>, will be run by your sketch every time you press any key on the keyboard.</b>
                         </p>
                         <p>You simply create a new method called <code>keyPressed()</code>, just as you have made methods to do all sorts of other things and as shown below, and <i>Processing</i> will automatically call this method every time it detects a <i>key press</i> interaction: every time a key is pressed on the keyboard</br>Let's try it!</p>
             </div> <!-- End of left column -->
@@ -222,21 +226,21 @@
                 <pre class="brush: processing; gutter: false; toolbar: false; ">
     // -- set up the things that don't change ...
     void setup() {
-    size(400, 400);
-    background(220);
-    textSize(18);
-    fill(64);
+      size(400, 400);
+      background(220);
+      textSize(18);
+      fill(64);
     }
 
     // -- nothing in here for now - an empty draw loop ...
     void draw() {
-    // -- this still runs 60 time per second!
+      // -- this still runs 60 time per second!
     }
 
     // -- Processing calls this method whenever a key is pressed:
     void keyPressed() {
-    // -- put the value of 'key' in a random position:
-    text(key,random(20,width-20),random(20,height-20));
+      // -- put the value of 'key' in a random position on the canvas (but not near the edge):
+      text(key,random(20,width-20),random(20,height-20));
     }</pre>
 
             </div> <!-- End of left column -->
@@ -247,15 +251,16 @@
         <div class="units-row">
             <div class="unit-70-cc">
                 <!-- Left column -->
-                <div class="coreTask">
-                    <div class="figRight" style="margin-top:2em">
-                        <figure>
-                            <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedRandom/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedRand.png");</script>
-                            <figcaption>Click the image to see and try a solution.</figcaption>
-                        </figure>
-                        </div>
+                <div class="figCore" style="margin-top:1em">
+                    <figure>
+                        <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedRandom/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedRand.png");</script>
+                        <figcaption>Click the image to see and try a solution.</figcaption>
+                    </figure>
+                </div>
 
-                    <p><b>KeyPressed Example</b><br />Click to activate and press keys on the keyboard for endless fun.</p>
+                <div class="coreTask">
+
+                    <p><b>KeyPressed Example</b><br />Click the sketch to activate it and press keys on the keyboard for endless fun.</p>
 
                     <b>Keyboard Interaction - keyPressed() method</b>
                     <p>Read through the code again and see if you can work what's new.
@@ -267,7 +272,7 @@
                     </p>
                     <p>Then copy the above code in <i>Processing</i> and make sure it runs as expected!</p>
                     <p>As usual, you should make a few changes and check that they have the effects that you expect.</p>
-                    <p>If they don't - discuss!</p>
+                    <p>If they don't - discuss! 🦜</p>
                 </div>
 
 
@@ -284,22 +289,22 @@
                 </p>
                 <p>We'll use a <i>global variable</i> called <code>p</code> to store this positional information about how far along the canvas we want to plot our first letter and increment it by a few pixels each time a key is pressed - in the <code>keyPressed()</code> method so that subsequent letters are printed a bit further along.</p>
                 <p>This should move each successive letter to the right. That is fine while <code>p</code> is less than <code>width</code>.
-                    But our letters will plot off the right hand side of the canvas as we type more keys unless we do
+                    But our letters will be positioned off the right hand side of the canvas as we type more keys unless we do
                     something about this!</p>
                 <p>A little bit of simple maths will work out where we put each successive value of <code>key</code> to the
                     right of the next ... until we get to the end of the screen canvas, at which point we need to head
                     back to the left and down a line.</p>
                 <p>It's pretty straightforward ...</p>
                 <ul>
-                    <li style="padding-bottom:0.75em"><code>p % width</code> - uses the <a href="https://processing.org/reference/modulo.html">modulo
-                            operator</a> <code>%</code>.<br />
+                    <li style="padding-bottom:0.75em"><code>p % width</code> - uses the <a href="https://processing.org/reference/modulo.html">modulo operator</a> <code>%</code>.<br />
                         This calculates the <i>remainder when one number is divided by another</i>.<br/>
                         So 110%100 is 10.<br/>
                         As is 210%100.<br/>
+                        And 310%100 also = 10<br/>
                         This is handy as any number <code>%width</code> gives us a position between <code>0</code> and <code>width</code>.
                         When we
                         get a number that is just more than width, this gives us a position back on the left hand side
-                        of the canvas as <code>(width+1)%width</code> is <code>1</code>>! </li>
+                        of the canvas as <code>(width+1)%width</code> is <code>1</code>! </li>
                     <li style="padding-bottom:0.75em"><code>24*int(p/width)</code> - firstly <a
                             href="https://processing.org/reference/divide.html">divide</a>s <code>p</code> by <code>width</code>. It
                         also uses the <code><a href="https://processing.org/reference/intconvert_.html">int()</a></code>
@@ -307,14 +312,13 @@
                         of times <code>width</code> completely fits into <code>p</code>.
                         <br/>
                         So <code>int((width+1)/width)</code> is 1!<br/>
-                        And <code>int((5*width+1)/width)</code> is 5.<br/>
-                        It follows that int(110/100) is 1. And int(210/100) is 2.
+                        And <code>int(((5*width)+1)/width)</code> is 5.<br/>
+                        And <code>int((5*width+1)/width)</code> is also 5.<br/>
+                        It follows that int(110/100) is 1. And int(210/100) is 2. And int(310/100) is 3.<br/>
                         If you think about it, this means we find out how may times <code>p</code> has filled our <code>width</code>
                         through this part of the calculation. Which tells us how many <i>lines</i> of length
                         <code>width</code> the characters have taken up. If we then multiply through by a number that is
-                        bigger than our current letter height, like <b>24</b> or something, this will position text that
-                        has a <code>p</code> value that is greater than <code>width</code> down the screen so that it does not
-                        overlap.
+                        bigger than our current letter height, like <b>24</b> or something, and use this as our <code>y</code> position on the canvas, this will position text that has a <code>p</code> value that is greater than <code>width</code> down the screen so that it does not overlap. Basically it will give us a row.
                         I have added another <code>100</code> on in the script that follows so that the text does not start at the very top of
                         the screen.
                     </li>
@@ -325,31 +329,33 @@
     int p = 0;
 
     void setup() {
-    size(400, 400);
-    background(220);
-    textSize(18);
-    fill(64);
+      size(400, 400);
+      background(220);
+      textSize(18);
+      fill(64);
     }
 
     // -- do nothing in the draw loop for now!
-    void draw() {}
+    void draw() {
+        // -- repeats 60 times per second and does nothing other than 'listen' for a keyPress
+        // -- of course, it also keeps mouseX, mouseY, frameCount and other internal variables updated!
+    }
 
     void keyPressed() {
-    p+=12; // -- add 12 to p each time
+      p+=12; // -- add 12 to p each time this method is executed (when the key is pressed)
 
-    // -- put the char held in 'key' at a screen position
-    // --   that increases in x and y with each key press
-    text(key,p%width, 100 + 24*int(p/width));
+      // -- put the char held in 'key' at a screen position
+      // --   that increases in x and y with each key press
+      text(key, p%width, 100 + 24*int(p/width));
 
-    // -- the above just calculates a position for the text as p increases
-    // -- use println() to print out the values to the console if you like
-    // -- remove '/width' and see what happens as you get to the right hand side!
+      // -- the above just calculates a position for the text as p increases
+      // -- use println() to print out the values to the console if you like
+      // -- remove '/width' and see what happens as you get to the right hand side!
     }</pre>
 
             </div> <!-- End of left column -->
         </div> <!-- End of row -->
 
-        <P>HERE!</P>
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <div class="units-row">
             <div class="unit-70-cc">
