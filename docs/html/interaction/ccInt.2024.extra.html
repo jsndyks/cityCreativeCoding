@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html  dir="ltr" lang="en" xml:lang="en">
 <head>
-    <title>CreativeCoding Extra Exercises: Interaction</title>
+    <title>CreativeCoding: Interaction - Extra Exercises</title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,10 +31,10 @@
 	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
 
 	<!-- JD Extras! -->
-    <link rel="stylesheet" href="https://jsndyks.github.io/cityCreativeCoding/css/creativeCoding.css" type="text/css" />
+  <link rel="stylesheet" href="https://jsndyks.github.io/cityCreativeCoding/css/creativeCoding.css" type="text/css" />
     
-    <!-- iFrame -->
-    <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+  <!-- iFrame -->
+  <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
 </head>
 <body>	
 
@@ -57,97 +57,44 @@
                 <div class="units-row">
                   <div class="unit-70-cc">
                       <!-- Left column -->
-                      <div class="challenge">
-                          <p>
-                              The sketch to the right clears the screen if you click the right mouse button, but selects a
-                              position for new text if you click the left button.<br />
-                              Try it!<br/>
-                              Can you make a sketch to do this?
-                          </p>
-                          <p>
-                              You'll need two global variables for text position <code>textX, textY</code>, and you'll need to
-                              set these to <code>mouseX</code> and <code>mouseY</code> when the mouse button is clicked.</p>
-                          <p>This code snippet shows how to use the value of <code>mouseButton</code> to vary what happens
-                              depending upon which mouse button has been clicked.</p><br />
-                          <pre class="brush: processing; gutter: false; toolbar: false; ">
-      if (mouseButton == LEFT) {
-          // -- left button - update text position:
-          textX = mouseX;
-          textY = mouseY;
-        } else {
-          // -- right button - clear the screen:
-          background(220);
-        }</pre>
-                      </div>
+<!-- Not Required :
+          <div class="challenge">
+              <p>
+                  The sketch to the right clears the screen if you click the right mouse button, but selects a
+                  position for new text if you click the left button.<br />
+                  Try it!<br/>
+                  Can you make a sketch to do this?
+              </p>
+              <p>
+                  You'll need two global variables for text position <code>textX, textY</code>, and you'll need to
+                  set these to <code>mouseX</code> and <code>mouseY</code> when the mouse button is clicked.</p>
+              <p>This code snippet shows how to use the value of <code>mouseButton</code> to vary what happens
+                  depending upon which mouse button has been clicked.</p><br />
+              <pre class="brush: processing; gutter: false; toolbar: false; ">
+if (mouseButton == LEFT) {
+    // -- left button - update text position:
+    textX = mouseX;
+    textY = mouseY;
+  } else {
+    // -- right button - clear the screen:
+    background(220);
+  }</pre>
+          </div>
+           -->
       
                   </div> <!-- End of left column -->
       
-      
-                  <div class="unit-30-cc annotation">
-                      <!-- Right hand column for small images, popup sketches and annotations. -->
-                      <br /><br />
-                      <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedClick/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedClick.png");</script>
-                      <p><b>KeyPressed Click Example</b><br />Click to activate and press keys on the keyboard.
-                          <br />Left click to reposition subsequent text.
-                          <br />Right click to clear the text.
-                      </p>
-                  </div> <!-- end of right column -->
-              </div> <!-- End of row -->
+<!-- Not Required :
+              <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedClick/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedClick.png");</script>
+              <p><b>KeyPressed Click Example</b><br />Click to activate and press keys on the keyboard.
+                  <br />Left click to reposition subsequent text.
+                  <br />Right click to clear the text.
+              </p>
+ -->
+            </div> <!-- End of row -->
 
               
-              <div class="task">
-                <b>Interaction - More Persistence Freestyling</b>
-                <p>Here are some more interesting things you could try with your newfound coding capability!</p>
-                <p>
-                    <b>Extension 3</b>: You should have already used the <code><a
-                        href="https://processing.org/reference/random_.html" target="_blank">random()</a></code> method.<br/>
-                        If not, don't worry, it's easy - check here <code><a
-                        href="https://processing.org/reference/random_.html" target="_blank">random()</a></code><br/>
-                    Modify your code to add and display a second variable <code>randomNum</code>, that contains a
-                    different random value between 0 and 99 each time the mouse is clicked.
-                </p>
-                <p>
-                    <b>Extension 4</b>: Now see whether you can show the <b>average</b> of all the random numbers that have been produced by your sketch on each click.
-                    This will require a third variable that contains the <code>runningTotal</code> of all the random
-                    numbers generated during the various clicks.<br />
-                    It should be apparent that <code>runningTotal/clickCount</code> will give you the average.<br />
-                    But watch out - dividing any number by zero results in an error, so you will need a condition to
-                    make sure that you only calculate the average <code>if (clickCount &gt;0)</code>.
-                </p>
-            </div>
-            <div class="challenge">
-                <p>
-                    <b>Challenge - Extension 5</b>: If you enjoyed that and want to do more, then try showing how
-                    the average varies as clicks increase <i>with a graphic</i>.<br />
-                    Plot a small circle, with the x position showing the number of clicks - this needs to increase
-                    as the number of clicks increases.<br />
-                    The y position of the circle should depend on the <b>average</b> that you have calculated.<br />
-                    What happens to this average over time?<br />
-                </p>
-            </div>
-
-            
-              <div class="challenge">
-          <p>If you want an extra challenge then see whether you can edit the <b>Keyboard Interaction - Conditions</b> sketch to add features so that...</p>
-          <ol>
-              <li>the text starts at the left hand side every time you press the space bar?</li>
-              <li>the text runs from right to left and bottom to top as you type keys?</li>
-          </ol>
-      </div>
-
-      <div class="challenge">
-        <h5>Colour Key Challenge</h5>
-        <p>If you have completed the <b>Colour Key</b> task and want to try a little more, well you should now have a structure in
-            <code>keyPressed()</code> that will allow you to make more subtle changes to each colour component.
-        </p>
-        <p>Try using the <span class="key">G</span> and the <span class="key">g</span> keys to
-            <i>increase</i> and <i>decrease</i> the amount of green in the colour by some increment respectively.
-        </p>
-        <p>You might want to try this for the other colour components too with the <span
-                class="key">B</span>, <span class="key">b</span>, <span class="key">R</span> and <span
-                class="key">r</span> keys.</p>
-        <p>See if you can use <a href="https://processing.org/reference/constrain_.html"><code>constrain()</code></a> to limit the red, green and blue component values to the range 0-255.</p>
-    </div>
+            <h3>Practice and Exercises</h3>
 
 
         <p>
@@ -156,39 +103,41 @@
       </p>
       <p>We expect you to work on all of the <b>CORE TASKS</b>, and pretty much complete them.<br/>Do something like this ...:</p>
       <ol>
+        <li>Plan your approach</li>
         <li>Try it out</li>
         <li>See if it works</li>
-        <li>Try something else </li>
+        <li>Reflect a little</li>
+        <li>Try something else</li>
         <li>See if it works</li>
         <li>Ask a friend or teacher - show then your commented code, the behaviour of the sketch and any error messages</li>
         <li>Try again </li>
         <li>Dive into the excellent <a href="https://processing.org/reference"><i>Processing</i> Reference Materials</a> and keep trying </li>
       </ol>
-      <p>And not necessarily in that order.<br/>But we want to encourage you to experiment, try things out, learn from error messages and observed behaviours and problem solve.</p>
+      <p>And not necessarily in that order.<br/>But we want to encourage you to experiment, try things out, learn from error messages and observed behaviours and problem solve. 🦜</p>
 
       <div class="coreTask">
-    <p>These <b style="color:#940">orange</b> tasks should done right away.<br/>
+    <p>These <b style="color:rgba(231, 212, 41, 0.712)">yellow</b> tasks should done right away.<br/>
       It will really help you in the long run if you can get these completed.<br/>
       Discuss them with colleagues and teaching staff and use the notes to help.</p>
     </div>
 
-    <p><b>Please try to get these <b>CORE</b> exercises done by the end of the day.</b><br/>When you have completed them, try the <b>Check on Progress</b> at the bottom of this document to check on your learning - it gives you a sense of what you should be able to do having attended the lecture and completed these exercises.</p>
+    <p><b>Please try to get these <b>CORE</b> exercises as soon as you can.</b><br/>When you have completed them, try the <b>Check on Progress</b> at the bottom of this document to check on your learning - it gives you a sense of what you should be able to do having attended the lecture and completed these exercises.</p>
 
-      <p>We would really like you to try the <b>challenges</b>.<br/>They don't add anything new, but get you thinking about what you have learned and applying this in new ways.<br/>So these are useful exercises that should be within all of your capabilities.<br/>Give them a go if you can.</p>
+      <p>Some of you may want to try the optional <b>challenges</b>.<br/>They don't add anything new, but get you thinking about what you have learned and applying this in new ways.<br/>So these are useful exercises that should be within all of your capabilities.<br/>Give them a go if you have found things straightforward so far.</p>
 
       <div class="challenge">
-    <p>These <b style="color:#800">red</b> exercises are intended to give those of you who move quickly through the core stuff a bit more of a <b>CHALLENGE</b>.<br/>We expect many of you try the challenges and most of you should be able to complete them!</p>
+    <p>These <b style="color:#800">red</b> exercises are intended to give those of you who move quickly through the core stuff a bit more of a <b>CHALLENGE</b>.<br/>We expect a few of you try the challenges but many of you should be able to complete them with a bit of persistence if you have the time and motivation.</p>
     </div>
 
-    <p><b>If you complete the <b>CORE</b> exercises then move on to the challenges.</b><br/>Try your favourite challenge first.
-      You don't need to finish these challenges by the end of the day.</p>
+    <!-- <p><b>If you complete the <b>CORE</b> exercises then move on to the challenges.</b><br/>Try your favourite challenge first.
+      You don't need to finish these challenges by the end of the day.</p> -->
 
   <hr/>
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <h3>Core Tasks</h3>
 
-        <p>OK, we are going to try four tasks that will build on the concepts and code that we introduced in the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=420874">Interaction Interactive Lecture</a>. Make sure you have understood and completed all of the tasks in there before you try these!</p>
+        <p>OK, we are going to try four tasks that will build on the concepts and code that we introduced in the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=781753">Interaction Interactive Lecture</a>. Make sure you have understood and completed all of the tasks in there before you try these!</p>
 
         <hr/>
 
@@ -235,7 +184,7 @@ if (key == 'w') {
           </div>
 
           <p style="margin-top:2em">
-            This is pretty cool - you have an interactive sketch!<br/>Show your friends, show your tutor.<br/>Celebrate!</p>
+            This is pretty cool - you have an interactive sketch!<br/>Show your friends, show your TA.<br/>Celebrate!</p>
           <p>But not too much ... because there are a few more features and tricks that you should try later in the <b>challenges</b> section - they will serve you well.
           <br/>So carry on with these <b>CORE Tasks</b> for now and we can try the <b>Move</b> challenges later.</p>
 
@@ -355,7 +304,7 @@ ellipse(circleX,circleY,radius,radius);</pre>
             <ul>
                 <li>To detect whether the click is within the circle you can use <i>Processing</i>'s <code><a
                         href="https://processing.org/reference/dist_.html" target="_blank">dist()</a></code> method.</li>
-                        <li>To test whether the mouse is in the circle consider printing "inside" to the console when it is.</li>
+                        <li>To test whether the mouse is in the circle consider printing "inside" to the console when this is the case.</li>
                         <li>To test for the click detection consider printing "Click" to the console when you click the mouse button.</li>
                 <li>To test whether the click is inside the circle consider printing "Hit" or "Miss" to the console.</li>
                 <li>To set the position of the circle to a random position you can use <i>Processing</i>'s <code><a
@@ -370,7 +319,67 @@ ellipse(circleX,circleY,radius,radius);</pre>
 
         <h3>Challenges</h3>
 
-        <p>If you managed to complete the four tasks and the day isn't over then this is the place for you - we're in the <b>CHALLENGE</b> zone.</p>
+        <p>Some optional challenges that take things a little further by building upon the work that you have undertaken so far.</p>
+        <p>Try these if you have time, capacity and interest having completed the core exercises above.</p>
+
+        <div class="challenge">
+          <b>Interaction - More Persistence Freestyling</b>
+          <p>Here are some more interesting things you could try with your newfound coding capability!</p>
+          <p>
+              <b>Extension 3</b>: You should have already used the <code><a
+                  href="https://processing.org/reference/random_.html" target="_blank">random()</a></code> method.<br/>
+                  If not, don't worry, it's easy - check here <code><a
+                  href="https://processing.org/reference/random_.html" target="_blank">random()</a></code><br/>
+              Modify your code to add and display a second variable <code>randomNum</code>, that contains a
+              different random value between 0 and 99 each time the mouse is clicked.
+          </p>
+          <p>
+              <b>Extension 4</b>: Now see whether you can show the <b>average</b> of all the random numbers that have been produced by your sketch on each click.
+              This will require a third variable that contains the <code>runningTotal</code> of all the random
+              numbers generated during the various clicks.<br />
+              It should be apparent that <code>runningTotal/clickCount</code> will give you the average.<br />
+              But watch out - dividing any number by zero results in an error, so you will need a condition to
+              make sure that you only calculate the average <code>if (clickCount &gt;0)</code>.
+          </p>
+          <p>
+              <b>Challenge - Extension 5</b>: If you enjoyed that and want to do more, then try showing how
+              the average varies as clicks increase <i>with a graphic</i>.<br />
+              Plot a small circle, with the x position showing the number of clicks - this needs to increase
+              as the number of clicks increases.<br />
+              The y position of the circle should depend on the <b>average</b> that you have calculated.<br />
+              What happens to this average over time?<br />
+          </p>
+      </div>
+
+<!-- Not Necessary :
+      <div class="challenge">
+          <p>If you want an extra challenge then see whether you can edit the <b>Keyboard Interaction - Conditions</b> sketch to add features so that...</p>
+          <ol>
+              <li>the text starts at the left hand side every time you press the space bar?</li>
+              <li>the text runs from right to left and bottom to top as you type keys?</li>
+          </ol>
+      </div>
+ -->
+
+      <div class="challenge">
+        <h5>Colour Key Challenge</h5>
+        <p>If you have completed the <b>Colour Key</b> task and want to try a little more, well you should now have a structure in
+            <code>keyPressed()</code> that will allow you to make more subtle changes to each colour component.
+        </p>
+        <p>Try using the <span class="key">G</span> and the <span class="key">g</span> keys to
+            <i>increase</i> and <i>decrease</i> the amount of green in the colour by some increment respectively.
+        </p>
+        <p>You might want to try this for the other colour components too with the <span
+                class="key">B</span>, <span class="key">b</span>, <span class="key">R</span> and <span
+                class="key">r</span> keys.</p>
+        <p>See if you can use <a href="https://processing.org/reference/constrain_.html"><code>constrain()</code></a> to limit the red, green and blue component values to the range 0-255.</p>
+    </div>
+
+        <hr/>
+
+        <h3>Super Challenges</h3>
+
+        <p>If you are super-keen, enter the even more optional <b>SUPER-CHALLENGE</b> zone.</p>
         <p>Actually <b>CHALLENGE</b> may not be the right term here - as these are all pretty straightforward <b>enhancements</b> to the sketches that you produced above. It should be fun to try to complete them and doing this will certainly help you learn. You may want to try them with a colleague - there is no harm in discussing approaches and coming up with a collective plan.</p>
 
         <h4>1+. Super Move.</h4>
@@ -527,7 +536,8 @@ text(colourDefinition,width/2,2*height/3);"
         </div> <!-- End of task -->
 
         <p>If you can do that, then you are set.
-          <br/>If not, please keep reading, trying, interpreting debugging messages, using the <i>Processing</i> <a href="https://processing.org/reference/">reference pages</a> and chatting to the folks who can help you in class to get you there. This should be a great environment for learning, so please make the most of it and please let us know if you need a hand.
+          <br/>If not, please keep reading, trying, interpreting debugging messages, using the <i>Processing</i> <a href="https://processing.org/reference/">reference pages</a> and chatting to the folks who can help you in class and on the discussion boards.
+          This should be a great environment for learning, so please make the most of it and please let us know if you need a hand.
         </p>
             <!--- spacer for iFrame -->
             <p style="padding-top:1em"><hr/></p>
