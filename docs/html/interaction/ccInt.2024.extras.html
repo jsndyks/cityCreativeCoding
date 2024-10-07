@@ -53,6 +53,71 @@
         <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
         <!-- Add summary sentence or two below, which will act as an easy introduction -->
 
+                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <div class="units-row">
+                  <div class="unit-70-cc">
+                      <!-- Left column -->
+                      <div class="challenge">
+                          <p>
+                              The sketch to the right clears the screen if you click the right mouse button, but selects a
+                              position for new text if you click the left button.<br />
+                              Try it!<br/>
+                              Can you make a sketch to do this?
+                          </p>
+                          <p>
+                              You'll need two global variables for text position <code>textX, textY</code>, and you'll need to
+                              set these to <code>mouseX</code> and <code>mouseY</code> when the mouse button is clicked.</p>
+                          <p>This code snippet shows how to use the value of <code>mouseButton</code> to vary what happens
+                              depending upon which mouse button has been clicked.</p><br />
+                          <pre class="brush: processing; gutter: false; toolbar: false; ">
+      if (mouseButton == LEFT) {
+          // -- left button - update text position:
+          textX = mouseX;
+          textY = mouseY;
+        } else {
+          // -- right button - clear the screen:
+          background(220);
+        }</pre>
+                      </div>
+      
+                  </div> <!-- End of left column -->
+      
+      
+                  <div class="unit-30-cc annotation">
+                      <!-- Right hand column for small images, popup sketches and annotations. -->
+                      <br /><br />
+                      <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedClick/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedClick.png");</script>
+                      <p><b>KeyPressed Click Example</b><br />Click to activate and press keys on the keyboard.
+                          <br />Left click to reposition subsequent text.
+                          <br />Right click to clear the text.
+                      </p>
+                  </div> <!-- end of right column -->
+              </div> <!-- End of row -->
+
+              
+        <div class="challenge">
+          <p>If you want an extra challenge then see whether you can edit the <b>Keyboard Interaction - Conditions</b> sketch to add features so that...</p>
+          <ol>
+              <li>the text starts at the left hand side every time you press the space bar?</li>
+              <li>the text runs from right to left and bottom to top as you type keys?</li>
+          </ol>
+      </div>
+
+      <div class="challenge">
+        <h5>Colour Key Challenge</h5>
+        <p>If you have completed the <b>Colour Key</b> task and want to try a little more, well you should now have a structure in
+            <code>keyPressed()</code> that will allow you to make more subtle changes to each colour component.
+        </p>
+        <p>Try using the <span class="key">G</span> and the <span class="key">g</span> keys to
+            <i>increase</i> and <i>decrease</i> the amount of green in the colour by some increment respectively.
+        </p>
+        <p>You might want to try this for the other colour components too with the <span
+                class="key">B</span>, <span class="key">b</span>, <span class="key">R</span> and <span
+                class="key">r</span> keys.</p>
+        <p>See if you can use <a href="https://processing.org/reference/constrain_.html"><code>constrain()</code></a> to limit the red, green and blue component values to the range 0-255.</p>
+    </div>
+
+
         <p>
           These exercises give you practice with defining keyboard and mouse inputs that make your sketches <b>interactive</b>.
           <br/>We do so by updating and changing the state of global variables that affect the behaviour of the sketch.

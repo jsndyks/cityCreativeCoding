@@ -110,15 +110,19 @@
       /* Example: clip away the element from the top, right, bottom, and left edges */
     clip-path: inset(40% 0px 40% 0px);
   }
-figure {display: block; margin-left: auto; margin-right: auto; width:75%}
-.coreTask figure { margin-right: 1em; width:24em; margin-left:2em; float:right}
-.coreTask figure img {  display: block; margin-left: auto; margin-right: auto;}
-figure img {border:dashed #e0e0e0 1px; padding:4px}
-figcaption {text-align:center; color:#909090; padding-top:0.5em; font-size:90%} /* width:90%;  */
-.figCore {float:right; margin-right: 1em; width:24em; margin-left:2em; display:block; background-color: #ffffea;border-bottom:solid #e0e0e0 1px; padding:4px
-};
-.figRight {float:right};
-.figClear {clear:both};
+figure {display: block; margin-left: auto; margin-right: auto; width:75%; }
+.coreTask figure, .codeTask figure, .aside figure { margin-right: 1em; width:auto; margin-left:1em; float:right}
+.coreTask figure img, .codeTask figure img, .aside figure img {  display: block; margin-left: auto; margin-right: auto;}
+figure img {border:dashed #e0e0e0 1px; padding:4px; margin:2px}
+figcaption {text-align:center; color:#909090; padding-top:0.5em; font-size:90%; width: 200}
+
+.figCode {float:right; margin-right: 1em; width:24em; margin-left:2em; display:block; background-color: #f8fbff; border-bottom:solid #e0e0e0 1px; padding:4px}
+.figCore {float:right; margin-right: 1em; width:24em; margin-left:2em; display:block; background-color: #ffffea; border-bottom:solid #e0e0e0 1px; padding:4px}
+.figAside {float:right; margin-right: 1em; width:24em; margin-left:2em; display:block; background-color: #f3fbf3ff; border-bottom:solid #e0e0e0 1px; padding:4px}
+
+.figRight figure {margin-left: 1em; margin-right: 2px; width:auto;}    
+.figRight {float:right; }
+.figClear {clear:both}
 
 /*
 code {color:#6AA0CF; background-color:#f0f8ff}

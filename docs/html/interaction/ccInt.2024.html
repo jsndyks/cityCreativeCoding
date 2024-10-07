@@ -166,20 +166,22 @@
             <div class="unit-70-cc">
                 <!-- Left column -->
 
-                <div class="figCore" style="margin-top:1em">
+                <div class="figCode" style="margin-top:1em">
                     <figure>
                         <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyBig/", 300, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyBig.png");</script>
                         <!-- <div style="clear:both"/> -->
-                        <figcaption><p><b>Key Example</b><br />Click the image to activate the sketch.<br/>Then <b>click again</b> inside the popup window. This will get the keyboard focussed on the sketch.<br/>Now you can press keys on the keyboard to see how the value of <b>key</b> changes based upon your interaction with the sketch through the keyboard.<br/>Voila! Interaction!</p></figcaption>
+                        <figcaption><b>Key Example</b><br/>Press keys on the keyboard to see how the value of <b>key</b> changes based upon your interaction with the sketch through the keyboard.<br/>Voila! Interaction!</figcaption>
                     </figure>   
                 </div>
 
-                <div class="coreTask">
+                <div class="codeTask">
                     
                     <b>Keyboard Interaction - key variable</b>
                     <p>Read through the code above 👆 to see if you can work out what it does.</p>
                     <p>Then run the sketch on the right 👉.<br/>
-                        Click it and press some keys and see how the value of <code>key</code> changes.
+                        Click the image to activate the sketch.<br/>
+                        Then <b>click again</b> inside the popup window. This will get the keyboard focussed on the sketch.<br/>
+                        Now press some keys and see how the value of <code>key</code> changes.
                     </p>
                     <p>Then copy the above code in <i>Processing</i> and see what happens!</p>
                     <p>Make a few changes as suggested in the '<code>try</code>' comments and check that they have the effects that you expect:</p>
@@ -251,14 +253,14 @@
         <div class="units-row">
             <div class="unit-70-cc">
                 <!-- Left column -->
-                <div class="figCore" style="margin-top:1em">
+                <div class="figCode" style="margin-top:1em">
                     <figure>
                         <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedRandom/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedRand.png");</script>
                         <figcaption>Click the image to see and try a solution.</figcaption>
                     </figure>
                 </div>
 
-                <div class="coreTask">
+                <div class="codeTask">
 
                     <p><b>KeyPressed Example</b><br />Click the sketch to activate it and press keys on the keyboard for endless fun.</p>
 
@@ -360,7 +362,14 @@
         <div class="units-row">
             <div class="unit-70-cc">
                 <!-- Left column -->
-                <div class="task">
+                <div class="figCode" style="margin-top:1em">
+                    <figure>
+                     <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedX/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedX.png");</script>
+                      <figcaption>KeyPressed with Order Example</b>.<br />Click to activate and press keys on the keyboard.
+                    Keep typing keys until you get beyond the right hand side. Then stop.</figcaption>
+                    </figure>
+                </div>
+                <div class="codeTask">
                   <b>Keyboard Interaction - adding some order</b>
                     <p>Check the code and comments, and look at the way the position of the text varies according to the
                         global variable <code>p</code>.</p>
@@ -393,28 +402,30 @@
 </pre>
 
                 <p>This code says ...</p>
-                <blockquote>When a key is pressed, if the key is 'space', then fill the canvas with a light
-                    grey,<br />otherwise add 12 to p and then put the value of key on the canvas at a position depending
-                    on the value of p.</blockquote>
+                <blockquote>When a key is pressed, call <code>keyPressed()</code> and if the key is 'space', then fill the canvas with a light grey,<br />otherwise add 12 to p and then put the value of key on the canvas at a position depending on the value of p.</blockquote>
                 <p>It's useful to be able to express your code like this - do practice!<br/>
-                This is all we need you to be able to do at the end of <code><b>#BootCamp</b></code>: write a little bit of code that does something that you were unable to do previously - and <i>explain what it does</i>.</p>
+                This is all we need you to be able to do at the end of the <code>#CreativeCoding</code> activity:<br/>
+                write little bits of code that does something that you were unable to do previously, to show some data - and <i>explain what it does</i>.</p>
 
             </div> <!-- End of left column -->
 
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-                <br />
-                <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedX/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedX.png");</script>
-                <p><b>KeyPressed with Order Example</b>.<br />Click to activate and press keys on the keyboard.
-                    Keep typing keys until you get beyond the right hand side. Then stop.</p>
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <div class="units-row">
             <div class="unit-70-cc">
                 <!-- Left column -->
-                <div class="coreTask">
+                <div class="figCode" style="margin-top:1em">
+                    <figure>
+                    <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedSpace/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedSpace.png");</script>
+                    <figcaption><b>KeyPressed with Condition Example</b><br />
+                    Click to activate, and be sure to make the
+                    window big enough to see all of the sketch.
+                    Interact with the sketch by pressing keys on the keyboard.<br/>
+                    Try pressing the space-bar to clear the screen.</figcaption>
+                    </figure>
+                </div>
+                <div class="codeTask">
                   <b>Keyboard Interaction - Conditions</b>
                     <p>But for now, try the <b>KeyPressed with Condition Example</b> sketch shown to the right - it uses interaction to control flow in the sketch.</p>
                     <p>Then implement this yourself by copying the code from above to add this condition to the
@@ -422,8 +433,19 @@
                         Remember to save the sketch and give it a meaningful new name.
                     </p>
                     <p>The comments in the code suggest <b>three changes</b> that you should make.<br />Try these
-                        out.<br />In each case ...</p>
-                    <ul>
+                            out.<br />In each case remember the PAROT approach to learning, it's a good model ...</p>
+                        <ul>
+                            <li><span class="parotTalk">P</span><b>lan</b> -  your approach, with some sketches and thinking about what you are trying to achieve, and what your approach may be - Be brave - have a think - <span class="parotTalk">P</span><b>redict</b> what you think will happen - this is a great way to learn</li>
+                            <li><span class="parotTalk">A</span><b>ttempt</b> - to solve the problem based upon this planning, implement the plan, make the change that is suggested</li>
+                            <li><span class="parotTalk">R</span><b>un</b> - the sketch and ...</li>
+                            <li><span class="parotTalk">O</span><b>bserve</b> - what happened? Was it what you expected, or something else?<br/>Watch carefully, check any debug messages, and any reporting that you have added to the approach (if you didn't add any at first, make these messages part of your planning and attempt next time).</li>
+                            <li><span class="parotTalk">T</span><b>hink</b> - have a think, about the prediction and the observation, and work out what this lets you know, and what it means for planning your next move. 
+                                ;
+                            </li>
+                            <li><span class="parotTalk">Talk</span> - communicate with colleagues by explaining your thinking, showing them your attempt and gaining alternative and perhaps even diverse perspectives.<br/>Talk to your teachers, electronically or in person. Check any documentation. 🦜</li>
+                        </ul>
+
+                        <!-- <ul>
                         <li><b>PREDICT</b>: Be brave - have a think - <b>predict</b> that you think will happen - this is a great way to learn;</li>
                         <li><b>CHANGE</b>: Make the <b>change</b> as requested;</li>
                         <li><b>OBSERVE</b>: Run the sketch and <b>observe</b> what happens;</li>
@@ -433,43 +455,24 @@
                         <li><b>CONFIRM</b>: Make a different change to <b>confirm</b> your thoughts and go through the <b>predict</b>,
                             <b>change</b>, <b>observe</b>, <b>think</b>, <b>learn</b>, <b>confirm</b> cycle again!
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
 
                 <div class="aside">
                     <h5>Important Aside!</h5>
-                    <p>Learning to <b>predict</b>, <b>change</b>, <b>observe</b> (behaviour, bug reports, etc.),
-                        <b>think</b> (and discuss), <b>learn</b>, <b>confirm</b> will really help you in BootCamp, and
-                        throughout your studies. It's what we all do to try to develop knowledge and skills.
+                    <p>Learning to <b>plan / predict</b>, <b>attempt</b>, <b>run</b>, <b>observe</b> (behaviour, bug reports, etc.),
+                        <b>think</b> and <b>talk</b> (discuss, compare, reflect, learn)</b> will really help you in <code>#CreativeCoding</code>, and throughout your studies.
+                        It's what we all do to try to develop knowledge and skills.
                         Remember that your teachers are here to help you with this - and they use the same approach to programme, debug, and develop their research and teaching knowledge and skills.<br/>
-                        We get things wrong. We are continually learning. We learn by teaching an observing and interacting with you.<br/>
+                        We get things wrong. We are continually learning. We learn by teaching (planning, attempting, running) an observing and interacting with you.<br/>
                         We love learning so much that we have dedicated our careers to it!<br/>
-                        And our job is to teach you to learn. Let us know how we are doing!
+                        And our job is to teach you to learn. Let us know how we are doing!<br/>
+                        Talk - give us the feedback that informs our approach, we really value it.
                     </p>
-                </div>
-
-                <div class="challenge">
-                    <p>If you want an extra challenge then see whether you can edit your sketch to add features so
-                        that...</p>
-                    <ol>
-                        <li>the text starts at the left hand side every time you press the space bar?</li>
-                        <li>the text runs from right to left and bottom to top as you type keys?</li>
-                    </ol>
                 </div>
 
             </div> <!-- End of left column -->
 
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-                <br />
-                <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedSpace/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedSpace.png");</script>
-                <p><b>KeyPressed with Condition Example</b><br />Click to activate, and be sure to make the
-                    window big enough to see all of the sketch.
-                    Interact with the sketch by pressing keys on the keyboard.<br/>
-                    Try pressing the space-bar to clear the
-                    screen.</p>
-
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -503,17 +506,18 @@
                 <!-- <p class="focusON"><code>#4</p> -->
                 <p>
                     In the sketch below, a rectangle is drawn using the the <a
-                        href="https://processing.org/reference/rect_.html" target="_blank"><code>rect()</code></a> method. The
-                    rectangle is filled with colour (by a call to <a href="https://processing.org/reference/fill_.html"
-                        target="_blank"><code>fill()</code></a>) using three global variables called <code>r</code>, <code>g</code> and
-                    <code>b</code>. These represent the red, green and blue components of the colour.
+                        href="https://processing.org/reference/rect_.html" target="_blank"><code>rect()</code></a> method.
+                        The rectangle is filled with colour through a call to <a href="https://processing.org/reference/fill_.html"
+                        target="_blank"><code>fill()</code></a> before it is drawn that uses three global variables named <code>r</code>, <code>g</code> and <code>b</code>. These represent the red, green and blue components of the colour.<br/>
                     Initially, the amount of red in the colour is 0 out of 255, the amount of green is 0 out of 255 and
                     likewise the amount of blue in the colour is 0 out of 255. So the overall colour given by
                     <code>fill(r, g, b)</code> is made of no red, no green and no blue.
                     That's a deep dark nightly new-moon <b>black</b>: <span style="background-color:#000">&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </p>
-                <pre class="brush: processing; gutter: false; toolbar: false; ">int r, g, b;
+                <pre class="brush: processing; gutter: false; toolbar: false; ">// -- declare globals for colour components:
+int r, g, b;
 
+// -- initialise globals and define a small canvas:
 void setup() {
   size(200, 200);
   r = 0;
@@ -521,6 +525,7 @@ void setup() {
   b = 0;
 }
 
+// -- set the fill colour in each draw() loop before plotting a rectangle:
 void draw() {
   background(254, 232, 134);
   fill(r, g, b);
@@ -532,52 +537,37 @@ void draw() {
 
             </div> <!-- End of left column -->
 
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <div class="units-row">
             <div class="unit-70-cc">
+                <div class="figCode" style="margin-top:1em">
+                    <figure>
+                    <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/colourKey", 250, 250, "https://www.staff.city.ac.uk/~jwo/bootcamp2021/lecture04/images/colourKey.png");</script>
+                     <figcaption><b>ColourKey Example</b><br />Click to activate and try pressing the 'R', 'G' and 'B' keys.</figcaption>
+                    </figure>
+                </div>
+                
+
                 <!-- Left column -->
-                <div class="coreTask">
+                <div class="codeTask">
                   <b>Colour Key</b>
                   <p>Add a <code>keyPressed()</code> method with code that changes the rectangle's
                     fill colour to green if the <span class="key">g</span> key is pressed and blue if the
                     <span class="key">b</span> key is pressed and red if the <span class="key">r</span> key is pressed.
                     <br /><br />
-                    This code snippet is likely to be useful:
-                    <br /><br /></p>
+                    The code snippet provided below is likely to be useful.</br>
+                    Complete it and pop it in <code>keyPressed()</code> so that <i>Processing</i> executes it whenever a key on the keyboard is pressed:
+                    </p>
                     <pre class="brush: processing; gutter: false; toolbar: false; ">if (key == 'r')
 {
   // Change the value of r
 }</pre>
                 </div>
-
-                <div class="challenge">
-                    <h5>Colour Key Challenge</h5>
-                    <p>If you have done that and want to try a little more, well you now have a structure in
-                        <code>keyPressed()</code> that will allow you to make more subtle changes to each colour
-                        component.
-                    </p>
-                    <p>Try using the <span class="key">G</span> and the <span class="key">g</span> keys to
-                        <i>increase</i> and <i>decrease</i> the amount of green in the colour by some increment respectively.
-                    </p>
-                    <p>You might want to try this for the other colour components too with the <span
-                            class="key">B</span>, <span class="key">b</span>, <span class="key">R</span> and <span
-                            class="key">r</span> keys.</p>
-                    <p>See if you can use <a href="https://processing.org/reference/constrain_.html"><code>constrain()</code></a> to limit the red, green and blue component values to the range 0-255.</p>
-                </div>
-
             </div> <!-- End of left column -->
 
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/colourKey", 250, 250, "https://www.staff.city.ac.uk/~jwo/bootcamp2021/lecture04/images/colourKey.png");</script>
-                <p><b>ColourKey Example</b><br />Click to activate and try pressing the 'R', 'G' and 'B' keys.</p>
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
 
@@ -604,8 +594,7 @@ void draw() {
                     <tr>
                         <td><a href="https://processing.org/reference/keyPressed.html" target="_blank">keyPressed</a>
                         </td>
-                        <td>A global Boolean variable that is true while any key is being pressed and false
-                            otherwise.
+                        <td>A global Boolean variable that is <code>TRUE</code> while any key is being pressed and <code>FALSE</code> otherwise.
                         </td>
                     </tr>
                     <tr>
@@ -650,7 +639,7 @@ void draw() {
                 <h3>3. What About the Mouse?</h3>
                 <p>
                     So, we have a useful series of variables and methods to enable us to interact with and through the
-                    keyboard.
+                    keyboard.<br/>
                     But that only gets us so far - we can only specify a limited set of things as defined by the keys.<br/>
                     What if we want to identify locations on the screen.<br/>Quickly.<br/>With precision?<br />
                     I think you know where this is going, right?<br />
@@ -662,16 +651,7 @@ void draw() {
                     themselves the same question:</p>
                 <blockquote>What if we want to identify locations on the screen?<br />Quickly. With precision?<br />How
                     do we do that?</blockquote>
-                <p>So they invented the mouse!</p>
             </div> <!-- End of left column -->
-
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-                <h3>&nbsp;</h3>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>🐁</p>
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -679,11 +659,22 @@ void draw() {
             <div class="unit-70-cc">
                 <!-- Left column -->
 
+                <div class="figRight" style="width:225">
+                    <figure>
+                    <img src="https://www.notion.so/cdn-cgi/image/w=200,q=100/https://images.ctfassets.net/spoqsaf9291f/59pwajkZivZw28kkjUlYUo/55f9dc0c7623470f87b7b72381276c82/STU-11.jpeg"
+                    width="200" />
+                <figcaption>
+                    Stu Card with an early mouse.<br />What a great way to interact with a computer!<br />
+                    Source: <a href="https://web.archive.org/web/20210323215123/https://www.notion.so/blog/stu-card">Notion Labs, Inc.</a>
+                </figcaption></figure>
+                </div>
+                <p>So they invented the mouse!</p>
+
                 <p>It's hard to imagine just how innovative this mode of interaction was back then, and the kind of
                     computing and interaction it has enabled.</p>
                 <p>One of these innovators was <b><a href="https://dl.acm.org/profile/81406592524">Stuart K. Card</a></b>, who worked in and subsequently led a hugely creative and productive team at
                     Xerox PARC from the mid 1970s until 2010.
-                    One of the many things that he and his colleagues were thinking about back then (probably more
+                    One of the many things that he and his colleagues were thinking about back then (probably considerably more
                     deeply than we just did) was how to get computers to know what we need of them.
                     They wanted to come up with devices that were easy to use and provided efficient and precise
                     interactions.
@@ -727,35 +718,42 @@ void draw() {
                     </tr>
                 </table>
 
+            <p class="figCaption">
+            </p>
 
                 <div class="aside">
-                    <p>
+                    <div class="figAside" style="margin-top:1em">
+                        <figure>
+                            <img src="https://jsndyks.github.io/cityCreativeCoding/images/interaction/stuCard.171003.small.jpg"
+                            width="200" />
+                            <figcaption style="width:200">
+                            A photo of Stu Card taking a photo of<br/>
+                            the 'data trophy' that we made for him at IEEE VIS.<br/>
+                            This was taken in 2017, shortly after his<br/>
+                            <a href="https://www.gicentre.net/jsndyks/infovistestoftime1997">wonderfully inspiring acceptance speech</a><br/>
+                            about 🐢s &amp; 🐇s<br />
+                                    Source: Jason Dykes.
+                            </figcaption></figure>
+                    </div>
+                    <h5>Aside: History of Computer Science</h5>
+                            <p>
                         The article '<a href="https://web.archive.org/web/20210323215123/https://www.notion.so/blog/stu-card">Stu Card on inventing the future</a>'
                         is a half hour read.<br /> It is full of wisdom from one of the pioneers of the subject you are
                         now focussing on for a few years.<br /> It's inspiring stuff.<br />
-                        <b>I recommend you take time to read it</b>.</p>
+                        <b>It's an optional task - but I recommend you take time to read it</b>.</p>
                         <p>You might ask ...<br>
-                            &nbsp;&nbsp;Do I have to read it? Well, no.<br/>
+                            &nbsp;&nbsp;Do I have to read it? Well, no, it's just a suggestion.<br/>
                             &nbsp;&nbsp;Do I need to read it? Well, no, you don't.<br/>
                             &nbsp;&nbsp;Do I get any credit or points if I read it? Nope - no direct credit related benefits at all.<br/>
                             &nbsp;&nbsp;So why should I read it?
                         </p>
-                    Wll, doing some background reading about the subjects, technologies and people you are learning with and about will help you greatly in your time as a student. It's informative, and fun. It gives you context and grounds your learning.
+                    Well, doing some background reading about the subjects, technologies and people you are learning with and about will help you greatly in your time as a student. It's informative, and fun. It gives you context and grounds your learning.
                     You are at University to learn - and you are learning from experts.
-                    Embrace this, and learn as much as you can.
+                    Embrace this, and learn as much as you can.<br/>
                     Remember to find time to do it.</p>
                 </div>
             </div> <!-- End of left column -->
 
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-                <img src="https://www.notion.so/cdn-cgi/image/w=200,q=100/https://images.ctfassets.net/spoqsaf9291f/59pwajkZivZw28kkjUlYUo/55f9dc0c7623470f87b7b72381276c82/STU-11.jpeg"
-                    width="200" />
-                <p class="figCaption">
-                    Stu Card with an early mouse.<br />What a great way to interact with a computer!<br />
-                    Source: <a href="https://web.archive.org/web/20210323215123/https://www.notion.so/blog/stu-card">Notion Labs, Inc.</a>
-                </p>
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -773,10 +771,11 @@ void draw() {
                     🐇s.<br />It was a great honour to meet Stu and learn from him.</p>
 
                     <div class="aside">
-                        <p>
-                            I strongly suggest you read that <a
+                        <h5>Turtles &amp; Rabbits</h5>
+                        <p>I strongly suggest you read Stu's <a
                         href="https://www.gicentre.net/jsndyks/infovistestoftime1997">fantastic acceptance speech</a>
-                    too.<br/>It really is full of wisdom and might teach you a few things about learning ... which you will be doing a lot of in the next 3 years!
+                    too.<br/>
+                    It really is full of wisdom and might teach you a few things about learning ... which you will be doing a lot of in the next 3 years!
                     <br/> 🐢 🐇
                         </p>
                     </div>
@@ -805,7 +804,7 @@ void draw() {
                     <tr>
                         <td><a href="https://processing.org/reference/mousePressed.html"
                                 target="_blank">mousePressed</a></td>
-                        <td>A global Boolean variable that is true while the mouse left button is pressed.</td>
+                        <td>A global Boolean variable that is <code>TRUE</code> while the mouse left button is pressed and <code>FALSE</code> otherwise.</td>
                     </tr>
                     <tr>
                         <td><a href="https://processing.org/reference/mouseButton.html" target="_blank">mouseButton</a>
@@ -848,7 +847,7 @@ void draw() {
                     These tell you something about how your sketch is being interacted with.</p>
                 <p>Then we get to the <i>methods</i>, which are called whenever we <i>click</i>, <i>press</i>,
                     <i>release</i>, <i>move</i> or <i>drag</i> the mouse. Or whatever peripheral we are using to control
-                    <i>where</i> on the screen we want to focus.
+                    <i>where</i> on the screen we want to focus. You see, <i>Processing</i> is listening out for these the whole time! 
                 </p>
                 <p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">6</span> - <b>mouseClicked()</b> : a method that runs when you click the 🐁</code></p>
                 <p>
@@ -871,38 +870,33 @@ void draw() {
 
             </div> <!-- End of left column -->
 
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-                <img src="https://jsndyks.github.io/cityCreativeCoding/images/interaction/stuCard.171003.small.jpg"
-                    width="200" />
-                <p class="figCaption">
-                    A photo of Stu Card taking a photo of the 'data trophy' that we made for him at IEEE VIS.
-                    This was taken in 2017, shortly after his <a
-                        href="https://www.gicentre.net/jsndyks/infovistestoftime1997">wonderfully inspiring acceptance
-                        speech</a> about 🐢s &amp; 🐇s<br />
-                    Source: Jason Dykes.
-                </p>
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <div class="units-row">
             <div class="unit-70-cc">
                 <!-- Left column -->
+                <div class="figCode" style="margin-top:1em">
+                    <figure>
+                        <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedMouse/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedMouse.png");</script>
+                        <figcaption><b>KeyPressed Move Example</b><br />Click to activate, click to focus in the sketch and then press keys on the keyboard.
+                            <br />Move mouse to position subsequent text.
+                            <br />Click to clear the text.</figcaption>
+                    </figure>
+                </div>
 
-                <div class="coreTask">
+                <div class="codeTask">
                   <b>Mouse Interaction - mouseClicked() method</b>
                     <p>
                         Improve your <code>keyPressed()</code> sketch - <i>the rudimentary unusable frustrating 'WordProcessor'</i> - so that:</p>
 
                     <ol>
-                        <li>rather than having a key clear the screen, this happens <i>when a mouse click occurs</i>.
-                        </li>
-                        <li>when a key is pressed the letter is positioned <i>wherever the mouse is pointing</i></li>
+                        <li>rather than having a <i>key</i> clear the screen, this happens <i>when a mouse click occurs</i>.</li>
+                        <li>when a key is pressed the letter is positioned <i>wherever the mouse is positioned</i></li>
                     </ol>
                     <p>Remember to save the sketch with a meaningful new name.</p>
                     <p>This code snippet gives you what you need in <code>mouseClicked()</code> but you'll need to take
-                        some code out of <code>keyPressed</code> as well to enable you to use the space key:</p>
+                        some code out of the existing <code>keyPressed</code> as well to enable you to use the space key:</p>
                     <pre class="brush: processing; gutter: false; toolbar: false; ">
 void mouseClicked() {
     // -- clear the screen:
@@ -910,59 +904,8 @@ void mouseClicked() {
 }</pre>
                 </div>
             </div> <!-- End of left column -->
-
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-                <br />
-                <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedMouse/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedMouse.png");</script>
-                <p><b>KeyPressed Move Example</b><br />Click to activate, click to focus in the sketch and then press keys on the keyboard.
-                    <br />Move mouse to position subsequent text.
-                    <br />Click to clear the text.
-                </p>
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
-
-        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <div class="units-row">
-            <div class="unit-70-cc">
-                <!-- Left column -->
-                <div class="challenge">
-                    <p>
-                        The sketch to the right clears the screen if you click the right mouse button, but selects a
-                        position for new text if you click the left button.<br />
-                        Try it!<br/>
-                        Can you make a sketch to do this?
-                    </p>
-                    <p>
-                        You'll need two global variables for text position <code>textX, textY</code>, and you'll need to
-                        set these to <code>mouseX</code> and <code>mouseY</code> when the mouse button is clicked.</p>
-                    <p>This code snippet shows how to use the value of <code>mouseButton</code> to vary what happens
-                        depending upon which mouse button has been clicked.</p><br />
-                    <pre class="brush: processing; gutter: false; toolbar: false; ">
-if (mouseButton == LEFT) {
-    // -- left button - update text position:
-    textX = mouseX;
-    textY = mouseY;
-  } else {
-    // -- right button - clear the screen:
-    background(220);
-  }</pre>
-                </div>
-
-            </div> <!-- End of left column -->
-
-
-            <div class="unit-30-cc annotation">
-                <!-- Right hand column for small images, popup sketches and annotations. -->
-                <br /><br />
-                <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedClick/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedClick.png");</script>
-                <p><b>KeyPressed Click Example</b><br />Click to activate and press keys on the keyboard.
-                    <br />Left click to reposition subsequent text.
-                    <br />Right click to clear the text.
-                </p>
-            </div> <!-- end of right column -->
-        </div> <!-- End of row -->
 
 
 
