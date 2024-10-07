@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html  dir="ltr" lang="en" xml:lang="en">
 <head>
-    <title>CreativeCoding Lecture: Methods</title>
+    <title>CreativeCoding Lecture: Interaction</title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,8 +63,8 @@
             <p><strong>By the end of this session (lecture, class and subsequent work in your own time) you should be able to:</strong></p>
 
             <ul>
-                <li>collect and use input that comes from interactions with <b>the mouse</b> in simple sketches;</li>
-                <li>collect and use input that comes from interactions with <b>the keyboard</b> in simple sketches;</li>
+                <li>collect and use input that comes from interactions with <b><i>the mouse</i></b> in simple sketches;</li>
+                <li>collect and use input that comes from interactions with <b><i>the keyboard</i></b> in simple sketches;</li>
                 <li>display the nature of this input;</li>
                 <li>use this input to control flow and behaviour in a sketch;</li>
                 <li>structure a sketch to react to, and develop through, interaction;</li>
@@ -76,12 +76,12 @@
         <hr />
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <div class="units-row">
+        <div class=" units-row">
             <div class="unit-70-cc">
                 <!-- Left column -->
                 <h3>1. Interaction</h3>
                 <p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">1</span> - <b>Interaction</b> : how do we interact with computers?</code></p>
-                <p> We've looked at how to <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=420864">code programs that adapt to context</a> with constructs that allow us to write code that makes choices as it executes: <a href="https://moodle4.city.ac.uk/course/view.php?id=6081#section-5">DECISIONS</a><br/>
+                <p> We've looked at how to code programs that adapt to context with constructs that allow us to write code that makes choices as it executes: <a href="https://moodle4.city.ac.uk/course/view.php?id=15435#coursecontentcollapse6">DECISIONS</a><br/>
                   <br/>But how do we code programs that adapt to people?<br/>
 
                     A computer isn't much use without us being able to tell it what to do - without <b>interaction</b>!<br/>
@@ -141,19 +141,19 @@
                 </p>
                 <pre class="brush: processing; gutter: false; toolbar: false; ">  // -- set up the things that don't change ...
     void setup() {
-    size(400, 400);
-    textSize(128);      // &lt;-- try changing this
-    textAlign(CENTER); // &lt;-- centers text!
+      size(400, 400);
+      textSize(128);      // &lt;-- try changing this
+      textAlign(CENTER);  // &lt;-- changes text position - arguments 2 and 3 to text() - to specify text centre point 
     }
 
     // -- do these things 60 times per second ...
     void draw() {
 
-    // -- clear the canvas:
-    background(220);              // &lt;-- try a different colour
+      // -- clear the canvas:
+      background(220);              // &lt;-- try a different colour
 
-    // -- show the value of the key variable in the middle of the canvas:
-    text(key,width/2,height/2); // &lt;-- try a different position
+      // -- show the value of the key variable in the middle of the canvas:
+      text(key,width/2,height/2);   // &lt;-- try a different position
     }
 </pre>
 
