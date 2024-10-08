@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CreativeCoding Extras: Groups</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Embedded fonts -->
+<link
+    href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+    rel="stylesheet">
+
+<!-- Custom layout and style -->
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+<!-- General browser compatibility handling -->
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+<!-- Formatted source code -->
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+<!-- Sketch popups and hidden text-->
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+<!-- JD Extras! -->
+  <link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" />
+  
+  <!-- iFrame -->
+  <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+
+        <!---
+You can view [this practical](https://jsndyks.github.io/cityCreativeCoding/html/groups/ccGroups.2024.extra.html) outside of _Moodle_ should you wish to.
+       -->
+
+        <p>
+            These exercises give you practice using arrays.
+        </p>
+
+        <div class="codeTask">
+            1. Modify the name list sketch given in the lectures (reproduced below) so that the remaining names are
+            removed when you press a key corresponding to the first letter of each name. Modify if further so that
+            pressing shift and the relevant key, adds names back to the list (e.g. pressing shift-S should add all the
+            names beginning with 'S').
+            <br /><br />
+            <pre class="brush: processing; gutter: false; toolbar: false; ">ArrayList&lt;String&gt; names = new ArrayList();
+
+void setup()
+{
+  size(300,350);
+  fill(0);
+  textSize(22);
+
+  names.add("Jon");
+  names.add("Jason");
+  names.add("Seb");
+  names.add("Radu");
+  names.add("Eva");
+  names.add("Andy");
+  names.add("Dympna");
+  names.add("Ross");
+  names.add("Simone");
+  names.add("Charlie");
+  names.add("Jo");
+}
+
+void draw()
+{
+  background(255);
+  float yPos = 30;
+
+  for (String name : names)
+  {
+    text(name,50,yPos);
+    yPos = yPos+30;
+  }
+}
+
+void keyPressed()
+{
+  if (key == 'j')
+  {
+    names.remove("Jon");
+	names.remove("Jason");
+    names.remove("Jo");
+  }
+  else if (key == 's')
+  {
+    names.remove("Seb");
+    names.remove("Simone");
+  }
+}</pre>
+            <i>Hint: </i> You can distinguish between a key press and a shift-key press by simply testing for the
+            lower-case and upper-case versions of the key, e.g.
+            <br /><br />
+            <pre class="brush: processing; gutter: false; toolbar: false; ">if (key == 'a')
+{
+  // Do something in response to the lower-case key press.
+}
+else if (key == 'A')
+{
+  // Do something in response to the upper-case key press.
+}</pre>
+        </div>
+
+        <br /><br />
+
+
+        <div class="codeTask">
+
+            <br />
+            2. Modify the circle grid sketch from the lecture notes (reproduced below) so that the fourth row of circles
+            is displayed in a different colour.
+            <br /><br />
+            <pre class="brush: processing; gutter: false; toolbar: false;">void setup()
+{
+  size(400,400);
+  noStroke();
+  fill(180,50, 50, 100);
+}
+
+void draw()
+{
+  background(255);
+
+  for (int row=0; row&lt;10; row = row+1)
+  {
+    for (int col=0; col&lt;10; col = col+1)
+    {
+      circle(20 + col*40, 20 + row*40,30);
+    }
+  }
+}</pre>
+            <br />
+            Modify the sketch further so that it instead highlights the fourth column.
+            <br /><br />
+            <div class="units-row">
+                <div class="unit-50"><img
+                        src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/circleGridRowHighlight.png"
+                        width="400" height="400" alt="Grid with highlighted row"></div>
+                <div class="unit-50"><img
+                        src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/circleGridColHighlight.png"
+                        width="400" height="400" alt="Grid with highlighted row"></div>
+            </div>
+
+        </div>
+        <br /><br />
+
+        <div class="challenge">
+            3. Modify the sketch produced for the previous task so that the mouse position controls the highlighted row
+            and column <i>(Click the image below to show an example)</i>.
+            <br /><br />
+            <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/gridHighlight", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/circleGridInteractiveHighlight.png");</script>
+        </div>
+
+        <br /><br />
+
+
+        <div class="challenge">
+            4. Create a sketch containing the setup, draw, mousePressed, and mouseReleased methods. Declare two global
+            float arrays called xps, yps and initialize them to have the same size. In the setup method fill the two
+            arrays with random values such that pairs of xps and yps values at the same index represent the coordinates
+            of points that lie within the sketch bounds. In the draw method, draw circles of size 30 at those positions.
+            <br /><br />
+            Add code to allow the user to pick a specific circle and drag and drop it anywhere within the sketch. To do
+            so you may want to add a global variable of type int called pickedCircle which should be set to a negative
+            value if no circle is picked and a value corresponding to the index of a picked circle, in case a circle was
+            indeed picked.
+            <br /><br />
+            Add two more global arrays, one called diameters (of type float) and one called colours (of type color) and
+            initialize them to have the same size as the xps and yps arrays. Fill the diameters one with random values
+            and the colors one with one of two colours, red and blue, chosen randomly. Given the drag-and-drop
+            functionality the user should be able to separate the randomly positioned circles into separate red and blue
+            groups (ex: top half of the screen vs. bottom half of the screen). As a challenge you may wish to consider
+            writing a method to test automatically if the user accomplished this goal.
+            <br /><br />
+            Change the arrays to ArrayLists and change the implementation of the mousePressed method so as to allow the
+            user to remove all circles of a certain colour.
+        </div>
+
+        <br /><br />
+
+
+        <h2>Check on Progress</h2>
+        <div class="task">
+            To ensure that you have achieved the outcomes associated with this session, consider the following, which
+            allow you to evaluate your progress.
+            <br /><br />
+
+            <div class="checkOutcomes">
+
+                <input type="checkbox" id="sa1">
+                <label for="sa1">Can I declare, initialise and assign values to an array?
+                    <!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521100">Arrays</a> -->
+                    <!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521103">Arrays and for loops (pt1)</a> -->
+                    <!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521105">Arrays and for loops (pt2)</a> -->
+                </label><br />
+                <input type="checkbox" id="sa2">
+                <label for="sa2">Can I create a for-each loop to iterate over an array?
+                    <!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521107">Arrays and for each loops</a> -->
+                </label><br />
+                <input type="checkbox" id="sa3">
+                <label for="sa3">Can I create an <code>ArrayList</code> and add and remove items to/from it?
+                    <!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521108">ArrayLists (init and population)</a> -->
+                    <!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521109">ArrayLists (get and remove)</a> -->
+
+                </label><br />
+                <input type="checkbox" id="sa4">
+                <label for="sa4">Can I create a nested loops to manipulate the rows and columns of a grid?
+                    <!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521110">Nested loops</a> -->
+                </label><br />
+                <input type="checkbox" id="sa5">
+                <label for="sa5">Can I create and manipulate a 2d array to store a grid structure?
+                    <!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521112">2D Arrays</a> -->
+
+                </label><br />
+            </div>
+            <!-- End of checkOutcomes -->
+
+
+        </div> <!-- End of task -->
+
+        <div style="padding-bottom:2em;clear:both" />
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>
