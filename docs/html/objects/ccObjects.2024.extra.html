@@ -51,44 +51,7 @@ You can view [this lecture](https://jsndyks.github.io/cityBootCamp/html/objects/
        <p>
             These exercises give you practice at both using <i>Processing</i>'s own classes as well as creating your own.
         </p>
-
-        <div class="coreTask">
-        <p><b>Working with <code>String</code> objects</b></p>
-            Starting with the following template:
-            <br /><br />
-            <pre class="brush: processing; gutter: false; toolbar: false;">void setup()
-{
-  String message = "Hello from Friday's BootCamp";
-
-  // Add your code here...
-  // ...
-}</pre>
-
-            Add code to <code>setup()</code> that prints the following to the <i>Processing</i> console:
-            <br /><br />
-            <ol start="a" type="a">
-                <li>The contents of the message as upper-case only.</li>
-                <li>The contents of the message as lower-case only.</li>
-                <li>The number of characters in the message.</li>
-                <li>The character at position 4 in the message. Is this what you expected?</li>
-                <li>A message that says "<i>Day found</i>" if the message contains the word 'day', or "<i>No match
-                        found</i>" if otherwise.</li>
-            </ol>
-
-            Note that you should do all of the above using methods found in the <code>String</code> class, not by
-            calculating them yourself. If you need reminding of what methods are available, look at the documentation
-            for <code>String</code> in the <a href="https://processing.org/reference" target="_blank"><i>Processing</i>
-                Reference</a>.
-            <br /><br />
-            Edit the code so the message is now "<code>BootCamp week one is now over</code>" and check your output from
-            the five sub tasks still works as expected.
-        </div>
-
-        <br /><br />
-
-
-
-
+<!-- 
         <div class="coreTask">
         <p><b>Create a "button" class and "button" objects</b></p>
         
@@ -194,19 +157,23 @@ void mouseClicked() {
             </ol>
         </div>
         <br /><br />
+-->
 
+<!-- 
         <div class="codeTask">
             Make a new copy of your 'travelling circles' sketch from Tuesday and this time represent the position of the
             circles, not with separate <code>float</code> variables such as <code>x</code> and <code>y</code>, but with
             a <code>PVector</code> object capable of storing a pair of numbers.
         </div>
+ -->
 
-        <br /><br />
 
         <div class="challenge">
-            The code below provides a simple start point for creating a sketch that shows moving robots. It is based on
-            the <code>Ball</code> class used in the lecture notes:
-            <br /><br />
+          <h5>Make a Robot Class</h5>
+            <p>... and a few Robot instances?<br/>
+              The code below provides a simple start point for creating a sketch that shows moving robots.
+              It is based on the <code>Ball</code> class used in the lecture notes:
+            </p>
             <pre class="brush: processing; gutter: false; toolbar: false;">Robot robot;
 
 void setup()
@@ -222,8 +189,8 @@ void draw()
   robot.move();
 }
 </pre>
-            <br /><br />
-            <pre class="brush: processing; gutter: false; toolbar: false;">class Robot
+<p>And in a new Tab for the <code>Robot</code> class ...</p>
+<pre class="brush: processing; gutter: false; toolbar: false;">class Robot
 {
   PVector position;   // Position of the robot.
   PVector velocity;   // Amount it moves on each redraw.
@@ -272,69 +239,51 @@ void draw()
     }
   }
 }</pre>
-            Copy this code into <i>Processing</i>, placing the <code>Robot</code> class in a new <i>Processing</i> tab. Modify the
-            <code>move()</code> and <code>draw()</code> methods of the <code>Robot</code> class to make a more realistic
-            looking robot that moves more like a robot. For example, instead of a single rectangle, you might show a set
-            of shapes like this:
-            <br />
-            <img src="https://staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/robot.png" width="152" height="202"
-                alt="robot symbol">
-            <br /><br />
-            and instead of moving diagonally, you might make the movement only up, down, left or right at any one time.
+<div class="figRight" style="width:225">
+  <figure>
+  <img src="https://staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/robot.png"
+  width="152" height="202" alt="robot symbol"/>
+  <figcaption>
+      A Simple Robot<br/>You can do better!
+  </figcaption>
+  </figure>
+</div>
+<p>
+            Copy this code into a <i>Processing</i> sketch, placing the <code>Robot</code> class in a new <i>Processing</i> tab.
+            Modify the <code>move()</code> and <code>draw()</code> methods of the <code>Robot</code> class to make a more realistic
+            looking robot that moves more like a robot.
+            For example, instead of a single rectangle, you might show a set of shapes like the image shown.
+          </p>
+          <p>
+            Also, instead of moving diagonally, you might make the movement only up, down, left or right at any one time.
             <br /><br />
             Note you should be able to complete this task by only modifying the code inside the <code>Robot</code>
             class. You shouldn't need to touch the code inside <code>setup()</code> or the main <code>draw()</code>
             methods.
+            </p>
+        </div>
+
+        <h5>Make Many Robots</h5>
+         <p>
+          Modify your robot sketch so that 50 robots move around the screen, not just one.
+         </p>
+         <p>
+          Note: you should be able to do this without making any further modifications to the <code>Robot</code> class.
+          All the necessary changes can be applied outside this class.<br/>
+          You will need to use <i>Groups</i> and <i>Loops</i>.
         </div>
 
         <div class="challenge">
-            Modify your robot sketch so that 50 robots move around the screen, not just one.
-            <br /><br />
-            Note: you should be able to do this without making any further modifications to the <code>Robot</code>
-            class. All the necessary changes can be applied outside this class.
-        </div>
-
-        <div class="challenge">
+          <h5>Make Interacting Robots</h5>
+          <p>
             Can you make your robots interact with each other in some way (for example, by creating predator and prey
             robots)?
-            <br /><br />
-            For some guidance, see the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=466630"
-                target="_blank">Bouncing Balls Example</a> page.
+            </p>
+            <p>
+            For some guidance and ideas, see the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=806977"
+                target="_blank">Objects : Bouncing Balls</a> page.
+                </p>
         </div>
-
-        <br /><br />
-
-        <h2>Check on Progress</h2>
-        <div class="task">
-            To ensure that you have achieved the outcomes associated with this session, consider the following, which
-            allow you to evaluate your progress.
-            <br /><br />
-
-            <div class="checkOutcomes">
-                <input type="checkbox" id="sa1">
-                <label for="sa1">Can I use <i>Processing</i>'s <code>String</code> and <code>PVector</code>
-                    classes?</label><br />
-                <!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521120">String</a> -->
-                <!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521121">PVector</a> -->
-                <input type="checkbox" id="sa2">
-                <label for="sa2">Can I call a class's methods by using the dot operator applied to objects created from
-                    a class?</label><br />
-                <input type="checkbox" id="sa3">
-                <label for="sa3">Can I access data stored in an object using the dot operator?</label><br />
-                <!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521122">Dot notation</a> -->
-                <input type="checkbox" id="sa4">
-                <label for="sa4">Can I create a new tab in <i>Processing</i> into which I place the code to create a new
-                    class?</label><br />
-                <!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521123">Classes</a> -->
-                <input type="checkbox" id="sa5">
-                <label for="sa5">Can I refactor code to be more flexible by creating classes that store data and methods
-                    together?</label><br />
-                <!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521125">Classes and refactoring</a> -->
-
-            </div>
-            <!-- End of checkOutcomes -->
-
-        </div> <!-- End of task -->
 
         <div style="padding-bottom:2em;clear:both" />
         <!--- spacer for iFrame -->
