@@ -75,7 +75,8 @@ void draw()
   fill(214,93,69);            // Colour me orange.
 
   circle(130,250,30);         // Ball has a diameter of 30 pixels.
-}</pre>
+}
+</pre>
       </div> <!-- End of left column -->
     </div> <!-- End of row -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -110,7 +111,8 @@ void draw()
   noStroke();
   fill(colour);
   circle(x,y,diameter);
-}</pre>
+}
+</pre>
 
         <p>
           Although we have made things a bit easier to change by storing the important characteristics of the ball
@@ -149,7 +151,8 @@ void draw()
     fill(colour);
     circle(x, y, diameter);
   }
-}</pre>
+}
+</pre>
         <p>
           This class is pretty similar to our previous sketch in that it still contains the variables that define
           a ball's position, size and colour as well as code to draw the ball on screen. There are a few key differences
@@ -275,9 +278,10 @@ void draw()
     fill(colour);
     circle(x, y, diameter, circle);
   }
-}</pre>
-        Here we use <i>Processing</i>'s <a href="https://www.processing.org/reference/random_.html"
-          target="_blank">random()</a>
+}
+</pre>
+        Here we use <i>Processing</i>'s <code><a href="https://www.processing.org/reference/random_.html"
+          target="_blank">random()</a></code>
         method to set a random diameter, position, and colour for the ball. The two numbers or <i>parameters</i> in the
         brackets of <code>random()</code> represent the lower and upper values between which, a random value is
         selected.
@@ -335,7 +339,8 @@ void draw()
   {
     ball.draw();
   }
-}</pre>
+}
+</pre>
         <p>
           Although all the balls use the same class, each ball object has its own position, size and colour and can be
           referenced using an array index between 0 and 49 in this example. Note how that in the <code>draw()</code>
@@ -406,7 +411,8 @@ void draw()
     x = x+dx;
     y = y+dy;
   }
-}</pre>
+}
+</pre>
 
         <p>
           As long as our new <code>move()</code> method is called from inside the main sketch's <code>draw()</code>
@@ -454,7 +460,8 @@ void draw()
 
   x = x+dx;
   y = y+dy;
-}</pre>
+}
+</pre>
 
         <p>
           We now have a set of bouncing balls floating around in our sketch.
@@ -508,7 +515,8 @@ void draw()
     return true;
   }
   return false;
-}</pre>
+}
+</pre>
 
         <p>
           Assuming we have managed to detect two colliding balls, we also need to make the balls 'bounce' off each
@@ -572,7 +580,8 @@ void draw()
 
   anotherBall.x = collisionPx + 0.5*anotherBall.diameter*collisionX;
   anotherBall.y = collisionPy + 0.5*anotherBall.diameter*collisionY;
-}</pre>
+}
+</pre>
 
         <p>
           Even if you can't follow the geometry involved in calculating the bounce directions, using this new
@@ -629,7 +638,8 @@ void draw()
   {
     ball.move();
   }
-}</pre>
+}
+</pre>
         <p>
           We now have all the code for our bouncing balls sketch. You may wish to use this code as the basis for your
           own sketches that need to move many interacting objects around your sketch window.
@@ -710,7 +720,8 @@ void draw()
   {
     ball.move();
   }
-}</pre>
+}
+</pre>
 
         <pre class="brush: processing; gutter: false; toolbar: false;">class Ball
 {
@@ -794,7 +805,8 @@ void draw()
     anotherBall.x = collisionPx + 0.5*anotherBall.diameter*collisionX;
     anotherBall.y = collisionPy + 0.5*anotherBall.diameter*collisionY;
   }
-}</pre>
+}
+</pre>
       </div> <!-- end of left column -->
 
       <div class="unit-30 annotation">
