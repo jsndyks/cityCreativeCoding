@@ -328,6 +328,27 @@ void draw()
 			</div> <!-- end of right column -->
 		</div> <!-- End of row -->
 
+		<div class="units-row">
+			<div class="unit-70-cc">
+				<!-- Left column -->
+
+				<div class="codeTask">
+					<h5>Arrays - Declare, Initialise, Manipulate</h5>
+					<p>An open ended task!<br/>Use the code provided here to:</p>
+					<ol>
+						<li>Create an <a href="https://processing.org/reference/Array.html"><code>Array</code></a> of <code>floats</code> that can be used as circle diameters</li>
+						<li>Fill the array with random numbers</li>
+						<li>Plot circles in a line from left to right that have these diameters</li>
+						<li>Position the circles so that their x position relates directly to their radius, rather than the array index</li>
+						<li>Add a keyboard interaction that switches between array index order and circle radius order</li> 
+					</ol>
+					<p><b>Tip:</b> use a global boolean system state variable called something like <code>orderCirclesBySize</code> as the condition in the <code>draw()</code> loop.</p>
+					<p><b>Tip:</b> run through the <code>Array</code> in <code>Array</code> index order each time - just change the x position of the <code>circle()</code> depending upon the state of the system state variable.</p>
+				</div>
+			</div>
+		</div>
+
+
 		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 		<div class="units-row">
@@ -480,11 +501,20 @@ void draw()
 					inside brackets. Note that there is no index here - the item itself is specified.
 				</p>
 
+				<div class="figCode" style="margin-top:3em">
+					<figure>
+						<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/groups/img/ccGroups.names.short.png', 200, 225, 'List of Names');</script>
+						<figcaption>
+							<b>ArrayList Example</b><br/>A group of variables that can<br/>change size as a script runs.
+						</figcaption>
+					</figure>   
+				</div>
+
 				<div class="codeTask">
 					<h5>ArrayList - Declare, Initialise, Manipulate</h5>
 					<p>Use the code provided here to:</p>
 					<ol>
-						<li>Create a list of name (type <code>String</code>)</li>
+						<li>Create an <a href="https://processing.org/reference/ArrayList.html"><code>ArrayList</code></a> of names (type <code>String</code>)</li>
 						<li>Add names to the list through an interaction</li>
 						<li>Remove names from the list through an interaction</li>
 						<li>Establish what happens if the list contains two identical Strings (names).</li>
@@ -493,11 +523,6 @@ void draw()
 
 			</div> <!-- End of left column -->
 
-			<div class="unit-30-cc annotation">
-				<!-- Right column -->
-				<script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/nameList", 300, 300, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/namesRemoved.png");</script>
-				<p>Dynamic list <i>(click to activate and press the 'j' and 'g' keys to remove names)</i></p>
-			</div> <!-- end of right column -->
 		</div> <!-- End of row -->
 
 		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -572,17 +597,30 @@ void draw()
 		<div class="units-row">
 			<div class="unit-70-cc">
 				<!-- Left column -->
-				<br><br>
+				<div class="codeTask">
+					<h5>2D Arrays - Declare, Initialise, Draw, Play</h5>
+					<p>Another open ended task!<br/>Use the code that produces the grid of 10,000 randomly sized circles and:</p>
+					<ol>
+						<li>Experiment with the numbers in <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=781699">PAROT Talk</a> fashion to learn about the <i>Processing</i> language and how it is being used here</li>
+						<li>Add a condition so that the colour of the circles is dependent upon their position and / or size </li>
+				</div>
+			</div>
+		</div>
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+		<div class="units-row">
+			<div class="unit-70-cc">
+				<!-- Left column -->
 				<h3>3. Summary and Further Reading</h3>
 
 				<ul>
 					<li>
-						<i>Arrays</i> provide a way of grouping many variable values together using a single name.
+						<i><code>Arrays</code></i> provide a way of grouping many variable values together using a single name.<br/>
 						Each element in the array is accessed with an <i>index</i> in square brackets.
 					</li>
 
 					<li>
-						<i>ArrayLists</i> provide a more flexible implementation of <i>Array</i> that allows for
+						<i><code>ArrayLists</code></i> provide a more flexible implementation of <i>Array</i> that allows for
 						elements to be added or removed at runtime (as the script is running).
 					</li>
 
@@ -593,15 +631,14 @@ void draw()
 					</li>
 
 					<li>
-						2D arrays can be used to represent gridded structures and <i>nested</i> loops are used to work
+						2D <code>Arrays</code> can be used to represent gridded structures and <i>nested</i> loops are used to work
 						with such structures.
 					</li>
 				</ul>
 
-				<div class="homework">
+				<p>
 					You may find the following helpful if you'd like to find out more about loops, arrays and
-					other types of collection.
-					<br><br>
+					other types of collection.</p>
 					<ul>
 
 						<li><a href="https://processing.org/reference/Array.html" target="_blank"><i>Processing</i> Reference:
@@ -610,17 +647,55 @@ void draw()
 								reference: 'ArrayLists'</a> — ArrayLists with <i>Processing</i> examples and pointers to other
 							collection types.</li>
 					</ul>
-				</div>
 
 			</div> <!-- End of left column -->
 
-			<div class="unit-30-cc annotation">
-				<!-- Right column -->
-				<br>
-			</div> <!-- end of right column -->
 		</div> <!-- End of row -->
+
+		<div class="units-row">
+			<div class="unit-70-cc">
+				<!-- Left column -->
+				<h2>4. Check on Progress</h2>
+				<div class="task">
+					<p>To ensure that you have achieved the outcomes associated with this session, consider the following, which
+					allow you to evaluate your progress.
+					</p>
+
+					<div class="checkOutcomes">
+
+						<input type="checkbox" id="sa1">
+						<label for="sa1">Can I declare, initialise and assign values to an array?
+							<!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521100">Arrays</a> -->
+							<!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521103">Arrays and for loops (pt1)</a> -->
+							<!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521105">Arrays and for loops (pt2)</a> -->
+						</label><br />
+						<input type="checkbox" id="sa2">
+						<label for="sa2">Can I create a for-each loop to iterate over an array?
+							<!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521107">Arrays and for each loops</a> -->
+						</label><br />
+						<input type="checkbox" id="sa3">
+						<label for="sa3">Can I create an <code>ArrayList</code> and add and remove items to/from it?
+							<!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521108">ArrayLists (init and population)</a> -->
+							<!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521109">ArrayLists (get and remove)</a> -->
+
+						</label><br />
+						<input type="checkbox" id="sa4">
+						<label for="sa4">Can I create a nested loops to manipulate the rows and columns of a grid?
+							<!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521110">Nested loops</a> -->
+						</label><br />
+						<input type="checkbox" id="sa5">
+						<label for="sa5">Can I create and manipulate a 2d array to store a grid structure?
+							<!-- <a href="https://moodle.city.ac.uk/mod/kalvidres/view.php?id=521112">2D Arrays</a> -->
+
+						</label><br />
+					</div>
+					<!-- End of checkOutcomes -->
+				</div>
+			</div>
+		</div>
         <div style="padding-bottom:2em;clear:both" />
-        <!--- spacer for iFrame -->
+
+		<!--- spacer for iFrame -->
         <p style="padding-top:1em"><hr/></p>
 		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	</div> <!-- End of page div -->
