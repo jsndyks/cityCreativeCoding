@@ -50,8 +50,11 @@ You can view [this lecture](https://jsndyks.github.io/cityCreativeCoding/html/gr
 		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 		<!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
 		<!-- Add summary sentence or two below, which will act as an easy introduction -->
+<!-- 
+		<p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">1</span> - <b>Interaction</b> : how do we interact with computers?</code></p>
+ -->
 
-		<div class="intro">
+ <div class="intro">
 
 			<p>
 				This session introduces the idea of <i>arrays</i> for storing collections of data items.
@@ -61,7 +64,7 @@ You can view [this lecture](https://jsndyks.github.io/cityCreativeCoding/html/gr
 
 			<ul>
 				<li>declare and initialise arrays and extract values from them;</li>
-				<li>use nested loops and 2d arrays for representing and working with gridded structures.</li>
+				<li>use nested loops and 2D arrays for representing and working with gridded structures;</li>
 				<li>create <code>ArrayList</code>s and add and remove items from them;</li>
 			</ul>
 
@@ -79,8 +82,7 @@ You can view [this lecture](https://jsndyks.github.io/cityCreativeCoding/html/gr
 					range of data types from numbers to text, from Boolean expressions to colours. What they all have in
 					common is that each variable can only store an individual item of data. This is fine for simple
 					programs, but as we develop the complexity of programs, there is often a need to store whole groups
-					of data, not just one or two individual values. We will cover more on this next week in the session
-					on <i>Data Visualization</i>, but for now let's consider some simple examples.
+					of data, not just one or two individual values. Let's start with some simple examples.
 				</p>
 
 				<p>
@@ -98,31 +100,31 @@ You can view [this lecture](https://jsndyks.github.io/cityCreativeCoding/html/gr
 
 void setup()
 {
-  size(400,200);
-  fill(180,50,50,100);
-  noStroke();
+	size(400,200);
+	fill(180,50,50,100);
+	noStroke();
 
-  diameter0 = 21;
-  diameter1 = 48;
-  diameter2 = 60;
-  diameter3 = 36;
-  diameter4 = 23;
+	diameter0 = 21;
+	diameter1 = 48;
+	diameter2 = 60;
+	diameter3 = 36;
+	diameter4 = 23;
 }
 
 void draw()
 {
-  background(255);
-  float xPos = 50;
+	background(255);
+	float xPos = 50;
 
-  circle(xPos,100,diameter0);
-  xPos = xPos + 70;
-  circle(xPos,100,diameter1);
-  xPos = xPos + 70;
-  circle(xPos,100,diameter2);
-  xPos = xPos + 70;
-  circle(xPos,100,diameter3);
-  xPos = xPos + 70;
-  circle(xPos,100,diameter4);
+	circle(xPos,100,diameter0);
+	xPos = xPos + 70;
+	circle(xPos,100,diameter1);
+	xPos = xPos + 70;
+	circle(xPos,100,diameter2);
+	xPos = xPos + 70;
+	circle(xPos,100,diameter3);
+	xPos = xPos + 70;
+	circle(xPos,100,diameter4);
 }</pre>
 
 				<p>
@@ -144,10 +146,10 @@ void draw()
 				<p>
 					Arrays will allow us to do this by storing all 5 <code>float</code> numbers inside a single
 					variable. The way this is done is probably best illustrated with an example where we convert the
-					sketch above to do use an array instead of 5 separate variables:
+					sketch above to use an array instead of 5 separate variables:
 				</p>
 
-				<pre class="brush: processing; gutter: false; toolbar: false; highlight: [1,9,10,11,12,13,14,24]">float[] diameters;            // Declare the array of floats
+				<pre class="brush: processing; gutter: false; toolbar: false; highlight: [1,9,10,11,12,13,14,24]">float[] diameters;            // -- Declare 'diameters' as an array of floats
 
 void setup()
 {
@@ -155,8 +157,8 @@ void setup()
   fill(180,50,50,100);
   noStroke();
 
-  diameters = new float[5];  // Set the array size to 5
-  diameters[0] = 21;         // Initialise the 5 values.
+  diameters = new float[5];  // -- Set the array size to 5 using the 'new' syntax 
+  diameters[0] = 21;         // -- Initialise the 5 values in elements 0, 1, 2, 3, and 4
   diameters[1] = 48;
   diameters[2] = 60;
   diameters[3] = 36;
@@ -202,6 +204,7 @@ void draw()
 			<div class="unit-70-cc">
 				<!-- Left column -->
 
+				<p>For example ...</p>
 				<pre class="brush: processing; gutter: false; toolbar: false;">				int[] ages = new int[10];
 			</pre>
 
@@ -218,6 +221,16 @@ void draw()
 				// ...etc.
 			</pre>
 
+			<div class="figRight" style="width:225">
+				<figure>
+					<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/array.png', 400, 600, 'Array anatomy');</script>
+					<figcaption>
+					Tha Anatomy of an Array.
+				</figcaption>
+				</figure>
+			</div>
+	
+
 				<p>
 					Naming of arrays should follow similar conventions to naming of any other kind of variable. That is,
 					to use lower-case letters with no spaces and to use a name that explains what is being stored.
@@ -226,20 +239,31 @@ void draw()
 				</p>
 
 				<p>
+					The number inside square brackets is known as the array <i>index</i> and is used to indicate which
+					of the separate variable spaces inside the array we wish to deal with. <b>Array indices start
+						counting from 0 not 1.</b> That means the last index in a 10 element array would be 9.
+				</p>
+
+				<p>
+					We sometimes think of variables as named 'buckets' that contain information.
+					Arrays are like buckets that contain numbered compartments in which we have information of the same kind (integers, floats, colours, Strings, etc.).  
+				</p>
+
+				<p>
+					You don't need to remember how large your array is. Instead you can add <code>.length</code> to the
+				name of the array to get the computer to return the number of elements that your array can store.
+				This is especially useful when combined with loops so that you can change your array size without
+				making changes to the rest of your code.</p>
+
+				<p>
 					Note that referring to a single element in an array like this, we can treat it just as we would if
 					we had a simple variable. For example we could display the contents of the array element in the
 					console, or do some arithmetic and assign the value to the element:
 				</p>
 
-				<pre class="brush: processing; gutter: false; toolbar: false;">println(ages[2]);       // Prints out the third element
-ages[2] = ages[2] + 1;  // Increase the value by one.
+				<pre class="brush: processing; gutter: false; toolbar: false;">println(ages[2]);       // -- Prints out the third element
+ages[2] = ages[2] + 1;  // -- Increase the value of the third element in array 'ages' by one.
 println(ages[2]);</pre>
-
-				<div class="tip">
-					The number inside square brackets is known as the array <i>index</i> and is used to indicate which
-					of the separate variable spaces inside the array we wish to deal with. <b>Array indices start
-						counting from 0 not 1.</b> That means the last index in a 10 element array would be 9.
-				</div>
 
 				<p>
 					<i>Processing</i> also provides a handy command <code>printArray()</code> that will print out the entire
@@ -248,20 +272,12 @@ println(ages[2]);</pre>
 
 				<pre class="brush: processing; gutter: false; toolbar: false;">printArray(ages);</pre>
 
-
 				<p>
-					The true advantages of arrays become apparent as we start to increase their size. For example, we
-					could modify the circle sketch to store not 5 but 500 separate diameter values:
+					The true advantages of arrays become apparent as we start to increase their size.
+					For example, we could modify the circle sketch to store not 5 but 500 separate diameter values:
 				</p>
 
 			</div> <!-- End of left column -->
-
-			<div class="unit-30-cc annotation">
-				<!-- Right column -->
-
-				<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/array.png', 540, 600, 'Array anatomy');</script>
-
-			</div> <!-- end of right column -->
 		</div> <!-- End of row -->
 
 		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -299,12 +315,6 @@ void draw()
   }
 }</pre>
 
-				<div class="tip">
-					You don't need to remember how large your array is. Instead you can add <code>.length</code> to the
-					name of the array to get the computer to return the number of elements that your array can store.
-					This is especially useful when combined with loops so that you can change your array size without
-					making changes to the rest of your code.
-				</div>
 
 			</div> <!-- End of left column -->
 
@@ -315,7 +325,6 @@ void draw()
 
 				<p>Output from the five hundred circles sketch <i>(click to enlarge)</i></p>
 
-
 			</div> <!-- end of right column -->
 		</div> <!-- End of row -->
 
@@ -324,17 +333,16 @@ void draw()
 		<div class="units-row">
 			<div class="unit-70-cc">
 				<!-- Left column -->
-				<br><br>
 				<h4>Arrays and 'for-each' loops</h4>
 
 				<p>
 					Because iterating over all the values of an array is such a common task, there is a special form of
-					for loop known as the 'for-each' loop. This is just a slightly more compact version of a loop that
+					for loop known as the '<code>for-each</code>' loop. This is just a slightly more compact version of a loop that
 					saves us the effort of declaring a counter variable and finding the length of the array.
 				</p>
 
 				<p>
-					As an example, here is the for loop from the 500 circles sketch above expressed as a 'for-each' loop
+					As an example, here is the for loop from the 500 circles sketch above expressed as a '<code>for-each</code>' loop
 					instead:
 				</p>
 
@@ -347,24 +355,24 @@ void draw()
 				<p>
 					The line <code>for (float diameter : diameters)</code> should be read as "<i>for each float variable
 						diameter in the the array diameters...</i>" In other words, the line takes each element in the
-					<code>diameters</code> array and places it in a loop variable called <code>diameter</code>. We can
-					then use this variable inside the body of the loop as if it had been declared an initialised as a
-					simple <code>float</code> variable.
+					<code>diameters</code> array in turn and places it in a loop variable called <code>diameter</code>.
+					We can then use this variable inside the body of the loop as if it had been declared and initialised
+					as a simple <code>float</code> variable.
 				</p>
 
-				<br><br>
 				<h4>ArrayLists</h4>
 
 				<p>
 					Arrays are very useful ways of grouping together collections of variables, but they have one major
-					disadvantage. You have to state the array size when you declare the array (e.g.
-					<code>int[] ages = new int[10];</code>). Once declared, you cannot change the size of the array in
-					your program.
+					disadvantage. You have to state the array size when you declare the array
+					(e.g. <code>int[] ages = new int[10];</code>).
+					Once declared, <b>you cannot change the size of the array in your program</b>.
 				</p>
 
 				<p>
 					An alternative is the <code>ArrayList</code>, which allows you to grow and shrink the size of the
-					collection within the lifetime of your program. For example:
+					collection of variables, the number of compartments in your bucket, within the lifetime of your program.
+					For example:
 				</p>
 
 			</div>
@@ -381,17 +389,17 @@ void setup()
   fill(0);
   textSize(22);
 
-  names.add("Jon");
+  names.add("Giacomo");
   names.add("Jason");
-  names.add("Seb");
-  names.add("Radu");
-  names.add("Eva");
-  names.add("Andy");
-  names.add("Dympna");
-  names.add("Ross");
-  names.add("Simone");
+  names.add("Golnaz");
+  names.add("Aravin");
+  names.add("Olga");
+  names.add("Kam");
   names.add("Charlie");
+  names.add("Ross");
   names.add("Jo");
+  names.add("Cristina");
+  names.add("Aidan");
 }
 
 void draw()
@@ -412,19 +420,22 @@ void draw()
 					what type of variables will be stored in the <code>ArrayList</code> by stating the type in
 					&lt;triangular brackets&gt;. In the example above we have declared it as being able to store
 					<code>String</code>s (i.e. text).
+					The <code>ArrayList&lt;String&gt;</code> syntax looks a bit strange, but it's worth getting used to
+					as ArrayLists are excellent structure for storing and accessing data and dealing with interactive
+					programs that change state according to user input.  
 				</p>
 
 				<p>
 					Once an <code>ArrayList</code> has been declared, you can add elements to it by using the
 					<code>.add()</code> method appended to the name of the list (<code>names</code> in the example
 					above, but would be whatever you named it as in the declaration). Once created, you can iterate
-					through the list using a 'for-each' loop, just as we did for arrays.
+					through the list using a '<code>for-each</code>' loop, just as we did for arrays.
 				</p>
 
 				<p>
 					Why use <code>ArrayLists</code>? They are most useful when you don't know at the time of coding, how
 					many elements you wish to add. We will see some examples of this when we look at data visualization
-					next week and we store elements loaded from a file. A further advantage though is that we can also
+					and we store elements loaded from a file. A further advantage though is that we can also
 					remove items from the list within our program. For example, we could use the
 					<code>keyPressed()</code> method to modify the sketch so that keys can be used to remove some of the
 					names from the list:
@@ -452,20 +463,19 @@ void draw()
 {
   if (key == 'j')
   {
-    names.remove("Jon");
     names.remove("Jason");
     names.remove("Jo");
   }
-  else if (key == 's')
+  else if (key == 'g')
   {
-    names.remove("Seb");
-    names.remove("Simone");
+    names.remove("Giacomo");
+    names.remove("Golnaz");
   }
 }</pre>
 				<p>
 					Just like the <code>.add()</code> method of <code>ArrayList</code>s, removing items from the list is
 					done by appending <code>.remove()</code> to the name of the list, specifying the item to remove
-					inside brackets.
+					inside brackets. Note that there is no index here - the item itself is specified.
 				</p>
 
 			</div> <!-- End of left column -->
@@ -473,7 +483,7 @@ void draw()
 			<div class="unit-30-cc annotation">
 				<!-- Right column -->
 				<script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/nameList", 300, 300, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/namesRemoved.png");</script>
-				<p>Dynamic list <i>(click to activate and press the 'j' and 's' keys to remove names)</i></p>
+				<p>Dynamic list <i>(click to activate and press the 'j' and 'g' keys to remove names)</i></p>
 			</div> <!-- end of right column -->
 		</div> <!-- End of row -->
 
@@ -482,21 +492,20 @@ void draw()
 		<div class="units-row">
 			<div class="unit-70-cc">
 				<!-- Left column -->
-				<br><br>
-				<h3>2. 2d arrays</h3>
+				<h3>2. 2D arrays</h3>
 				<p>
-					In the previous session we talked about nesting loops to create grid-like displays. We can apply the
+					We have talked about and used nested loops to create grid-like displays. We can apply the
 					same principle to arrays (and <code>ArrayList</code>s). That is, we can have an array of arrays to
-					give a 2d gridded structure. The notation to do this is to provide two sets of square brackets and
-					indices. For example, here is a sketch to store and display 100 x 100 = 10,000 randomly sized
-					circles:
+					give a 2D gridded structure. The notation to do this is to provide two sets of square brackets and
+				</p>
+				<p>For example, here is a sketch to store and display 100 x 100 = 10,000 randomly sized circles:
 				</p>
 			</div>
 		</div>
 		<div class="units-row">
 			<div class="unit-70-cc">
-				<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-				<pre class="brush: processing; gutter: false; toolbar: false; highlight:[1,9,14,27]">float[][] diameters;      // Declare a 2d array of floats
+			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<pre class="brush: processing; gutter: false; toolbar: false; highlight:[1,9,14,27]">float[][] diameters;      // Declare a 2D array of floats
 
 void setup()
 {
@@ -539,7 +548,7 @@ void draw()
 				<!-- Right column -->
 				<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/tenThousandCircles.png', 800, 800, 'Grid of random circles');</script>
 				<p>
-					A grid of 10,000 randomly sized circles using a 2d array and nested for loops <i>(click to
+					A grid of 10,000 randomly sized circles using a 2D array and nested for loops <i>(click to
 						enlarge)</i>.
 				</p>
 			</div> <!-- end of right column -->
@@ -555,18 +564,18 @@ void draw()
 
 				<ul>
 					<li>
-						<i>Arrays</i> provide a way of grouping many variable values together using a single name. Each
-						element in the array is accessed with an <i>index</i> in square brackets.
+						<i>Arrays</i> provide a way of grouping many variable values together using a single name.
+						Each element in the array is accessed with an <i>index</i> in square brackets.
 					</li>
 
 					<li>
-						<i>ArrayLists</i> provide a more flexible implementation of <i>Array</i> one that allows for
-						elements to be added or removed at runtime.
+						<i>ArrayLists</i> provide a more flexible implementation of <i>Array</i> that allows for
+						elements to be added or removed at runtime (as the script is running).
 					</li>
 
 
 					<li>
-						A 'for-each' loop is a shorthand way of iterating over an array or <code>ArrayList</code> that
+						A '<code>for-each</code>' loop is a shorthand way of iterating over an array or <code>ArrayList</code> that
 						saves having to declare and increment a loop counter.
 					</li>
 

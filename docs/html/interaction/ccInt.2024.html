@@ -80,7 +80,7 @@
             <div class="unit-70-cc">
                 <!-- Left column -->
                 <h3>1. Interaction</h3>
-                <p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">1</span> - <b>Interaction</b> : how do we interact with computers?</code></p>
+                <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">1</span> - <b>Interaction</b> : how do we interact with computers?</code></p>
                 <p> We've looked at how to code programs that adapt to context with constructs that allow us to write code that makes choices as it executes: <a href="https://moodle4.city.ac.uk/course/view.php?id=15435#coursecontentcollapse6">DECISIONS</a><br/>
                   <br/>But how do we code programs that adapt to people?<br/>
 
@@ -134,7 +134,7 @@
                 <img src="https://jsndyks.github.io/cityCreativeCoding/images/interaction/keyboard.png" />
 
                 <h4>Key Sketch</h4>
-                <p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">2</span> - <b>key</b> : a variable that contains the last key pressed</code></p>
+                <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">2</span> - <b>key</b> : a variable that contains the last key pressed</code></p>
                 <p>
                     Here's a sketch that takes advantage of the way that <code>key</code> is updated from the keyboard.
                     It shows any interactions made through the keyboard on the canvas.
@@ -205,7 +205,7 @@
                 <!-- Left column -->
 
                 <h4>KeyPressed Sketch</h4>
-                <p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">3</span> - <b>keyPressed()</b> : a method that runs when a key is pressed</code></p>
+                <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">3</span> - <b>keyPressed()</b> : a method that runs when a key is pressed</code></p>
                 <p>
                     One of the most useful functions for interaction is the <a
                         href="https://processing.org/reference/keyPressed_.html"><code>keyPressed()</code></a> method.</p>
@@ -504,7 +504,7 @@
                     as we have seen above, you can modify any type of variable depending on the value of the input.
                 </p>
 
-                <!-- <p class="focusON"><code>#4</p> -->
+                <!-- <p class="focusOFF"><code>#4</p> -->
                 <p>
                     In the sketch below, a rectangle is drawn using the the <a
                         href="https://processing.org/reference/rect_.html" target="_blank"><code>rect()</code></a> method.
@@ -579,7 +579,7 @@ void draw() {
                 <p>So far so good. We can click keys on the keyboard and get our sketches to do things in
                     response.<br />
                     This is the fundamental thing with interaction.</p>
-                    <p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">4</span> - <b>Summary</b> : keyboard variables &amp; methods in Processing</code></p>
+                    <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">4</span> - <b>Summary</b> : keyboard variables &amp; methods in Processing</code></p>
                 <p>Here is a summary of the keyboard event handling methods
                     and variables that are available in <i>Processing</i>.
                     You'll note that we haven't covered everything, so you should follow up on this in your own time.</p>
@@ -787,7 +787,7 @@ void draw() {
                 <p>Most mouse actions are about identifying areas of the screen, and <i>Processing</i> has some
                     excellent features for capturing where on the screen we are focusing as we use a mouse or similar
                     device.</p>
-                    <p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">5</span> - <b>Summary</b> : mouse (cursor) variables &amp; methods in Processing</code></p>
+                    <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">5</span> - <b>Summary</b> : mouse (cursor) variables &amp; methods in Processing</code></p>
                 <p>These methods and variables are in some ways similar to those used with the keyboard. 
                     And you know some of them and have already used them in some of your sketches.
                     Let's start with a summary table.</p>
@@ -850,7 +850,7 @@ void draw() {
                     <i>release</i>, <i>move</i> or <i>drag</i> the mouse. Or whatever peripheral we are using to control
                     <i>where</i> on the screen we want to focus. You see, <i>Processing</i> is listening out for these the whole time! 
                 </p>
-                <p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">6</span> - <b>mouseClicked()</b> : a method that runs when you click the 🐁</code></p>
+                <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">6</span> - <b>mouseClicked()</b> : a method that runs when you click the 🐁</code></p>
                 <p>
                     <i>Processing</i> supplies special methods for all of these events.<br/>
                     For example, <a href="https://processing.org/reference/mouseClicked_.html"
@@ -920,7 +920,7 @@ void mouseClicked() {
                 <p>You should by now have your sketches working in all sorts of ways in response to interactions made through your keyboard and mouse.
                     That's great.</p>
 
-                    <p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">7</span> - <b>State</b> : recording what is going on in your sketch</code></p>
+                    <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">7</span> - <b>State</b> : recording what is going on in your sketch</code></p>
                     <p>But in explaining how to do things we have led you into <b>bad habits</b>.<br/>
                     That's not so great!<br/>So let's unpick things a little.
                 </p>
@@ -1121,7 +1121,7 @@ void mouseClicked() {
         <div class="units-row">
             <div class="unit-70-cc">
                 <!-- Left column -->
-                <p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">8</span> - <b>Persistence</b>: make sure your state variables are maintained</code></p>
+                <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">8</span> - <b>Persistence</b>: make sure your state variables are maintained</code></p>
                 <h4>Persistent Record of Interaction</h4>
 
                 <p>These little examples are intended to show you what is possible, and we haven't really worked with
@@ -1208,7 +1208,7 @@ void draw(){
                     And a few of those <b>PAROT (Talk)</b> loops ... that <i>Stu Card</i> and his <i>Xerox Research Centre</i>
                     colleagues would have used when they were designing their interface devices back in the 1970s.</p>
 
-                <p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">9</span> - <b>HUH?</b> : that's not a graphical user interface?</code></p>
+                <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">9</span> - <b>HUH?</b> : that's not a graphical user interface?</code></p>
                 <p>We have deliberately <b>not</b> focussed on some of the standard windows style interface elements
                     here - we're getting under the bonnet of these interfaces to give you scope for making more
                     interesting, innovative and inspiring interactions!<br />But maybe we should show you how you can
@@ -1397,7 +1397,7 @@ void mouseClicked()
                 <hr />
                 <h3>6. Summary </h3>
 
-                <p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">10</span> - <b>Session Summary</b> : go make interactive sketches!</code></p>
+                <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">10</span> - <b>Session Summary</b> : go make interactive sketches!</code></p>
 
                 <div class="figRight" style="margin-top:1em">
                     <figure>
