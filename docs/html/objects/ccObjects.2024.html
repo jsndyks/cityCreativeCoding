@@ -101,9 +101,9 @@ println(moduleTitle.length());</pre>
                 <p>
                     The output sent to the console from these three lines is
                 </p>
-                <pre style="background: #000; color:#fff;">Coding BootCamp
+                <pre style="background: #224; color:#e0e0e0;">Creative Coding
 15</pre>
-                as there are 15 letters in the text 'Coding BootCamp'.
+                as there are 15 letters in the text 'Creative Coding'.
 
 
                 <p>
@@ -112,38 +112,50 @@ println(moduleTitle.length());</pre>
                 </p>
 
                 <pre class="brush: processing; gutter: false; toolbar: false; highlight: [3,4,6,11,16]">String moduleTitle = "Creative Coding";
+ 
+    println(moduleTitle.toUpperCase());  // Convert text to upper-case
+    println(moduleTitle.substring(9));   // Extract part of string from 8th character onwards
+        
+    if (moduleTitle.contains("Cod"))
+    {
+        println("Fish related word found!");
+    }
+        
+    if (moduleTitle.equals("Creative Coding"))
+    {
+        println("Upper-case match found!");
+    }
+        
+    if (moduleTitle.equalsIgnoreCase("CREATIVE CODING"))
+    {
+        println("Case insensitive match found!");
+    }
 
-println(moduleTitle.toUpperCase());  // Convert text to upper-case
-println(moduleTitle.substring(7));   // Extract part of string from 8th character onwards
-
-if (moduleTitle.contains("cod"))
-{
-  println("Fish related word found!");
-}
-
-if (moduleTitle.equals("CREATIVE CODING"))
-{
-  println("Upper-case match found!");
-}
-
-if (moduleTitle.equalsIgnoreCase("CREATIVE CODING"))
-{
-  println("Case insensitive match found!");
-}</pre>
+    if (moduleTitle.contains("eat") && moduleTitle.contains("Cod"))
+    {
+        println("Fishy food words found!");
+    }</pre>
 
                 <p>
                     Producing the following console output:
                 </p>
 
-                <pre style="background: #000; color:#fff;">CREATIVE CODING
-CreativeCoding
+                <pre style="background: #224; color:#e0e0e0;">CREATIVE CODING
+Coding
 Fish related word found!
-Case insensitive match found!</pre>
+Upper-case match found!
+Case insensitive match found!
+Fishy food words found!</pre>
 
+                <div class="codeTask">
+                  <h5>String Methods</h5>
+                  <p>Try copying and then varying the above code that manipulates Strings - vary the Strings and the parameters used in the methods.</p>
+                  <p>Look up methods available in <code>String</code>s in the <a href="https://processing.org/reference/String.html"><i>Processing</i> Reference</a> documentation and try a new one!</p>
+                </div>
                 <p>
                     There are plenty of other methods that form part of the <code>String</code> class. See the <a
-                        href="https://processing.org/reference/String.html" target="_blank"><i>Processing</i> String
-                        reference</a> for further details.
+                        href="https://processing.org/reference/String.html" target="_blank"><i>Processing</i>
+                        String reference</a> for further details.
                 </p>
 
                 <p>
@@ -162,8 +174,10 @@ Case insensitive match found!</pre>
                         target="_blank"><i>Processing</i> PVector reference</a>).
                 </p>
 
+                <p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">1</span> - <b>PVector</b> : a useful Processing class</code></p>
+
                 <p>
-                    A <code>PVector</code> is useful because it can store a pair (or a triplet when dealing with 3d
+                    A <code>PVector</code> is useful because it can store a pair (or a triplet when dealing with 3D
                     data) of numbers representing coordinates such as those representing a position on screen. Here is a
                     simple sketch that uses a <code>PVector</code> to draw a line between the centre of the screen and
                     the mouse position:
@@ -198,6 +212,15 @@ void mousePressed()
   screenPos.y = mouseY;
 }</pre>
 
+                <div class="figRight" style="width:225">
+                    <figure>
+                        <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/pVector1", 200, 200, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/pvector1.png");</script>
+                    <figcaption>
+                        Output from simple line sketch<br/><i>(click to activate<br/>then click points on the sketch)</i>
+                    </figcaption>
+                    </figure>
+                </div>
+        
                 <p>
                     The variable is declared like any other, here in the first line. It is initialised with the special
                     keyword <code>new</code>, like we did when creating arrays. In the case of <code>PVector</code> we
@@ -206,29 +229,23 @@ void mousePressed()
                     variable with a <code>.x</code> or <code>.y</code> appended.
                 </p>
 
-
-                <div class="tip">
+                <p>
                     A class is a description of the types of data that are to be stored and the methods that can be
                     applied to those data. Using <code>new</code> to initialise a variable from a class is known as
                     <i>instantiation</i> and the resulting data collection is called an <i>object</i>.
                     <br /><br />
                     You can think of a class as a <i>template</i> and objects as instances of the template.
-                </div>
+                </p>
 
                 <p>
                     Here, <code>PVector</code> is the class and, in our example, <code>screenPos</code> is the object we
                     have instantiated from it. We can only call methods or extract data values using the dot notation
-                    applied to <i>objects</i> not classes (there are some exceptions to this rule, but we won't be
-                    considering them during the BootCamp).
+                    applied to <i>objects</i> not classes.
+                    Well, usually! There are some exceptions to this rule, but we won't be
+                    considering them during the <code>#CreativeCoding</code> activity.
                 </p>
 
             </div> <!-- End of left column -->
-
-            <div class="unit-30-cc annotation">
-                <!-- Right column -->
-                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/pVector1", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/pvector1.png");</script>
-                <p>Output from simple line sketch <i>(click to activate then click points on the sketch)</i></p>
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -285,9 +302,19 @@ void mousePressed()
   }
 }</pre>
 
+<div class="figRight" style="width:225">
+    <figure>
+        <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/pVector2", 200, 200, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/pvector2.png");</script>
+        <figcaption>
+            Output from the multi-line sketch<br/><i>(click to activate<br/>then click points on the sketch)</i>
+        </figcaption>
+    </figure>
+</div>
+
                 <p>
                     In the example above, we add a new <code>PVector</code> object to those stored in an array every
-                    time the mouse is clicked. The <code>draw()</code> method then uses a for loop to iterate over every
+                    time the mouse is clicked, as long as the array was not full.
+                    The <code>draw()</code> method then uses a for loop to iterate over every
                     <code>PVector</code> object in the array and draws a line from the mouse position to each of those
                     <code>PVector</code> points in turn.
                 </p>
@@ -297,16 +324,14 @@ void mousePressed()
                     as we did in the earlier session when getting our sketch to respond to mouse presses.
                 </p>
 
+                <div class="codeTask" style="clear:both">
+                    <p>Copy the above code and run the sketch.<br/>Compare it to the sketch that we have provided to the right.</p>
+                    <ul><li>What are the differences in the sketch behaviours?</li>
+                        <li>Can you work out how the sketch on the right might be implemented?</li>
+                        <li>Using the code provided above, can you reproduce the sketch on the right?</li>
+                    </ul>
+                </div>
             </div> <!-- End of left column -->
-
-            <div class="unit-30-cc annotation">
-                <!-- Right column -->
-
-                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/pVector2", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/pvector2.png");</script>
-                <p>Output from the multi-line sketch <i>(click to activate then click points on the sketch)</i></p>
-
-
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -319,8 +344,12 @@ void mousePressed()
                 <h3>2. Creating your own classes</h3>
                 <p>
                     The real power of the <i>Processing</i> language is in the ability to create your own classes that store
-                    data and do stuff with those data. We don't just have to rely on those classes that come with the
-                    language. To see why creating classes can be so useful, let's consider an extended example of
+                    data and do stuff with those data.</p>
+                <p> This really is amazing and exciting and gives us phenomenal power.<br/>
+                    We don't just have to rely on those classes that come with the language.<br/>
+                    We can make and model absolutely anything that we want to in a class. All we require is some imagination and some creativity.</p>
+                <p>
+                    To see why creating classes can be so useful, let's consider an extended example of
                     getting a ball to move about inside our sketch.
                 </p>
 
@@ -328,10 +357,9 @@ void mousePressed()
                 <h4>The non-class approach</h4>
 
                 <p>
-                    First, we will create a sketch to show a moving ball without creating any new classes. The example
-                    below follows a similar approach to that used in the Tuesday lab exercises. But to make things a
-                    little simpler, we will use the <code>PVector</code> class to store the position and velocity of the
-                    ball:
+                    First, we will create a sketch to show a moving ball without creating any new classes.
+                    You will recognise some of the commands and logic from previous examples, but to make things a
+                    little simpler, we will use the <code>PVector</code> class to store the position (in x and y) and velocity (in x and y) of the ball:
                 </p>
 
             </div>
@@ -369,20 +397,21 @@ void draw()
 }</pre>
             </div> <!-- End of left column -->
 
-            <div class="unit-30-cc annotation">
-                <!-- Right column -->
-                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/ball1", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/ball1.png");</script>
-                <p>Moving ball sketch <i>(click to activate)</i></p>
-            </div> <!-- end of right column -->
-        </div> <!-- End of row -->
-
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 
         <div class="units-row">
             <div class="unit-70-cc">
                 <!-- Left column -->
-
+                <div class="figRight" style="width:225">
+                    <figure>
+                        <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/ball1", 200, 200, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/ball1.png");</script>
+                        <figcaption>
+                            Moving ball sketch<br/><i>(click to activate)</i>
+                        </figcaption>
+                    </figure>
+                </div>
+        
                 <p>
                     There's little that's new here, but to recap, we declare four 'global' variables at the top of the
                     sketch that will store the position of the ball, its velocity (in both the x and y directions), its
@@ -437,23 +466,23 @@ void draw()
 
   if (position.x - radius &lt; 0 &amp;&amp; velocity.x &lt; 0)
   {
-    // Escaping to the left, start moving right.
+    // -- Escaping to the left, start moving right.
     velocity.x = -1*velocity.x;
   }
   else if (position.x + radius &gt; width &amp;&amp; velocity.x &gt; 0)
   {
-    // Escaping to the right, start moving left.
+    // -- Escaping to the right, start moving left.
     velocity.x = -1*velocity.x;
   }
 
   if (position.y - radius &lt; 0 &amp;&amp; velocity.y &lt; 0)
   {
-    // Escaping upwards, start moving down.
+    // -- Escaping upwards, start moving down.
     velocity.y = -1*velocity.y;
   }
   else if (position.y + radius &gt; height &amp;&amp; velocity.y &gt; 0)
   {
-    // Escaping downwards, start moving up.
+    // -- Escaping downwards, start moving up.
     velocity.y = -1*velocity.y;
   }
 }</pre>
@@ -468,19 +497,26 @@ void draw()
 					and <code>void moveBall()</code> and then transfer the relevant sections of code from the example above
 					into those methods.
 				</div>
--->
+                -->
+                <div class="figCode" style="margin-top:3em">
+                    <figure>
+                        <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/ball2", 200, 200,
+                        "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/ball2.png");</script>
+                        <figcaption>
+                            Moving ball that bounces<br/>off the edges of the sketch<br/><i>(click to activate)</i>.
+                        </figcaption>
+                    </figure>   
+                </div>
+				<div class="codeTask">
+                    <h5>Bouncing Ball</h5>
+                    <p>Copy the code into a sketch and run it in <i>Processing</i>.</p>
+                    <p>Can you explain why we need both conditions in the <code>IF</code> clause?</p>
+                </div>
 
+        
 
             </div> <!-- End of left column -->
 
-            <div class="unit-30-cc annotation">
-                <!-- Right column -->
-
-                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/ball2", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/ball2.png");</script>
-                <p>Moving ball that bounces off the edges of the sketch <i>(click to activate)</i>.</p>
-
-
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -498,8 +534,8 @@ void draw()
 
                 <p>
                     The problem is not with the sketch in its current implementation, but rather what we would have to
-                    do in order to extend it. In particular, suppose we wished to show 4 moving balls, just like we did
-                    with the travelling circles exercise earlier in the week.
+                    do in order to extend it. In particular, suppose we wished to show 4 moving balls, as we did
+                    with the travelling circles exercise that we tried earlier in the course.
                 </p>
 
                 <p>
@@ -510,12 +546,13 @@ void draw()
 
                 <p>
                     So the solution is to refactor the code, just as we did when we wished to remove duplicated code in
-                    the Pathfinder example yesterday. This time, instead of creating new methods to represent the
+                    the <i>Pathfinder</i> example when we introduced <i>methods</i>. This time, instead of creating new methods to represent the
                     repeated sections of code, we will create a new <i>class</i> to contain the code that we wish to
                     reuse. When we define a method we can reuse its code by calling it multiple times. As we will see,
                     when we define a class, we can reuse its code by creating multiple <i>objects</i> from the class
                     (these objects are said to be <i>instances</i> of the class). Our <code>Ball</code> class will not
-                    only have its own methods, but will also store the data that characterise a ball:
+                    only have its own methods, but will also store the data that characterise a ball.
+                    <br/>Here we define a <code>Ball</code> class:
                 </p>
 
             </div>
@@ -523,14 +560,14 @@ void draw()
         <div class="units-row">
             <div class="unit-70-cc">
                 <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-                <pre class="brush: processing; gutter: false; toolbar: false; highlight: [1,2,9,53]">class Ball
+                <pre class="brush: processing; gutter: false; toolbar: false; highlight: [1,2,9,54]">class Ball
 {
   PVector position;    // Position of the ball.
   PVector velocity;    // Amount it moves on each redraw.
   float radius;        // Radius of ball.
   color colour;        // Colour of ball.
 
-  // Initialises the ball's state.
+  // -- This 'constructor' method is called when we instantiate a new ball and initialises its state.
   Ball()
   {
     position = new PVector(width/2, height/2);
@@ -539,7 +576,8 @@ void draw()
     colour   = color(214, 93, 69);
   }
 
-  // Draws the ball at its current position.
+  // -- These are methods associated with any instance of a Ball object.
+  // -- draw() draws the ball at its current position.
   void draw()
   {
     noStroke();
@@ -547,7 +585,7 @@ void draw()
     circle(position.x, position.y, radius * 2);
   }
 
-  // Moves the ball according to its current velocity.
+  // -- Moves the ball according to its current velocity and checks for boundary bounces.
   void move()
   {
     position.x = position.x + velocity.x;
@@ -599,7 +637,7 @@ void draw()
                     So what we have created above is a new class that contains a set of variables
                     (<code>position</code>, <code>velocity</code>, <code>radius</code> and <code>colour</code>) and a
                     set of methods (<code>Ball()</code>, <code>draw()</code> and <code>move()</code>) that can each do
-                    something with those variables. Variables which are declared like this in a class (<i>outside</i>
+                    something with those variables. Variables that are declared like this in a class (<i>outside</i>
                     any method) are known as <i>fields</i>.
                 </p>
 
@@ -614,12 +652,13 @@ void draw()
                 </p>
 
                 <div class="tip">
-                    To help keep your code organised, when you write the code for a new class, you can place it in its
-                    own 'tab' in processing. To do this, click the small downward pointing triangle near the top of the
-                    coding window and select 'New Tab'.
-                    <br /><br />
-                    <img src="https://staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/newTab.png" width="590"
-                        height="248" alt="Creating a new tab in Processing">
+                    <div class="figRight" style="padding:1em; padding-left:4em">
+                        <img src="https://staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/newTab.png" width="295"
+                            height="128" alt="Creating a new tab in Processing">
+                        </div>
+                        <p>To help keep your code organised, when you write the code for a new class, you can place it in its
+                    own 'tab' in processing.</p><p>To do this, click the small downward pointing triangle near the top of the
+                    coding window and select 'New Tab'.</p>
                 </div>
 
             </div> <!-- End of left column -->
@@ -652,7 +691,7 @@ void draw()
         <div class="units-row">
             <div class="unit-70-cc">
                 <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-                <pre class="brush: processing; gutter: false; toolbar: false; highlight:[1,6,12,13]">Ball ball1;		// Declaration of a ball object from the Ball class.
+                <pre class="brush: processing; gutter: false; toolbar: false; highlight:[1,6,12,13]">Ball ball1;		// -- Declaration of a ball object from the Ball class.
 
 void setup()
 {
@@ -666,6 +705,15 @@ void draw()
   ball1.draw();
   ball1.move();
 }</pre>
+
+<div class="figRight" style="width:225">
+    <figure>
+        <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/ball3", 200, 200, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/ball2.png");</script>
+    <figcaption>
+        Moving ball refactored to use<br/>a class and an object.<br/><i>(click to activate)</i>.
+    </figcaption>
+    </figure>
+</div>
 
                 <p>
                     Our <code>setup()</code> and <code>draw()</code> methods are now much simpler because all the coding
@@ -683,19 +731,8 @@ void draw()
                     <code>PVector</code>.
                 </p>
 
-
-                <div class="task">
-                    Why is it sensible to name the methods inside the <code>Ball</code> class <code>move()</code> and
-                    <code>draw()</code> rather than, say, <code>moveBall()</code> or <code>drawBall()</code>?
-                </div>
-
             </div> <!-- End of left column -->
 
-            <div class="unit-30-cc annotation">
-                <!-- Right column -->
-                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/ball3", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/ball2.png");</script>
-                <p>Moving ball refactored to use a class and an object. <i>(click to activate)</i>.</p>
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -704,7 +741,15 @@ void draw()
         <div class="units-row">
             <div class="unit-70-cc">
                 <!-- Left column -->
-
+                <div class="figRight" style="width:225">
+                    <figure>
+                        <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/ball4", 200, 200, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/ball4.png");</script>
+                    <figcaption>
+                        4 moving balls using 4 objects.<br/><i>(click to activate)</i>.
+                    </figcaption>
+                    </figure>
+                </div>
+                
                 <p>
                     Yet, after all this work, our sketch still does exactly the same as the first version without any
                     classes. The real advantage comes when we wish to create more than one object from the same class.
@@ -749,12 +794,6 @@ void draw()
   ball4.move();
 }</pre>
             </div> <!-- End of left column -->
-
-            <div class="unit-30-cc annotation">
-                <!-- Right column -->
-                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/ball4", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/ball4.png");</script>
-                <p>4 moving balls using 4 objects. <i>(click to activate)</i>.</p>
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -793,21 +832,29 @@ void draw()
         </div>
         <div class="units-row">
             <div class="unit-70-cc">
-                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-                <div class="codeTask">Modify the example above so that 40 balls rather than just 4 are displayed (see
-                    example to the right).
-                    <br /><br />
-                    <i>Hint:</i> This is a really easy task. You only have to change one single number in the entire
-                    sketch.
+                <div class="figCode" style="margin-top:1em">
+                    <figure>
+                        <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/ball5", 200, 200,
+                        "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/ball5.png");</script>
+                        <figcaption>
+                            Many moving balls using<br/>an array of ball objects.<br/><i>(click to activate)</i>.
+                        </figcaption>
+                    </figure>   
+                </div>
+                        <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <div class="codeTask">
+                    <h5>More Balls Please</h5>
+                    <p>
+                    Modify the example above so that 40 balls rather than just 4 are displayed (see example sketch).
+                    </p>
+                    <p>
+                    <i>Hint:</i> This is an extremely easy task.<br/>
+                    You only have to change one single number in the entire sketch.<br/>
+                    Can you find it?!
+                    </p>
                 </div>
 
             </div> <!-- End of left column -->
-
-            <div class="unit-30-cc annotation">
-                <!-- Right column -->
-                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/ball5", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/ball5.png");</script>
-                <p>Many moving balls using an array of ball objects. <i>(click to activate)</i>.</p>
-            </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -857,6 +904,12 @@ void draw()
                     with different random numbers.
                 </p>
 
+                <div class="codeTask">
+                    <h5>More Random Balls</h5>
+                    <p>Use this code snippet to update your <code>Balls</code> class so that the following are initialised with random numbers from within a constrained range:</p>
+                    <ul><li>position</li><li>velocity</li><li>radius</li><li>colour</li></ul>
+                </div>
+
                 <p>
                     We can also manipulate the values of these fields (also called 'instance variables') directly using
                     the dot notation. This is exactly what we did with <code>PVector</code> when we manipulated its
@@ -874,11 +927,20 @@ specialBall.colour = color(100,100,200);</pre>
                     that creates <code>Ball</code> objects from the class.
                 </p>
 
+                <div class="codeTask">
+                    <h5>Sequentially Increasing Instance Variables</h5>
+                    <p>Use this code snippet to update your <code>Ball</code>s code (not the class)
+                         so that when <code>Ball</code>s are initialised in your sketch the x position and radius of the <code>Ball</code>
+                         increase every time a <code>Ball</code> is initialised:</p>
+                    <ul><li><i>x-position</i> increases from left to right</li><li><i>radius</i> increases from low to high
+                        (small <code>Ball</code>s to the left, big <code>Ball</code>s to the right)</li></ul>
+                </div>
+
                 <p>
                     As a final example, here is how we might create a set of 40 random moving balls and one special ball
                     of a different colour, that when it makes contact with any other ball, it 'infects' it by changing
                     the colour of the infected ball. This is done by using <i>Processing</i>'s <code>dist()</code> method to
-                    calculate the distance between the special ball and each of the others in turn to find out if they
+                    calculate the distance between the special ball and each of the others in turn to find out whether they
                     are less than their two radii apart:
                 </p>
 
@@ -933,12 +995,30 @@ void draw()
 }
 </pre>
 
+<div class="figCode" style="margin-top:3em">
+    <figure>
+        <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/ball6", 200, 200,
+        "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/ball6.png");</script>
+        <figcaption>
+            One infected ball begins to infect all others.<br/><i>(click to activate)</i>.
+        </figcaption>
+    </figure>   
+</div>
+
+
+<div class="codeTask">
+    <h5>Move the Infected Ball</h5>
+    <p>Copy this code and run the script, then make edits to:</p>
+    <ul>
+        <li>Randomize the initial velocity and position of the specialBall - see <code>setup()</code></li>
+        <li>Move the specialBall to the mouse position when the mouse is clicked - add a <code>mouseClicked()</code> method, after <code>setup()</code> and <code>draw()</code>, to update <code>specialBall.position.x</code> and <code>specialBall.position.y</code> with <code>mouseX</code> and <code>mouseY</code></li>
+    </ul>
+</div>
             </div> <!-- End of left column -->
 
             <div class="unit-30-cc annotation">
                 <!-- Right column -->
-                <script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/ball6", 500, 500, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/ball6.png");</script>
-                <p>One infected ball begins to infect all others. <i>(click to activate)</i>.</p>
+                <p>
             </div> <!-- end of right column -->
         </div> <!-- End of row -->
 
@@ -948,7 +1028,7 @@ void draw()
             <div class="unit-70-cc">
                 <!-- Left column -->
 
-                <h3>4. Summary and Further Reading</h3>
+                <h3>5. Summary and Further Reading</h3>
 
                 <ul>
                     <li>
@@ -986,7 +1066,7 @@ void draw()
 
                 </ul>
 
-                <div class="homework">
+                <div class="challenge">
                     You may find the following helpful if you'd like to find out more about loops, arrays and other
                     types of collection.
                     <br /><br />
