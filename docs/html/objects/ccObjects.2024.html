@@ -1073,11 +1073,260 @@ void draw()
                     </p>
                 </div>
             
-                <div class="codeTask">
+                <div class="coreTask">
                     <h5>A Class for Data</h5>
-                    <img src="https://jsndyks.github.io/cityBootCamp/images/dearData/img/Giorgia_DearData_34_Front.crop.jpg" width="1024" height="180"/>
+                    <p>Try making a rudimentary class that might show some of the <b>data</b> that you are collecting.</p>
+                    <p>For example, in <a href="https://www.dear-data.com/by-week/#/week-34-a-week-of-urban-wildlife/">Week 34: A week of urban wildlife</a>,
+                    of the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=791720">Dear Data Project</a>, <i>Giorgia Lupi</i> recorded information about animals that she encountered in urban parks. Some of these were dogs, and they were beautifully and expressively depicted with coloured triangles as shown here:</p>
+                    <figure style="float:none">
+                    <img src="https://jsndyks.github.io/cityCreativeCoding/html/dearData/img/Giorgia_DearData_34_Front.crop.jpg" width="800" height="180"/>
+                    </figure>
+                    <p style="clear:both">
+                    Use your <i>sketchbook</i> - the physical one, the paper one - to think about, and record the characteristics of a class that might depict the data you are recording:
+                    </p>
+                    <ul>
+                        <li>what would it look like - draw a sketch in your sketchbook</li>
+                        <li>what might the <i>fields</i> or <i>instance variables</i> be - how would each object be different according to the data that it depicted?</li>
+                        <li>what methods might the class have - a <code>draw()</code> method - but anything else?</li>
+                    </ul>
+                    <p>Discuss your ideas with friends, colleagues and teaching staff.</p>
+                </div>
+                <div class="codeTask">
+                    <h5>A Class for Dogs</h5>
                     <p>
-                        To come ...
+                    OK - here is a rudimentary example of what we might achieve.<br/>
+                    Check the code that follows and paste it into a sketch as suggested.<br/>
+                    Then run the sketch and do your best to interpret the programme.
+                    </p>
+                    <p>
+                    When you have it running, see whether you can:
+                    </p> 
+                    <ul>
+                        <li>Vary the characteristics of the dogs that are created in <code>keyPressed()</code> and predict the effects of your changes</li>
+                        <li>Make sense of the maths used to position the <code>triangle()</code> and <code>line()</code> methods in the <code>draw()</code> method?</li>
+                        <li>Add some randomness to the <code>new Dog</code> object definition process</li>
+                    </ul>
+                </div>
+
+                <p>
+                    Open a new sketch, call it <i>dogExample</i> or something similar and paste this code into the main sketch:
+                </p>
+<pre class="brush: processing; gutter: false; toolbar: false; ">// -- Dog sketch to show data - inspired by Giorgia Lupi (week 34):
+    // -- https://www.dear-data.com/by-week/#/week-34-a-week-of-urban-wildlife/
+    
+    ArrayList&lt;Dog&gt; dogs = new ArrayList&lt;Dog&gt;();  // &lt;-- our dog objects will be stored in an ArrayList of Dogs
+    boolean isWagging = false;                   // &lt;-- system state variable - do we wag the tails?
+    
+    
+    void setup () {
+      size(1000, 200);
+      textAlign(CENTER);
+      textSize(10);
+    
+      // -- Declare and initialise initial dog ... add it to ArrayList to get things going:
+      PVector pos = new PVector(width/2, height/2);
+      Dog pup = new Dog ("Sammy", pos, 45, color(128, 96, 32, 128), 25, true, 3, 5, 20);
+      dogs.add(pup);
+    }
+    
+      
+    void draw() {
+      background(250);
+    
+      int i=1;                  // &lt;-- counter - used to position dogs in a line (I like tidy dogs)
+     
+      // -- loop through all Dogs in the dogs ArrayList one at a time:
+      for (Dog dog : dogs) {    
+        dog.position.x = 90*i;  // &lt;-- update dog's x position based upon it's position in the ArrayList;
+        if (frameCount ==1) {
+          dog.printFields();    // &lt;-- use this method in Dog class to output information ONCE!
+        }
+        dog.draw();             // &lt;-- draw the dog on the canvas with it's draw() method 
+        i++;
+      }
+    }    
+</pre>
+                <p>
+                    Create a tab called <i>Dog</i> for the code that describes the <code>Dog</code> class, and paste this in.<br/>
+                    Note that this is more sophisticated than anything that you need right now - but we want you to see the ideas, and what is possible.
+                    Building on what you have learned so far will enable you top produce this kind of thing - we are only introducing approaches that have been introduced and used in <code>#CreativeCoding</code> so far, and putting them together to build functionality.
+                </p>
+<pre class="brush: processing; gutter: false; toolbar: false; ">// -- Dog class to show data - inspired by Giorgia Lupi (week 34):
+    // -- https://www.dear-data.com/by-week/#/week-34-a-week-of-urban-wildlife/
+    
+    class Dog {
+    
+      // -- fields, or instance variables - characteristics that are stored in, and vary by, each dog object / instance:
+      String name;      // -- dog's name
+      PVector position; // -- dog's position
+      float size, tail; // -- varying characteristics
+      color colour;     // -- kinda obvious, right?
+      boolean ownerF;   // -- owner is female?
+      int fur;          // -- fur length - constrained to 0-3?
+      int bark;         // -- how much barking - constrained to 0-5?
+      int wagSpeed;     // -- how fast does the tail wag? (60 = once per second)
+    
+    
+      // -- Constructor runs every time the class is initialized
+      Dog (String name, PVector pos, float size, color colour,
+            float tail, boolean ownerF, int fur, int bark, int wag) {
+     
+        // -- Initialise the instance variables with 'this' keyword: 
+        this.position = pos;
+        this.name = name;
+        this.size = size;
+        this.colour = colour;
+        this.tail = tail;
+        this.ownerF = ownerF;
+        this.fur = constrain(fur, 0, 3);   // &lt;-- constrains value to the range 0-3
+        this.bark = constrain(bark, 0, 3); // &lt;-- constrains value to the range 0-5
+        this.wagSpeed = wag;               
+      }
+    
+      // -- Basic output to console:
+      void printFields() {
+        println("My Dog", name, "is:", size, tail, colour, ownerF, fur, bark);
+        println("I am positioned at (", position.x, ",", position.y, ")");
+      }
+    
+      // -- draw that characteristics of the dog based upon the fields or instance variables.
+      void draw() {
+        float x1 = position.x-size/3f;
+        float x2 = position.x;
+        float x3 = position.x+size/3f;
+        float y1 = position.y+size/2f;
+        float y2 = position.y-size/2f;
+        float y3 = y1;
+    
+        stroke(32, 128);  // &lt;-- soft outlines for shapes:
+        strokeWeight(1);
+        fill(colour);                     // &lt;-- the dog's colour!
+        triangle(x1, y1, x2, y2, x3, y3); // &lt;-- the dog's body!
+    
+        // -- woman or man as owner? (as recorded and depicted by Giorgia)
+        if (ownerF) {
+          noFill();
+        } else {
+          fill(32);
+        }
+        circle(x2, y2-10, 5);
+    
+        // -- how furry? (as recorded and almost as depicted by Giorgia)
+        for (int i=0; i&lt;fur; i++) {
+          float yT = y1+2*(i+1);    // &lt;-- calculate y-position of fur symbols
+          line(x1+3, yT, x3-3, yT);
+        }
+    
+        // -- how noisy? (as recorded and almost as depicted by Giorgia)
+        if (bark &gt;0) {
+          strokeWeight(fur/2f);
+          stroke(220, 32, 32, 128);
+          line(x2+4, y2+2, x3+3, y3-2);
+        }
+    
+        // -- add tail : (Giorgia's dogs had no tails)
+        float xTailEnd = x2; // &lt;-- x-position of end of tail.
+        strokeWeight(1);
+        stroke(32, 128);
+        
+        // -- rudimentary tail-wagging capability based on frameCount
+        if (isWagging) {
+          int isEven = frameCount/wagSpeed;        // &lt;-- is tail moving left or right?
+          float tailOffset=0;
+          if (isEven%2==1) {
+            tailOffset = -30+frameCount%wagSpeed;  // &lt;-- where is tail end?
+          } else {
+            tailOffset = 30-frameCount%wagSpeed;   // &lt;-- where is tail end?
+          }
+          xTailEnd = x2+tailOffset*0.25; 
+        }
+        line(x2, y1, xTailEnd, y1+tail);  // -- draw the tail
+    
+        // -- name :
+        fill(64, 200);
+        text(name, x2, y1+45);
+      }
+    }       
+</pre>
+                
+                <p>
+                    Create a tab called <i>interactions</i> for the rather clunky and embarrassing (but functional) <code>keyPressed()</code> method and paste in the following - checking the comments as you do so.<br/>
+                    You will not need to, and are indeed not advised to, create objects in <code>keyPressed()</code> - just do so in <code>setup()</code> - this is solely for effect here. But you will need to use commands of the form ...  <br/>
+                    <code>Class instance = new Class (fields / instance variables) </code><br/>
+                    ... to generate new objects, new instances of your class. So the structure and syntax are useful here.
+                </p>
+                <p>Note that in this code we create a <code>new PVector()</code> object to contain coordinates as we instantiate the <code>new Dog()</code>.</p>
+<pre class="brush: processing; gutter: false; toolbar: false; ">
+    // -- Interactions ... will add dogs to the group!
+    
+    void keyPressed() {
+      // -- flip the isWagging boolean state variable if the space bar is pressed:
+      if (key == ' ') {
+        isWagging = !isWagging;
+      }
+    
+      // -- Add new dogs to the ArrayList when keys are pressed!
+      // -- WARNING - this is a very inefficient way to do things ...
+      // --  we will learn how to change characteristics
+      // --  based upon DATA later in CreativeCoding!
+    
+      if (key == '1') {
+        Dog pup = new Dog ("Hilda", new PVector(100, height/2), 55, color(128, 96, 66, 128), 15, false, 1, 1, 55);
+        dogs.add(pup);
+      }
+    
+      if (key == '2') {
+        Dog pup = new Dog ("Fred", new PVector(100, height/2), 25, color(128, 102, 116, 128), 5, true, 3, 5, 15);
+        dogs.add(pup);
+      }
+    
+      if (key == '3') {
+        Dog pup = new Dog ("Ian", new PVector(100, height/2), 40, color(64, 128, 116, 128), 12, true, 0, 2, 38);
+        dogs.add(pup);
+      }
+    
+      if (key == '4') {
+        Dog pup = new Dog ("Josie", new PVector(100, height/2), 60, color(190, 190, 32, 128), 35, false, 3, 4, 90);
+        dogs.add(pup);
+      }
+    
+      if (key == '5') {
+        Dog pup = new Dog ("Andre", new PVector(100, height/2), 35, color(180, 40, 32, 128), 8, true, 5, 5, 25);
+        dogs.add(pup);
+      }
+    
+      if (key == '6') {
+        Dog pup = new Dog ("Omar", new PVector(100, height/2), 75, color(180, 220, 200, 128), 50, true, 2, 1, 60);
+        dogs.add(pup);
+      }
+    
+      if (key == '7') {
+        Dog pup = new Dog ("Poppy", new PVector(100, height/2), 60, color(240, 240, 32, 128), 40, false, 1, 3, 35);
+        dogs.add(pup);
+      }
+    
+      if (key == '8') {
+        Dog pup = new Dog ("Alma", new PVector(100, height/2), 45, color(240, 220, 220, 128), 20, true, 3, 5, 15);
+        dogs.add(pup);
+      }
+    
+      if (key == '9') {
+        Dog pup = new Dog ("Nell", new PVector(100, height/2), 45, color(220, 220, 240, 128), 22, true, 3, 2, 35);
+        dogs.add(pup);
+      }
+    }
+</pre>
+                
+                <div class="codeTask">
+                    <h5>A Class for You</h5>
+                    <p>
+                      Then, and this is understandably open, and non-urgent ...  
+                    </p>
+                    <ul>
+                        <li>See whether you can use this code and the simple examples that we have studied here, produce a rudimentary class that begins to implement your <i>Class for Data</i> as imagined above</li>
+                    </ul>
+                    <p>
+                        We don't expect too much here - start simple, discuss progress and celebrate small victories.
                     </p>
                 </div>
                 
