@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+<head>
+    <title>CreativeCoding Lecture: Interaction - Hack</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Embedded fonts -->
+	<link
+			href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+			rel="stylesheet">
+
+	<!-- Custom layout and style -->
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+	<!-- General browser compatibility handling -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+	<!-- Formatted source code -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+	<!-- Sketch popups and hidden text-->
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+	<!-- JD Extras! -->
+    <link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" />
+    
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+<body>	
+
+<div id="page">
+
+<!---
+        <p> Work through these notes and examples <i>systematically</i> in class.
+            You'll need to do some reading, some thinking and experiment a little. 
+            You'll need to discuss your progress and your approaches (and your failures) with colleagues and teaching staff.
+            Use your sketchbooks to develop ideas and take notes.
+            Learning actively, taking notes and discussing ideas will enable you to achieve the learning outcomes that we list at the top of the lecture.</p>
+            <p>You can access the <a href="https://jsndyks.github.io/cityCreativeCoding/html/interaction/2023%7C24/bootCamp.int.2023.lecture.html">Interaction Lecture</a> outside of <em>Moodle</em> should you wish to do so.</p>             
+-->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Add summary sentence or two below, which will act as an easy introduction -->
+
+        <div class="intro">
+            <p>I produced this sketch in class and realise that it beings together a few things that we have learned recently:</p>
+            <ul>
+                <li>loops</li>
+                <li>interaction</li>
+                <li>colour</li>
+                <li>randomness</li>
+            </ul>
+            <p>So I thought I would add some comments and share it so that you can have a play.</p>
+            <p>How about extending things to ...</p>
+            <ul>
+                <li>vary the randomness according to mouse position</li>
+                <li>vary the colours of each circle with randomness</li>
+                <li>vary the numbers of rows and columns over time, or according to interactions</li>
+            </ul>
+
+        </div> <!-- End of intro section -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <hr />
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class=" units-row">
+            <div class="unit-70-cc">
+
+<pre class="brush: processing; gutter: false; toolbar: false; ">// -- JD - Sketch Hacked in Class : CreativeCoding 08/10/2024
+
+    // -- Boolean state variable - do we show outlines TRUE or not FALSE?
+    boolean showOutlines;
+    // -- Integers to specify the number of rows and columns:
+    int numOfRows, numOfCols;
+    // -- Integer determines how much randomness we apply to circle positions:
+    int randomFactor;
+    // -- Floats determine max and min radius of circles:
+    float rMax, rMin;
+    // -- Floats to store the width of a column, and the height of a row:
+    float colWide, rowHigh;
+    
+    void setup()
+    {
+      // -- Make the canvas nice and big:
+      size(1200, 900);
+      // -- Let's have 10,000 circles!
+      numOfRows = 50;    // &lt;-- change these numbers ... perhaps interactively - in draw()?
+      numOfCols = 50;
+      // -- Let's add a bit of randomness:
+      randomFactor = 5;  // -- change this too.
+      // -- Let's start with the outlines showing:
+      showOutlines = true;
+      // -- Calculate circle size based on the above:
+      colWide = width/numOfCols;
+      rowHigh = height/numOfRows;
+      // -- Calculate constraints on circle size based on the above:
+      rMax = 0.5 * colWide * 2.5; // &lt;-- Maximum radius size (radius = half colWide)
+      rMin = 0.5 * colWide * 0.5; // &lt;-- Minimum radius size (radius = half colWide)
+    }
+    
+    
+    void draw() {
+      background(250);  // &lt;-- my favourite light grey
+    
+      // -- Outer for loop deals with rows
+      for (int row=0; row&lt;numOfRows; row = row+1)
+      {  // &lt;-- commands issued in these braces happen numOfRows times
+    
+        for (int col=0; col&lt;numOfCols; col = col+1)
+        { // &lt;-- commands issued in these braces happen numOfCols times
+          float x = colWide *0.5 + col*colWide + random(-randomFactor, randomFactor);
+          float y = rowHigh *0.5 + row*rowHigh + random(-randomFactor, randomFactor);
+          float d = dist(mouseX, mouseY, x, y);
+          float r = random(rMin, rMax);
+    
+          // -- Draw different stuff dependent on the value of showOutlines:
+          if (showOutlines) {
+            // -- Orange circles with grey outlines ...
+            fill(255, 128, 32, 32);
+            // -- But vary if within the circle:
+            if (d &lt; r) {
+              strokeWeight(1.5);
+              stroke(32, 190);
+            } else {
+              strokeWeight(0.5);
+              stroke(32, 64);
+            }
+          } else {
+            // -- Circles with no outlines ...
+            noStroke();
+            // -- But vary if within the circle:
+            if (d &lt; r) {
+              fill(16, 128, 32, 64);
+            } else {
+              fill(32, 220, 64, 32);
+            }
+          }
+    
+          // -- always draw the circle!
+          circle(x, y, 2*r);
+        }
+      }
+    }
+    
+    void mouseClicked () {
+      // -- change system state if mouse is clicked: switch showOutlines
+      showOutlines = !showOutlines;
+    }
+    
+    void keyPressed () {
+      randomFactor+=5;   // &lt;-- add 5 to randomFactor on key press
+    
+      if (key == 'r') {
+        randomFactor = 0;  // &lt;-- reset randomFactor if the 'r' key is pressed
+      }
+    }    </pre>
+
+            </div> <!-- End of left column -->
+
+        </div> <!-- End of row -->
+
+            <div style="padding-bottom:2em;clear:both" />
+            <!--- spacer for iFrame -->
+            <p style="padding-top:1em"><hr/></p>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>
