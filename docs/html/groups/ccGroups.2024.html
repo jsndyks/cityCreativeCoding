@@ -85,6 +85,8 @@ You can view [this lecture](https://jsndyks.github.io/cityCreativeCoding/html/gr
 					of data, not just one or two individual values. Let's start with some simple examples.
 				</p>
 
+                <p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">1</span> - <b>Related Variables</b> : variables of a single type have something in common</code></p>
+
 				<p>
 					Suppose we wished to create a sketch that draws some circles, each of a different size. We could
 					store the sizes of each of those circles as separate variables in the following sketch:
@@ -142,6 +144,9 @@ void draw()
 					repetition, but so far we don't have any way of telling the code inside the loop to use
 					<code>diameter0</code> the first time, <code>diameter1</code> the second time etc.
 				</p>
+
+				<p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">2</span>
+					 - <b>Arrays</b> : hold them in compartments in a single bucket</code></p>
 
 				<p>
 					Arrays will allow us to do this by storing all 5 <code>float</code> numbers inside a single
@@ -221,9 +226,12 @@ void draw()
 				// ...etc.
 			</pre>
 
-			<div class="figRight" style="width:225">
+			<p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">3</span>
+				- <b>Anatomy</b> : name, index, element</code></p>
+
+				<div class="figRight" style="width:225">
 				<figure>
-					<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/array.png', 400, 600, 'Array anatomy');</script>
+					<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/array.png', 300, 450, 'Array anatomy');</script>
 					<figcaption>
 					Tha Anatomy of an Array.
 				</figcaption>
@@ -287,8 +295,10 @@ println(ages[2]);</pre>
 		<div class="units-row">
 			<div class="unit-70-cc">
 				<!-- Left column -->
-
-				<pre class="brush: processing; gutter: false; toolbar: false;">float[] diameters;            // Declare the array of floats
+				<p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">4</span>
+					- <b>Scale</b> : arrays scale well</code></p>
+	
+				<pre class="brush: processing; gutter: false; toolbar: false;">float[] diameters;            // -- Declare the array of floats
 
 void setup()
 {
@@ -299,7 +309,7 @@ void setup()
   diameters = new float[500];
   for (int i=0; i&lt;diameters.length; i=i+1)
   {
-    diameters[i] = random(1,50);	// Each diameter is a random number between 1 and 50.
+    diameters[i] = random(1,50);	// -- Each diameter is a random number between 1 and 50.
   }
 }
 
@@ -361,7 +371,9 @@ void draw()
 					for loop known as the '<code>for-each</code>' loop. This is just a slightly more compact version of a loop that
 					saves us the effort of declaring a counter variable and finding the length of the array.
 				</p>
-
+				<p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">5</span>
+					- <b>Iteration</b> : compact syntax for iteration</code></p>
+	
 				<p>
 					As an example, here is the for loop from the 500 circles sketch above expressed as a '<code>for-each</code>' loop
 					instead:
@@ -389,7 +401,9 @@ void draw()
 					(e.g. <code>int[] ages = new int[10];</code>).
 					Once declared, <b>you cannot change the size of the array in your program</b>.
 				</p>
-
+				<p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">6</span>
+					- <b>ArrayList</b> : flexible structure with associated methods, and *horrible* declaration syntax!</code></p>
+	
 				<p>
 					An alternative is the <code>ArrayList</code>, which allows you to grow and shrink the size of the
 					collection of variables, the number of compartments in your bucket, within the lifetime of your program.
@@ -436,7 +450,7 @@ void draw()
 }</pre>
 <div class="figRight" style="width:225">
 	<figure>
-		<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/groups/img/ccGroups.names.png', 200, 340, 'List of Names');</script>
+		<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/groups/img/ccGroups.names.png', 150, 255, 'List of Names');</script>
 	<figcaption>
 		List of names from the sketch.
 	</figcaption>
@@ -495,21 +509,26 @@ void draw()
     names.remove("Golnaz");
   }
 }</pre>
+
+				<p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">7</span>
+					- <b>Manipulating ArrayLists</b> : try this!</code></p>
+
 				<p>
 					Just like the <code>.add()</code> method of <code>ArrayList</code>s, removing items from the list is
 					done by appending <code>.remove()</code> to the name of the list, specifying the item to remove
 					inside brackets. Note that there is no index here - the item itself is specified.
 				</p>
 
-				<div class="figCode" style="margin-top:3em">
+					<div class="figCode" style="margin-top:3em">
 					<figure>
-						<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/groups/img/ccGroups.names.short.png', 200, 225, 'List of Names');</script>
+						<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/groups/img/ccGroups.names.short.png', 150, 168, 'List of Names');</script>
 						<figcaption>
 							<b>ArrayList Example</b><br/>A group of variables that can<br/>change size as a script runs.
 						</figcaption>
 					</figure>   
 				</div>
 
+	
 				<div class="codeTask">
 					<h5>ArrayList - Declare, Initialise, Manipulate</h5>
 					<p>Use the code provided here to:</p>
@@ -536,7 +555,10 @@ void draw()
 					same principle to arrays (and <code>ArrayList</code>s). That is, we can have an array of arrays to
 					give a 2D gridded structure. The notation to do this is to provide two sets of square brackets and
 				</p>
-				<p>For example, here is a sketch to store and display 100 x 100 = 10,000 randomly sized circles:
+				<p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">8</span>
+					- <b>2D Structures</b> : try this!</code></p>
+
+					<p>For example, here is a sketch to store and display 100 x 100 = 10,000 randomly sized circles:
 				</p>
 			</div>
 		</div>
@@ -648,14 +670,18 @@ void draw()
 							collection types.</li>
 					</ul>
 
-			</div> <!-- End of left column -->
+					<p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">9</span>
+						- <b>Progress Check</b> : can you do this?</code></p>
+
+					</div> <!-- End of left column -->
 
 		</div> <!-- End of row -->
 
 		<div class="units-row">
 			<div class="unit-70-cc">
 				<!-- Left column -->
-				<h2>4. Check on Progress</h2>
+
+					<h2>4. Check on Progress</h2>
 				<div class="task">
 					<p>To ensure that you have achieved the outcomes associated with this session, consider the following, which
 					allow you to evaluate your progress.
