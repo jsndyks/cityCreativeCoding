@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CreativeCoding: Objects &amp; Classes - Robots!</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Embedded fonts -->
+<link
+    href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+    rel="stylesheet">
+
+<!-- Custom layout and style -->
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+<!-- General browser compatibility handling -->
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+<!-- Formatted source code -->
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+<!-- Sketch popups and hidden text-->
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+<!-- JD Extras! -->
+<link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" />
+  
+<!-- iFrame -->
+<script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+    <div id="page">
+        <div class="intro">
+
+       <p>
+            In the <i>Objects &amp; Classes</i> lecture we tried to show some simple, and increasingly functional and sophisticated (though still quite simple) classes involving Robots. I made a couple of mistakes, and was a bit rushed. Here's a more measured description that may help you make classes.
+        </p>
+        </div>
+
+        <div class="units-row">
+
+            <div class="figRight" style="padding:1em; padding-left:4em">
+                <figure>
+                <img src="./img/cc.objects.robotHead.sketch.jpg" width="200" alt="Sketching a Robot"/>
+                </figure>
+                <figcaption style="margin-top:-2.5em">Draw a Robot Head.<br/>Find the variables that allow us to draw it!</figcaption>
+            </div>
+
+            <h3>1. Preparation - Sketches and Coordinates</h3>
+
+            <p>Sketch a robot head with four simple shapes - a rectangle, two circles and a line.</p>
+            <p>Find the coordinates of the robot head centred around the origin (0,0).<br/>
+            Note that in this sketch, for no sensible reason at all, we are using <i>standard coordinates</i>, in <i>Processing</i> the vertical <i>Y-axis</i> increases from top to bottom.</p>
+            <p>Use the coordinates to determine these <i>six key variables</i> that allow us to draw the head ...</p>
+            <ul>
+                <li><code>float headWide</code></li>
+                <li><code>float headHigh</code></li>
+                <li><code>float eyeDistance</code></li>
+                <li><code>float eyeRadius</code></li>
+                <li><code>float mouthLong</code></li>
+                <li><code>float mouthDown</code></li>
+            </ul>
+
+            <h3>2. Methods - A Collection of Shapes</h3>
+
+            <p>Let's use this information as a series of arguments to a <i>method</i> that will draw the Robot.</p>
+            <p>We have done this kind of thing before when creating <i>Trees</i> and <i>Roundels</i> and things as we introduced <i>methods</i>.</p>
+
+            <pre class="brush: processing; gutter: false; toolbar: false;">  // -- drawRobot method:
+    void drawRobot (float x, float y, float headWide, float headHigh,
+        float eyeDist, float eyeRad, float mouthLong, float mouthDown) {
+        
+        // -- draw the head with the rect() method:
+        noStroke();
+        fill(220);
+        rect(x,y,headWide,headHigh);
+
+        // -- draw the eyes with the circle() method:
+        fill(32);
+        circle(x-eyeDist/2, y, eyeRad);
+        circle(x+eyeDist/2, y, eyeRad);
+
+        // -- draw the mouth with the line() method():
+        stroke(32);
+        strokeWeight(3);
+        line(x-mouthLong/2, y+mouthDown, x+mouthLong/2, y+mouthDown);
+    }
+            </pre>
+
+            <p>Declare and initialise variables to contain your data, and then add a call to this <i>method</i> in the <code>draw()</code> <i>method</i> of your sketch, to draw the robot.</p>
+            <pre class="brush: processing; gutter: false; toolbar: false;">// -- Method approach to drawing:
+    drawRobot(x,y, wide,high, eyeD, eyeR, mLong, mDown);
+            </pre>
+
+            <div class="figRight" style="padding:1em; padding-left:4em">
+                <figure>
+                <img src="./img/cc.objects.robotHead.method.png" width="200" alt="A Robot produced via a method"/>
+                </figure>
+                <figcaption style="margin-top:-2.5em">Using a Method.<br/>We can draw a collection of shapes<br/>that are configured by method parameters.</figcaption>
+            </div>
+
+
+            <p>So, we can draw a robot, and we could draw more with different configurations by calling the <i>method</i> again with different input parameters, we could even relate this to interactions with <code>mouseX</code> and <code>mouseY</code> as input parameters, or add animation with <code>frameCount%width</code> as a parameter ...</p>
+
+            <pre class="brush: processing; gutter: false; toolbar: false;">// -- Method approach to drawing:
+  drawRobot(x,y, wide,high, eyeD, eyeR, mLong, mDown);
+  drawRobot(x+150,y, wide,high, eyeD, eyeR, mLong, mDown);
+  drawRobot(x,y+120, wide/2,high/2, eyeD/3, eyeR, mLong/2, mDown/1.5);
+  drawRobot(x+150,y+120, wide/2,high/2, eyeD/2, eyeR/3, mLong/3, mDown/2.5);
+  for (int i=100; i&lt;width; i+=100) {
+    drawRobot(i,y-120, wide/2,high/2, i/100*eyeD/3, eyeR/4, mLong/3, mDown/2.5);
+  }</pre>
+
+              <p>But... this is <i>just a collection of shapes</i>. Our robot does not have behaviours.</p>
+
+
+            <h3>3. Mark 1 - The Simplest 'Nothing' Class</h3>
+
+            <p>So let's create a robot <i>class</i>, which will enable us to address this.
+                Remember that the <i>Processing</i> documentation helpfully and effectively defines a <a href="https://processing.org/reference/class.html"><code>class</code></a> as:</p>
+            <blockquote>a composite of fields (data) and methods (functions that are a part of the class) which may be instantiated as objects.</blockquote>
+
+            <p>We use the <a href="https://processing.org/reference/class.html"><code>class</code></a> keyword to define one of these composites, and here's the simplest example I can come up with of a robot class that takes advantage of this <i>Processing</i> capability and uses the expected syntax:</p>
+
+            <pre class="brush: processing; gutter: false; toolbar: false;">// -- Very Basic Robot class that does ... er ... nothing!
+// -- Useless!
+    
+    class RobotMk1 {
+        
+        // -- The constructor method is called each time an object of this class type is instantiated.
+        // -- Each class definition needs one, and its name is the same as the class name.
+        // -- This one does nothing at all, but try adding a println() statement in there.
+        RobotMk1 () {
+        }
+        
+    }
+</pre>
+
+            <p>Having define a class we can use it to create one or more <i>objects</i> that are instances of that class.<br/>
+            So we can now make a Mark1 robot of type <code>RobotMk1</code> just as we would create any variable.
+            But this variable is an object and so it is ... "<i>a composite of fields (data) and methods (functions that are a part of the class)</i>". 
+            Or at least it could be if we had defined a class with fields and methods, but this class has no data or methods so it's pretty useless.</p>
+            <p>We can still declare and instantiate variables of this type though. Try adding the class to your sketch in a new tab titled <i>RobotMk1</i> and declaring an instance or two in <code>setup()</code> to see that it is possible:</p>
+            <pre class="brush: processing; gutter: false; toolbar: false;">// -- Very Basic Robot class that does ... er ... nothing!
+    RobotMk1 r  = new RobotMk1();
+    RobotMk1 r2 = new RobotMk1();
+    RobotMk1 c3po = new RobotMk1();</pre>
+            <p>We now have three robots in our sketch, but they don't contain any data that describes them or allows us to differentiate them (variables), or do anything like draw themselves or move (methods).</p>
+            <p>But we can easily add this kind of thing now that we can see how easy it is to make a class.</p>
+
+            <div class="figRight" style="padding:1em; padding-left:4em">
+                <figure>
+                <img src="./img/cc.objects.robotHead.robotMk2.png" width="200" alt="A Robot produced via a method"/>
+                </figure>
+                <figcaption style="margin-top:-2.5em">A Robot Class.<br/>Our RobotMk2 class is very simple,<br/>but at least it draws something!</figcaption>
+            </div>
+
+
+            <h3>4. Mark 2 - A Class that Does Something (not much) - the 'Something' Class</h3>
+
+            <p>All we do to add <i>data</i> to a <code>class</code> is define it with <i>instance variables</i> or <i>fields</i>.</p>
+            <p>These are declared as variables within the <code>class</code> definition, but <i>outside</i> the constructor and any other methods, a little like <i>global variables</i> in our sketches.</p>
+            <p>You can see them declared here in this more sophisticated <i>RobotMk2</i> <code>class</code>, and then instantiated in the constructor method that runs whenever an instance of the <code>class</code> is declared.</p>
+            <p>Now we add a <i>method</i> to the <code>class</code> to give it behaviours. The example <i>method</i> here is called <code>draw()</code> and you should be able to see what it does - it draws a rectangle, the position of which is defined by the values of the two instance variables associated with each particular object, each instance of the class that is declared and instantiated in any sketch.</p>
+            <pre class="brush: processing; gutter: false; toolbar: false; highlight: [7,11,12]">// -- Very Basic Robot class that holds data and has a method to draw itself.
+// -- Unsatisfactory!
+    
+class RobotMk2 {
+
+    // -- fields, or instance variables that each instance of this class will hold:
+    float x, y;
+
+    // -- constructor can act on fields when an instance is instantiated:
+    RobotMk2 () {
+        x = 100; // -- or try : x = random(50,width-50);
+        y = 100; // -- or try : y = random(50,height-50);
+    }
+
+    // -- method that can be called by instances of this class
+    void draw() {
+        fill(200);
+        strokeWeight(1);
+        rect(x, y, 30, 20);
+    }
+}</pre>
+            <p>In your sketch you can declare and instantiate an object of this class like this - try doing so as a <i>global</i> variable outside the <i>Processing</i> methods.</p>
+<pre class="brush: processing; gutter: false; toolbar: false;">// -- Something class: make a new RobotMk2 called 'r':
+RobotMk2 r = new RobotMk2();</pre>
+
+            <p>Then call the <code>draw()</code> method for this object in either the <code>setup()</code> or <code>draw()</code> methods - you should be able to predict and explain the effects of doing so in either method.</p>
+<pre class="brush: processing; gutter: false; toolbar: false;">// -- Call the draw() method of the 'r' object:
+r.draw();</pre>
+
+            <p>These robots are not particularly impressive, but they do contain positional data and functionality to draw themselves. Try playing with the initial settings for the <code>x</code> and <code>y</code> instance variables, and create and draw a few robot instances (objects) in your sketch.<br/> You may want to declare and instantiate robots through multiple statements, or you may try to use and <i>array</i> and a <i>loop</i>.
+            Use the code that follows to help achieve this in your sketch.</p>
+
+            <pre class="brush: processing; gutter: false; toolbar: false;">// -- Make some more robot instances - we could make an array of robots.
+
+    // -- Declare global array at the top of the sketch outside any methods:
+    RobotMk2 [] robotArray = new RobotMk2[10];
+
+    // -- Instantiate array elements in the setup() method:
+    for (int i=0; i&lt;10; i++) {
+        robotArray[i] = new RobotMk2 ();
+    }
+
+    // -- Draw the robots in the draw() method:
+    for (RobotMk2 r : robotArray) {
+        r.draw();
+    }</pre>
+
+            <h3>5. Mark 3 - A Class that Takes Arguments - the 'Something Else' Class</h3>
+
+            <p>It should now be clear that we can create a more sophisticated looking robot by adding some commands to the <code>draw()</code> method of the class. That's pretty easy, particularly if we use our sketchbook to help, and we do so below with <i>head</i>, <i>eyes</i> and <i>mouth</i> (but still no body) below.</p>
+
+            <p>But what is new and exciting is that we can pass arguments to our object, to configure it individually, if we define these in the constructor class - just as we do with objects available in <i>Processing</i>like <a href="https://processing.org/reference/PVector.html"><code>PVector</code></a>.</p>
+
+            <p>All we have to do here is define the arguments and their <i>type</i> in the brackets that hold arguments for the constructor, as shown below.</p>
+            <p>In this <code>class</code>, we have <code>x</code> and <code>y</code> as <i>fields</i> or <i>instance variables</i> that are defined at the top of the class definition. We also have local variables that are passed into the constructor that are used to set these <i>fields</i> or <i>instance variables</i>. In this case theses have <i>the same name</i>, which means that they need to be differentiated, so in the constructor we refer to the  <i>fields</i> or <i>instance variables</i> with the prefix <code>this</code>.</p>
+
+            <pre class="brush: processing; gutter: false; toolbar: false; highlight: [6,8,9,10,11]">// -- Very Basic Robot class that accepts arguments ... now with eyes!
+// -- OK - we are getting somewhere!
+
+class RobotMk3 {
+  
+  float x,y;
+  
+  RobotMk3 (float x, float y) {
+    this.x = x;
+    this.y = y;
+  }
+  
+  void draw() {
+    // -- draw the head:
+    fill(200);
+    strokeWeight(1);
+    rect(x,y,30,20);
+
+    // -- draw the eyes:
+    fill(32);
+    circle(x-6,y-2,4);
+    circle(x+6,y-2,4);
+
+    // -- draw the mouth:
+    line(x-10,y+6, x+10, y+6);
+  }
+  
+}</pre>
+            <p>The most important thing here is that the constructor sets the values of the <i>fields</i> or <i>instance variables</i> so that each <i>instance</i> of a class, or <i>object</i>, holds its own data - just as each instantiated variable holds data. This is how we put data in our buckets!</p>
+            <p>We could avoid the use of <code>this</code> prefix by giving our arguments with unique names, as shown below.</p>
+
+<pre class="brush: processing; gutter: false; toolbar: false; highlight: [5,6]">// -- Very Basic Robot class that accepts arguments ... now with eyes!
+// -- Alternative constructor 
+
+  RobotMk3 (float xInput, float yInput) {
+    x = xInput; // &lt;-- set the field (or instance variable) 'x' with the argument that is passed to the RobotMk3 when it is instantiated
+    y = yInput; // &lt;-- do the same for 'y'
+  }</pre>
+
+              <h3>6. Mark 4 - A Class with Multiple Arguments and Methods - the 'Something Better' Class</h3>
+
+            <pre class="brush: processing; gutter: false; toolbar: false; highlight: [3,4,6,11,16]">
+
+            </pre>
+
+        </div> <!-- End of row -->
+
+
+ 
+        <div style="padding-bottom:2em;clear:both" />
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+        <!-- End of content -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>
