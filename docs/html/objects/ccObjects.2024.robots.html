@@ -49,6 +49,28 @@
 
         <div class="units-row">
 
+            <p>
+                This page involves a little preparation and then uses 5 different ways of creating a simple robot in processing:
+            </p>
+            <ul>
+                <li><b>Preparation</b> - some sketching to establish the coordinates and characteristics of a simple representation of a robot</li>
+                <li><b>Methods</b> - we use a method to draw a robot using a series of shapes based these coordinates and characteristics</li>
+                <li><b>A Mark 1 Robot</b> - <code>RobotMk1</code>: the simplest class we can write, that does nothing at all, but shows the syntax you use for creating a class and then declaring and instantiating an object that is of this type.</li>
+                <li><b>A Mark 2 Robot</b> - <code>RobotMk2</code>: this class contains a little data and has a method that enables an instantiated object to draw itself if called.</li>
+                <li><b>A Mark 3 Robot</b> - <code>RobotMk3</code>: a basic class that adds a little more - these robots have more features when drawn and can be instantiated with arguments, meaning that each object can hold data, data that is specific to that instance of the class. So we can have multiple robots that have different characteristics as defined on their instantiation with this class.</li>
+                <li><b>A Mark 4 Robot</b> - <code>RobotMk4</code>: the most sophisticated class that involves for field sin which data are stored and two methods that capture robot behaviours <code>move()</code> and <code>draw()</code>, both of which involve some animation.</li>
+                <li><b>Correction</b> - finally I explain, having had some feedback from a keen-eyed first year, why I was unable to get the final sketch to work in class ... it was all about <i>scope</i>!</li>
+            </ul>
+            <p>We would like you to try each of the examples to get the hand of creating classes and using objects in your code.</p>
+            <p>
+                All of the code that is used is available on the page and also in a single <i>Processing</i> sketch, that you should download.
+            </p>
+            <ul>
+                <li><a href=""></a></li>
+            </ul>
+            <p>Use the discussion forum to discuss you progress, blocking points, ideas and robots!</p>
+
+
             <div class="figRight" style="padding:1em; padding-left:4em">
                 <figure>
                 <img src="./img/cc.objects.robotHead.sketch.jpg" width="200" alt="Sketching a Robot"/>
@@ -295,16 +317,129 @@ RobotMk3 r2d4 = new RobotMk3(250, 150);</pre>
       r2d4.draw();
     }</pre>
 
-  <h3>6. Mark 4 - A Class with Multiple Arguments and Methods - the 'Something Better' Class</h3>
+    <div class="figRight" style="padding:1em; padding-left:4em">
+        <figure>
+        <img src="./img/cc.objects.robotHead.robotMk4.png" width="200" alt="A Robot produced via a class"/>
+        </figure>
+        <figcaption style="margin-top:-2.5em">A Robot Class.<br/>Our RobotMk4 takes four arguments<br/>and contains additional methods<br/>that allow us to configure RobotMk4 objects!</figcaption>
+    </div>
 
-        <p>It should be clear that we can add more characteristics to our objects and give them more behaviours by adding more arguments to the constructor and more methods to the <code>class</code>. The <i>Mark4 Robot</i> is better specified, with four <i>fields</i> that are filled with arguments passed into the class on instantiation and more dynamic - it has a simple <code>move()</code> class.
-            The <code>draw()</code> class also makes the robot <i>blink</i> based upon the current value of <code>frameCount</code>.
-            We could add <i>methods</i> to our robot <code>class</code> to make the robots make noises, chase other robots, fire lasers ... whatever, and we could add fields to determine blink rate, velocity, movement direction, and various other visual characteristics. We could add more shapes to <code>draw()</code> to give the robots a body - legs, wheels, it's basically down to your needs and imagination! </p>
-        <p></p>
-            <pre class="brush: processing; gutter: false; toolbar: false; highlight: [3,4,6,11,16]">
+    <h3>6. Mark 4 - A Class with Multiple Arguments and Methods - the 'Something Better' Class</h3>
 
-            </pre>
+        <p>It should be clear that we can add more characteristics to our objects and give them more behaviours by adding more arguments to the constructor and more methods to the <code>class</code>.</p>
+        <p>The <i>Mark4 Robot</i> is better specified, with four <i>fields</i> that are filled with arguments passed into the class on instantiation and more dynamic - it has a simple <code>move()</code> class.
+            The <code>draw()</code> class also adds code that makes the robot <i>blink</i> (<code>circle()</code> or <code>line()</code> for eyes) based upon the current value of <code>frameCount</code>.
+            We could add <i>methods</i> to our robot <code>class</code> to make the robot objects make noises, chase other robots, fire lasers ... whatever, and we could add fields to determine blink rate, velocity, movement direction, and various other visual characteristics. We could add more shapes to the <code>draw()</code> method in the <i>RobotMk4</i> class to give the robots a body - legs, wheels, it's basically down to your needs and imagination! </p>
+        <p>Here's the more sophisticated <i>RobotMk2</i> <code>class</code>, with four arguments and two methods:</p>
+            <pre class="brush: processing; gutter: false; toolbar: false; highlight: [10,11,12,13,14,15,38,39,40,41]">// -- More sophisticated Basic Robot class with multiple arguments (fields, instance variables) ... and methods!
+    // -- OK - this Robot can contain and depict data!
+    
+    class RobotMk4 {
+    
+        float x, y;
+        float wide, high;
+    
+        // -- Fields have the same names as arguments, so use the 'this' prefix to differentiate: 
+        RobotMk4 (float x, float y, float wide, float high) {
+            this.x = x;
+            this.y = y;
+            this.wide = wide;
+            this.high = high;
+        }
+    
+        void draw() {
+            // -- draw the head:
+            fill(200);
+            strokeWeight(1);
+            rect(x, y, wide, high);
+            fill(32);
+        
+            // -- animation : blink?
+            if (frameCount%60 &lt;5) {
+                line(x-8, y-2, x-4, y-2);
+                line(x+8, y-2, x+4, y-2);
+            } else {
+                circle(x-6, y-2, 4);
+                circle(x+6, y-2, 4);
+            }
+    
+            // -- draw the mouth:
+            line(x-10, y+6, x+10, y+6);
+        }
+        
+        // -- move down - a second method encodes a very basic example of simple (constrained) movement!
+        void move() {
+            this.y=this.y+random(-1,2); // &lt;-- move down with a stuttering jitter!
+            this.y=constrain(this.y,0,height-high/2-5);  // &gt;-- stop 5px from bottom of screen
+        }
+    }</pre>
 
+            <p>
+            We can declare and instantiate these <i>Mark4 Robots</i> in the same way that we have done previously, but we need four arguments this time to fill the <code>x</code>, <code>y</code>, <code>wide</code> and <code>high</code> fields of the objects we create.<br/>
+            A good way to do this is to declare the robots at the top of the script as globals:    
+            </p>
+            <pre class="brush: processing; gutter: false; toolbar: false; highlight: [2]">// -- Declare the Mark4 robots as globals at the top of the script: 
+  RobotMk4 r2d1, r2d2, r2d3;</pre>
+
+            <p>
+                Then instantiate them with data values in <code>setup()</code>.
+            </p>
+
+  <pre class="brush: processing; gutter: false; toolbar: false; highlight: [2,3,4]">// -- Instantiate the Mark4 robots - passing 4 arguments that fill their fields:
+  r2d1 = new RobotMk4(x,y,wide,high);
+  r2d2 = new RobotMk4(200,40,wide,high);
+  r2d3 = new RobotMk4(280,60,wide,high);</pre>
+
+            <p>
+                Before calling the <code>draw()</code> and <code>move()</code> methods associated with each instance (object) in the main <code>draw()</code> loop of the sketch to make sure that these behaviours (drawing and moving) happen 60 times per second.
+            </p>
+
+  <pre class="brush: processing; gutter: false; toolbar: false; highlight: [5,6,7,8,9,10]">// -- This is the draw() loop of the main sketch:
+  void draw() {
+    background(250);
+    // -- Call the draw() and move() methods of each of the robot objects to show and move them:
+    r2d1.draw();
+    r2d1.move();
+    r2d2.draw();
+    r2d2.move();
+    r2d3.draw();
+    r2d3.move();
+  }</pre>
+
+          <h3>7. Scope, Mistake, Confusion, Error - Correction!</h3>
+          <p>
+            When I tried to show all of this in class, despite being a bit rushed, and despite the rush and fear of live coding in front of hundreds of people, things went OK at first. I wanted to show just how <i>easy</i> it is to create classes and use them to include objects usefully in your code.<br/>
+            But then I could not get the <i>RobotMk4</i> class to work, and I couldn't see the problem. 
+          </p>
+          <p>
+            Thankfully, one of you did, and helpfully pointed me to the error at the end of the class. Getting fresh eyes, many eyes, experienced eyes, alternative eyes, on your code is extremely valuable.
+          </p>
+          <p>
+            The problem was a classic error - one that we ask you to be careful not to make.<br/>
+            I declared the robots as <i>global</i> variables, making them accessible in <code>setup()</code> and <code>draw()</code>.<br/>
+            But then, when I instantiated them in <code>setup()</code> I also <i>declared</i> them again, meaning that I had in fact created two new robot objects with the same name as my globals that were only accessible in <code>setup()</code>.<br/>
+            This meant that when I tried to access the global robots in <code>draw()</code> to draw them, <i>Processing</i> was unable to complete the request as the global variables that were the only robots known to <code>draw()</code> had not been instantiated!
+          </p>
+          <p>
+            The error <span style="font-weight:normal; padding:4px; padding-left:1em; padding-right:1em; background-color:rgb(220,32,32); color:#fff; font-size:90%">NullPointerException</span> was not particularly helpful, so I (and perhaps you) need to remember that this can mean:</p>
+            <blockquote>You are trying to use objects that have not been instantiated - perhaps you have a problem with variable scope!</blockquote>
+
+            <p>You can replicate the error in the above example by replacing ...</p>
+
+          <pre class="brush: processing; gutter: false; toolbar: false; highlight: [2,3,4]">// -- Instantiate the Mark4 robots - passing 4 arguments that fill their fields:
+    r2d1 = new RobotMk4(x,y,wide,high);
+    r2d2 = new RobotMk4(200,40,wide,high);
+    r2d3 = new RobotMk4(280,60,wide,high);</pre>
+    <p>... with the following, which rather than instantiating the existing <code>RobotMk4</code> objects that have been declared as globals, creates new local <code>RobotMk4</code> objects (with the same names as the existing globals) that are only accessible in <code>setup()</code>, and never used ...</p>
+    <pre class="brush: processing; gutter: false; toolbar: false; highlight: [2,3,4]">// -- Instantiate the Mark4 robots - passing 4 arguments that fill their fields:
+    RobotMk4 r2d1 = new RobotMk4(x,y,wide,high);
+    RobotMk4 r2d2 = new RobotMk4(200,40,wide,high);
+    RobotMk4 r2d3 = new RobotMk4(280,60,wide,high);</pre>
+      
+            <p>Thanks for pointing this out!<br/>
+                We all make multiple errors in our programs and scripts as we write them, and working our how to react to them is absolutely key in our efforts to successful coding, and learning how to code.<br/>
+                Enjoy making and creating with <code>classes</code>, enjoy learning from your errors, thank those who help you out and enjoy your robots!</p>
+            <p>🤖</p>
         </div> <!-- End of row -->
 
 
