@@ -219,7 +219,14 @@ r.draw();</pre>
         r.draw();
     }</pre>
 
-            <h3>5. Mark 3 - A Class that Takes Arguments - the 'Something Else' Class</h3>
+    <div class="figRight" style="padding:1em; padding-left:4em">
+        <figure>
+        <img src="./img/cc.objects.robotHead.robotMk3.png" width="200" alt="A Robot produced via a class"/>
+        </figure>
+        <figcaption style="margin-top:-2.5em">A Robot Class.<br/>Our RobotMk3 takes arguments that<br/>allow us to configure instances (objects)!</figcaption>
+    </div>
+
+    <h3>5. Mark 3 - A Class that Takes Arguments - the 'Something Else' Class</h3>
 
             <p>It should now be clear that we can create a more sophisticated looking robot by adding some commands to the <code>draw()</code> method of the class. That's pretty easy, particularly if we use our sketchbook to help, and we do so below with <i>head</i>, <i>eyes</i> and <i>mouth</i> (but still no body) below.</p>
 
@@ -257,7 +264,7 @@ class RobotMk3 {
   
 }</pre>
             <p>The most important thing here is that the constructor sets the values of the <i>fields</i> or <i>instance variables</i> so that each <i>instance</i> of a class, or <i>object</i>, holds its own data - just as each instantiated variable holds data. This is how we put data in our buckets!</p>
-            <p>We could avoid the use of <code>this</code> prefix by giving our arguments with unique names, as shown below.</p>
+            <p>We could avoid the use of the <code>this</code> prefix by giving our arguments unique names and using them to set the <i>fields</i> or <i>instance variables</i> in the constructor, as shown below.</p>
 
 <pre class="brush: processing; gutter: false; toolbar: false; highlight: [5,6]">// -- Very Basic Robot class that accepts arguments ... now with eyes!
 // -- Alternative constructor 
@@ -267,8 +274,33 @@ class RobotMk3 {
     y = yInput; // &lt;-- do the same for 'y'
   }</pre>
 
-              <h3>6. Mark 4 - A Class with Multiple Arguments and Methods - the 'Something Better' Class</h3>
+  <p>We can <i>declare</i> the Mark 3 Robots as global variables, and <i>instantiate</i> them either as we declare them, as shown below, or in <code>setup()</code>.</p>
 
+  <pre class="brush: processing; gutter: false; toolbar: false;">// -- Declare and instantiate the Robots as globals before the draw() and setup() methods in the sketch:
+// -- The names here are just robot names - the numbers don't mean anything, these are not arrays or grouping structures.
+// -- But notice that we are passing arguments into the constructor that will be used to fill the fields in each object.
+RobotMk3 r2d1 = new RobotMk3(150, 150);
+RobotMk3 r2d2 = new RobotMk3(150, 250);
+RobotMk3 r2d3 = new RobotMk3(250, 250);
+RobotMk3 r2d4 = new RobotMk3(250, 150);</pre>
+
+<p>We then call the <code>draw()</code> method of each of our Robots in the main <code>draw()</code> loop of the sketch to show them on the canvas (if we want to see them ... which we do presumably!).</p>
+<pre class="brush: processing; gutter: false; toolbar: false;">// -- This is the draw() loop of the main sketch:
+    void draw() {
+      background(250);
+      // -- Call the draw() methods of the robot objects to show them on the canvas:
+      r2d1.draw();
+      r2d2.draw();
+      r2d3.draw();
+      r2d4.draw();
+    }</pre>
+
+  <h3>6. Mark 4 - A Class with Multiple Arguments and Methods - the 'Something Better' Class</h3>
+
+        <p>It should be clear that we can add more characteristics to our objects and give them more behaviours by adding more arguments to the constructor and more methods to the <code>class</code>. The <i>Mark4 Robot</i> is better specified, with four <i>fields</i> that are filled with arguments passed into the class on instantiation and more dynamic - it has a simple <code>move()</code> class.
+            The <code>draw()</code> class also makes the robot <i>blink</i> based upon the current value of <code>frameCount</code>.
+            We could add <i>methods</i> to our robot <code>class</code> to make the robots make noises, chase other robots, fire lasers ... whatever, and we could add fields to determine blink rate, velocity, movement direction, and various other visual characteristics. We could add more shapes to <code>draw()</code> to give the robots a body - legs, wheels, it's basically down to your needs and imagination! </p>
+        <p></p>
             <pre class="brush: processing; gutter: false; toolbar: false; highlight: [3,4,6,11,16]">
 
             </pre>
