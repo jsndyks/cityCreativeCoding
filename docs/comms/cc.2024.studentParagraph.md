@@ -1,0 +1,5 @@
+For example ...
+Jason engaged really well in the group activity we ran in Stage 1 where his contributions to discussions about data and self and the learning that can be achieved by reflecting upon this were key to his group's success.
+Creativity was key here and Jason showed this in selecting an original and slightly risky topic for his Dear Data Diary - the tone of responses he received when trying to engage colleagues in a new Personal Turing activity that he had designed - and in the way in which he combined sound and imagery to contrast the frustration that he felt as juxtaposed by the evident frustration of the colleagues he was trying to support.
+His coding was excellent on the whole (with some problems around variable declaration and scope) and is available in an impressive GitHub portfolio of sketches.
+Having spoken to him, he learned a lot from the process, which encouraged reflection and the reframing of data as "material" that is a starting point for play, expression and learning in ways that the Dear Data book encourages.
