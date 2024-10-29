@@ -8,7 +8,7 @@ Here are a few reasons:
 
 ## The Portfolio
 
-We work with lots of colleagues and former students in industry and business, with friends and partners at places like Google, Meta, Microsoft and Apple. The Centre for Doctoral Training that we are setting up with £8M of government funding also has £1M backing from industrial collaborators - such as: BT, The Natural History Museum, The Nuclear Decomissioning Agency; The Greater London Authority.  
+We work with lots of colleagues and former students in industry and business, with friends and partners at places like Google, Meta, Microsoft and Apple. The Centre for Doctoral Training that we are setting up with £8M of government funding also has £1M backing from industrial collaborators - such as: BT; Ordnance Survey; The Natural History Museum; The Nuclear Decommissioning Agency; Genetec; Observable; The British Red Cross; The Greater London Authority.  
 Increasingly we hear the importance of a portfolio when candidates are considered for technical roles.
 
 <blockquote>The first thing an employer looks at is the GitHub repo</blockquote>

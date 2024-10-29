@@ -15,8 +15,8 @@ Learn their names.
 Ask them what they would like you to call them before you meet.
 
 Invest In Them:
-Read their personal statements - they wrote these over a year ago for UCAS (in most casesd).
-They are all on evision and while they are somewhat full of 'school guff' you can usually find a couple of things to ask about and these often result in a smile. Personal statements are being phased out, but the ones we have are revealing, and revealing to the students that you have read them is usually a nice experience - they like to know that you care.
+Read their personal statements - they wrote these over a year ago for UCAS (in most cases).
+They are all on e-vision and while they are somewhat full of 'school guff' you can usually find a couple of things to ask about and these often result in a smile. Personal statements are being phased out, but the ones we have are revealing, and revealing to the students that you have read them is usually a nice experience - they like to know that you care.
 
 Jason.
 
