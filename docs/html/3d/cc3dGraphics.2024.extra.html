@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CreativeCoding Extra: 3D Graphics</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Embedded fonts -->
+<link
+    href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+    rel="stylesheet">
+
+<!-- Custom layout and style -->
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+<!-- General browser compatibility handling -->
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+<!-- Formatted source code -->
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+<!-- Sketch popups and hidden text-->
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+<!-- JD Extras! -->
+  <link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" />
+  
+  <!-- iFrame -->
+  <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+    <div id="page">
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!--
+You can access [this page](https://jsndyks.github.io/cityBootCamp/html/3d/bootCamp.3d.exercise.html) outside of _Moodle_ should you wish to do so. 
+		 -->
+
+        <p class="intro">
+    
+            These challenges are <b>optional additional exercises</b>,
+            but they will consolidate the learning that you have achieved in the 
+            all of the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=801749">Methods : Core</a> lecture.
+        </p>
+        <p class="intro">
+            If you choose to attempt them they will give you some good practice in understanding the way
+            coordinate systems and transformations work in computing environments.
+        </p>
+        <p class="intro">
+            We encourage you to use the <a href="">Discussion Forum</a> to discuss your efforts, and those of your colleagues, and will contribute to help you with key concepts as you develop your <i>Box City</i>.
+        </p>
+    
+
+<!-- 
+        <div class="codeTask">
+            <h3>Task : 3D face</h3>
+            <p>
+                In this task, you will construct a 3D face using spheres and boxes.<br/>You will then rotate the face and
+                have its eyes change colour when the mouse is clicked.
+            </p>
+
+            <table>
+                <tr>
+                    <td><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/face1.png"
+                            width="300" height="200" alt="face1" /></td>
+                    <td><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/face2.png"
+                            width="300" height="200" alt="face2" /></td>
+                </tr>
+            </table>
+
+            <ol>
+                <li>
+                    Using boxes and spheres, construct a face, consisting of two spheres for the eyes and elongated
+                    boxes for the nose and mouth. For this task, it might be helpful to think about the coordinate
+                    system in which the shapes are placed. Recommendation: place one eye at (-100, -100, 0) and the
+                    other at (100, -100, 0). For the nose, draw a box centred at (0,0,0) and elongated in the vertical
+                    (y) direction. For the mouth draw a box stretched along the horizontal (x) direction and translated
+                    along the positive y axis.
+                </li>
+                <li>Have the face rotate about the y axis, based on horizontal mouse movement.</li>
+                <li>Change the eye colour to blue when the user presses the mouse.</li>
+            </ol>
+        </div> 
+         -->
+
+<!-- 
+        <div class="challenge">
+            <ol start="4">
+                <li>How might you replace the elongated box used for the mouth to show a smile?</li>
+            </ol>
+        </div> 
+        <br /><br />
+  -->
+
+
+        <div class="challenge">
+            <h5>Challenge : Box City</h5>
+            <p>
+                In this task, you will construct 2D array of boxes that resembles a skyline.<br/>
+                You will then animate the boxes using Perlin noise.
+            </p>
+
+            <ol>
+                <li>
+                    Copy the following code into a new Processing sketch.
+                    <br /><br />
+                    <pre class="brush: processing; gutter: false; toolbar: false; ">
+void setup()
+{
+  size(640, 480, P3D);
+}
+void draw()
+{
+  background(0);
+  stroke(255, 255, 0);
+  fill(200, 200, 0);
+  lights();
+
+  translate(width/2, height/2, 0);
+  rotateX(radians(45));
+  rotateZ(radians(-mouseX));
+  translate(-200, -200, 0);
+
+  float d = 100;
+
+  // Insert your code here
+
+}
+        </pre>
+                </li>
+
+                <li>
+                    Below the comment that says 'Insert your code here', create a doubly-nested <code>for</code>loop
+                    over x and y. For each loop, initialise the integer variable to 0, set the condition to the variable
+                    being less than 400, and for the increment, advance the variable by 20. We'll be rendering boxes on
+                    a grid that is 20 x 20 units.
+                </li>
+                <li>
+                    Inside the inner loop, make a matching call to <code>pushMatrix()</code> and
+                    <code>popMatrix()</code>.
+                </li>
+                <li>
+                    After the call to <code>pushMatrix()</code>, draw a box that has width of 15 units, a height of 15
+                    units, and depth of <code>d</code> units, where <code>d</code> is given in the code.
+                </li>
+
+                <li>
+                    Run the program. You should see a single box as shown below.
+                    <br />
+                    <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/boxCity0.png"
+                        width="320" height="240" alt="Box City initial attempt">
+                    <br />
+                    What is happening is all the boxes are being rendered at the same place, then rotated based on mouse
+                    movement. How can you move the boxes so they don't overlap to achieve the result below?
+                    <br />
+                    <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/boxCity1.png"
+                        width="320" height="240" alt="Box City first grid attempt">
+                </li>
+
+                <li>
+                    In the innermost loop, use <a href="https://processing.org/reference/noise_.html"
+                        target="_blank">Perlin noise method</a> to change the value of <code>d</code> of each box, based
+                    on the variables <code>x</code> and <code>y</code>. You may find it helpful to multiply the values
+                    of <code>x</code> and <code>y</code> by a small number, like 0.01. Also, multiply the output of the
+                    Perlin noise value by a number like 200, to make the box taller. Run your program to check it
+                    produces results similar to those shown below (the random numbers will be different each time, so
+                    the shape of the box city will not exactly match that shown here):
+                    <br />
+                    <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/boxCity2.png"
+                        width="320" height="240" alt="Box City second grid attempt">
+                </li>
+                <li>
+                    Now try setting <code>d = 1000*pow(noise(0.01*x, 0.01*y), 5);</code>. Notice the effect. What is
+                    this code doing?
+                    <br />
+                    <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/boxCity3.png"
+                        width="320" height="240" alt="Box City third grid attempt">
+                </li>
+                <li>
+                    Using the elapsed time (measured by <code>millis()</code>), pass a third argument in to the noise
+                    method. This should create an animation. You may want to multiply the value returned by
+                    <code>millis()</code>by a small number, like 0.001.
+                </li>
+            </ol>
+        </div> <!-- End of task -->
+
+
+        <div class="challenge">
+            <h5>Challenge : Enhanced Box City</h5>
+            <ol start="9">
+                <li>Try enhancing your city by adding texture images to the building boxes.<br/>
+                    Think creatively and experiment with developing your city model in other ways.<br/>
+                    Have fun trying things out!
+                    <br />
+                    <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/boxCity4.png"
+                        width="640" height="480" alt="Box City with textures">
+                </li>
+            </ol>
+        </div> <!-- End of task -->
+
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Footer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>
