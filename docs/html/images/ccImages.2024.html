@@ -65,7 +65,7 @@
             </p>
 
             <ul>
-                <li>describe the information structure of a digital image including terms like <i>pixel</i> and <i>resolution</i></li>
+                <!-- <li>describe the information structure of a digital image including terms like <i>pixel</i> and <i>resolution</i></li> -->
                 <li>load and display an image in <i>Processing</i></li>
                 <li>apply digital effects to an image</li>
                 <li>retrieve the colour value(s) of a given pixel</li>
@@ -86,6 +86,25 @@
         <h3>2. Images and <i>Processing</i></h3>
 
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right" id="annotation">
+                <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Pacman_Guggenheim_%28cropped%29.jpg"
+                width="200" />
+                <figcaption style="margin-top:-2.5em">
+                <p>
+                I'd really like you to find an image online, or on your computer.<br />
+                Any <i>PNG</i> or <i>JPG</i> or <i>GIF</i> should do.<br />
+                But if you really can't find one of the (more than) one trillion images that are kicking about the place
+                ... then try this one:<br />
+                <!---
+                <code
+                    style="font-size:40%"><a href="https://en.wikipedia.org/wiki/Invader_(artist)#/media/File:Pacman_Guggenheim.jpg">https://upload.wikimedia.org/wikipedia/commons/9/92/Pacman_Guggenheim.jpg</a></code>
+                --->
+                <code style="font-size:60%"><a href="https://upload.wikimedia.org/wikipedia/commons/0/05/Pacman_Guggenheim_%28cropped%29.jpg">https://upload.wikimedia.org/<br/>wikipedia/commons/0/05/<br/>Pacman_Guggenheim_%28cropped%29.jpg</a></code>
+                </p>
+            </figcaption>
+        </figure>
+    </div>
             <div class="unit-70-cc">
                 <p>Let's create an image.<br />
                     We can use the <i>Processing</i> <code>PImage</code> class to do so, and then the
@@ -104,18 +123,7 @@
                         order to change the image that is saved.</p>
                 </div>
             </div>
-            <div class="unit-30-cc" id="annotation" style="padding-top:12em">
-                <p>
-                I'd really like you to find an image online, or on your computer.<br />
-                Any <i>PNG</i> or <i>JPG</i> or <i>GIF</i> should do.<br />
-                But if you really can't find one of the (more than) one trillion images that are kicking about the place
-                ... then try this one:<br />
-                <!--code
-                    style="font-size:40%"><a href="https://en.wikipedia.org/wiki/Invader_(artist)#/media/File:Pacman_Guggenheim.jpg">https://upload.wikimedia.org/wikipedia/commons/9/92/Pacman_Guggenheim.jpg</a></code-->
-                    <code style="font-size:60%"><a href="https://upload.wikimedia.org/wikipedia/commons/0/05/Pacman_Guggenheim_%28cropped%29.jpg">https://upload.wikimedia.org/<br/>wikipedia/commons/0/05/<br/>Pacman_Guggenheim_%28cropped%29.jpg</a></code>
-                </p>
-            </div>
-        </div>
+        </div> <!--- End of Row -->
 
         <div class="units-row">
             <div class="unit-70-cc">
@@ -1033,6 +1041,7 @@ void draw() {
         </div>
     </div>
 
+    <!---
         <h3>6. Post-script</h3>
         <div class="units-row">
             <div class="unit-70-cc">
@@ -1059,8 +1068,7 @@ void draw() {
             </div>
         </div>
 
-
-    <!-- </div> -->
+    --->
 
         <!-- End of content -->
         <hr />

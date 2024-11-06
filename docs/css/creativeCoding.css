@@ -150,3 +150,10 @@ h3 {padding-top:0.25em; margin-top:1em; border-top:1px dashed #e0e0e0}
 .tutorMedalS {padding:4px; padding-left:1em;padding-right:1em; background-color:#b0b0b060}
 .tutorMedalG {padding:4px; padding-left:1em;padding-right:1em; background-color:#f0d04040}
 .tutorMedalP {padding:4px; padding-left:1em;padding-right:1em; background-color:#80808010}
+
+/*
+ * right aligned figures with captions that fit!
+ *
+ */
+.cc-right figure {display:table}
+.cc-right figure figcaption {display:table-caption;caption-side:bottom}
