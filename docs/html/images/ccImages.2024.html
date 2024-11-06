@@ -86,48 +86,61 @@
         <h3>2. Images and <i>Processing</i></h3>
 
         <div class="units-row">
-            <div class="unit-30-cc annotation cc-right" id="annotation">
+            <div class="unit-30-cc annotation cc-right">
                 <figure>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Pacman_Guggenheim_%28cropped%29.jpg"
                 width="200" />
-                <figcaption style="margin-top:-2.5em">
-                <p>
-                I'd really like you to find an image online, or on your computer.<br />
-                Any <i>PNG</i> or <i>JPG</i> or <i>GIF</i> should do.<br />
-                But if you really can't find one of the (more than) one trillion images that are kicking about the place
-                ... then try this one:<br />
+                <figcaption style="margin-top:-1em">
+                    Use this image if you can't find another one!
                 <!---
                 <code
                     style="font-size:40%"><a href="https://en.wikipedia.org/wiki/Invader_(artist)#/media/File:Pacman_Guggenheim.jpg">https://upload.wikimedia.org/wikipedia/commons/9/92/Pacman_Guggenheim.jpg</a></code>
                 --->
-                <code style="font-size:60%"><a href="https://upload.wikimedia.org/wikipedia/commons/0/05/Pacman_Guggenheim_%28cropped%29.jpg">https://upload.wikimedia.org/<br/>wikipedia/commons/0/05/<br/>Pacman_Guggenheim_%28cropped%29.jpg</a></code>
                 </p>
             </figcaption>
         </figure>
     </div>
             <div class="unit-70-cc">
-                <p>Let's create an image.<br />
-                    We can use the <i>Processing</i> <code>PImage</code> class to do so, and then the
-                    <code>image()</code> method to draw our image on the canvas.
-                </p>
+                <p>Let's create an image.</pp>
+                <p>We can use the <i>Processing</i> <code>PImage</code> class to do so.<br/>
+                It is a class that enables us to create <i>image</i> objects that we can fill with <i>image</i> data and each <i>image</i> object contains methods that enable us to manipulate these data.</p>
+                <p>We can the use the <code>image()</code> method to draw the image, or any other <code>PImage</code> that we have created, on the canvas.</p>
+
+                <p>
+                    I'd really like you to find an image online, or on your computer.<br />
+                    Any <i>PNG</i> or <i>JPG</i> or <i>GIF</i> should do.<br />
+                    But if you really can't find one of the (more than) one trillion images that are kicking about the place ... then try the one to the right, which is at ...<br/>
+                    <code style="font-size:80%; padding:0.5em; padding-left:3em; padding-right:3em"><a href="https://upload.wikimedia.org/wikipedia/commons/0/05/Pacman_Guggenheim_%28cropped%29.jpg">https://upload.wikimedia.org/wikipedia/commons/0/05/Pacman_Guggenheim_%28cropped%29.jpg</a></code>
+
+    </p>
+
                 <div class="codeTask">
-                    <p><b>Quick Task!</b><br />
-                        Copy the following code into a new sketch.<br />
-                        It creates a <code>PImage</code> and then displays its content on the canvas.<br />
-                        Check <code>keyPressed()</code>.<br />
-                        If you press a key, the current content of the canvas will be saved to the sketch folder with
-                        <code>save()</code>.
+                    <h5>Initial Image Task!</h5>
+                    <p>
+                        Create a new sketch with this code.<br />
+                        Drag an image into the sketch from a browser, or from your computer, using the file manager.<br />
+                        Or use a URL to reference an online image like the one shown above.<br />
+                        You can use <b>CTRL-K</b> in any <i>Processing</i> sketch to see the files in the <i>Sketch Folder</i>.
                     </p>
+                    <p>
+                        It declares a <code>PImage</code>,<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;then uses the <code>loadImage()</code> method to fill it with the image data contained in an image file,<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and then displays its content on the canvas with the <code>image()</code> method.</p>
                     <p>You will need to add an image file name or URL to the <code>loadImage()</code> method.<br />
                         You should be able to interpret the code to work out how you can interact with the canvas in
                         order to change the image that is saved.</p>
+                    <p> Check <code>keyPressed()</code>.<br />
+                        If you press a key, the current content of the canvas will be saved to the sketch folder with
+                        <code>save()</code>.
+                    </p>
+                        <p>Remember to check how each of these <i>methods</i> works by consulting the <a href="https://processing.org/reference/">Processing Reference Documentation</a>.</p>
                 </div>
             </div>
         </div> <!--- End of Row -->
 
         <div class="units-row">
             <div class="unit-70-cc">
-                <pre class="brush: processing; gutter: false; toolbar: false;">PImage img;                 // -- create a new PImage called 'img'
+                <pre class="brush: processing; gutter: false; toolbar: false;">PImage img;                 // -- Declare a new PImage called 'img'
 
 void setup() {
   size(660, 370);
@@ -148,12 +161,6 @@ void keyPressed () {
                           // -- to the sketch folder in a file called myImage.jpg ...
 }</pre>
             </div>
-            <div class="unit-30-cc annotation">
-                Create a new sketch with this code.<br />
-                Drag an image into the sketch from a browser, or from your computer, using the file manager.<br />
-                Or use a URL to reference an online image.<br />
-                You can use <b>CTRL-K</b> in the sketch to see the files in the <i>Sketch Folder</i>.
-            </div>
 
         </div>
 
@@ -161,9 +168,11 @@ void keyPressed () {
             <div class="unit-70-cc">
 
                 <div class="challenge">
-                    <p><b>Challenge - Add Interaction</b><br />
-                        If you have done that already and are hanging around waiting for something to do, or just want
-                        to feel the excitement of achievement, then try something else ...</p>
+                    <h5>Challenge - Add Interaction</h5>
+                        <p>
+                        If you have done that already and are hanging around waiting for something to do, 
+                        or like being stretched, or just want to feel the fear of expectation or the excitement of achievement,
+                        then try something else ...</p>
                     <ol>
                         <li>Can you use the optional fourth and fifth parameters to the <i>Processing</i>
                             <code><a href="https://processing.org/reference/image_.html">image()</a></code> command to
@@ -171,54 +180,75 @@ void keyPressed () {
                         </li>
                         <li>Can you add a condition in <code>keyPressed()</code> to redraw the image if a particular key
                             is pressed?</li>
+                        <li>Can you do the above without calling the <code>image()</code> method that does the drawing in the <code>keyPressed()</code> method?
+                        <br/>Try using a <code>Boolean</code> variable and setting this in <code>keyPressed()</code>, with a condition in <code>draw()</code> that checks the status of this variable.</li>
                     </ol>
                 </div>
             </div>
+<!-- 
             <div class="unit-30-cc annotation" style="padding-top:4em">
                 <p>Sometimes we'd like to encourage you to push yourself a little further and try some extra challenges
                     on top of the core tasks.</p>
                 <p>If you have managed the quick <i>coding tasks</i>, see whether you can consolidate your learning by
                     attempting the <i>challenge</i> tasks.</p>
             </div>
+ -->
         </div>
 
         <hr>
-        <h4>3.2 - Colours in <i>Processing</i></h4>
+        <h3>3 - Colour</h3>
+        <p>In <i>Processing</i>, <a href="https://processing.org/reference/color_.html"><code>color</code></a>, without a 'u', is a data type or class that stores and manipulates <i>colours</i>.</p>
+        <h4>3.1 - Colours in <i>Processing</i></h4>
 
+        
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                <img src="https://jsndyks.github.io/cityCreativeCoding/images/primaries.png" width="200" />
+                <figcaption>The RGB colour model shows how the three primaries can be combined to make any shade.</figcaption>
+                </figure>
+            </div>
             <div class="unit-70-cc">
 
                 <!--h3>Colour</h3-->
-                <p>In <i>Processing</i>, we can create colours with <code><a
-                        href="http://processing.org/reference/color_.html">color()</a></code>, which accepts three arguments -
-                    for the amounts of <span style="color:red">red</span>, <span style="color:green">green</span>, and <span style="color:blue">blue</span> that go into a composite colour.
-                    You'll recall that you can set the colour that will be used to fill all subsequent shapes -
+                <p>We can create colours to pass into <i>methods</i> that use them -- like <code>fill()</code> -- or <i>variables</i> that store them -- initialised with <code>color</code> -- with the <code><a
+                        href="http://processing.org/reference/color_.html">color()</a></code> method, which accepts three arguments -
+                    for the amounts of <span style="color:red">red</span>, <span style="color:green">green</span>, and <span style="color:blue">blue</span> that go into a composite colour.</p>
+                    <p>Combining the three primary colours in different proportions, each with 256 possible
+                        levels, allows us to differentiate between more than 16 million composite colours.</p>
+                    <p>You'll recall that you can set the colour that will be used to fill all subsequent shapes -
                     including any <code><a href="https://processing.org/reference/text_.html">text()</a></code> that you
                     produce - with <code><a href="http://processing.org/reference/fill_.html">fill()</a></code>.</p>
 
                 <p>The colour of the lines, including those that enclose shapes is the stroke colour,
                     set with <code><a href="http://processing.org/reference/stroke_.html">stroke()</a></code>.</p>
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70-cc">
 
-                <p>We can create colour variables to store colours in <i>Processing</i> with ...</p>
+                <p>We can create <i>colour</i> objects to store colours in <i>Processing</i> with ...</p>
                 <pre class="brush: processing; gutter: false; toolbar: false;">
-
           color darkBlue = color(0, 0, 100);
     </pre>
-                <p>Remember that combining the three primary colours in different proportions, each with 256 possible
-                    levels, allows us to differentiate between more than 16 million composite colours.</p>
-            </div>
-            <div class="unit-30-cc annotation">
-                <img src="https://jsndyks.github.io/cityCreativeCoding/images/primaries.png" width="200" />
             </div>
         </div>
 
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                <!--img src="https://jsndyks.github.io/cityCreativeCoding/images/primaries.png"-->
+                <img src="https://jsndyks.github.io/cityCreativeCoding/images/processingColourSelector.png" width="200">
+                <figcaption>Use the <i>Processing</i> menu<br/>&gt; Tools &gt; ColorSelector...</figcaption>
+            </figure>
+
+            </div>
             <div class="unit-70-cc">
                 <p>You can select colours from the <i>Processing</i> menu with the <i>Color Selector...</i> tool.</p>
                 <p>Do experiment with this as a means of defining and understanding colours.</p>
 
                 <div class="coreTask">
-                    <p>Open the ColorSelector in <i>Processing</i> with <code>Tools / ColorSelector...</code> and try
+                    <p>Open the ColorSelector in <i>Processing</i> with <code>&gt; Tools &gt; ColorSelector...</code> and try
                         the following :</p>
 
                     <ol>
@@ -230,15 +260,10 @@ void keyPressed () {
                     </ol>
                 </div>
             </div>
-            <div class="unit-30-cc annotation">
-                <!--img src="https://jsndyks.github.io/cityCreativeCoding/images/primaries.png"-->
-                <img src="https://jsndyks.github.io/cityCreativeCoding/images/processingColourSelector.png" width="200">
-
-            </div>
         </div>
 
         <hr>
-        <h4>3.3 - Alpha... the 4th colour component</h4>
+        <h4>3.2 - Alpha... the 4th colour component</h4>
         <div class="units-row">
             <div class="unit-70-cc">
                 <p>
@@ -249,8 +274,8 @@ void keyPressed () {
                     is the extent to which the glass does not let light through. Beer bottles tend to be very opaque,
                     beer glasses tend to be much less so.</p>
 
-                <p>In a <i>Processing</i> colour definition we can add a fourth number to specify the <i>opacity</i> of
-                    a colour.
+                <p>In a <i>Processing</i> colour definition the optional fourth number specifies the <i>opacity</i> of
+                    a colour, which is sometimes called its <i>alpha</i> value or channel.<br/>
                     This also ranges from :</p>
                 <ul>
                     <li><b>0</b> - fully transparent and so entirely invisible, to</li>
@@ -267,8 +292,18 @@ void keyPressed () {
               color anOrange = color(255, 128, 32);      // The same orange - alpha is 255 by default.
             </pre>
                 </p>
-                <p>Let's have a look at how this works.<br />
-                    Consider the blue square in the sketch to the right, and move the mouse from left to right to see
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/Alpha/", 200, 200, "https://jsndyks.github.io/cityCreativeCoding/p5js/Alpha/Alpha.png");</script>
+                <p>
+                    Two rectangles. Alpha changes.<br/>Click to try!
+                </p>
+            </div>
+            <div class="unit-70-cc">
+                <p>Let's have a look at how this works.</p>
+                <p>Consider the blue square in the sketch to the right, and move the mouse from left to right to see
                     the effects of using the alpha channel to specify opacity in <i>Processing</i> sketches.</p>
             </div>
         </div>
@@ -286,14 +321,14 @@ void keyPressed () {
 }
 
 void draw() {
-  int alpha = round(mouseX*255 / width);
+  int alpha = round(mouseX*255 / width);    // &lt;-- alpha is dependent on mouseX
 
   background(255);
   noStroke();
   fill(255, 0, 0);
   rect(50, 30, 140, 100);
-  fill(0, 0, 255, alpha);
-  rect(120, 80, 140, 100);
+  fill(0, 0, 255, alpha);   // &lt;-- set the opacity of the fill colour to 'alpha'   
+  rect(120, 80, 140, 100);  //      before the second rectangle is drawn
 
   fill(0);
   textSize(16);
@@ -309,12 +344,6 @@ void draw() {
                         <li>Change the order in which your shapes are drawn on the canvas and consider the effects</li>
                     </ul>
                 </div>
-            </div>
-            <div class="unit-30-cc annotation">
-                <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/Alpha/", 320, 320, "https://jsndyks.github.io/cityCreativeCoding/p5js/Alpha/Alpha.png");</script>
-                <p>
-                    Two rectangles. Alpha changes. Click to try!
-                </p>
             </div>
         </div>
 
@@ -337,6 +366,18 @@ void draw() {
         <h4>4.1 - Loading and displaying an image</h4>
 
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                <img src="https://jsndyks.github.io/cityCreativeCoding/images/Holiday.png" width="300">
+                <figcaption>
+                    <p>In most browsers you can right click an image such as this and save it to your local computer.<br />
+                    Then drag it into your sketch so that you can use it in your <i>Processing</i> work.</p>
+                    <p>Give it a try!</p>
+                </figcaption>
+
+                </figure>
+            </div>
+
             <div class="unit-70-cc">
                 <p>Let's consider a simple example in which we load an image from a file (again) and display it on the
                     canvas. We have done this before 👆, so
@@ -346,15 +387,17 @@ void draw() {
                     load images into a sketch from various formats including GIF, TGA, JPG and PNG format. As we have
                     seen, the input argument is the name of the image file.
                     It's often best to load the image in the <code>setup()</code> method as we usually only need to do
-                    so once.</p>
+                    so once, and it can be quite a slow process to load data - not something we want to do 60 times per second if not necessary,
+                    as this will slow down our sketch.</p>
 
                 <p>
                     The <code><a href="http://processing.org/reference/image_.html">image()</a></code> method is what you use to actually
-                    draw the image, starting at an upper left pixel of the image (0, 0), at whatever position you give to <code><a href="http://processing.org/reference/image_.html">image()</a></code>. The first argument is a loaded image, the
-                    second and third are the coordinates of the canvas at which we want to draw the image.<br />
+                    draw the image on the canvas, at a position described with two parameters that give a horizontal and vertical offset from the upper left pixel of the image (0, 0). 
+                    The first argument is an image (a <code>PImage</code> to be precise), the second and third are the coordinates of the canvas at which we want to draw the image.<br />
                     If the image doesn't change in the sketch then we can often put the <code>image()</code> command in
                     <code>setup()</code> too, so that both loading and drawing only happen once.
                 </p>
+                <p>Remember, the image will not be drawn unless you issue the <code>image()</code> command and will be drawn at whatever position you specify with the second and third arguments passed to the <code><a href="http://processing.org/reference/image_.html">image()</a></code> method. </p>
                 <pre class="brush: processing; gutter: false; toolbar: false; ">PImage img;
 
 void setup() {
@@ -364,12 +407,6 @@ void setup() {
 }
 </pre>
 
-            </div>
-            <div class="unit-30-cc annotation">
-                <img src="https://jsndyks.github.io/cityCreativeCoding/images/Holiday.png">
-                <p>In most browsers you can right click an image such as this and save it to your local computer.<br />
-                    Then drag it into your sketch so that you can use it in your <i>Processing</i> work.</p>
-                    <p>Give it a try!</p>
             </div>
         </div>
 
@@ -382,10 +419,19 @@ void setup() {
   -->
 
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right figCode">
+                <figure>
+                <img src="https://jsndyks.github.io/cityCreativeCoding/images/Holiday2.png" width="300"/>
+                <figcaption>
+                <p>You should be able to produce something like this to address the second part of the task in the sketch that you develop.</p>
+                </figcaption>
+                </figure>
+            </div>
 
             <div class="unit-70-cc">
                 <div class="codeTask">
-                    <p>Download the image and copy the sketch.<br />
+                    <h5>Interactive Image?</h5>
+                    <p>Download the image and copy the code provided.<br />
                         Then see whether you can extend the <code>setup()</code> method in the simple example sketch provided above to:</p>
                     <ol>
                         <li>draw the image so that its top left position is at the centre of the canvas?</li>
@@ -405,12 +451,6 @@ void setup() {
                 </div>
             </div>
 
-            <div class="unit-30-cc annotation">
-                <p>&nbsp;</p>
-                <img src="https://jsndyks.github.io/cityCreativeCoding/images/Holiday2.png" />
-                <p>You should be able to produce something like this in the sketch that you develop.</p>
-
-            </div>
 
         </div>
 
@@ -418,9 +458,15 @@ void setup() {
         <h4>4.2 - Tint</h4>
 
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                <img src="https://jsndyks.github.io/cityCreativeCoding/images/cabin-tint.png" width="300">
+                <figcaption>&nbsp;</figcaption>
+                </figure>
+            </div>
             <div class="unit-70-cc">
                 <p>A common application of image processing is to alter the colours across an image.
-                    In <i>Processing</i>, one can manipulate the colours of an image using
+                    In <i>Processing</i>, we can manipulate the colours of an image using
                     <code><a href="http://processing.org/reference/tint_.html">tint()</a></code>.
                     If <code><a href="http://processing.org/reference/tint_.html">tint()</a></code> receives one argument, only
                     the brightness of the image is affected. Values range from 0 (no brightness) to 255 (full
@@ -428,17 +474,44 @@ void setup() {
                 </p>
 
                 <p>So this will do nothing ...</p>
-                <pre class="brush: processing; gutter: false; toolbar: false; ">tint(255);
+                <div style="width:32em" >
+                    <pre class="brush: processing; gutter: false; toolbar: false; ">tint(255);
 image(img, 0, 0);
-</pre>
-                <p>But this will darken the image. The lower the number, the darker night falls ...</p>
+</pre></div>
+            </div>
+        </div>
+
+        <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                <script>
+                    loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/Tint/", 640, 300, "https://jsndyks.github.io/cityCreativeCoding/images/cabin-dark.png");
+                </script>
+                <figcaption>&nbsp;</figcaption>
+                </figure>
+            </div>
+            <div class="unit-70-cc">
+
+                <p>But this will darken the image.</p>
+                <div style="width:32em" >
                 <pre class="brush: processing; gutter: false; toolbar: false; ">tint(190);
 image(img, 0, 0);
-</pre>
-                <div class="coreTask">
+</pre></div>
+                <p>The lower the number, the darker night falls ...</p>
+                <div style="width:32em" >
+                    <pre class="brush: processing; gutter: false; toolbar: false; ">tint(80);
+image(img, 0, 0);
+    </pre></div>
+    <p>...</p>
+    <div style="width:32em" >
+        <pre class="brush: processing; gutter: false; toolbar: false; ">tint(28);
+image(img, 0, 0);
+</pre></div>
+        <div class="coreTask">
+                    <h5>Interactive Dusk : Tint</h5>
                     <p>Click the image to the right or copy the code below to see the effects of <code>tint()</code> on
                     the image as you move the mouse around.</p>
-                    <p>Can you explain this to a member of the teaching staff, or a colleague?</p>
+                    <p>Can you explain what us happening, and how the code makes it happen, to a member of the teaching staff, or a colleague?</p>
                 </div>
                 <pre class="brush: processing; gutter: false; toolbar: false; ">PImage img;
 
@@ -461,20 +534,7 @@ void draw() {
 }</pre>
             </div>
 
-            <div class="unit-30-cc annotation">
-                <img src="https://jsndyks.github.io/cityCreativeCoding/images/cabin-tint.png">
-                <p>&nbsp;</p>
-                <script>
-                    loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/Tint/", 640, 400, "https://jsndyks.github.io/cityCreativeCoding/images/cabin-dark.png");
-                </script>
-            </div>
-        </div>
-
-        <div class="units-row">
-            <div class="unit-70-cc">
-            </div>
-        </div>
-
+        </div> <!--- End of Row --->
 
         <div class="units-row">
 
@@ -561,7 +621,8 @@ image(img, 0, 0);
                     <p>Can you adjust the code of a previous sketch to achieve this tint effect?</p>
                 </div>
                 <div class="challenge">
-                    <p><b>Challenge - Interactive Tint</b><br />
+                    <h5>Challenge - Interactive Tint</h5>
+                    <p>
                         Try setting up key events with <code>keyPressed()</code>, or mouse events with
                         <code>mouseMoved()</code> or <code>mouseClicked()</code>, that <code>tint</code> the image in a
                         series of alternative ways.
@@ -603,8 +664,8 @@ image(img, 0, 0);
                         <p>Check the <i>Processing</i> documentation for a reminder: <a href="https://processing.org/reference/image_.html"><code>image()</code></a></p>
                 </div>
                 <div class="challenge">
-                    <p><b>Challenge - Animated Tint</b><br />
-                        Can you make the different tints vary:</p>
+                    <h5>Challenge - Animated Tint</h5>
+                     <p>Can you make the different tints vary:</p>
                     <ol>
                         <li>with input</li>
                         <li>automatically over time</li>
@@ -685,7 +746,7 @@ void draw() {
         <div class="units-row">
             <div class="unit-70-cc">
                 <div class="challenge">
-                    <p><b>Challenge - Interactive Threshold</b><br />
+                    <h5>Challenge - Interactive Threshold</h5>
                         Can you adapt this sketch so that it uses a <code>THRESHOLD</code> to filter based upon the
                         position of the mouse returned through <code>mouseX</code>.</p>
                     <p>You'll need to check the <i>Processing</i> documentation on <a
@@ -710,7 +771,8 @@ void draw() {
             <div class="unit-70-cc">
 
                 <div class="challenge">
-                    <p><b>Challenge - Experiments in Image Art</b><br />
+                    <h5>Challenge - Experiments in Image Art</h5>
+                    <p>
                         Try using some filters on your Warhol sketch:</p>
                     <ol>
                         <li>Try a blur filter, followed by a posterize filter.</li>
@@ -858,7 +920,8 @@ println("The lightness in that colour is: "+thisLight);
                     </ol>
                 </div>
                 <div class="challenge">
-                    <p><b>Challenge - Get Pixel Colours</b><br />
+                    <h5>Challenge - Get Pixel Colours</h5>
+                    <p></p>
                         If you managed that and want to do more, now adapt things further so that the colour of the
                         rectangle :</p>
                     <ol start="3">
@@ -948,8 +1011,8 @@ void draw() {
                 </div>
 
                 <div class="challenge">
-                    <p><b>Challenge - Interactive Plasma</b><br />
-                        Vary the parameters and see whether you can make the sketch <i>interactive</i> by adding a dependency
+                    <h5>Challenge - Interactive Plasma</h5>
+                        <p>Vary the parameters and see whether you can make the sketch <i>interactive</i> by adding a dependency
                         such that the colour varies as you vary <code>mouseX</code> and / or <code>mouseY</code>.</p>
                 </div>
 
