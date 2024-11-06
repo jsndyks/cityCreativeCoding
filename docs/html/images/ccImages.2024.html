@@ -536,6 +536,7 @@ void draw() {
 
         </div> <!--- End of Row --->
 
+<!-- 
         <div class="units-row">
 
             <div class="unit-70-cc">
@@ -556,16 +557,25 @@ void draw() {
             </div>
 
         </div>
+ -->
 
-        <div class="units-row">
+         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+            <figure>
+                <img src="https://jsndyks.github.io/cityCreativeCoding/images/cabin-tint.png" width="200" />
+                <figcaption>Original image - no tint()</figcaption>
+            </figure>
+            </div>
 
             <div class="unit-70-cc">
-                <p>&nbsp;</p>
-                <p>Now consider this <code>tint()</code> ...</p>
-                <pre class="brush: processing; gutter: false; toolbar: false; ">tint(255, 0, 0);
+                <p>If <code>tint</code> receives three arguments, the brightness is affected separately in each of the
+                    colour components.</p>
+                <p>So, consider this <code>tint()</code> (below) and the image to the right ...</p>
+                <div style="width:32em" >
+                    <pre class="brush: processing; gutter: false; toolbar: false; ">tint(255, 0, 0);
 image(img, 0, 0);
-  </pre>
-  <p>Which of these images would the canvas look like following this processing of the image shown to the right?</p>
+  </pre></div>
+  <p>Which of these three pictures show what the canvas would look like following the processing of the image through this <code>tint()</code> statement?</p>
 </div>
         </div>
 
@@ -583,15 +593,27 @@ image(img, 0, 0);
               <img src="https://jsndyks.github.io/cityCreativeCoding/images/cabin-green.png" width="200" />
 
               <div class="coreTask">
-              <p>Check the code and the possible outputs and decide which of the three tinted images shown above would result from this image processing of the image to the right?</p>
+                <h5>Tint Quiz : Round 1</h5>
+              <p>Check the code and the possible outputs and decide which of the three tinted images shown above would result from this image processing of the original image with <code>tint(255, 0, 0)</code>?</p>
               </div>
+        </div>
+    </div>
 
+    <div class="units-row">
+        <div class="unit-30-cc annotation cc-right">
+        <figure>
+            <img src="https://jsndyks.github.io/cityCreativeCoding/images/cabin-tint.png" width="200" />
+            <figcaption>Original image - no tint()</figcaption>
+        </figure>
+        </div>
+        <div class="unit-70-cc">
 
               <p>Now consider this second <code>tint()</code> ...</p>
+              <div style="width:32em" >
                   <pre class="brush: processing; gutter: false; toolbar: false; ">tint(255, 0, 255);
 image(img, 0, 0);
-    </pre>
-    <p>How would the canvas look following this processing of the original image (above and to the right)?<br/>
+    </pre></div>
+    <p>How would the canvas look following this processing of the original image (the one to the right)?<br/>
         Which of these three canvases would result?</p>
 
                 <img src="https://jsndyks.github.io/cityCreativeCoding/images/cabin-violet.png" width="200" />&nbsp;&nbsp;
@@ -599,14 +621,11 @@ image(img, 0, 0);
                 <img src="https://jsndyks.github.io/cityCreativeCoding/images/cabin-green.png" width="200" />
 
                 <div class="coreTask">
+                    <h5>Tint Quiz : Round 2</h5>
                     <p>Check the code and the possible outputs again and decide how you think the canvas would look following this alternative processing of the image?</p>
-                    <p>Which of the three outputs shown above would result from this use of <code>tint()</code>?</p>
+                    <p>Which of the three outputs shown above would result from this use of <code>tint(255,0,255)</code>?</p>
                 </div>
 
-            </div>
-
-            <div class="unit-30-cc annotation">
-                <img src="https://jsndyks.github.io/cityCreativeCoding/images/cabin-tint.png" width="200" />
             </div>
 
         </div>
@@ -618,10 +637,13 @@ image(img, 0, 0);
                 <p>Let's see whether you can use <code>tint()</code> to create it.</p>
 
                 <div class="codeTask">
-                    <p>Can you adjust the code of a previous sketch to achieve this tint effect?</p>
+                    <h5>Tine Quiz : Round 3</h5>
+                    <p>Can you adjust the code of a previous sketch to achieve this tint effect?<br/>
+                    The aim here is to recreate the final canvas - the one that we have not provided the solution for.</p>
                 </div>
                 <div class="challenge">
                     <h5>Challenge - Interactive Tint</h5>
+                    <p>If you found this straightforward, then go interactive!</p>
                     <p>
                         Try setting up key events with <code>keyPressed()</code>, or mouse events with
                         <code>mouseMoved()</code> or <code>mouseClicked()</code>, that <code>tint</code> the image in a
@@ -631,6 +653,9 @@ image(img, 0, 0);
             </div>
         </div>
 
+        <hr/>
+        <h2>HERE!</h2>
+        <hr/>
 
         <hr>
         <h4>4.3 - Multiple Images</h4>
