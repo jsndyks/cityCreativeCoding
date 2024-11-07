@@ -65,7 +65,7 @@
             </p>
 
             <ul>
-                <!-- <li>describe the information structure of a digital image including terms like <i>pixel</i> and <i>resolution</i></li> -->
+                <li>describe the information structure of a digital image, knowing how to use terms like <i>pixel</i> and <i>resolution</i> in doing so</li>
                 <li>load and display an image in <i>Processing</i></li>
                 <li>apply digital effects to an image</li>
                 <li>retrieve the colour value(s) of a given pixel</li>
@@ -79,7 +79,14 @@
 
         <hr>
         <h3>1. Images in Context</h3>
-        <p>Some stuff!</p>
+        <p>There's lots to say and know and do about <i>images</i> in Computer Science, and <i>Processing</i> provides some useful ways into all of this.</p>
+        <p>Our first <i>Learning Outcome</i> associated with this session requires that you are able to:</p>
+        <ul>
+            <li>describe the information structure of a digital knowing how to use terms like <i>pixel</i> and <i>resolution</i> in doing so</li>
+        </ul>
+        <p>Now we guess that many of you can do this already, so we are going to focus more on the practical, the <i>do</i>, in what follows, rather than the theory and context, the <i>know</i>. But if you are not able to put your hand on your heart and acknowledge that you can <i>describe the information structure of a digital image, knowing how to use terms like <i>pixel</i> and <i>resolution</i> in doing so</i>, then you should check the <a href="">Images : Intro</a> page that will help.</p>
+
+        <p>If you are able to <i>describe the information structure of a digital image, knowing how to use terms like <i>pixel</i> and <i>resolution</i> in doing so</i>, then let's move on and do some stuff!</p>
 
         <!-- Create an image -->
         <hr>
@@ -193,7 +200,7 @@ void draw() {
                     <p>You should be able to interpret the code to work out how you can interact with the canvas in
                     order to change the image that is saved.</p>
                     <p> Check <code>keyPressed()</code>: if you press a key, the current content of the canvas will be saved to the sketch folder with
-                        <code>save()</code>.
+                        <a href="https://processing.org/reference/save_.html"><code>save()</code></a>.
                     </p>
                         <p>Remember to check how each of these <i>methods</i> works by consulting the <a href="https://processing.org/reference/">Processing Reference Documentation</a>.</p>
                 </div>
@@ -448,7 +455,7 @@ void keyPressed () {
                     canvas. We have done this before 👆, so
                     this should be a useful reminder.</p>
 
-                <p>The <code><a href="http://processing.org/reference/loadImage_.html">loadImage()</a></code> method can
+                <p>The <a href="http://processing.org/reference/loadImage_.html"><code>loadImage()</code></a> method can
                     load images into a sketch from various formats including GIF, TGA, JPG and PNG format. As we have
                     seen, the input argument is the name of the image file.
                     It's often best to load the image in the <code>setup()</code> method as we usually only need to do
@@ -456,13 +463,13 @@ void keyPressed () {
                     as this will slow down our sketch.</p>
 
                 <p>
-                    The <code><a href="http://processing.org/reference/image_.html">image()</a></code> method is what you use to actually
+                    The <a href="http://processing.org/reference/image_.html"><code>image()</code></a> method is what you use to actually
                     draw the image on the canvas, at a position described with two parameters that give a horizontal and vertical offset from the upper left pixel of the image (0, 0). 
                     The first argument is an image (a <a href="https://processing.org/reference/PImage.html"><code>PImage</code></a> to be precise), the second and third are the coordinates of the canvas at which we want to draw the image.<br />
                     If the image doesn't change in the sketch then we can often put the <a href="https://processing.org/reference/image_.html"><code>image()</code></a> command in
                     <code>setup()</code> too, so that both loading and drawing only happen once.
                 </p>
-                <p>Remember, the image will not be drawn unless you issue the <a href="https://processing.org/reference/image_.html"><code>image()</code></a> command and will be drawn at whatever position you specify with the second and third arguments passed to the <code><a href="http://processing.org/reference/image_.html">image()</a></code> method. </p>
+                <p>Remember, the image will not be drawn unless you issue the <a href="https://processing.org/reference/image_.html"><code>image()</code></a> command to show it on the canvas, and will be drawn at whatever position you specify with the second and third arguments passed to the <a href="http://processing.org/reference/image_.html"><code>image()</code></a> method. </p>
                 <pre class="brush: processing; gutter: false; toolbar: false; ">// -- Declare a PImage object, called img as a global variable 
 PImage img;    // &lt;-- this is a 'bucket' into which we can put image data
 
@@ -724,7 +731,7 @@ image(img, 0, 0);
         <div class="units-row">
             <div class="unit-30-cc annotation cc-right">
                 <figure>
-                    <img src="https://jsndyks.github.io/cityCreativeCoding/images/warhol.png" width="250" />
+                    <img src="https://jsndyks.github.io/cityCreativeCoding/images/warhol.png" width="300" />
                     <figcaption>
                         <p>Sometimes, in the <code>#CreativeCoding</code> practical labs, we could do with 4x Charlie Watson.</p>
                     </figcaption>
@@ -779,8 +786,17 @@ image(img, 0, 0);
         <hr>
         <h4>4.4 Image filtering</h4>
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                    <img src="https://jsndyks.github.io/cityCreativeCoding/images/cabin-filter.png" width="300" />
+                    <figcaption>
+                        Use of <code>filter(INVERT)</code>.
+                    </figcaption>
+                </figure>
+            </div>
+
             <div class="unit-70-cc">
-                <p>Much image processing involves using filters.
+                <p>Much image processing, including that with <i>Processing</i>, involves using <i>filters</i>.
                     Filters replace the colour values in each pixel of an image with new values, that either depend on
                     the original colour value held in the pixel or those close to them.</p>
                 <p>
@@ -801,24 +817,31 @@ image(img, 0, 0);
 
 void setup() {
   size(640, 480);
-  img = loadImage("Holiday.png");
+  img = loadImage("Holiday.png");  // &lt;-- image does not change during the sketch and so can be drawn in the setup() method
   image(img, 0, 0);
   filter(INVERT);
 }
 </pre>
             </div>
-            <div class="unit-30-cc">
-                <img src="https://jsndyks.github.io/cityCreativeCoding/images/cabin-filter.png">
-            </div>
         </div>
 
         <!--h3>Image filtering</h3-->
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                    <script>
+                        loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/Blur", 300, 300, "https://jsndyks.github.io/cityCreativeCoding/images/cabin-blur.png");
+                    </script>
+                    <figcaption>
+                        Blurring with a Filter
+                    </figcaption>
+                </figure>
+            </div>
             <div class="unit-70-cc">
                 <p>Methods such as <code>filter(BLUR, N)</code> will blur the image by replacing the colour of each
                     pixel with a colour value based on the colours of pixels within a certain radius - N.
-                    A higher value of N results in more blurring.</p>
-                <p>Example: Variable blurring based on mouse location.</p>
+                    A higher value of N results in more blurring, and will be slower to compute as each new value is dependent upon an increasing number of calculations.</p>
+                <p>The code that follows provides an example. Here the degree of blurring varies, based upon mouse location.</p>
 
                 <pre class="brush: processing; gutter: false; toolbar: false; ">PImage img;
 
@@ -828,14 +851,16 @@ void setup() {
 }
 
 void draw() {
-  image(img, 0, 0);
+  image(img, 0, 0);    // &lt;-- image changes dynamically during the sketch and so must be drawn in the draw() method
   filter(BLUR, mouseX / 100);
 }
 </pre>
                 <div class="codeTask">
+                    <h5>Image Blur</h5>
                     <p>Run this sketch, but be sure to load a <i>different image</i>, and interact with the image.</p>
                     <p>What is the effect of changing the constant that you use to blur the image?</p>
                     <p>Try using less than 100 and more than 100, and moving the mouse to see the effects.</p>
+                    <p>Try using <b>PAROT Talk</b> to structure this activity and learn about the effects of the <code>filter(BLUR, N)</code> method.</p>
                 </div>
             </div>
         </div>
@@ -844,6 +869,7 @@ void draw() {
             <div class="unit-70-cc">
                 <div class="challenge">
                     <h5>Challenge - Interactive Threshold</h5>
+                    <p>
                         Can you adapt this sketch so that it uses a <code>THRESHOLD</code> to filter based upon the
                         position of the mouse returned through <code>mouseX</code>.</p>
                     <p>You'll need to check the <i>Processing</i> documentation on <a
@@ -853,23 +879,27 @@ void draw() {
                         So be sure to show the value of the threshold on the screen as is changes, and see whether you
                         can determine the value (or <i>threshold</i>) at which <i>snow</i> is differentiable from other
                         pixels.</p>
-                    <p>Experiment with some of the <code>filter()</code> techniques not discussed in lecture but
+                    <p>Experiment with some of the <a
+                        href="https://processing.org/reference/filter_.html"><code>filter()</code></a> techniques not discussed in lecture but
                         described in the <i>Processing</i> documentation.</p>
                 </div>
             </div>
+            <!-- 
             <div class="unit-30-cc annotation" style="padding-top:8em">
                 This approach gets us quite close to some of the work that we introduced at the outset, in which image
                 analysis is used to derive meaning from medical and other images, in applications areas such as medicine,
                 agriculture and cosmology for detecting cancers, crops and galaxies from digital imagery.
             </div>
+             -->
         </div>
 
         <div class="units-row">
+            
             <div class="unit-70-cc">
-
                 <div class="challenge">
                     <h5>Challenge - Experiments in Image Art</h5>
                     <p>
+                        There is plenty more that you could try if you are interested!<br/>
                         Try using some filters on your Warhol sketch:</p>
                     <ol>
                         <li>Try a blur filter, followed by a posterize filter.</li>
@@ -887,26 +917,32 @@ void draw() {
                     </ol>
                 </div>
             </div>
-            <div class="unit-30-cc">
-                <script>
-                    loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/Blur", 400, 400, "https://jsndyks.github.io/cityCreativeCoding/images/cabin-blur.png");
-                </script>
-            </div>
         </div>
 
         <hr>
         <h4>4.5 - The Data : Accessing pixel and colour values</h4>
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                    <script>
+                        loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/image45_v1", 300, 300, "https://jsndyks.github.io/cityCreativeCoding/images/image45_v1.png");
+                    </script>
+                        <figcaption>
+                            <p>Click, stretch the window and click positions to add a square that is the colour of the image.</p>
+                        </figcaption>
+                </figure>
+                </div>
+
             <div class="unit-70-cc">
-                <p>Individual pixel values can be accessed and changed using the
+                <p>Individual colour values associated with each image <i>pixel</i> can be accessed and changed using the
                     <code><a href="http://processing.org/reference/get_.html">get()</a></code> and
-                    <code><a href="http://processing.org/reference/set_.html">set()</a></code> methods.
-                    We can <code>get</code> and <code>set</code> the pixels in an image and use these to select colours that
+                    <code><a href="http://processing.org/reference/set_.html">set()</a></code> methods.</p>
+                <p>We can <code>get</code> and <code>set</code> the pixels in an image and use these to select colours that
                     we use in other parts of our sketch, for example colour other shapes.
                 </p>
                 <p>Note that we <i>never actually draw</i> the image with <a href="https://processing.org/reference/image_.html"><code>image()</code></a> in the following sketch, but as we have
                     loaded it with <a href="https://processing.org/reference/loadImage_.html"><code>loadImage()</code></a> we can access its colours, which we can then use to
-                    <code>fill()</code> other shapes.<br/>Specifically ...
+                    <code>fill()</code> other shapes.
                 </p>
               </div> <!-- End of left column -->
 
@@ -935,21 +971,28 @@ void draw() {                            // -- Get the colour of the PImage
   rect(mouseX, mouseY, s, s);          // -- Then draw a rectangle at
 }                                        // -- the mouse position.
 </pre>
-<p>Or more randomly ...</p>
-</div> <!-- End of left column -->
+                </div> <!-- End of left column -->
 
-<div class="unit-30-cc annotation">
-    <!-- Right hand column for small images, popup sketches and annotations. -->
-    <script>
-        loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/image45_v1", 400, 400, "https://jsndyks.github.io/cityCreativeCoding/images/image45_v1.png");
-    </script>
-    <p>Click, stretch the window and click positions to add a square that is the colour of the image.</p>
-</div> <!-- end of right column -->
-</div> <!-- End of row -->
+            </div> <!-- End of row -->
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <div class="units-row">
-<div class="unit-70-cc">
+    <div class="unit-30-cc annotation cc-right">
+        <figure>
+            <script>
+                loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/image45_v2", 300, 300, "https://jsndyks.github.io/cityCreativeCoding/images/image45_v2.png");
+            </script>
+        <figcaption>
+                <p>With added randomness we have a less precise, more <i>spray paint</i> like alternative.</p>
+            </figcaption>
+        </figure>
+        </div>
+    <div class="unit-70-cc">
+        <p>
+            In this example we don't actually use <a href="https://processing.org/reference/image_.html"><code>image()</code></a> to draw the <i>image</i>. We just sample the <i>image</i> using <a href="http://processing.org/reference/get_.html"><code>get()</code></a> to acquire the colour at a particular place in the image, a particular <i>pixel</i>. We then use this colour to draw a shape on the canvas at the appropriate location using that colour. The result is something that has the structure of the image as it is developed by sampling the image.
+        </p>
+        <p>Here is an alternative that involves a bit of randomness to make things more interesting ...</p>
+
 <pre class="brush: processing; gutter: false; toolbar: false; ">PImage img;
 int s = 5;
 
@@ -971,25 +1014,18 @@ void draw() {                            // -- Adds a bit of randomness!
   rect(mX, mY, s, s);                   // -- Then draw coloured rect at mX,mY.
 }
 </pre>
-</div> <!-- End of left column -->
-
-<div class="unit-30-cc annotation">
-    <!-- Right hand column for small images, popup sketches and annotations. -->
-    <script>
-        loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/image45_v2", 400, 400, "https://jsndyks.github.io/cityCreativeCoding/images/image45_v2.png");
-    </script>
-    <p>With added randomness we have a less precise, more <b>spray paint</b> alternative.</p>
-</div> <!-- end of right column -->
+    </div> <!-- End of left column -->
 </div> <!-- End of row -->
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-<div class="units-row">
-<div class="unit-70-cc">
-
+        <div class="units-row">
+            <div class="unit-70-cc">
+<!-- 
                 <p><i>Processing</i> has methods for extracting colour components from a colour specification.<br/>
                     We used these to write the <i>Image Grid</i> sketch with which you experimented above.</p>
-
+ -->
                 <div class="coreTask">
+                    <h5>Colour Methods</h5>
                     <p>Check the <a href="https://processing.org/reference/">Processing Reference Documentation</a> for
                         the <code>red()</code>, <code>green()</code>, <code>blue()</code> and <code>brightness()</code>
                         methods.</p>
@@ -1006,7 +1042,8 @@ println("The lightness in that colour is: "+thisLight);
 </pre>
 </div>
 
-<div class="codeTask">
+                <div class="codeTask">
+                  <h5>Brightness Variation</h5>
                     <p>Copy the code and run the sketch from the first example at the top of this section - the one that uses <code>get()</code>.</p>
                     <p>Play with the sketch and use what you have learned (and the code provided above, and the
                         documentation on <code>brightness()</code> that you have consulted) to adapt the code so that
@@ -1045,10 +1082,26 @@ println("The lightness in that colour is: "+thisLight);
             </div>
         </div>
 
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <div class="unit-30-cc annotation cc-right">
+                    <figure>
+                        <img src="https://jsndyks.github.io/cityCreativeCoding/images/bootCamp.colorGrid.100.png" width="250">
+                        <figcaption>
+                            <p>Copy, paste, run and adapt this code.<br />
+                                Use the <a href="https://processing.org/reference/">Processing Reference Documentation</a> on <a
+                                href="https://processing.org/reference/set_.html"><code>set()</code></a> to find out more.</p>
+                        </figcaption>
+                    </figure>
+                    </div>
+        
+                
+
         <hr>
         <h4>4.6 - The Data : Changing pixel and colour values</h4>
         <p>Just as we can <code>get()</code> a colour from a loaded image, we can use <code>set()</code> to change the colours being shown in the pixels on the canvas.<br />
-            These may have been created by loading and drawing an image, or through other means.</p>
+            These colours may have been created by loading and drawing an image, or through other means.</p>
         <p>Here's an example taken from the <i>Processing</i> Documentation that you can adapt:</p>
         <div class="units-row">
             <div class="unit-70-cc">
@@ -1060,28 +1113,35 @@ println("The lightness in that colour is: "+thisLight);
 }</pre>
 
                 <div class="codeTask">
+                    <h5>Using set()</h5>
+                    <p>
                     Try it out!<br />
-                    Copy the code into <i>Processing</i> - these two loops should give you a coloured canvas.<br />
+                    Copy the code that contains the nested loops into <i>Processing</i> - these two loops should give you a coloured canvas.<br />
                     Adapt the code to change the colours on the canvas in different ways.
+                </p>
                 </div>
 
             </div>
 
-            <div class="unit-30-cc annotation">
-                <img src="https://jsndyks.github.io/cityCreativeCoding/images/bootCamp.colorGrid.100.png" width="100">
-                
-                <p>Copy, paste, run and adapt this code.<br />Use the <a
-                        href="https://processing.org/reference/set_.html">Processing Reference Documentation</a> to find
-                    out more.</p>
-            </div>
         </div>
 
 
-        <p>This example shows how to set and change pixels in the display directly and dynamically.</p>
-
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                    <script>
+                        loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/plasma", 300, 300, "https://jsndyks.github.io/cityCreativeCoding/images/plasma.png");
+                    </script>
+                <figcaption>
+                        <p>Click the image to activate the sketch!</p>
+                    </figcaption>
+                </figure>
+                </div>
+    
             <div class="unit-70-cc">
-                <pre class="brush: processing; gutter: false; toolbar: false; ">void setup() {
+                <p>This example shows how to set and change pixels in the display directly and dynamically.</p>
+                <div style="width:42em" >
+                    <pre class="brush: processing; gutter: false; toolbar: false; ">void setup() {
   size(320, 240);
 }
 
@@ -1095,32 +1155,29 @@ void draw() {
     }
   }
 }
-</pre>
+</pre></div>
                 <div class="codeTask">
+                    <h5>Using set() - Interactive</h5>
                     <p>
                         Try it out!<br />
                         Use the interactive sketch (click the image to run it).<br />
                         Then, copy the code into <i>Processing</i>.</p>
                     <ul>
                         <li>Use a loop to draw some shapes on the plasma!</li>
-                        <li>Save an image of the canvas</li>
+                        <li><a href="https://processing.org/reference/save_.html"><code>save()</code></a> an image of the canvas when a key is pressed</li>
                     </ul>
                 </div>
 
                 <div class="challenge">
                     <h5>Challenge - Interactive Plasma</h5>
-                        <p>Vary the parameters and see whether you can make the sketch <i>interactive</i> by adding a dependency
-                        such that the colour varies as you vary <code>mouseX</code> and / or <code>mouseY</code>.</p>
+                        <p>Vary the parameters in the <i<>plasma</i> sketch, which continually updates the contents of the image using <a
+                            href="https://processing.org/reference/set_.html"><code>set()</code></a>.<br/>
+                            Then, see whether you can make the sketch <i>interactive</i> by adding a dependency
+                            such that the colour varies as you vary <code>mouseX</code> and / or <code>mouseY</code>.</p>
                 </div>
 
             </div>
 
-            <div class="unit-30-cc annotation">
-                <script>
-                    loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/plasma", 320, 480, "https://jsndyks.github.io/cityCreativeCoding/images/plasma.png");
-                </script>
-                <p><br />Click the coloured image to activate the sketch!</p>
-            </div>
         </div>
 
         <hr/>
@@ -1132,8 +1189,8 @@ void draw() {
         <p>As usual, with <i>Processing</i>, we have introduced loads of ideas and concepts and features and examples
             ... and that's not the half of it.<br />
             So it's important for us to <i>emphasize</i>, and for you to <i>remember</i>, that we don't expect all of
-            you to take it all in during our very tightly packed <code>#CreativeCoding</code>.<br />
-            There are just introductions.
+            you to take it all in during our very tightly packed <code>#CreativeCoding</code> activity.<br />
+            There are just introductions. This is just the start.
             You need to try some of them, and check the documentation to see how they work.</p>
         <p>And then look back at the <i>Learning Outcomes</i> - the things that you should be able to do by the end of
             this session.<br />They are listed at the top of this page, and here's a checklist.</p>
@@ -1143,9 +1200,10 @@ void draw() {
             <p>So, you should be able to check each of these boxes having completed the lecture and the tasks.</p>
 
             <div class="checkOutcomes" style="padding-left:2em">
+
                 <input type="checkbox" id="sa1">
                 <label for="sa1">&nbsp;&nbsp;I understand the terms <i>pixel</i> and <i>resolution</i> a can use them to describe
-                    image characteristics<br /></label><br />
+                    the information structure of a digital image<br /></label><br />
 
                 <input type="checkbox" id="sa2">
                 <label for="sa2">&nbsp;&nbsp;I can load and display images in <i>Processing</i> with
@@ -1167,7 +1225,7 @@ void draw() {
             </div> <!-- End of checkOutcomes -->
             <p style="padding-top:1em; margin-bottom:0em">If not, then head back and read through the text, try the
                 examples and discuss your efforts with your class teachers.</p>
-                <p>Anything else, well, that's a bonus.<p>
+                <p>Anything else, well, that's a bonus.</p>
         </div>
 
         <div class="units-row">
@@ -1178,7 +1236,7 @@ void draw() {
         <p>If you have completed the work on this page, and ticked all the boxes then try the optional <b><a
                     href="https://moodle4.city.ac.uk/mod/page/view.php?id=420909">Extra Challenges</a></b> where we use
             some of these ideas to look at <i>animated images</i>, <i>games</i> and <i>maps</i>. This could be fun for
-            some of you and may give you ideas for your <b><code>#CreativeCoding</code></b>demos.</p>
+            some of you and may give you ideas for your <b><code>#CreativeCoding</code></b> sketches.</p>
 
         <p>There are a trillion images being taken in the world every year, and there are many more things you could do
             with <i>Processing</i>!</p>
@@ -1186,16 +1244,15 @@ void draw() {
             Debug systematically.<br/>Understand that it will take time.<br/>Discuss.<br/>Think.<br/>
             Ask
             questions.<br/>Try again.</p>
-        <p>Talk to your tutors, and remember that they have many years of experience that helps them and from which you
+        <p>Talk to your teachers, the TAs in class and your personal tutors, and remember that they have many years of experience that helps them and from which you
             can benefit.<br />
-            This is what you are aiming to achieve, their level of competence. But not in your first week at Uni!
+            This is what you are aiming to achieve, their level of competence. But not in your first term at Uni!
             Learn from them - and also learn to teach them, because they get things wrong and don't know everything and they can also learn from your ideas, mistakes, conception of the ideas that we're engaging with and ways of thinking. <b>So please communicate.</b></p>
         <p>Most importantly, be creative.
             Put ideas together in interesting ways to do new things.<br />
             That's the joy of programming.<br />
             It gives you capabilities that allow you to be creative, to problem solve, to express yourself and to make things.<br />
-            You should now be able to use images, structured mosaics of hundreds or thousands or millions or pixels - or
-            maybe just 121 - in your <i>Processing</i> sketches.</p>
+            You should now be able to use images, structured mosaics of hundreds or thousands or millions or pixels in your <i>Processing</i> sketches.</p>
         <p>Be creative as you add to the one-point-something trillion images that exist and work together to try to make a World that contains <b>two trillion images</b>!</p>
 
         </div>
@@ -1231,15 +1288,15 @@ void draw() {
     --->
 
         <!-- End of content -->
-        <hr />
+        <!-- <hr />
         <div class="sig">
             <b>Jason DYKES</b><br />
-            <!-- <i>11 Oct 2021</i> -->
-            <!-- <i>30 Sep 2022</i> -->
-            <!-- <i>20 Sep 2023</i> -->
-            <!-- <i>01 Oct 2023</i> -->
+            <i>11 Oct 2021</i>
+            <i>30 Sep 2022</i>
+            <i>20 Sep 2023</i>
+            <i>01 Oct 2023</i>
             <i>06 Nov 2024</i>
-        </div>
+        </div> -->
 
 
 
