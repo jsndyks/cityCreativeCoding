@@ -56,18 +56,17 @@
         <!-- Content below -->
 
         <div class="intro">
-            <p>This session introduces you to a series of concepts, classes and methods related to digital images, their
-                storage, processing and display in <i>Processing</i>.
+            <p>This session provides an introduction to digital images, with some contextual information about their composition, structure and use.
             </p>
 
-            <p><strong>If you read through these lecture notes, attempt the tasks and exercises and use the resources
-                    that we have made available, then by the end of this session you should be able to:</strong>
+            <p><strong>If you read through these notes, attempt the tasks and exercises and use the resources
+                    that we have made available, then you are expected to be able to:</strong>
             </p>
 
             <ul>
                 <li>context</li>
                 <li>describe the information structure of a digital image</li>
-                <li>know the meaning of terms like <i>pixel</i> and <i>resolution</i> and use these to describe images</li>
+                <li>know the meaning of terms like <i>pixel</i> and <i>resolution</i> and use these to describe and explain images</li>
             </ul>
 
         </div>
@@ -87,6 +86,18 @@
         <h4>1.1 - How many images in the World?</h4>
 
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                    <a href="https://jsndyks.github.io/cityCreativeCoding/images/internetTrends2019.imageSharing.png"><img
+                        src="https://jsndyks.github.io/cityCreativeCoding/images/internetTrends2019.imageSharing.png"
+                        width="300"/></a>
+                    <figcaption>
+                        <p>An <i>image</i> - showing the number of images shared and taken globally (in 2019).</p>
+                        <p>Source: <a href="https://www.bondcap.com/report/itr19/#view/77">Meeker Report 2019</a>.</p>
+                    </figcaption>
+                </figure>
+                    
+            </div>
 
             <div class="unit-70-cc">
                 <p>We all use and make images on a daily basis - the World seems to be full of them. But how many are
@@ -141,25 +152,15 @@
                 </table>
                 <p>
                     People are taking and making images all over the place.
-                    Indeed digital imaging industry experts <a
-                        href="https://focus.mylio.com/tech-today/how-many-photos-will-be-taken-in-2020">Keypoint
-                        Intelligence</a> predicted that "<i>humanity will take 1,436,300,000,000 photos in 2020</i>".<br/>
-                      They didn't predict the pandemic though. Hmmmm ... did we take and make more or fewer images during the pandemic than during <i>normal</i> times?</p>
-
+                    Indeed digital imaging industry experts <a href="https://riseaboveresearch.com/rar-reports/2022-worldwide-image-capture-forecast-2021-2026/">Rise Above Research</a> predicted that <i>1,720,000,000,000</i> digital photos would be taken in 2024</i> according to <a
+                        href="https://news.mylio.com/how-many-photos-taken-in-2022/">Susan Enfield</a>'s blog.</p>
+<!-- 
                 <div class="aside">
                   Have a think - how did you use (take, make, read, seek) images differently during the COVID-19 lockdowns?
                 </div>
-
+ -->
             </div>
 
-            <div class="unit-30-cc annotation">
-                <a href="https://jsndyks.github.io/cityCreativeCoding/images/internetTrends2019.imageSharing.png"><img
-                        src="https://jsndyks.github.io/cityCreativeCoding/images/internetTrends2019.imageSharing.png"
-                        width="600" height="450" /></a>
-                <p>An <i>image</i> - showing the number of images shared and taken globally (in 2019).</p>
-                <p>Source: <a href="https://www.bondcap.com/report/itr19/#view/77">Meeker Report 2019</a>.</p>
-
-            </div>
         </div>
 
         <!--img src="https://jsndyks.github.io/cityCreativeCoding/images/uploads14.jpg"-->
@@ -178,23 +179,25 @@
                 <p>What would it look like if we printed and laid out all the photos taken in the World in a
                     year?<br /><br />
 
-                    We know that at least 1 trillion photos are taken per year.<br/>
-                    If we printed them at 6x4 inches, then laying them out so that they did't overlap would cover 155
+                    We know that at least 1.5 trillion photos are taken per year.<br/>
+                    If we printed them at 6x4 inches, then laying them out so that they did't overlap would cover 233
                     trillion cm&sup2.<br />
 
                     This is <a
                         href="https://www.thecalculatorsite.com/conversions/area/square-kilometers-to-square-centimeters.php">around
-                        15,500 km&sup2</a>.<br />
+                        23,250 km&sup2</a>.<br />
 
                     Greater London is <a href="https://en.wikipedia.org/wiki/London#cite_note-total-2">about 1,500
                         km&sup2</a> in size.<br />
-                    So a years worth of photos would cover London - 10 deep.</p>
+                    So a years worth of printed 6x4 inch photos would cover London - 15 deep.</p>
 
                 <p>There are various problems with this idea though.<br/>
                     Not least of which, my printer takes about 6 seconds to churn out a photo.<br />
-                    Printing all of these pictures would take around 5 trillion seconds.<br />
-                    That's about 150,000 years.<br />
+                    Printing all of these pictures would take around 9 trillion seconds.<br />
+                    That's about 285,000 years.<br />
                     Of continuous printing.<br />
+                    Which is a lot of ink.<br/>
+                    And <a href="https://humanorigins.si.edu/evidence/behavior/stone-tools/middle-stone-age-tools">technology may have changed quite a lot</a> by then.<br/>
                     I give up.</p>
 
                 <p>Like I said, lots of photos.</p>
@@ -207,6 +210,20 @@
         <hr>
         <h4>1.2 - Images and computing</h4>
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                    <a href="http://j.mp/2m5DKtK"><img src="http://j.mp/2m5DKtK" width="500"></a>
+                    <figcaption>
+                        <p>Image Creation to Explore Data:<br />
+                            We create images to show structure in data in our Computer Science research at the <a
+                                href="https://www.gicentre.net/featuredpapers#/woodvisualizing2011/">giCentre</a> - often with
+                            <i>Processing</i>.<br />
+                            Here is a visualization showing where and when rental bikes are cycled in London.<br/>
+                            We learn about Data Visualization later in <code style="font-size:80%"><b>#CreativeCoding</b></code>.
+                        </p>
+                            </figcaption>
+                </figure>
+            </div>
             <div class="unit-70-cc">
                 <p>So how do we use images in Computing?<br />
                     Well, there are almost as many ways as there are images.<br />
@@ -225,26 +242,24 @@
                             <code><a href="https://processing.org/reference/save_.html">save("image.jpg")</a></code>.
                         </p>
                         <p><i>During <code>#CreativeCoding</code> you'll be making plenty of images with
-                                <i>Processing</i> and may create an image to share with others on the final Friday.</i>
+                                <i>Processing</i> and may create an image to share with others at the end of the activity.</i>
                         </p>
                     </dd>
                 </dl>
             </div>
-            <div class="unit-30-cc annotation">
-                <a href="http://j.mp/2m5DKtK">
-                    <img src="http://j.mp/2m5DKtK" ,="" height="200" width="400">
-                </a>
-                <p>Image Creation to Explore Data:<br />
-                    We create images to show structure in data in our Computer Science research at the <a
-                        href="https://www.gicentre.net/featuredpapers#/woodvisualizing2011/">giCentre</a> - often with
-                    <i>Processing</i>.<br />
-                    Here is a visualization showing where and when rental bikes are cycled in London.<br/>
-                    We learn about Data Visualization later in <code style="font-size:80%"><b>#CreativeCoding</b></code>.
-                </p>
-            </div>
         </div>
 
         <div class="units-row" style="padding-top:1em">
+            <div class="unit-30-cc annotation cc-right">
+                <a href="https://www.bbc.co.uk/news/world-us-canada-49837590">
+                    <img src="https://ichef.bbci.co.uk/news/660/cpsprodpb/158FD/production/_108971388_f78ca1c2-90be-4469-b343-1ed605c4e688.jpg"
+                        ,="" height="200" width="400">
+                </a>
+                <p>Image processing to 'Doctor' Photos:<br />
+                    BBC news reports on <a href="https://www.bbc.co.uk/news/world-us-canada-49837590">Canada's Green
+                        Party editing a photo of Elizabeth May</a>.
+                </p>
+            </div>
             <div class="unit-70-cc">
                 <dl>
                     <dt>Image processing</dt>
@@ -259,19 +274,20 @@
                     </dd>
                 </dl>
             </div>
-            <div class="unit-30-cc annotation">
-                <a href="https://www.bbc.co.uk/news/world-us-canada-49837590">
-                    <img src="https://ichef.bbci.co.uk/news/660/cpsprodpb/158FD/production/_108971388_f78ca1c2-90be-4469-b343-1ed605c4e688.jpg"
-                        ,="" height="200" width="400">
-                </a>
-                <p>Image processing to 'Doctor' Photos:<br />
-                    BBC news reports on <a href="https://www.bbc.co.uk/news/world-us-canada-49837590">Canada's Green
-                        Party editing a photo of Elizabeth May</a>.
-                </p>
-            </div>
         </div>
 
         <div class="units-row" style="padding-top:1em">
+            <div class="unit-30-cc annotation cc-right">
+                <a href="https://github.com/reyesaldasoro/HeLa-Cell-Segmentation">
+                    <img src="https://raw.githubusercontent.com/reyesaldasoro/HeLa-Cell-Segmentation/master/chapters/Figures/SegmentAnimatedStack_02.png"
+                        ,="" height="200" width="400">
+                </a>
+                <p>Image analysis:<br />
+                    Working towards cancer cell detection through <a
+                        href="https://github.com/reyesaldasoro/HeLa-Cell-Segmentation">Segmentation, Measurement and
+                        Visualisation of Nuclear Envelope of HeLa Cells observed with Electron Microscope</a>.
+                </p><p>research by Carlos Reyes-Aldasoro and Cefa Karabag at City.</p>
+            </div>
             <div class="unit-70-cc">
                 <dl>
                     <dt>Image analysis</dt>
@@ -289,18 +305,6 @@
                     </dd>
                 </dl>
             </div>
-            <div class="unit-30-cc annotation">
-                <a href="https://github.com/reyesaldasoro/HeLa-Cell-Segmentation">
-                    <img src="https://raw.githubusercontent.com/reyesaldasoro/HeLa-Cell-Segmentation/master/chapters/Figures/SegmentAnimatedStack_02.png"
-                        ,="" height="200" width="400">
-                </a>
-                <p>Image analysis:<br />
-                    Working towards cancer cell detection through <a
-                        href="https://github.com/reyesaldasoro/HeLa-Cell-Segmentation">Segmentation, Measurement and
-                        Visualisation of Nuclear Envelope of HeLa Cells observed with Electron Microscope</a>.
-                </p><p>research by Carlos Reyes-Aldasoro and Cefa Karabag at City.</p>
-            </div>
-
         </div>
 
         <div class="units-row">
@@ -323,6 +327,16 @@
         <hr>
         <h3>2. What is an image?</h3>
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                    <figure>
+                        <a href="https://jsndyks.github.io/cityCreativeCoding/images/spaceInvader.jpg"><img
+                            src="https://jsndyks.github.io/cityCreativeCoding/images/spaceInvader.jpg" width="250"></a>
+                        <figcaption>
+                            <p>A Parisian <a href="https://en.wikipedia.org/wiki/Invader_(artist)">Invader</a>.
+                            </p>
+                        </figcaption>
+                    </figure>
+            </div>
             <div class="unit-70-cc">
                 <p>
                     For our purposes, an image is a two-dimensional array, or regular grid, of colours.
@@ -338,29 +352,22 @@
                 </p>
 
             </div>
-            <div class="unit-30-cc annotation">
-                <a href="https://jsndyks.github.io/cityCreativeCoding/images/spaceInvader.jpg"><img
-                        src="https://jsndyks.github.io/cityCreativeCoding/images/spaceInvader.jpg"></a>
-                <p style="padding-bottom:0.5em">A Parisian <a
-                        href="https://en.wikipedia.org/wiki/Invader_(artist)">Invader</a>.
-                </p>
-            </div>
         </div>
 
         <div class="units-row">
-            <div class="unit-70-cc">
+            <div class="unit-30-cc annotation cc-right">
+                <a href="https://www.bachor.com/this-is-not-a-pothole-anymore"><img
+                        src="        https://static.wixstatic.com/media/23bea2_d5f84fde92c94a4088047c63367d5e09~mv2_d_2448_2448_s_4_2.jpg/v1/fill/w_1156,h_1174,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/23bea2_d5f84fde92c94a4088047c63367d5e09~mv2_d_2448_2448_s_4_2.jpg
+                        "></a>
+                <p style="padding-bottom:0.5em">Literal Street Art, using mosaics,<br/>by <a
+                        href="https://www.bachor.com/this-is-not-a-pothole-anymore">Jim Bachor</a>.
+                </p>
+            </div>
+                    <div class="unit-70-cc">
 
-        <p><a href="https://www.bachor.com/">Jim Bachor</a>'s amazing <a href="https://www.bachor.com/pothole-installations-c1g1y">pothole</a> mosaics are gaining some traction too, though, with some exceptions, these tend not to use regular grids.</p>
-    </div>
-    <div class="unit-30-cc annotation">
-        <a href="https://www.bachor.com/this-is-not-a-pothole-anymore"><img
-                src="        https://static.wixstatic.com/media/23bea2_d5f84fde92c94a4088047c63367d5e09~mv2_d_2448_2448_s_4_2.jpg/v1/fill/w_1156,h_1174,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/23bea2_d5f84fde92c94a4088047c63367d5e09~mv2_d_2448_2448_s_4_2.jpg
-                "></a>
-        <p style="padding-bottom:0.5em">Literal Street Art, using mosaics,<br/>by <a
-                href="https://www.bachor.com/this-is-not-a-pothole-anymore">Jim Bachor</a>.
-        </p>
-    </div>
-</div>
+              <p><a href="https://www.bachor.com/">Jim Bachor</a>'s amazing <a href="https://www.bachor.com/pothole-installations-c1g1y">pothole</a> mosaics are gaining some traction too, though, with some exceptions, these tend not to use regular grids.</p>
+            </div>
+        </div>
 
         <div class="units-row">
             <div class="unit-70-cc">
@@ -391,6 +398,17 @@
             We refer to the number of pixels contained in an image as its <i>resolution</i>.<br />
             The more pixels, the more detail, the higher resolution.</p>
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+
+                <p>Numbers of pixels in these example images increases from the top left (3x3) to bottom right
+                    (300x300).<br /><br />
+                    You should see that there is more detail in the image as we increase the number of pixels used,
+                    thereby increasing the <i>resolution</i> of the image.</p>
+                <p>
+                    The white gaps between pixels in these examples are just there to help show the grid structure - we
+                    would remove them when displaying or printing an image.
+                </p>
+            </div>
             <div class="unit-70-cc">
 
                 <table cellspacing="4" cellpadding="4" border="0">
@@ -413,20 +431,12 @@
                     </tr>
                 </table>
             </div>
-            <div class="unit-30-cc annotation">
-
-                <p>Numbers of pixels in these example images increases from the top left (3x3) to bottom right
-                    (300x300).<br /><br />
-                    You should see that there is more detail in the image as we increase the number of pixels used,
-                    thereby increasing the <i>resolution</i> of the image.</p>
-                <p>
-                    The white gaps between pixels in these examples are just there to help show the grid structure - we
-                    would remove them when displaying or printing an image.
-                </p>
-            </div>
         </div>
 
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <img src="https://jsndyks.github.io/cityCreativeCoding/images/giffordsCircus.jpg" width="200" height="200" />;
+            </div>
             <div class="unit-70-cc">
                 <p>
                     Example Image: Here's a high resolution version of the image created when I took a photo of the
@@ -445,9 +455,6 @@
                 <p>How many pixels are used to store this information?<br/>Can you open the image and zoom in and see the individual pixels?</p>
                 </div>
             </div>
-            <div class="unit-30-cc annotation">
-                <img src="https://jsndyks.github.io/cityCreativeCoding/images/giffordsCircus.jpg" width="200" height="200" />;
-            </div>
         </div>
 
 
@@ -456,6 +463,11 @@
 
         <div class="units-row">
 
+            <div class="unit-30-cc annotation cc-right">
+                <img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage802116.9.png" width="100" height="100"
+                    style="padding-bottom:1em" />
+                <p>A simple image made of (9x9) 81 pixels and containing two different colours.<br /></p>
+            </div>
             <div class="unit-70-cc">
                 <p>We can create images with cameras, but we have already made some low resolution images
                     programmatically using <i>Processing</i>.
@@ -463,13 +475,13 @@
                 <p>Here is a 9x9 low resolution image of, er ... I dunno ... a black photo frame?<br />
                     We have a <i>dark</i> colour in some pixels and a <i>light</i> colour in others.</p>
             </div>
-            <div class="unit-30-cc annotation">
-                <img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage802116.9.png" width="100" height="100"
-                    style="padding-bottom:1em" />
-                <p>A simple image made of (9x9) 81 pixels and containing two different colours.<br /></p>
-            </div>
         </div>
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage211945.9.png" width="100" height="100"
+                    style="padding-bottom:1em" />
+                <p>The same image made of (9x9) 81 pixels but with a grid to show image resolution.<br /></p>
+            </div>
 
             <div class="unit-70-cc">
                 <p>You can't really tell that it's using a 9x9 grid like this.</p>
@@ -481,16 +493,18 @@
                     <p>This image of a frame is not particularly exciting, but even with small grids and just two different
                         colours we can create some recognisable and iconic graphics.<br />
                         It's surprising how expressive you can be with a simple grid.</p>
-                        </div>
-            <div class="unit-30-cc annotation">
-                <img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage211945.9.png" width="100" height="100"
-                    style="padding-bottom:1em" />
-                <p>The same image made of (9x9) 81 pixels but with a grid to show image resolution.<br /></p>
             </div>
         </div>
 
             
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <img src="https://jsndyks.github.io/cityCreativeCoding/images/invader11.down.png" width="100" height="100"
+                    style=" padding-bottom:1em" />
+                <img src="https://jsndyks.github.io/cityCreativeCoding/images/invader11.up.png" width="100" height="100"
+                    style="padding-bottom:1em" />
+                <p>A pair of simple images made of (11x11) 121 pixels, still containing just two different colours.</p>
+            </div>
             <div class="unit-70-cc">
 
                 <p>I spent a good part of my teens interacting with <a
@@ -503,17 +517,14 @@
                             As we increase the resolution of the image - from 9x9 to 30x30 to 100x100 to 300x300 pixels -- we can show more detail and eventually interpret this as
                             a picture of something familiar.<br/>Just about!<br/>Even with just two variations of shade - light and dark.</p>
             </div>
-            <div class="unit-30-cc annotation">
-                <img src="https://jsndyks.github.io/cityCreativeCoding/images/invader11.down.png" width="100" height="100"
-                    style=" padding-bottom:1em" />
-                <img src="https://jsndyks.github.io/cityCreativeCoding/images/invader11.up.png" width="100" height="100"
-                    style="padding-bottom:1em" />
-                <p>A pair of simple images made of (11x11) 121 pixels, still containing just two different colours.</p>
-            </div>
         </div>
 
 
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <p>These images use 9x9, 30x30, 100x100 and 300x300 pixels from left to right.</p>
+                <p>Each pixel contains one of two 'colours' - light or dark.</p>
+            </div>
             <div class="unit-70-cc">
 
                 <table cellspacing="4" cellpadding="4" border="0">
@@ -529,10 +540,6 @@
                     </tr>
                 </table>
             </div>
-            <div class="unit-30-cc annotation">
-                <p>These images use 9x9, 30x30, 100x100 and 300x300 pixels from left to right.</p>
-                <p>Each pixel contains one of two 'colours' - light or dark.</p>
-            </div>
         </div>
 
         <hr>
@@ -544,6 +551,11 @@
             <p>Here we have the same numbers of pixels as in the two-shade images above, but use 256 different shades of grey, rather than two.</p>
 
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <p>These images again use 9x9, 30x30, 100x100 and 300x300 pixels from left to right.</p>
+                <p>But this time each pixel contains one of 255 shades of grey, from light <code>color(255)</code>
+                    through to dark <code>color(0)</code>.</p>
+            </div>
             <div class="unit-70-cc">
                 <table cellspacing="4" cellpadding="4" border="0">
                     <tr>
@@ -558,11 +570,7 @@
                     </tr>
                 </table>
                 <p>In this example our <i>colour resolution</i> has increased from 2 to 256 shades.<br/>
-                    Once again our <i>image resolution</i> increases from left to right.</p>            </div>
-            <div class="unit-30-cc annotation">
-                <p>These images again use 9x9, 30x30, 100x100 and 300x300 pixels from left to right.</p>
-                <p>But this time each pixel contains one of 255 shades of grey, from light <code>color(255)</code>
-                    through to dark <code>color(0)</code>.</p>
+                    Once again our <i>image resolution</i> increases from left to right.</p>
             </div>
         </div>
 
@@ -580,6 +588,12 @@
         </p>
 
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                These images all use a 30x30 grid, so they have a resolution of 900 pixels.<br /><br />
+                On the left we see a full colour image.<br />
+                The other three images show the amounts of red, green and blue stored in each pixel of the image to the
+                left.<br/>Each colour component ranges from 0 to 255.
+            </div>
             <div class="unit-70-cc">
                 <table cellspacing="4" cellpadding="4" border="0">
                     <tr>
@@ -594,15 +608,14 @@
                     </tr>
                 </table>
             </div>
-            <div class="unit-30-cc annotation">
-                These images all use a 30x30 grid, so they have a resolution of 900 pixels.<br /><br />
-                On the left we see a full colour image.<br />
-                The other three images show the amounts of red, green and blue stored in each pixel of the image to the
-                left.<br/>Each colour component ranges from 0 to 255.
-            </div>
         </div>
 
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                Here we have images showing the same photo on a 600x600 grid, so the image resolution here is much higher, with
+                360,000 pixels in each image.<br /><br />
+                On the left we see the full colour image once again.
+            </div>
             <div class="unit-70-cc">
                 <table cellspacing="4" cellpadding="4" border="0">
                     <tr>
@@ -617,11 +630,6 @@
                     </tr>
                 </table>
             </div>
-            <div class="unit-30-cc annotation">
-                Here we have images showing the same photo on a 600x600 grid, so the image resolution here is much higher, with
-                360,000 pixels in each image.<br /><br />
-                On the left we see the full colour image once again.
-            </div>
         </div>
 
         <div class="units-row">
@@ -633,6 +641,19 @@
         </div>
 
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <!--
+      <img src="https://jsndyks.github.io/cityCreativeCoding/images/bug-rgb.png">
+      <img src="https://jsndyks.github.io/cityCreativeCoding/images/bug-colour.png">
+      <p>
+        <a http="http://digital.pho.to/">http://digital.pho.to/</a>
+      </p>
+    -->
+                <p>&nbsp;</p>
+                <p>Chat to a colleague in your group and decide whether you agree with them or not<br />In each case -
+                    TRUE of FALSE?</p>
+                    <p>And then try to think, and chat, about why.<br/>Does this apply to all images, or just this one?</p>
+            </div>
             <div class="unit-70-cc">
 
                 <div class="coreTask">
@@ -653,19 +674,6 @@
                             without looking at the full colour image?</li>
                     </ol>
                 </div>
-            </div>
-            <div class="unit-30-cc annotation">
-                <!--
-      <img src="https://jsndyks.github.io/cityCreativeCoding/images/bug-rgb.png">
-      <img src="https://jsndyks.github.io/cityCreativeCoding/images/bug-colour.png">
-      <p>
-        <a http="http://digital.pho.to/">http://digital.pho.to/</a>
-      </p>
-    -->
-                <p>&nbsp;</p>
-                <p>Chat to a colleague in your group and decide whether you agree with them or not<br />In each case -
-                    TRUE of FALSE?</p>
-                    <p>And then try to think, and chat, about why.<br/>Does this apply to all images, or just this one?</p>
             </div>
         </div>
 
@@ -696,6 +704,15 @@
         </div>
 
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <p><br />
+                    <b>Image grid</b><br /><i>Click image to the left to activate it, then stretch the window it appears
+                        in so that you can see the full image. You should then see something like the image to the
+                        right.<br /> <br />
+                        Click and press keys to interact. Press the 'h' key for help on the keys and their effects as
+                        shown below.</i>
+                </p>
+            </div>
             <div class="unit-70-cc">
                 <table cellspacing="4" cellpadding="4" border="0">
                     <tr>
@@ -710,18 +727,17 @@
                 </table>
 
             </div>
-            <div class="unit-30-cc annotation">
-                <p><br />
-                    <b>Image grid</b><br /><i>Click image to the left to activate it, then stretch the window it appears
-                        in so that you can see the full image. You should then see something like the image to the
-                        right.<br /> <br />
-                        Click and press keys to interact. Press the 'h' key for help on the keys and their effects as
-                        shown below.</i>
-                </p>
-            </div>
         </div>
 
         <div class="units-row">
+            <div class="unit-30-cc annotation cc-right" style="padding-top:4em">
+                <img src="https://jsndyks.github.io/cityCreativeCoding/images/imageGridHelp.png" width="250" />
+                <p>
+                    <br />
+                    <!---<b>Keys to press!</b><br/>--->
+                    <i>Try using these keys to complete the tasks...</i>
+                </p>
+            </div>
             <div class="unit-70-cc">
                 <div class="coreTask">
                     <p>Open the <i>Image Grid</i> sketch and press the 'h' key to get help on the functionality.<br/>
@@ -744,14 +760,6 @@
                     </ol>
 
                 </div>
-            </div>
-            <div class="unit-30-cc annotation" style="padding-top:4em">
-                <img src="https://jsndyks.github.io/cityCreativeCoding/images/imageGridHelp.png" width="250" />
-                <p>
-                    <br />
-                    <!---<b>Keys to press!</b><br/>--->
-                    <i>Try using these keys to complete the tasks...</i>
-                </p>
             </div>
         </div>
 
