@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>CreativeCoding Lecture: Images Extra</title>
+    <title>CreativeCoding Extra : Images</title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,18 +60,19 @@
         <!-- Content below -->
 
 
-        <p>We have some additional ideas and some exercises that might push one or two of you a little further!<br />
+        <p class="intro">
+            We have some additional ideas and some exercises that might push one or two of you a little further!<br />
             If you have completed the task and challenges in the <a
-                href="https://moodle4.city.ac.uk/mod/page/view.php?id=420908">Images lecture</a> and if you are
-            <b>flying</b> through <b><code>#CreativeCoding</code></b> and don't have enough to do then try the following!
+                href="https://moodle4.city.ac.uk/mod/page/view.php?id=819308">Images : Core</a> and if you are
+            <b>flying</b> through <code>#CreativeCoding</code> at great speed and don't have enough to do then try the following!
         </p>
-        <p>If not, complete the <a
-            href="https://moodle4.city.ac.uk/mod/page/view.php?id=420908">Images lecture</a> and have a rest!</p>
+        <class="intro">If not, complete the <a
+            href="https://moodle4.city.ac.uk/mod/page/view.php?id=819308">Images : Core</a> and have a rest!</p>
 
         <hr>
         <h3>Image sequences for animation</h3>
         <div class="units-row">
-            <div class="unit-70">
+            <div class="unit-70-cc">
         <p>
             We have seen that we can use multiple images on the canvas, with different processing and effects.
             But sometimes we would like to change the image that we show as time progresses.
@@ -84,7 +85,7 @@
         </div>
 
         <div class="units-row">
-            <div class="unit-70">
+            <div class="unit-700-cc">
 
                 <table>
                     <tbody>
@@ -126,9 +127,9 @@
                         </tr>
                     </tbody>
                 </table>
-                <p>Incidentally, many browsers will let you drag these eight images 👆 (one by one) straight from the web page into a folder or even a sketch.</p>
+                <p>Incidentally, many browsers will let you drag these eight images 👆 (one by one) straight from the web page into a folder or even a <i>Processing</i> sketch.</p>
                 <p>
-                    Arrays come in handy storing multiple images that represent a character in sequence. 
+                    Arrays come in handy for storing multiple images that represent a character in sequence. 
                     We can create an array of images, just as we have created arrays of integers, floating point numbers and Strings.
                     Each image can be indexed by its position in the array as shown in the following code snippet.</p>
             </div>
@@ -136,7 +137,7 @@
 
 
         <div class="units-row">
-            <div class="unit-70">
+            <div class="unit-70-cc">
                 <pre class="brush: processing; gutter: false; toolbar: false; ">      // -- Create an array of eight PImages called 'sprite'.
       PImage [] sprite = new PImage[8];
 
@@ -151,16 +152,16 @@
       image(sprite[frame], 0, 0);
       </pre>
             </div>
-            <div class="unit-30 annotation">
+            <div class="unit-30-cc annotation cc-right">
               <p>This is just a few lines of code that may be helpful.<br/>
-                You'll need to decide which of these things need to go in <code>setup()</code> to be done once, <code>draw()</code> to be done repeatedly - <code>frameRate</code> times per second, and to be declared at the top of the sketch to ensure global scope.</p>
+                You'll need to decide which of these things need to go in <code>setup()</code> to be done once, <code>draw()</code> to be done repeatedly (<code>frameRate</code> times per second), and to be declared at the top of the sketch to ensure global scope.</p>
           </div>
         </div>
 
         <div class="units-row">
-            <div class="unit-70">
+            <div class="unit-70-cc">
                 <div class="challenge">
-                    <p><b>Extra Challenge - Simple Game</b></p>
+                    <h5>Extra Challenge - Simple Game</h5>
                     <p>Download the eight images and drop them into a sketch.</p>
                     <p>Then see whether you can animate them by building on the code snippet shown above.<br/>
                         You should try to :</p>
@@ -168,10 +169,9 @@
                         <li>load the eight images into a <code>PImage</code> array</li>
                         <li>draw an image at the mouse position with <code>image</code></li>
                         <li>make the image dependent upon the progress of the script with <code>frameCount</code> or
-                            <code>millis()</code><br />&nbsp;&nbsp;&nbsp;- try something like
+                            <code>millis()</code><br />&nbsp;&nbsp;&nbsp;- to get an array element between 0 and 7 try something like
                             <code>(millis()/100)%8</code>
-                            <br />&nbsp;&nbsp;&nbsp;- just <code>println()</code> this to the console at first if you
-                            don't see what it does
+                            <br />&nbsp;&nbsp;&nbsp;- just <code>println()</code> this to the console at first if you don't see what it does
                         </li>
                         <li>vary the speed at which the animated runner moves through his running action<br />&nbsp;&nbsp;&nbsp;- try varying the
                             denominator that you use to divide <code>millis()</code></li>
@@ -182,7 +182,17 @@
         </div>
 
         <div class="units-row">
-            <div class="unit-70">
+            <div class="unit-30-cc annotation cc-right" style="padding-top:-14em">
+                <figure>
+                    <script>
+                    loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/ForestRun", 270, 300, "https://jsndyks.github.io/cityCreativeCoding/images/forest_run.png");
+                    </script>
+                    <figcaption>
+                        <p>Click to have a go!</p>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="unit-70-cc">
                 <p>We can use animated graphics like this to develop characters in games and other applications.</p>
                 <p>For example, a basic side-scrolling game world consisting of a character running in a forest, might:
                 </p>
@@ -200,36 +210,39 @@
         </div>
 
         <div class="units-row">
-            <div class="unit-70">
+            <div class="unit-70-cc">
                 <div class="coreTask">
-                    <p>The simple game on the right is an example.<br />Try it out!<br />Hit 'space' to protect your
-                        toes and to engage in some <i>very dodgy physics</i>.<br/>You can do better!</p>
+                    <h5>Play the Simple Game</h5>
+                    <p>The simple game above right is an example.<br />Try it out!<br />Click and then move and resize the window that opens.</p>
+                    <p>Hit 'space' to protect your toes and to engage in some <i>very dodgy physics</i>.<br/>You can do better!</p>
                 </div>
-            </div>
-            <div class="unit-30 annotation" style="padding-top:-14em">
-                <script>
-                    loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/ForestRun", 540, 600, "https://jsndyks.github.io/cityCreativeCoding/images/forest_run.png");
-                </script>
-                <p><br />Click to have a go!</p>
             </div>
         </div>
 
         <div class="units-row">
-            <div class="unit-70">
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                    <table cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/invader11.down.png" width="67" height="67"
+                                style="padding:0.5em" /></td>
+                            <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/invader11.up.png" width="67" height="67"
+                                style="padding:0.5em" /></td>
+                        </tr>
+                    </table>
+                    <figcaption>
+                        <p>Invader images</p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="unit-70-cc">
                 <p>As an alternative, use our two friendly space invaders and animate between these two images.
                     <br />They might find it interesting to fly through a forest.
                 </p>
-                <p>You would only need an array of two images in this case.</p>
-                <pre class="brush: processing; gutter: false; toolbar: false; ">PImage [] sprite = new PImage[2];</pre>
-            </div>
-            <div class="unit-30 annotation">
-                <div style="float:right; padding-right:2em">
-                    <img src="https://jsndyks.github.io/cityCreativeCoding/images/invader11.down.png" width="33" height="33"
-                        style="padding:0.5em" />
-                    <img src="https://jsndyks.github.io/cityCreativeCoding/images/invader11.up.png" width="33" height="33"
-                        style="padding:0.5em" />
-                </div>
                 <p>Right click on these images to download them or drag them into your sketch.</p>
+                <p>You would only need an array of two images in this case to make an animated invader.</p>
+                <div style="width:48em"><pre class="brush: processing; gutter: false; toolbar: false; ">PImage [] sprite = new PImage[2];</pre></div>
             </div>
         </div>
 
@@ -239,16 +252,16 @@
 
         <h3>Charlie's Challenge : Forest Run</h3>
 
-        <p><i>Charlie Watson</i> and our former colleague <i>Greg Slabaugh</i> produced the bones of a game and we hope
+        <p><i>Charlie Watson</i> and our former colleague <i>Greg Slabaugh</i> produced the outline of a game and we hope
             that some of you might enjoy developing it a little.</p>
         <hr>
         <p>OK, just so you know, this task is much harder than the rest and we only expect a few of you who are
             experienced programmers to take it on.<br/>But some of you seem keen to develop games, so here is a start!</p>
-        <p>It's also quite open ended and open to interpretation, so discuss your ideas with your class tutor and be
+        <p>It's also quite open ended and open to interpretation, so discuss your ideas with the teaching staff and be
             creative.</p>
 
         <div class="challenge">
-            <p><b>Extra Challenge - Charlie's Challenge</b></p>
+            <h5>Extra Challenge - Charlie's Challenge</h5>
             <p>Download the Forest Run program.</p>
             <ul>
                 <li><a href="https://jsndyks.github.io/cityCreativeCoding/sketches/ForestRun.zip">Forest Run sketch and
@@ -259,8 +272,7 @@
 
             <ul>
                 <li style="padding-bottom:4px">Using an array, add some scary obstacles along the path, rendered using images.
-                    <br/>Note: in the
-                    directory there is an image called "log.png" that you're welcome to use.
+                    <br/>Note: in the folder there is an image called "log.png" that you're welcome to use.
                     The "camera" in the game is moving horizontally with the player.
                     So when drawing objects, simply subtract the <code>playerPosition.x</code> from the location.
                     For example, <code>image(object, location[i].x -playerPosition.x, location[i].y);</code> where
@@ -276,12 +288,10 @@
                     (particularly the sprite) in the images, some padding may be required to relax the collision
                     detection.
                 </li>
-                <li style="padding-bottom:4px">Implement an appropriate action when the player collides with an obstacle<br/>(i.e., life lost or game
-                    over).
+                <li style="padding-bottom:4px">Implement an appropriate action when the player collides with an obstacle<br/>(i.e., life lost or game over).
                 </li>
                 <li style="padding-bottom:4px">Using another array, add some pickups for the game.<br/>
-                    The data directory contains an image named "coin.jpg"
-                    that you can use for this purpose.
+                    The data directory contains an image named "coin.jpg" that you can use for this purpose.
                 </li>
                 <li style="padding-bottom:4px">Apply collision detection to the pickups.<br/>If the player collides with a pickup, make it disappear (stop drawing it).
                 </li>
@@ -294,7 +304,7 @@
         </div>
 
         <div class="challenge">
-            <p><b>Extra Challenge - Jason's Challenge</b></p>
+            <h5>Extra Challenge - Jason's Challenge</h5>
             <p><b>Jason says ...</b></p>
             <p>Hang on a moment ... this all feels a little gendered to me.<br />
                 Here's a challenge.<br />
@@ -308,7 +318,7 @@
         <p>Here's another open-ended challenge that encourages you to add your own data ...</p>
 
         <div class="challenge">
-            <p><b>Extra Challenge - City Ride</b></p>
+            <h5>Extra Challenge - City Ride</h5>
             <p>Jason has produced a rudimentary sketch that allows you to interact with geographically positioned
                 photographs that he has taken on his ride to work.
                 <br />You can download the sketch and some pictures, and see if you can adapt it:
