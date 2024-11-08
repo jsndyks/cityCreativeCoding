@@ -35,8 +35,8 @@
    * -- removing side columns ...
    */
 
-  .unit-30-cc {margin:4px; background-color:#ffffff; padding:0.25em; border:dashed #e0e0e0 0px} 
-  .unit-70-cc {margin:4px; background-color:#ffffff} 
+  .unit-30-cc {margin:4px; background-color:#ffffff; padding:0.25em; border:dashed #e0e0e0 0px; clear:both; } 
+  .unit-70-cc {margin:4px; background-color:#ffffff;} 
   .unit-30-cc annotation .right {float:right}
   .cc-right {float:right; padding:2px}
 
@@ -130,7 +130,7 @@ code {color:#6AA0CF; background-color:#f0f8ff}
 code {color:#228;background-color:#e0f0f080}
 
 
-h3 {padding-top:0.25em; margin-top:1em; border-top:1px dashed #e0e0e0}
+h3 {padding-top:0.25em; margin-top:1em; border-top:1px dashed #e0e0e0; clear:both}
 .codeTask h5 {padding-top:0.05em; padding-bottom:0.25em; color: #606090}
 .coreTask h5 {padding-top:0.05em; padding-bottom:0.25em; color: #906060}
 .challenge h5 {padding-top:0.05em; padding-bottom:0.25em; color: #903030}
@@ -155,5 +155,7 @@ h3 {padding-top:0.25em; margin-top:1em; border-top:1px dashed #e0e0e0}
  * right aligned figures with captions that fit!
  *
  */
-.cc-right figure {display:table}
+.cc-right figure {display:table;}
 .cc-right figure figcaption {display:table-caption;caption-side:bottom}
+
+.hrClear {clear:both; padding:0; border:dashed #f0f0f0 1px;}
