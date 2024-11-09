@@ -45,7 +45,6 @@
         <!-- Content below -->
 
         <div class="intro">
-            <p>Data</p>
 
             <p><strong>If you read through these notes, attempt the tasks and exercises and use the resources
                     that we have made available, then you are expected to be able to:</strong>
@@ -57,6 +56,8 @@
                     target="_blank"><code>loadStrings()</code></a>;</li>
                 <li>Split a line of text into <i>tokens</i> representing individual words or numbers with <a href="https://processing.org/reference/split_.html"><code>split()</code></a>;</li>
                 <li>Rescale a number from one range to another using the <a href="https://processing.org/reference/map_.html"><code>map()</code></a> command;</li>
+                <li>Use the <a href="https://processing.org/reference/class.html"><code>class</code></a> command to define an object that captures data relating to your observations;</li>
+                <li>Depict data that is stored in a digital data file on the canvas;</li>
             </ul>
 
         </div>
@@ -71,7 +72,7 @@
 
         <!-- Traffic Lights : Paper -->
 
-        <h3>1. Paper</h3>
+        <h3>1. From Paper to Canvas</h3>
 
         <div class="unit-30-cc annotation cc-right">
             <figure>
@@ -90,7 +91,7 @@
 
         <hr class="hrInvisible"/>
 
-        <h4>1.1 - Traffic Light Arrays</h4>
+        <h4>1.1 - Traffic Lights &amp; Arrays</h4>
 
 
         <div class="unit-30-cc annotation cc-right">
@@ -407,7 +408,7 @@ void keyPressed() {
         <hr class="hrInvisible"/>
 
         <div class="codeTask">
-        <h5>Data Visualization Experiments</h5>
+        <h5>Initial Data Visualization Experiments</h5>
         <p>Try changing the data in the data file (the CSV) and see what happens.</p>
         <p>Try loading the bigger data set provided above - can you edit the code to make it all fit on screen?<br/>
         Change the arguments passed to <code>size()</code> and the value of <code>lightSize</code>.</p>
@@ -588,7 +589,7 @@ void keyPressed() {
         <p>You can use the <code>&lt;</code> <code>&gt;</code> <code>,</code> and <code>.</code> keys to vary things interactively, and also change the sizing and parameters in the code to vary things programatically, but hopefully you will get something that looks a bit like the image to the right.</p>
         <p>Feel free to experiment by changing the colours, the data and the way in which the information is depicted as you learn.</p>
 
-        <hr class="hrClear"/>
+        <hr class="hrInvisible"/>
 
         <h5>What about more numbers?</h5>
         
@@ -605,9 +606,16 @@ void keyPressed() {
 
         <ul><li>Traffic Light Data (numbers, bigger) - <a href="./data/trafficLights.big.numbers.csv">trafficLights.big.numbers.csv</a></li></ul>
 
-        <hr class="hrClear"/>
+        <hr class="hrInvisible"/>
+        <div class="codeTask">
+            <h5>More Data Visualization Experiments</h5>
+            <p>If you have not done so already, copy the huge chunk of code from above that visualizes numbers and run it.<br/>
+                You will need the data file from above.</p>
+            <p>Experiment with the code, the interactions and the data to really get a feel for the way in which we can use this functionality to get data from paper to canvas via a digital data file and some <i>Processing</i> methods and instructions.</p>
+        </div>
+        <hr class="hrInvisible"/>
 
-        <h5>map() - scale a value from one range to another</h5>
+        <h4>1.2 Scaling Values from One Range to Another</h5>
 
         <p>A vital method that is used above, that we have not yet discussed is <a href="https://processing.org/reference/map_.html"><code>map()</code></a>.</p>
         <p>It is a powerful method that the <a href="https://processing.org/reference/">Processing Reference Documentation</a> describes with a very simple statement: <code>map()</code> ...</p>
@@ -692,24 +700,221 @@ void keyPressed() {
 
         <h3>2. Data Objects</h3>
 
-        <h4>Ummmm ...</h4>
+        <p>So far, so good ... but so limited in so many ways!</p>
+        <p>One of the things you may have noticed up until now is that other than collecting a label for each row (in column 1) our data files and our arrays have contained information of the same type. <i>Arrays<i> and <i>ArrayLists</i> are useful data structures, but they can only be filled with data of a single type.
+        <br/>So, what do we do if we want to collect data about observations that includes: text, numbers, dates, times, and anything else?<br/>How do we do that?
+        </p>
 
+        <h5>Ummmm ...</h5>
         <div class="unit-30-cc annotation cc-right">
             <figure>
-                <img src="https://jsndyks.github.io/cityCreativeCoding/html/welcome/img/ccData.spreadsheet.png" width="400" />
+                <img src="./img/ccData.spreadsheet.Ummmm.dates.jpg" width="400" />
                 <figcaption>
-                    Caption
+                    Data Collection about "Ummmm" events in lectures with a Spreadsheet, using <B>dates</B> and <b>times</B>.
                 </figcaption>
             </figure>
         </div> <!-- end of 30-cc -->
 
-        <p>loadStrings / split () / Array</p>
+        <p>For example, when collecting data about the times that lecturers in the <code>#CreativeCoding</code> lectures say "<i>Ummmm...</i>" I have collected text (<i>who was it?</i>, <i>what was said next?</i>), times (<i>when was it said?</i>) and numbers representing the amount of panic that seemed to be being felt, and the length of the "<i>Ummmm...</i>" ... was it a "<i>Um</i>" or an "<i>Ummmmmm....</i>". I could have collected a number indicating how loud it was - I didn't think of this, a great regret.</p>
 
-        <hr class="hrClear"/>
+        <p>Anyhow, can you think of a <i>data structure</i> that can hold data items of multiple types, that might characterise an event lime an "<i>Ummmm...</i>"?</p>
+
+        <p>Of course you can - that's an <i>Object</i>, right? Defined in a <i>Class</i>. We can write these to capture, model, and process the events that we observe.</p>
+
+        <hr class="hrInvisible"/>
+
+        <div class="unit-30-cc annotation cc-right">
+            <figure>
+                <img src="./img/ccData.spreadsheet.Ummmm.numbers.jpg" width="400" />
+                <figcaption>
+                    Data Collection about "Ummmm" events in lectures with a Spreadsheet, avoiding using <B>dates</B> and <b>times</B> - numbers are used to record days and minutes from a common start time instead.
+                </figcaption>
+            </figure>
+        </div> <!-- end of 30-cc -->
+
+        <h5>Avoid Dates and Times ...</h5>
+
+        <p>But before we do this, I am going to issue some advice. <i>Processing</i> and <i>Java</i> have sophisticated mechanisms for reading, storing and manipulating <i>dates</i> and <i>times</i>, but in my experience it does take quite a lot of <i>time</i> and pain and effort to get the hang of this. So I strongly suggest that you steer clear of them. Here goes - an edict:</p>
+        
+        <ul><li>In your <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=795684">Dear Data Diary</a> digital data sets ...<br/><span style="color:#b44">use <i>integers</i> and <i>floats</i> to represent days, hours, minutes and seconds from some starting date or time. <b>Avoid using <i>dates</i> and <i>times</i></b>.</span></li></ul>
+        
+        <p>You can see how this might be achieved on the right, where the green columns now use numbers to indicate <i>days from the start of data collection</i> and <i>minutes into the lecture</i> rather than the absolute times and dates. <b>Do this!</b></p>
+
+
+        <hr class="hrInvisible"/>
+
+        <h5>A Class for Capturing and Depicting an Ummmm....</h5>
+
+        <p>OK - here is a class complete with a <i>Constructor</i> that defines the 6 arguments that must be passed into each object when it is initialized - two <i>Strings<i> and four <i>Integers</i> that will be used to fill the <i>fields</i> in each object that contain the data for each observation.</p>
+
+        <pre class="brush: processing; gutter: false; toolbar: false; highlight:[]">
+    // -- a class for every observation of a lecturer saying "Ummm..." in a lecture
+    
+    class Ummmm {
+    
+      // -- the fields that will be used to capture the observation, these will be filled with data
+      String who, next;
+      int day, min;
+      int howBad, howLong;
+      PVector coords = new PVector(0, 0);     // -- place to draw on the canvas - (0,0) initially
+      PVector size = new PVector(100, 20);    // -- width and height - (100,20) initially
+      color whoColour;
+    
+      // -- the Constructor is called whenever an object of this type is initialised:
+      Ummmm (String person, String followed, int dayNum, int minNum, int badNum, int longNum) {
+        
+        who = person;
+        next = followed;
+        day = dayNum;
+        min = minNum;
+        howLong = longNum;
+        howBad = badNum;
+    
+        float wi = map(howLong, 0, 5, 0, width/5.0);
+        float hi = map(howBad, 0, 6, 0, height/20.0);
+        size =  new PVector(wi, hi);
+    
+        // -- store the colour dependent upon the value of the "who" field:
+        if (who.equals("JD")) {
+          whoColour = colJD;
+        } else if (who.equals("GT")) {
+          whoColour = colGT;
+        } else if (who.equals("GB")) {
+          whoColour = colGB;
+        } else {
+          whoColour = color(200, 128);
+        }
+      }
+    
+      // -- draw method uses the coords and size PVectors to position, size and animate  
+      //    the rectangle that represents the observation (and the data collected)
+      void draw () {
+        stroke(16, 200);
+        fill(whoColour);
+        
+        // -- add random jitter in Y based on value (magnitude) of howBad:
+        float randomY = random(-howBad,howBad);
+        rect(coords.x, coords.y, size.x, size.y+randomY);
+    
+        // -- add text:
+        fill(16, 200);
+        text(next,coords.x, coords.y-size.y/2f-4);
+      }
+    }
+    </pre>
+
+    <p>You should copy this code into a tab entitled <i>Ummmm</i> in a new <i>Processing</i> sketch.</p>
+
+    <p>Now copy the following code into the main tab - this contains our familiar methods: <code>setup()</code>, <code>draw()</code> and any <i>interaction</i> methods that are called when <i>Processing</i> detects keyboard and mouse events.</p>
+
+        <pre class="brush: processing; gutter: false; toolbar: false; highlight:[]">
+
+            // -- An array of strings into which we will load our data file:
+            String [] dataFileRows;
+            
+            // -- an empty ArrayList that will contain our Ummmm objects:
+            ArrayList&lt;Ummmm&gt; ummmms = new ArrayList&lt;Ummmm&gt;();
+            
+            // -- colours for each of the lecturers:
+            color colJD, colGT, colGB;
+            
+            
+            void setup () {
+              size(400, 500);
+              rectMode(CENTER);
+              textAlign(CENTER,BOTTOM);
+              
+              // -- specify the colours for JD, GT and GB:
+              colJD = color(255,128,64,200);
+              colGT = color(64,128,255,200);
+              colGB = color(255,128,255,200);
+            
+              // -- Read the data and create the objects:
+              int thisRow = 0;
+              
+              dataFileRows = loadStrings("ccData.Ummmm.csv"); // &lt;-- load the data from file
+              
+              for (String row : dataFileRows) {
+                if (thisRow >0) {  // &lt;-- ignore the first row - column headers, not data
+                
+                  // -- Split the row at each comma and store the output in a new 'tokens' array:
+                  String [] tokens = split(row, ",");
+                  
+                  // -- use tokens array to grab data from the row to populate object:
+                  String name = tokens[0];
+                  String next = tokens[3];
+                  int day = int(tokens[1]);
+                  int min = int(tokens[2]);
+                  int bad = int(tokens[4]);
+                  int len = int(tokens[5]);
+                  // -- you need to know which column each data item is in in your inout file to do this!
+            
+                  // -- create a new object of type Ummmm - one for each row
+                  // -- using the data from the row to initialise the object:
+                  Ummmm u = new Ummmm(name, next, day, min, bad, len);
+            
+                  // -- calculate the position at which to place the mark and store this in the object:
+                  float y = map(thisRow,  1,dataFileRows.length-1, height*0.05, height*0.95);
+                  float x = map(min, 0,120, width*0.05, width*0.95);
+                  
+                  // -- update the coordinates with the new PVector:
+                  u.coords = new PVector(x,y);
+            
+                  // -- add the object it to the ArrayList of Ummmm objects
+                  ummmms.add(u);
+                }
+                thisRow++; // &lt;-- keep a count of which row we are on
+              }
+            }
+            
+            
+            void draw() {
+              background(250);
+              
+              // -- loop through the Ummmms in the ArrayList and draw them by calling the draw() method!
+              for (Ummmm u : ummmms) {
+                u.draw();
+              }
+            
+            }
+            
+            void mouseClicked () {
+              int r = int(random(11111, 99999));
+              save("canvas"+r+".png");
+            }</pre>
+
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                    <img src="./img/dataSketch.ummmm.png" width="300" />
+                    <figcaption>
+                        Data Visualization showing "Ummmm" objects that represent "Ummmm" events in lectures as recorded in our '.csv' data file.
+                    </figcaption>
+                </figure>
+            </div> <!-- end of 30-cc -->
+                
+
+            <p>However hard you study it, you will need some data to make the sketch work.<br/>This is available below.<br/>Download the file and drag it into your sketch folder.</p>
+
+            <ul><li>Ummmm... Data - <a href="./data/ccData.Ummmm.csv">ccData.Ummmm.csv</a></li></ul>
+
+            <p>Hopefully you can make the sketch run and you'll see something like the canvas shown to the right.<br/>With a little more dynamism.</p>
+            <p>The sketch is important as it's a simple example of the way in which we can convert data in a digital file into pictures that depict those data in meaningful ways. And this is a relatively elegant and powerful capability. So do try to master it. We hope that it will excite you sand encourage you to keep collecting rich and interesting data, as with this kind of capability the possibilities for depiction and discovery are immense.</p>
+
+            <hr class="hrInvisible"/>
+
+            <div class="codeTask">
+                <h5>Visualizing Ummmms</h5>
+                <p>That's a lot of code, but when you read through and check the comments you'll see that it's actually pretty compact.</p>
+                <p>Please spend time reading it thoroughly, thinking about it, discussing it and experimenting with it.</p>
+                <p>Check the <a href="https://processing.org/reference/">Processing Reference Documentation</a> as you do, try the examples that are provided to ensure that you understand the various methods.</p>
+                <p>Edit the data file - add rows, see the effects.</p>
+                <p>Change the script - add columns to the data file and fields to the object to depict new data in different ways.</p>
+                <p>Try to use the <b>PAROT Talk</b> approach and discuss your progress and (coding) problems with your colleagues and teachers.</p>
+            </div>
 
 
         <!-- Data Dogs -->
-
+<!---
         <h3>3. Data Dogs</h3>
 
 
@@ -720,12 +925,13 @@ void keyPressed() {
                     Data Dogs
                 </figcaption>
             </figure>
-        </div> <!-- end of 30-cc -->
+        </div> 
 
         <p>Use Data Dogs from previous lecture</p>
 
-        <hr class="hrClear"/>
-        
+        <hr class="hrInvisible"/>
+  --->
+
         <!-- End of content : clear floats -->
         <div style="padding-bottom:2em;clear:both" />
         
