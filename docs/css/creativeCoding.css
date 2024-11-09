@@ -159,3 +159,4 @@ h3 {padding-top:0.25em; margin-top:1em; border-top:1px dashed #e0e0e0; clear:bot
 .cc-right figure figcaption {display:table-caption;caption-side:bottom}
 
 .hrClear {clear:both; padding:0; border:dashed #f0f0f0 1px;}
+.hrInvisible {clear:both; padding:0; border:none #ffffff 0px;}
