@@ -66,7 +66,7 @@
 
         <hr>
 
-        <p>We're going to look at ways of getting <i>data</i> into your sketches here, and will build upon some of the ways of collecting <i>data</i> that you may have embarked upon. A few are described on the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=818121">Data Collection</a> page, and we wil use some of these to demonstrate.
+        <p>We're going to look at ways of getting <i>data</i> into your sketches here, and will build upon some of the ways of collecting <i>data</i> that you may have embarked upon. A few are described on the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=818121">Data Collection</a> page, and we will use some of these to demonstrate.
         </p>
 
         <!-- Traffic Lights : Paper -->
@@ -82,9 +82,11 @@
             </figure>
         </div> <!-- end of 30-cc -->
 
-        <p>You may have collected data on paper - of so, great, this is a quick and easy and accessible and reliable way to record data in everyday life.
+        <p>You may have collected data on paper - of so, great, this is a quick and easy and accessible and reliable way to record data in everyday life.<br/>
             But you will need to put it into a digital file to use it in <i>Processing</i>. 
         </p>
+        <p>The easiest way is to just transcribe whatever you have into a table in a spreadsheet ... it will take a bit of typing, and you may need a friend to yell out the numbers ... but you'll soon get there.</p>
+        <p>Be sure to save your data as a <i>text file</i>. There are various text formats, but <i>comma separated</i> or <i>comma delimited</i> works best, and files like this are often give a <i>.csv</i> extension that identifies them as containing <i>comma separated (data) values</i>.<br/>So save as <i>csv</i> if you can.</p>
 
         <hr class="hrInvisible"/>
 
@@ -95,39 +97,606 @@
             <figure>
                 <script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/data/img/ccData.paperToXLS.jpg', 400, 225, 'Data Collection on Paper');</script>
                 <figcaption>
-                    Data captured on paper - great!
+                    Data in a CSV file - better!
                 </figcaption>
             </figure>
         </div> <!-- end of 30-cc -->
 
-        <p>loadStrings / split () / Array</p>
+        <p>Once you have the data file, open a sketch and use the file manager to drag the data file into the sketch - then you can access the data in the sketch.<br/>
+        Remember that <i>CTRL-K</i> (PC) or <i>CMD-K</i> (Mac) will show you the <i>Processing</i> sketch file in your file manager. You should be able to see your 'CSV' data file in the '<i>data</i>' folder.</p>
 
-        <hr class="hrClear"/>
+        <p>You will need this data file in the examples that follow - so download it here:</p>
+        <ul><li>Traffic Light Data - <a href="./data/trafficLights.csv">trafficLights.csv</a></li></ul>
 
-        <h4>1.2 - Traffic Light Objects</h4>
+        <h5>Load the Data into an Array with loadStrings()</h5>
+        <p>OK, now we can use the <a href="http://processing.org/reference/loadStrings_.html"><code>loadStrings()</code></a> method to grab the data and put it into an array so that we can access it in our sketch. Please look at the <a href="http://processing.org/reference/loadStrings_.html"><code>loadStrings()</code></a> reference documentation, which tells us that <a href="http://processing.org/reference/loadStrings_.html"><code>loadStrings()</code></a> :</p>
+        <blockquote>Reads the contents of a file and creates a String array of its individual lines.</blockquote>
+        <p>So if we create an array of Strings, we can push the output of the <a href="http://processing.org/reference/loadStrings_.html"><code>loadStrings()</code></a> method into it, which will give us an array element for each line of the data file.</p>
+        <p>See below and try this out!</p>
+        <pre class="brush: processing; gutter: false; toolbar: false;">// -- Global variable is an array of Strings to hold each row of the data file:
+String [] lightData;
 
+void setup () {
+    // -- load the data from the file into an array of Strings with loadStrings():
+    lightData = loadStrings("trafficLights.csv");
+
+    // -- use println() to check what's going on!
+    println("The Whole Array ...");
+    printArray(lightData);
+    
+    println("Individual Array Elements ...");
+    println(lightData[0]);
+    println(lightData[3]);
+}</pre>
+
+    <p>Run this sketch and check the output, which should look something like this ... depending on your data!</p>
+
+<pre class="console">The Whole Array ...
+[0] "MON,R,R,R,G,G,R,R,A,G,G,R,,"
+[1] "TUE,R,R,G,G,G,G,R,G,A,R,G,,"
+[2] "WED,G,G,R,R,R,G,R,G,A,R,G,R,R"
+[3] "THU,G,G,R,G,G,R,,,,,,,"
+[4] "FRI,Sick all day in Bed!,,,,,,,,,,,,"
+Individual Array Elements ...
+MON,R,R,R,G,G,R,R,A,G,G,R,,
+THU,G,G,R,G,G,R,,,,,,,</pre>
+
+        <p>There are a few things to note here ...</p>
+        <ol>
+            <li>The data are in your sketch - <i>Hooray!</i></li>
+            <li>There is a weird space before the first line - <i>Darn!</i> - let's not worry about it</li>
+            <li>The shorter rows contain extra commas, so each row has the same number of values, even though these were not in the original spreadsheet - <i>OK, interesting</i></li>
+            <li>We need to split the data up into individual items to be able to do anything with it - <i>Hmmm</i></li>
+        </ol>
+
+        <h5>Split the Data into Tokens with split()</h5>
+
+        <p>Let's do the splitting. We will use split to do this, and we need to consider each line of our data file in turn. With luck, you will be thinking about using a <i>loop</i> for this. That's what we are going to do. See the following code, check the comments and give it a go.</p>
+
+        <pre class="brush: processing; gutter: false; toolbar: false; highlight:[12]">// -- Global variable is an array of Strings to hold each row of the data file:
+String [] lightData;
+
+void setup () {
+    // -- load the data from the file into an array of Strings with loadStrings():
+    lightData = loadStrings("trafficLights.csv");
+
+    // -- loop through each line of our data array in turn:
+    for (int i=0; i&lt; lightData.length; i++) {
+    
+        // -- a local variable (an array of Strings) into which we put the output of split():
+        String [] dataItems = split(lightData[i],",");
+        
+        // -- check what is going on in the console:
+        println("Here is the array generated by split() for line",i);
+        printArray(dataItems);
+    }
+
+}</pre>
+
+        <p>Notice in the highlighted line above that we use <a href="https://processing.org/reference/split_.html"><code>split()</code></a> to split each line from our data file at each comma, so that we can access the individual values in a new array.</p>
+        <p>This is nicely stated in the <i>Processing</i> reference documentation for the <a href="https://processing.org/reference/split_.html"><code>split()</code></a> method:</p>
+        <blockquote>
+            The split() function breaks a String into pieces using a character or string as the delimiter. The delim parameter specifies the character or characters that mark the boundaries between each piece. A String[] array is returned that contains each of the pieces.
+        </blockquote>
+        
+        <h5>Store the data in a 2D Array</h5>
+
+        <p>But we are only putting the data into a temporary local array here and we probably want to retain it and use it in the <code>draw()</code> method (when we get around to writing one). So, let's be a little more sophisticated in our use of data structures in our sketch and use a <i>two-dimensional array</i> to store our data.</p>
+        <p>Read the following code and comments, noting the highlight - a line where we allocate an individual comma separated data item into a 2D array in which the first dimension is the line of the file and the second is the number of the data item in the line. This basically gives us a 2D structure that in which we can locate data items according to the row and column in our spreadsheet: <code>&nbsp;&nbsp;data[row][column]&nbsp;&nbsp;</code></p>
+        
+        <pre class="brush: processing; gutter: false; toolbar: false; highlight:[27]">// 2D Array example ...
+
+    // -- Global variables ...
+    // -- An array of Strings to hold each row of the data file:
+    String [] lightData;
+    // -- A 2D array of strings to hold each data item in a separate array element
+    String [][] data;  // &lt;-- first dimension is row of spreadsheet, second is column 
+    
+    void setup () {
+      // -- load the data from the file into an array of Strings with loadStrings():
+      lightData = loadStrings("trafficLights.csv");
+    
+      // -- initialise the data array, to contain an array for each line of the data file:
+      data = new String [lightData.length][];
+    
+      // -- loop through each line of our data array in turn:
+      for (int i=0; i&lt; lightData.length; i++) {
+    
+        // -- a local variable (an array of Strings) into which we put the output of split():
+        String [] dataItems = split(lightData[i], ","); // &lt;-- splitting the line at each comma
+    
+        // -- we need to initialise each element of the data array now we know how many items are in the line:
+        data [i] = new String [dataItems.length];
+    
+        // -- loop through each comma separated item in the line and put each data item into the appropriate array element:
+        for (int d=0; d&lt; dataItems.length; d++) {
+          data[i][d] = dataItems[d]; // &lt;-- 'i' is the data line (row), 'd' is the data element number (column)
+          
+          // -- check what is going on in the console - so that we know what is what:
+          println(i, d, dataItems[d]); // &lt;-- print out the values of the important variables!
+        }
+      }
+    }</pre>
+
+        <p>Run the code, and check the output in the <i>Processing</i> console.</p>
+
+        <p>It's great that we have the data that was on our NotePad, in a spreadsheet and now in a data structure in our sketch!<br/>
+            Let's check that everything is OK.<br/>
+            Try adding a few commands at the end of <code>setup()</code> that print out individual data items.<br/>
+            Use statements like this:<br/>
+        </p>
+
+        <pre class="brush: processing; gutter: false; toolbar: false; highlight:[]">println(data[3][2]); &lt;-- remember the first number is the 'row' and the second is the 'column'</pre>
+
+        <p>See whether you can 'find' data items from your data file in this way.<br/>
+            Experiment a little to make sure that this makes sense to you.</p>
+
+        <h5>Show the data on the canvas</h5>
+
+        <p>Now we have the data in usable form, with each data item in a place where we can access it our sketch we can, we are in a position to display it.
+            <br/>Here's how!
+            <br/>We will split the sketch into four blocks, and you'll need to consider each before, copying and pasting into a new sketch.  
+        </p>
+
+        <p>First the <b>global variables</b>, with a new one that will be used to scale the marks with which we show our data.</p>
+        <pre class="brush: processing; gutter: false; toolbar: false; highlight:[7]">// -- Global variables ...
+// -- An array of Strings to hold each row of the data file:
+String [] lightData;
+// -- A 2D array of strings to hold each data item in a separate array element
+String [][] data;  // &lt;-- first dimension is row of spreadsheet, second is column
+
+float lightSize=40; // &lt;-- determines the sizes of the marks used to represent data items</pre>
+
+            <p>Next our <b><code>setup()</code> method</b>, which is pretty much the same as before, but with some additional statements at the top that relate to our intention to draw the data on the canvas.</p>
+
+            <pre class="brush: processing; gutter: false; toolbar: false; highlight:[3,4,5,6]">void setup () {
+
+    size(620, 220);
+    textAlign(RIGHT);
+    textSize(18);
+    ellipseMode(CENTER);
+
+    // -- load the data from the file into an array of Strings with loadStrings():
+    lightData = loadStrings("trafficLights.csv");
+
+    // -- initialise the data array, to contain an array for each line of the data file:
+    data = new String [lightData.length][];
+
+    // -- loop through each line of our data array in turn:
+    for (int i=0; i&lt; lightData.length; i++) {
+
+        // -- a local variable (an array of Strings) into which we put the output of split():
+        String [] dataItems = split(lightData[i], ","); // &lt;-- splitting the line at each comma
+
+        // -- we need to initialise each element of the data array now we know how many items are in the line:
+        data [i] = new String [dataItems.length];
+
+        // -- loop through each comma separated item in the line and put each data item into the appropriate array element:
+        for (int d=0; d&lt; dataItems.length; d++) {
+         data[i][d] = dataItems[d]; // &lt;-- 'i' is the data line (row), 'd' is the data element number (column)
+        }
+    }
+}</pre>
+
+        <p>Now we add a <b><code>draw()</code> method</b> because we want to draw marks for each of our data items.<br/>
+        I have tried to make this short-ish, but interesting-ish - a delicate trade-off. So there is some interactivity in here.<br/>
+        It is well commented, so read through, try it out, and discuss with friends, colleagues and teachers.</p>
+        <p>Note in particular the <i>conditions</i> (highlighted) that determine the characteristics of the mark that is drawn based upon the value of the data item.</p>
+
+        <pre class="brush: processing; gutter: false; toolbar: false; highlight:[21,22,23,24,25,26,27,28,29,30,31,32,33]">void draw() {
+
+    background(250);
+
+    // -- Loop through each row in the data array in turn:
+    for (int i=0; i&lt;data.length; i++) {
+    
+        float x = lightSize*1.5;         // &lt;-- x position of the data for this observation
+        float y = lightSize+i*lightSize; // &lt;-- y position of data for this row / day:
+        String dayName = data[i][0];     // &lt;-- first element in each row of the data array is the name of the day
+        color fillColour = color(255, 255, 255); // &lt;-- colour to fill the marks
+        fill(32, 128);
+        text(dayName, lightSize*1.5, y);  // &lt;-- add the name of the day at the start of each row
+    
+        // -- Loop through each column in this row of the data array in turn:
+        for (int d=1; d&lt;data[i].length; d++) {
+            boolean weHaveData = true;  // &lt;-- note whether each String is a valid data item - assume so at outset
+            String light = data[i][d];  // &lt;-- store data value from 2D array in local variable for clarity
+            String lightText = "";     // &lt;-- text to show in the mouseOver feature
+        
+            // -- Condition to set colour and text depending on data value:
+            if (light.equals("G")) {    // &lt;-- use the .equals() method of a String to check its contents
+                fillColour = color(32, 200, 32, 128);
+                lightText = "Green";
+            } else if (light.equals("A")) {
+                fillColour = color(255, 160, 32);
+                lightText = "Amber";
+            } else if (light.equals("R")) {
+                fillColour = color(240, 64, 64);
+                lightText = "Red";
+            } else {
+                weHaveData = false;  // &lt;-- if not "R", "G" or "A", note that this String is not a valid data item
+            }
+        
+            // -- only draw a light on the canvas if we have a String that is "R", "G" or "A".
+            if (weHaveData) {
+                x+=lightSize;                 // &lt;-- move the x position along by lightSize
+        
+                noStroke();
+                fill(fillColour); // &lt;-- use the colour determined in the conditions above
+                circle (x, y, lightSize*0.8); // &lt;-- draw a circle for the light that is a bit less big than lightSize
+        
+                // -- if the mouse is in the circle, add emphasis and text:
+                if (dist(mouseX, mouseY, x, y) < lightSize*0.4) {
+                    stroke(32, 128);
+                    circle(x, y, lightSize*0.9);
+                    fill(16, 200);
+                    text(lightText, mouseX, mouseY-10);
+                }
+            }
+        } // &lt;-- End of Column loop
+    } // &lt;-- End of Row loop
+    
+    noLoop();  //  &lt;-- switch the draw() loop off to save resources
+}</pre>
+
+        <p>The fourth and final code block in this sketch is the <b>interaction methods</b>.
+            Remember, methods with these names are automatically called by <i>Processing</i> following particular events.</p>
+        <pre class="brush: processing; gutter: false; toolbar: false; highlight:[]">
+void mouseMoved () {
+    loop();  //  &lt;-- switch the draw() loop on when mouse is moved (for interaction).
+}
+    
+void keyPressed() {
+    // -- change the size of the light marks following clicks of the &lt; and &gt; keys
+    if (key == '&gt;') {
+        lightSize = lightSize * 1.1;
+    }
+    if (key == '&lt;') {
+        lightSize = lightSize / 1.1;
+    }
+    
+    loop();  //  &lt;-- switch the draw() loop on when a key is pressed so that the canvas updates
+}</pre>
 
         <div class="unit-30-cc annotation cc-right">
             <figure>
-                <script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/welcome/img/ccData.paper.jpg', 400, 225, 'Data Collection on Paper');</script>
+                <script>loadImage('./img/dataSketch.vis.small.png', 400, 225, 'Basic Visualization');</script>
                 <figcaption>
-                    Caption
+                    Basic Visualization
                 </figcaption>
             </figure>
         </div> <!-- end of 30-cc -->
 
-        <p>dayOfLights, ArrayList</p>
+        <p>If you paste all of this into a <i>Processing</i> sketch then you should see something like the graphic to the right.</p>
+        <p>The most important thing though is that you can see the relationships between the data in the CSV file, and the graphics and how we get there.
+            The highlighted lines in the <code>draw()</code> loop are key to this, so do focus on these above and make sure you get a good sense of what is going on.
+        </p>
+        <p>Once we have the data in a 2D array, the key process is as follows:</p>
+        <ol>
+            <li>We loop through each row</li>
+            <li>We loop through each column in each row</li>
+            <li>We check what is in the data item - a String in this case</li>
+            <li>We act depending upon this value - with the <code>if</code> condition here</li>
+        </ol>
 
+        <div class="unit-30-cc annotation cc-right">
+            <figure>
+                <script>loadImage('./img/dataSketch.vis.big.png', 400, 225, 'Bigger Visualization');</script>
+                <figcaption>
+                    Basic Visualization with More Data
+                </figcaption>
+            </figure>
+        </div> <!-- end of 30-cc -->
+
+        <p>Now, of course there is some other stuff:</p>
+        <ul>
+            <li>We position the marks depending upon how many rows and columns have been drawn already</li>
+            <li>We do nothing if the data value is not one of the ones we are interested in</li>
+            <li>We add some text</li>
+            <li>We code up some interactions - the kinds of thing you have seen before</li>
+        </ul>
+
+        
+        <p>One nice feature here is that very little is hard-coded into this solution - so it should scale to larger data sets, those with more rows and columns.<br/>
+            You can test this out by loading a larger data set - try this one:
+        </p>
+            <ul><li>Traffic Light Data (bigger) - <a href="./data/trafficLights.big.csv">trafficLights.big.csv</a></li></ul>
+ 
+        <p>This may give you something that looks a bit like the image to the right if you tweak the scaling and sizing a bit - experiment!</p>
+
+        <hr class="hrInvisible"/>
+
+        <div class="codeTask">
+        <h5>Data Visualization Experiments</h5>
+        <p>Try changing the data in the data file (the CSV) and see what happens.</p>
+        <p>Try loading the bigger data set provided above - can you edit the code to make it all fit on screen?<br/>
+        Change the arguments passed to <code>size()</code> and the value of <code>lightSize</code>.</p>
+        </div>
+
+        <h5>What about numbers?</h5>
+
+        <div class="unit-30-cc annotation cc-right">
+            <figure>
+                <script>loadImage('./img/ccData.paperToXLS.num.jpg', 400, 225, 'Data Collection in a Spreadsheet - Numbers');</script>
+                <figcaption>
+                    Data in a CSV file - numbers!
+                </figcaption>
+            </figure>
+        </div> <!-- end of 30-cc -->
+
+        <p>So this kind of approach is OK if we are dealing with data that are held as <i>Strings</i>, but many will be held as <i>numbers</i> - <i>int</i> or <i>float</i> in <i>Processing</i> terminology.</p>
+
+        <p>Here's an example data file that records the <i>number of seconds</i> that we were held at teach traffic light, rather than just the colour of it.</p>
+        <ul><li>Traffic Light Data (numbers) - <a href="./data/trafficLights.numbers.csv">trafficLights.numbers.csv</a></li></ul>
+
+        <p>The sketch that follows deals with this by :</p>
+        <ol>
+            <li>using <a href="http://processing.org/reference/loadStrings_.html" target="_blank"><code>loadStrings()</code></a> as before to read the lines of a data file into an array</li>
+            <li>declaring and initialising an array of type <i>float</i> into which to store the data - so <code>data[][]</code> is an array of <i>floats</i></li>
+            <li>using <a href="https://processing.org/reference/split_.html"><code>split()</code></a> as before to split the <i>Strings</i> representing rows in the data file into <i>tokens</i></li>
+            <li>converting these <i>tokens</i> from <i>String</i> to <i>float</i> with the very effective <a href="https://processing.org/reference/floatconvert_.html"><code>float()</code></a> method before storing data in the 2D <code>data[][]</code> array (which we declared as being of type <i>float</i>).</li>
+        </ol>
+
+        <p>So in short, we use <a href="http://processing.org/reference/loadStrings_.html" target="_blank"><code>loadStrings()</code></a> and <a href="https://processing.org/reference/split_.html"><code>split()</code></a> to create <i>String</i> data items, and then <a href="https://processing.org/reference/floatconvert_.html"><code>float()</code></a> to convert into a valid number before storing in the <code>data[][]</code> array, which now holds numbers rather than <i>Strings</i>.</p>
+
+        <p>We have a single sketch this time, with highlighted rows that show the changes made to deal with numeric data.<br/>
+           You will really need to <i>take your time</i> to work through the code line by line.<vr/>
+        Please persevere, try things out, and chat to colleagues and teaching staff about the code.</p>
+
+        <pre class="brush: processing; gutter: false; toolbar: false; highlight:[4,5,8,18,19, 21,22,30,31, 35, 37,38,39,40,41,42, 56,63,68, 77, 84,,87,90, 95,96, 117,118,119,120,121,122,123]">
+            // -- Global variables ...
+            // -- An array of Strings to hold each row of the data file:
+            String [] lightData;
+            // -- A 2D array of floating point numbers to hold each data item in a separate array element
+            float [][] data;  // &lt;-- first dimension is row of spreadsheet, second is column, items will be floats (numbers) this time
+            
+            float lightSize=40; // &lt;-- determines the sizes of the marks used to represent data items
+            float lightMax=100; // &lt;-- determines the scaling of the marks used to represent data items
+            
+            void setup () {
+            
+              // -- Configure sizings and modes:
+              size(620, 220);
+              textAlign(RIGHT);
+              textSize(int(lightSize/2));
+              ellipseMode(CENTER);
+            
+              // -- load the data from the file into an array of Strings with loadStrings():
+              lightData = loadStrings("trafficLights.numbers.csv");
+            
+              // -- initialise the data array, our array of floats, to contain an array for each line of the data file:
+              data = new float [lightData.length][];
+            
+              // -- loop through each line of our data array in turn:
+              for (int i=0; i&lt; lightData.length; i++) {
+            
+                // -- a local variable (an array of Strings) into which we put the output of split():
+                String [] dataItems = split(lightData[i], ","); // &lt;-- splitting the line at each comma
+            
+                // -- we need to initialise each element of the data array now we know how many items are in the line:
+                data [i] = new float [dataItems.length];
+            
+                // -- loop through each comma separated item in the line, convert String to float and put each data item into the appropriate array element:
+                for (int d=0; d&lt; dataItems.length; d++) {
+                  float f = float(dataItems[d]);  // &lt;-- convert tokens (String) into a number (float) 
+                  
+                  // -- Check whether the float conversion performed by float() has worked? 
+                  if (Float.isNaN(f)) {
+                    f = -1;    // &lt;-- if 'f' is NotANumber (NaN), store '-1' to record this in our array of floats
+                  }
+                  // -- assign the value of 'f' to the current position in our data array of floats:
+                  data[i][d] = f ; // &lt;-- 'i' is the data line (row), 'd' is the data element number (column) - store 'f'!
+                }
+              }
+            }
+            
+            void draw() {
+            
+              background(250);
+            
+              // -- Loop through each row in the data array in turn:
+              for (int i=0; i&lt;data.length; i++) {
+            
+                float x = lightSize*1.5;         // &lt;-- x position of the data for this observation
+                float y = lightSize+i*lightSize; // &lt;-- y position of data for this row / day:
+                String dayName = lightData[i].substring(0, 3); // &lt;-- first three characters in each row of the String array is the name of the day
+                color fillColour = color(255, 255, 255); // &lt;-- colour to fill the marks
+                fill(32, 128);
+                text(dayName, lightSize*1.5, y);  // &lt;-- add the name of the day at the start of each row
+            
+                // -- Loop through each column in this row of the data array in turn:
+                for (int d=1; d&lt;data[i].length; d++) {
+                  float light = data[i][d];   // &lt;-- store data value from 2D array in local variable for clarity
+                  String lightText = "";      // &lt;-- informative text to show in the tool-tip (mouseOver) feature
+                  float lightRadius = 10;     // &lt;-- store the size of the circle
+            
+                  // -- Check whether 'light' is a valid number, invalids are stored as '-1' above, only proceed if so:
+                  if (light &gt;=0) {
+            
+                    // -- Condition to set colour and text depending on data value:
+                    if (light == 0 ) {
+                      fillColour = color(32, 200, 32, 128);
+                      lightText = "Green";
+                    } else {
+                      fillColour = color(240, 64, 64, 100);
+                      lightText = "Red "+int(light);  // &lt;-- add time to text for tool tip
+                      lightRadius = lightRadius + map(light, 0, 35, 0, lightMax);  // &lt;-- scale radius size to target range based on value of light
+                    }
+            
+                    x+=lightSize;     // &lt;-- move the x position along by lightSize
+            
+                    noStroke();
+                    fill(fillColour); // &lt;-- use the colour determined in the conditions above
+                    circle (x, y, lightRadius*0.8); // &lt;-- draw a circle for the light that is a bit less big than lightSize
+            
+                    // -- tool-tip : if the mouse is in the circle, add emphasis and text:
+                    if (dist(mouseX, mouseY, x, y) &lt; lightRadius*0.4) {
+                      noFill();
+                      stroke(240, 64, 64, 200);
+                      circle(x, y, lightRadius*0.8);
+                      fill(16, 200);
+                      text(lightText, mouseX, mouseY-10);
+                    }
+                  } else {
+                    // -- if the String to float covnersion didn't work, and we have stored '-1' in data[i][d] then report this in the console
+                    println(i,d,"Not a Number: ",data[i][d]);
+                  }
+                } // &lt;-- End of Column loop
+              } // &lt;-- End of Row loop
+            
+              noLoop();  //  &lt;-- switch the draw() loop off to save resources
+            }
+            
+            void mouseMoved () {
+              loop();  //  &lt;-- switch the draw() loop on when mouse is moved (for interaction).
+            }
+            
+            void keyPressed() {
+              // -- change the size of the light marks following taps of the &lt; and &gt; keys
+              if (key == '&gt;') {
+                lightSize = lightSize * 1.1;
+              }
+              if (key == '&lt;') {
+                lightSize = lightSize / 1.1;
+              }
+            
+              // -- change the scaling of the light marks following taps of the , and . keys
+              if (key == '.') {
+                lightMax = lightMax * 1.1;
+              }
+              if (key == ',') {
+                lightMax = lightMax / 1.1;
+              }
+            
+              loop();  //  &lt;-- switch the draw() loop on when a key is pressed so that the canvas updates
+            }
+        </pre>
+            
+
+        <p>All of this code should produce an alternative representation of the traffic light observations - one that takes advantage of the numbers by making the radius of the circles for the red lights proportional to the waiting time.</p>
+        
+        <p>This is the first time we have visualized a <i>quantity</i> with a mark that <i>depicts</i> the quantity directly.</p>
+        <div class="unit-30-cc annotation cc-right">
+            <figure>
+                <script>loadImage('./img/dataSketch.vis.small.num.png', 400, 225, 'Numeric Visualization');</script>
+                <figcaption>
+                    Numeric Visualization - Quantities are depicted by circle radius. Longer waits are bigger red circles.
+                </figcaption>
+            </figure>
+        </div> <!-- end of 30-cc -->
+
+        <p>You can use the <code>&lt;</code> <code>&gt;</code> <code>,</code> and <code>.</code> keys to vary things interactively, and also change the sizing and parameters in the code to vary things programatically, but hopefully you will get something that looks a bit like the image to the right.</p>
+        <p>Feel free to experiment by changing the colours, the data and the way in which the information is depicted as you learn.</p>
+
+        <hr class="hrClear"/>
+
+        <h5>What about more numbers?</h5>
+        
+        <div class="unit-30-cc annotation cc-right">
+            <figure>
+                <script>loadImage('./img/dataSketch.vis.big.num.png', 400, 225, 'Bigger Numeric Visualization');</script>
+                <figcaption>
+                    Numeric Visualization with More Data
+                </figcaption>
+            </figure>
+        </div> <!-- end of 30-cc -->
+
+        <p>Again, the nice thing about this code is that there is not too much hard-wired in to it, it should react well to files of the same type that are of different size.</p><p>So, if we try a larger file with more data - more observations on more days - it should work and we may get a useful visualization if we tweak the scaling a bit.</p>
+
+        <ul><li>Traffic Light Data (numbers, bigger) - <a href="./data/trafficLights.big.numbers.csv">trafficLights.big.numbers.csv</a></li></ul>
+
+        <hr class="hrClear"/>
+
+        <h5>map() - scale a value from one range to another</h5>
+
+        <p>A vital method that is used above, that we have not yet discussed is <a href="https://processing.org/reference/map_.html"><code>map()</code></a>.</p>
+        <p>It is a powerful method that the <a href="https://processing.org/reference/">Processing Reference Documentation</a> describes with a very simple statement: <code>map()</code> ...</p>
+        <blockquote>Re-maps a number from one range to another.</blockquote>
+        <p>So, <a href="https://processing.org/reference/map_.html"><code>map()</code></a> takes <i>5 arguments</i>, described thus: <code>map(value, start1, stop1, start2, stop2)</code></p>
+        <p>The <a href="https://processing.org/reference/">Processing Reference Documentation</a> describes these arguments as follows:</p>
+        <blockquote>
+            <ul>
+            <li><b>value</b>	(float)	the incoming value to be converted</li>
+            <li><b>start1</b>	(float)	lower bound of the value's current range</li>
+            <li><b>stop1</b>	(float)	upper bound of the value's current range</li>
+            <li><b>start2</b>	(float)	lower bound of the value's target range</li>
+            <li><b>stop2</b>	(float)	upper bound of the value's target range</li>
+        </ul>
+        </blockquote>
+        <p>So basically, we can convert a value from one range, to the equivalent position on another range.<br/>
+        We do this to when depicting numeric quantities to scale the marks that we produce on the page, or the positions in which we plot things, so that they fit in and on the dimensions of the screen. So often our mappings are from the <i>data range</i> (start1 - stop1), which may be the minimum and maximum of a data set, to the <i>screen range</i> (start2 - stop2), which may be the minimum and maximum size of any shapes that we need to create, or the width or height of the canvas.</p>
+
+        <p>This is what we do below, with map used twice (see highlights) to calculate positions oon the canvas that represent quantities.<br/>
+        Read through the code, run the code in a new sketch and then try the tasks in <b>PAROT</b> fashion: be sure to think about what you expect to happen and relate this to what you observe. Did your prediction match the observation - and if there is a difference, can you explain it? If not, discuss it.</p>
+
+<pre class="brush: processing; gutter: false; toolbar: false; highlight:[19,21]">
+    // -- globals to hold the top, bottom, left and right extents of the plotting range on the canvas
+    float yTop, yBot;
+    float xLft, xRgt;
+    
+    void setup() {
+      size(600,100);
+      
+      // -- set up plotting ranges as proportions of the canvas size:
+      yTop = height*0.1;
+      yBot = height*0.9;
+      xLft = width*0.1;
+      xRgt = width*0.9;
+    }
+    
+    void draw() {
+      background(250);
+      
+      for (int i=0; i<=5; i++) {
+        float y = map (i, 0,4, yTop,yBot);    // &lt;-- convert from 0-1 to y range on canvas 
+        float r = random(660,1000);
+        float x = map (r, 0,1000, xLft,xRgt); // &lt;-- convert from 0-1000 to x range on canvas
+        
+        // -- draw a line in screen coordinates that represents r through its position on the canvas
+        line(xLft,y, x,y);
+        fill(64,12,12);
+        text(int(r),x+4,y+4);
+        text(i,xLft-12,y+4);
+      }
+      
+      fill(64,12,12,128);
+      text("Click for Another Go!",width-110,height-17);
+      noLoop();
+    }
+    
+    void mouseClicked() {
+      loop();
+    }    
+</pre>
+
+<div class="codeTask">
+    <h5>map() Experiments</h5>
+    <p>Run the code provided above in a new sketch and try the following changes.</p>
+    <p>Use <b>PAROT</b> to predict, attempt &amp run, observe, think and then talk about these experiments.</p>
+    <p>Try ...</p>
+    <ul>
+    <li>varying the size of the canvas</li>
+    <li>changing the ratios used in setting up the plotting ranges</li>
+    <li>changing the minimum value of r</li>
+    <li>changing the maximum value of r</li>
+    <li>switching the 2nd and 3rd, or 4th and 5th parameters to map() in the calculation of x</li>
+    <li>replacing xRgt with mouseX as the 5th parameter to map() in the calculation of x</li>    
+    </ul>
+</div>
+
+<p>It's important that you get the hang of <a href="https://processing.org/reference/map_.html"><code>map()</code></a>.<br/>It's a very simple and very useful method that will enable you to depict data in meaningful ways as you make progress with <code>#CreativeCoding</code> and with your <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=795684">Dear Data Diary</a>. It's all about re-scaling, and this is the basis of lots of what we do in <i>Data Visualization</i> as we try to get meaningful depictions of The World onto our screens and pages.</p>
+
+<hr>
 
         <!-- Ummmm : Spreadsheet -->
 
-        <h3>2. Spreadsheet</h3>
+        <h3>2. Data Objects</h3>
 
-        <h4>2.1 - Ummmm Array</h4>
+        <h4>Ummmm ...</h4>
 
         <div class="unit-30-cc annotation cc-right">
             <figure>
-                <img src="https://jsndyks.github.io/cityCreativeCoding/images/" width="250" />
+                <img src="https://jsndyks.github.io/cityCreativeCoding/html/welcome/img/ccData.spreadsheet.png" width="400" />
                 <figcaption>
                     Caption
                 </figcaption>
@@ -137,19 +706,6 @@
         <p>loadStrings / split () / Array</p>
 
         <hr class="hrClear"/>
-
-        <h4>2.2 - Ummmm Objects</h4>
-
-        <div class="unit-30-cc annotation cc-right">
-            <figure>
-                <img src="https://jsndyks.github.io/cityCreativeCoding/images/" width="250" />
-                <figcaption>
-                    Caption
-                </figcaption>
-            </figure>
-        </div> <!-- end of 30-cc -->
-
-        <p>Ummmm, ArrayList</p>
 
 
         <!-- Data Dogs -->
