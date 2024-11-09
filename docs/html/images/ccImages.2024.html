@@ -161,7 +161,7 @@
                     <li>paste name of the image file (including the file extension - '.jpg' or whatever) into your sketch as an input to <a href="https://processing.org/reference/loadImage_.html"><code>loadImage()</code></a></li>
                 </ol>
                 <p>
-                    But if you really can't find one of the (more than) one trillion images that are kicking about the place ... including the "<i>6 million free high-resolution photos and illustrations</i>" at <a href="https://unsplash.com/about">unsplash</a> ... then use the one above and to the right, which is at ...<br/>
+                    But if you really can't find one of the (more than) one trillion images that are kicking about the place ... including the "<i>6 million free high-resolution photos and illustrations</i>" at <a href="https://unsplash.com/about">unsplash</a> ... then use the PacMan mosaic image that's at the top of the page on the right, which is online at this URL ...<br/>
                     <code style="font-size:80%; padding:0.5em; padding-left:3em; padding-right:3em"><a href="https://upload.wikimedia.org/wikipedia/commons/0/05/Pacman_Guggenheim_%28cropped%29.jpg">https://upload.wikimedia.org/wikipedia/commons/0/05/Pacman_Guggenheim_%28cropped%29.jpg</a></code>
 
                 </p>
@@ -194,21 +194,12 @@ void draw() {
     // -- Use the 'image()' method to draw the image on the canvas (60 times per second - overkill!):
     image(i,0,0);
 }</pre>
-                <div class="codeTask">
-                    <h5>Additional Image Task!</h5>
-                    <p>Try this more sophisticated sketch, which involves some interaction.</p>
-                    <p>You should be able to interpret the code to work out how you can interact with the canvas in
-                    order to change the image that is saved.</p>
-                    <p> Check <code>keyPressed()</code>: if you press a key, the current content of the canvas will be saved to the sketch folder with
-                        <a href="https://processing.org/reference/save_.html"><code>save()</code></a>.
-                    </p>
-                        <p>Remember to check how each of these <i>methods</i> works by consulting the <a href="https://processing.org/reference/">Processing Reference Documentation</a>.</p>
-                </div>
             </div>
         </div> <!--- End of Row -->
 
         <div class="units-row">
             <div class="unit-70-cc">
+                <p>Consider this more sophisticated sketch, which loads an image in the same way, although it does so into a <code>PImage</code> object with a different name (<code>img</code>), but adds some interaction.</p>
                 <pre class="brush: processing; gutter: false; toolbar: false;">PImage img;                 // -- Declare a new PImage called 'img', which is a better name for the PImage object
 
 void setup() {
@@ -229,7 +220,17 @@ void keyPressed () {
   save("myImage.jpg");   // -- Save an image of the current canvas
                           // -- to the sketch folder in a file called myImage.jpg ...
 }</pre>
-            </div>
+<div class="codeTask">
+    <h5>Additional Image Task!</h5>
+    <p>Try this more sophisticated sketch, which involves some interaction.</p>
+    <p>You should be able to interpret the code to work out how you can interact with the canvas in
+    order to change the image that is saved.</p>
+    <p> Check <code>keyPressed()</code>: if you press a key, the current content of the canvas will be saved to the sketch folder with
+        <a href="https://processing.org/reference/save_.html"><code>save()</code></a>.
+    </p>
+        <p>Remember to check how each of these <i>methods</i> works by consulting the <a href="https://processing.org/reference/">Processing Reference Documentation</a>.</p>
+</div>
+</div>
 
         </div>
 
@@ -237,7 +238,7 @@ void keyPressed () {
             <div class="unit-70-cc">
 
                 <div class="challenge">
-                    <h5>Challenge - Add Interaction</h5>
+                    <h5>Challenge - Add More Interaction</h5>
                         <p>
                         If you have done that already and are hanging around waiting for something to do, 
                         or like being stretched, or just want to feel the fear of expectation or the excitement of achievement,
@@ -999,7 +1000,7 @@ void setup() {
   noStroke();
 }
 
-void draw() {                            // -- Adds a bit of randomness!
+void draw() {                           // -- Adds a bit of randomness!
   int rX = int(random(-25, 25));       // -- integer from -25 to 25 : x offset
   int rY = int(random(-25, 25));       // -- integer from -25 to 25 : y offset
   int mX = mouseX+rX;                   // -- Add some randomness around mouse X position.
@@ -1108,7 +1109,7 @@ println("The lightness in that colour is: "+thisLight);
 }</pre>
 
                 <div class="codeTask">
-                    <h5>Using set()</h5>
+                    <h5>Using set() to Change a PImage</h5>
                     <p>
                     Try it out!<br />
                     Copy the code that contains the nested loops into <i>Processing</i> - these two loops should give you a coloured canvas.<br />
@@ -1248,7 +1249,7 @@ void draw() {
             That's the joy of programming.<br />
             It gives you capabilities that allow you to be creative, to problem solve, to express yourself and to make things.<br />
             You should now be able to use images, structured mosaics of hundreds or thousands or millions or pixels in your <i>Processing</i> sketches.</p>
-        <p>Be creative as you add to the one-point-something trillion images that exist and work together to try to make a World that contains <b>two trillion images</b>!</p>
+        <p>Be creative as you add to the one-point-something trillion images that exist and work together to try to make a World that contains <b><a href="https://moodle4.city.ac.uk/mod/page/view.php?id=820038">many trillions of images</a></b>!</p>
 
         </div>
     </div>
