@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<<head>
+<head>
     <title>CreativeCoding Extra: Data Visualization</title>
 
 	<meta charset="utf-8">
@@ -65,7 +65,7 @@
             this area then there are some possibilities for you here.
         </p>
 
-        <p class=intro"">
+        <p class="intro">
             These additional exercises give you practice developing data visualization sketches.
             The options are almost endless, but considering and attempting some of these challenges may help you develop
             a Data Visualization project.
@@ -79,6 +79,55 @@
    We'd like to hear about how you do so, and for you explain your use of data in the Friday showcase.
    </p>
  </div-->
+
+ <h3>Bike Maps</h3>
+ <p>Build on the <i>Bike Map</i> task in the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=822874">Data Visualization : Core</a> materials to add some interesting and useful interactive features to your sketch.</p>
+
+ <div class="challenge">
+    <h5>Challenge - Adding Interaction to the Cycling Data Scripts</h5>
+        Of course, there are many other things you can usefully do here.<br />
+        See whether you can ...</p>
+    <ol start="5">
+        <li>Show the differences between two times<br />
+            <i>Hint: This will involve calculating differences between two
+                <code>floats</code> that you extract from the array of <code>values</code> and you will
+                end up with negative numbers - but we have thought about how to visualize negative
+                numbers in the lecture.</i></li>
+        <li>Only show stations that have particular names or geographic locations<br />
+            <em>Hint: You'll have to record the station name as a <code>String</code> when you read
+                values from the lines of text.</em>
+        </li>
+        <li>Use squares or bars in the map instead of circles - you could use multiple bars to show a series of times concurrently;</li>
+        <li>Scale the circles (or squares or bars) differently, to make them bigger or smaller;</li>
+    </ol>
+</div>
+
+<div class="challenge">
+    <h5>Challenge - Adding MORE Interaction to the Cycling Data Scripts</h5>
+        Why not make things even MORE interactive?</p>
+    <ol start="9">
+        <li>Can you add an interaction to the bar graph that allows us to scroll up and down through the
+            data file, while always showing data for 25 stations?<br />
+            <em>Hint: you will need to replace the numeric values used to identify the column in which
+                the 9:00am data is stored, and the lines that are used in the loop, with variables that
+                change in response to particular inputs.</em>
+        </li>
+        <li>Can you scale the circles (or squares or bars) differently in response to key presses that
+            make them bigger or smaller;</li>
+        <li>
+            Can you change the time that is shown dynamically, showing data for successive time
+            periods?<br />
+            This could be according to some input (keyboard, mouse) or time (animation)<br />
+            You could do this for the graph or the map.<br />
+            <em>Hint: You will need to read in one or more of the columns containing the number of bikes
+                docked at the station.
+                If you wish to show more than one time of day in the same sketch, you will probably
+                need to store the bike numbers
+                in a 2D array where 1 dimension is the docking station and the other is the time of
+                day.</em>
+        </li>
+    </ol>
+</div>
 
 
 
@@ -119,6 +168,10 @@
                 <code>ArrayList</code> and display graphical representations of them.
             </p>
         </div>
+
+        <h3>Book Graphics</h3>
+
+        <p>You may prefer books to bikes, and so can have fun experimenting with visualization of literature.</p>
 
         <div class="challenge">
             <h5>Extra Challenge - Visualizing a Book</h5>
@@ -212,6 +265,10 @@
               </p>
 
         </div>
+
+        <h3>Find Your Own Data</h3>
+
+        <p>If you don't like <i>bikes</i> or <i>books</i>, well find your own data about something that does interest you and do something spectacular!</p>
 
         <div class="challenge">
             <h5>Extra Challenge - Find and Visualize Your Own Data</h5>
