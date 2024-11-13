@@ -103,7 +103,7 @@ You can access the [Data Visualization Lecture](https://jsndyks.github.io/cityCr
             </div>
 
             <p>If you have completed all the work on this page and want to learn more, the try the optional <b><a
-                        href="https://moodle4.city.ac.uk/mod/page/view.php?id=420920">Extra Challenges</a></b> on
+                        href="https://moodle4.city.ac.uk/mod/page/view.php?id=822876">Data Visualization : Extra</a></b> challenges on
                 <i>Live Data</i>, <i>Bikes</i> and <i>Books</i>.
                 This could well be fun for some of you and may give you ideas for ways of data visualization in your
                 <i>Dear Data</i> demos.
@@ -130,7 +130,7 @@ You can access the [Data Visualization Lecture](https://jsndyks.github.io/cityCr
 
                 <div class="codeTask">
                     <h5><a href="http://processing.org/reference/loadStrings_.html"
-                        target="_blank"><code>loadStrings()</code></a> Example:</b></p>
+                        target="_blank"><code>loadStrings()</code></a> Example:</h5>
                     <p>
                         We will be using a simple data file when live coding in the lecture - <a
                             href="https://jsndyks.github.io/cityCreativeCoding/data/namesData.txt"
@@ -197,7 +197,8 @@ You can access the [Data Visualization Lecture](https://jsndyks.github.io/cityCr
 
                 <div class="codeTask">
                     <h5>Splitting a String with <a href="http://processing.org/reference/split_.html"
-                        target="_blank"><code>split()</code></a> Example:</b></p>                <p>
+                        target="_blank"><code>split()</code></a> Example:</h5>
+                <p>
                   Now let's use <a href="http://processing.org/reference/split_.html"><code>split()</code></a> to split a line from the <code>lines</code> array into a new array of tokens, each separated by a comma.<br/>
                   This enables us to <em>get at</em> the data by slitting at the commas and loading each <i>String</i> that occurs between the commas into an array.   
                 </p>
@@ -231,6 +232,7 @@ You can access the [Data Visualization Lecture](https://jsndyks.github.io/cityCr
 
 
                 <div class="codeTask">
+                    <h5>Skeleton Split Sketch:</h5>
                     <p>Download the following skeleton code as the basis of your sketch.</p>
                     <ul>
                         <li>skeleton sketch and data - <a
@@ -482,7 +484,7 @@ void draw()
                 <!-- Right column -->
                 <div class="unit-30-cc annotation cc-right">
                 <figure>
-                    <script>loadImage('https://jsndyks.github.io/cityCreativeCoding/images/names.png', 100, 355, 'output from names sketch');</script>
+                    <script>loadImage('https://jsndyks.github.io/cityCreativeCoding/images/names.png', 150, 150, 'output from names sketch');</script>
                     <figcaption>     
                         <p>Output from the names sketch</p>
                     </figcaption>
@@ -560,7 +562,7 @@ void draw()
             <div class="unit-30-cc annotation cc-right">
                 <!-- Right column -->
                 <figure>
-                    <img src="https://www.gutenberg.org/cache/epub/35/pg35.cover.medium.jpg" width="140" height="210"/>
+                    <img src="https://www.gutenberg.org/cache/epub/35/pg35.cover.medium.jpg" width="150"/>
                     <figcaption>     
                         <a href="https://jsndyks.github.io/cityCreativeCoding/data/theTimeMachine.txt"
                         target="_blank">The Time Machine</a>
@@ -1588,11 +1590,11 @@ void draw()
         <p>You now have what you need to do some basic data visualization, and hopefully you can look back at the movies
             we introduced earlier and begin to imagine the kinds of data and the types of sketch and commands that may
             have been used to produce them. It's worth looking back and having a think about how these designs might
-            have been implemented.</p>
+            have been implemented now that you know some of the tricks and have engaged with the code.</p>
         <p>The most important thing is that you know that:</p>
         <ul>
             <li>
-                Data visualization is all about turning data into graphics.
+                Data visualization is all about turning data into graphics - depicting data visually.
             </li>
             <li>
                 This usually involves reading from a data file and storing the data in variables so they can be used in
@@ -1600,15 +1602,15 @@ void draw()
             </li>
             <li>
                 <em>Processing</em> contains a useful method for reading lines of text from a file —
-                <code>loadStrings()</code>
+                <a href="http://processing.org/reference/loadStrings_.html" target="_blank"><code>loadStrings()</code></a>
             </li>
             <li>
                 Elements within a line of text such as words or numbers can be <i>parsed</i> and extracted in
                 <em>Processing</em> using
-                the <code>split()</code> method.
+                the <a href="http://processing.org/reference/split_.html" target="_blank"><code>split()</code></a> method.
             </li>
             <li>
-                We can use <code>map()</code> to re-scale our data from the original numeric range of the data set to a range that allows us position shapes in ways that that represent the numbers in screen coordinates.
+                We can use <a href="https://processing.org/reference/map_.html"><code>map()</code></a> to re-scale our data from the original numeric range of the data set to a range to a new one that allows us to position shapes in ways that that represent the numbers in screen coordinates.
             </li>
         </ul>
         <p>If you do know these things, and you can use these methods and understand how to draw shapes with variables,
@@ -1617,8 +1619,12 @@ void draw()
         <p>Remember, that we expect you all to complete all of the <i>code tasks</i> and <i>core tasks</i>.</p>
         <p>Remember that we don't expect this to be straightforward. We expect you to experiment, use your debugging
             skills and to discuss solutions and approaches and problems and errors with student colleagues and teaching
-            staff. You will recall what we learned last week: that if you want to be a good coder, you need to code, and
-            the more you practice the easier it gets.</p>
+            staff. You will recall what we learned at the outset:</p>
+            <blockquote>
+            if you want to be a good coder, you need to code, and<br/>
+            the more you practice the easier it gets
+            </blockquote>
+            <p>Really.<br/>Stick with it.</p>
 
         <hr>
         <!---
@@ -1669,10 +1675,9 @@ void draw()
         </div>
 
         <p>If you have completed all the work on this page and want to learn more, the try the optional <b><a
-                    href="https://moodle4.city.ac.uk/mod/page/view.php?id=420920">Extra Challenges</a></b> where we look
-            at <i>Live Data</i>, <i>Refactoring with Classes</i> and <i>Star Wars</i> (kind of).</p>
-        <p>This could well be fun for some of you and may give you ideas for using data visualization in your
-            <b><code>#CreativeCoding</code></b>projects.
+                    href="https://moodle4.city.ac.uk/mod/page/view.php?id=822876">Data Visualization : Extra</a></b> challenges where we look
+            at <i>Bike Maps</i> (with more features), <i>Live Data</i> (yep - what's going on in London right now, today), <i>Refactoring with Classes</i> and <i>Star Wars</i> (kind of, a little bit).</p>
+        <p>This could well be fun for some of you and may give you ideas for using data visualization in your sketches.
         </p>
 
 
