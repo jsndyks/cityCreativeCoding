@@ -64,7 +64,7 @@ You can access the [Data Visualization Lecture](https://jsndyks.github.io/cityCr
                 <ul><li><b>read</b> text that contains data from files into <em>Processing</em>,
                 and how to</li>
                 <li><b>parse</b> the text to extract words and numbers that you can use as variables in your sketches.</li></ul>
-                <p>In combination, this enables you to use <i>data</i> to position, shape, colour and control elements in your sketch.</p>
+                <p>In combination, this enables you to use <i>data</i> to position, shape, colour and control elements in your sketch as you <i>depict</i> data in ways that may lead to insight and <i>discovery</i>.</p>
             <p>
                 In doing so it may give you ideas about ways in which you can use data visualization in your demo.
                 The various challenges are designed to help you develop demo ideas.
@@ -80,23 +80,23 @@ You can access the [Data Visualization Lecture](https://jsndyks.github.io/cityCr
 
             <ul>
                 <li>Drag and drop data files into your <em>Processing</em> code window to make them accessible to your sketches;</li>
-                <li>Create a sketch to read a text file using <code><a href="http://processing.org/reference/loadStrings_.html"
-                    target="_blank">loadStrings()</a></code>;</li>
+                <li>Create a sketch to read a text file using <a href="http://processing.org/reference/loadStrings_.html"
+                    target="_blank"><code>loadStrings()</code></a>;</li>
                 <li>Split a line of text into <i>tokens</i> representing individual words or numbers;</li>
-                <li>Rescale a number from one range to another using the <code>map()</code> command;</li>
+                <li>Rescale a number from one range to another using the <a href="https://processing.org/reference/map_.html"><code>map()</code></a> command;</li>
                 <li>Use data that you have read from a file to change the colour, size or appearance of
-                    graphics in your sketch.</li>
+                    graphics to depict the data in your sketch.</li>
             </ul>
 
             <p>Remember, that to achieve this you will need to read these notes through and ...</p>
-            <div class="codeTask">complete all of the <b>coding tasks</b> that you see, either in the lecture when we
-                try things out, or in the lab afterwards with the help of your teachers.</div>
-            <div class="coreTask">complete all of the <b>core tasks</b> that are included, either in the lecture or in
-                the lab.</div>
+            <div class="codeTask" style="padding-bottom:2em"><br/>complete all of the <b>coding tasks</b> that you see, either in the lecture when we
+                try things out, or in the lab afterwards with the help of your teachers, or in your own time subsequently.</div>
+            <div class="coreTask" style="padding-bottom:2em"><br/>complete all of the <b>core tasks</b> that are included, either in the lecture or in
+                the lab, or in your own time.</div>
 
             <p>If you have completed the <b>coding tasks</b> and would like to try to test yourself a little more, then ...
             </p>
-            <div class="challenge">try some of the <b>challenges</b> to test yourself and learn a little more.
+            <div class="challenge" style="padding-bottom:2em"><br/>try some of the <i>optional</i>i> </i> <b>challenges</b> to test yourself and learn a little more.
                 <br /><br />But also, know that you can come back to these later and that we don't expect everybody to
                 try them - these tasks are to <b>challenge</b> the students in the group who are moving quickly and who probably
                 have some previous experience of programming.
@@ -105,8 +105,8 @@ You can access the [Data Visualization Lecture](https://jsndyks.github.io/cityCr
             <p>If you have completed all the work on this page and want to learn more, the try the optional <b><a
                         href="https://moodle4.city.ac.uk/mod/page/view.php?id=420920">Extra Challenges</a></b> on
                 <i>Live Data</i>, <i>Bikes</i> and <i>Books</i>.
-                This could well be fun for some of you and may give you ideas for using data visualization in your
-                <b><code>#CreativeCoding</code></b> demos.
+                This could well be fun for some of you and may give you ideas for ways of data visualization in your
+                <i>Dear Data</i> demos.
             </p>
 
 
@@ -120,17 +120,17 @@ You can access the [Data Visualization Lecture](https://jsndyks.github.io/cityCr
             <div class="unit-70-cc">
                 <!-- Left column -->
                 <h3>0. Before we start</h3>
-                <p>Before we get going, you'll need some data and to know about an important new method - <code><a href="http://processing.org/reference/loadStrings_.html"
-                    target="_blank">loadStrings()</a></code>.
+                <p>Before we get going, you'll need some data and to know about an important new method - <a href="http://processing.org/reference/loadStrings_.html"
+                    target="_blank"><code>loadStrings()</code></a>.
                     <br />
                     So be sure to complete these two tasks first of all.<br />
                     They will ensure that you know how to use <code><a href="http://processing.org/reference/loadStrings_.html"
-                        target="_blank">loadStrings()</a></code> to load Strings from a file and into your sketch.
+                        target="_blank">loadStrings()</a></code> to load <i>Strings</i> from a file and into your sketch.
                 </p>
 
                 <div class="codeTask">
-                    <p><b><code><a href="http://processing.org/reference/loadStrings_.html"
-                        target="_blank">loadStrings()</a></code> Example:</b></p>
+                    <p><b><a href="http://processing.org/reference/loadStrings_.html"
+                        target="_blank"><code>loadStrings()</code></a> Example:</b></p>
                     <p>
                         We will be using a simple data file when live coding in the lecture - <a
                             href="https://jsndyks.github.io/cityCreativeCoding/data/namesData.txt"
@@ -140,8 +140,7 @@ You can access the [Data Visualization Lecture](https://jsndyks.github.io/cityCr
                         It's important that you <strong>make sure you know where the file has been saved</strong> on
                         your laptop.
                         <br />
-                        You can add the file to a <em>Processing</em> sketch by dragging it into the sketch code
-                        window.<br />
+                        You can add the file to a <em>Processing</em> sketch by finding it in <i>Finder</i> (Mac) or <i>File Explorer</i> (Windows) and dragging it into the sketch code window.<br />
                         The data were created with the <a href="https://www.mockaroo.com">mockaroo</a> Random Data
                         Generator.
                     </p>
@@ -168,8 +167,8 @@ You can access the [Data Visualization Lecture](https://jsndyks.github.io/cityCr
                         Try this 👆 and also the following 👇 in a simple sketch that uses <b>the 3 code snippets</b> provided here (<em>you will need all 3</em> to read data from a text file.<br/>
                         It will load the file and :</p>
                         <ul>
-                            <li>👆 show the contexts of the entire <code>lines</code> array, adding</li>
-                            <li>👇 the size of the array and two specific array elements that have been loaded into <code>lines</code> from the text file.</li>
+                            <li> Use the previous code snippet 👆 to show the contents of the entire <code>lines</code> array</li>
+                            <li> Use this next one 👇 to add the size of the array and two specific array elements that have been loaded into <code>lines</code> from the text file.</li>
                         </ul>
                         
                     </p>
@@ -184,9 +183,9 @@ You can access the [Data Visualization Lecture](https://jsndyks.github.io/cityCr
 
           // Print the second String in the array to the console :
           println(lines[1]);    </pre>
-                    <p>The final three lines should show you this,
+                    <p>Adding all of these snippets of code should show you this,
                         and you should be able to figure out how to show the other lines in the data file from the array.</p>
-                    <img src="https://jsndyks.github.io/cityCreativeCoding/images/loadStringsOutput.png" width="720"
+                    <img src="https://jsndyks.github.io/cityCreativeCoding/images/loadStringsOutput.png" width="600"
                         height="80" />
                 </div>
                 <div class="challenge">
@@ -197,10 +196,10 @@ You can access the [Data Visualization Lecture](https://jsndyks.github.io/cityCr
                 </div>
 
                 <div class="codeTask">
-                    <p><b><code><a href="http://processing.org/reference/split_.html"
-                        target="_blank">split()</a></code> Example:</b></p>                <p>
-                  Now let's use <code><a href="http://processing.org/reference/split_.html">split()</a></code> to split a line from the <code>lines</code> array into a new array of tokens, each separated by a comma.<br/>
-                  This enables us to <em>get at</em> the data.   
+                    <p><b>Splitting a String with <a href="http://processing.org/reference/split_.html"
+                        target="_blank"><code>split()</code></a> Example:</b></p>                <p>
+                  Now let's use <a href="http://processing.org/reference/split_.html"><code>split()</code></a> to split a line from the <code>lines</code> array into a new array of tokens, each separated by a comma.<br/>
+                  This enables us to <em>get at</em> the data by slitting at the commas and loading each <i>String</i> that occurs between the commas into an array.   
                 </p>
                 <pre class="brush: processing; gutter: false; toolbar: false;">
     // Split the second String at each comma, into a new array of strings, or tokens :
@@ -229,9 +228,15 @@ You can access the [Data Visualization Lecture](https://jsndyks.github.io/cityCr
         <div class="units-row">
             <div class="unit-70-cc">
                 <!-- Left column -->
+
+
                 <div class="codeTask">
-                    <p>Download the code provided to the right as the basis of your sketch.</p>
-                    <p>Now run the sketch and then extend it so that it will...</p>
+                    <p>Download the following skeleton code as the basis of your sketch.</p>
+                    <ul>
+                        <li>skeleton sketch and data - <a
+                                href="https://jsndyks.github.io/cityCreativeCoding/data/namesData.zip">namesData.zip</a></li>
+                    </ul>
+                    <p>Unzip the archive and run the sketch and then extend it so that it will...</p>
                     <ol>
                         <li>print <i>every other line</i> of the data file from top to bottom;</li>
                         <li>print each line of the data file <i>from bottom to top</i>;</li>
@@ -244,9 +249,9 @@ You can access the [Data Visualization Lecture](https://jsndyks.github.io/cityCr
                 <p>Everything else that we do in this session will build upon this basic idea:</p>
                 <ol>
                     <li>load text from a file into an array of strings</li>
-                    <li>access lines of text from the elements of the array</li>
-                    <li>use the line of text in your sketch</li>
-                    <li>split each line into separate text strings</li>
+                    <li>access lines of text from the elements of the array that contains each line of the data file</li>
+                    <li>split each line into separate text Strings</li>
+                    <li>use the Strings in your sketch</li>
                 </ol>
                 <p>We will <b>soon</b> learn to ...</p>
                 <ol start="5">
@@ -259,16 +264,6 @@ You can access the [Data Visualization Lecture](https://jsndyks.github.io/cityCr
                     Well, a good part of it anyway!<br/> 
                     So let's look at some!</p>
             </div>
-            <div class="unit-30 annotation cc-right">
-                <!-- Right column -->
-                <p style="padding-top:3em">Here's a skeleton sketch that we will use in the lecture:</p>
-                <ul>
-                    <li>skeleton sketch and data - <a
-                            href="https://jsndyks.github.io/cityCreativeCoding/data/namesData.zip">namesData.zip</a></li>
-                </ul>
-                <p>Download, unzip, open, edit!</p>
-            </div>
-
         </div>
 
         <hr>
@@ -276,7 +271,7 @@ You can access the [Data Visualization Lecture](https://jsndyks.github.io/cityCr
         <div class="units-row">
             <div class="unit-70-cc">
                 <!-- Left column -->
-                <h3>1. Introduction to data visualization</h3>
+                <h3>1. Introduction to Data Visualization</h3>
 
                 <p>
                     So far, most of the sketches you have built have involved creating some form of visual
