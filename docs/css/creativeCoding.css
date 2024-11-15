@@ -162,3 +162,5 @@ h3 {padding-top:0.25em; margin-top:1em; border-top:1px dashed #e0e0e0; clear:bot
 .hrInvisible {clear:both; padding:0; border:none #ffffff 0px;}
 
 .console {background-color:#224; color:#ddf; padding:1em}
+
+.menu {padding:0.15rem; background-color:#f0f0f0; padding-left:1.25rem;padding-right:0.75rem;font-size:80%}
