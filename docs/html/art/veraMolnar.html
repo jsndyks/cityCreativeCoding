@@ -36,6 +36,10 @@
   
   <!-- iFrame -->
   <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+
+  <style>
+    h3 {clear:none}
+  </style>
 </head>
 
 <body>
@@ -55,8 +59,12 @@
 
     <div>
       
-    <p><a href="https://en.wikipedia.org/wiki/Vera_Moln%C3%A1r">Vera Molnár</a> began working with computers in 1968 and established herself as pioneer of algorithmic art by programming pen plotters in Basic and Fortran.</p>
-    <p><a href="https://dam.org/museum/artists_ui/artists/molnar-vera/">Her work</a> is showcased in the <a href="https://dam.org/museum/">Digital Art Museum</a>, and I really enjoyed an exhibition hosted at <a href="https://www.dagstuhl.de/en/about-dagstuhl/kunst/">Schloss Dagstuhl</a> in the summer of 2022.<p>
+    <p><a href="https://en.wikipedia.org/wiki/Vera_Moln%C3%A1r">Vera Molnár</a> began working with computers in 1968 and established herself as pioneer of algorithmic art by programming pen plotters in Basic and Fortran.
+    <br/>
+    She died in late 2023 a few weeks before her 100th birthday.
+        This short <a href="https://www.artsy.net/article/artsy-editorial-generative-art-pioneer-vera-molnar-died-aged-99">obituary from Artsy</a> is one of many that confirms and celebrates her vital role in "<i>exploring the relationship between technology and art</i>".
+    </p>
+    <p><a href="https://dam.org/museum/artists_ui/artists/molnar-vera/">Her work</a> is showcased in the <a href="https://dam.org/museum/">Digital Art Museum</a>, and I really enjoyed an exhibition hosted at <a href="https://www.dagstuhl.de/en/about-dagstuhl/kunst/">Schloss Dagstuhl</a> in the summer of 2022.</p>
     
     <p>I find the <a href="https://dam.org/museum/artists_ui/artists/molnar-vera/des-ordres/">Des Ordres</a> - "<em>some order</em>" and perhaps "<em>disorder</em>" - exhibit particularly compelling.</p>
     <p>The <a href="https://dam.org/museum/">Digital Art Museum</a> describes these pieces as involving ...</p>
@@ -123,7 +131,7 @@
 </div> 
 
     <h3>2. Create a Method to Draw a vQuad</h3>
-    <p>Use <code><a href="https://processing.org/reference/quad_.html">quad()</a></code> in the method, which should take three arguments, as shown to specify the <i>position</i> and <i>size</i> of the square.</p>
+    <p>Use <code><a href="https://processing.org/reference/quad_.html">quad()</a></code> in your new <code>vQuad()</code> method, which should take three arguments, as shown below to specify the <i>position</i> and <i>size</i> of the square.</p>
     <p>It should, once again create a square, centred on <code>xPos</code>,<code>yPos</code> and be <code>sSize</code> by <code>sSize</code> in dimensions.<br/>So the output should look the same as before.</p>
     <p>You should be able to move most of the code from the first example above into the method.</p>
     <pre class="brush: processing; gutter: false; toolbar: false; highlight: [16  ]">
@@ -371,16 +379,19 @@ void draw()
 
         <h3>7. Finishing Off - Space and More Randomness</h3>
         <p>What we have, looks quite a lot like <a href="https://dam.org/museum/artists_ui/artists/molnar-vera/des-ordres/">Des Ordres</a>, but still a little too ordered and a bit squished up.</p>
-        <p>Can you adapt the <code>vQuads</code> to :</p>
+        <p>Can you adapt the <code>vQuads</code> by :</p>
         <ul>
-          <li>make them a little smaller than the space into which they are plotted?</li>
-          <li>randomise their actual (external) sizes slightly?</li>
+          <li>making them a little smaller than the space into which they are plotted?</li>
+          <li>randomising their actual (external) sizes slightly?</li>
+          <li>capturing all of this in a <code>class</code> that allows us to make <code>vQuad</code> objects?</li>
         </ul>
     
             <!-- Hidden code button -->
             <span><a href="#" class="link-show-code">Click to Show Solution - But Have a Try First! Coding Takes Practice and Requires 'Doing'! </a></span>
             <div class="prettyprint" style="display: none;">
-              <pre class="brush: processing; gutter: false; toolbar: false; highlight: [3,7]">    
+              <pre class="brush: processing; gutter: false; toolbar: false; highlight: [5,9]">
+                // -- Well, here's how to do the first two things ...     
+
                 void vQuads (float x, float y, float s, float r, int n, float p) {
 
                   s=s*0.9;  // &lt;-- Make the vQuads a little smaller - this could of course be set by a parameter for scaling
@@ -391,6 +402,10 @@ void draw()
                     }
                   }
                 }
+
+                // -- But the final one will require you to look at the notes on Classes and Objects,
+                //     and the 'class' documentation at https://processing.org/reference/class.html
+
               </pre>
             </div>
 <hr/>
@@ -444,7 +459,8 @@ Can you ...</p>
                 <b>Jason DYKES</b><br />
                 <!-- <i>10 Oct 2022</i> -->
                 <!-- <i>21 Sep 2023</i> -->
-                <i>02 Oct 2023</i>
+                <!-- <i>02 Oct 2023</i> -->
+                <i>15 Nov 2024</i>
             </div>
             <div style="padding-bottom:2em;clear:both" />
 
