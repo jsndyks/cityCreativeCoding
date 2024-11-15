@@ -2,39 +2,40 @@
 <html>
 
 <head>
-  <title>Programming BootCamp Extra Challenges: Art, Artists and Media</title>
+    <title>CreativeCoding Extra: Art</title>
 
-  <!-- Header, 16th September, 2021 -->
-  <!-- Header,  8th October, 2022 -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Embedded fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
-    rel="stylesheet">
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
 
-  <!-- Custom layout and style -->
-  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
-  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
-  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
-  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
-  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
 
-  <!-- General browser compatibility handling -->
-  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
 
-  <!-- Formatted source code -->
-  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
-  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
 
-  <!-- Sketch popups and hidden text-->
-  <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
-  <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
-  <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
 
-  <!-- iFrame resizing -->
-	<script src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
+  <!-- JD Extras! -->
+    <link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" />
+    
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
 </head>
 
 <body>
@@ -80,15 +81,15 @@ You can access [this page](https://jsndyks.github.io/cityBootCamp/html/art/2023%
       so that the ball makes a bouncing noise when it changes direction after hitting the edge of the sketch.</p>
       <p>
       <i>Hint:</i> You will need to use the <a href="https://processing.org/reference/libraries/sound/index.html"
-        target="_blank">Processing sound library</a> as shown in the lecture notes to load, store and trigger a sample.</p>
+        target="_blank"><i>Processing</i> sound library</a> as shown in the lecture notes to load, store and trigger a sample.</p>
         <p>
       For convenience, here are a couple of sound effects you can use, but do use your own if you prefer.
     </p>
       <ul>
-        <li><a href="https://bit.ly/3fSSW8S" target="_blank">boing.wav</a> <i>(right click to download, then drag file into Processing's code window
+        <li><a href="https://bit.ly/3fSSW8S" target="_blank">boing.wav</a> <i>(right click to download, then drag file into <i>Processing</i>'s code window
             containing your sketch)</i></li>
         <li><a href="https://bit.ly/3RH2gtL" target="_blank">blop.wav</a>
-          <i>(right click to download, then drag file into Processing's code window containing your sketch)</i>
+          <i>(right click to download, then drag file into <i>Processing</i>'s code window containing your sketch)</i>
         </li>
       </ul>
 
@@ -220,7 +221,7 @@ class Ball
       <div class="checkOutcomes">
         <input style="padding:2em" type="checkbox" id="sa1" /> <label style="padding:2em" for="sa1">I can use both <code>random()</code> and
           <code>noise()</code> to generate randomness in my sketches?</label><br />
-        <input style="padding:2em" type="checkbox" id="sa2" /> <label style="padding:2em" for="sa2">I can load and trigger a sound sample with the Processing
+        <input style="padding:2em" type="checkbox" id="sa2" /> <label style="padding:2em" for="sa2">I can load and trigger a sound sample with the <i>Processing</i>
           sound library?</label><br />
         <input style="padding:2em" type="checkbox" id="sa3" /> <label style="padding:2em" for="sa3">I can load and display a video file using the
           <code>Movie</code> class?</label><br />
