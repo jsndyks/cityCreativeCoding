@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>CreativeCoding Lecture: Media</title>
+	<title>CreativeCoding Media : Sound &amp; Video Core</title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,16 +81,16 @@ You can access [this page](https://jsndyks.github.io/cityBootCamp/html/art/2023%
 
 				<h3>1. Working with Sound</h3>
 				<p>
-					For the first week we have been working exclusively with graphics in our <i>Processing</i> sketches. It is
-					possible to use other media too, and in particular sound and video. In order to extend <i>Processing</i> to
-					do this, we need to make use of the ability to import <i>libraries</i> into our sketches. A library
-					is simply an extra set of classes written by someone else that can be bundled in with your own
-					sketch. There are many libraries available in <i>Processing</i> &mdash; see the <a
+					So far, we have been working exclusively with graphics in our <i>Processing</i> sketches.</p>
+					<p>It is possible to use other media too, and in particular sound and video.</p>
+					<p>
+					In order to extend <i>Processing</i> to do this, we need to make use of the ability to import <i>libraries</i> into our sketches. A library is simply an extra set of classes written by someone else that can be bundled in with your own sketch.
+					There are many libraries available in <i>Processing</i> &mdash; see the <a
 						href="https://processing.org/reference/libraries/" target="_blank"><i>Processing</i> library
 						documentation</a>.
 				</p>
 
-                <h4>Sound Basics</h4>
+                <h4>Sound Library</h4>
 
 				<p>
 					To work with sound in your sketches, one of the easiest libraries to work with is the <a
@@ -112,22 +112,29 @@ You can access [this page](https://jsndyks.github.io/cityBootCamp/html/art/2023%
 		<div class="units-row">
 			<div class="unit-30-cc annotation cc-right">
 				<!-- Right column -->
+				<figure>
 
-				<script>loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/drumkit", 300, 300, "https://staff.city.ac.uk/~jwo/bootcamp2019/p5js/drumkit/screenshot.png");</script>
+				<script>loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/drumkit", 250, 250, "https://staff.city.ac.uk/~jwo/bootcamp2019/p5js/drumkit/screenshot.png");</script>
+				<figcaption>
 				<p>Keyboard activated drum kit<i> (click to activate)</i></p>
-
+			</figcaption>
+				</figure>
 			</div> <!-- end of right column -->
 			<div class="unit-70-cc">
 				<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<div style="width:42em" >
 				<pre class="brush: processing; gutter: false; toolbar: false;">
-import processing.sound.*;   // Import the library that does the sound handling.
+// Import the library that does the sound handling:
+import processing.sound.*;   
 
-SoundFile kick, snare, hiHat;  // Each sample in its own object.
+// Each sample has its own SoundFile object:
+SoundFile kick, snare, hiHat;  
 
 void setup()
 {
   size(300, 200);
 
+  // Initialise SoundFile objects to contain valid sound files (WAV):
   kick  = new SoundFile(this,"kickDrum.wav");
   snare = new SoundFile(this,"snareDrum.wav");
   hiHat = new SoundFile(this,"hiHat.wav");
@@ -138,6 +145,7 @@ void draw()
   noLoop();		// Stops Processing from redrawing at 60 fps.
 }
 
+// Add interactions rto play sound on key presses:
 void keyPressed()
 {
   if (key == ' ')
@@ -152,7 +160,7 @@ void keyPressed()
   {
     hiHat.play();
   }
-}</pre>
+}</pre></div>
 
 
 
@@ -176,6 +184,8 @@ void keyPressed()
 					classes contained within the library.
 				</p>
 
+				<h4>Sound Classes and Sound Sketches</h4>
+
 				<p>
 					The three lines in <code>setup()</code> each initialise new objects <code>kick</code>,
 					<code>snare</code> and <code>hiHat</code>, all of which are of type <code>SoundFile</code>. Just
@@ -187,13 +197,15 @@ void keyPressed()
 				</p>
 
 				<div class="tip">
+					<h5>Tip:</h5>
 					If you are going to work with sound files, you need to place them in to your sketch somehow. The
 					easiest way is to drag the file with the mouse into the <i>Processing</i> code window. This will create a
-					local copy of the dragged file that sits inside a <code>data</code> folder in the sketch location.
+					local copy of the dragged file that sits inside a <code>data</code> folder in the sketch location.<br/>
+					You can always find the location in a file viewer with <code>CTRL-K</code> or <code>COMMAND-K</code>.
 					<br /><br />
 					To run the drum kit sketch above, you will need to drag three sample files, one for each drum/cymbal
-					type into the sketch. You can download those three sample files, all of which have creative commons
-					licenses, by right-clicking them here:
+					type into the sketch. You can download those three sample files, all of which are available for use under
+					creative commons licenses, by right-clicking them here:
 					<br /><br />
 					<ul>
 						<li><a href="https://bit.ly/3ylLrOn" target="_blank">kickDrum wav file</a></li>
@@ -201,7 +213,7 @@ void keyPressed()
 						<li><a href="https://bit.ly/3rDZGtV" target="_blank">hiHat wav file</a></li>
 					</ul>
 					<P>If you have difficulty downloading these files, get them in a ZIP archive from here :
-                        <a href="https://moodle4.city.ac.uk/mod/resource/view.php?id=420931">Sound Files</a>.<p>
+                        <a href="https://moodle4.city.ac.uk/mod/resource/view.php?id=781806">Sound Files</a>.<p>
 				</div>
 
 				<p>
@@ -220,21 +232,25 @@ void keyPressed()
 		<div class="units-row">
 			<div class="unit-30-cc annotation cc-right">
 				<!-- Right column -->
-
-				<script>loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/stepSequencer", 900, 450, "https://staff.city.ac.uk/~jwo/bootcamp2019/p5js/stepSequencer/screenshot.png");</script>
-				<p><br/>
-					Drum kit sequencer - click to activate, resize window to see the full sketch.</p>
-					Use space to start; 1-5 for preset rhythms; click cell/track to toggle sounds on and off.</i>
-				</p>
+				<figure>
+					<script>loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/stepSequencer", 600, 400, "https://staff.city.ac.uk/~jwo/bootcamp2019/p5js/stepSequencer/screenshot.png");</script>
+					<figcaption>     
+						<p>
+							Drum kit sequencer - click to activate, resize window to see the full sketch.</p>
+							Use space to start; 1-5 for preset rhythms; click cell/track to toggle sounds on and off.</i>
+						</p>
+							</figcaption>
+				</figure>
+	
 
 			</div> <!-- end of right column -->
 			<div class="unit-70-cc">
 				<!-- Left column -->
 
 				<p>
-					While we can use interaction to trigger the drum samples, you might want to code when samples are
-					played within your sketch itself. Or perhaps mix interaction and pre-coded sample triggers. In the
-					example to the right we use <i>Processing</i> to create a simple drum machine.
+					While we can use <i>interaction</i> to trigger the drum samples, you might want to code the times when samples are
+					played within your sketch itself. Or perhaps mix interaction and pre-coded sample triggers.
+					In the example to the right we use <i>Processing</i> to create a simple drum machine.
 				</p>
 
 				<p>
@@ -258,10 +274,10 @@ void keyPressed()
 				<h3>2. Sophisticated Sound Capability</h4>
                 
                     <div class="challenge">
-                        <h5>Challenge - Sophisticated Sound Capability<//h5>
-                            This section provides some additional possibilities for those who want to dive into the (amazing) <em>World of Sound in <i>Processing</i></em>more fully.</p>
-							<p>There are fantastic opportunities for those who want to explore and experiment, but we do not consider this to be <em>core activity</em>.</p>
-                            <p>So, feel free to skim or skip unless this sound stuff really excites you and you'd like to learn more and perhaps use more sophisticated sound capability in your sketches.</p>
+                        <h5>Challenge - Sophisticated Sound Capability</h5>
+                            This section provides some additional possibilities for those who want to dive into the (amazing) <em>World of Sound in <i>Processing</i></em> more fully.</p>
+							<p>There are fantastic opportunities for those who want to explore and experiment, but we do <b>not</b> consider this to be <em>core activity</em>. It is <b>optional</b>.</p>
+                            <p>So, feel free to skim or skip unless this sound stuff really excites you, you feel that you are making good progress with <i>Processing</i> and you'd like to learn more and perhaps use more sophisticated sound capability in your sketches.</p>
                     </div>
 
                     <h4>Longer Tracks</h4>
@@ -335,6 +351,19 @@ void keyPressed()
 
 				<h4>Responding to Sound</h4>
 
+			</div>
+		</div>
+		<div class="units-row">
+			<div class="unit-30-cc annotation cc-right">
+				<!-- Right column -->
+				 <figure>
+				<script>loadImage('https://staff.city.ac.uk/~jwo/bootcamp2020/lecture11ArtAndMedia/images/soundVis.png', 400, 250, 'Sound visualizer');</script>
+				<figcaption>
+					<p>Sample output from the sound visualizer</p>
+				</figcaption>
+				</figure>
+			</div> <!-- end of right column -->
+			<div class="unit-70-cc">
 				<p>
 					It would be possible to trigger samples or play/pause music files in response to something other
 					than key presses, such as mouse movements or colliding shapes. But as a final example of working
@@ -353,16 +382,6 @@ void keyPressed()
 					the array of amplitudes it generates (called <code>spectrum</code>) to create a shape representing
 					the frequencies of the sound in real time.
 				</p>
-
-			</div>
-		</div>
-		<div class="units-row">
-			<div class="unit-30-cc annotation cc-right">
-				<!-- Right column -->
-				<script>loadImage('https://staff.city.ac.uk/~jwo/bootcamp2020/lecture11ArtAndMedia/images/soundVis.png', 532, 250, 'Sound visualizer');</script>
-				<p>Sample output from the sound visualizer</p>
-			</div> <!-- end of right column -->
-			<div class="unit-70-cc">
 				<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 				<pre class="brush: processing; gutter: false; toolbar: false;">import processing.sound.*;
 
@@ -398,6 +417,7 @@ void draw()
 
   fft.analyze();    // Analyse the current sound being played.
 
+  // Loop through each item in the FFT spectrum to create a line that shows its profile:
   beginShape();
   for (int i=0; i&lt;fft.spectrum.length*0.4; i=i+1)
   {
@@ -414,14 +434,27 @@ void draw()
     baseLine = 20;
   }
 }</pre>
+			</div> <!-- End of left column -->
 
+		</div> <!-- End of row -->
+
+		<div class="units-row">
+			<div class="unit-30-cc annotation cc-right">
+				<!-- Right column -->
+				<figure>
+					<iframe src="https://player.vimeo.com/video/139582572" width="400" height="250" frameborder="0"
+					webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					<figcaption>
+						<p>
+							Sketch creates shapes representing the frequencies of the sound in real time.
+						</p>
+					</figcaption>
+				</figure>
+			</div> <!-- end of right column -->
+			<div class="unit-70-cc">
 				<p>
 					When this new content for the <code>draw()</code> method is added to the sound player sketch, it
-					produces output as shown below:
-				</p>
-				<p>
-					<iframe src="https://player.vimeo.com/video/139582572" width="532" height="250" frameborder="0"
-						webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					produces the output shown here.
 				</p>
 				<p>
 					The <code>for</code> loop iterates though the first 40% of the current <i>spectrum</i> produced by the FFT. As
@@ -431,11 +464,15 @@ void draw()
 					processing's <code>map()</code> method.
 				</p>
 
-
+			<hr class="hrInvisible"/>
 				<div class="tip">
-					The example above takes the sound input from a <code>SoundFile</code> (stored in a
-					<code>sound</code> object). We can change the input to be the computer's internal microphone so that
-					we visualize any sound it picks up.<br/>To do this, simply replace the <code>SoundFile</code> with
+					<h5>Tip : Input from Mic</h5>
+					<p>
+					This example takes the sound input from a <code>SoundFile</code> (stored in a <code>sound</code> object).
+					</p> 
+					<p>
+						However, we can change the input to be the computer's internal microphone so that
+						we visualize any sound it picks up.<br/>To do this, simply replace the <code>SoundFile</code> with
 					<code>AudioIn</code> and call its <code>start()</code> method instead of <code>play()</code>:
 					<br /><br />
 					<pre class="brush: processing; gutter: false; toolbar: false;">//SoundFile sound = new SoundFile(this, "loop7.mp3");
@@ -462,11 +499,6 @@ sound.start();</pre>
 
 		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 		<div class="units-row">
-			<div class="unit-30-cc annotation cc-right">
-				<!-- Right column -->
-				<script>loadImage('https://staff.city.ac.uk/~jwo/bootcamp2020/lecture11ArtAndMedia/images/tvWall.png', 800, 500, 'TV Wall');</script>
-				<p>Image from the TV Wall sketch <i>(click to enlarge)</i></p>
-			</div> <!-- end of right column -->
 			<div class="unit-70-cc">
 				<!-- Left column -->
 				<h3>3. Working with Video</h3>
@@ -499,6 +531,7 @@ sound.start();</pre>
 					a video file (downloaded from <a href="https://bit.ly/helloWorldProcessing"
 						target="_blank">HelloWorld! <i>Processing</i></a>) and play it in the sketch:
 				</p>
+				<div style="width:42em" >
 				<pre class="brush: processing; gutter: false; toolbar: false;">
 import processing.video.*;    // Needed to display video.
 
@@ -521,7 +554,7 @@ void draw()
 void movieEvent(Movie videoBuffer)
 {
   videoBuffer.read();
-}</pre>
+}</pre></div>
 
 				<p>
 					After importing the video library, the first line creates a <code>Movie</code> object which we've
@@ -565,9 +598,19 @@ void movieEvent(Movie videoBuffer)
 			</div>
 		</div>
 		<div class="units-row">
+			<div class="unit-30-cc annotation cc-right">
+				<!-- Right column -->
+				<figure>
+				<script>loadImage('https://staff.city.ac.uk/~jwo/bootcamp2020/lecture11ArtAndMedia/images/tvWall.png', 300, 200, 'TV Wall');</script>
+					<figcaption>
+					<p>Image from the TV Wall sketch <i>(click to enlarge)</i></p>
+					</figcaption>
+				</figure>
+			</div> <!-- end of right column -->
 			<div class="unit-70-cc">
 				<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-				<pre class="brush: processing; gutter: false; toolbar: false; highlight: [16,17,18,19,20,21,22]">
+				<div style="width:42em" >
+					<pre class="brush: processing; gutter: false; toolbar: false; highlight: [16,17,18,19,20,21,22]">
 import processing.video.*;    // Needed to display video.
 
 Movie myVideo;                // Stores the video object.
@@ -596,7 +639,7 @@ void draw()
 void movieEvent(Movie videoBuffer)
 {
   videoBuffer.read();
-}</pre>
+}</pre></div>
 
 
 				<p>
@@ -612,6 +655,23 @@ void movieEvent(Movie videoBuffer)
 					learn more about this in the session on image processing).
 				</p>
 
+			</div>
+		</div>
+
+		<div class="units-row">
+			<div class="unit-30-cc annotation cc-right">
+				<!-- Right column -->
+				<figure>
+					<iframe src="https://player.vimeo.com/video/108048905" width="300" height="200" frameborder="0"
+					webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					<figcaption>
+						<p>Result of the moving transparent video playback:</p>
+					</figcaption>
+				</figure>
+			</div> <!-- end of right column -->
+			<div class="unit-70-cc">
+
+				<div style="width:42em" >
 				<pre class="brush: processing; gutter: false; toolbar: false;">
 import processing.video.*;    // Needed to display video.
 
@@ -619,33 +679,36 @@ Movie myVideo;                // Stores the video object.
 
 void setup()
 {
-  size(1200, 800);
-  background(0);
-  myVideo = new Movie(this, "HelloWorldClip.mov");
-  myVideo.play();
-  }
+	size(1200, 800);
+	background(0);
+	myVideo = new Movie(this, "HelloWorldClip.mov");
+	myVideo.play();
+}
 
 void draw()
 {
-  float px = map(noise(frameCount*0.01, 1), 0, 1, 0, width-myVideo.width);
-  float py = map(noise(frameCount*0.01, 2), 0, 1, 0, height-myVideo.height);
-  tint(255, 4);      // Make the video very transparent.
-  image(myVideo, px, py, 600, 380);
+	// -- Use noise() to return positions in two dimensions
+	// --  that vary slightly between draw loops
+	float noiseX = noise(frameCount*0.01, 1);
+	float noiseY = noise(frameCount*0.01, 2);
+
+	// -- Convert to screen coordinates
+	float px = map(noiseX, 0, 1, 0, width-myVideo.width);
+  	float py = map(noiseY, 0, 1, 0, height-myVideo.height);
+
+	// -- Draw transparent on screen
+	tint(255, 4);      // Make the video very transparent.
+  	image(myVideo, px, py, 600, 380);
 }
 
 // This is needed to read in the movie while it is playing.
 void movieEvent(Movie videoBuffer)
 {
-  videoBuffer.read();
+	  videoBuffer.read();
 }
-</pre>
+</pre></div>
 
-				<p>
-					Result of the moving transparent video playback:
-				</p>
-				<iframe src="https://player.vimeo.com/video/108048905" width="690" height="388" frameborder="0"
-					webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-				<br /><br />
+
 			</div> <!-- End of left column -->
 
 		</div> <!-- End of row -->
@@ -656,32 +719,31 @@ void movieEvent(Movie videoBuffer)
 			<div class="unit-70-cc">
 				<!-- Left column -->
 				<h3>4. Summary and Further Resources</h3>
+
+				<p>We have given you a quick tour of some of the possibilities here and hope that you are interested, and importantly know where to look to find out more. There really are an impressive number of libraries that enable you to use sound, video and other media in interesting and creative ways in <i>Processing</i>.<br/>
+				If you have followed this <code>#CreativeCoding</code> activity then you will have the skill to use them, all you now need is the imagination to put these capabilities together and produce something interesting or useful or maybe both!<br/>
+				Oh - and the time!</p>
+				<p>In summary, this brief introduction has shown that:</p>
 				<ul>
 					<li>
-						<i>Processing</i> offers many ways of being creative in your design and generating artistic sketches
-						that express that creativity.
+						<i>Processing</i> offers many ways of being creative in your design and generating artistic sketches that express that creativity.
 					</li>
 
 					<li>
-						Adding some randomness to your sketch is one way of adding visual interest and variety to your
-						sketch design.
+						Adding some randomness to your sketch is one way of adding visual interest and variety to your sketch design.
 					</li>
 
 					<li>
-						You can incorporate sound and video in your own sketches using the built-in libraries that come
-						with the <i>Processing</i> distribution.
+						You can incorporate sound and video in your own sketches using the built-in libraries that come with the <i>Processing</i> distribution.
 					</li>
 
 					<li>
-						Take care when using other people's content in your own sketches that you are not infringing
-						copyright and that you avoid plagiarism by always citing the sources of any material not your
-						own.
+						It is important to take care when using other people's content in your sketches that you are not infringing copyright and that you avoid plagiarism by always citing the sources of any material not your own.
 					</li>
 				</ul>
 
 				<div class="homework">
-					You may find the following helpful if you'd like to find out more about art and media with <i>Processing</i>.
-					<br /><br />
+					<p>You may find the following helpful if you'd like to find out more about sounds and video with <i>Processing</i>.</p>
 					<ul>
 <!-- 
 						<li><a href="https://moodle4.city.ac.uk/mod/page/view.php?id=420962" target="_blank">Tile generator</a> &mdash; demo ideas.</li>
@@ -703,14 +765,13 @@ void movieEvent(Movie videoBuffer)
 			<div class="unit-70-cc">
 				<!-- Left column -->
 
-				<h2>Check on Progress</h2>
+				<h3>5. Check on Progress</h3>
 				<div class="task">
 				<p>
-					If you want to create a sketch that contains sound, video and randomness, check that each of the following are the case:
+					If you want to create a sketch that contains sound and video, check that each of the following are the case:
 				</p>
 			
 					<div class="checkOutcomes">
-						<input style="padding:2em" type="checkbox" id="sa1" /> <label style="padding:2em" for="sa1">I can use both <code>random()</code> and <code>noise()</code> to generate randomness in my sketches?</label><br />
 						<input style="padding:2em" type="checkbox" id="sa2" /> <label style="padding:2em" for="sa2">I can load and trigger a sound sample with the <i>Processing</i> sound library?</label><br />
 						<input style="padding:2em" type="checkbox" id="sa3" /> <label style="padding:2em" for="sa3">I can load and display a video file using the <code>Movie</code> class?</label><br />
 						<input style="padding:2em" type="checkbox" id="sa4" /> <label style="padding:2em" for="sa4">I can alter the size, position and appearance of a video file?</label><br />
