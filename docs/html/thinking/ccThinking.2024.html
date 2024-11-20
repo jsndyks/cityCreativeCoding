@@ -116,17 +116,18 @@ You can access [this page](https://jsndyks.github.io/cityBootCamp/html/thinking/
 		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 		<div class="units-row">
 			<h3>2. Case Study: Assessing Complexity in the 'Moving Balls' Sketch</h3>
-
+			<!-- Right column -->
 			<div class="unit-30-cc annotation cc-right">
-				<!-- Right column -->
-				<br><br>
-				<br><br>
-				<script>loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/ballExample", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/ball/movingBalls2.png");</script>
-				<p>
-					Moving balls (click image to activate).
-				</p>
-
+			<figure>
+				<script>loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/ballExample", 300, 300, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/ball/movingBalls2.png");</script>
+				<figcaption>     
+					<p>
+						Moving balls<br/>(click image to activate).
+					</p>
+				</figcaption>
+			</figure>
 			</div>
+	
 			<div class="unit-70-cc">
 				<!-- Left column -->
 
@@ -172,7 +173,14 @@ You can access [this page](https://jsndyks.github.io/cityBootCamp/html/thinking/
 					and got the following frame drawing times for different numbers of balls:
 				</p>
 
-				<img src="https://staff.city.ac.uk/~jwo/bootcamp2021/lecture14/images/complexity1.png">
+				<figure>
+					<script>loadImage('https://staff.city.ac.uk/~jwo/bootcamp2021/lecture14/images/complexity1.png', 600, 600, 'Graph showing relationship between number of balls and framerate increasing geometrically');</script>
+				<figcaption>     
+					<p>Graph showing relationship between <i>number of balls</i> and <i>framerate</i> <br/>
+						<i>(click to enlarge)</i></p>
+                </figcaption>
+				</figure>
+
 
 				<p>
 					Ideally, for smooth animation we would like to see a frame rate of at least 30 frames per second
@@ -193,16 +201,12 @@ You can access [this page](https://jsndyks.github.io/cityBootCamp/html/thinking/
 		<div class="units-row">
 			<h4>2.1 Examining the program</h4>
 
-			<div class="unit-30-cc annotation cc-right">
-				<br><br>
-				<p>
-					<a href="https://en.wikipedia.org/wiki/Donald_Knuth">Donald Knuth</a>, 1974: "Programmers waste
-					enormous amounts of time thinking about, or worrying about, the speed of noncritical parts of their
-					programs, and these attempts at efficiency actually have a strong negative impact when debugging and
-					maintenance are considered. We <i>should</i> forget about small efficiencies, say about 97% of the
-					time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in
-					that critical 3%."
-				</p>
+				<blockquote>
+					<p>"Programmers waste enormous amounts of time thinking about, or worrying about, the speed of noncritical parts of their programs, and these attempts at efficiency actually have a strong negative impact when debugging and maintenance are considered.<br/>
+					We <i>should</i> forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil.<br/>
+					Yet we should not pass up our opportunities in that critical 3%."</br>
+					<div style="text-align:right">(<a href="https://en.wikipedia.org/wiki/Donald_Knuth">Donald Knuth</a>, 1974)</div></p>
+				</blockquote>
 			</div>
 			<div class="unit-70-cc">
 				<!-- Left column -->
@@ -255,10 +259,16 @@ You can access [this page](https://jsndyks.github.io/cityBootCamp/html/thinking/
 
 
 				<p>
-					We can see the effect by measuring the fame times with and without the border around each ball for
-					different numbers of balls:
+					We can see the effect by measuring the fame times with and without the border around each ball for different numbers of balls:
 				</p>
-				<img src="https://staff.city.ac.uk/~jwo/bootcamp2021/lecture14/images/complexity2.png">
+
+				<figure>
+					<script>loadImage('https://staff.city.ac.uk/~jwo/bootcamp2021/lecture14/images/complexity2.png', 600, 600, 'Graph showing relationship between number of balls and framerate increasing less sharply if ball outlines are omitted');</script>
+				<figcaption>     
+					<p>Graph showing relationship between <i>number of balls</i> and <i>framerate</i> under two sets of circumstances (with and without <i>stroke</i> being applied)<br/>
+						<i>(click to enlarge)</i></p>
+                </figcaption>
+				</figure>
 
 				<p>
 					We have improved things in that we can now draw around 4000 balls before things start noticeably
@@ -338,8 +348,8 @@ void setup()
 					slow-down problem). The middle loop is a different matter. It compares each ball with each other
 					ball, to see if they have collided. That is, it does the following tests:
 				</p>
-
-				<table>
+				<div style="text-align:center;padding-left:5rem">
+				<table style="color:#448">
 					<tbody>
 						<tr>
 							<th></th>
@@ -443,6 +453,7 @@ void setup()
 						<tr></tr>
 					</tbody>
 				</table>
+			</div>
 
 				<p>
 					It doesn't test any ball against itself, and each pair is only tested once. Although that cuts the
@@ -455,7 +466,6 @@ void setup()
 					issues. It is a good example of <strong>abstraction</strong> as a form of computational thinking.
 				</p>
 
-			</div>
 		</div>
 
 		<div class="units-row">
@@ -483,7 +493,13 @@ void setup()
 					For example, the following chart compares various performances in relation to input size.
 				</p>
 
-				<img src="https://staff.city.ac.uk/~jwo/bootcamp2021/lecture14/images/complexity3.png">
+				<figure>
+					<script>loadImage('https://staff.city.ac.uk/~jwo/bootcamp2021/lecture14/images/complexity3.png', 600, 600, 'Graph showing relationship between number of balls and framerate increasing');</script>
+				<figcaption>     
+					<p>Graph showing relationship between <i>number of balls</i> and <i>framerate</i><br/>
+						<i>(click to enlarge)</i></p>
+                </figcaption>
+				</figure>
 
 				<p>
 					One of the two orange straight-lines represents a program that takes twice as long as the other.
@@ -521,39 +537,34 @@ void setup()
 		</div>
 
 		<div class="units-row">
+
+			<h4>2.3. Fixing the Problem (Algorithmic Thinking)</h4>
+
+			<!-- Right column -->
+            <div class="unit-30-cc annotation cc-right">
+				<figure>
+					<img src="https://staff.city.ac.uk/~jwo/bootcamp2021/lecture14/images/complexityGrid.png" width="300" />
+					<figcaption>     
+						<p>Grid providing a spatial classification of balls.</p>
+					</figcaption>
+				</figure>
+			</div> <!-- end of right column -->
+
 			<div class="unit-70-cc">
 				<!-- Left column -->
-
-				<h4>2.3. Fixing the Problem (Algorithmic Thinking)</h4>
-
 				<p>
-					Let us return to the specific problem of bouncing balls. We have traced the performance issues with
-					the bouncing balls program to the O(<i>n</i>&nbsp;<sup>2</sup>) collision tests, which result from
-					testing each ball against every other ball. Our task is to reduce the number of these tests to
+					Let us return to the specific problem of bouncing balls. We have traced the performance issues with the bouncing balls program to the O(<i>n</i>&nbsp;<sup>2</sup>) collision tests, which result from testing each ball against every other ball.</p>
+				<p> Our task is to reduce the number of these tests to
 					O(<i>n</i>), i.e. proportional to the number of balls. We do not need to touch the test
 					<code>hasCollidedWith()</code>, just call it less often. Nor need we touch the method
 					<code>bounce()</code>, which is called on a collision.
 				</p>
 
-			</div>
-		</div>
-
-		<div class="units-row">
-			<div class="unit-30-cc annotation cc-right">
-				<!-- Right hand column for small images, popup sketches and annotations. -->
-				<img src="https://staff.city.ac.uk/~jwo/bootcamp2021/lecture14/images/complexityGrid.png">
-				<p>
-					Grid providing a spatial classification of balls.
-				</p>
-			</div> <!-- end of right column -->
-
-			<div class="unit-70-cc">
-				<!-- Left column -->
-
 				<p>
 					The key observation is that there is no point testing a ball for collision with one that is a long
 					way away. To take advantage of this, we need to organize the balls according to their position in
-					space. One simple way to do this is to impose a grid on the space, and collect together all the
+					space.</p>
+				<p>One simple way to do this is to impose a grid on the space, and collect together all the
 					balls whose centre is in each square of the grid. To represent this, we can use a 2-dimensional
 					array for the grid, with an <code>ArrayList</code> of <code>Ball</code>s at each square:
 				</p>
@@ -576,10 +587,17 @@ void setup()
 					for moderate numbers of balls, this method is slower than the original implementation. However, the
 					total work is still proportional to the number of balls <i>n</i>, so for large values of <i>n</i>,
 					when the original becomes much slower, the new implementation is significantly faster:
-					<br>
-					<img src="https://staff.city.ac.uk/~jwo/bootcamp2021/lecture14/images/complexity4.png">
 
 				</p>
+
+				<figure>
+					<script>loadImage('https://staff.city.ac.uk/~jwo/bootcamp2021/lecture14/images/complexity4.png', 600, 600, 'Graph showing relationship between number of balls and framerate increasing much less drastically when we apply our solution');</script>
+				<figcaption>     
+					<p>Graph showing relationship between <i>number of balls</i> and <i>framerate</i> when we apply a solution involving <i>algorithmic thinking</i><br/>
+						<i>(click to enlarge)</i></p>
+                </figcaption>
+				</figure>
+
 				<div class="coreTask">
 					Run the <code>bouncingBalls2</code> (from the .zip file you downloaded earlier).
 					Again try changing the value of <code>NBALLS</code> with the values you used earlier, 
@@ -613,14 +631,18 @@ void setup()
 
 			<h4>2.4. Avoiding the Problem (Creative Thinking) </h4>
 
-			<div class="unit-30-cc annotation cc-right">
-				<!-- Right column -->
-				<script>loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/balls3d", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2021/lecture14/images/balls3d.jpg");</script>
-				<p>
-					A creative solution to the collision problem (click image to activate).
-				</p>
-
+			<!-- Right column -->
+            <div class="unit-30-cc annotation cc-right">
+				<figure>
+					<script>loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/balls3d", 300, 300, "https://www.staff.city.ac.uk/~jwo/bootcamp2021/lecture14/images/balls3d.jpg");</script>
+					<figcaption>     
+						<p>
+							A creative solution to the collision problem <br/>(click image to activate).
+						</p>
+					</figcaption>
+				</figure>
 			</div>
+
 			<div class="unit-70-cc">
 				<!-- Left column -->
 
@@ -694,13 +716,18 @@ void setup()
 		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 		<div class="units-row">
-			<div class="unit-30-cc annotation cc-right">
-				<!-- Right hand column for small images, popup sketches and annotations. -->
-				<img src="https://staff.city.ac.uk/~jwo/bootcamp2021/lecture14/images/firstBug.jpg">
-				<p>
-					A very early computer bug (which was a moth).
-				</p>
-			</div> <!-- end of right column -->
+			<!-- Right column -->
+            <div class="unit-30-cc annotation cc-right">
+				<figure>
+					<img src="https://staff.city.ac.uk/~jwo/bootcamp2021/lecture14/images/firstBug.jpg" width="300">
+					<figcaption>     
+						<p>
+							A very early computer bug<br/>(which was a moth).
+						</p>
+							</figcaption>
+				</figure>
+			</div>
+	
 
 			<div class="unit-70-cc">
 				<!-- Left column -->
