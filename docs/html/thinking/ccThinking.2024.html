@@ -145,19 +145,27 @@ You can access [this page](https://jsndyks.github.io/cityBootCamp/html/thinking/
 					</li>
 				</ul>
 				<p>
-					Another small change is that now the balls all start in the central area. As we'll see later, that
-					leads to some interesting effects.
+					Another small change is that now the balls all start in the central area.
+					As we'll see later, that leads to some interesting effects.
 				</p>
+				<hr class="hrInvisible"/>
 
 				<div class="coreTask">
-					Download
-					<a href="https://moodle4.city.ac.uk/mod/resource/view.php?id=420964">bouncingBallsComplexity.zip</a>,
-					unzip the sketch folder and run <code>bouncingBalls1</code>. Try increasing the variable
-					<code>NBALLS</code> (the number of balls) in the main file until the sketch is no longer usable
-					e.g by adding 0 to the number of balls: 100,1000,10000 etc.
-					This version also has a magnifier, which you can turn on by pressing a mouse button, for a better
-					view of what is going on. Record the number of frames per second in the top right of the sketch
-					for each of your variations.	We will use this information later for comparison purposes. 
+					<h5>How Many Balls?</h5>
+					<p>Let's experiment ...</p>
+					<ol>
+						<li>Download
+							<a href="https://moodle4.city.ac.uk/mod/resource/view.php?id=420964">bouncingBallsComplexity.zip</a></li>
+						<li>unzip the sketch folder and run <code>bouncingBalls1</code></li>
+						<li>Try increasing the variable <code>NBALLS</code> (the number of balls) in the main file a little</li>
+						<li>Continue to do so until the sketch is no longer usable, no longer responsive - do so systematically, e.g by adding 0 to the number of balls: 100,1000,10000 etc.</li>
+					</ol>
+					<p>This version of the sketch also has a magnifier, which you can turn on by pressing a mouse button, for a better view of what is going on.</p>
+					<ol start="5">
+						<li>Record the number of frames per second in the top right of the sketch
+							for each of your variations.
+							<br/>We will use this information later for comparison purposes.</li>
+					</ol> 
 				</div>
 
 				<p>
@@ -250,16 +258,19 @@ You can access [this page](https://jsndyks.github.io/cityBootCamp/html/thinking/
 				</p>
 
 				<div class="coreTask">
-					In your <code>bouncingBalls1</code> sketch, go to the <code>Ball</code> tab and try uncommenting the
-					<code>noStroke()</code> line inside its <code>draw()</code> method. What effect does this have on
-					the speed of animation for various numbers of balls? Again vary the number of balls as 
-					you did with the first task above and compare the results. How much of an effect has
-					this slight change to the sketch had? 
+					<h5>Speeding Things Up?</h5>
+					<p>
+					In your <code>bouncingBalls1</code> sketch, go to the <code>Ball</code> tab and try uncommenting the <code>noStroke()</code> line inside its <code>draw()</code> method.
+					</p>
+					<ul><li>What effect does this have on the speed of animation for various numbers of balls?</li></ul>
+					<p>
+						Again vary the number of balls as  you did with the first task above and compare the results. 
+					</p>
+					<ul><li>How much of an effect has this slight change to the sketch had?</li></ul>
 				</div>
 
-
 				<p>
-					We can see the effect by measuring the fame times with and without the border around each ball for different numbers of balls:
+					We can see the effect by measuring the frame times with and without the border around each ball for different numbers of balls:
 				</p>
 
 				<figure>
@@ -486,7 +497,7 @@ void setup()
 
 				<p>
 					We often focus on of what happens for really large inputs, because that is where the problems
-					usually arise. A side benefit is that we can often take a simplified view.
+					usually arise.<br/>A side benefit is that we can often take a simplified view.
 				</p>
 
 				<p>
@@ -599,14 +610,19 @@ void setup()
 				</figure>
 
 				<div class="coreTask">
+					<h5>An Algorithmic Approach</h5>
+					<p>
 					Run the <code>bouncingBalls2</code> (from the .zip file you downloaded earlier).
+					</p>
+					<p>
 					Again try changing the value of <code>NBALLS</code> with the values you used earlier, 
-					to see how performance relates to the number of balls on your computer. Compare the results
-					with your other two experiments. What impact has this change had on sketch frame rate?
+					to see how performance relates to the number of balls on your computer.</p>
+					<p>Compare the results with your other two experiments.</p>
+					<ul><li>What impact has this change had on sketch frame rate?</li></ul>
 				</div>
 
 				<p>
-					This was a simplistic approach, but it was enough to fix the performance bottleneck. A more
+					This was a simplistic approach, but it was enough to fix the performance bottleneck.<br/>A more
 					sophisticated approach might:
 				</p>
 
@@ -684,10 +700,18 @@ void setup()
 				</p>
 
 				<div class="coreTask">
+					<h5>More Balls Please?</h5>
+					<p>
 					Run the <code>bouncingBalls3</code> (from the .zip file you downloaded earlier).
-					Again try changing the value of <code>NBALLS</code> with the values you used earlier, 
-					to see how performance relates to the number of balls on your computer. Compare the results
-					with your other three experiments. What impact has this change had on sketch frame rate?
+					</p>
+					<p>
+						Again try changing the value of <code>NBALLS</code> with the values you used earlier, 
+						to see how performance relates to the number of balls on your computer. 
+					</p>
+					<p>
+						Compare the results with your other three experiments.
+					</p>
+					<ul><li>What impact has this change had on sketch frame rate?</li></ul> 
 				</div>
 			</div>
 		</div>
