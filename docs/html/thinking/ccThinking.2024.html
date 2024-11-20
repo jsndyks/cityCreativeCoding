@@ -37,6 +37,10 @@
 		
 		<!-- iFrame -->
 		<script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+
+		<style>
+			.spacedList {padding-top:0.5rem; padding-bottom:0.5rem; }
+		</style>
 	</head>
 	
 	<body>
@@ -63,13 +67,13 @@ You can access [this page](https://jsndyks.github.io/cityBootCamp/html/thinking/
 
 			<p><strong>By the end of this session you should be able to:</strong></p>
 			<ul>
-				<li>identify and continue to develop key computational thinking skills of <i>abstraction</i>,
+				<li class="spacedList">identify and continue to develop key computational thinking skills of <i>abstraction</i>,
 					<i>decomposition</i>, <i>pattern matching</i>, <i>algorithmic thinking</i> and <i>creativity</i>;
 				</li>
-				<li>identify where, in the Bouncing Balls sketch, there is greatest scope to reduce computational
+				<li class="spacedList">identify where, in the Bouncing Balls sketch, there is greatest scope to reduce computational
 					complexity;</li>
-				<li>recognise '<i>big O</i>' notation for describing computational complexity;</li>
-				<li>take structured steps towards debugging and testing a computer program.</li>
+				<li class="spacedList">recognise '<i>big O</i>' notation for describing computational complexity;</li>
+				<li class="spacedList">take structured steps towards debugging and testing a computer program.</li>
 			</ul>
 
 		</div> <!-- End of intro section -->
@@ -92,17 +96,17 @@ You can access [this page](https://jsndyks.github.io/cityBootCamp/html/thinking/
 					In general terms, computational thinking can be considered a way of approaching problem solving in such a way that makes it easier for us to get computers to help us. And in that sense, what you have been doing in <code>#CreativeCoding</code> has been to practice doing exactly that. But perhaps more usefully we can break the concept down into a series of distinct ways of thinking:
 				</p>
 				<ul>
-					<li><strong>Abstraction:</strong> The removal of the unnecessary details that describe a solution or a problem. For example, "Animate a ball moving across the screen" might be abstracted to "Draw a shape; update its position on each draw cycle". This can ease the process of <i>pattern matching</i> and <i>algorithmic thinking</i>. </li>
-					<li><strong>Decomposition:</strong> Break down a problem into a series of more easily solvable problems. For example in our Ball class, we separated the tasks of <i>drawing the ball</i>,
+					<li class="spacedList"><strong>Abstraction:</strong> The removal of the unnecessary details that describe a solution or a problem. For example, "Animate a ball moving across the screen" might be abstracted to "Draw a shape; update its position on each draw cycle". This can ease the process of <i>pattern matching</i> and <i>algorithmic thinking</i>. </li>
+					<li class="spacedList"><strong>Decomposition:</strong> Break down a problem into a series of more easily solvable problems. For example in our Ball class, we separated the tasks of <i>drawing the ball</i>,
 						<i>moving the ball</i>, <i>checking for collisions</i> into their own methods each of which we could work on independently.
 					</li>
-					<li><strong>Pattern Matching:</strong> Applying the solution to one problem or class of problems to another.
+					<li class="spacedList"><strong>Pattern Matching:</strong> Applying the solution to one problem or class of problems to another.
 						For example, creating a step sequencer (drum machine) by updating the triggering of sound
 						samples just as we update the drawing of shapes in the 'draw()' cycle when animating.</li>
-					<li><strong>Algorithmic thinking:</strong> Applying logic and reasoning in the specification of a problem's solution. For example when you determined the code to change the direction of a ball to make it 'bounce' off the side of sketch window.</li>
-					<li><strong>Creativity:</strong> The ability to think more widely about the nature of a problem or solution and to come up with new and original ideas.
+					<li class="spacedList"><strong>Algorithmic thinking:</strong> Applying logic and reasoning in the specification of a problem's solution. For example when you determined the code to change the direction of a ball to make it 'bounce' off the side of sketch window.</li>
+					<li class="spacedList"><strong>Creativity:</strong> The ability to think more widely about the nature of a problem or solution and to come up with new and original ideas.
 						This might involve combining approaches from very different contexts or re-specifying a task in different terms. We will see an example of creative thinking a little later in this lecture.
-					</li><li><strong>Understanding users and needs</strong>: Computing is a socio-technical discipline and you will be writing code to solve problems for other people. You will need to understand the user needs so that your software products can be used successfully by those users.</li>
+					</li><li class="spacedList"><strong>Understanding users and needs</strong>: Computing is a socio-technical discipline and you will be writing code to solve problems for other people. You will need to understand the user needs so that your software products can be used successfully by those users.</li>
 
 				</ul>
 			</div>
@@ -134,9 +138,9 @@ You can access [this page](https://jsndyks.github.io/cityBootCamp/html/thinking/
 				</p>
 
 				<ul>
-					<li>they are smaller (so they fit); </li>
-					<li>they are slower (so we don't miss collisions of small balls); </li>
-					<li>display the frame rate (so we can see the effect of adding balls on the speed of the sketch).
+					<li class="spacedList">they are smaller (so they fit); </li>
+					<li class="spacedList">they are slower (so we don't miss collisions of small balls); </li>
+					<li class="spacedList">display the frame rate (so we can see the effect of adding balls on the speed of the sketch).
 					</li>
 				</ul>
 				<p>
@@ -496,8 +500,8 @@ void setup()
 				</p>
 
 				<ul>
-					<li>order <i>n</i> or O(<i>n</i>), also known as <strong>linear</strong> and </li>
-					<li>order <i>n</i>&nbsp;<sup>2</sup> or O(<i>n</i>&nbsp;<sup>2</sup>), also known as
+					<li class="spacedList">order <i>n</i> or O(<i>n</i>), also known as <strong>linear</strong> and </li>
+					<li class="spacedList">order <i>n</i>&nbsp;<sup>2</sup> or O(<i>n</i>&nbsp;<sup>2</sup>), also known as
 						<strong>quadratic</strong>.
 					</li>
 				</ul>
@@ -561,9 +565,9 @@ void setup()
 					Using this structure, the new procedure to test for collisions is
 				</p>
 				<ol>
-					<li>Clear the <code>grid</code></li>
-					<li>Add each ball to the list in the grid square containing its centre </li>
-					<li>For each ball, call <code>hasCollidedWith()</code> only with balls in the same or neighbouring
+					<li class="spacedList">Clear the <code>grid</code></li>
+					<li class="spacedList">Add each ball to the list in the grid square containing its centre </li>
+					<li class="spacedList">For each ball, call <code>hasCollidedWith()</code> only with balls in the same or neighbouring
 						grid squares. </li>
 				</ol>
 
@@ -589,11 +593,11 @@ void setup()
 				</p>
 
 				<ul>
-					<li>try to reduce the work of regenerating the grid each time when by noting when balls remain
+					<li class="spacedList">try to reduce the work of regenerating the grid each time when by noting when balls remain
 						within the same square (but note this is still a linear improvement, just like removing the
 						border line around each ball, so it won't change the shape of the performance line, but simply
 						its gradient). </li>
-					<li>wrap the whole grid implementation in a class that hides most of the details and provides a
+					<li class="spacedList">wrap the whole grid implementation in a class that hides most of the details and provides a
 						high-level interface. An example is the giCentre's <a href="https://www.gicentre.net/utils/hashgrid">HashGrid</a> library.
 						<!-- used in the 'soundballs' music-responsive balls shown earlier in the BootCamp. -->
 						This won't reduce the algorithm's complexity (as defined above), but it may well make <i>pattern matching</i> easier by allowing us to recognise and use the approach in a range of applications.</li>
@@ -641,14 +645,14 @@ void setup()
 					simulating a 3d effect. We could emphasise that effect by:
 				</p>
 				<ul>
-					<li>Making balls different sizes (smaller ones appear further away)</li>
-					<li>Drawing the balls in size order to create impression of nearer ones in front of distant ones.
+					<li class="spacedList">Making balls different sizes (smaller ones appear further away)</li>
+					<li class="spacedList">Drawing the balls in size order to create impression of nearer ones in front of distant ones.
 					</li>
-					<li>Making smaller balls a darker colour, just like we did for the trees sketch last week</li>
-					<li>Making the speed of each ball proportional to its size simulating rapid transit of balls closer
+					<li class="spacedList">Making smaller balls a darker colour, just like we did for the trees sketch last week</li>
+					<li class="spacedList">Making the speed of each ball proportional to its size simulating rapid transit of balls closer
 						to
 						the observer.</li>
-					<li>Stopping the balls bouncing off the side of the sketch to create the impression of a 'window'
+					<li class="spacedList">Stopping the balls bouncing off the side of the sketch to create the impression of a 'window'
 						looking at a larger space.</li>
 				</ul>
 				<p>
@@ -748,15 +752,15 @@ void setup()
 				</p>
 
 				<ul>
-					<li>Using <code>println()</code> to display the contents of variables, or the size of arrays</li>
-					<li>Displaying values in your sketch using <code>text()</code> (e.g. frame count in the bouncing
+					<li class="spacedList">Using <code>println()</code> to display the contents of variables, or the size of arrays</li>
+					<li class="spacedList">Displaying values in your sketch using <code>text()</code> (e.g. frame count in the bouncing
 						balls above)</li>
-					<li>Slowing down the <code>frameRate</code> so you can follow how your sketch is changing on each
+					<li class="spacedList">Slowing down the <code>frameRate</code> so you can follow how your sketch is changing on each
 						redraw</li>
-					<li>Using <i>Processing</i>'s <i>Debugger</i> (See the <code>Debug</code> menu and the <a href="https://processing.org/environment/#debug-1" target="_blank">Processing
+					<li class="spacedList">Using <i>Processing</i>'s <i>Debugger</i> (See the <code>Debug</code> menu and the <a href="https://processing.org/environment/#debug-1" target="_blank">Processing
 							documentation</a>). This allows you to inspect the contents of all variables in your program
 						and step though each line of code as it is executed when you run your sketch.</li>
-					<li>Create <i>assertions</i> that describe what you expect your code to do and get the computer to
+					<li class="spacedList">Create <i>assertions</i> that describe what you expect your code to do and get the computer to
 						inform you whether that is indeed the case (see below for an example of doing this).</li>
 				</ul>
 
@@ -809,11 +813,16 @@ void setup()
 					detail exposes the parts of your code that are more relevant to the debugging process.
 				</p>
 
-				<div class="task">
-					Reflect on the some of the bugs you have encountered when using <i>Processing</i> during <code>#CreativeCoding</code>.
-					Can you recall what caused the problems and how you fixed them?
-					Which of the strategies above (if any) did you use to solve the problem?
-					Which strategies could you use?
+				<div class="codeTask">
+					<h5>Me and My Bugs 🪲</h5>
+					<p>
+					Reflect on the some of the bugs you have encountered when using <i>Processing</i> during <code>#CreativeCoding</code>.</p>
+					<ul>
+						<li class="spacedList">Can you recall what caused the problems and how you fixed them?</li>
+						<li class="spacedList">Which of the strategies above (if any) did you use to solve the problem?</li>
+						<li class="spacedList">Which strategies could you use?</li>
+						<li class="spacedList">Which were most / least successful, and when, and why?</li>
+					</ul>
 				</div>
 
 			</div> <!-- End of left column -->
@@ -830,25 +839,25 @@ void setup()
 				<h3>4. Summary</h3>
 
 				<ul>
-					<li>Computational thinking underlies much of what you have been doing in the last two weeks and will
+					<li class="spacedList">Computational thinking underlies much of what you have been doing in the last two weeks and will
 						continue to develop during your degree. The key processes of <i>abstraction</i>,
 						<i>decomposition</i>, <i>pattern matching</i>, <i>algorithmic thinking</i> and <i>creativity</i>
 						provide a useful way for you to think about how you develop these computational thinking skills.
 					</li>
-					<li>
+					<li class="spacedList">
 						Understanding how your code works, by writing it clearly, and abstracting key characteristics of
 						it (like <i>computational complexity</i>) can save much time and expense while making the
 						process of algorithmic thinking easier. During your degree you will develop many techniques to
 						help you develop this skill.
 					</li>
 
-					<li>Learn to embrace <i>debugging</i> as part of thinking like a programmer. All programmers
+					<li class="spacedList">Learn to embrace <i>debugging</i> as part of thinking like a programmer. All programmers
 						introduce bugs into their code as they write. Developing your computational thinking and
 						structured testing skills will save many, many hours of frustration by reducing the
 						opportunities to create bugs and speeding up the process of finding them.
 					</li>
 
-					<li>
+					<li class="spacedList">
 						Try to apply your experience during <code>#CreativeCoding</code> within this framework of computational thinking so you can make the most of your Computer Science Degree with us at City!
 					</li>
 				</ul>
