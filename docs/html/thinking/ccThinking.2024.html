@@ -1,0 +1,866 @@
+
+<!DOCTYPE html>
+
+<html  dir="ltr" lang="en" xml:lang="en">
+	<head>
+		<title>CreativeCoding Lecture: Computational Thinking</title>
+	
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+		<!-- Embedded fonts -->
+		<link
+				href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+				rel="stylesheet">
+	
+		<!-- Custom layout and style -->
+		<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+		<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+		<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+		<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+		<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+	
+		<!-- General browser compatibility handling -->
+		<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+	
+		<!-- Formatted source code -->
+		<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+		<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+	
+		<!-- Sketch popups and hidden text-->
+		<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+		<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+		<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+	
+		<!-- JD Extras! -->
+		<link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" />
+		
+		<!-- iFrame -->
+		<script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+	</head>
+	
+	<body>
+
+	<div id="page">
+
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+		<!-- Content below -->
+
+        <!--
+We look at what it means to 'Think Like a Programmer' and use some of what we have learned in BootCamp to illustrate and explore this notion.
+
+You can access [this page](https://jsndyks.github.io/cityBootCamp/html/thinking/bootCamp.thinking.2023.lecture.html) outside of _Moodle_ should you wish to do so. 
+		 -->
+
+		<div class="intro">
+
+			<p>
+				In this session, we ask what it means to 'think like a programmer', relating the skills
+				and experience you've built up over the <code>#CreativeCoding</code> activity 
+				to prepare for your degree in Computer Science.
+			</p>
+
+			<p><strong>By the end of this session you should be able to:</strong></p>
+			<ul>
+				<li>identify and continue to develop key computational thinking skills of <i>abstraction</i>,
+					<i>decomposition</i>, <i>pattern matching</i>, <i>algorithmic thinking</i> and <i>creativity</i>;
+				</li>
+				<li>identify where, in the Bouncing Balls sketch, there is greatest scope to reduce computational
+					complexity;</li>
+				<li>recognise '<i>big O</i>' notation for describing computational complexity;</li>
+				<li>take structured steps towards debugging and testing a computer program.</li>
+			</ul>
+
+		</div> <!-- End of intro section -->
+
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+		<div class="units-row">
+			<div class="unit-70-cc">
+				<!-- Left column -->
+
+				<h3>1. Computational Thinking</h3>
+
+				<p>
+					We hope you have found the <code>#CreativeCoding</code> a rewarding experience and one in which you feel you have made some progress, regardless of how much prior experience you have had with computing.
+					We round off the lecture sessions by considering how you might use and develop your skills in
+					<i>computational thinking</i>, so that as you progress through your degree you move from a 'coder' to a 'computer scientist'.
+				</p>
+
+				<p>
+					In general terms, computational thinking can be considered a way of approaching problem solving in such a way that makes it easier for us to get computers to help us. And in that sense, what you have been doing in <code>#CreativeCoding</code> has been to practice doing exactly that. But perhaps more usefully we can break the concept down into a series of distinct ways of thinking:
+				</p>
+				<ul>
+					<li><strong>Abstraction:</strong> The removal of the unnecessary details that describe a solution or a problem. For example, "Animate a ball moving across the screen" might be abstracted to "Draw a shape; update its position on each draw cycle". This can ease the process of <i>pattern matching</i> and <i>algorithmic thinking</i>. </li>
+					<li><strong>Decomposition:</strong> Break down a problem into a series of more easily solvable problems. For example in our Ball class, we separated the tasks of <i>drawing the ball</i>,
+						<i>moving the ball</i>, <i>checking for collisions</i> into their own methods each of which we could work on independently.
+					</li>
+					<li><strong>Pattern Matching:</strong> Applying the solution to one problem or class of problems to another.
+						For example, creating a step sequencer (drum machine) by updating the triggering of sound
+						samples just as we update the drawing of shapes in the 'draw()' cycle when animating.</li>
+					<li><strong>Algorithmic thinking:</strong> Applying logic and reasoning in the specification of a problem's solution. For example when you determined the code to change the direction of a ball to make it 'bounce' off the side of sketch window.</li>
+					<li><strong>Creativity:</strong> The ability to think more widely about the nature of a problem or solution and to come up with new and original ideas.
+						This might involve combining approaches from very different contexts or re-specifying a task in different terms. We will see an example of creative thinking a little later in this lecture.
+					</li><li><strong>Understanding users and needs</strong>: Computing is a socio-technical discipline and you will be writing code to solve problems for other people. You will need to understand the user needs so that your software products can be used successfully by those users.</li>
+
+				</ul>
+			</div>
+			<!-- end of right column -->
+		</div> <!-- End of row -->
+
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<div class="units-row">
+			<h3>2. Case Study: Assessing Complexity in the 'Moving Balls' Sketch</h3>
+
+			<div class="unit-30-cc annotation cc-right">
+				<!-- Right column -->
+				<br><br>
+				<br><br>
+				<script>loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/ballExample", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/images/ball/movingBalls2.png");</script>
+				<p>
+					Moving balls (click image to activate).
+				</p>
+
+			</div>
+			<div class="unit-70-cc">
+				<!-- Left column -->
+
+				<p>
+					Let's start with the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=468962" target="_blank">bouncing ball sketch</a> (right).
+                    We'll stretch this beyond its original use by
+					considering increasing the number of balls. To do this, we'll need a few minor changes, so that when
+					there are a lot of balls,
+				</p>
+
+				<ul>
+					<li>they are smaller (so they fit); </li>
+					<li>they are slower (so we don't miss collisions of small balls); </li>
+					<li>display the frame rate (so we can see the effect of adding balls on the speed of the sketch).
+					</li>
+				</ul>
+				<p>
+					Another small change is that now the balls all start in the central area. As we'll see later, that
+					leads to some interesting effects.
+				</p>
+
+				<div class="coreTask">
+					Download
+					<a href="https://moodle4.city.ac.uk/mod/resource/view.php?id=420964">bouncingBallsComplexity.zip</a>,
+					unzip the sketch folder and run <code>bouncingBalls1</code>. Try increasing the variable
+					<code>NBALLS</code> (the number of balls) in the main file until the sketch is no longer usable
+					e.g by adding 0 to the number of balls: 100,1000,10000 etc.
+					This version also has a magnifier, which you can turn on by pressing a mouse button, for a better
+					view of what is going on. Record the number of frames per second in the top right of the sketch
+					for each of your variations.	We will use this information later for comparison purposes. 
+				</div>
+
+				<p>
+					We find that for very large numbers of balls (the number will depend on the particular machine
+					used), the simulation grinds to a halt, and becomes very jerky.
+
+				</p>
+
+				<p>
+					What has gone wrong? You should recall that, by default, <i>Processing</i> aims to call <code>draw()</code>
+					60 times a second. If executing the code inside <code>draw()</code> takes longer than 1/60 of a
+					second, there will be a noticeable slowdown, as we see here. I did some measurements on my computer,
+					and got the following frame drawing times for different numbers of balls:
+				</p>
+
+				<img src="https://staff.city.ac.uk/~jwo/bootcamp2021/lecture14/images/complexity1.png">
+
+				<p>
+					Ideally, for smooth animation we would like to see a frame rate of at least 30 frames per second
+					(i.e. taking less than 33 milliseconds for each <code>draw()</code> cycle). But as you can see,
+					beyond about 2000 balls, drawing becomes noticeably slow and by 20,000 balls, it takes a whole
+					second just to draw a single frame.
+				</p>
+
+				<p>
+					Your machine may be faster or slower, but that will affect the time scale consistently; the shape of
+					the curve will be the same. The time for each <code>draw()</code> increases with the number of
+					balls, but it's worse than that: the line isn't straight, so that the frame-drawing time increases
+					faster than the number of balls does.
+				</p>
+			</div>
+		</div>
+
+		<div class="units-row">
+			<h4>2.1 Examining the program</h4>
+
+			<div class="unit-30-cc annotation cc-right">
+				<br><br>
+				<p>
+					<a href="https://en.wikipedia.org/wiki/Donald_Knuth">Donald Knuth</a>, 1974: "Programmers waste
+					enormous amounts of time thinking about, or worrying about, the speed of noncritical parts of their
+					programs, and these attempts at efficiency actually have a strong negative impact when debugging and
+					maintenance are considered. We <i>should</i> forget about small efficiencies, say about 97% of the
+					time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in
+					that critical 3%."
+				</p>
+			</div>
+			<div class="unit-70-cc">
+				<!-- Left column -->
+
+
+				<p>
+					It has often been observed that a small part of a program is typically critical for overall
+					performance. We need to identify the part that is producing the curve in the above graph. Here is
+					where we can start applying <i>algorithmic thinking</i> and a bit of <i>abstraction</i> so we can
+					can direct our speeding up efforts to the relevant part of our code (<i>decomposition</i>).
+				</p>
+
+				<p>
+					The program contains a class <code>Ball</code> describing a single ball, with methods to manipulate
+					it:
+				</p>
+
+				<pre class="brush: processing; gutter: false; toolbar: false; ">class Ball {
+  // fields (omitted)
+		
+  Ball()
+  { ... }
+		
+  void draw()
+  { ... }
+		
+  void move()
+  { ... }
+		
+  boolean hasCollidedWith(Ball anotherBall)
+  { ... }
+		
+  void bounce(Ball anotherBall)
+  { ... }
+}</pre>
+
+				<p>
+					There's quite a bit of code in some of these methods, but we should ask ourselves if there are any
+					elements we can make faster. For example in Ball's <code>draw()</code> method we include a black
+					stroke around each circle. Would removing it help speed things up?
+				</p>
+
+				<div class="coreTask">
+					In your <code>bouncingBalls1</code> sketch, go to the <code>Ball</code> tab and try uncommenting the
+					<code>noStroke()</code> line inside its <code>draw()</code> method. What effect does this have on
+					the speed of animation for various numbers of balls? Again vary the number of balls as 
+					you did with the first task above and compare the results. How much of an effect has
+					this slight change to the sketch had? 
+				</div>
+
+
+				<p>
+					We can see the effect by measuring the fame times with and without the border around each ball for
+					different numbers of balls:
+				</p>
+				<img src="https://staff.city.ac.uk/~jwo/bootcamp2021/lecture14/images/complexity2.png">
+
+				<p>
+					We have improved things in that we can now draw around 4000 balls before things start noticeably
+					slowing. But importantly the shape of the curve is still worse than linear – as the number of balls
+					increases, the time taken increases even more, even with this stroke adjustment.
+				</p>
+
+				<p>
+					A key insight is that each call to one of the <code>Ball</code> methods takes a fixed amount of time
+					no matter how many balls there are. So even if we reduce the time it does take to complete any of
+					those methods, we will always show this worse-than-linear pattern as we increase the number of balls
+					in the system.
+				</p>
+
+				<p>
+					So we need to look at whether we can reduce the number of times we need to call any of these
+					methods. The main program stars with variables and initialization:
+				</p>
+
+				<pre class="brush: processing; gutter: false; toolbar: false; highlight: [9]; ">int NBALLS = 100;
+		
+Ball[] balls;           // Declare an array of ball objects.
+		
+void setup()
+{
+  size(700, 700);
+  balls = new Ball[NBALLS];
+  for (int i=0; i &lt; balls.length; i=i+1)
+  {
+    balls[i] = new Ball();
+  }
+}</pre>
+
+				<p>
+					There is a loop here, but it is only executed once, when the sketch starts, and in any case the
+					amount of work is proportional to the number of balls (i.e. it doesn't show that problematic upward
+					curve we see in the charts above).
+				</p>
+
+				<p>
+					That leaves the <code>draw()</code> method:
+				</p>
+
+				<pre class="brush: processing; gutter: false; toolbar: false; highlight: [6, 12, 15, 25]; ">void draw()
+{
+  background(254, 244, 232);  // Pale background.
+		
+  // First draw the balls in their current position.
+  for (Ball ball : balls)
+  {
+    ball.draw();
+  }
+		
+  // Check to see if any balls have collided
+  for (int i = 0; i &lt; balls.length; i = i+1)
+  {
+    // Compare each ball with any untested others
+    for (int j = i+1; j &lt; balls.length; j = j+1)
+    {
+      if (balls[i].hasCollidedWith(balls[j]))
+      {
+        balls[i].bounce(balls[j]);
+      }
+    }
+  }
+		
+  // Finally move all the balls by one step.
+  for (Ball ball : balls)
+  {
+    ball.move();
+  }
+}</pre>
+
+				<p>
+					The first and last loops go through all the balls, doing a bit of work for each. That means that the
+					amount of work they do is again proportional to the number of balls (so not the cause of the
+					slow-down problem). The middle loop is a different matter. It compares each ball with each other
+					ball, to see if they have collided. That is, it does the following tests:
+				</p>
+
+				<table>
+					<tbody>
+						<tr>
+							<th></th>
+							<th>balls[0]</th>
+							<th>balls[1]</th>
+							<th>balls[2]</th>
+							<th>balls[3]</th>
+							<th>balls[4]</th>
+							<th>balls[5]</th>
+							<th>balls[6]</th>
+							<th>balls[7]</th>
+						</tr>
+						<tr>
+							<th>balls[0]</th>
+							<td>-</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+						<tr>
+							<th>balls[1]</th>
+							<td>-</td>
+							<td>-</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+						<tr>
+							<th>balls[2]</th>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+						<tr>
+							<th>balls[3]</th>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+						<tr>
+							<th>balls[4]</th>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+						<tr>
+							<th>balls[5]</th>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+						<tr>
+							<th>balls[6]</th>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>test</td>
+						</tr>
+						<tr>
+							<th>balls[7]</th>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+						</tr>
+						<tr></tr>
+					</tbody>
+				</table>
+
+				<p>
+					It doesn't test any ball against itself, and each pair is only tested once. Although that cuts the
+					number of tests in half, it is still proportional to <i>n</i>&nbsp;<sup>2</sup>, where <i>n</i> is
+					the number of balls. <strong>This is the reason our performance curves upwards as <i>n</i> increases.</strong>
+				</p>
+
+				<p>
+					Let's briefly consider how computer scientists (soon to be you!) describe these kinds of performance
+					issues. It is a good example of <strong>abstraction</strong> as a form of computational thinking.
+				</p>
+
+			</div>
+		</div>
+
+		<div class="units-row">
+			<div class="unit-70-cc">
+				<!-- Left column -->
+
+				<h4>2.2 Computational complexity (Abstraction)</h4>
+
+				<p>
+					Over the decades, computer scientists have built an impressive body of knowledge about program
+					performance.
+				</p>
+
+				<div class="tip">
+					The <strong>complexity</strong> of a program is the relationship between its cost (running time, memory usage,
+					etc.) and the size of its input.
+				</div>
+
+				<p>
+					We often focus on of what happens for really large inputs, because that is where the problems
+					usually arise. A side benefit is that we can often take a simplified view.
+				</p>
+
+				<p>
+					For example, the following chart compares various performances in relation to input size.
+				</p>
+
+				<img src="https://staff.city.ac.uk/~jwo/bootcamp2021/lecture14/images/complexity3.png">
+
+				<p>
+					One of the two orange straight-lines represents a program that takes twice as long as the other.
+					That might be addressed by buying a faster computer. Similarly one of the curved lines represents
+					twice as much time as the other.
+				</p>
+
+				<p>
+					The key difference is between the straight-line curves, representing a cost proportional to
+					<i>n</i>, and the curved ones, representing a cost proportional to <i>n</i>&nbsp;<sup>2</sup>. For
+					large enough input sizes, the former will always win over the latter, no matter how fast our
+					machines are. Thus we can often ignore constant factors, saying that the complexity functions belong
+					to distinct classes:
+				</p>
+
+				<ul>
+					<li>order <i>n</i> or O(<i>n</i>), also known as <strong>linear</strong> and </li>
+					<li>order <i>n</i>&nbsp;<sup>2</sup> or O(<i>n</i>&nbsp;<sup>2</sup>), also known as
+						<strong>quadratic</strong>.
+					</li>
+				</ul>
+
+				<p>
+					There are many more complexity classes. For example, the best known methods for some problems take
+					time proportional to 2<sup><i>n</i></sup> (red line above). As you can probably see from the chart,
+					such <strong>exponential</strong> time problems are infeasible for all but the smallest instances.
+				</p>
+
+				<p>
+					So what we have done here is to apply <strong>abstraction</strong> to describing specific problem (our moving
+					balls) to create a way of describing performance of any algorithm that relates input to output.
+				</p>
+
+			</div>
+		</div>
+
+		<div class="units-row">
+			<div class="unit-70-cc">
+				<!-- Left column -->
+
+				<h4>2.3. Fixing the Problem (Algorithmic Thinking)</h4>
+
+				<p>
+					Let us return to the specific problem of bouncing balls. We have traced the performance issues with
+					the bouncing balls program to the O(<i>n</i>&nbsp;<sup>2</sup>) collision tests, which result from
+					testing each ball against every other ball. Our task is to reduce the number of these tests to
+					O(<i>n</i>), i.e. proportional to the number of balls. We do not need to touch the test
+					<code>hasCollidedWith()</code>, just call it less often. Nor need we touch the method
+					<code>bounce()</code>, which is called on a collision.
+				</p>
+
+			</div>
+		</div>
+
+		<div class="units-row">
+			<div class="unit-30-cc annotation cc-right">
+				<!-- Right hand column for small images, popup sketches and annotations. -->
+				<img src="https://staff.city.ac.uk/~jwo/bootcamp2021/lecture14/images/complexityGrid.png">
+				<p>
+					Grid providing a spatial classification of balls.
+				</p>
+			</div> <!-- end of right column -->
+
+			<div class="unit-70-cc">
+				<!-- Left column -->
+
+				<p>
+					The key observation is that there is no point testing a ball for collision with one that is a long
+					way away. To take advantage of this, we need to organize the balls according to their position in
+					space. One simple way to do this is to impose a grid on the space, and collect together all the
+					balls whose centre is in each square of the grid. To represent this, we can use a 2-dimensional
+					array for the grid, with an <code>ArrayList</code> of <code>Ball</code>s at each square:
+				</p>
+
+				<pre class="brush: processing; gutter: false; toolbar: false; ">  ArrayList&lt;Ball&gt;[][] grid;
+		</pre>
+
+				<p>
+					Using this structure, the new procedure to test for collisions is
+				</p>
+				<ol>
+					<li>Clear the <code>grid</code></li>
+					<li>Add each ball to the list in the grid square containing its centre </li>
+					<li>For each ball, call <code>hasCollidedWith()</code> only with balls in the same or neighbouring
+						grid squares. </li>
+				</ol>
+
+				<p>
+					It seems very expensive to build all these lists on every iteration of <code>draw</code>, and it is:
+					for moderate numbers of balls, this method is slower than the original implementation. However, the
+					total work is still proportional to the number of balls <i>n</i>, so for large values of <i>n</i>,
+					when the original becomes much slower, the new implementation is significantly faster:
+					<br>
+					<img src="https://staff.city.ac.uk/~jwo/bootcamp2021/lecture14/images/complexity4.png">
+
+				</p>
+				<div class="coreTask">
+					Run the <code>bouncingBalls2</code> (from the .zip file you downloaded earlier).
+					Again try changing the value of <code>NBALLS</code> with the values you used earlier, 
+					to see how performance relates to the number of balls on your computer. Compare the results
+					with your other two experiments. What impact has this change had on sketch frame rate?
+				</div>
+
+				<p>
+					This was a simplistic approach, but it was enough to fix the performance bottleneck. A more
+					sophisticated approach might:
+				</p>
+
+				<ul>
+					<li>try to reduce the work of regenerating the grid each time when by noting when balls remain
+						within the same square (but note this is still a linear improvement, just like removing the
+						border line around each ball, so it won't change the shape of the performance line, but simply
+						its gradient). </li>
+					<li>wrap the whole grid implementation in a class that hides most of the details and provides a
+						high-level interface. An example is the giCentre's <a href="https://www.gicentre.net/utils/hashgrid">HashGrid</a> library.
+						<!-- used in the 'soundballs' music-responsive balls shown earlier in the BootCamp. -->
+						This won't reduce the algorithm's complexity (as defined above), but it may well make <i>pattern matching</i> easier by allowing us to recognise and use the approach in a range of applications.</li>
+				</ul>
+
+			</div> <!-- End of left column -->
+
+		</div> <!-- End of row -->
+
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+		<div class="units-row">
+
+			<h4>2.4. Avoiding the Problem (Creative Thinking) </h4>
+
+			<div class="unit-30-cc annotation cc-right">
+				<!-- Right column -->
+				<script>loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/balls3d", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2021/lecture14/images/balls3d.jpg");</script>
+				<p>
+					A creative solution to the collision problem (click image to activate).
+				</p>
+
+			</div>
+			<div class="unit-70-cc">
+				<!-- Left column -->
+
+				<p>
+					Creative thinking isn't limited to the artistic side of computer science (such as those we
+					considered on Monday), but is also an important part of the 'computational' side of Computer
+					Science. Some of the most significant <a href="https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf" target="_blank">advances in the
+						development of computer science</a> have resulted from creative thinking.
+				</p>
+
+				<p>
+					Let's consider how we might apply some creative thinking to our collision complexity problem. We
+					know that the quadratic complexity of the original bouncing balls sketch was because we were having
+					to test every ball against every other one for a possible collision. Thinking creatively about the
+					problem, we might try to sidestep the need to test for collisions in the first place.
+				</p>
+
+				<p>
+					How might we do this? One way could be to simulate the space in which the balls move as though its
+					was 3d, so that balls may pass 'in front' or 'behind' others without collision. It is important to
+					note that we are not actually encoding 3d space, like we did in the previous session, but rather
+					simulating a 3d effect. We could emphasise that effect by:
+				</p>
+				<ul>
+					<li>Making balls different sizes (smaller ones appear further away)</li>
+					<li>Drawing the balls in size order to create impression of nearer ones in front of distant ones.
+					</li>
+					<li>Making smaller balls a darker colour, just like we did for the trees sketch last week</li>
+					<li>Making the speed of each ball proportional to its size simulating rapid transit of balls closer
+						to
+						the observer.</li>
+					<li>Stopping the balls bouncing off the side of the sketch to create the impression of a 'window'
+						looking at a larger space.</li>
+				</ul>
+				<p>
+					The code to do this is pretty straightforward and it both keeps the computational complexity of our
+					sketch linear while adding an interesting perspective on our moving balls. The example to the right
+					shows many thousand balls with a smooth frame rate.
+				</p>
+
+				<div class="coreTask">
+					Run the <code>bouncingBalls3</code> (from the .zip file you downloaded earlier).
+					Again try changing the value of <code>NBALLS</code> with the values you used earlier, 
+					to see how performance relates to the number of balls on your computer. Compare the results
+					with your other three experiments. What impact has this change had on sketch frame rate?
+				</div>
+			</div>
+		</div>
+
+
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+		<div class="units-row">
+			<div class="unit-70-cc">
+				<!-- Left column -->
+
+				<h3>3. Structured Testing and Debugging </h3>
+
+				<p>
+					One thing we can guarantee happened to you during <code>#CreativeCoding</code> is that on some occasions your code didn't work as you expected it to.
+					Perhaps you had some kind of error indicated by a red wavey line in <i>Processing</i> along with an error message.
+					Perhaps when you ran your code, your sketch didn't appear.
+					Perhaps it worked for most of the time but then did something unexpected.
+					All of this is to be expected and experiencing it is part of the programming process, whether a beginner or experienced coder.
+				</p>
+			</div> <!-- End of left column -->
+
+		</div> <!-- End of row -->
+
+
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+		<div class="units-row">
+			<div class="unit-30-cc annotation cc-right">
+				<!-- Right hand column for small images, popup sketches and annotations. -->
+				<img src="https://staff.city.ac.uk/~jwo/bootcamp2021/lecture14/images/firstBug.jpg">
+				<p>
+					A very early computer bug (which was a moth).
+				</p>
+			</div> <!-- end of right column -->
+
+			<div class="unit-70-cc">
+				<!-- Left column -->
+				<p>
+					The act of identifying problems in your code and then resolving them, known as <a href="https://en.wikipedia.org/wiki/Debugging" target="_blank">debugging</a>, is attributed to
+					the early computer programmer <a href="https://en.wikipedia.org/wiki/Grace_Hopper" target="_blank">Grace Hopper</a>. As you progress through your degree you will continue to write
+					code that needs debugging, but with careful computational thinking you will become more proficient
+					and identifying and correcting the bugs in your code.
+				</p>
+
+				<blockquote>
+					Debugging is like being the detective in a crime movie where you are also the murderer.
+				</blockquote>
+
+				<p>
+					Let's look very briefly at some of the techniques you can put into practice to make 'solving'
+					debugging mysteries a little easier.
+				</p>
+
+				<h4>3.1 Read Error Messages</h4>
+
+				<p>It may seem obvious, but this is surprisingly often overlooked. If your programming environment is
+					generating error messages, read them! In <i>Processing</i> this will be indicated with a red wavey line at
+					or near the place in your code with a problem along with a red error message displayed in the
+					console part of the interface.
+				</p>
+
+				<p>
+					Error messages can immediately indicate the difference between forgetting semi-colons and exceeding
+					the size of an array. Between trying to initialise a variable without declaring it and using
+					<code>colour</code> rather than <code>color</code>. By applying <strong>pattern matching</strong> you will
+					soon build up a set of common mistakes you can make and know what it is you need to do to correct
+					them. By using <strong>abstraction</strong> you build up an intuition between different categories of error
+					(e.g. 'compile-time' and 'run-time' errors) which leaves vital clues about how to correct them.
+				</p>
+
+				<h4>3.2 Generate Feedback</h4>
+
+				<p>
+					One of the common sources of difficulty when a program does not behave as expected is knowing where
+					to look in your code to address the problem. This is especially the case with <i>run-time
+						errors</i>, where the code compiles fine (no red wavey lines) but only when you run your sketch
+					does something unexpected happen. This is where getting your program to provide you with feedback on
+					how it is progressing can be useful.
+				</p>
+
+				<p>
+					Some examples of feedback to support understanding how your program is (mis)behaving:
+				</p>
+
+				<ul>
+					<li>Using <code>println()</code> to display the contents of variables, or the size of arrays</li>
+					<li>Displaying values in your sketch using <code>text()</code> (e.g. frame count in the bouncing
+						balls above)</li>
+					<li>Slowing down the <code>frameRate</code> so you can follow how your sketch is changing on each
+						redraw</li>
+					<li>Using <i>Processing</i>'s <i>Debugger</i> (See the <code>Debug</code> menu and the <a href="https://processing.org/environment/#debug-1" target="_blank">Processing
+							documentation</a>). This allows you to inspect the contents of all variables in your program
+						and step though each line of code as it is executed when you run your sketch.</li>
+					<li>Create <i>assertions</i> that describe what you expect your code to do and get the computer to
+						inform you whether that is indeed the case (see below for an example of doing this).</li>
+				</ul>
+
+				<p>
+					Gathering feedback in this ways allows you to apply <strong>decomposition</strong> to your program, isolating
+					the individual components that you suspect might be the cause of your problem. In doing so it makes
+					it much easier to apply <strong>algorithmic thinking</strong> to come up with a solution.
+				</p>
+
+				<h4>3.3 Test your programs systematically</h4>
+
+				<p>
+					Debugging can be especially challenging if your program works most of the time but occasionally
+					fails or does something unpredictable. By testing your code systematically, that is,
+					<strong>decomposing</strong> the possible cases your code may have to deal with, you can minimise the chances
+					of being caught out by some unexpected behaviour.
+				</p>
+
+				<p>
+					To see a fully worked through example of systematic testing see this page on <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=468960" target="_blank">Unit Testing</a>.
+					This combines a systematic approach to testing the behaviour of your <i>Processing</i> sketch with using
+					feedback via <i>assertions</i>.
+				</p>
+
+				<p>
+					A key part of systematic testing is to develop your intuition about the kinds of cases that are more
+					likely to lead to errors. For example when coding a ball bouncing of the edge of a sketch window,
+					testing to see what happens if the ball hits exactly the corner of the window. Building up knowledge
+					of these <i>edge cases</i> that might apply to many programs requires you to <strong>decompose</strong> your
+					code into smaller elements, to <strong>pattern match</strong> common causes of error and to <strong>abstract</strong>
+					them in order to apply them in a range of scenarios.
+				</p>
+
+				<h4>3.4 Create Minimal Reproductions</h4>
+
+				<p>
+					Sometimes, despite going through many of the steps above, it may be that a bug defeats you. You
+					cannot see what it is in your code that is leading to the unpredictable behaviour. In which case,
+					you may need to seek help from others (note this should follow these other approaches, not be your
+					first action).
+				</p>
+
+				<p>
+					One important way of making it more likely that others will be able to help is to strip away all the
+					bits of your code that you know don't contribute to the problem. In other words, try to make a
+					version of your code as small as possible while still exhibiting the error you are trying to fix.
+					Such a stripped-down version is known as a <a href="https://wizardzines.com/comics/minimal-reproduction/" target="_blank">minimal
+						reproduction</a> or MR. It is very common that in the process of creating an MR, you end up
+					spotting the problem. It can be seen as a form of <strong>abstraction</strong> where removing the unnecessary
+					detail exposes the parts of your code that are more relevant to the debugging process.
+				</p>
+
+				<div class="task">
+					Reflect on the some of the bugs you have encountered when using <i>Processing</i> during <code>#CreativeCoding</code>.
+					Can you recall what caused the problems and how you fixed them?
+					Which of the strategies above (if any) did you use to solve the problem?
+					Which strategies could you use?
+				</div>
+
+			</div> <!-- End of left column -->
+
+		</div> <!-- End of row -->
+
+
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+		<div class="units-row">
+			<div class="unit-70-cc">
+				<!-- Left column -->
+
+				<h3>4. Summary</h3>
+
+				<ul>
+					<li>Computational thinking underlies much of what you have been doing in the last two weeks and will
+						continue to develop during your degree. The key processes of <i>abstraction</i>,
+						<i>decomposition</i>, <i>pattern matching</i>, <i>algorithmic thinking</i> and <i>creativity</i>
+						provide a useful way for you to think about how you develop these computational thinking skills.
+					</li>
+					<li>
+						Understanding how your code works, by writing it clearly, and abstracting key characteristics of
+						it (like <i>computational complexity</i>) can save much time and expense while making the
+						process of algorithmic thinking easier. During your degree you will develop many techniques to
+						help you develop this skill.
+					</li>
+
+					<li>Learn to embrace <i>debugging</i> as part of thinking like a programmer. All programmers
+						introduce bugs into their code as they write. Developing your computational thinking and
+						structured testing skills will save many, many hours of frustration by reducing the
+						opportunities to create bugs and speeding up the process of finding them.
+					</li>
+
+					<li>
+						Try to apply your experience during <code>#CreativeCoding</code> within this framework of computational thinking so you can make the most of your Computer Science Degree with us at City!
+					</li>
+				</ul>
+
+			</div> <!-- End of left column -->
+
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+        <!-- End of content -->
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	</div> <!-- End of page div -->
+	<script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+</html>
