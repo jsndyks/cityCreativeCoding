@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CreativeCoding Lecture: Creativity</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Embedded fonts -->
+	<link
+			href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+			rel="stylesheet">
+
+	<!-- Custom layout and style -->
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+	<!-- General browser compatibility handling -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+	<!-- Formatted source code -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+	<!-- Sketch popups and hidden text-->
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+	<!-- JD Extras! -->
+    <link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" />
+    
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+    <div id="page">
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+
+        <div class="intro">
+
+            <p><strong>If you read through these notes, attempt the tasks and exercises and use the resources
+                    that we have made available, then you are expected to be able to:</strong>
+            </p>
+
+            <ul>
+                <li>Drag and drop data files into your <em>Processing</em> code window to make them accessible to your sketches;</li>
+                <li>Create a sketch to read a text file using <a href="http://processing.org/reference/loadStrings_.html"
+                    target="_blank"><code>loadStrings()</code></a>;</li>
+                <li>Split a line of text into <i>tokens</i> representing individual words or numbers with <a href="https://processing.org/reference/split_.html"><code>split()</code></a>;</li>
+                <li>Rescale a number from one range to another using the <a href="https://processing.org/reference/map_.html"><code>map()</code></a> command;</li>
+                <li>Use the <a href="https://processing.org/reference/class.html"><code>class</code></a> command to define an object that captures data relating to your observations;</li>
+                <li>Depict data that is stored in a digital data file on the canvas;</li>
+            </ul>
+
+        </div>
+        <!-- End of intro section -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <hr>
+
+        <p>We're going to look at ways of getting <i>data</i> into your sketches here, and will build upon some of the ways of collecting <i>data</i> that you may have embarked upon. A few are described on the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=818121">Data Collection</a> page, and we will use some of these to demonstrate.
+        </p>
+
+        <!-- Traffic Lights : Paper -->
+
+        <h3>1. From Paper to Canvas</h3>
+
+        <div class="unit-30-cc annotation cc-right">
+            <figure>
+                <script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/welcome/img/ccData.paper.jpg', 400, 225, 'Data Collection on Paper');</script>
+                <figcaption>
+                    Data captured on paper - great!
+                </figcaption>
+            </figure>
+        </div> <!-- end of 30-cc -->
+
+        <p>You may have collected data on paper - of so, great, this is a quick and easy and accessible and reliable way to record data in everyday life.<br/>
+            But you will need to put it into a digital file to use it in <i>Processing</i>. 
+        </p>
+        <p>The easiest way is to just transcribe whatever you have into a table in a spreadsheet ... it will take a bit of typing, and you may need a friend to yell out the numbers ... but you'll soon get there.</p>
+        <p>Be sure to save your data as a <i>text file</i>. There are various text formats, but <i>comma separated</i> or <i>comma delimited</i> works best, and files like this are often give a <i>.csv</i> extension that identifies them as containing <i>comma separated (data) values</i>.<br/>So save as <i>csv</i> if you can.</p>
+
+        <hr class="hrInvisible"/>
+
+
+
+        <!-- Data Dogs -->
+<!---
+        <h3>3. Data Dogs</h3>
+
+
+        <div class="unit-30-cc annotation cc-right">
+            <figure>
+                <img src="https://jsndyks.github.io/cityCreativeCoding/images/" width="250" />
+                <figcaption>
+                    Data Dogs
+                </figcaption>
+            </figure>
+        </div> 
+
+        <p>Use Data Dogs from previous lecture</p>
+
+        <hr class="hrInvisible"/>
+  --->
+
+        <!-- End of content : clear floats -->
+        <div style="padding-bottom:2em;clear:both" />
+        
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- end of page -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>
