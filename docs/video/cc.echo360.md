@@ -1,5 +1,15 @@
 CC BVideos
 
+Data art lecture to introduce the 'Art : Core' materials. 13. Art
+Mon 18 November @ 09:00
+Jason Dykes
+https://echo360.org.uk/media/3d0c6dd0-3326-4821-beec-49adc0f67486/public
+
+14. Sound & Video
+    Mon 18 November @ 10:00
+    Giacomo Tarroni
+    https://echo360.org.uk/media/161974b9-8759-44e0-a951-214af327161e/public
+
 15. Computational Thinking
     Thu 21 November @ 09:00
     Giacomo Tarroni
