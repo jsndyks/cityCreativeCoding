@@ -1,3 +1,7 @@
+<style>
+    blockquote {background-color:#f0f0f0; font-style:italic; padding:0.5rem;margin:0.5rem; font-size:90%; color:#666}
+</style>
+
 #### Dear Data Sketch Assignment Deadline
 
 You can find details about the _Dear Data Sketch_ assignment here:
@@ -17,9 +21,13 @@ This rule ...
 
 Regrettably, in _Week 08_ during the [Creativity : Lecture](https://moodle4.city.ac.uk/mod/url/view.php?id=836206), I was trying to be kind and informative and included the deadline ... and showed this in a big yellow box next to the word **DEADLINE** as ...
 
-<img src="./img/cc.deadlineError.jpg" width="800"/>
+<img src="https://jsndyks.github.io/cityCreativeCoding/comms/img/cc.deadlineError.jpg" width="800" style="padding:1em"/>
 
-<br/>And yet, as you all probably realised instantly ...
+<br/>
+ 
+ - **whenever you like<br/>before 5pm on Fri 12th December**
+
+And yet, as you all probably realised instantly ...
 
 - **The 12th December is a Thursday**.
 
