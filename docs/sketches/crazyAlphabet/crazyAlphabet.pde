@@ -13,41 +13,75 @@ float aspectRatio = 2.5;
 
 // -- do I show enclosing squares?
 boolean showSquare = false;
+boolean doShakes = false;
 
-color colourBackground = color(55, 70, 80);
-color colourForeground = color(255, 255, 128);
+//color colourBackground = color(55, 70, 80);
+//color colourForeground = color(255, 255, 128);
+color colourBackground = color(250);
+color colourForeground = color(4, 64);
 
 
 void setup() {
 
-  size(900, 600);
+  size(1440, 900);
   smooth(8);
-  
-  getAlphabetCoordinates();
 
+  getAlphabetCoordinates();
 }
 
 
 void draw() {
 
   background(colourBackground);
+  translate(0, -50);
 
   // -- make words at particular positions and with paricular sizes with makeWordAt():
-  makeWordAt(150, 100, letterSize, "MOVE");
-  makeWordAt(200, 250, letterSize, "THE");
-  makeWordAt(100, 400, letterSize, "MOUSE");
+  //makeWordAt(150, 100, letterSize, "MOVE");
+  //makeWordAt(200, 250, letterSize, "THE");
+  //makeWordAt(100, 400, letterSize, "MOUSE");
 
-  makeWordAt(500, 100, letterSize*0.8, "ABCDEFG");
-  makeWordAt(500, 208, letterSize*0.8, "HIJKLMN");
-  makeWordAt(500, 316, letterSize*0.8, "OPQRST");
-  makeWordAt(500, 424, letterSize*0.8, "UVWXYZ");
+  //makeWordAt(500, 100, letterSize*0.8, "ABCDEFG");
+  //makeWordAt(500, 208, letterSize*0.8, "HIJKLMN");
+  //makeWordAt(500, 316, letterSize*0.8, "OPQRST");
+  //makeWordAt(500, 424, letterSize*0.8, "UVWXYZ");
 
   // -- or alternatively ...
   //makeWordAt(25, 100, letterSize*0.25, "MAKE YOUR OWN FONT BY DEFINING THE COORDINATES ");
   //makeWordAt(25, 150, letterSize*0.25, "OF EACH LETTER IN THE ALPHABET");
   //makeWordAt(25, 225, letterSize*0.25, "ADD SOME RANDOMNESS TO MAKE IT INTERESTING");
 
-  noLoop();  // <-- wait for mouse or keynoard event before looping
+  // -- or alternatively ...
+  float letterSizeSF = letterSize*0.795;
+  makeWordAt(25, 100, letterSizeSF, "CREATIVE CODING - DATA / PIZZA");
+  jitter = 8;
+  lines = 20;
+  makeWordAt(25, 200, letterSizeSF, "CREATIVE CODING - DATA / PIZZA");
+  jitter = 20;
+  lines = 60;
+  makeWordAt(25, 300, letterSizeSF, "CREATIVE CODING - DATA / PIZZA");
+  jitter = 6;
+  lines = 2;
+  makeWordAt(25, 400, letterSizeSF, "CREATIVE CODING - DATA / PIZZA");
+  jitter = 12;
+  lines = 1;
+  makeWordAt(25, 500, letterSizeSF, "CREATIVE CODING - DATA / PIZZA");
+  jitter = 16;
+  lines = 20;
+  makeWordAt(25, 600, letterSizeSF, "CREATIVE CODING - DATA / PIZZA");
+  jitter = 2;
+  lines = 4;
+  makeWordAt(25, 700, letterSizeSF, "CREATIVE CODING - DATA / PIZZA");
+  jitter = 12;
+  lines = 12;
+  makeWordAt(25, 800, letterSizeSF, "CREATIVE CODING - DATA / PIZZA");
+
+  if (doShakes) {
+    mouseMoved();
+    loop();
+  } else {
+
+    noLoop();  // <-- wait for mouse or keyboard event before looping
+  }
 }
 
 
@@ -87,6 +121,7 @@ void getAlphabetCoordinates() {
   font.set("Z", "0,0 100,0 100,0 0,100 0,100 100,100");
   font.set("=", "0,0 0,100 0,100 100,100 100,100 100,0 100,0 0,0");
   font.set("-", "20,50 80,50");
+  font.set("/", "20,110 80,-10");
   font.set("!", "45,0 50,80 50,80 55,0 55,0 45,0 45,96 45,100 55,100 55,95");
   font.set(" ", "40,90 60,90");
   font.set("0", "30,10 70,10 70,10 90,30 90,30, 90,70 90,70 70,90 70,90 30,90 30,90 10,70 10,70 10,30 10,30 30,10 40,50 60,50");
@@ -121,7 +156,7 @@ void makeLetter(char c, int n) {
     // -- randomising
     float sW = random(0.25, 2.5);
     strokeWeight(sW);
-    
+
     //colourForeground = color(random(16, 92), random(255-128, 255-32));
     stroke(colourForeground);
 
@@ -194,8 +229,8 @@ void mouseMoved () {
 
   jitter = map(mouseX, 0, width, 0, 25);
   lines =  int(map(mouseY, 0, height, 1, 25));
-  println("jitter:",jitter,"lines:",lines);
-  
+  println("jitter:", jitter, "lines:", lines);
+
   loop();
 }
 
@@ -221,6 +256,9 @@ void keyPressed() {
     String fName = "myText."+n+".png";    // <-- filename includs 5 random figures
     save(fName);
     println("Saved:", fName);
+  }
+  if (key == 'j') {
+    doShakes =! doShakes;
   }
 
   // -- call the draw() loop:
