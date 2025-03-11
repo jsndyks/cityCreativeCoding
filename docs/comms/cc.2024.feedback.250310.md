@@ -1,5 +1,9 @@
 ### CC Feedback
 
+_IMPORTANT_ : The final text is on Moodle - https://moodle4.city.ac.uk/mod/feedback/edit.php?id=895408
+
+---
+
 We'd love you to take some time to help us improve our teaching activities in the future.
 
 Please have a think about the <code>#CreativeCoding</code> activity that we ran and answer a few questions about your experience of it.
