@@ -51,9 +51,8 @@
 
 		<p>
 			This session introduces the idea of the <i>variable</i> — a named portion of the computer's memory used
-			for storing data.
-			Using variables is one way to make your programs more efficient, easier to read and
-			adaptable.
+			for storing data.<br/>
+			Using variables effectively is key to making your programs efficient, readable and adaptable.
 		</p>
 
 		<p><strong>By the end of this session you should be able to:</strong></p>
@@ -81,10 +80,9 @@
 				In the previous session you were introduced to a moving rectangle sketch that drew a rectangle whose
 				corner was at the current mouse position. We managed this by using two special <i>variables</i>
 				provided by <i>Processing</i> — <code>mouseX</code> and <code>mouseY</code>. They are known as variables
-				because their value can vary (as the mouse moves in this case). Even though the <i>value</i> of a
-				variable can change, its <i>name</i> does not. At any point in our sketch code we can use the same
-				name <code>mouseX</code> confident that it will contain the value of the current mouse position in
-				pixel coordinates. This leads us to our first simple definition of a variable:
+				because their value can vary (to capture the position of the mouse as it moves in this case).
+				Even though the <i>value</i> of a variable can change, its <i>name</i> does not.
+				At any point in our sketch code we can use the same name <code>mouseX</code> confident that it will contain the value of the current mouse position in pixel coordinates. This leads us to our first simple definition of a variable:
 			</p>
 
 			<div class="tip">
@@ -99,7 +97,6 @@
 				numbers every time the position changes.
 			</p>
 
-		</div>
 	</div>
 	<div class="units-row">
 		<div class="unit-70-cc">
@@ -128,12 +125,21 @@ void draw()
 				x-position changes.
 			</p>
 
+			<div class="aside">
+				<p>
+					You may be able to think of a couple of reasons why <code>mouseX</code> and <code>mouseY</code> could be considered to be poor variable names. 
+				</p>
+				<p>One is that the position is not that of the <i>mouse</i>, but the <i>cursor</i> and where it appears on the canvas.<br/>Another is that this may be controlled by a number of devises including <i>trackpads</i>, <i>eye gaze</i> and various other things.</p>
+				<p>So maybe <code>cursorX</code> and <code>cursorY</code> are better names.<br/>
+				   You could declare these new variables and instantiate them with <code>mouseX</code> and <code>mouseY</code> at the top of your <code>draw()</code> loop if you felt strongly about this.</p>
+
+		</div>
 
 			<p>
 				<i>Processing</i> has a number of built-in variables in addition to <code>mouseX</code> and
 				<code>mouseY</code>. Of particular use are those called <code>width</code> and <code>height</code>,
-				which store the width and height of the sketch (as determined by the numbers you provide with the
-				<code>size()</code> command). These built-in variables are shown as pink when coding in the
+				which store the width and height of the sketch, or its <i>canvas</i>, as determined by the numbers you provide with the
+				<code>size()</code> command. These built-in variables are shown as pink when coding in the
 				<i>Processing</i> window. We shall see why <code>width</code> and <code>height</code> are so useful a
 				little later on. But for now, you can modify the code above to show all four of the variables we
 				have considered so far:
@@ -184,9 +190,6 @@ void draw()
 			<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/variables/img/cc.varsInConsole.png', 450, 360, 'Processing console showing the mouseX mouseY and other variables');</script>
 			<p><i>Processing</i> console showing the contents of <code>mouseX</code> and other variables <i>(click to enlarge)</i></p>
 
-			<p class="focusLecture"><code><span class="focusHash">#</span><span class="focusNum">5</span></code></p>
-
-			<p>Have a look at the documentation for <code><a href="https://processing.org/reference/frameCount.html">frameCount</a></code></p>
 
 		</div> <!-- end of right column -->
 	</div> <!-- End of row -->
@@ -196,6 +199,15 @@ void draw()
 	<div class="units-row">
 		<div class="unit-70-cc">
 			<!-- Left column -->
+
+			<div class="codeTask">
+				<h5>FrameRate and FrameCount</h5>
+				<p>Copy the code from above that uses <code>println()</code> to print the values of four variables to the console.</p>
+				<p>Have a look at the documentation for <code><a href="https://processing.org/reference/frameCount.html">frameCount</a></code> and amend the <code>println()</code> statement so that the value is printed to the console. The values of 5 variables should be printed as shown above.</p>
+				<p>Add a <code><a href="https://processing.org/reference/frameRate_.html">frameRate</a></code> statement to the <code>setup()</code> method, and run your sketch.</p>
+				<p>Change the value used in <code><a href="https://processing.org/reference/frameRate_.html">frameRate</a></code> and see whether you can explain and predict the effects.</p>
+
+			</div>
 
 			<h3>2. Declaring and initialising our own variables</h3>
 
@@ -246,7 +258,7 @@ cost = 1.99;    // This is the variable initialisation.</pre>
 				ability to do calculations is going to save you a lot of time as you develop more sophisticated
 				programs. Other arithmetic operators you are likely to use include subtraction (<code>-</code>),
 				multiplication (<code>*</code>) and division (<code>/</code>). These can be combined to do more
-				complex sums. For example:
+				complex calculations. For example:
 			</p>
 
 			<pre class="brush: processing; gutter: false; toolbar: false; ">float snackPrice = 0.50;
@@ -258,20 +270,14 @@ float discount  = totalCost * 0.10;
 
 changeOwed = 10.00 - (totalCost - discount);</pre>
 
-			<p>
-				Let's use our new ability to create our own variables to simplify the drawing of multiple shapes in
-				a sketch:
-			</p>
-
 		</div> <!-- End of left column -->
 
 		<div class="unit-30-cc annotation">
 			<!-- Right column -->
-
 			<p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">2</span> - <b>Declare &amp; Assign</b> : a floating point number</code></p>
 
 
-			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture02/images/variableAnatomy.png', 350, 300, 'The components of a variable declaration and initialisation');</script>
+			<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/variables/img/cc.variableAnatomy.png', 350, 300, 'The components of a variable declaration and initialisation');</script>
 			<p>Declaring and initialising a float variable</p>
 
 
@@ -284,6 +290,10 @@ changeOwed = 10.00 - (totalCost - discount);</pre>
 	<div class="units-row">
 		<div class="unit-70-cc">
 			<!-- Left column -->
+			<p>
+				Let's use our new ability to create our own variables to simplify the drawing of multiple shapes in
+				a sketch:
+			</p>
 
 			<pre class="brush: processing; gutter: false; toolbar: false; ">void setup()
 {
@@ -307,7 +317,7 @@ void draw()
 
 
 			<p>
-				Notice how the variable <code>centreX</code> is assigned the value <code>width/2</code>. Processing
+				Notice how the variable <code>centreX</code> is assigned the value <code>width/2</code>. <i>Processing</i>
 				will find the width of the sketch (which is 400 in this example), divide that number by two and then
 				assign it to the variable <code>centreX</code>.
 			</p>
@@ -330,8 +340,8 @@ void draw()
 		<div class="unit-30-cc annotation">
 			<!-- Right column -->
 
-			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture02/images/mickey.png', 400, 400, 'Three circles');</script>
-			<p>Three circles all using our own variables centreX, centreY, faceSize and earSize.</p>
+			<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/variables/img/cc.mickeyMouse.png', 200, 200, 'Three circles');</script>
+			<p>Three circles all using our own variables: centreX, centreY, faceSize and earSize.</p>
 
 
 
@@ -352,7 +362,7 @@ void draw()
 				<p>Note how whatever you set the size
 				to, the face is always drawn at the centre of the sketch.</p>
 				<p>You can also change the value of
-				<code>faceSize</code> and <code>earSize</code> to change the shape of the face.</p>
+				<code>faceSize</code> and <code>earSize</code> to change the proportions used in drawing the shape.</p>
 			</div>
 
 		</div> <!-- End of left column -->
@@ -360,7 +370,7 @@ void draw()
 		<div class="unit-30-cc annotation">
 			<!-- Right column -->
 
-			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture02/images/mickeyBigEars.png', 800, 300, 'Mickey big ears');</script>
+			<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/variables/img/cc.mickeyBigEars.png', 200, 200, 'Mickey big ears');</script>
 			<p>Mickey big ears created by changing the values assigned to the faceSize and earSize variables.</p>
 
 
@@ -525,7 +535,7 @@ void draw()
 		<div class="unit-30-cc annotation">
 			<!-- Right column -->
 
-			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture02/images/woodland.png', 400, 400, 'Three trees');</script>
+			<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/variables/img/cc.woodland.png', 400, 400, 'Three trees');</script>
 			<p>Three trees using color variables to store trunk and leaf colours.</p>
 
 		</div> <!-- end of right column -->
@@ -678,7 +688,7 @@ void draw()
 		<div class="unit-30-cc annotation">
 			<!-- Right column -->
 
-			<script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/mickeyZoom/", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture02/images/mickeyZoom.png");</script>
+			<script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/mickeyZoom/", 400, 400, "https://jsndyks.github.io/cityCreativeCoding/html/variables/img/cc.mickeyZoom.png");</script>
 			<p>
 				Zooming Mickey (<i>click to activate</i>).
 			</p>
