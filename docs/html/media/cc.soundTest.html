@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Programming BootCamp : Art &amp Design - Sound Test</title>
+
+  <!-- Header, 16th September, 2021 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Embedded fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+    rel="stylesheet">
+
+  <!-- Custom layout and style -->
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+  <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+  <!-- General browser compatibility handling -->
+  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+  <!-- Formatted source code -->
+  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+  <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+  <!-- Sketch popups and hidden text-->
+  <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+  <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+  <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+  <!-- iFrame -->
+  <script type="text/javascript" src="https://jsndyks.github.io/cityBootCamp/js/iframeResizer.contentWindow.min.js"></script>
+
+  </head>
+
+<body>
+  <div id="page">
+
+    <!-- 
+**You MUST prepare for the lecture and class on [Art, Artists and Media](https://moodle4.city.ac.uk/mod/page/view.php?id=420932) by completing this short preparation exercise by the end of the previous day**        
+     -->
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <div class="tip"><p>
+      To play sounds with <i>Processing</i>, you must have downloaded the <i>Processing Sound Library</i>. If you haven't already, you
+      can do so by opening <i>Processing</i>'s <code>Sketch -&gt; Import Library -&gt; Manage Libraries</code> menu.</p>
+      
+
+      <p>In the new window, choose the 'Libraries' tab and select
+      <code><b>Sound</b></code> by the <i>Processing Foundation</i> (you may find it easier to find by entering 'sound' in the
+      search box in this window).</p>
+
+      <img src="https://jsndyks.github.io/cityBootCamp/images/processingSoundLibrary.png" width=720 height=32/>
+
+      <p>Then click the <code><b>Install</b></code> button once selected.
+      <br /><br />
+      You only need to do this once, after which you should be able to use sound in any sketch you write.</p>
+    </div>
+
+    <h2>Testing Sound</h2>
+
+    <div>
+      The following sketch should allow you play a sound when the space bar is pressed:
+      <br /><br />
+
+      <pre class="brush: processing; gutter: false; toolbar: false; highlight: [8]">
+    import processing.sound.*;   // Import the library that does the sound handling.
+
+    SoundFile mySample;
+
+    void setup()
+    {
+      size(300, 200);
+      mySample  = new SoundFile(this,"XXXX.wav");
+    }
+
+    void draw()
+    {
+      background(255);
+      fill(0);
+      textAlign(CENTER,CENTER);
+      textSize(18);
+      text("Press space to test", width/2, height/2);
+    }
+
+    void keyPressed()
+    {
+      if (key == ' ')
+      {
+        mySample.play();
+      }
+    }</pre>
+    </div>
+
+    <div>
+      Before this can work, you will need to download a sample file containing the sound to play and drag it into your
+      sketch. You should then change the <code>XXXX</code> above to match the name of a sample you have stored on your
+      computer.
+    </div>
+
+    <div>
+      <p>
+      Randomly choose <b>one</b> of the samples below, download it (by right-clicking and <code>Download as...</code> or
+      <code>Save as...</code>) and drag it into the <i>Processing</i> code window containing the sketch above.
+      </p>
+      <p>
+        Try another one just to be certain!
+      </p>
+    </div>
+
+    <table>
+      <tr>
+        <td><code><a href="https://bit.ly/2DKF4dD">p02.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2QlZsD3">c08.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2y24tcI">c06.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2yclS2v">s04.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2ReNwEr">p07.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2P10N24">r03.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2NbMOEQ">c09.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2P2NsGm">p09.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2y5IiSI">s07.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2OYU20z">r01.wav</a></code></td>
+      </tr>
+
+      <tr>
+        <td><code><a href="https://bit.ly/2DUBXjt">r08.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2xOG7DZ">r02.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2QktPK9">c04.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2QktDKV">r04.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2QoOI7d">c07.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2OWBZrU">s08.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2Qkd5CQ">c05.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2OwdIw5">p05.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2y2nETI">s05.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2zI2r3h">r06.wav</a></code></td>
+      </tr>
+
+      <tr>
+        <td><code><a href="https://bit.ly/2y6w10C">r07.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2xOA6ak">r00.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2NW7uWA">c02.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2NdIzbG">s03.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2zHy5y0">s02.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2IuRHIe">p03.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2xS6h8H">c01.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2OuLeCU">c03.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2IrCIyN">c00.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2NeE6pd">s09.wav</a></code></td>
+      </tr>
+
+      <tr>
+        <td><code><a href="https://bit.ly/2QmuBXb">p00.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2OsBicO">s00.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2NbNDxq">p08.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2zI6fSk">p04.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2NS8MBX">s01.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2y2C2v0">p06.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2xM12r6">p01.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2NSLBYr">r05.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2DFK6Ia">s06.wav</a></code></td>
+        <td><code><a href="https://bit.ly/2QmuURP">r09.wav</a></code></td>
+      </tr>
+
+    </table>
+    <div style="padding-bottom:2em;clear:both" />
+    <!--- spacer for iFrame -->
+    <p style="padding-top:1em"><hr/></p>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Footer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  </div> <!-- End of page div -->
+  <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>
