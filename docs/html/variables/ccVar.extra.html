@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Introducing Processing: Practical Exercises</title>
+
+	<!-- Header, 16th September, 2021 -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Embedded fonts -->
+	<link
+			href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+			rel="stylesheet">
+
+	<!-- Custom layout and style -->
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+	<!-- General browser compatibility handling -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+	<!-- Formatted source code -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+	<!-- Sketch popups and hidden text-->
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- JD Extras! -->
+    <link rel="stylesheet" href="https://jsndyks.github.io/cityCreativeCoding/css/creativeCoding.css" type="text/css" />
+    
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+
+
+
+
+<div id="page">
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+	<!-- Add summary sentence or two below, which will act as an easy introduction -->
+
+	<p>Before you spend time working on any of these optional exercises, make sure you completed all the coding and
+		core tasks in the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=798064">Variables : Core</a> notes!</p>
+
+	<!--p>
+		These exercises give you practice declaring variables, assigning values to them and modifying them to create
+		simple animations. Attempt as many exercises as you can but don't worry if you don't manage to complete
+		all these tasks within the lab session and remember to prioritise the
+		core tasks.
+	</p-->
+
+
+	<div class="challenge">
+        <h5>An Elegant Solution?</h5>
+		<p>How many variables did you use in the Traveling Circles task?<br/>
+        Because of the symmetry of moving four circles each to their own corner, it can be achieved with only a single variable (plus a bit of arithmetic).
+    </p>
+		<p>Can you modify your sketch to use only a single variable (in addition to Processing's built-in variables such as <code>width</code> and <code>height</code>)?
+        </p>
+	</div>
+
+	<div class="challenge">
+        <h5>Digital Timer</h5>
+		<p>Code a digital timer, showing the number of hours, minutes and seconds which have elapsed since the sketch
+		started running. Some useful things to know:</p>
+		<ul>
+			<li><i>Processing</i> has a built-in integer variable <code>frameCount</code> which keeps track of how many
+				times <code>draw()</code> has been executed since the sketch started running.
+                And by default, <code>draw()</code> is executed 60 times per second.
+			</li>
+			<li>For integers <code>a</code> and <code>b</code>, <code>a / b</code> evaluates to the <i>integer
+				division</i> of <code>a</code> by <code>b</code>.<br/>
+                For example, <code>4 / 5</code> = 0,
+				<code>7 / 5</code> = 1, <code>16 / 5</code> = 3.
+			</li>
+			<li>For integers <code>a</code> and <code>b</code>, <code>a % b</code> evaluates to the
+				<i>remainder</i> of the integer division <code>a / b</code>.<br/>
+                For example, <code>4 % 5</code> = 4,
+				<code>7 % 5</code> = 2, <code>16 % 5</code> = 1.
+			</li>
+			<li><code>textWidth(s)</code> is the display width in pixels of the String <code>s</code>.</li>
+			<li><code>nf()</code> can be used to format a number as a String with a fixed number of digits.</li>
+			<li>For Strings <code>a</code> and <code>b</code>, <code>a + b</code> is the string obtained by joining
+				<code>a</code> and <code>b</code> end to end (string concatenation).<br/>
+                And if <code>a</code> is a
+				String but <code>b</code> is <i>not</i> a String, then <code>b</code> will first be converted to a
+				String, before concatenating with <code>a</code>.
+			</li>
+		</ul>
+	</div>
+
+
+	<br>
+	<br>
+<!-- 
+	<h2>Check on Progress</h2>
+	<div class="task">
+		To ensure that you have achieved the outcomes associated with this session, consider the following, which
+		allow you to evaluate your progress.
+		<br><br>
+
+		<div class="checkOutcomes">
+			<input type="checkbox" id="sa1">
+			<label for="sa1">Can I use <code>width</code> and <code>height</code> in my sketches to make by code
+				independent of sketch size?</label><br>
+
+			<input type="checkbox" id="sa2">
+			<label for="sa2">Can I declare and initialise variables for storing numbers, text and
+				colours?</label><br>
+
+			<input type="checkbox" id="sa3">
+			<label for="sa3">Do I know when to declare a variable inside a method and when it should be declared at
+				the top of a sketch?</label><br>
+
+			<input type="checkbox" id="sa4">
+			<label for="sa4">Can I create simple animations by modifying one or more variables inside the
+				<code>draw()</code> method?</label><br>
+
+		</div>
+	</div>
+     -->
+
+	<!-- End of task -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<div style="padding-bottom:2em;clear:both"></div>
+        
+	<!--- spacer for iFrame -->
+	<p style="padding-top:1em"><hr/></p>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+</div> <!-- End of page div -->
+<script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>
