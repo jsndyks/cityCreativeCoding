@@ -429,17 +429,10 @@ circle(62,60,40);</pre>
 			<div><div id="highlighter_254290" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing function1">size</code><code class="processing plain">(260,200);</code></div><div class="line number2 index1 alt1"><code class="processing plain">circle(62,60,40);</code></div><div class="line number3 index2 alt2"><code class="processing function1">rect</code><code class="processing plain">(20,30,70,35);</code></div></div></td></tr></tbody></table></div></div>
 
 			<p>
-				These three commands draw exactly the same circle and rectangle of the same size, but this time on a larger 'canvas'
-				that is 260 pixels wide and 200 tall. The <code>size</code> command is issued once, at the start of your sketch
+				These three commands draw exactly the same circle and rectangle of the same size, but this time on a larger 'canvas' that is 260 pixels wide and 200 tall.
+				We can think of the canvas as the area in which you can add visual elements (shapes and colours) to your sketch, and <code>size</code> determines how big it is.
+				The <code>size</code> command is issued once, at the start of your sketch
 				since its size would not normally change during its lifetime.
-			</p>
-
-			<p>
-				You may have noticed that all the commands we have used so far have involved specifying either a
-				location on screen (e.g. the position of the circle or rectangle) or the size of something (the
-				width and height of the sketch canvas, the rectangle and the circle). They all use the same
-				<i>coordinate system</i> - that is a pair of numbers representing distances along the horizontal
-				x-axis and the vertical y-axis.
 			</p>
 
 		</div> <!-- End of left column -->
@@ -459,18 +452,25 @@ circle(62,60,40);</pre>
 	<div class="units-row">
 		<div class="unit-70-cc">
 			<!-- Left column -->
+			<p>
+				You may have noticed that all the commands we have used so far have involved specifying either a
+				location on screen (e.g. the position of the circle or rectangle) or the size of something (the
+				width and height of the sketch canvas, the rectangle and the circle). They all use the same
+				<i>coordinate system</i> - that is a pair of numbers representing distances along the horizontal
+				x-axis and the vertical y-axis.
+			</p>
 
 			<p>
 				Unlike a conventional set of graph axes, the <i>origin</i> (0,0) of the coordinate system is at the
 				top-left, not the bottom-left. So increasing the y-value of a coordinate will move downwards not
-				upwards.
+				upwards. Let's say that again for emphasis: <i>the y-value of a coordinate in Processing is determining the number of pixels from the top of the sketch.</i>
 			</p>
 
 			<p>
-				As we will be doing lots of drawing with <i>Processing</i> during <code>#CreativeCoding</code> it is important you are
-				comfortable with the principle of using coordinates to specify location and size. To recap: <b>A
-				location of something is specified with two numbers in the order (x,y) that indicate the
-				distance from the top-left corner in the horizontal and vertical directions respectively.</b>
+				As we will be doing lots of drawing with <i>Processing</i> during <code>#CreativeCoding</code> it is important you are comfortable with the principle of using coordinates to specify location and size.
+				To recap:<br/>
+				<b>The location of something on the <i>Processing</i> canvas is specified with two numbers in the order (x,y) that indicate the distance from the top-left corner in the horizontal and vertical directions respectively.</b>
+				<br/>
 				For something to be visible in your sketch the x-value should be between 0 and the width of the
 				sketch (as determined by the first number of the <code>size()</code> command) and the y-value should
 				be between 0 and the height of the sketch (as determined by the second number of the
@@ -480,7 +480,8 @@ circle(62,60,40);</pre>
 			<div class="tip">
 				<p>Keep your Notebooks and a pen and pencil handy when you are designing your sketches.
 				Drawing out what you are intending to do will help you keep track of your coding.
-				This is especially valuable as your programs become more complicated.</p>
+				This is especially valuable as your programs become more complicated.
+				It is an important habit to get into right now!</p>
 				<p>We say this repeatedly to students and are always surprised by :</p>
 				<ul>
 					<li>How few students take the time to draw out their sketches on paper</li>
@@ -528,7 +529,8 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 
 			<p>
 				Each of the pairs of numbers after a drawing command corresponds to some location in our sketch
-				using the same coordinate system. To see how the number relate to the properties of the shape, you
+				using the same coordinate system with the origin at the <i>top left</i> of the canvas.
+				To see how the numbers relate to the properties of the shape, you
 				can browse the <a href="https://processing.org/reference/" target="_blank">Processing Reference</a>
 				(for example, here is the reference for the <a href="https://processing.org/reference/quad_.html" target="_blank"><code>quad()</code></a> drawing command).
 			</p>
@@ -585,29 +587,55 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 		<div class="unit-70-cc">
 			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+			<div class="tip">
+				<p>This is a concept that students often struggle with, so let's go over it again:</p>
+				<ul>
+					<li>Setting a drawing style with a command like <code>stroke()</code> has no effect on anything that has been drawn on the canvas</li>
+					<li>It will have an effect on anything that is drawn subsequently that has an outline, which sill use the most recently specified <code>stroke()</code> as its colour;<br/>
+					This will continue until the style is changed with a new <code>stroke()</code> command or perhaps <code>noStroke()</code>, the effects of which you can imagine, test and look up;</li>
+				</ul>
+				<p>This is a nice example of the effects of the order of our commands on our sketches. Remember: <b>Commands are run in the order in which we issue the program instructions</b> (see above).</p>
+			</div>
+
 			<p>
 				Both the <a href="https://processing.org/reference/stroke_.html" target="_blank">stroke()</a> and
 				<a href="https://processing.org/reference/fill_.html" target="_blank">fill()</a> commands require a
 				colour to be
 				provided inside the brackets that follow. There are plenty of ways of specifying colours, but for
-				the moment we will use the
-				default (<i>red</i>,<i>green</i>, <i>blue</i>) triplet. The three numbers required specify the three
-				colour components and
-				are scaled between 0 and 255. So, for example, to set the internal fill colour of a shape to bright
-				green, you would use
+				the moment we will use the default (<i>red</i>, <i>green</i>, <i>blue</i>) triplet.
+				The three numbers required specify the three colour components and
+				are scaled between 0 and 255.
+				So, for example, to set the internal fill colour of a shape to bright green, you would use
 				<code>fill(0,255,0)</code>. To set the outline colour of the shape to red, you might use
 				<code>stroke(255,0,0)</code>.
 				If you are not sure how these numbers relate to colours you wish to use, you can always bring up
-				Processing's
-				<i>color selector</i> from the <code>Tools</code> menu. (Alternatively, there are similar tools on
-				the web, such as
-				<a href="https://www.w3schools.com/colors/colors_picker.asp" target="_blank">W3 Schools HTML Color Picker</a>.)
+				<i>Processing</i>'s <i>color selector</i> from the <code>Tools</code> menu.
+				(Alternatively, there are similar tools online, such as <a href="https://www.w3schools.com/colors/colors_picker.asp" target="_blank">W3 Schools HTML Color Picker</a>.)
 			</p>
 
+		</div> <!-- End of left column -->
+
+		<div class="unit-30-cc annotation">
+			<!-- Right column -->
+
+			<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/intro/img/cc.colourSelector.png', 432, 316, 'Processing colour selector');</script>
+
+			<p>
+				Processing's colour selector allows you to find the (r,g,b) numbers for any selected colour.
+			</p>
+
+		</div> <!-- end of right column -->
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
 			<p>
 				We can use the same way of defining colours to set the background colour of the entire sketch to
-				something a little more
-				inspiring than the default grey. We do this with the <a href="https://processing.org/reference/background_.html" target="_blank">background()</a>
+				something a little more interesting than the default grey.
+				We do this with the <a href="https://processing.org/reference/background_.html" target="_blank">background()</a>
 				command specifying the background colour we would like inside brackets. For example to set a pale
 				blue background we would
 				add the following line to the beginning of our sketch:
@@ -636,26 +664,6 @@ background(200,200,255);
 				something, it would not be
 				visible at all on screen.
 			</p>
-
-		</div> <!-- End of left column -->
-
-		<div class="unit-30-cc annotation">
-			<!-- Right column -->
-
-			<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/intro/img/cc.colourSelector.png', 432, 316, 'Processing colour selector');</script>
-
-			<p>
-				Processing's colour selector allows you to find the (r,g,b) numbers for any selected colour.
-			</p>
-
-		</div> <!-- end of right column -->
-	</div> <!-- End of row -->
-
-	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
-	<div class="units-row">
-		<div class="unit-70-cc">
-			<!-- Left column -->
 
 			<p>
 				The example below shows how the various style settings might be applied to our simple set of shapes:
@@ -704,8 +712,8 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 
 			<div class="tip">
 				Adding comments to your code will make things <i>much</i> easier when your sketches become more
-				complex. They help to remind you
-				what you intended to do with your code.
+				complex.
+				They help to remind you what you intended to do with your code, and explain this to others
 			</div>
 
 		</div> <!-- End of left column -->
@@ -778,12 +786,12 @@ void draw()
 			</p>
 			<div class="tip">
 				<p>Pressing <code>CTRL-T</code> on a Windows machine or <code>COMMAND-T</code> on a Mac, will automatically indent your code and make it more readable.</p>
-				<p>Do this regularly!</p>
+				<p>Do this regularly! Remind your colleagues to do it regularly! Develop a <code>CTRL-T</code> or <code>COMMAND-T</code> reflex!</p>
 			</div>
 
 			<p>
-				Our sketch then involves adding the commands we wish to both methods.
-				Here, for example is code to draw a red rectangle on a yellow background using our two methods:
+				Our sketch then involves adding the commands that we wish to run into the two methods.
+				Here, for example is code to draw a red rectangle on a yellow background using the <code>setup()</code> and <code>draw()</code> methods:
 			</p>
 
 			<p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">5</span> - <b>There is no FIVE!</b> : (you killed it on the train))</code></p>
@@ -839,8 +847,7 @@ void draw()
 
 			<p>
 				Replacing the first two numbers in the <code>rect()</code> command with two special words
-				<code>mouseX</code> and
-				<code>mouseY</code> gives us our first dynamic sketch:
+				<code>mouseX</code> and <code>mouseY</code> gives us our first dynamic sketch:
 			</p>
 			<pre class="brush: processing; gutter: false; toolbar: false; ">void setup()
 {
@@ -875,9 +882,7 @@ void draw()
 
 
 			<p>
-				We will delve a little more deeply into using variables in the next session, but now you should be
-				able to draw a range of shapes in a <i>Processing</i> sketch, control their colour and appearance and make
-				your sketch respond to changes in the mouse position.
+				We will delve a little more deeply into using variables as we progress through <code>#CreativeCoding</code>, but now you should be able to draw a range of shapes in a <i>Processing</i> sketch, control their colour and appearance and make your sketch respond to changes in the mouse position.
 			</p>
 
 		</div> <!-- End of left column -->
@@ -902,7 +907,7 @@ void draw()
 				These first exercises will give you practice at assembling commands inside <i>Processing</i>'s <code>draw()</code>
 				and <code>setup()</code> methods to draw collections of simple shapes.
 				Attempt as many exercises as you can in class, but don't worry if you don't manage to complete
-				all these tasks within the lab session and try to spend time completing the work subsequently.
+				all these tasks within the lab session and try to spend time completing the work subsequently as homework.
 			</p>
 		
 			<div class="codeTask">
@@ -925,7 +930,7 @@ void draw()
 }</pre>
 				<p>
 				Try moving the <code>background()</code> line from <code>setup()</code> to the beginning of
-				<code>draw()</code> (after the opening brace <code>{</code> but before the <code>rect()</code>line).</p>
+				<code>draw()</code> - after the opening brace <code>{</code> but before the <code>rect()</code> command.</p>
 					<ul>
 						<li>What effect does this have on the sketch when you run it?</li>
 						<li>Why is this?</li>
@@ -936,7 +941,7 @@ void draw()
 			<br><br>
 		
 			<div class="codeTask">
-				<p>Create a new sketch called 'Underground'.<br/>Start with a blank page: strictly NO copy and paste for this task.
+				<p>Create a new sketch called 'Underground'.<br/>Start with a blank page: <b>strictly NO copy and paste for this task</b>.
 				</p>
 				<p>
 				Add the usual <code>setup()</code> and <code>draw()</code> methods to your sketch.<br/>
@@ -945,14 +950,14 @@ void draw()
 				<br>
 				<img src="https://jsndyks.github.io/cityCreativeCoding/html/intro/img/cc.undergroundNoLabel.png" width="342" height="296" alt="underground=">
 				</p>
-				<p><i>Hint:</i> You will find this task much easier if you sketch out the design on paper first so you can get
-				a better idea of how the coordinate system relates to the position of your shapes.
+				<p><i>Hint:</i> You will find this task much easier if you sketch out the design on paper first so you can get a better idea of how the coordinate system relates to the position of your shapes.
 				</p>
 				<img src="https://jsndyks.github.io/cityCreativeCoding/html/intro/img/cc.undergroundSketch.png" width="600" height="400" alt="underground=">
 				<p>
 				Remember to save your sketch using <i>Processing</i>'s <code>File-&gt;Save</code> menu (or <code>Ctrl-S</code> if
 				you prefer keyboard shortcuts).
 				</p>
+				<p>Remember to keep pressing <code>CTRL-T</code> or <code>COMMAND-T</code> to tidy your code.</p>
 			</div>
 		
 			<br><br>
@@ -960,16 +965,13 @@ void draw()
 		
 			<div class="codeTask">
 				<p>
-				Create a new sketch that draws a simple rectangle that changes its size or colour depending on the position
-				of the mouse.
+				Create a new sketch that draws a simple rectangle that changes its <i>colour</i> depending on the position of the mouse.
 				</p>
 				<p>
 				<i>Hint:</i> you will have to use the special variables <code>mouseX</code> and <code>mouseY</code> instead
 				of one or more of the numbers you would normally provide with a processing command.
 				</p>
-				<p><i>Hint:</i> if you use the mouse position to control colours, it may be convenient to size your sketch 256
-				x 256, so that the values of <code>mouseX</code> and <code>mouseY</code> are always in the range 0--255
-				(valid values for RGB colour components).
+				<p><i>Hint:</i> if you use the mouse position to control colours, it may be convenient to size your sketch at 256 x 256, so that the values of <code>mouseX</code> and <code>mouseY</code> are always in the range 0--255 (valid values for RGB colour components).
 				</p>
 			</div>
 		
@@ -979,9 +981,9 @@ void draw()
 		
 			<div class="codeTask">
 				<p>Modify your 'Underground' sketch so that it displays some text across the blue bar.<br/>
-				Something like this:
+				Something like this, but choose your favourite station:
 				</p>
-				<img src="https://jsndyks.github.io/cityCreativeCoding/html/intro/img/cc.underground.png" width="339" height="284" alt="underground=">
+				<img src="https://jsndyks.github.io/cityCreativeCoding/html/intro/img/cc.undergroundSign.png" width="339" height="284" alt="underground=">
 				<p>
 				To display text you will need to browse the <a href="https://processing.org/reference" target="_blank">Processing reference pages</a> and in particular look for the commands <a href="https://processing.org/reference/text_.html" target="_blank"><code>text()</code></a>
 				and <a href="https://processing.org/reference/textAlign_.html" target="_blank"><code>textAlign()</code></a></p>
