@@ -1,0 +1,1060 @@
+<head>
+	<title>CreativeCoding Lecture: Introducing Processing</title>
+
+	<!-- Header, 16th September, 2021 -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Embedded fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&amp;display=swap" rel="stylesheet">
+
+	<!-- Custom layout and style -->
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css">
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css">
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css">
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css">
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css">
+
+	<!-- General browser compatibility handling -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+	<!-- Formatted source code -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+	<!-- Sketch popups and hidden text-->
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- JD Extras! -->
+    <link rel="stylesheet" href="https://jsndyks.github.io/cityCreativeCoding/css/creativeCoding.css" type="text/css" />
+    
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+ 
+	<body>
+
+<div id="page">
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+	<!-- Add summary sentence or two below, which will act as an easy introduction -->
+
+	<!---
+	Example 'stickers' to add to lectures for delivery - replace class with focusOFF when complete:
+	<p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">5</span> - <b>Summary</b> : mouse (cursor) variables &amp; methods in Processing</code></p>
+	<p class="focusLecture"><code><span class="focusHash">#</span><span class="focusNum">5</span></code></p>
+	-->
+
+	<div class="intro">
+
+		<p>
+			This session introduces <i>Processing</i> : a coding platform for creating graphical and interactive
+			applications. This is a great environment for learning to code and developing your programming skills.
+		</p>
+
+		<p><strong>Having worked through these notes and participated in the in-person lecture you should be able to:</strong></p>
+
+		<ul class="objectives">
+			<li>run and save <i>Processing</i> sketches on your computer;</li>
+			<li>use <i>Processing</i> commands to draw and colour simple shapes such as rectangles and circles;</li>
+			<li>organise your program instructions into two special methods <code>setup()</code> and
+				<code>draw()</code>;
+			</li>
+			<li>create simple sketches that change in response to mouse movement;</li>
+			<li>use Processing's <a href="https://processing.org/reference" target="_blank">reference pages</a> to
+				find out more about the <i>Processing</i> language.</li>
+		</ul>
+
+	</div> <!-- End of intro section -->
+
+
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">1</span> - <b>Welcome</b> : Academic Autonomy</code></p>
+
+			<!-- Left column -->
+			<h3>1. How to use these pages</h3>
+			<p>
+				Before we get going, here are a few guidelines that will help you get the most of out these pages
+				during <code>#CreativeCoding</code>. They contain a mixture of information, theory and practical tasks.
+				The tasks are probably the most important bit - <code>#CreativeCoding</code> is mostly about <i>doing</i> rather than just
+				reading.
+				If you want to be a good coder, you need to code!
+				And the more you practice the easier it gets.
+			</p>
+
+			<h4>Coding tasks</h4>
+
+			<div class="codeTask">
+				<p>
+				Anything that looks like this is a 'coding task'. This is your chance to have a go doing something
+				rather than just reading about it. Usually you should have a go doing the task at that point in the
+				page before continuing to read further.</p>
+				<p>Use '<a href="https://moodle4.city.ac.uk/mod/page/view.php?id=967974">PAROT Talk</a>' (🦜) as an approach to learning by doing.</p>
+				<p>Sometimes we will do these tasks together in the lecture room, but mostly you will do them in the
+				lab classes or in your own time before the next lecture.</p>
+				<p>Remember, don't just persuade yourself that you <i>could</i> do the task; actually do it.
+				<pre>// Coding is how you learn to code; there is no other way.</pre>
+				<p>Your teachers and the TAs have spent many hundreds and thousands of hours coding, and made many hundreds and thousands (perhaps millions) of mistakes!
+				They still make them - but they have learned plenty through practice, particularly what to do when they make a mistake or get stuck.</p>
+				<p>And remember, if you have any problems completing the tasks, you can always ask for help in the lab classes.</p>
+			</div>
+
+			<h4>Core tasks</h4>
+			<div class="coreTask">
+				<p>
+				These are 'core tasks' that are not necessarily to do with coding, but are set to directly develop and test the core skills introduced in each session.
+				It is easy to skip over them, but we set them because we think it's very important that you complete these tasks.
+				During the labs, and as you plan your work, you should prioritise completion of the core tasks and make sure you have completed them before finishing a topic.
+			</p>
+			<p>
+				You have widely differing backgrounds and skills.
+				Some of you might race through all the exercises in a lab, but most of you will still have some work left to do at the end of a lab class.
+				After the labs, we strongly encourage you to finish <i>all core tasks</i> in your own time as homework.
+				University education involves lots of homework, directed learning at your own pace. 
+				You will receive lots of homework and tasks to complete under your own steam, and you have plenty of time in your weekly schedule to do this work.
+			</p>
+			</div>
+
+			<!--
+      <h4>Homework tasks</h4>
+
+      <div class="homework">
+        These are tasks that have been set as 'homework'. It is important you have a go doing these before the next day
+        of classes as we will usually build upon them in the lectures and lab classes that follow.
+      </div>
+-->
+
+			<h4>Challenges</h4>
+
+			<div class="challenge">
+				<p>
+				These are <i>Optional</i> coding tasks that are a bit more challenging - they may interest and perhaps stretch those of you who find the core tasks straightforward.
+				They may require you to use features and
+				techniques that go a bit beyond what we have covered so far in the classes.
+				So do have a go trying them, if you are interested and have time, but don't panic if you are unable to complete them. we don't expect all of you to do them, and you don;t need to do them to succeed in <code>#CreativeCoding</code>
+			</p><p>
+				If you attempt a challenge but find you can't do it, try to work out <i>why</i> you can't.
+				Part of learning to program well is being able to identify why something isn't working : <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=967974">PAROT Talk</a>.
+			</p>
+			</div>
+
+			<h4>Asides</h4>
+
+			<div class="aside">
+				<h5>Aside:</h5>
+				<p>
+				These are background or related notes that are not essential to the main outcomes of the lecture but that you may find interesting or helpful.<br/>
+				There are a few scattered about in our <code>#CreativeCoding</code> pages and other resources.<br/>
+				Make a note of those that interest you and come back to them later.</p>
+			</div>
+
+			<h4>Tips</h4>
+
+			<div class="tip">
+				Brief tips or common mistakes will be highlighted like this.<br/>
+				Watch out for them as they could save you much time and effort.
+			</div>
+
+			<h4>Copying code</h4>
+
+			<p>
+				The programs you will be writing with <i>Processing</i> are known as <i>Sketches</i>. In the lecture notes
+				you will often see sketch code like that below. You can usually copy the code straight from these
+				pages into <i>Processing</i> by selecting the code then using the <code>Edit-&gt;Copy</code> option (or
+				<code>Ctrl-C</code>) from your browser and <code>Edit-&gt;Paste</code> (or <code>Ctrl-V</code>) in
+				<i>Processing</i>.
+			</p>
+
+		</div>
+	</div>
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+			<pre class="brush: processing; gutter: false; toolbar: false; ">void setup()
+{
+  size(400,300);
+				
+  textAlign(CENTER,CENTER);
+  textSize(32);
+  fill(120);
+  stroke(200);
+}
+				
+void draw()
+{
+  background(255);
+	
+  text("Hello Creative Coders",mouseX,mouseY+40);
+  circle(mouseX,mouseY,35);
+}</pre>
+				
+
+			<p>
+				We've made it as easy as possible to copy code from these pages directly into <i>Processing</i> so you can
+				get sketches quickly up and running.<br/>However, you will not learn to code properly if you simply copy
+				code without understanding it.
+			</p>
+			<div class="tip">
+				Outside of the lectures, we generally ask you <i>not</i> to copy and paste any code unless you wrote it in the first place.
+			</div>
+			<p></p>
+
+		</div> <!-- End of left column -->
+
+		<div class="unit-30-cc annotation">
+			<!-- Right column -->
+			<script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/helloCC/", 360, 200, "https://jsndyks.github.io/cityCreativeCoding/images/intro/cc.helloCC.png");</script>
+
+			<p>Some sketches will be embedded in these pages.<br/>Try clicking the image above to activate the sketch, and interact with it.
+			</p>
+		</div> <!-- end of right column -->
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+
+			<h3>2. Your first <i>Processing</i> sketch</h3>
+
+			<div class="coreTask">
+				<p>Before starting this section make sure you have <i>Processing</i> installed on your computer.</p>
+				<p>If you
+				haven't done so already, see the instructions for downloading and installing <i>Processing</i> in the first
+				section of <a href="https://processing.org/tutorials/gettingstarted/" target="_blank">Getting
+				Started with Processing</a></p>
+			</div>
+
+			<p>
+				By the end of <code>#CreativeCoding</code> you will be producing exciting apps including simple games, interactive graphics and data visualizations with <i>Processing</i>.
+				These apps are known as 'sketches' and over the course of this term you will be encouraged to produce a sketchbook full of your own.<br/>
+				But first let's start with something simple.
+			</p>
+
+			<p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">2</span> - <b>First Sketch</b> : Boring Rectangle</code></p>
+
+			<div class="codeTask">
+				<h5>A Rather Boring Rectangle</h5>
+				<p>Start <i>Processing</i> and type the following line of code.</p>
+				<pre class="brush: processing; gutter: false; toolbar: false; ">rect(20,30,70,35);</pre>
+				<div style="float:right; padding:4px; border:dashed 1px #a0a0a0; margin:12px"/> <img src="https://jsndyks.github.io/cityCreativeCoding/html/intro/img/cc.runButton.png" width="42" height="42"/></div>
+
+				<p>Then press the 'Run' button (right-pointing triangle) to execute the instructions and show your sketch.</p>
+				<p>If all goes well you should see a white rectangle on a grey background.</p>
+
+			</div>
+
+		</div>
+			<!-- Right column -->
+
+			<img src="https://staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/simpleRect.png">
+			<p>A simple rectangle. Not very exciting yet.</p>
+
+		</div> <!-- end of right column -->
+	</div>
+	<div class="units-row">
+		<div class="unit-30-cc annotation">
+
+		<div class="unit-70-cc">
+			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+			<p>
+				This is hardly the most exciting sketch but it does demonstrate the first important idea behind coding:<br/>
+				<i>A computer program is a set
+				of precise instructions that gets the machine to do stuff</i></b>.</p>
+				<p>In <i>Processing</i> (and in the
+				Java and many other languages) those instructions are generally <b>ordered</b> and tell
+				the computer how to achieve certain tasks. In this case our simple program consists of a single
+				instruction that tells <i>Processing</i> to draw a rectangle (<code>rect</code>) positioned at coordinates
+				(20,30) with a width of 70 pixels and a height of 35 pixels.
+			</p>
+
+			<p>
+				Notice the instructions also include brackets '<code>(</code>' and '<code>)</code>' as well as a
+				semicolon '<code>;</code>'at the end. Unlike the English language, punctuation such as brackets and
+				semicolons in a computer programming language is critical. If you forget them (and you will at
+				some stage), your program will not work. Such errors that are about how the program is written
+				(missing punctuation, incorrect word order) are called syntax errors. <b><i>The code you write
+				must be free of syntax errors before the computer can understand and run it. </i></b>
+			</p>
+
+			<p>In <i>Processing</i> brackets mean <code>(</code> these things are related <code>)</code>. In that sentence, in which I used the <i>English Language</i>, the spaces meant that the four words were separate. In <i>Processing</i> and many other languages used in Computer Science, the spaces do not have that meaning. In <i<>Processing</p> we tend to use commas <code>,</code> to separate most things that are part of an instruction like the one above, and semicolons <code>;</code> to separate instructions. So, <code>(</code> these<code>,</code>things<code>,</code>are<code>,</code>separate <code>)</code>.
+
+			<p>We are interested in creativity.
+				Let's vary these instructions to create a rectangle that you think will be <i>unique in the class</i>.
+				Have a think, and then enter 4 arguments to the <code>rect()</code> command, that will produce a unique rectangle.
+			</p>
+
+			<div class="codeTask">
+			<h5>A More Exciting and Original Rectangle</h5>
+			<p>Replace your original <code>rect()</code> instruction with new arguments, that you think will not be repeated in class.<br/>
+			Think about <i>why</i> this rectangle might be original.</p>
+			<pre class="brush: processing; gutter: false; toolbar: false; ">rect(x-coordinate,y-coordinate,wide,high);</pre>
+			<p>Note that the rectangle must be fully visible on the <i>Processing</i> canvas - fully within the 100 x 100 square.</p>
+			<p>When you have produced a valid rectangle, enter the arguments in this form and we can compare your solution with others:</p>
+			<ul>
+				<li><a href="https://forms.gle/gmDMq3EdKcY2Z4mAA">Rectangle Argument Collection Form</a></li>
+			</ul>
+			</div>
+<!---
+			<div style="float:right; padding:4px; border:dashed 1px #a0a0a0; margin:12px"/> <img src="https://jsndyks.github.io/cityCreativeCoding/html/intro/img/cc.miniGraphic.rect.png" width="100" height="100"/></div>
+			<p>Here are the 137 rectangles that were entered in class:</p>
+			--->
+
+			<p>
+				To get a better sense of how the <i>Processing</i> language works, lets add a little more to our program:
+			</p>
+
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+
+			<pre class="brush: processing; gutter: false; toolbar: false; ">rect(20,30,70,35);
+circle(62,60,40);</pre>
+				
+				
+			<p>
+				The second command <code>circle</code> works in a similar way to the first command but this time
+				draws an circle centred at position (62,60) with a diameter of 40 pixels.
+			</p>
+
+			<p>
+				You should be able to spot the pattern in how we are issuing instructions to draw our sketch. The
+				first word or 'command' (in blue) states what sort of shape to draw, then four numbers in brackets
+				specify the position and size of the shape. Finally the semicolon is used to say we have finished
+				issuing the command.
+			</p>
+
+			<p>
+				You should also notice that the circle appears to be 'on top' of the rectangle. This illustrates an
+				important principle that applies to much of our coding: <b><i>Commands are run in the order in which
+				we issue the program instructions</i></b>. You can confirm this by simply swapping the order
+				of instructions:
+			</p>
+
+		</div> <!-- End of left column -->
+
+		<div class="unit-30-cc annotation">
+			<!-- Right column -->
+
+			<img src="https://staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/rectAndCircle.png">
+			<p>A rectangle and circle.</p>
+
+		</div> <!-- end of right column -->
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+
+			<div><div id="highlighter_724034" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing plain">circle(62,60,40);</code></div><div class="line number2 index1 alt1"><code class="processing function1">rect</code><code class="processing plain">(20,30,70,35);</code></div></div></td></tr></tbody></table></div></div>
+
+			<img src="https://staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/circleAndRect.png">
+			<p>The circle is drawn first, then the rectangle.</p>
+
+			<p>
+				As our programs become more sophisticated we will see ways in which we can alter the sequence in
+				which commands are executed, but for now it is important not to forget that we can control the order
+				in which things happen in our programs by changing the order of coding instructions.
+			</p>
+
+			<div class="codeTask">
+				<h5>Avoiding The Overlap</h5>
+				<p>Replace your original <code>circle()</code> instruction with new arguments, that will ensure that the circle does not overlap the rectangle.<br/>
+				Think about <i>where</i> you might put the circle to make this happen.</p>
+				<pre class="brush: processing; gutter: false; toolbar: false; ">circle(x-coordinate,y-coordinate,radius);</pre>
+				<p>Note that the circle must be fully visible on the <i>Processing</i> canvas - fully within the 100 x 100 square.</p>
+				<p>When you have produced a valid circle, that does not overlap, enter the arguments in this form and we can compare your solution with others:</p>
+				<ul>
+					<li><a href="https://forms.gle/z7McYs6Q8Vhg1tGv5">Circle Argument Collection Form</a></li>
+				</ul>
+				</div>
+<!-- 				
+				<div style="float:right; padding:4px; border:dashed 1px #a0a0a0; margin:12px"/> <img src="https://jsndyks.github.io/cityCreativeCoding/html/intro/img/cc.miniGraphic.circle.png" width="100" height="100"/></div>
+				<p>Here are the 156 circles that were entered in class:</p>
+				 -->
+
+			<div class="aside">
+				<h5>Aside:</h5>
+				<p><i>Processing</i> uses the <i>Java</i> programming language as a way of issuing instructions to the
+				computer.</p>
+				<p><i>Java</i> is known as an <b>object-oriented language</b> because it encourages you to organise
+				your code into units known as <i>objects</i> and <i>classes</i> (more on this later).</p>
+				<p>It can also be thought of as a <b>procedural language</b> because it requires you to issue ordered
+				instructions on <b>how</b> you want the computer to behave. In contrast, some other programming
+				languages are described as <b>declarative</b> because they require you to declare the task you want
+				solving rather than how it should be solved.</p>
+			</div>
+
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+
+			<h3>3. The graphical coordinate system</h3>
+			<p>
+				Our sketches so far have been rather small and unexciting. We can set the size of a sketch with
+				another <i>Processing</i> command called, you've guessed it, <code>size</code>. Adding this as the first
+				line of our sketch:
+			</p>
+
+		</div>
+	</div>
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<div><div id="highlighter_254290" class="syntaxhighlighter nogutter  processing"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="processing function1">size</code><code class="processing plain">(260,200);</code></div><div class="line number2 index1 alt1"><code class="processing plain">circle(62,60,40);</code></div><div class="line number3 index2 alt2"><code class="processing function1">rect</code><code class="processing plain">(20,30,70,35);</code></div></div></td></tr></tbody></table></div></div>
+
+			<p>
+				These three commands draw exactly the same circle and rectangle of the same size, but this time on a larger 'canvas'
+				that is 260 pixels wide and 200 tall. The <code>size</code> command is issued once, at the start of your sketch
+				since its size would not normally change during its lifetime.
+			</p>
+
+			<p>
+				You may have noticed that all the commands we have used so far have involved specifying either a
+				location on screen (e.g. the position of the circle or rectangle) or the size of something (the
+				width and height of the sketch canvas, the rectangle and the circle). They all use the same
+				<i>coordinate system</i> - that is a pair of numbers representing distances along the horizontal
+				x-axis and the vertical y-axis.
+			</p>
+
+		</div> <!-- End of left column -->
+
+		<div class="unit-30-cc annotation">
+			<!-- Right column -->
+
+			<img src="https://staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/largeCircleAndRect.png">
+
+			<p>The circle and rectangle this time drawn on a larger canvas</p>
+
+		</div> <!-- end of right column -->
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+
+			<p>
+				Unlike a conventional set of graph axes, the <i>origin</i> (0,0) of the coordinate system is at the
+				top-left, not the bottom-left. So increasing the y-value of a coordinate will move downwards not
+				upwards.
+			</p>
+
+			<p>
+				As we will be doing lots of drawing with <i>Processing</i> during <code>#CreativeCoding</code> it is important you are
+				comfortable with the principle of using coordinates to specify location and size. To recap: <b>A
+				location of something is specified with two numbers in the order (x,y) that indicate the
+				distance from the top-left corner in the horizontal and vertical directions respectively.</b>
+				For something to be visible in your sketch the x-value should be between 0 and the width of the
+				sketch (as determined by the first number of the <code>size()</code> command) and the y-value should
+				be between 0 and the height of the sketch (as determined by the second number of the
+				<code>size()</code> command).
+			</p>
+
+			<div class="tip">
+				<p>Keep your Notebooks and a pen and pencil handy when you are designing your sketches.
+				Drawing out what you are intending to do will help you keep track of your coding.
+				This is especially valuable as your programs become more complicated.</p>
+				<p>We say this repeatedly to students and are always surprised by :</p>
+				<ul>
+					<li>How few students take the time to draw out their sketches on paper</li>
+					<li>How much more efficiently and impressively these students make progress</li>
+				</ul>
+				<p>Use your sketchbooks!</p>
+			</div>
+
+
+			<p>
+				Using our newly enlarged canvas, we can explore some of the other shape drawing commands available
+				in <i>Processing</i>. In addition to the rectangle and circle, we can draw triangles, lines and irregular
+				quadrilaterals. All use the same coordinate system for specifying either locations of the shape
+				(e.g. the centre of a circle; corner of a rectangle; vertices of a triangle or quadrilateral), or
+				its size (e.g. width and height of a rectangle or ellipse). The example below is a sketch that draws
+				some of these shapes:
+			</p>
+
+		</div> <!-- End of left column -->
+
+		<p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">3</span> - <b>Coordinates</b> : Fun with Shapes</code></p>
+
+		<div class="unit-30-cc annotation">
+			<!-- Right column -->
+
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/coordinates.png', 453, 357, 'The Processing coordinate system');</script>
+			<p>Specifying locations in the <i>Processing</i> coordinate system <i>(click to enlarge)</i></p>
+
+		</div> <!-- end of right column -->
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+
+			<pre class="brush: processing; gutter: false; toolbar: false; ">size(400, 300);
+
+line(150,100,350,200);
+rect(150,190,80,60);
+ellipse(300,100,40,60);
+triangle(50,140, 100,140, 75, 210);
+quad(30,20, 150,50, 110,110, 40,90);</pre>
+
+			<p>
+				Each of the pairs of numbers after a drawing command corresponds to some location in our sketch
+				using the same coordinate system. To see how the number relate to the properties of the shape, you
+				can browse the <a href="https://processing.org/reference/" target="_blank">Processing Reference</a>
+				(for example, here is the reference for the <a href="https://processing.org/reference/quad_.html" target="_blank"><code>quad()</code></a> drawing command).
+			</p>
+
+
+			<div class="tip">
+				<p>
+				Make use of the <a href="https://processing.org/reference/" target="_blank">Processing Reference</a>
+				when you wish to learn more about how a processing command works or you wish to explore the
+				capabilities of the language.</p>
+				<p>You can bookmark the web page or access an offline version via <i>Processing</i>'s <code>Help-&gt;Reference</code> menu.</p>
+				<p>Learning how to search through, use and apply this reference material will help you immeasurably in <code>#CreativeCoding</code>, so please invest in exploring,  understanding and utilising it.</p>
+			</div>
+
+
+		</div> <!-- End of left column -->
+
+		<div class="unit-30-cc annotation">
+			<!-- Right column -->
+
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/primitives.png', 400, 300, 'Shape primitives');</script>
+			<p>Some shape primitives</p>
+
+		</div> <!-- end of right column -->
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+
+			<h3>4. Drawing styles</h3>
+
+			<p>
+				So far, our sketches have been a little dull and grey. Thankfully, <i>Processing</i> allows you to style
+				the drawing of shapes
+				using various colours and line thicknesses. You can do this with the commands ...</p>
+				<ul>
+				<li><a href="https://processing.org/reference/stroke_.html" target="_blank">stroke()</a>,</li>
+				<li><a href="https://processing.org/reference/fill_.html" target="_blank">fill()</a> and</li>
+				<li><a href="https://processing.org/reference/strokeWeight_.html" target="_blank">strokeWeight()</a></li>
+				</ul>
+				<p> ...among others.<br/>
+				Unlike the drawing primitives, setting a drawing style doesn't immediately draw something on screen.
+				Instead it sets the style of any drawing done in your sketch <i>after the style has been set</i>.
+				You can think of it as selecting the colour and type of pen to use before you start drawing something.
+			</p>
+
+		</div>
+	</div>
+	<br>
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+			<p>
+				Both the <a href="https://processing.org/reference/stroke_.html" target="_blank">stroke()</a> and
+				<a href="https://processing.org/reference/fill_.html" target="_blank">fill()</a> commands require a
+				colour to be
+				provided inside the brackets that follow. There are plenty of ways of specifying colours, but for
+				the moment we will use the
+				default (<i>red</i>,<i>green</i>, <i>blue</i>) triplet. The three numbers required specify the three
+				colour components and
+				are scaled between 0 and 255. So, for example, to set the internal fill colour of a shape to bright
+				green, you would use
+				<code>fill(0,255,0)</code>. To set the outline colour of the shape to red, you might use
+				<code>stroke(255,0,0)</code>.
+				If you are not sure how these numbers relate to colours you wish to use, you can always bring up
+				Processing's
+				<i>color selector</i> from the <code>Tools</code> menu. (Alternatively, there are similar tools on
+				the web, such as
+				<a href="https://www.w3schools.com/colors/colors_picker.asp" target="_blank">W3 Schools HTML Color Picker</a>.)
+			</p>
+
+			<p>
+				We can use the same way of defining colours to set the background colour of the entire sketch to
+				something a little more
+				inspiring than the default grey. We do this with the <a href="https://processing.org/reference/background_.html" target="_blank">background()</a>
+				command specifying the background colour we would like inside brackets. For example to set a pale
+				blue background we would
+				add the following line to the beginning of our sketch:
+			</p>
+
+			<pre class="brush: processing; gutter: false; toolbar: false; ">
+background(200,200,255);
+			</pre>
+
+			<p>
+				The thickness of shape outlines that appear on the coloured background can be controlled with the <a href="https://processing.org/reference/strokeWeight_.html" target="_blank">strokeWeight()</a>
+				command, requiring a single number in brackets indicating the thickness of the line in pixel units.
+				This can be a
+				decimal number between 0 and 1 if you wish to use very thin lines (useful for faint outlines). For
+				thicker
+				lines you can control the appearance of their end points and corners with the
+				<a href="https://processing.org/reference/strokeCap_.html" target="_blank">strokeCap()</a> and
+				<a href="https://processing.org/reference/strokeJoin_.html" target="_blank">strokeJoin()</a>
+				commands.
+			</p>
+
+			<p>
+				If you don't wish to show any outline at all, you can use the command <a href="https://processing.org/reference/noStroke_.html" target="_blank">noStroke()</a>.
+				In a similar way, to show only the outline with no internal fill colour, you can use <a href="https://processing.org/reference/noFill_.html" target="_blank">noFill()</a>.
+				If you were to specify both <code>noStroke()</code> and <code>noFill()</code> before drawing
+				something, it would not be
+				visible at all on screen.
+			</p>
+
+		</div> <!-- End of left column -->
+
+		<div class="unit-30-cc annotation">
+			<!-- Right column -->
+
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/colourSelector.png', 432, 316, 'Processing colour selector');</script>
+
+			<p>
+				Processing's colour selector allows you to find the (r,g,b) numbers for any selected colour.
+			</p>
+
+		</div> <!-- end of right column -->
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+
+			<p>
+				The example below shows how the various style settings might be applied to our simple set of shapes:
+			</p>
+
+			<p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">4</span> - <b>Colour</b> : Fun with Colour &amp; Styles</code></p>
+
+		</div>
+	</div>
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+			<pre class="brush: processing; gutter: false; toolbar: false; ">size(400, 300);          // Sketch is 400 pixels wide and 300 tall.
+background(254,232,134); // Yellow background colour.
+
+strokeWeight(4);         // Thick outline
+stroke(78,38,11);        // Dark brown outline colour.
+line(150,100,350,200);
+
+strokeWeight(0.6);       // Thin outline.
+noFill();                // No internal colouring.
+rect(150,190,80,60);
+
+fill(252,135,135);       // Pink internal fill colour.
+ellipse(300,100,40,60);
+
+strokeWeight(1.5);       // Medium outline.
+fill(133,180,117);       // Green internal fill colour.
+triangle(50,140, 100,140, 75, 210);
+
+noStroke();              // No outline.
+quad(30,20, 150,50, 110,110, 40,90);</pre>
+
+
+			<p>
+				You will notice that our example sketches are getting a little bit more complicated as we add new
+				shapes and new
+				styling commands. One way of making sure we can keep track of what our sketch does as it gets longer
+				is to add
+				<i>comments</i> to our code. These are the grey lines that start with a <code>//</code>. Whenever
+				you include these two
+				symbols, the rest of the line is then ignored by <i>Processing</i> so you are free to write text to explain
+				what the code does.
+			</p>
+
+			<div class="tip">
+				Adding comments to your code will make things <i>much</i> easier when your sketches become more
+				complex. They help to remind you
+				what you intended to do with your code.
+			</div>
+
+		</div> <!-- End of left column -->
+
+		<div class="unit-30-cc annotation">
+			<!-- Right column -->
+
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/styledPrimitives.png', 400, 300, 'Styled shapes');</script>
+			<p>Applying styles to shape drawing.</p>
+
+		</div> <!-- end of right column -->
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+
+			<h3>5. Adding movement to your sketches</h3>
+
+			<p>
+				We can draw shapes, and we can colour them. Now lets look at how we can get our sketches to move. To
+				understand how we
+				do this, we need to introduce one further programming concept - that of the <i>method</i>.
+				We will
+				look at methods more
+				fully later in <code>#CreativeCoding</code>, but for now we will consider a method as simply a collection of commands
+				that are grouped together to do something.
+			</p>
+
+			<p>
+				<i>Processing</i> has two built-in methods that are usually part of a sketch -
+				the <i>setup method</i> and the <i>draw method</i>.
+				As the names suggest, the <code>setup()</code> method is used to group together any commands that
+				are needed to set up the sketch.
+				These typically include things like setting the size of the sketch and sometimes selecting
+				the stroke and fill
+				colours (assuming they don't change during the lifetime of the sketch).
+				The <code>draw()</code> method, as you might expect
+				is where we group together all the commands that do our sketch drawing.
+			</p>
+
+			<p>
+				The code to create these two methods looks like this:
+			</p>
+
+			<pre class="brush: processing; gutter: false; toolbar: false; ">void setup()
+{
+   // Code to set up the sketch goes here.
+}
+
+void draw()
+{
+  // Drawing code goes here.
+}</pre>
+
+			<p>
+				Both <code>setup()</code> and <code>draw()</code> have the word <code>void</code> in front of them,
+				which for the moment we
+				will ignore. Notice that neither has the a semicolon at the end (unlike <code>background</code>,
+				<code>rect</code>, <code>ellipse</code>
+				etc.). Instead they are followed by a pair of curly brackets known as <i>braces</i>. These braces
+				define the beginning and
+				end of the method. Whenever you place code inside a pair of braces like this, you should indent it
+				by two spaces or a tab.
+				This will make your code a little easier to read as the indentation helps to make it clear it is
+				part of block of code (in
+				these examples either the <code>setup()</code> or <code>draw()</code> methods).
+			</p>
+			<div class="tip">
+				<p>Pressing <code>CTRL-T</code> on a Windows machine or <code>COMMAND-T</code> on a Mac, will automatically indent your code and make it more readable.</p>
+				<p>Do this regularly!</p>
+			</div>
+
+			<p>
+				Our sketch then involves adding the commands we wish to both methods.
+				Here, for example is code to draw a red rectangle on a yellow background using our two methods:
+			</p>
+
+			<p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">5</span> - <b>There is no FIVE!</b> : (you killed it on the train))</code></p>
+
+			<p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">6</span> - <b>Movement - Setup &amp; Draw</b> : PAROT approach 🦜</code></p>
+
+			<pre class="brush: processing; gutter: false; toolbar: false; ">void setup()
+{
+  size(400,300);
+  background(255,236,149);
+  fill(203,118,122);
+}
+
+void draw()
+{
+  rect(40,40,120,80);
+}</pre>
+
+		</div>
+	</div>
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<div class="rightCol">
+				<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/processingFlow.png', 610, 700, 'Processing program flow');</script>
+				<p>Programme flow in <i>Processing</i>.</p>
+			</div>
+	
+			<p>
+				Why do we need to go to the effort of creating these two methods when we could have drawn the same
+				sketch directly with
+				the <code>size()</code>, <code>background()</code>, <code>fill()</code> and <code>rect()</code>
+				commands?
+			</p>
+
+			<p>
+				The answer lies in an important behaviour of all <i>Processing</i> sketches. Any code placed inside the
+				<code>setup()</code> method
+				(i.e. placed between the curly braces following the <code>void setup()</code> line) will only ever
+				be executed once — as soon
+				as the sketch is run. However any code inside the <code>draw()</code> method isn't just executed
+				once, but <i>repeats 60 times
+				a second</i> for as long as the sketch is running.
+			</p>
+
+			<p>
+				In the simple rectangle sketch above it's hard to notice the sketch being redrawn 60 times a second
+				because nothing changes
+				on each new redraw. But if we make a simple change so that the rectangle isn't always drawn at
+				location (40,40) but instead
+				at the current mouse position, we will see the effect of multiple redraws.
+			</p>
+
+			<p>
+				Replacing the first two numbers in the <code>rect()</code> command with two special words
+				<code>mouseX</code> and
+				<code>mouseY</code> gives us our first dynamic sketch:
+			</p>
+			<pre class="brush: processing; gutter: false; toolbar: false; ">void setup()
+{
+  size(400, 300);
+  background(255, 236, 149);
+  fill(203, 118, 122);
+}
+
+void draw()
+{
+  rect(mouseX, mouseY, 120, 80);
+}</pre>
+
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+
+			<p>
+				The terms <code>mouseX</code> and <code>mouseY</code> refer to special <i>Processing</i> <i>variables</i> that keep track of the location of the
+				mouse pointer in real time as the sketch runs and report the horizontal (<code>mouseX</code>) and vertical (<code>mouseY</code>) coordinates (from the top left of the canvas) in pixel units.
+				Every time the code in the <code>draw()</code> method is repeated, <i>Processing</i> will check the values these two special variables and update them.
+				Our sketch asks <i>Processing</i> to draw a rectangle at the location represented by them.
+			</p>
+
+
+			<p>
+				We will delve a little more deeply into using variables in the next session, but now you should be
+				able to draw a range of shapes in a <i>Processing</i> sketch, control their colour and appearance and make
+				your sketch respond to changes in the mouse position.
+			</p>
+
+		</div> <!-- End of left column -->
+
+		<div class="unit-30-cc annotation">
+			<!-- Right column -->
+
+			<script>loadSketch("https://www.staff.city.ac.uk/~jwo/bootcamp2021/p5js/movingRect", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/movingRectangle.png");</script>
+			<p>A moving rectangle sketch (click to activate)</p>
+		</div> <!-- end of right column -->
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+
+			<h3>6. Exercises</h3>
+
+			<p>
+				These first exercises will give you practice at assembling commands inside <i>Processing</i>'s <code>draw()</code>
+				and <code>setup()</code> methods to draw collections of simple shapes.
+				Attempt as many exercises as you can in class, but don't worry if you don't manage to complete
+				all these tasks within the lab session and try to spend time completing the work subsequently.
+			</p>
+		
+			<div class="codeTask">
+				<p>
+				Start with the moving rectangle sketch from the lecture notes (reproduced below).
+				For this task it is acceptable to copy and paste the code directly into <i>Processing</i> (using the Edit Copy / Paste menus or keyboard shortcuts
+				<code>Ctrl-C</code> and <code>Ctrl-V</code>). Run the sketch to check it works as expected.
+			</p>
+				<pre class="brush: processing; gutter: false; toolbar: false; ">// Sketch to draw a rectangle that follows the mouse.
+void setup()
+{
+	size(400, 300);
+	background(255, 236, 149);
+	fill(203, 118, 122);
+}
+
+void draw()
+{
+	rect(mouseX, mouseY, 120, 80);
+}</pre>
+				<p>
+				Try moving the <code>background()</code> line from <code>setup()</code> to the beginning of
+				<code>draw()</code> (after the opening brace <code>{</code> but before the <code>rect()</code>line).</p>
+					<ul>
+						<li>What effect does this have on the sketch when you run it?</li>
+						<li>Why is this?</li>
+						<li>What happens when you move the <code>fill()</code> line to different parts of the sketch?</li>
+						</ul>
+			</div>
+		
+			<br><br>
+		
+			<div class="codeTask">
+				<p>Create a new sketch called 'Underground'.<br/>Start with a blank page: strictly NO copy and paste for this task.
+				</p>
+				<p>
+				Add the usual <code>setup()</code> and <code>draw()</code> methods to your sketch.<br/>
+				In <code>setup()</code>, set the sketch window size to 600 pixels wide by 400 pixels high.<br/>
+				In <code>draw()</code>, add code that draws a London underground symbol in the centre of the sketch window, similar to this:
+				<br>
+				<img src="https://staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/undergroundNoLabel.png" width="342" height="296" alt="underground=">
+				</p>
+				<p><i>Hint:</i> You will find this task much easier if you sketch out the design on paper first so you can get
+				a better idea of how the coordinate system relates to the position of your shapes.
+				</p>
+				<img src=" https://staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/undergroundSketch.png" width="600" height="400" alt="underground=">
+				<p>
+				Remember to save your sketch using Processing's <code>File-&gt;Save</code> menu (or <code>Ctrl-S</code> if
+				you prefer keyboard shortcuts).
+				</p>
+			</div>
+		
+			<br><br>
+		
+		
+			<div class="codeTask">
+				<p>
+				Create a new sketch that draws a simple rectangle that changes its size or colour depending on the position
+				of the mouse.
+				</p>
+				<p>
+				<i>Hint:</i> you will have to use the special variables <code>mouseX</code> and <code>mouseY</code> instead
+				of one or more of the numbers you would normally provide with a processing command.
+				</p>
+				<p><i>Hint:</i> if you use the mouse position to control colours, it may be convenient to size your sketch 256
+				x 256, so that the values of <code>mouseX</code> and <code>mouseY</code> are always in the range 0--255
+				(valid values for RGB colour components).
+				</p>
+			</div>
+		
+			<br><br>
+		
+		
+		
+			<div class="codeTask">
+				<p>Modify your 'Underground' sketch so that it displays some text across the blue bar.<br/>
+				Something like this:
+				</p>
+				<img src="https://staff.city.ac.uk/~jwo/bootcamp2018/lecture01/images/underground.png" width="339" height="284" alt="underground=">
+				<p>
+				To display text you will need to browse the <a href="https://processing.org/reference" target="_blank">Processing reference pages</a> and in particular look for the commands <a href="https://processing.org/reference/text_.html" target="_blank"><code>text()</code></a>
+				and <a href="https://processing.org/reference/textAlign_.html" target="_blank"><code>textAlign()</code></a></p>
+			</div>
+		
+
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+
+			<h3>7. Summary and Further Information</h3>
+
+			<ul class="summary">
+				<li>
+					A computer program is a series of precisely defined instructions that gets the computer to do
+					something.
+				</li>
+
+				<li>
+					<i>Processing</i> is a variation of the <i>Java</i> programming language focussed on creating graphical and
+					interactive applications known as <i>sketches</i>.
+				</li>
+
+				<li>
+					A <i>Processing</i> command usually consists of a keyword (such as <code>rect</code> or
+					<code>size</code>) followed by brackets,
+					some numbers and a semicolon.
+				</li>
+
+				<li>
+					The order of program instructions is important — within a block of code instructions are
+					executed in sequence from top to bottom.
+				</li>
+
+				<li>Most <i>Processing</i> sketches contain at least two special <i>methods</i> —<code>setup()</code> which
+					contains the
+					one-off setting up instructions, and <code>draw()</code> that contains the instructions repeated
+					60 times a second.</li>
+			</ul>
+
+
+			<div class="aside">
+				<h5>Aside:</h5>
+				<p>You may find the following helpful if you'd like to find out more about getting started with
+				<i>Processing</i> and drawing shapes</p>
+
+				<ul>
+					<li><a href="https://processing.org/tutorials/gettingstarted" target="_blank">Getting Started
+						with Processing</a> — A guide to installing <i>Processing</i> navigating its menus and buttons.
+					</li>
+					<li><a href="https://hello.processing.org" target="_blank">Hello Processing</a> — an interactive
+						video tutorial from <i>Dan Shiffman</i> that we recommended as excellent preparation to get you started with <i>Processing</i>.</li>
+				</ul>
+
+			</div>
+
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<div style="padding-bottom:2em;clear:both"></div>
+        
+	<!--- spacer for iFrame -->
+	<p style="padding-top:1em"><hr/></p>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+</div> <!-- End of page div -->
+
+<script type="text/javascript">SyntaxHighlighter.all()</script>
