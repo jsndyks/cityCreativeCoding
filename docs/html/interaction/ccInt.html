@@ -178,7 +178,7 @@
 
                 <div class="codeTask">
                     
-                    <b>Keyboard Interaction - key variable</b>
+                    <h5>Keyboard Interaction - key variable</h5>
                     <p>Read through the code above 👆 to see if you can work out what it does.</p>
                     <p>Then run the sketch on the right 👉.<br/>
                         Click the image to activate the sketch.<br/>
@@ -265,7 +265,8 @@
 
                 <div class="codeTask">
 
-                    <p><b>KeyPressed Example</b><br />Click the sketch to activate it and <b>press keys on the keyboard</b> for endless fun.</p>
+                    <h5>KeyPressed Example</h5>
+                    <p>Click the sketch to activate it and <b>press keys on the keyboard</b> for endless fun.</p>
 
                     <b>Keyboard Interaction - keyPressed() method</b>
                     <p>Read through the code again and see if you can work what's new.
@@ -350,13 +351,13 @@
     void keyPressed() {
       p+=12; // -- add 12 to p each time this method is executed (when the key is pressed)
 
-      // -- put the char held in 'key' at a screen position
-      // --   that increases in x and y with each key press
+      // -- put the char held in 'key' at a screen position based on p 
+      // --   as it increases in x and y each time a key press is detected
       text(key, p%width, 100 + 24*int(p/width));
 
       // -- the above just calculates a position for the text as p increases
       // -- use println() to print out the values to the console if you like
-      // -- remove '/width' and see what happens as you get to the right hand side!
+      // -- remove '/width' and see what happens as you get to the right hand side of the canvas!
     }</pre>
 
             </div> <!-- End of left column -->
@@ -374,7 +375,7 @@
                     </figure>
                 </div>
                 <div class="codeTask">
-                  <b>Keyboard Interaction - adding some order</b>
+                  <h5>Keyboard Interaction - adding some order</h5>
                     <p>Check the code and comments, and look at the way the position of the text varies according to the
                         global variable <code>p</code>.</p>
                     <p>Then run the sketch on the right - see what happens as you press more keys and get to the end of the canvas!</p>
@@ -430,7 +431,7 @@
                     </figure>
                 </div>
                 <div class="codeTask">
-                  <b>Keyboard Interaction - Conditions</b>
+                  <h5>Keyboard Interaction - Conditions</h5>
                     <p>But for now, try the <b>KeyPressed with Condition Example</b> sketch shown to the right - it uses interaction to control flow in the sketch.</p>
                     <p>Then implement this yourself by copying the code from above to add this condition to the
                         <code>keyPressed()</code> method in your sketch.
@@ -557,7 +558,7 @@ void draw() {
 
                 <!-- Left column -->
                 <div class="codeTask">
-                  <b>Colour Key</b>
+                  <h5>Colour Key</h5>
                   <p>Add a <code>keyPressed()</code> method with code that changes the rectangle's
                     fill colour to green if the <span class="key">g</span> key is pressed and blue if the
                     <span class="key">b</span> key is pressed and red if the <span class="key">r</span> key is pressed.
@@ -890,7 +891,7 @@ void draw() {
                 </div>
 
                 <div class="codeTask">
-                  <b>Mouse Interaction - mouseClicked() method</b>
+                  <h5>Mouse Interaction - mouseClicked() method</h5>
                     <p>
                         Improve your <code>keyPressed()</code> sketch - <i>the rudimentary unusable frustrating 'WordProcessor'</i> - so that:</p>
 
@@ -1085,7 +1086,7 @@ void mouseClicked() {
                     </div>
                 
                     <div class="codeTask">
-                    <b>Mouse Interaction - Controlling Flow</b>
+                    <h5>Mouse Interaction - Controlling Flow</h5>
                     <p>Create a sketch using the skeleton code provided above.<br />Run it and experiment a
                         little.<br />
                         Can you see how <code>isRed</code> works?<br/>Can you see how we make decisions based upon its value and how we interact to change that?</p>
@@ -1145,7 +1146,7 @@ void mouseClicked() {
                 </div>
 
                 <div class="codeTask">
-                  <b>Interaction - Persistence</b>
+                  <h5>Interaction - Persistence</h5>
                     <p>Using the code below as a start point get <code>clickCount</code> to increment every time the
                         mouse is clicked.<br />
                         This variable should record the number of times the canvas has been clicked in your sketch.</p>
@@ -1188,7 +1189,7 @@ void draw(){
             <div class="unit-70-cc">
                 <!-- Left column -->
                 <div class="codeTask">
-                  <b>Interaction - Persistence Freestyling</b>
+                  <h5>Interaction - Persistence Freestyling</h5>
                     <p>
                         <b>Extension 1</b>: Make the background colour different when more than 10 clicks have
                         occurred<br />
@@ -1319,7 +1320,7 @@ void mouseClicked()
                     </div>
 
                 <div class="codeTask">
-                  <b>Building an 'Interface'</b>
+                  <h5>Building an 'Interface'</h5>
                     <p>Run the example sketch to the right - click the check-button to see what happens!</p>
                     <p>Then copy the code from above into <i>Processing</i> and run the sketch to see how it works.</p>
                     <p>Work through the code to understand how we know whether the mouse (cursor) is in the rectangle or not.</p>
