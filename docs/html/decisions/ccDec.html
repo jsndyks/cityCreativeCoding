@@ -66,18 +66,18 @@
     <div class="intro">
 
             <p>
-                This section introduces the <code>if</code> statement: a programming language construct which allows you to
+                This section introduces the <code>if</code> statement: a programming language construct that allows us to
                 write code that <b>makes choices as it executes</b>.
             </p>
 
-            <p><strong>By the end of this session you should be able to:</strong></p>
+            <p><strong>By the end of this session - having attended the lecture, worked through the notes and completed the practical work in your own time - you should be able to:</strong></p>
 
             <ul class="objectives">
                 <li>write <code>if</code> statements in your code so that it makes decisions, depending upon conditions, as it executes;</li>
                 <li>use <code>if</code> statements to choose between different actions based on the mouse position;</li>
                 <li>write nested <code>if</code> statements and <code>else-if</code> statements to make decisions based upon complex and composite conditions;</li>
-                <li>use a variety of different kinds of boolean expressions in the conditions of your <code>if</code> statements;</li>
-                <li>use randomness and <code>if</code> statements to simulate throwing dice or tossing coins.</li>
+                <li>use a variety of different kinds of Boolean expressions in the conditions of your <code>if</code> statements;</li>
+                <li>use randomness and <code>if</code> statements to simulate random events, such as throwing dice or tossing coins.</li>
             </ul>
 
         </div> <!-- End of intro section -->
@@ -101,7 +101,7 @@
                 <ol>
                     <li>We may know everything that is likely to happen when code is running, everything is entirely predictable.<br/>
                         We know all data values and how they should be processed, everything is predetermined.<br/>
-                        <i>This would make coding pretty straightforward, but it doesn't happen very often.</i></li>
+                        <i>This would make coding pretty straightforward, but it doesn't happen very often.</i><br/><br/></li>
                     <li>There are things we don't know when we write the code, that will only transpire as the code is running, but they are "<i>known unknowns</i>".<br/>
                         We know what kind of data our code has to process and we know the rules for how it should be processed
                         when it becomes available.<br/><i>This is usually the case.</i></li>
@@ -123,7 +123,7 @@
                 </p>
 
                 <p>
-                    A fundamental programming concept that brings us much closer to fully flexible programs is the
+                    A fundamental programming concept that brings us much closer to fully flexible programs is 
                     <b>the <code>if</code> statement</b>
                 </p>
 
@@ -167,7 +167,8 @@ void draw()
                         immediately after the keyword <code>if</code>.<br/>
                         In this example the condition is
                         <code>mouseX &lt; width/2</code>.<br/>
-                        A condition can be any boolean expression (more about these in a little while)
+                        A condition can be <i>any Boolean expression</i> - something that is either <code>true</code> or <code>false></code>.
+                        We will learn more about <i>Boolean expressions</i> in a little while.
                     </li>
                     <li>
                         Then ...
@@ -182,6 +183,18 @@ void draw()
                     </li>
                 </ol>
 
+                <p>
+                    You can think of it like this ...
+                </p>
+                <pre class="brush: processing; gutter: false; toolbar: false; ">
+                    if (this condition is true)
+                    {
+                      execute (run) the commands contained within this first pair of  curly braces;
+                    } else
+                    {
+                      otherwise execute (run) the commands contained within this second pair of curly braces;
+                    }</pre>
+                    
                 <p>
                     Some terminology: the first block of code is known as the <i>true branch</i> or <i>if branch</i> and
                     the second is known as the <i>false branch</i> or <i>else branch</i>.
@@ -245,7 +258,12 @@ void draw()
                     disappears off to the left.</p>
                     <ul>
                     <li>Check the <a href="https://processing.org/reference/if.html"><code>if</code> statement reference documentation</a> to ensure that you get the syntax correct</li>
-                    <li>Draw the sketch in your sketchbook to help you work out what needs to change and under what condition to achieve the effect</li>
+                    <li>Draw the sketch in your sketchbook to help you work out ...
+                        <ol>
+                            <li>what needs to change - the <i>true branch</i> - to have this effect</li>
+                            <li>and under what <i>condition</i> this needs to happen to make your sketch work as desired</li>
+                        </ol></li>
+                    
                     </ul>
 
                 </div>
@@ -270,7 +288,7 @@ void draw()
                     So far we have become used to quite short sets of instructions that we can write on a single line, such as <code>rect(100, 200, 50, 50);</code> or
                     <code>fill(255);</code>.
                     However, the <code>if</code> statement is an instruction, just one that we typically write on multiple lines.
-                    So, there is no reason why one of the instructions contained inside our branches
+                    So, there is no reason why one (or more) of the instructions contained inside our branches
                     cannot be an <code>if</code> statement itself.
                 </p>
 
@@ -331,7 +349,7 @@ void draw()
                 <p>
                     Just like an arithmetic expression (such as <code>2 + 7</code> or <code>y * (z - 3)</code>), a
                     Boolean expression is <i>evaluated</i> to find its value. But there are only two possible values for
-                    boolean
+                    Boolean
                     expressions: <b>true</b> and <b>false</b>. The simplest Boolean expressions of all are just the
                     Boolean literals themselves, <code>true</code> and <code>false</code> (though we don't often use
                     them in code). More useful are the <i>comparison</i> expressions:
@@ -430,7 +448,7 @@ void draw()
                 <div class="coreTask">
                     <h5>More Complex Boolean Expressions:</h5>
                     <p>Evaluate these Boolean expressions to find their values.</p>
-                    <p>DIscuss them with a colleague and explain why you think that each is <code>TRUE</code> or <code>FALSE</code>.</p>
+                    <p>Discuss them with a colleague and explain why you think that each is <code>TRUE</code> or <code>FALSE</code>.</p>
                     <ol>
                         <li><code>(9 &lt; 7) &amp;&amp; (216 * 19 &gt; 237 * 17)</code></li>
                         <li><code>!(9 == 7)</code></li>
@@ -481,11 +499,11 @@ void draw()
                     The code above declares a variable <code>randomNumber</code> and initialises it in
                     <code>setup()</code>. The command <code>random(2)</code> returns a random number in the range 0 to
                     2. We can't predict what number we will get (that's the whole point!) but we do know that we are
-                    equally likely to get a number between 0 and 1 as we are to get a number between 1 and 2 (and if we
-                    do get one between 0 and 1, it is just as likely to be between 0 and 0.5 as it is between 0.5 and 1,
-                    and so on; this is known as a <a
-                        href="https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)" target="_blank">uniform
-                        distribution</a>).
+                    equally likely to get a number between 0 and 1 as we are to get a number between 1 and 2.
+                    We also know that if we do get one between 0 and 1, it is just as likely to be between 0 and 0.5 as it is between 0.5 and 1,
+                    and so on.
+                    This is known as a <a
+                        href="https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)" target="_blank">uniform distribution</a>.
                 </p>
 
                 <div class="codeTask">
@@ -493,18 +511,20 @@ void draw()
                     <p>
                     The <code>draw()</code> code doesn't actually use the random number yet - it just prints the message
                     TAILS every time.</p>
-                    <p>Modify the code so that the message is TAILS if the number is less than 1 and HEADS otherwise.
+                    <p>Modify the code with an <code>if () {}</code> statement, so that the message is TAILS if the number is less than 1 and HEADS otherwise.
                     </p>
                 </div>
 
                 <div class="aside">
-                    <h5>A Question!</h5>
+                    <h5>A Question of Scope</h5>
                     <p>
                     Here's a question!<br/>
                     Why do we assign a value to <code>randomNumber</code> in <code>setup()</code> rather than in the <code>draw()</code>?<br/>
-                    See what happens if you change this.<br/>
-                    Can you predict what will happen before you run the code?
+                    See what happens if you change this so that  <code>randomNumber</code> is assigned in <code>draw()</code>.<br/>
+                    Can you predict what will happen before you run the code?<br/>
+                    Try using <code>framerate()</code> to change the <code>frameRate</code> to 10, or 5 or 1 to see the effects.
                 </p>
+                <p>Check back to the notes on <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=967994">Variable Scope</a> to help with this.</p>
                 </div>
             </div> <!-- End of left column -->
 
@@ -539,41 +559,41 @@ void draw()
                     whether our number is in each of the six intervals in turn:
                 </p>
 
-                <pre class="brush: processing; gutter: false; toolbar: false; highlight: [10,18,23,28] ">float ran;
+                <pre class="brush: processing; gutter: false; toolbar: false; highlight: [10,18,23,28] ">float randomDiceRoll;
 
 void setup()
 {
-  size(200, 200);
-  fill(0);
-  textSize(48);
-  textAlign(CENTER);
+    size(200, 200);
+    fill(0);
+    textSize(48);
+    textAlign(CENTER);
 
-  ran = random(6);
+    randomDiceRoll = random(6);
 }
 
 void draw()
 {
-  background(255);
-  String message="";
+    background(255);
+    String message="";
 
-  if (ran &gt;= 0 && ran &lt; 1)
-  {
+    if (randomDiceRoll &gt;= 0 && randomDiceRoll &lt; 1)
+    {
     message = "ONE";
-  }
+    }
 
-  if (ran &gt;= 1 && ran &lt; 2)
-  {
+    if (randomDiceRoll &gt;= 1 && randomDiceRoll &lt; 2)
+    {
     message = "TWO";
-  }
+    }
 
-  if (ran &gt;= 2 && ran &lt; 3)
-  {
+    if (randomDiceRoll &gt;= 2 && randomDiceRoll &lt; 3)
+    {
     message = "THREE";
-  }
+    }
 
-  // Can you write the code for the remaining cases?
+    // Can you write the code for the remaining cases?
 
-  text(message, width/2, height/2);
+    text(message, width/2, height/2);
 }</pre>
             </div> <!-- End of left column -->
 
@@ -596,37 +616,37 @@ void draw()
                     <code>if</code> statement.<br/>The following code snippet implements the roll of the dice using the <code>else if</code> variation:
                 </p>
 
-                <pre class="brush: processing; gutter: false; toolbar: false; ">if (ran &lt; 1)
+                <pre class="brush: processing; gutter: false; toolbar: false; ">if (randomDiceRoll &lt; 1)
 {
-  message = "ONE";
+    message = "ONE";
 }
-else if (ran &lt; 2)
+else if (randomDiceRoll &lt; 2)
 {
-  message = "TWO";
+    message = "TWO";
 }
-else if (ran &lt; 3)
+else if (randomDiceRoll &lt; 3)
 {
-  message = "THREE";
+    message = "THREE";
 }
-else if (ran &lt; 4)
+else if (randomDiceRoll &lt; 4)
 {
-  message = "FOUR";
+    message = "FOUR";
 }
-else if (ran &lt; 5)
+else if (randomDiceRoll &lt; 5)
 {
-  message = "FIVE";
+    message = "FIVE";
 }
 else
 {
-  message = "SIX";
+    message = "SIX";
 }</pre>
                 <p>
                     Note that despite there being multiple alternative branches, it's still the case that only one
                     branch can execute. This is the case even though in some cases multiple conditions may be true (as
-                    is the case in the example above). In an else if the successive conditions are tested in order, one
+                    is the case in the example above). In an <code>else if</code> statement the successive conditions are tested in order, one
                     at a time. The branch of the first one to evaluate to true is executed, after which the entire if
                     stops. Thus, even if any subsequent conditions are true, they are never evaluated and their branches
-                    never executed.
+                    never executed. So, <code>if (ran &lt; 4)</code> we execute <code>message = "FOUR";</code> and never check <code>if (ran &lt; 5)</code>
                     <!-- (Can you figure out what the program above would print if this was not the case?) -->
                 </p>
 
@@ -654,18 +674,18 @@ else
                     An alternative and more compact way of arranging the curly braces is the following:
                 </p>
 
-                <pre class="brush: processing; gutter: false; toolbar: false; ">if (ran &lt; 1) {
-  message = "ONE";
-} else if (ran &lt; 2) {
-  message = "TWO";
-} else if (ran &lt; 3) {
-  message = "THREE";
-} else if (ran &lt; 4) {
-  message = "FOUR";
-} else if (ran &lt; 5) {
-  message = "FIVE";
+                <pre class="brush: processing; gutter: false; toolbar: false; ">if (randomDiceRoll &lt; 1) {
+    message = "ONE";
+} else if (randomDiceRoll &lt; 2) {
+    message = "TWO";
+} else if (randomDiceRoll &lt; 3) {
+    message = "THREE";
+} else if (randomDiceRoll &lt; 4) {
+    message = "FOUR";
+} else if (randomDiceRoll &lt; 5) {
+    message = "FIVE";
 } else {
-  message = "SIX";
+    message = "SIX";
 }</pre>
                     <p>
                     One more note is that when there is just one statement in a branch, the curly brackets are optional.
@@ -698,16 +718,17 @@ else
 
                 <p>
                     It is tempting to think that the problem must lie elsewhere, that the bug is not in our code but in
-                    <i>Processing</i>, or Windows, or the computer hardware. But, in fact, it always turns out that the bug
-                    <i>really is in our code</i>. (OK, not <i>always</i>. Very, very occasionally the blame actually
-                    does lie elsewhere.)
+                    <i>Processing</i>, or Windows, or the computer hardware, or maybe the world just hates you (!)
+                    But, in fact, it always turns out that the bug
+                    <i>really is in our code</i>.<br/>
+                    OK, not <i>always</i>. But usually. Very, very occasionally the blame actually does lie elsewhere.
                 </p>
 
                 <p>
-                    Here are three techniques that can help:
+                    Here are five techniques that can help - we suggest that you consider them and adopt at least one!
                 </p>
                 <ol>
-                    <li>
+                    <li style="padding-bottom:1em">
                         <b>Talk through your code with a fellow programmer.</b><br/>
                         Explain how you expect your code to behave, why
                         you think it should behave that way, and what is actually happening.
@@ -715,7 +736,7 @@ else
                         the simple act of trying to explain your code to another programmer allows you to see why it is
                         wrong (even when the other programmer can't see the problem).
                     </li>
-                    <li>
+                    <li style="padding-bottom:1em">
                         <b>Reveal  the values of variables and to give a visible indication of control flow.</b><br/>
                         For example, suppose you have variables <code>x</code> and
                         <code>y</code>, which are used to position the drawing of your widget, but for some unfathomable
@@ -726,7 +747,7 @@ println("value of y:", y);</pre>
                         just before the code which draws the widget.
                         <ul>
                             <li>
-                                If you see the message "value of x: 2000" and your window is 600 pixels wide, then you
+                                If you see the message "<i>value of x: 2000</i>" and your window is 600 pixels wide, then you
                                 are on your way to locating the bug.
                             </li>
                             <li>
@@ -740,15 +761,21 @@ println("value of y:", y);</pre>
                         <pre class="brush: processing; gutter: false; toolbar: false; class-name: 'shextras'; ">if (inDebugMode) {
   text("x is "+x, 20, 20);
   text("y is "+y, 20, 40);
-  text("frameCount is "+frameCount, 20, 60);</pre></li>
-                            <li>Learn to use the <i>Processing</i> <a href="https://processing.org/environment/#debug-1" target="_new">Debugger</a> tool as part of your programming workflow.</li>
+  text("frameCount is "+frameCount, 20, 60);
+}</pre></li>
+                            <li><b>Learn to use the <i>Processing</i> <a href="https://processing.org/environment/#debug-1" target="_new">Debugger</a></b><br/>
+                                Use this tool as a core part of your programming workflow.</li>
                 </ol>
 
+                <p>There are a couple of other things that all <i>Processing</i> programmers and <code>#CreativeCoders</code> should do ...</p>
+
                 <p>
-                    <b>Make your boolean expressions legible.</b> You can do this best in two ways. First, split long
-                    and complicated boolean expressions into multiple simpler ones, store the results of those in
-                    boolean variables, then combine the variables back into the larger expression.<br/>Second, use variable
-                    names that make your condition read naturally in plain English. Here's an example of turning a
+                    <b>Make your Boolean expressions legible.</b><br/>
+                    You can do this best in two ways<br/>
+                    First, split long
+                    and complicated Boolean expressions into multiple simpler ones, store the results of those in
+                    Boolean variables, then combine the variables back into the larger expression.<br/>Second, use variable
+                    names that make your condition read naturally in plain English.<br/>Here's an example of turning a
                     rather lengthy condition into one that reads well:
                 </p>
 
@@ -775,7 +802,7 @@ if (mouseUpperLeft || mouseLowerRight)
                 </p>
 
                 <p>
-                    <b>Don't put semicolons in the middle of your <code>if</code> statement</b> It's quite common for novice
+                    <b>Don't put semicolons in the middle of your <code>if</code> statement</b>.<br/> It's quite common for novice
                     programmers to develop a 'semicolon reflex' and place one after the <code>if (condition)</code>
                     line. Resist it and remember that the <code>if</code> statement is a single command that we tend to write on
                     multiple lines. Don't put a semicolon in the middle of it.
@@ -790,9 +817,13 @@ if (mouseUpperLeft || mouseLowerRight)
                 <!-- Left column -->
                 <h3>10. Practice and Exercises</h3>
 
+        <p>The learning you have done so far, about <code>if</code> and <code>else</code> and layout, along with the tips outlined above, should enable you to wrote simple sketches that use <code>if</code> statements to respond to different actions based on the mouse position.</p>
+        <p>So, use your sketch books to plan some code that addresses the following challenges.</p>
+        <p>You won't get it right first time, and will need to do some thinking, experimentation and debugging (see above) to make this work.</p>
+        <p>Remember to use '<a href="https://moodle4.city.ac.uk/mod/page/view.php?id=967974">PAROT Talk</a>' (🦜) as an approach to learning by doing. The '<i>Talk</i>' bit is important!</p>
         <div class="codeTask">
             <h5>Inside or Out?</h5>
-            <p>We'd like you to use what you have learned to detect an react to input from the mouse / cursor while a sketch is running.</p>
+            <p>We'd like you to use what you have learned to detect and react to input from the mouse / cursor while a sketch is running.</p>
             <p>For this task, create a new sketch and start with a blank page.<br/>
                 So start with the <i>Processing</i> classic empty sketch:</p>
                 <pre class="brush: processing; gutter: false; toolbar: false; ">
@@ -812,10 +843,10 @@ void draw()
                     <!-- Add the usual <code>setup()</code> and <code>draw()</code> methods to your sketch. -->
                     In <code>setup()</code>, set the <code><a href="https://processing.org/reference/size_.html">size()</a></code> of the sketch window to
                     200 pixels wide by 300 pixels high.<br/>
-                    To start with, your sketch will simply draw a white-filled circle at a randomly chosen position.
-                    Declare <code>x</code> and <code>y</code> variables at the top of the sketch.<br/>
+                    To start with, your sketch will simply draw a white-filled circle at a randomly chosen position.<br/>
+                    Declare <code>x</code> and <code>y</code> variables at the top of the sketch - outside of the methods so that they have global scope.<br/>
                     Then, in <code>setup()</code>, initialise <code>x</code> and <code>y</code> with randomly chosen values.
-                    Use <code><a href="https://processing.org/reference/random_.html">random()</a></code> for this with  value ranges (upper and lower limits)
+                    Use <code><a href="https://processing.org/reference/random_.html">random()</a></code> for this with value ranges (upper and lower limits)
                     that guarantee that the point <code>(x,y)</code> is inside the sketch window.<br/>
                     In <code>draw()</code>, add code to draw a white-filled circle of radius 50, centered at
                     <code>(x,y)</code> on a grey background - with <code><a href="https://processing.org/reference/background_.html">background()</a></code>.
@@ -864,40 +895,46 @@ void draw()
 
                 <li>Test the logic of your code. There are four key cases:
                     <ol>
-                        <li>Mouse / cursor entirely outside the shape:<br />
-                            <img src="https://jsndyks.github.io/cityCreativeCoding/html/decisions/img/ccDec.testCase-1.jpg" width="70"
-                                height="70" alt="test-case 1" />
+                        <li>
+                            <img style ="clear:both; float:right; margin-right:100px;margin-bottom:4px"
+                            src="https://jsndyks.github.io/cityCreativeCoding/html/decisions/img/ccDec.testCase-1.jpg" width="70" height="70" alt="test-case 1" />
+                            Mouse / cursor entirely outside the shape:<br />
                         </li>
-                        <li>Mouse / cursor  inside rectangle but outside circle:<br />
-                            <img src="https://jsndyks.github.io/cityCreativeCoding/html/decisions/img/ccDec.testCase-2.jpg" width="70"
-                                height="70" alt="test-case 2" />
+                        <li style="clear:both">
+                            <img style ="clear:both; float:right; margin-right:100px;margin-bottom:4px"
+                            src="https://jsndyks.github.io/cityCreativeCoding/html/decisions/img/ccDec.testCase-2.jpg" width="70" height="70" alt="test-case 2" />
+                            Mouse / cursor  inside rectangle but outside circle:<br />
                         </li>
-                        <li>Mouse / cursor  inside rectangle <i>and</i> inside circle:<br>
-                            <img src="https://jsndyks.github.io/cityCreativeCoding/html/decisions/img/ccDec.testCase-3.jpg" width="70"
-                                height="70" alt="test-case 3" />
+                        <li style="clear:both">
+                            <img style ="clear:both; float:right; margin-right:100px;margin-bottom:4px"
+                            src="https://jsndyks.github.io/cityCreativeCoding/html/decisions/img/ccDec.testCase-3.jpg" width="70" height="70" alt="test-case 3" />
+                            Mouse / cursor  inside rectangle <i>and</i> inside circle:<br />
                         </li>
-                        <li>Mouse / cursor  inside circle but outside rectangle:<br>
-                            <img src="https://jsndyks.github.io/cityCreativeCoding/html/decisions/img/ccDec.testCase-4.jpg" width="70"
-                                height="70" alt="test-case 4" />
+                        <li style="clear:both">
+                            <img style ="clear:both; float:right; margin-right:100px;margin-bottom:4px"
+                            src="https://jsndyks.github.io/cityCreativeCoding/html/decisions/img/ccDec.testCase-4.jpg" width="70" height="70" alt="test-case 4" />
+                            Mouse / cursor  inside circle but outside rectangle:<br />
                         </li>
                     </ol>
                 </li>
 
-                <li>
+                <li style="clear:both">
                     Modify the code that initialises <code>x</code> and <code>y</code> so that the <i>whole</i> of the
                     "underground sign" is always visible (making full use of the sketch window area).
                 </li>
             </ol>
         </div>
 
-                <div class="codeTask">
+        <p>Now let's try another dynamic sketch that uses <code>if</code> to respond to the current sketch status and change things as the sketch runs ...</p>
+
+        <div class="codeTask">
             <h5>Bouncing Ball</h5>
             <p>
             In this exercise and the next you will develop an animated ball bouncing inside a box.<br/>
             We start by adapting our scrolling text example :
             <br /><br />
             <pre class="brush: processing; gutter: false; toolbar: false; ">float xPosition;  // -- Horizontal starting position on 'x' axis in coordinate space
-float xVelocity; // -- Horizontal speed in x-direction
+float xVelocity;  // -- Horizontal speed in x-direction
 
 void setup()
 {
@@ -906,7 +943,7 @@ void setup()
   textSize(48);
 
   xPosition = width/2;  // -- Initialise xPosition to centre of sketch
-  xVelocity = -2; // -- Initialise speed in x-direction to -2 (moving left)
+  xVelocity = -2;        // -- Initialise speed in x-direction to -2 (moving left)
 }
 
 void draw()
@@ -975,8 +1012,8 @@ void draw()
 
                 <li>
                     <p>
-                    Add an extra <code>if</code> statement to deal with the ball colliding with the right-hand edge of the window.
-                    (Or combine this case into the existing <code>if</code> statement by modifying the boolean expression.)
+                    Add an extra <code>if</code> statement to deal with the ball colliding with the right-hand edge of the window.<br/>
+                    (Or combine this case into the existing <code>if</code> statement by modifying the Boolean expression used in the condition.)
                     </p>
                     <p>
                     Check that your sketch works as expected.<br/>
@@ -1003,7 +1040,7 @@ void draw()
                     </li>
                     <li>
                         A single <code>if</code> statement chooses between just two alternative branches of code based on the value
-                        of a boolean
+                        of a Boolean
                         expression.
                     </li>
                     <li>
