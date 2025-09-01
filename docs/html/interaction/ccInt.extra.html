@@ -124,7 +124,7 @@ if (mouseButton == LEFT) {
 
     <p><b>Please try to get these <b>CORE</b> exercises as soon as you can.</b><br/>When you have completed them, try the <b>Check on Progress</b> at the bottom of this document to check on your learning - it gives you a sense of what you should be able to do having attended the lecture and completed these exercises.</p>
 
-      <p>Some of you may want to try the optional <b>challenges</b>.<br/>They don't add anything new, but get you thinking about what you have learned and applying this in new ways.<br/>So these are useful exercises that should be within all of your capabilities.<br/>Give them a go if you have found things straightforward so far.</p>
+      <p>Some of you may want to try the optional <b>challenges</b>.<br/>They don't add anything new, but get you thinking about what you have learned and applying this in new ways, which is a useful learning process.<br/>So these are useful exercises that should be within all of your capabilities.<br/>Give them a go if you have found things straightforward so far. But if you are finding <code>#CreativeCoding</code> a challenge, you can skip them and move on to the next topic.</p>
 
       <div class="challenge">
     <p>These <b style="color:#800">red</b> exercises are intended to give those of you who move quickly through the core stuff a bit more of a <b>CHALLENGE</b>.<br/>We expect a few of you try the challenges but many of you should be able to complete them with a bit of persistence if you have the time and motivation.</p>
@@ -177,6 +177,8 @@ if (key == 'w') {
 </pre>
             Really think about the coordinate system and how pressing <span class="key">w</span> will move the square up here.
             <br /><br />
+            Try changing the colour of the square according to its position by calling the <code>fill()</code> method, and using the position (<code>y</code>) as one or more of the parameters that specify the <code>fill()</code> colour.
+            <br/><br/>  
             Add conditions to <code>keyPressed()</code> that map the <span class="key">a</span> and <span class="key">d</span> keys to commands that increment and decrement the variable <code>x</code> by a value
             of 1 respectively.
             <br /><br />
@@ -243,12 +245,13 @@ void draw()
     <p>Make a big canvas in <code>setup()</code> and give it a white <code><a href="https://processing.org/reference/background_.html">background()</a></code>.</p>
     <p>Add a <code>draw()</code> method that draws a circle with your favourite <code>fill()</code> wherever the mouse is positioned.</p>
     <p>The circle should have no outline -  <code><a href="https://processing.org/reference/noStroke_.html">noStroke()</a></code></p>
-    <p>A new circle should be drawn wherever the mouse moves, and so your mouse will leave a trail. You must make sure you have no <code><a href="https://processing.org/reference/background_.html">background()</a></code> command in <code>draw()</code>. This would wipe the background clear in every <code>draw()</code> loop. We want a trail of coloured circles.</p>
+    <p>A new circle should be drawn at the current mouse position whenever the mouse moves, so that your mouse will leave a trail.
+      <br/>You must make sure you have no <code><a href="https://processing.org/reference/background_.html">background()</a></code> command in <code>draw()</code>. <br/>This would wipe the background clear in every <code>draw()</code> loop. We want a trail of coloured circles.</p>
     <p>Now update the colour of the circle depending on the position of the mouse - so that there is more <b>red</b> in the colour as the mouse moves right and more <code>blue</code> in the colour as the mouse moves down.<br/>
     Just use <code>mouseX</code> and <code>mouseY</code> somewhere in the RGB colour definition.</p>
     <p>
-    This should look quite cool and colourful - particularly if you have a circles with some transparency.
-    Remember, the fourth argument given to the <code><a href="https://processing.org/reference/fill_.html">fill()</a></code> command is the <i>alpha</i> channel, which sets the transparency.</p>
+    This should look quite cool and colourful - particularly if you have a circles with some transparency.<br/>
+    Remember, the fourth argument given to the <code><a href="https://processing.org/reference/fill_.html">fill()</a></code> command is the <i>alpha</i> channel, which sets the transparency.<br/>Experiment with this and the effects of changing it.</p>
   </div>
 
   <p>Nice. You could make a spray paint app out of this. The <b>Colourier Spray Splash challenge</b> asks you to do just that, and gives you some ideas as to how you might go about doing so.<br/>
