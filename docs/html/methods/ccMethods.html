@@ -226,22 +226,34 @@ void draw()
         line(xPos, yPos, mouseX, mouseY);
     }
 }</pre>
+</div>
+
+<div class="unit-30-cc annotation">
 
 <script>
     loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/jwo/pathfinder", 350, 280, "https://jsndyks.github.io/cityCreativeCoding/html/methods/img/cc.pathfinder.png");
 </script>
 <p>PathFinder demo (click on image to activate).</p>
+</div>
+</div>
+
+<div class="units-row">
+    <div class="unit-70-cc">
+        <!-- Left column -->
+
 
             <div class="codeTask">
                 <h5>Play PathFinder</h5>
-                <p>Click the sketch above and play a couple of times.</p>
-                <p>Now, create your own PathFinder sketch containing a copy of the code that we have provided above.</p>
+                <p>Click the sketch above, enlarge the size of the window and play the game a couple of times.</p>
+                <p>Now, create your own <i>PathFinder</i> sketch by copying the code that we have provided above - click the code and use <code>CTRL-A</code> to select it all, <code>CTRL-C</code> to copy the selection and <code>CTRL-V</code>< to paste into your sketch. Macs tend to use <code>COMMAND</code> rather than <code>CTRL</code>.</p>
                 <p>Save the sketch, and run it and play it a couple of times to get the hang of what it does.<br/>
                     Make sure that your copy of the sketch behaves in the same way as the sketch that we have provided above.</p>
             </div>
             <p>
-                That code is quite a mouthful. Maybe it's a bit scary? But don't despair! When structured properly, the code will
-                be much easier to understand. We are going to <em>refactor</em> the code to improve its structure.
+                That code is quite a mouthful.<br/>Maybe it's a bit scary? It looks a complicated mess. <br/>
+                But don't despair! When structured properly, the code will
+                be much easier to understand.<br/>
+                We are going to <em>refactor</em> the code to improve its structure.
                 Here's a sneak preview of what our refactored <code>draw()</code>
                 will look like:
             </p>
@@ -273,11 +285,12 @@ void draw()
   }
 }</pre>
             <div class="tip">
+                <p>
                 When we refactor code, our aim is to improve its structure, <em>without</em> changing its behaviour.
-                We refactor code to make it easier to understand, debug, and extend.
-                It is <em>always</em> a mistake to try to refactor and add new features at the same time:
+                We refactor code to make it easier to understand, debug, and extend.</p>
+                <p>It is <em>always</em> a mistake to try to refactor and add new features at the same time:
                 refactor <em>first</em>, check carefully that you haven't broken anything,
-                <em>then</em> add your new feature.
+                <em>then</em> add your new feature.</p>
             </div>
         </div>
         <!-- End of left column -->
@@ -290,7 +303,7 @@ void draw()
             <!-- Left column -->
             <h3>2. Methods</h3>
             <p>
-                First a few words about terminology. There are several terms which programming language designers
+                First a few words about terminology. There are several terms that programming language designers
                 and programmers use for essentially the same thing:
                 <br/>
                 <br/>
@@ -358,23 +371,34 @@ void draw()
             <!-- Left column -->
             <h3>3. PathFinder Reloaded</h3>
             <p>
-                Let's write a method to draw the “aiming line”. The existing code that does this job is
+                Let's write a method to draw the “aiming line”.<br/> The existing code that does this job is
                 two lines that you can see in the else-branch at the very end of <code>draw()</code> - here they are:
             </p>
             <pre class="brush: processing; gutter: false; toolbar: false; ">  stroke(0);
   line(xPos,yPos,mouseX,mouseY);</pre>
 
             <p>
-                We can simply copy this code and wrap it up inside a method definition:
+                We can simply copy this code and wrap it up inside a method definition.
+                We will give our new method a meaningful name like <code>drawAimingLine</code> - but we could call it anything at all:
             </p>
             <pre class="brush: processing; gutter: false; toolbar: false; ">void drawAimingLine()
 {
   stroke(0);
   line(xPos,yPos,mouseX,mouseY);
 }</pre>
+
+<p>You should be able sto see why this is a better method name than ...</p>
+<pre class="brush: processing; gutter: false; toolbar: false; ">void anythingAtAll()
+{
+    stroke(0);
+    line(xPos,yPos,mouseX,mouseY);
+}</pre>
+
+    
             <div class="codeTask">
-                <h4>Your First Method - Definition</h4>
-                <p>Add the <code>drawAimingLine()</code> method definition to your sketch <em>outside</em> <code>draw()</code>.</p>
+                <h5>Your First Method - Definition</h5>
+                <p>Add the <code>drawAimingLine()</code> method definition to your sketch.</p>
+                <p>It must be <em>outside</em> the <code>draw()</code> method.</p>
             </div>
             <p>
                 The method definition has four components:
@@ -394,13 +418,15 @@ void draw()
                 <li>A <i>parameter list</i>. That's the part in round brackets immediately after the method name.
                     In this example the parameter list is empty. We will consider the more general case later.</li>
                 <li>The <i>method body</i>. That's the part in the curly brackets.
-                    This is the code which will be executed each time our method is used.</li>
+                    This is the code which that be executed each time our method is used.</li>
             </ol>
             <p>
                 In general terms ...
             </p>
             <pre class="brush: processing; gutter: false; toolbar: false; ">  returnType methodName(information that we give the method to process) {
-    things that we want the method to do, usually with a semicolon at the end;
+    various things that we want the method to do;
+    usually with a semicolon at the end;
+    these semicolons separate the Processing statements in the method;
   };</pre>
 
         </div>
@@ -412,17 +438,18 @@ void draw()
     <div class="units-row">
         <div class="unit-70-cc">
             <!-- Left column -->
+             <p>
             Having defined a method in our sketch, what will it do when we run the sketch? Absolutely nothing. That
-            is to say, it won't do anything unless we <i>call</i> it from somewhere else in our code. To call a
-            method, you just write its name followed
-            by an argument list which matches the parameter list in the definition. Since
-            <code>drawAimingLine</code> has an empty parameter list, we also write an empty argument list when we
-            call it. So our method call will be just:
-            <p></p>
+            is to say, it won't do anything unless we <i>call</i> it from somewhere else in our code.</p>
+            <p>To call a  method, you just write its name followed
+            by an argument list that matches the parameter list in the definition.<br/>
+            Since <code>drawAimingLine</code> has an empty parameter list, we also write an empty argument list when we
+            call it<br/>So our method call will be just:
+            </p>
 
             <pre class="brush: processing; gutter: false; toolbar: false; ">    drawAimingLine();</pre>
             <div class="codeTask">
-                <h4>Your First Method - Call the Method</h4>
+                <h5>Your First Method - Call the Method</h5>
                 <p>Put this call inside <code>draw()</code>, <em>replacing</em> the two lines of code we started with.</p>
             </div>
             <div class="tip">
@@ -434,12 +461,13 @@ void draw()
                 </ul>
             </div>
 
-            <div class="figRight">
+            <div class="figRight" style="border:1px solid #ff4444; background-color:#80ffb0; width:fit-content">
             <figure>
-            <a href="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/methodFlow.png"><img src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/methodFlow.png" alt="method flow control-flow diagram" width="300"/></a>
+            <a href="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/methodFlow.png"><img src="https://jsndyks.github.io/cityCreativeCoding/html/methods/img/methodFlow.png" alt="method flow control-flow diagram" width="300"/></a>
 			<figcaption>The control flow of a method call.</figcaption>
             </figure>
             </div>
+
             <p>
                 Now, whenever the else-branch in <code>draw()</code> executes, this is what will happen:
             </p>
