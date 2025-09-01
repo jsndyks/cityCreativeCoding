@@ -393,24 +393,27 @@
 
                 <pre class="brush: processing; gutter: false; toolbar: false; ">
   void keyPressed() {
+
     // -- change program flow depending on value of key:
     if (key == ' ') {  // &lt;-- try changing the key that is pressed to clear
-      background(240); // &lt;-- try changing the background colour used
-    } else {
-      p+=12; // -- add 12 to p each time &lt;-- try changing this to p-=4
 
-      // -- put the char held in 'key' at a screen position
-      // --   that increases in x and y with each key press
-      text(key, p%width, 100 + 24*int(p/width));
+        background(240); // &lt;-- try changing the background colour used
+
+    } else {
+
+        p+=12; // -- add 12 to p each time &lt;-- try changing this to p-=4
+
+        // -- put the character held in 'key' at a screen position
+        // --   that increases in x and y with each key press
+        text(key, p%width, 100 + 24*int(p/width));
     }
-  }
-</pre>
+  }</pre>
 
                 <p>This code says ...</p>
                 <blockquote>When a key is pressed, call <code>keyPressed()</code> and if the key is 'space', then fill the canvas with a light grey,<br />otherwise add 12 to p and then put the value of key on the canvas at a position depending on the value of p.</blockquote>
                 <p>It's useful to be able to express your code like this - do practice!<br/>
                 This is all we need you to be able to do at the end of the <code>#CreativeCoding</code> activity:<br/>
-                write little bits of code that does something that you were unable to do previously, to show some data - and <i>explain what it does</i>.</p>
+                &nbsp;&nbsp;&nbsp;&nbsp;write little snippets of code that does something that you were unable to do previously, to show some data - and <i>explain what it does</i>.</p>
 
             </div> <!-- End of left column -->
 
@@ -425,7 +428,7 @@
                     <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedSpace/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedSpace.png");</script>
                     <figcaption><b>KeyPressed with Condition Example</b><br />
                     Click to activate, and be sure to make the
-                    window big enough to see all of the sketch.
+                    window big enough to see all of the sketch.<br/>
                     Interact with the sketch by pressing keys on the keyboard.<br/>
                     Try pressing the space-bar to clear the screen.</figcaption>
                     </figure>
@@ -434,7 +437,7 @@
                   <h5>Keyboard Interaction - Conditions</h5>
                     <p>But for now, try the <b>KeyPressed with Condition Example</b> sketch shown to the right - it uses interaction to control flow in the sketch.</p>
                     <p>Then implement this yourself by copying the code from above to add this condition to the
-                        <code>keyPressed()</code> method in your sketch.
+                        <code>keyPressed()</code> method in your sketch.<br/>
                         Remember to save the sketch and give it a meaningful new name.
                     </p>
                     <p>The comments in the code suggest <b>three changes</b> that you should make.<br />Try these
@@ -647,7 +650,7 @@ void draw() {
                     keyboard.<br/>
                     But that only gets us so far - we can only specify a limited set of things as defined by the keys.<br/>
                     What if we want to identify locations on the screen.<br/>Quickly.<br/>With precision?<br />
-                    I think you know where this is going, right?<br />
+                    I think you know where this is going, right?<br />🐁<br/>
                 </p>
 
                 <img src="https://jsndyks.github.io/cityCreativeCoding/images/interaction/stuMouse.png" />
@@ -680,9 +683,8 @@ void draw() {
                 <p>One of these innovators was <b><a href="https://dl.acm.org/profile/81406592524">Stuart K. Card</a></b>, who worked in and subsequently led a hugely creative and productive team at
                     Xerox PARC from the mid 1970s until 2010.
                     One of the many things that he and his colleagues were thinking about back then (probably considerably more
-                    deeply than we just did) was how to get computers to know what we need of them.
-                    They wanted to come up with devices that were easy to use and provided efficient and precise
-                    interactions.
+                    deeply than we just did) was how to get computers to know what we need of them, so that programs could respond to user needs as they changed.
+                    They wanted to come up with devices that were easy to use and provided efficient and precise interactions between human and machine.
                 </p>
                 <p>In their mouse prototypes, wheels and rollers generated electronic signals (and squeaked a bit
                     sometimes), that reliably allowed a computer user to specify positions on a desk, that could in turn
@@ -699,15 +701,15 @@ void draw() {
                             <a href="https://web.archive.org/web/20210323215123/https://www.notion.so/blog/stu-card"
                                 title="The outside of an early mouse prototype."><img
                                     src="https://www.notion.so/cdn-cgi/image/w=3840,q=100/https://images.ctfassets.net/spoqsaf9291f/4Sm2xHEXWftLIrPqrLBaV9/122d64ee43eb3f2b7cf69db345a28b42/STU-17.jpeg"
-                                    alt="The outside of an early mouse prototype" width="100%" height="auto"
-                                    style="width: 100%;" /></a>
+                                    alt="The outside of an early mouse prototype" width="auto-fit" height="auto"
+                                    style="width: 67%;" /></a>
                         </td>
                         <td>
                             <a href="https://web.archive.org/web/20210323215123/https://www.notion.so/blog/stu-card"
                                 title="The inside of an early mouse prototype."><img
                                     src="https://www.notion.so/cdn-cgi/image/w=3840,q=100/https://images.ctfassets.net/spoqsaf9291f/7hPCU6DqHLUf9I8qtMQEoE/6f7aad8a785bfc1fd9f572bce594046e/STU-15.jpeg"
-                                    alt="The inside of an early mouse prototype." width="100%" height="auto"
-                                    style="width: 100%;" /></a>
+                                    alt="The inside of an early mouse prototype." width="auto-fit%" height="auto"
+                                    style="width: 67%;" /></a>
 
                         </td>
                     </tr>
@@ -723,15 +725,29 @@ void draw() {
                     </tr>
                 </table>
 
-            <p class="figCaption">
-            </p>
+            <!-- <p class="figCaption">
+            </p> -->
 
                 <div class="aside">
+                    <h5>Aside: History of Computer Science</h5>
+                        <p>
+                            The article '<a href="https://web.archive.org/web/20210323215123/https://www.notion.so/blog/stu-card">Stu Card on inventing the future</a>'
+                            is a half hour read.<br /> It is full of wisdom from one of the pioneers of the subject you are
+                            now focussing on for a few years.<br /> It's inspiring stuff.<br />
+                            <b>It's an optional task - but I recommend you take time to read it</b>.
+                        </p>
+                        <p>You might ask ...<br>
+                            &nbsp;&nbsp;Do I have to read it? Well, no, it's just a suggestion.<br/>
+                            &nbsp;&nbsp;Do I need to read it? Well, no, you don't.<br/>
+                            &nbsp;&nbsp;Do I get any credit or points if I read it? Nope - no direct credit related benefits at all.<br/>
+                            &nbsp;&nbsp;So why should I read it?
+                        </p>
+
                     <div class="figAside" style="margin-top:1em">
                         <figure>
                             <img src="https://jsndyks.github.io/cityCreativeCoding/images/interaction/stuCard.171003.small.jpg"
                             width="200" />
-                            <figcaption style="width:200">
+                            <figcaption style="width:300">
                             A photo of Stu Card taking a photo of<br/>
                             the 'data trophy' that we made for him at IEEE VIS.<br/>
                             This was taken in 2017, shortly after his<br/>
@@ -740,32 +756,14 @@ void draw() {
                                     Source: Jason Dykes.
                             </figcaption></figure>
                     </div>
-                    <h5>Aside: History of Computer Science</h5>
-                            <p>
-                        The article '<a href="https://web.archive.org/web/20210323215123/https://www.notion.so/blog/stu-card">Stu Card on inventing the future</a>'
-                        is a half hour read.<br /> It is full of wisdom from one of the pioneers of the subject you are
-                        now focussing on for a few years.<br /> It's inspiring stuff.<br />
-                        <b>It's an optional task - but I recommend you take time to read it</b>.</p>
-                        <p>You might ask ...<br>
-                            &nbsp;&nbsp;Do I have to read it? Well, no, it's just a suggestion.<br/>
-                            &nbsp;&nbsp;Do I need to read it? Well, no, you don't.<br/>
-                            &nbsp;&nbsp;Do I get any credit or points if I read it? Nope - no direct credit related benefits at all.<br/>
-                            &nbsp;&nbsp;So why should I read it?
-                        </p>
-                    Well, doing some background reading about the subjects, technologies and people you are learning with and about will help you greatly in your time as a student. It's informative, and fun. It gives you context and grounds your learning.
-                    You are at University to learn - and you are learning from experts.
-                    Embrace this, and learn as much as you can.<br/>
-                    Remember to find time to do it.</p>
-                </div>
-            </div> <!-- End of left column -->
+                    <p>
+                        Well, doing some background reading about the subjects, technologies and people you are learning with and about will help you greatly in your time as a student. It's informative, and fun. It gives you context and grounds your learning.
+                        You are at University to learn - and you are learning from experts.
+                        Embrace this, and learn as much as you can.<br/>
+                        Remember to find time to do it.
+                    </p>
 
-        </div> <!-- End of row -->
-
-        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ New row ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <div class="units-row">
-            <div class="unit-70-cc">
-                <!-- Left column -->
-                <p>
+                    <p>
                     I'm lucky enough to have met Stu, who really is one of the great innovators in 20th Century
                     Computing.</p>
                 <p> I presented him with a much deserved <a
@@ -775,15 +773,17 @@ void draw() {
                     too, which was full of wisdom.<br />It wasn't about 🐁 at all.<br />It was about 🐢s and
                     🐇s.<br />It was a great honour to meet Stu and learn from him.</p>
 
-                    <div class="aside">
                         <h5>Turtles &amp; Rabbits</h5>
+
                         <p>I strongly suggest you read Stu's <a
                         href="https://www.gicentre.net/jsndyks/infovistestoftime1997">fantastic acceptance speech</a>
-                    too.<br/>
+                    too.</p>
+                    <p>
                     It really is full of wisdom and might teach you a few things about learning ... which you will be doing a lot of in the next 3 years!
                     <br/> 🐢 🐇
                         </p>
                     </div>
+                    <div class="figClear"></div>
 
                 <p>Nowadays, we have <i>trackpads</i> and <i>touch</i> and all sorts of other ways of identifying
                     coordinates and parts of the screen as we interact with computers.
@@ -857,14 +857,14 @@ void draw() {
                 <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">6</span> - <b>mouseClicked()</b> : a method that runs when you click the 🐁</code></p>
                 <p>
                     <i>Processing</i> supplies special methods for all of these events.<br/>
-                    For example, <a href="https://processing.org/reference/mouseClicked_.html"
-                        target="_blank">mouseClicked()</a> - <i>Processing</i> automatically detects a click of the mouse
+                    For example, <code><a href="https://processing.org/reference/mouseClicked_.html"
+                        target="_blank">mouseClicked()</a></code> - <i>Processing</i> automatically detects a click of the mouse
                     and calls any method that you add to your sketch with this name whenever that happens.
-                    So, if the mouse is clicked in a sketch, <i>Processing</i> looks for a method in the sketch called <a
-                        href="https://processing.org/reference/mouseClicked_.html" target="_blank">mouseClicked()</a>,
+                    So, if the mouse is clicked in a sketch, <i>Processing</i> looks for a method in the sketch called <code><a
+                        href="https://processing.org/reference/mouseClicked_.html" target="_blank">mouseClicked()</a></code>,
                     and if it finds that you have defined one in your sketch, then it runs it.<br/>
-                    This is, of course, a bit like <a
-                    href="https://processing.org/reference/keyPressed_.html"><code>keyPressed()</code></a>, and works in much the same way.<br/>
+                    This is, of course, a bit like <code><a
+                        href="https://processing.org/reference/keyPressed_.html">keyPressed()</a></code>, and works in much the same way.<br/>
                     Code in this method can do anything - <code>println()</code>, <code>background(255,0,0)</code>, whatever.<br/>
                     You decide what happens when the mouse is clicked.<br/>
                     You decide what happens upon the detected interaction.<br/>
@@ -881,17 +881,17 @@ void draw() {
         <div class="units-row">
             <div class="unit-70-cc">
                 <!-- Left column -->
-                <div class="figCode" style="margin-top:1em">
-                    <figure>
-                        <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedMouse/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedMouse.png");</script>
-                        <figcaption><b>KeyPressed Move Example</b><br />Click to activate, click to focus in the sketch and then press keys on the keyboard.
-                            <br />Move mouse to position subsequent text.
-                            <br />Click to clear the text.</figcaption>
-                    </figure>
-                </div>
 
                 <div class="codeTask">
-                  <h5>Mouse Interaction - mouseClicked() method</h5>
+                    <div class="figCode" style="margin-top:1em">
+                        <figure>
+                            <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedMouse/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedMouse.png");</script>
+                            <figcaption><b>KeyPressed Move Example</b><br />Click to activate, click to focus in the sketch and then<br/>press keys on the keyboard.
+                                <br />Move mouse to position subsequent text.
+                                <br />Click to clear the text.</figcaption>
+                        </figure>
+                    </div>
+                      <h5>Mouse Interaction - mouseClicked() method</h5>
                     <p>
                         Improve your <code>keyPressed()</code> sketch - <i>the rudimentary unusable frustrating 'WordProcessor'</i> - so that:</p>
 
@@ -921,7 +921,7 @@ void mouseClicked() {
                 <hr />
                 <h3>4. Interaction and State?</h3>
 
-                <p>You should by now have your sketches working in all sorts of ways in response to interactions made through your keyboard and mouse.
+                <p>You should by now have your sketches working in all sorts of ways in response to interactions made through your keyboard and mouse.<br/>
                     That's great.</p>
 
                     <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">7</span> - <b>State</b> : recording what is going on in your sketch</code></p>
@@ -938,13 +938,16 @@ void mouseClicked() {
                 <p>Often people don't read those big red titles 👆.<br/>So I am going to write it again in black here.<br/>This section is about: "<b>How to Structure a Sketch for Interaction</b>".<br/>And you need to know this in order to make reliable interactive sketches.
                 </p>
 
-                <p>The key thing is the empty <code>draw()</code> loop that we have seen a few times in the examples used above when introducing concepts. We don't want an empty <code>draw()</code> loop!</p>
-                <p>The <code>draw()</code> loop is the place to draw and do things.<br />
+                <p>The key thing is the empty <code>draw()</code> loop that we have seen a few times in the examples used above when introducing concepts.<br/>
+                    We don't want an empty <code>draw()</code> loop!<br/>
+                    Really we want to draw stuff on the canvas in the <code>draw()</code> loop!
+                </p>
+                <p>Yep, the <code>draw()</code> loop is the place to draw and do things.<br />
                     The event handling methods like <code>keyPressed()</code> and <code>mouseClicked()</code> are not the place for this.<br />
                     <b>Do not draw or do things in event handling methods like <code>keyPressed()</code> and <code>mouseClicked()</code><br/></b>
-                    These methods are best for changing and recording <i>system state</i> - the way the sketch is configured at any time.<br />
-                    The <code>draw()</code> loop is then the place to act on that state - to do the things requires by the interaction.</p>
-                <p>In summary ... (actually read through this code 👇) ...</p>
+                    These methods are best for changing and recording <i>system state</i> - the way the sketch is configured at any time by an interaction (an intervention from a sketch user).<br />
+                    The <code>draw()</code> loop is then the place to act on that state - to do the things required by the interaction, requested by the user through their intervention.</p>
+                <p>In summary ... actually read through this code 👇 ...</p>
                 <pre class="brush: processing; gutter: false; toolbar: false; ">
 // -- GLOBAL VARIABLES
 // -- Declare and initialise variables that describe
@@ -1001,9 +1004,9 @@ void mouseClicked() {
                 <pre class="brush: processing; gutter: false; toolbar: false; ">
 // -- GLOBALS : declare and initialise global variables
 // --   that describe system state - false before interaction:
-boolean clearScreen = false;  // -- do we clear the screen?
-boolean addText = false;      // -- do we add text?
-boolean isRed = false;        // -- do we make text red?
+boolean clearScreen = false;  // -- do we clear the screen in the draw() method?
+boolean addText = false;      // -- do we add text in the draw() method?
+boolean isRed = false;        // -- do we make text red in the draw() method?
 
 // -- SET UP : initialise and do things that don't change :
 void setup() {
@@ -1019,7 +1022,7 @@ void draw() {
   if (isRed) {
     // -- set fill to red:
     fill(255, 0, 0);
-    isRed = false;
+    isRed = false;  // -- set this to false, once the action has occurred once
   } else {
     fill(64);
   }
@@ -1028,7 +1031,7 @@ void draw() {
   if (addText) {
     // -- add text at the mouse position:
     text(key, mouseX, mouseY);
-    addText = false;
+    addText = false;  // -- set this to false, once the action has occurred once
   }
 
   // -- check whether to clear screen:
@@ -1036,7 +1039,7 @@ void draw() {
     // -- clear the screen: random light grey!
     background(int(random(180, 240)));
     // -- reset system state:
-    clearScreen = false;
+    clearScreen = false;  // -- set this to false, once the action has occurred once
   }
 }
 
@@ -1078,9 +1081,9 @@ void mouseClicked() {
                     <figure>
                         <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/keyPressedMouseStateExercise/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.keyPressedMouseStateExercise.png");</script>
                         <figcaption>
-                            <b>KeyPressed Mouse State Example</b><br />Click to activate and press keys on the keyboard.
-                            Move mouse to reposition subsequent text.
-                            <br />Click to clear the text: - grey if the mouse is in the left half of the screen  - yellow otherwise.
+                            <b>KeyPressed Mouse State Example</b><br />Click to activate and press keys on the keyboard.<br/>
+                            Move the mouse (cursor) to reposition subsequent text.
+                            <br />Click to clear the text:<br/>- grey if the mouse is in the left half of the screen<br/>- yellow otherwise.
                         </figcaption>
                     </figure>
                     </div>
@@ -1090,7 +1093,7 @@ void mouseClicked() {
                     <p>Create a sketch using the skeleton code provided above.<br />Run it and experiment a
                         little.<br />
                         Can you see how <code>isRed</code> works?<br/>Can you see how we make decisions based upon its value and how we interact to change that?</p>
-                    <p>Then <b>extend the sketch</b> by adding a global variable, an event handling method and a control statement to :</p>
+                    <p>Then <b>extend the sketch</b> by adding <i>a global variable</i>, <i>an event handling method</i> and <i>a control statement</i> to :</p>
                     <ul>
                         <li>make the screen clear in yellow if the mouse is in the right half of the screen, but grey otherwise</li>
                     </ul>
@@ -1098,9 +1101,9 @@ void mouseClicked() {
                     <ol>
                         <li>the <code>mouseMoved()</code> method is called every time the mouse is moved and these are
                             the times when you need to check where the mouse is</li>
-                        <li>the mouse is in the right half of the screen when <code>mouseX &gt; width/2</code></li>
-                        <li>a good global variable name and initial value might be something
-                            like:<br>&nbsp;&nbsp;<code>boolean isYellow = false;</code> or
+                        <li>the mouse (cursor) is in the right half of the screen when <code>mouseX &gt; width/2</code></li>
+                        <li>a good global variable name and initial value might be something like:
+                            <br/>&nbsp;&nbsp;<code>boolean isYellow = false;</code> or
                             perhaps<br />&nbsp;&nbsp;<code>boolean mouseIsRight = false;</code></li>
                     </ol>
 
@@ -1114,7 +1117,7 @@ void mouseClicked() {
                         <b>predict</b>, <b>change</b>, <b>observe</b> (behaviour, bug reports,
                         etc.), <b>think</b> (and discuss), <b>learn</b>, <b>confirm</b>
                         --->
-                        <br />Remember that your teachers are here to help you with this - on the <a href="https://moodle4.city.ac.uk/mod/forum/view.php?id=800835">Discussion Forum</a> and in the scheduled practical classes!</p>
+                        <br />Remember that your teachers are here to help you with this - on the <a href="https://moodle4.city.ac.uk/mod/forum/view.php?id=967978">Discussion Forum</a> and in the scheduled practical classes!</p>
                 </div>
 
                 <!-- https://web.archive.org/web/20210323215123/https://www.notion.so/blog/stu-card -->
@@ -1140,7 +1143,7 @@ void mouseClicked() {
                     <figure>
                 <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/clickCount/", 250, 250, "https://jsndyks.github.io/cityCreativeCoding/images/interaction/p5js.clickCount.png");</script>
                 <figcaption><b>ClickCount Example</b><br />Click to activate and click in the sketch.
-                    <br />This sketch achieves some of what we ask for ... but we'd like you to extend it further!
+                    <br />This sketch achieves some of what we ask for ...<br/>but we'd like you to extend it further!
                     </figcaption>
                 </figure>
                 </div>
@@ -1177,7 +1180,7 @@ void draw(){
   text(clickCount, width/2, height/2);
 }</pre>
 
-                <p>We'd like you to try two extensions to this task. There are more listed on the optional <a href="">Interaction : Extras</a> page if you'd like to test yourself a little further.<br />
+                <p>We'd like you to try two extensions to this task. There are some more listed on the optional <a href="">Interaction : Extras</a> page too if you'd like to test yourself a little further.<br />
                     They all vary the way your sketch looks based upon accumulating interactions.</p>
 
             </div> <!-- End of left column -->
