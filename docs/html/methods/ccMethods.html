@@ -67,7 +67,7 @@
     <div class="intro">
         <p>
             This section introduces method definition and parameterisation. We start with a simple game,
-            called PathFinder. The code, as initially structured, is relatively complex and
+            called <i>PathFinder</i>. The code, as initially structured, is relatively complex and
             not easy to understand.
             We will see how to <em>refactor</em> the code using method definitions, resulting in code
             that is much easier to understand, debug and reuse.</p>
@@ -486,7 +486,7 @@ void draw()
                 This 'flow of control' is illustrated by the diagram on the right.
             </p>
 
-            <div class="figClear">clear here</div>
+            <div class="figClear"></div>
             <div class="codeTask">
                 <h5>Your First Method - Check the Flow</h5>
                 <p>After making the changes above, make sure your sketch still works.
@@ -507,18 +507,18 @@ void draw()
             <h3>4. Method Reuse versus Code Duplication</h3>
 
             <p>
-                There are two places in <code>draw()</code> where the PathFinder code draws the ball:
+                There are two places in <code>draw()</code> where the <i>PathFinder</i> code draws the ball:
             </p>
 
             <ol>
-                <li>In the true-branch of the outermost <code>IF</code> statement. The relevant code is:
+                <li>In the true-branch of the outermost <code>if</code> statement.<br/>The relevant code is:
                     <br/>
                     <br/>
                     <pre class="brush: processing; gutter: false; toolbar: false; ">    noStroke();
     fill(0,0,255);
     circle(xPos, yPos, 2 * radius);</pre>
                 </li>
-                <li>In the false-branch of the outermost <code>IF</code> statement. The relevant code is:
+                <li>In the false-branch of the outermost <code>if</code> statement.<br/>The relevant code is:
                     <br/>
                     <br/>
                     <pre class="brush: processing; gutter: false; toolbar: false; ">    noStroke();
@@ -535,6 +535,9 @@ void draw()
                 prone. And imagine how bad the problem becomes if the code is hundreds of lines long and duplicated
                 many times.
             </p>
+            <div class="tip">
+                <p>Work to refactor your code so that replication is minimal.<br/>This is a key objective in writing readable, effective, reusable and debuggable code.</p>
+            </div>
             <p>
                 There is a better way: define a single method (containing just one copy of the code) and call it
                 twice.
@@ -543,7 +546,11 @@ void draw()
             <div class="codeTask">
                 <h5>A Method to Draw a Ball</h5>
                 <p>
-                Make this change in your copy of PathFinder.<br/>
+                Make the change that we suggest above in your copy of <i>PathFinder</i>.</p>
+                <ul>
+                    <li>define a single method (containing just one copy of the code) and call it twice</li>
+                </ul>
+                <p>
                 Take care to choose a good name for your method!<br/>
                 Make sure you haven't broken anything - PAROT (Talk)? 
              </p>
@@ -562,7 +569,7 @@ void draw()
             <p>
                 In many cases, for a method to be genuinely reusable, we need to allow the calling code to provide
                 it with extra information that can vary from one call to the next.
-                The code that checks for collisions between the ball and pegs in PathFinder illustrates the issue.
+                The code that checks for collisions between the ball and pegs in <i>PathFinder</i> illustrates the issue.
             </p>
 
             <p>
@@ -681,7 +688,7 @@ void draw()
             <!-- Left column -->
             <h3>6. Return values</h3>
             <p>
-                There is one more important feature of method definitions to consider. It isn't needed in the PathFinder
+                There is one more important feature of method definitions to consider. It isn't needed in the <i>PathFinder</i>
                 project, but it is used in one of the core tasks for this session and in many practical applications.
                 We can define methods so that they return <i>a value</i> when they finish, and the calling code can
                 then use that value. If we define such a method, then it is usually called in a slightly different
