@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CreativeCoding Exercises: Coding Decisions</title>
+
+    <!-- Header, 16th September, 2021 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+    <!-- JD Extras! -->
+    <link rel="stylesheet" href="https://jsndyks.github.io/cityCreativeCoding/css/creativeCoding.css" type="text/css" />
+    
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Add summary sentence or two below, which will act as an easy introduction -->
+
+    <!---
+    You can access [this page](https://jsndyks.github.io/cityBootCamp/html/decisions/bootCamp.dec.2023.exercise.html) outside of _Moodle_ should you wish to do so.
+
+    <iframe id="myIframe"
+  src="https://jsndyks.github.io/cityBootCamp/html/decisions/bootCamp.dec.2023.exercise.html" width="100%"
+  height="5500px"
+  frameborder="0"
+  scrolling="no"></iframe>
+
+<script src="/theme/cul_moove/js/iframeResizer.min.js"></script>
+<iframe id="myIframe" style="width: 1px; min-width:100%;" src="https://jsndyks.github.io/cityBootCamp/html/decisions/bootCamp.dec.2023.exercise.html"></iframe>
+<script>
+    iFrameResize({log: true}, '#myIframe')
+</script>
+
+-->
+
+<p>Before you try out these <b>optional exercises</b>, please make sure that you have worked through and understood 
+    all of the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=798914">Decisions : Core</a> concepts and exercises.</p>
+
+         <p>
+            These additional optional exercises will help you develop your ability to use <code>if</code> statements in your code.
+        </p>
+
+
+        <div class="challenge">
+            <h5>Two Coins?</h5>
+            <p>
+            This exercise is an adaptation of the “Heads or Tails” sketch from the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=798914">Decisions : Core</a> activity :
+        </p>
+            <pre class="brush: processing; gutter: false; toolbar: false; ">float randomNumber;
+
+void setup()
+{
+  size(200, 200);
+  fill(0);
+  textSize(48);
+  textAlign(CENTER);
+
+  randomNumber = random(2.0);
+}
+
+void draw()
+{
+  background(230, 255, 230);
+
+  String message;
+  if (randomNumber &lt; 1.0) {
+    message = "TAILS";
+  } else {
+    message = "HEADS";
+  }
+  text(message, width/2, height/2);
+}</pre>
+            <p>
+            Copy this code into a new sketch. Save the sketch with the name “TwoCoins”.
+        </p>
+            <p>
+                The aim is to extend this code so that it simulates two coin tosses instead of just one.<br/>
+                The possible combinations for two coin tosses are TT, TH, HT, HH.
+                Your sketch should print one of three messages:
+            </p>
+            <ul>
+                <li>“TWO TAILS” (combination TT)</li>
+                <li>“TWO HEADS” (combination HH)</li>
+                <li>“MIXED” (combinations TH and HT)</li>
+            </ul>
+            <p>
+            Develop your solution in three stages:
+            </p>
+            <ol>
+                <li>
+                    Declare an additional variable at the top of the sketch (call it something like
+                    <code>randomNumber2</code>) and initialise it in <code>setup()</code> to a random number in the
+                    range 0 to 2.<br/>Check that your sketch runs (you won't see any new behaviour yet).
+                </li>
+
+                <li>
+                    Modify the if-statement in <code>draw()</code> so that the condition tests whether <em>both</em> the
+                    random numbers are less than 1 with an <code>if</code> statement.<br/>
+                    You should use the <code>&amp;&amp;</code> operator to do this.<br/>
+                    Modify the message variable assignments so that the first one is “TWO TAILS” and the second one is
+                    “WORK IN PROGRESS!”. Check that your sketch runs and behaves as expected. If you run it repeatedly many
+                    times you should find that it displays the message “TWO TAILS” roughly a quarter of the time.
+                </li>
+
+                <li>
+                    Extend the if-statement with extra cases to test for other combinations and set the message variable
+                    appropriately.<br/>Check that your sketch runs and behaves as expected.<br/>
+                    If you run it lots of times you should find that it displays “TWO TAILS” roughly a quarter of the time, “TWO HEADS” roughly a
+                    quarter of the time, “MIXED” roughly half the time.
+                </li>
+            </ol>
+        </div>
+
+        <!---div class="aside">
+            <p><b></b>ASIDE:</b></p>
+            <p>
+            Randomness has many uses.<br/>
+            we have produced a whole page on <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=465023">a whole
+                Randomness</a> that you can use to find out more.
+                </p>
+        </div--->
+
+
+        <div class="challenge">
+            <h5>Bouncing Up &amp; Down</h5>
+            <p>
+            In this exercise you add movement in the y-direction to the bouncing ball sketch that you completed in
+            <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=798914">Decisions : Core</a>.</p>
+            <p>You might worry that simultaneous movement in two dimensions will introduce all sorts of new complexities into your code.
+                Luckily for us, we can treat movement in the two directions independently, using very similar code for both cases,
+            and everything works out fine.
+             </p>
+            <ol>
+                <li>
+                    <p>
+                    Add extra variables <code>yPosition</code> and <code>yVelocity</code> to your sketch.<br/>
+                    In <code>setup()</code>, initialise <code>yPosition</code> to be halfway down the screen and initialise <code>yVelocity</code> to 1 pixel per frame.
+                    </p>
+                    <p>
+                    In <code>draw()</code>, modify the code that draws the ball so that it uses variable
+                    <code>yPosition</code> instead of <code>height/2</code>.<br/>
+                    Next to the assignment that adds
+                    <code>xVelocity</code> to <code>xPosition</code>, add a new assignment that does the same for <code>yVelocity</code>
+                    and <code>yPosition</code>.
+                    </p>
+                    <p>
+                    Check that your sketch works as expected.<br/>
+                    The ball should now move in a diagonal direction but it won't yet bounce off the top or bottom edges of the window.
+                    </p>
+                </li>
+
+                <li>
+                    <p>
+                    Add code to make the ball bounce off the top and bottom edges.<br/>
+                    Copy and adapt the code you have already produced for dealing with the left and right edges,
+                    replacing <code>xPosition</code> and <code>xVelocity</code> with
+                    <code>yPosition</code> and <code>yVelocity</code> as appropriate.
+                    </p>
+                    <p>    
+                    Check that your sketch works as expected.
+                    The ball should now move in diagonal directions bouncing of all four walls. Congratulations!
+                    </p>
+                </li>
+                <li>
+                    <p>
+                    Play around with the initialisation values in your sketch to see how they affect behaviour
+                    (window size, fill colour, ball radius, initial position, velocity).
+                    </p>
+                </li>
+
+            </ol>
+
+        </div>
+
+        <div class="aside">
+            <p><b>Aside</b>:</p>
+            <p>Once you have coded a ball bouncing in a box you will naturally want to add more sophisticated behaviours.<br/>
+            Multiple balls? Balls of different sizes? Balls that collide with and bounce off other balls?<br/>All is
+            possible!</p>
+            The necessary coding techniques are covered in future sessions.<br/>
+            If you want a sneak preview, have a look at the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=468962">the Bouncing Balls</a> page in
+            the Processing Resources on Moodle.</p>
+        </div>
+
+        <div class="challenge">
+            <h5>Bouncing Colours</h5>
+            <p>
+            Modify your bouncing ball so that it changes colour each time it bounces.<br/>
+            You will need one or more new global (sketch-wide) variables to represent the current colour of the ball (for example you could have three
+            variables, one each for red, green and blue).<br/>
+            Then you can modify the code that draws the ball so that it
+            sets the fill colour using these new variables, and modify the code that detects a bounce so that it
+            assigns new values to them when this occurs.
+            </p>
+            <div class="tip">
+                If you assign random values for red, green and blue, remember that the maximum range for each colour
+                component is 0 to 255.
+            </div>
+            <p>
+                Modify your colour changing code so that the ball only changes colour on every third bounce.
+            </p>
+            <p>
+                Modify your code so that the ball speeds up if the cursor / mouse is positioned inside it.
+            </p>
+        </div>
+
+        <h3>Extension exercises</h3>
+
+
+        <div class="challenge">
+            <h5>Hunt!</h5>
+            <ol>
+                <li>
+                    <p>
+                    Write a sketch called “Hunt”, which draws a circle at a randomly chosen position.<br/>
+                    Now modify the sketch so that it only draws the circle when the mouse is inside the circle
+                    - so the user has to hunt for the invisible circle using the mouse.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                    To add a bit of interest to the Hunt game, allow only limited time for the user to find the circle;
+                    when time is up, reveal the circle and display a GAME OVER message.
+                    </p>
+                    <div class="tip">
+                        <p>
+                        The variable <code><a href="https://processing.org/reference/frameCount.html">frameCount</a></code>
+                        keeps track of how many times <code>draw()</code> has been executed since the sketch started running.<br/>
+                        You can use this to test whether the user has run out of
+                        time (for example, the default frame rate is 60 frames per second, so five seconds is up when
+                        <code>frameCount</code> exceeds 5 x 60 = 300).</p>
+                        <p>When the game is over you can freeze the action with <a href="https://processing.org/reference/frameRate_.html"><code>frameRate()</code></a>
+                        by setting the frame rate to zero using the command <code>frameRate(0)</code>.</p>
+                    </div>
+                </li>
+            </ol>
+        </div>
+
+        <!---
+        <h2>Check on Progress</h2>
+        <div class="task">
+            To ensure that you have achieved the outcomes associated with this session, consider the following, which
+            allow you to evaluate your progress.
+            <br /><br />
+
+            <div class="checkOutcomes">
+                <input id="sa1" type="checkbox">
+                <label for="sa1" style="padding:1em">Can I write an <code>if</code> statement that chooses between two alternatives when my code
+                    executes?</label><br>
+
+                <input id="sa2" type="checkbox">
+                <label for="sa2" style="padding:1em">Can I write a sequence of nested or chained <code>if</code> statements that run through a number
+                    of alternatives?</label><br>
+
+                <input id="sa3" type="checkbox">
+                <label for="sa3" style="padding:1em">Do I know the Processing/Java syntax for boolean AND, OR and NOT and can I write
+                    boolean expressions which use these operators to build complex tests from simple ones?</label><br>
+
+            </div>
+            --->
+            <!-- End of checkOutcomes -->
+
+        </div>
+        <!-- End of task -->
+
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>
