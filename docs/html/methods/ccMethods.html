@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+
+<html  dir="ltr" lang="en" xml:lang="en">
+<head>
+    <title>CreativeCoding Lecture: Methods</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Embedded fonts -->
+	<link
+			href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+			rel="stylesheet">
+
+	<!-- Custom layout and style -->
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+	<!-- General browser compatibility handling -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+	<!-- Formatted source code -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+	<!-- Sketch popups and hidden text-->
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+	<!-- JD Extras! -->
+    <!-- <link rel="stylesheet" href="https://jsndyks.github.io/cityCreativeCoding/css/creativeCoding.css" type="text/css" /> -->
+    <link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" />
+    
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+<body>	
+
+<div id="page">
+
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+    <!-- Add summary sentence or two below, which will act as an easy introduction -->
+
+    <!---
+    You can access [this lecture](https://jsndyks.github.io/cityCreativeCoding//html/methods/ccMethods.2024.html) outside of _Moodle_ should you wish to do so.
+
+    <iframe id="myIframe"
+  src="https://jsndyks.github.io/cityCreativeCoding//html/methods/ccMethods.2024.html" width="100%"
+  height="10000px"
+  frameborder="0"
+  scrolling="no"></iframe>
+
+<script src="/theme/cul_moove/js/iframeResizer.min.js"></script>
+<iframe id="myIframe" style="width: 1px; min-width:100%;" src="https://jsndyks.github.io/cityCreativeCoding//html/methods/ccMethods.2024.html"></iframe>
+<script>
+    iFrameResize({log: true}, '#myIframe')
+</script>
+-->
+
+
+    <div class="intro">
+        <p>
+            This section introduces method definition and parameterisation. We start with a simple game,
+            called PathFinder. The code, as initially structured, is relatively complex and
+            not easy to understand.
+            We will see how to <em>refactor</em> the code using method definitions, resulting in code
+            that is much easier to understand, debug and reuse.</p>
+        <p><strong>By the end of this session you should be able to:</strong>
+        </p>
+        <ul>
+            <li>Write simple method definitions without parameters and write code that calls these methods.</li>
+            <li>Write more complex method definitions with parameters and write code that calls these methods,
+                providing appropriate values for each parameter.</li>
+            <li>Refactor the <i>PathFinder</i> sketch to use method definitions and method calls.</li>
+        </ul>
+    </div>
+    <!-- End of intro section -->
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div class="units-row">
+        <div class="unit-70-cc">
+            <!-- Left column -->
+            <h3>1. PathFinder</h3>
+
+            <p>We have used <i>Processing</i> to develop a simple game.<br/>
+                The game uses many of the concepts and much of the language that we have introduced so far.
+        <br/>
+                Here's the code. Have a look through - read <i>carefully</i>:
+            </p>
+
+            <pre class="brush: processing; gutter: false; toolbar: false; ">// -- Global variables are declared first
+
+// ball position
+float xPos;
+float yPos;
+
+// peg positions
+float peg1X, peg1Y;
+float peg2X, peg2Y;
+float peg3X, peg3Y;
+
+// ball velocity
+float vx;
+float vy;
+
+// ball size
+float radius;
+
+// peg size
+float pegRadius;
+
+// is ball in play?
+boolean inPlayMode;     // <-- boolean variable, can only hold values of TRUE and FALSE.
+
+void setup()            // <-- Whatever commands we put in here will be executed once.
+{
+    size(500, 400);
+    textSize(48);
+
+    radius = 15;
+
+    pegRadius = 10;
+
+    peg1X = 250;
+    peg1Y = 200;
+
+    peg2X = 70;
+    peg2Y = height - 24;
+
+    peg3X = width - 24;
+    peg3Y = 70;
+
+    xPos = width - radius;
+    yPos = height - radius;
+
+    inPlayMode = false;   // <-- Initialise 'inPlayMode' to FALSE
+}
+
+// -- A new method
+void mousePressed()
+{
+    if (inPlayMode)       // <-- Check whether this is TRUE, else change vx and vy, and set inPlayMode to TRUE
+    {
+        // -- do nothing, ball is already in play
+    } else
+    {
+        vx = (mouseX - xPos) / 50;
+        vy = (mouseY - yPos) / 50;
+        inPlayMode = true;
+    }
+}
+
+void draw()
+{
+    background(255);
+
+    fill(255, 0, 0);
+    stroke(0);
+
+    // -- Draw the pegs
+    circle(peg1X, peg1Y, 2 * pegRadius);
+    circle(peg2X, peg2Y, 2 * pegRadius);
+    circle(peg3X, peg3Y, 2 * pegRadius);
+
+    // -- Lots of decisions that define the game!
+    if (inPlayMode)
+    {
+        xPos = xPos + vx;
+        yPos = yPos + vy;
+
+        // -- Draw ball
+        noStroke();
+        fill(0, 0, 255);
+        circle(xPos, yPos, 2 * radius);
+
+        // -- Check rebounds against left and right walls
+        if (xPos - radius < 0 || xPos + radius > width)
+        {
+            vx = -vx;
+        }
+
+        // -- Check rebounds against top and bottom walls
+        if (yPos - radius < 0 || yPos + radius > height)
+        {
+            vy = -vy;
+        }
+
+        // -- Check collisions with pegs
+        if (dist(xPos, yPos, peg1X, peg1Y) < radius + pegRadius)
+        {
+            fill(0);
+            textAlign(CENTER, CENTER);
+            text("GAME OVER!", width/2, height/2);
+            frameRate(0);
+        }
+        if (dist(xPos, yPos, peg2X, peg2Y) < radius + pegRadius)
+        {
+            fill(0);
+            textAlign(CENTER, CENTER);
+            text("GAME OVER!", width/2, height/2);
+            frameRate(0);
+        }
+        if (dist(xPos, yPos, peg3X, peg3Y) < radius + pegRadius)
+        {
+            fill(0);
+            textAlign(CENTER, CENTER);
+            text("GAME OVER!", width/2, height/2);
+            frameRate(0);
+        }
+    }
+    else
+    {
+        // -- Draw ball
+        noStroke();
+        fill(0, 0, 255);
+        circle(xPos, yPos, 2 * radius);
+
+        // -- Draw aiming line
+        stroke(0);
+        line(xPos, yPos, mouseX, mouseY);
+    }
+}</pre>
+
+<script>
+    loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/jwo/pathfinder", 350, 280, "https://jsndyks.github.io/cityCreativeCoding/html/methods/img/cc.pathfinder.png");
+</script>
+<p>PathFinder demo (click on image to activate).</p>
+
+            <div class="codeTask">
+                <h5>Play PathFinder</h5>
+                <p>Click the sketch above and play a couple of times.</p>
+                <p>Now, create your own PathFinder sketch containing a copy of the code that we have provided above.</p>
+                <p>Save the sketch, and run it and play it a couple of times to get the hang of what it does.<br/>
+                    Make sure that your copy of the sketch behaves in the same way as the sketch that we have provided above.</p>
+            </div>
+            <p>
+                That code is quite a mouthful. Maybe it's a bit scary? But don't despair! When structured properly, the code will
+                be much easier to understand. We are going to <em>refactor</em> the code to improve its structure.
+                Here's a sneak preview of what our refactored <code>draw()</code>
+                will look like:
+            </p>
+            <pre class="brush: processing; gutter: false; toolbar: false; ">void draw()
+{
+  background(255);
+
+  drawPeg(peg1X, peg1Y);
+  drawPeg(peg2X, peg2Y);
+  drawPeg(peg3X, peg3Y);
+
+  if (inPlayMode)
+  {
+    moveBall();
+
+    drawBall();
+
+    bounceOffWalls();
+
+    checkForPegCollision(peg1X, peg1Y);
+    checkForPegCollision(peg2X, peg2Y);
+    checkForPegCollision(peg3X, peg3Y);
+  }
+  else
+  {
+    drawBall();
+
+    drawAimingLine();
+  }
+}</pre>
+            <div class="tip">
+                When we refactor code, our aim is to improve its structure, <em>without</em> changing its behaviour.
+                We refactor code to make it easier to understand, debug, and extend.
+                It is <em>always</em> a mistake to try to refactor and add new features at the same time:
+                refactor <em>first</em>, check carefully that you haven't broken anything,
+                <em>then</em> add your new feature.
+            </div>
+        </div>
+        <!-- End of left column -->
+    </div>
+    <!-- End of row -->
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div class="units-row">
+        <div class="unit-70-cc">
+            <!-- Left column -->
+            <h3>2. Methods</h3>
+            <p>
+                First a few words about terminology. There are several terms which programming language designers
+                and programmers use for essentially the same thing:
+                <br/>
+                <br/>
+                <i>method</i>,
+                <br/>
+                <i>function</i>,
+                <br/>
+                <i>procedure</i>,
+                <br/>
+                <i>subroutine</i>.
+                <br/>
+                <br/>Depending on the specific programming language, there may, in fact, be some difference in
+                meaning between these words, but for present purposes we can safely consider them all to be
+                equivalent. We will try to stick to the term 'method' consistently
+                during our <code>#CreativeCoding</code> activity but, if you read around the subject, you will find other authors using different
+                terms (<a href="http://readinglists.city.ac.uk/items/27D2B53F-3DDE-EE72-F5EC-B1EBA9256FBF.html?referrer=%2Flists%2F3D1A6C7D-6690-EF98-BF4B-3B5B5788FBF7.html%23item-27D2B53F-3DDE-EE72-F5EC-B1EBA9256FBF" target="_blank">Daniel Shiffman</a>,
+                for example, usually says "function").
+            </p>
+
+            <p>
+                So, what are methods and why do we need them?
+            </p>
+
+            <div class="tip">
+                <!-- not really a tip but this will do to make it stand out -->
+                A method is a piece of code, packaged as a named unit, which can be <i>called</i> from other pieces
+                of code.
+            </div>
+            <p>
+                We need them because they enable us to:
+            </p>
+            <ol>
+                <li>Write code that is <em>easy to understand</em> - much easier than code that does not use methods;</li>
+                <li>Build complex programs in a <i>modular</i> way: build big things by first building smaller
+                    things and then composing them together;</li>
+                <li>Write <i>reusable</i> code: write a piece of code once and use it many times;</li>
+            </ol>
+            <p>
+                You have already been using and defining methods in your sketches:
+            </p>
+            <ul>
+                <li>Methods pre-defined by <i>Processing</i> and used by you in your sketches:<br/>
+                    <code>rect()</code>,
+                    <code>circle()</code>,
+                    <code>line()</code>, <code>stroke()</code>, <code>fill()</code>, <code>dist()</code> etc.
+                </li>
+                <li>Methods defined by you and which <i>Processing</i> calls when running your sketches:<br/>
+                    <code>setup()</code>,
+                    <code>draw()</code>, <code>keyPressed()</code>.
+                </li>
+            </ul>
+            <p>
+                However, all the above are in some sense "special", in that <i>Processing</i> either defines them (so you
+                can use them in your sketches) or knows about them in advance (and uses them in particular ways if
+                <i>you</i> define them).
+            </p>
+        </div>
+        <!-- End of left column -->
+    </div>
+    <!-- End of row -->
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div class="units-row">
+        <div class="unit-70-cc">
+            <!-- Left column -->
+            <h3>3. PathFinder Reloaded</h3>
+            <p>
+                Let's write a method to draw the “aiming line”. The existing code that does this job is
+                two lines that you can see in the else-branch at the very end of <code>draw()</code> - here they are:
+            </p>
+            <pre class="brush: processing; gutter: false; toolbar: false; ">  stroke(0);
+  line(xPos,yPos,mouseX,mouseY);</pre>
+
+            <p>
+                We can simply copy this code and wrap it up inside a method definition:
+            </p>
+            <pre class="brush: processing; gutter: false; toolbar: false; ">void drawAimingLine()
+{
+  stroke(0);
+  line(xPos,yPos,mouseX,mouseY);
+}</pre>
+            <div class="codeTask">
+                <h4>Your First Method - Definition</h4>
+                <p>Add the <code>drawAimingLine()</code> method definition to your sketch <em>outside</em> <code>draw()</code>.</p>
+            </div>
+            <p>
+                The method definition has four components:
+            </p>
+            <ol>
+                <li>A <i>return type</i>. In this example the return type is <code>void</code> which declares that
+                    this method doesn't return a value when it executes (some methods, like <code>dist()</code>, do
+                    return values).</li>
+                <li>A <i>name</i>. In this example the name of the method is <code>drawAimingLine</code>. It is VERY important to
+                    choose good names for your methods. A good name is one that tells us concisely and accurately
+                    what is the intended purpose of the method. Bad names for
+                    this method would be things like <code>myMethod</code> (tells us nothing useful at all),
+                    <code>aim</code> (OK, so it's something to do with aiming; but what exactly?)
+                    <code>drawAL</code> (an abbreviation of “draw aiming line”, but why abbreviate when the full
+                    version is easier to understand and takes only milliseconds longer to type?).
+                </li>
+                <li>A <i>parameter list</i>. That's the part in round brackets immediately after the method name.
+                    In this example the parameter list is empty. We will consider the more general case later.</li>
+                <li>The <i>method body</i>. That's the part in the curly brackets.
+                    This is the code which will be executed each time our method is used.</li>
+            </ol>
+            <p>
+                In general terms ...
+            </p>
+            <pre class="brush: processing; gutter: false; toolbar: false; ">  returnType methodName(information that we give the method to process) {
+    things that we want the method to do, usually with a semicolon at the end;
+  };</pre>
+
+        </div>
+        <!-- End of Left column -->
+    </div>
+    <!-- End of row -->
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div class="units-row">
+        <div class="unit-70-cc">
+            <!-- Left column -->
+            Having defined a method in our sketch, what will it do when we run the sketch? Absolutely nothing. That
+            is to say, it won't do anything unless we <i>call</i> it from somewhere else in our code. To call a
+            method, you just write its name followed
+            by an argument list which matches the parameter list in the definition. Since
+            <code>drawAimingLine</code> has an empty parameter list, we also write an empty argument list when we
+            call it. So our method call will be just:
+            <p></p>
+
+            <pre class="brush: processing; gutter: false; toolbar: false; ">    drawAimingLine();</pre>
+            <div class="codeTask">
+                <h4>Your First Method - Call the Method</h4>
+                <p>Put this call inside <code>draw()</code>, <em>replacing</em> the two lines of code we started with.</p>
+            </div>
+            <div class="tip">
+                <p>Note that we now have two methods with similar names:</p>
+                <ul>
+                <li><code>draw()</code> (executed automatically, 60 times a second, by <i>Processing</i>), and</li>
+                <li><code>drawAimingLine()</code> (executed only when our code explicitly calls it).</li>
+                <p>Try not to get them mixed up!</p>
+                </ul>
+            </div>
+
+            <div class="figRight">
+            <figure>
+            <a href="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/methodFlow.png"><img src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/methodFlow.png" alt="method flow control-flow diagram" width="300"/></a>
+			<figcaption>The control flow of a method call.</figcaption>
+            </figure>
+            </div>
+            <p>
+                Now, whenever the else-branch in <code>draw()</code> executes, this is what will happen:
+            </p>
+            <ol>
+                <li>Execution arrives at the call <code>drawAimingLine()</code>.</li>
+                <li>Execution jumps into the body of the <code>drawAimingLine</code> method [<i>method call</i>].
+                </li>
+                <li>The code in the body of <code>drawAimingLine</code> executes [<i>method execution</i>].</li>
+                <li>Execution jumps back to where it came from [<i>method return</i>].</li>
+                <li>Execution continues with the code immediately <em>after</em> the call point
+                    (in our example there is no more code - we have arrived at the very end of <code>draw</code>).
+                </li>
+            </ol>
+            <p>
+                This 'flow of control' is illustrated by the diagram on the right.
+            </p>
+            <div class="figClear"></div>
+            <div class="codeTask">
+                <h4>Your First Method - Check the Flow</h4>
+                <p>After making the changes above, make sure your sketch still works.
+                    It should behave <em>exactly the same as before</em>.</p>
+                <p>Remember, when we refactor code, our aim is to improve its structure,
+                <em>not</em> to change its behaviour.
+                </p>
+            </div>
+        </div>
+        <!-- End of Left column -->
+    </div>
+    <!-- End of row -->
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div class="units-row">
+        <div class="unit-70-cc">
+            <!-- Left column -->
+            <h3>4. Method Reuse versus Code Duplication</h3>
+
+            <p>
+                There are two places in <code>draw()</code> where the PathFinder code draws the ball:
+            </p>
+
+            <ol>
+                <li>In the true-branch of the outermost <code>IF</code> statement. The relevant code is:
+                    <br/>
+                    <br/>
+                    <pre class="brush: processing; gutter: false; toolbar: false; ">    noStroke();
+    fill(0,0,255);
+    circle(xPos, yPos, 2 * radius);</pre>
+                </li>
+                <li>In the false-branch of the outermost <code>IF</code> statement. The relevant code is:
+                    <br/>
+                    <br/>
+                    <pre class="brush: processing; gutter: false; toolbar: false; ">    noStroke();
+    fill(0,0,255);
+    circle(xPos, yPos, 2 * radius);</pre>
+                </li>
+            </ol>
+            <p>
+                Of course, it is no coincidence that these chunks of code are identical: I copy-pasted the first to
+                get the second. This is known as code duplication and it is <b>BAD</b>.<br/>
+                It is bad because if we ever need
+                to debug or modify the intended behaviour of that code,
+                we have to make the same changes multiple times. Not only is that wasted effort, it is also error
+                prone. And imagine how bad the problem becomes if the code is hundreds of lines long and duplicated
+                many times.
+            </p>
+            <p>
+                There is a better way: define a single method (containing just one copy of the code) and call it
+                twice.
+            </p>
+
+            <div class="codeTask">
+                <h5>A Method to Draw a Ball</h5>
+                <p>
+                Make this change in your copy of PathFinder.<br/>
+                Take care to choose a good name for your method!<br/>
+                Make sure you haven't broken anything - PAROT (Talk)? 
+             </p>
+            </div>
+            <br/>
+        </div>
+        <!-- End of left column -->
+    </div>
+    <!-- End of row -->
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div class="units-row">
+        <div class="unit-70-cc">
+            <!-- Left column -->
+            <h3>5. Parameters</h3>
+            <p>
+                In many cases, for a method to be genuinely reusable, we need to allow the calling code to provide
+                it with extra information that can vary from one call to the next.
+                The code that checks for collisions between the ball and pegs in PathFinder illustrates the issue.
+            </p>
+
+            <p>
+                The collision-checking code is duplicated three times in <code>draw()</code>:
+            </p>
+            <pre class="brush: processing; gutter: false; toolbar: false; ">    if (dist(xPos,yPos,peg1X,peg1Y) &lt; radius + pegRadius) {
+      fill(0);
+      textAlign(CENTER, CENTER);
+      text("GAME OVER!", width/2, height/2);
+      frameRate(0);
+    }
+    if (dist(xPos,yPos,peg2X,peg2Y) &lt; radius + pegRadius) {
+      fill(0);
+      textAlign(CENTER, CENTER);
+      text("GAME OVER!", width/2, height/2);
+      frameRate(0);
+    }
+    if (dist(xPos,yPos,peg3X,peg3Y) &lt; radius + pegRadius) {
+      fill(0);
+      textAlign(CENTER, CENTER);
+      text("GAME OVER!", width/2, height/2);
+      frameRate(0);
+    }</pre>
+            <p>
+                Ok, so we know how to deal with this? We define a method where the code can be written once, and call the method multiple times :
+            </p>
+            <pre class="brush: processing; gutter: false; toolbar: false; ">void checkForPegCollision()
+{
+  if (dist(xPos,yPos,peg1X,peg1Y) &lt; radius + pegRadius) {
+    fill(0);
+    textAlign(CENTER, CENTER);
+    text("GAME OVER!", width/2, height/2);
+    frameRate(0);
+  }
+}</pre>
+            Then we can replace the previous mess with the much more elegant and readable:
+            <pre class="brush: processing; gutter: false; toolbar: false; ">    checkForPegCollision();
+    checkForPegCollision();
+    checkForPegCollision();</pre>
+            <p>
+                But there is a problem: if we look carefully we see that the three duplicates are not
+                <em>exactly</em> the same. The first one (the one we used in the body of
+                <code>checkForPegCollision</code>) uses
+                <code>peg1X,peg1Y</code>
+                in the distance check, the second one uses
+                <code>peg2X,peg2Y</code>, and the third one uses
+                <code>peg3X,peg3Y</code>.<br/>
+                If we refactor the code as suggested, we will just be checking three times
+                for collisions
+                with peg 1, rather than checking each peg in turn.
+
+            </p>
+            <p>
+                The solution is to <i>parameterise</i> <code>checkForPegCollision()</code> so that the calling code
+                can specify <em>which</em> peg position to check.<br/>The new version looks like this (lines which
+                differ from the previous version are highlighted):
+            </p>
+            <pre class="brush: processing; gutter: false; toolbar: false; highlight: [1,3] ">void checkForPegCollision(float x, float y)
+{
+  if (dist(xPos,yPos,x,y) &lt; radius + pegRadius) {
+    fill(0);
+    textAlign(CENTER, CENTER);
+    text("GAME OVER!", width/2, height/2);
+    frameRate(0);
+  }
+}</pre>
+            Notice that the parameter list for <code>checkForPegCollision</code> is no longer empty. Each entry in a
+            parameter list has the same structure as a variable declaration: a type followed by a name. And that's
+            because a parameter
+            <i>is</i> a variable. It is a local variable (in scope, and so available for use, <i>only within the method being defined</i>), which gets initialised afresh each time the method is called.
+            Also notice how the code now uses the parameters
+            <code>x</code>
+            and <code>y</code> in the distance check, instead of the global variables <code>peg1X</code> and
+            <code>peg2X</code>.
+            <p>
+                We can use this version to check for collisions with pegs at any <code>(x,y)</code> position we like
+                (even positions where there are no pegs, if we like). We specify the actual values
+                for <code>x</code> and <code>y</code> only when we <em>call</em> the method.<br/>
+                For example, if we wanted to check for a collision with a peg at position (29, 176) we would add the call:
+            </p>
+            <pre class="brush: processing; gutter: false; toolbar: false; ">    checkForPegCollision(29, 176)</pre>
+            So, by adding <i>parameters</i> to our method definition, our three calls can now each specify different values for <code>x</code> and <code>y</code>:
+            <pre class="brush: processing; gutter: false; toolbar: false; ">    checkForPegCollision(peg1X, peg1Y);
+    checkForPegCollision(peg2X, peg2Y);
+    checkForPegCollision(peg3X, peg3Y);</pre>
+
+                <p>We hope you can see that:</p>
+                <ol type="a">
+                    <li>This is really useful</li>
+                    <li>It is what existing methods available in <i>Processing</i> do - <code>rect()</code>, <code>color()</code>, <code>size()</code>, <code>ellipse()</code>, etc.</li>
+                </ol>
+        </div>
+        <!-- End of left column -->
+    </div>
+    <!-- End of row -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div class="units-row">
+        <div class="unit-70-cc">
+            <!-- Left column -->
+            <div class="coreTask">
+                <h5>Video : Parameters &amp; Scope</h5>
+                <p>Let's finish this section on <i>parameters</i> with an explanation of parameters and <i>scope</i> from our colleague <i>Dr Radu Jianu</i>, that we have dug out of the City CS archives!
+                It's a <i>4 minute watch</i> and arrives direct from way back when, but it's a great explanation and is still very helpful!</p>
+                <p>It uses a simple example to show how parameters are passed into a method and explains their scope.<br/>
+                It should really help clarify.</p>
+            <a href="https://cityuni-my.sharepoint.com/:v:/g/personal/j_dykes_city_ac_uk/EUfVRWHE8KVChQhNHFJmkbwBSLpz6Du0sfCaSUGcqvQZsg?e=typd6d"><img style="padding:1.5em;padding-top:0px" width="400" src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/cc.video.parameters.png" alt="parameters video"></a>
+            </div>
+        </div>
+    <!-- End of left column -->
+    </div>
+    <!-- End of row -->
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div class="units-row">
+        <div class="unit-70-cc">
+            <!-- Left column -->
+            <h3>6. Return values</h3>
+            <p>
+                There is one more important feature of method definitions to consider. It isn't needed in the PathFinder
+                project, but it is used in one of the core tasks for this session and in many practical applications.
+                We can define methods so that they return <i>a value</i> when they finish, and the calling code can
+                then use that value. If we define such a method, then it is usually called in a slightly different
+                way (as part of an expression) so that the returned value can be used by the calling code after the method has executed.
+                You have already written these kinds of method calls when you used <code>random()</code> and <code>dist()</code>.<br/>
+                For example:
+            </p>
+            <pre class="brush: processing; gutter: false; toolbar: false; ">if (dist(mouseX, mouseY, ballX, ballY) &lt; radius) {
+   println("Well done! You hit the ball.");
+   println("You win £" + random(0.99) + ". Don't spend it all at once.");
+}</pre>
+            <p>
+                If you had to write your own <code>dist()</code> method, it would look something like this:
+            </p>
+            <pre class="brush: processing; gutter: false; toolbar: false; ">float dist(float x1, float y1, float x2, float y2)
+{
+  float dx = x2 - x1;
+  float dy = y2 - y1;
+  return sqrt(dx * dx + dy * dy);
+}</pre>
+            <p>
+                Notice the two essential differences compared to the method definitions we have seen previously:
+            </p>
+            <ol>
+                <li>The return type is <code>float</code> rather than <code>void</code>.<br/>
+                    As you might imagine, this
+                    declares that the method is going to return a value of type <code>float</code>.</li>
+                <li>At the end of the method body there is a <code>return</code> statement.<br/>
+                    The expression after the keyword <code>return</code> is evaluated to provide the value returned to the calling code.
+                </li>
+            </ol>
+        </div>
+        <!-- End of left column -->
+    </div>
+    <!-- End of row -->
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div class="units-row">
+        <div class="unit-70-cc">
+            <!-- Left column -->
+            <h3>7. Practice and Exercises</h3>
+
+            <div class="codeTask">
+                <h5>A Method to Draw A Composite Shape</h5>
+                <div class="figRight">
+                    <figure>
+                    <a href="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/cc.methods.drawRobot.1.png"><img src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/cc.methods.drawRobot.1.png" alt="Robots drawn by a new method" width="200"/></a>
+                    <figcaption>Robot heads drawn by<br/>a <code>drawRobot</code> method.</figcaption>
+                    </figure>
+                </div>
+                <div class="figRight">
+                    <figure>
+                    <a href="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/Roundel.jpg"><img src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/Roundel.jpg" alt="Roundel" width="190"/></a>
+                    <figcaption>Roundels drawn by<br/>a <code>roundel</code> method.</figcaption>
+                    </figure>
+                </div>
+    
+                    <ol>
+                    <li>Starting from scratch (no copy/paste), write a simple sketch to draw a composite shape - a shape that consists of at least three other shapes - in the centre of the sketch window, like the "roundel" shown here.<br/>
+                        (This is a reduced-size screen-shot of a 400x400 sketch.)<br/>
+                        Save your sketch with an appropriate name like "Roundel".
+                    </li>
+                    <li>But, be creative here - you might want to draw something else - such as a simple: tree, dog, car, house, alien gloop monster, or like me ... the head of a robot</li>
+                    <li>
+                        Now refactor your sketch so that the drawing code for the roundel (or other composite shape) is in a separate method called <code>roundel()</code> or some shape-specific equivalent (like <code>alienGloopMonster()</code>).
+                        Note that this method has an empty parameter list.
+                        After refactoring, your <code>draw()</code> method should look like this:
+                        <pre class="brush: processing; gutter: false; toolbar: false; ">void draw()
+        {
+          background(192);
+          roundel();  // &lt;-- or whatever the method is called 
+        }</pre>
+                        Remember: refactoring should <i>not</i> change behaviour, so the sketch should still look like the
+                        above screen-shot when you run it.
+                    </li>
+                </ol>
+                <div class="figClear"></div>
+            </div>
+
+
+            <div class="codeTask">
+            <h5>Adding Method Parameters</h5>
+            <div class="figRight">
+                <figure>
+                <a href="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/cc.methods.drawRobot.5.png"><img src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/cc.methods.drawRobot.5.png" alt="Robots drawn by a new method" width="200"/></a>
+                <figcaption>Robot heads drawn by<br/>a  <code>drawRobot</code> method.</figcaption>
+                </figure>
+            </div>
+            <div class="figRight">
+                <figure>
+                <a href="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/RoundelPos.jpg"><img src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/RoundelPos.jpg" alt="Roundel" width="190"/></a>
+                <figcaption>Roundels drawn by<br/>a <code>roundel</code> method.</figcaption>
+                </figure>
+            </div>
+        
+            <ol>
+                <li>Save a new second version of your sketch (use <i>Save As...</i> on the File menu) with the name "RoundelPos" (or some appropriate alternative).</li>
+                <li><p>Modify your <code>roundel</code> (or other) method so that it has two parameters, <code>x</code> and
+                    <code>y</code>, which it uses to position the centre of the composite shape.<br/>
+                    Refactor your <code>draw()</code> method to use the new version of your code.<br/>
+                    After refactoring, your <code>draw()</code> method should look like this:</p>
+                    <pre class="brush: processing; gutter: false; toolbar: false; ">void draw()
+    {
+      background(192);
+      roundel(width/2, height/2);  // &lt;-- but be sure to use the name that describes your composite shape - like dog();
+    }</pre>
+                 <p>At this stage, your new sketch should <i>still</i> look like the screen-shot seen here when you run it.</p>
+                </li>
+                <li>
+                    Add additional calls to <code>roundel</code> (or your appropriately named alternative method)
+                    in your <code>draw()</code> method, so that the sketch now looks something like the sketches shown here.
+                </li>
+            </ol>
+            <div class="figClear"></div>
+            </div>
+
+            <div class="codeTask">
+                <h5>Adding More Method Parameters</h5>        
+                <div class="figRight">
+                    <figure>
+                    <a href="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/cc.methods.drawRobot.7.png"><img src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/cc.methods.drawRobot.7.png" alt="Robots drawn by a new method" width="200"/></a>
+                    <figcaption>Robot heads drawn by<br/>a <code>drawRobot</code> method<br/>with different input parameters<br/>affecting position and size</figcaption>
+                    </figure>
+                </div>
+                <div class="figRight">
+                    <figure>
+                    <a href="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/RoundelPosScale.jpg"><img src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/RoundelPosScale.jpg" alt="Roundel" width="190"/></a>
+                    <figcaption>Roundels drawn by<br/>a <code>roundel</code> method<br/>with different input parameters<br/>affecting position and scale.</figcaption>
+                    </figure>
+                </div>
+                <ol>
+                    <li>Save a third version of your sketch with the name "RoundelPosScale" (or similar).</li>
+                    <li>Add one more parameter to your <code>roundel</code> method. This parameter should be used to control
+                        the <i>scale</i> of the roundel (a scale of 1.0 will draw the roundel at the same size as before, a
+                        scale of 0.5 will draw it at half size, a scale of 2.0 will draw it at double size, etc).<br/>
+                        If you have drawn a car, or a house or an alien gloop monster or something else, then add parameters that affect the width and height of the composite shape.<br/>
+                        Refactor your <code>draw()</code> method to use a scale parameter of 1.0 in each
+                        of the existing calls to <code>roundel</code> - everything should look the same as before when you run the sketch.
+                    </li>
+                    <li>
+                        In the <code>draw()</code>, modify the scale parameters in the calls to <code>roundel</code> (or similar) so that
+                        each one is drawn
+                        at a different scale. The result should look something like the ones shown here.
+                    </li>
+                </ol>
+                <div class="figClear"></div>
+            </div>
+
+         </div>
+        <!-- End of left column -->
+    </div>
+    <!-- End of row -->
+    
+                
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div class="units-row">
+        <div class="unit-70-cc">
+            <!-- Left column -->
+            <h3>8. Summary and Further Resources</h3>
+            <ul>
+                <li>Methods are named pieces of code that can be called from other pieces of code.
+                    When a method finishes execution, control returns to the calling code.</li>
+                <li>Using methods allows us to build code in a modular way and to write code once and use it many
+                    times. Because methods are reusable they allow us to avoid code duplication.</li>
+                <li>Methods can be defined with parameters to make them even more reusable; argument values are
+                    provided by the calling code and automatically assigned to the method parameters before the
+                    method body is executed.</li>
+                <li>We can also write methods which return a value.
+                    Such methods are called by using them in expressions.</li>
+            </ul>
+
+            <div class="homework">
+                <h5>Reading</h5>
+                <p>
+                You will find more about defining methods in Chapter 7 of <i>Learning Processing</i> by Daniel Shiffman.<br/>
+                This handy resource is available <a href="https://rl.talis.com/3/city/items/dcb7c01f-f917-4827-9813-e253ec335e79.html" target="_blank"> online from the library as an e-book</a>.</p>
+                <p>Do watch out though!<br/>
+                    The online presentation of the book is a bit confusing.
+                Chapter 7 is inside '<em>Lesson 3: Organisation</em>' which appears as item 6 in the online table of contents! Go figure.
+                </p>
+                <p>Also note that Dan Shiffman uses the term "<em>functions</em>" to refer to methods - for now we can consider these to be the same thing!
+                </p>
+            </div>
+        </div>
+        <!-- End of left column -->
+    </div>
+    <!-- End of row -->
+
+            <!--- spacer for iFrame -->
+            <p style="padding-top:1em"><hr/></p>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+</div> <!-- End of page div -->
+<script type="text/javascript">
+    SyntaxHighlighter.all()
+</script>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html  dir="ltr" lang="en" xml:lang="en">
+<head>
+    <title>CreativeCoding Lecture: Methods Exercises</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Embedded fonts -->
+	<link
+			href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+			rel="stylesheet">
+
+	<!-- Custom layout and style -->
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+	<!-- General browser compatibility handling -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+	<!-- Formatted source code -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+	<!-- Sketch popups and hidden text-->
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+	<!-- JD Extras! -->
+    <link rel="stylesheet" href="https://jsndyks.github.io/cityCreativeCoding/css/creativeCoding.css" type="text/css" />
+    
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+<body>	
+
+<div id="page">
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+
+<!-- 
+    You can access [this page](https://jsndyks.github.io/cityCreativeCoding//html/methods/ccMethods.2024.extra.html) outside of _Moodle_ should you wish to do so.
+
+    <iframe id="myIframe"
+  src="https://jsndyks.github.io/cityCreativeCoding//html/ccMethods.2024.extra.html" width="100%"
+  height="3250px"
+  frameborder="0"
+  scrolling="no"></iframe>
+
+<script src="/theme/cul_moove/js/iframeResizer.min.js"></script>
+<iframe id="myIframe" style="width: 1px; min-width:100%;" src="https://jsndyks.github.io/cityCreativeCoding//html/methods/ccMethods.2024.extra.html"></iframe>
+<script>
+    iFrameResize({log: true}, '#myIframe')
+</script>
+
+-->
+
+<div class="codeTask">
+    <h5>A Method to Draw A Composite Shape</h5>
+    <div class="figRight">
+        <figure>
+        <a href="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/cc.methods.drawRobot.1.png"><img src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/cc.methods.drawRobot.1.png" alt="Robots drawn by a new method" width="175"/></a>
+        <figcaption>Robot heads drawn by a <code>drawRobot</code> method.</figcaption>
+        </figure>
+    </div>
+    <div class="figRight">
+        <figure>
+        <a href="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/Roundel.jpg"><img src="https://jsndyks.github.io/cityCreativeCoding//html/methods/img/Roundel.jpg" alt="Roundel" width="200"/></a>
+        <figcaption>Roundels drawn by a <code>roundel</code> method.</figcaption>
+        </figure>
+    </div>
+
+        <ol>
+        <li>Starting from scratch (no copy/paste), write a simple sketch to draw a composite shape - a shape that consists of at least three other shapes - in the centre of the sketch window, like the "roundel" shown here.<br/>
+            (This is a reduced-size screen-shot of a 400x400 sketch.)<br/>
+            Save your sketch with an appropriate name like "Roundel".
+        </li>
+        <li>But, be creative here - you might want to draw something else - such as a simple: tree, dog, car, house, alien gloop monster, or like me ... the head of a robot</li>
+        <li>
+            Now refactor your sketch so that the drawing code for the roundel (or other composite shape) is in a separate method called <code>roundel()</code> or some shape-specific equivalent (like <code>alienGloopMonster()</code>).
+            Note that this method has an empty parameter list.
+            After refactoring, your <code>draw()</code> method should look like this:
+            <pre class="brush: processing; gutter: false; toolbar: false; ">void draw()
+{
+background(192);
+roundel();  // &lt;-- or whatever the method is called 
+}</pre>
+            Remember: refactoring should <i>not</i> change behaviour, so the sketch should still look like the
+            above screen-shot when you run it.
+        </li>
+    </ol>
+    <div class="figClear"></div>
+</div>
+
+
+
+    <!--- spacer for iFrame -->
+    <p style="padding-top:1em"><hr/></p>
+
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+</div> <!-- End of page div -->
+<script type="text/javascript">
+    SyntaxHighlighter.all()
+</script>
+
+</body>
+</html>
