@@ -122,12 +122,12 @@ figcaption {text-align:center; color:#909090; padding-top:0.5em; font-size:90%; 
 
 .figRight figure {margin-left: 1em; margin-right: 2px; width:fit-content; float:right}    
 .figRight {float:right; }
-.figClear {clear:both}
+.figClear {clear:both; background-color:#ff8888; color:#ff0000}
 
 /*
 code {color:#6AA0CF; background-color:#f0f8ff}
  */
-code {color:#228;background-color:#e0f0f080}
+code {color:#228;background-color:#e0f0f080; color:#ff0000}
 
 
 h3 {padding-top:0.25em; margin-top:1em; border-top:1px dashed #e0e0e0; clear:both}
