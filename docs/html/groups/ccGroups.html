@@ -139,9 +139,9 @@ void draw()
 				</p>
 
 				<p>
-					Just like before though, you might hear alarm bells going off ...<br/>
-					&nbsp;&nbsp;&nbsp;&nbsp;🚨 <i>because there are bits of our code that look rather repetitious</i> 🚨
-					<br/> ... such as the 5 instances of calling <code>circle()</code> and
+					Just like before though, you might hear alarm bells going off ...</p>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;🚨 <i>because there are bits of our code that look rather repetitious</i> 🚨</p>
+					<p> ... such as the 5 instances of calling <code>circle()</code> and
 					increasing the value of <code>xPos</code> between each call (to shift the position of each circle
 					along to the right by 70 pixels).<br/>
 					It would be nice to be able to use a loop to save us this
@@ -253,7 +253,7 @@ void draw()
 				<p>
 					The number inside square brackets is known as the array <i>index</i> and is used to indicate which
 					of the separate variable spaces inside the array we wish to deal with. <b>Array indices start
-						counting from 0 not 1.</b> That means the last index in a 10 element array would be 9.
+						counting from 0 not 1.</b> That means the last index in a 10 element array would be 9. 👉
 				</p>
 
 				<p>
@@ -285,7 +285,7 @@ println(ages[2]);</pre>
 				<pre class="brush: processing; gutter: false; toolbar: false;">printArray(ages);</pre>
 
 				<p>
-					The true advantages of arrays become apparent as we start to increase their size.
+					The true advantages of arrays become apparent as we start to increase their size.<br/>
 					For example, we could modify the circle sketch to store not 5 but 500 separate diameter values:
 				</p>
 
@@ -302,18 +302,18 @@ println(ages[2]);</pre>
 				<p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">4</span>
 					- <b>Scale</b> : arrays scale well</code></p>
 	
-				<pre class="brush: processing; gutter: false; toolbar: false;">float[] diameters;            // -- Declare the array of floats
+				<pre class="brush: processing; gutter: false; toolbar: false;">float[] diameters;        // -- Declare the array of floats
 
 void setup()
 {
   size(1000,200);
-  fill(180,50,50,20);
+  fill(180,50,50,20);    // &lt;-- optional 4th parameter to a colour is the opacity (0 transparent, 255 opaque) - change this!
   noStroke();
 
   diameters = new float[500];
   for (int i=0; i&lt;diameters.length; i=i+1)
   {
-    diameters[i] = random(1,50);	// -- Each diameter is a random number between 1 and 50.
+    diameters[i] = random(1,50);	// &lt; -- Each diameter is a random number between 1 and 50 - change this!
   }
 }
 
@@ -354,7 +354,9 @@ void draw()
 						<li>Fill the array with random numbers</li>
 						<li>Plot circles in a line from left to right that have these diameters</li>
 						<li>Position the circles so that their x position relates directly to their radius, rather than the array index</li>
-						<li>Add a keyboard interaction that switches between array index order and circle radius order</li> 
+						<li>Add a keyboard interaction that switches between array index order and circle radius order
+							<br/>(<i>remember to store this as a <code>boolean</code> variable that changes value in <code>keyPressed()</code> and is acted on in <code>draw()</code></i>)
+						</li> 
 					</ol>
 					<p><b>Tip:</b> use a global boolean system state variable called something like <code>orderCirclesBySize</code> as the condition in the <code>draw()</code> loop.</p>
 					<p><b>Tip:</b> run through the <code>Array</code> in <code>Array</code> index order each time - just change the x position of the <code>circle()</code> depending upon the state of the system state variable.</p>
@@ -396,6 +398,10 @@ void draw()
 					We can then use this variable inside the body of the loop as if it had been declared and initialised
 					as a simple <code>float</code> variable.
 				</p>
+
+				<div class="tip">
+					Once you get the hang of the <code>for (float item : items)</code> syntax, it is extremely handy  - give it a go!
+				</div>
 
 				<h4>ArrayLists</h4>
 
@@ -467,10 +473,10 @@ void draw()
 					the array, it uses the special word <code>new</code> in that declaration. We also need to declare
 					what type of variables will be stored in the <code>ArrayList</code> by stating the type in
 					&lt;triangular brackets&gt;. In the example above we have declared it as being able to store
-					<code>String</code>s (i.e. text).
-					The <code>ArrayList&lt;String&gt;</code> syntax looks a bit strange, but it's worth getting used to
-					as ArrayLists are excellent structure for storing and accessing data and dealing with interactive
-					programs that change state according to user input.  
+					<code>String</code>s (i.e. text).</p>
+				<p>
+					The <code>ArrayList&lt;String&gt;</code> syntax looks a bit strange, it's ugly and off-putting to many.
+					But it's worth getting used to as ArrayLists are excellent structure for storing and accessing data and dealing with interactive programs that change state according to user input. You will need ArrayLists in your sketches!
 				</p>
 
 				<p>
@@ -691,7 +697,7 @@ void draw()
 					allow you to evaluate your progress.
 					</p>
 
-					<div class="checkOutcomes">
+					<div class="checkOutcomes" style="padding-left:4em">
 
 						<input type="checkbox" id="sa1">
 						<label for="sa1">Can I declare, initialise and assign values to an array?
@@ -719,6 +725,8 @@ void draw()
 
 						</label><br />
 					</div>
+
+					<p><br/>You may not be a professional coder yet, or have all of the answers, or even find all (or any) of the tasks easy. But having worked your way through the notes and examples you should be able to answer "<i>yes</i>" to each of these questions.</p>
 					<!-- End of checkOutcomes -->
 				</div>
 			</div>
