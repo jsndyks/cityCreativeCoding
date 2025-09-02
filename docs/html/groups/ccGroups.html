@@ -61,12 +61,13 @@ You can view [this lecture](https://jsndyks.github.io/cityCreativeCoding/html/gr
 				This session introduces the idea of <i>Arrays</i> and <i>ArrayLists</i> for storing related collections of data items of similar type.
 			</p>
 
-			<p><strong>By the end of this session you should be able to:</strong></p>
+			<p><strong>Having worked through these notes, attended classes and completed the exercises in your own time you should be able to:</strong></p>
 
 			<ul>
 				<li>declare and initialise <code>Arrays</code> and extract values from them;</li>
 				<li>use nested loops and 2D arrays for representing and working with gridded structures;</li>
-				<li>create <code>ArrayList</code>s and add and remove items from them;</li>
+				<li>create <code>ArrayList</code>s and add items to them;</li>
+				<li>loop through <code>ArrayList</code>s and remove items from them;</li>
 			</ul>
 
 		</div> <!-- End of intro section -->
@@ -138,10 +139,12 @@ void draw()
 				</p>
 
 				<p>
-					Just like before though, you might hear alarm bells going off because there are bits of our code
-					that look rather repetitious, such as the 5 instances of calling <code>circle()</code> and
+					Just like before though, you might hear alarm bells going off ...<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;🚨 <i>because there are bits of our code that look rather repetitious</i> 🚨
+					<br/> ... such as the 5 instances of calling <code>circle()</code> and
 					increasing the value of <code>xPos</code> between each call (to shift the position of each circle
-					along to the right by 70 pixels). It would be nice to be able to use a loop to save us this
+					along to the right by 70 pixels).<br/>
+					It would be nice to be able to use a loop to save us this
 					repetition, but so far we don't have any way of telling the code inside the loop to use
 					<code>diameter0</code> the first time, <code>diameter1</code> the second time etc.
 				</p>
@@ -196,7 +199,7 @@ void draw()
 			<div class="unit-30-cc annotation">
 				<!-- Right column -->
 
-				<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/fiveCircles.png', 400, 200, 'Five circles');</script>
+				<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/groups/img/cc.fiveCircles.png', 400, 200, 'Five circles');</script>
 				<p>Output from the five circles sketch</p>
 
 			</div> <!-- end of right column -->
@@ -215,7 +218,7 @@ void draw()
 			</pre>
 
 				<p>
-					would declare an array capable of storing 10 separate <code>int</code> variables. At this stage, we
+					... would declare an array capable of storing 10 separate <code>int</code> variables. At this stage, we
 					haven't actually stored any numbers, but simply reserved the space in memory for 10 numbers to be
 					stored later in our program. To assign values to those 10 memory spaces we might do something like:
 				</p>
@@ -232,7 +235,7 @@ void draw()
 
 				<div class="figRight" style="width:225">
 				<figure>
-					<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/array.png', 300, 450, 'Array anatomy');</script>
+					<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/groups/img/cc.array.png', 300, 450, 'Array anatomy');</script>
 					<figcaption>
 					Tha Anatomy of an Array.
 				</figcaption>
@@ -332,7 +335,7 @@ void draw()
 			<div class="unit-30-cc annotation">
 				<!-- Right column -->
 
-				<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/fiveHundredCircles.png', 1000, 200, 'Five circles');</script>
+				<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/groups/img/cc.fiveHundredCircles.png', 1000, 200, 'Five circles');</script>
 
 				<p>Output from the five hundred circles sketch <i>(click to enlarge)</i></p>
 
@@ -607,7 +610,7 @@ void draw()
 
 			<div class="unit-30-cc annotation">
 				<!-- Right column -->
-				<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/tenThousandCircles.png', 800, 800, 'Grid of random circles');</script>
+				<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/groups/img/cc.tenThousandCircles.png', 800, 800, 'Grid of random circles');</script>
 				<p>
 					A grid of 10,000 randomly sized circles using a 2D array and nested for loops <i>(click to
 						enlarge)</i>.
