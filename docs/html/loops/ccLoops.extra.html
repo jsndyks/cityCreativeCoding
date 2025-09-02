@@ -34,6 +34,7 @@
 
     <!-- JD Extras! -->
     <link rel="stylesheet" href="https://jsndyks.github.io/cityCreativeCoding/css/creativeCoding.css" type="text/css" />
+    <!-- <link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" /> -->
     
     <!-- iFrame -->
     <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
@@ -47,15 +48,16 @@
         <!-- Add summary sentence or two below, which will act as an easy introduction -->
 
 
+        <h3>Exercises &amp; Extras</h3>
 
         <p>
-            These exercises give you practice using loops.<br/>
+            These exercises give you practice using loops by setting some additional extra challenges for those who found the core material straightforward.<br/>
             They should help you develop your understanding of how these are coded in
             <i>Processing</i> and help you practice and use your skills in making repeated tasks more efficient by
             placing them inside these structures.
             </p>
         <p>
-            Note that these are <b>optional</b> exercises - be sure that you have completed and understood and discussed the <b>core</b> exercises first.
+            Note that these are <b>optional</b> exercises - be sure that you have completed and understood and discussed the <b>core</b> exercises first. Only attempt these exercises if you have completed everything in <a href="">Loops : Core</a> and want more!  
         </p>
 
         <div class="challenge">
@@ -88,15 +90,21 @@
             </p>
             <p>
             Build on the underground sign sketch to check whether the mouse is within the trunk or leaves of the tree
-            and change the colour of any tree you are 'touching'.<br /><br /> <b>TIP</b> Calculating whether a point is
-            inside or outside a non-circular ellipse is a little more complicated than for a circle. But we can use our
-            own method do the calculation:
+            and change the colour of any tree you are 'touching'.
             </p>
-            <pre class="brush: processing; gutter: false; toolbar: false; ">// Will return true if position (x,y) is within an ellipse(cx,cy,w,h), otherwise false.
+            <div class="tip">
+            <p>
+                <b>TIP</b> Calculating whether a point is
+            inside or outside a non-circular ellipse is a little more complicated than for a circle.
+            <br/>But we can use add a method do the calculation - try this one:
+            </p>
+            <pre class="brush: processing; gutter: false; toolbar: false; ">// -- Method will return true if position (x,y) is within an ellipse(cx,cy,w,h), otherwise false.
+
 boolean isInEllipse(float x, float y, float cx, float cy, float w, float h) 
 {
   return (x-cx)*(x-cx)/(w*w/4) + (y-cy)*(y-cy)/(h*h/4) &lt; 1;
 }</pre>
+            </div>
             <p>
                 Can you also print out the number of the tree you are touching?
             </p>

@@ -72,7 +72,7 @@
                 <h3>1. Program Flow and Loops</h3>
                 <div class="figRight">
                     <figure>
-                        <script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/loops/img/cc.programFlow.png', 500, 516, 'Program flow in a method');</script>
+                        <script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/loops/img/cc.programFlow.png', 400, 516, 'Program flow in a method');</script>
                         <figcaption>The control flow of a method call.</figcaption>
                     </figure>
                 </div>
@@ -107,7 +107,7 @@
             <div class="unit-70-cc">
                 <div class="figRight">
                     <figure>
-                        <script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/loops/img/cc.loopFlow.png', 500, 524, 'Program flow with a loop');</script>
+                        <script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/loops/img/cc.loopFlow.png', 400, 524, 'Program flow with a loop');</script>
                         <figcaption>Program flow with a loop</figcaption>
                     </figure>
                 </div>
@@ -316,7 +316,7 @@ void drawTree(float treeX, float treeY)
 
             <div class="unit-30-cc annotation">
                 <!-- Right hand column for small images, popup sketches and annotations. -->
-                <script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/loops/img/cc.woodland.png', 800, 400, 'Loop used to draw several trees');</script>
+                <script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/loops/img/cc.woodland.png', 600, 300, 'Loop used to draw several trees');</script>
                 <p>
                     Loop used to draw several trees <i>(click to enlarge)</i>.
                 </p>
@@ -390,7 +390,7 @@ void drawTree(float treeX, float treeY)
                 <p>
                     When you nest loops inside other loops or blocks of code, indentation becomes increasingly helpful
                     as a way of making your code clearer to read. You can get <i>Processing</i> to apply that indentation
-                    automatically at any time by pressing <code>Control-T</code> (or <code>Cmd-T</code> on a Mac).
+                    automatically at any time by pressing <code>CTRL-T</code> (or <code>Command-T</code> on a Mac).
                 </p>
 
                 <p>
@@ -426,8 +426,9 @@ void drawTree(float treeX, float treeY)
                     lecture):</p>
                     <ul>
                         <li>create more or fewer rectangles;</li>
-                        <li>draw them towards the left or towards the right of the sketch;</li>
-                        <li>space them further apart or closer together;</li>
+                        <li>add <code>text()</code> that shows the position of the rectangle inside the shape;</li>
+                        <li>draw the shapes towards the left or towards the right of the sketch;</li>
+                        <li>space them further apart or closer together as the loop progresses;</li>
                         <li>make them increasingly larger in size;</li>
                         <li>make every alternate rectangle red.</li>
                     </ul>
@@ -445,10 +446,14 @@ void drawTree(float treeX, float treeY)
     fill(200);
   }</pre>
                       <p>Add a little randomness to the position of the squares to make them dance and test your code.</p>
-
-                      <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/nineSquareInteraction/", 800, 800, "https://jsndyks.github.io/cityCreativeCoding/html/loops/img/cc.nineSquareInteraction.png");</script>
-
                     </div>
+
+                    <figure>
+                      <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/nineSquareInteraction/", 800, 800, "https://jsndyks.github.io/cityCreativeCoding/html/loops/img/cc.nineSquareInteraction.png");</script>
+                      <figcaption>Click above for shaking rectangles.</figcaption>
+                    </figure>
+
+                <div style="clear:both"/>
                 
                 <div class="codeTask">
                     <h5>3. Chess Board</h5>
@@ -499,17 +504,18 @@ void drawTree(float treeX, float treeY)
                     <i>Hint:</i> You will need to create an outer loop to go round the one in the code above. That outer loop
                     will repeat three times, once for each row. The effect should be something like this:
                     </p>
-                    <img src="https://jsndyks.github.io/cityCreativeCoding/html/loops/img/cc.woodlandRows.png" width="800"
-                        height="400" alt="3 rows of trees">
+                    <img src="https://jsndyks.github.io/cityCreativeCoding/html/loops/img/cc.woodlandRows.png" width="600"
+                        height="300" alt="3 rows of trees">
                 </div>
 
                 <div class="challenge">
                     <h5>5. Add Perspective</h5>
                     <p>Adapt your three rows of trees sketch from the task above so that the size of the trees gets smaller
                     towards the horizon.</p>
-                    <p>Can you adapt the colour to fade towards the horizon too?</p>
+                    <p>Can you adapt the colour to fade towards the horizon too?<br/>
+                    Remember that the 4th argument in any colour is the <i>alpha</i> or level of opacity / transparency.</p>
                     <img src="https://jsndyks.github.io/cityCreativeCoding/html/loops/img/cc.woodlandPerspective.png"
-                        width="800" height="400" alt="Woodland with perspective">
+                        width="600" height="300" alt="Woodland with perspective">
                 </div>
  
             </div> <!-- End of left column -->

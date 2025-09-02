@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CreativeCoding Extras: Groups</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Embedded fonts -->
+<link
+    href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+    rel="stylesheet">
+
+<!-- Custom layout and style -->
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+<!-- General browser compatibility handling -->
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+<!-- Formatted source code -->
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+<!-- Sketch popups and hidden text-->
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+<!-- JD Extras! -->
+<link rel="stylesheet" href="https://jsndyks.github.io/cityCreativeCoding/css/creativeCoding.css" type="text/css" />
+<!-- <link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" /> -->
+
+  <!-- iFrame -->
+  <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+
+        <!---
+You can view [this practical](https://jsndyks.github.io/cityCreativeCoding/html/groups/ccGroups.2024.extra.html) outside of _Moodle_ should you wish to.
+       -->
+
+        <p>
+            These <b>optional</b> additional exercises give you practice using arrays.<br/>
+            Make sure you have completed the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=806661">Groups : Core</a> materials and exercises before attempting them.
+            And please don't feel as though you need to try all of these - pick the ones that interest you, avoid the ones that don't!
+        </p>
+
+        <div class="challenge">
+            <h5>Names</h5>
+            <p>
+            Modify the name list sketch given in the lectures (reproduced below) so that the remaining names are
+            removed when you press a key corresponding to the first letter of each name.<br/>
+            Modify if further so that
+            pressing shift and the relevant key, adds names back to the list (e.g. pressing shift-S should add all the
+            names beginning with 'S').
+            </p>
+            <pre class="brush: processing; gutter: false; toolbar: false; ">ArrayList&lt;String&gt; names = new ArrayList();
+
+void setup()
+{
+  size(300,350);
+  fill(0);
+  textSize(22);
+
+  names.add("Giacomo");
+  names.add("Jason");
+  names.add("Golnaz");
+  names.add("Aravin");
+  names.add("Olga");
+  names.add("Kam");
+  names.add("Charlie");
+  names.add("Ross");
+  names.add("Jo");
+  names.add("Cristina");
+  names.add("Aidan");
+}
+
+void draw()
+{
+  background(255);
+  float yPos = 30;
+
+  for (String name : names)
+  {
+    text(name,50,yPos);
+    yPos = yPos+30;
+  }
+}
+
+void keyPressed()
+{
+  if (key == 'j')
+  {
+	names.remove("Jason");
+    names.remove("Jo");
+  }
+  else if (key == 'g')
+  {
+    names.remove("Golnaz");
+    names.remove("Giacomo");
+  }
+}</pre>
+            <i>Hint: </i> You can distinguish between a key press and a shift-key press by simply testing for the
+            lower-case and upper-case versions of the key, e.g.
+            <br /><br />
+            <pre class="brush: processing; gutter: false; toolbar: false; ">if (key == 'a')
+{
+  // Do something in response to the lower-case key press.
+}
+else if (key == 'A')
+{
+  // Do something in response to the upper-case key press.
+}</pre>
+        </div>
+
+        <br /><br />
+
+
+        <div class="challenge">
+
+            <h5>2. Circle Colours</h5>
+            <p>
+            Modify the circle grid sketch from the lecture notes (reproduced below) so that the fourth row of circles
+            is displayed in a different colour.
+            </p>
+            <pre class="brush: processing; gutter: false; toolbar: false;">void setup()
+{
+  size(400,400);
+  noStroke();
+  fill(180,50, 50, 100);
+}
+
+void draw()
+{
+  background(255);
+
+  for (int row=0; row&lt;10; row = row+1)
+  {
+    for (int col=0; col&lt;10; col = col+1)
+    {
+      circle(20 + col*40, 20 + row*40,30);
+    }
+  }
+}</pre>
+            <p>
+            Modify the sketch further so that it instead highlights the fourth column.
+            </p>
+            <div class="units-row">
+                <div class="unit-50"><img
+                        src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/circleGridRowHighlight.png"
+                        width="400" height="400" alt="Grid with highlighted row"></div>
+                <div class="unit-50"><img
+                        src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/circleGridColHighlight.png"
+                        width="400" height="400" alt="Grid with highlighted row"></div>
+            </div>
+
+        </div>
+        <br /><br />
+
+        <div class="challenge">
+            <h5>3. Interactive Colours</h5>
+            <p>
+              Modify the sketch produced for the previous task so that the mouse position controls the highlighted row
+            and column <i>(Click the image below to show an example)</i>.
+            </p>
+            <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/jwo/gridHighlight", 400, 400, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture05/images/circleGridInteractiveHighlight.png");</script>
+        </div>
+
+        <br /><br />
+
+
+        <div class="challenge">
+            <h5>4. Interactive Challenge</h5>
+            <p>
+            Create a sketch containing the setup, draw, mousePressed, and mouseReleased methods. Declare two global
+            float arrays called xps, yps and initialize them to have the same size. In the setup method fill the two
+            arrays with random values such that pairs of xps and yps values at the same index represent the coordinates
+            of points that lie within the sketch bounds. In the draw method, draw circles of size 30 at those positions.
+            </p>
+            <p>
+            Add code to allow the user to pick a specific circle and drag and drop it anywhere within the sketch. To do
+            so you may want to add a global variable of type int called pickedCircle which should be set to a negative
+            value if no circle is picked and a value corresponding to the index of a picked circle, in case a circle was
+            indeed picked.
+            </p>
+            <p>
+            Add two more global arrays, one called diameters (of type float) and one called colours (of type color) and
+            initialize them to have the same size as the xps and yps arrays. Fill the diameters one with random values
+            and the colors one with one of two colours, red and blue, chosen randomly. Given the drag-and-drop
+            functionality the user should be able to separate the randomly positioned circles into separate red and blue
+            groups (ex: top half of the screen vs. bottom half of the screen). As a challenge you may wish to consider
+            writing a method to test automatically if the user accomplished this goal.
+            </p>
+            <p>
+            Change the arrays to ArrayLists and change the implementation of the mousePressed method so as to allow the
+            user to remove all circles of a certain colour.
+            </p>
+        </div> <!-- End of task -->
+
+        <div style="padding-bottom:2em;clear:both" />
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>
