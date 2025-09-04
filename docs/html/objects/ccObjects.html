@@ -1127,9 +1127,10 @@ void draw()
                     Use your <i>sketchbook</i> - the physical one, the paper one - to think about, and record the characteristics of a class that might depict the data you are recording:
                     </p>
                     <ul>
-                        <li>what would it look like - draw a sketch in your sketchbook</li>
+                        <li>what would it <i>look like</i> - draw a sketch in your sketchbook</li>
                         <li>what might the <i>fields</i> or <i>instance variables</i> be - how would each object be different according to the data that it depicted?</li>
                         <li>what methods might the class have - a <code>draw()</code> method, maybe a <code>move()</code> - but anything else?</li>
+                        <li>what <i>Processing</i> commands or methods might you need to add to the <code>draw()</code> method to achieve the look that you have sketched above?</li>
                     </ul>
                     <p>Discuss your ideas with friends, colleagues and teaching staff.</p>
                 </div>
@@ -1175,7 +1176,7 @@ void draw()
     void draw() {
       background(250);
     
-      int i=1;                  // &lt;-- counter - used to position dogs in a line (I like tidy dogs)
+      int i=1;                   // &lt;-- counter - used to position dogs in a line (I like tidy dogs)
      
       // -- loop through all Dogs in the dogs ArrayList one at a time:
       for (Dog dog : dogs) {    
@@ -1183,15 +1184,15 @@ void draw()
         if (frameCount ==1) {
           dog.printFields();    // &lt;-- use this method in Dog class to output information ONCE!
         }
-        dog.draw();             // &lt;-- draw the dog on the canvas with it's draw() method 
+        dog.draw();            // &lt;-- draw the dog on the canvas with it's draw() method 
         i++;
       }
     }    
 </pre>
                 <p>
-                    Create a tab called <i>Dog</i> for the code that describes the <code>Dog</code> class, and paste this in.<br/>
+                    Create a tab called <i>Dog</i> for the code that describes the <code>Dog</code> class, and paste the above code into the tab.<br/>
                     Note that this is more sophisticated than anything that you need right now - but we want you to see the ideas, and what is possible, and how this is achieved.<br/>
-                    Building on what you have learned so far will enable you top produce this kind of thing - we are only highlighting approaches that have been introduced and used in <code>#CreativeCoding</code> so far, and putting them together to build functionality.
+                    Building on what you have learned so far will enable you to produce this kind of class - remember, we are only highlighting approaches that have been introduced and used in <code>#CreativeCoding</code> so far, and putting them together in ways that build functionality.
                 </p>
 <pre class="brush: processing; gutter: false; toolbar: false; ">// -- Dog class to show data - inspired by Giorgia Lupi (week 34):
 // -- https://www.dear-data.com/by-week/#/week-34-a-week-of-urban-wildlife/
@@ -1292,7 +1293,7 @@ void draw()
 </pre>
                 
                 <p>
-                    Create a tab called <i>interactions</i> for the rather clunky and embarrassing (but functional) <code>keyPressed()</code> method and paste in the following - checking the comments as you do so.<br/>
+                    Create a tab called <i>interactions</i> for the rather clunky and embarrassing (but functional) <code>keyPressed()</code> method that follows and paste in the code that describes this method below - checking the comments as you do so.<br/>
                     You will not need to, and are indeed not advised to, create objects in <code>keyPressed()</code> - just do so in <code>setup()</code> - this is solely for effect here. But you will need to use commands of the form ...  <br/>
                     <code>Class instance = new Class (fields / instance variables) </code><br/>
                     ... to generate new objects, new instances of your class. So the structure and syntax are useful here.
@@ -1365,11 +1366,11 @@ void draw()
                       Then, and this is understandably open, and non-urgent ...  
                     </p>
                     <ul>
-                        <li>See whether you can use this code and the simple examples that we have studied here, produce a rudimentary class that begins to implement your <i>Class for Data</i> as imagined above</li>
+                        <li>See whether you can use this code and the simple examples that we have studied here, to produce a rudimentary class that begins to implement your <i>Class for Data</i> as imagined above</li>
                     </ul>
                     <p>
-                        We don't expect too much here - start simple, very simple, just a couple of fields, a constructor and a method that maybe prints out the field value.
-                        Then discuss progress, experiment, embrace failures and celebrate small victories.
+                        We don't expect too much here - start simple, very simple, just a couple of fields, a constructor and a method that maybe prints out the field value.<br/>
+                        Then discuss progress, experiment, embrace failures and celebrate small victories.<br/>
                         One step at a time.
                     </p>
                 </div>
@@ -1404,7 +1405,7 @@ void draw()
                     <li>
                         You can create your own classes using the <code>class</code> keyword followed by a name with a
                         capital letter and a pair of braces within which the data and methods that form the class are
-                        coded. There is one special method called the <i>constructor</i> that will always have the same
+                        coded. Each class has one special method called the <i>constructor</i> that will always have the same
                         name as the class in which it sits and will be used to initialise the data when an object is
                         created from the class.
                     </li>
@@ -1427,7 +1428,7 @@ void draw()
                     <br /><br />
 
                     <ul>
-                        <li><a href="https://moodle4.city.ac.uk/mod/page/view.php?id=466630" target="_blank">Bouncing
+                        <li><a href="https://moodle4.city.ac.uk/mod/page/view.php?id=968056" target="_blank">Bouncing
                                 Balls Example</a> — Using classes to create a sketch full of bouncing balls. This takes the
                             examples in this session a little bit further by coding behaviour that allows the balls to
                             bounce off each other.

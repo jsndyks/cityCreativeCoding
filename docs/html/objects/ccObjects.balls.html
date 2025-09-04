@@ -32,8 +32,9 @@
 <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
 
 <!-- JD Extras! -->
-  <link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" />
-  
+<link rel="stylesheet" href="https://jsndyks.github.io/cityCreativeCoding/css/creativeCoding.css" type="text/css" />
+<!-- <link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" /> -->
+
   <!-- iFrame -->
   <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
 </head>
@@ -228,8 +229,8 @@ void draw()
           relates
           to a ball is kept in its own class away from the code that might do other things in your sketch. For example,
           if
-          we were making a tennis game, we might make another completely separate class called <code>Racquet</code> that
-          handles the drawing and characteristics of a tennis racquet.
+          we were making a tennis game, we might make another completely separate class called <code>Racquet</code> or
+          even <code>Paddle</code> that handles the drawing and characteristics of a tennis racquet (or paddle).
         </p>
 
         <p>
@@ -283,7 +284,7 @@ void draw()
         Here we use <i>Processing</i>'s <code><a href="https://www.processing.org/reference/random_.html"
           target="_blank">random()</a></code>
         method to set a random diameter, position, and colour for the ball. The two numbers or <i>parameters</i> in the
-        brackets of <code>random()</code> represent the lower and upper values between which, a random value is
+        brackets of <code>random()</code> represent the lower and upper values between which a random value is
         selected.
         <p></p>
 
@@ -385,7 +386,7 @@ void draw()
   float x, y;                   // Ball position.
   float diameter;               // Ball diameter.
   color colour;                 // Ball colour.
-  float dx,dy;                  // Movement increments.
+  float dx,dy;                  // Movement increments in x and y.
 
   // Constructor - this is called whenever a new ball is created.
   Ball()
@@ -453,10 +454,10 @@ void draw()
         <pre class="brush: processing; gutter: false; toolbar: false; highlight: [3,4,5,6,7]">void move()
 {
   // Make balls bounce off edge.
-  if (x &lt;= diameter/2) dx = abs(dx);
-  if (y &lt;&lt;= diameter/2) dy = abs(dy);
-  if (x &gt;= width-diameter/2) dx = -abs(dx);
-  if (y &gt;= height-diameter/2) dy = -abs(dy);
+  if (x &lt;= diameter/2) dx = abs(dx);          // -- make dx positive so ball moves right.
+  if (y &lt;&lt;= diameter/2) dy = abs(dy);         // -- make dy positive so ball moves down.
+  if (x &gt;= width-diameter/2) dx = -abs(dx);  // -- make dx negative so ball moves left.
+  if (y &gt;= height-diameter/2) dy = -abs(dy); // -- make dy negative so ball moves up.
 
   x = x+dx;
   y = y+dy;
@@ -508,14 +509,15 @@ void draw()
       <div class="unit-70">
         <!-- Left column -->
 
-        <pre class="brush: processing; gutter: false; toolbar: false;">boolean hasCollidedWith(Ball anotherBall)
-{
-  if (dist(x, y, anotherBall.x, anotherBall.y) &lt;= (diameter+anotherBall.diameter)/2)
-  {
-    return true;
-  }
-  return false;
-}
+        <pre class="brush: processing; gutter: false; toolbar: false;">
+    boolean hasCollidedWith(Ball anotherBall)
+    {
+      if (dist(x, y, anotherBall.x, anotherBall.y) &lt;= (diameter+anotherBall.diameter)/2)
+      {
+        return true;
+      }
+      return false;
+    }
 </pre>
 
         <p>
@@ -546,41 +548,42 @@ void draw()
       <div class="unit-70">
         <!-- Left column -->
 
-        <pre class="brush: processing; gutter: false; toolbar: false;">void bounce(Ball anotherBall)
-{
-  // Calculate bounce angle of the two balls.
-  float collisionAngle = atan2(anotherBall.y-y, anotherBall.x-x);
-  float collisionX = cos(collisionAngle);
-  float collisionY = sin(collisionAngle);
-  float collisionXTangent = cos(collisionAngle+HALF_PI);
-  float collisionYTangent = sin(collisionAngle+HALF_PI);
-  float collisionPx = x + diameter/2*collisionX;
-  float collisionPy = y + diameter/2*collisionY;
+        <pre class="brush: processing; gutter: false; toolbar: false;">
+    void bounce(Ball anotherBall)
+    {
+      // Calculate bounce angle of the two balls.
+      float collisionAngle = atan2(anotherBall.y-y, anotherBall.x-x);
+      float collisionX = cos(collisionAngle);
+      float collisionY = sin(collisionAngle);
+      float collisionXTangent = cos(collisionAngle+HALF_PI);
+      float collisionYTangent = sin(collisionAngle+HALF_PI);
+      float collisionPx = x + diameter/2*collisionX;
+      float collisionPy = y + diameter/2*collisionY;
 
-  float v1 = sqrt(dx*dx + dy*dy);
-  float v2 = sqrt(anotherBall.dx*anotherBall.dx+anotherBall.dy*anotherBall.dy);
+      float v1 = sqrt(dx*dx + dy*dy);
+      float v2 = sqrt(anotherBall.dx*anotherBall.dx+anotherBall.dy*anotherBall.dy);
 
-  float d1 = atan2(dy, dx);
-  float d2 = atan2(anotherBall.dy, anotherBall.dx);
+      float d1 = atan2(dy, dx);
+      float d2 = atan2(anotherBall.dy, anotherBall.dx);
 
-  float v1x = v1*cos(d1-collisionAngle);
-  float v1y = v1*sin(d1-collisionAngle);
+      float v1x = v1*cos(d1-collisionAngle);
+      float v1y = v1*sin(d1-collisionAngle);
 
-  float v2x = v2*cos(d2-collisionAngle);
-  float v2y = v2*sin(d2-collisionAngle);
+      float v2x = v2*cos(d2-collisionAngle);
+      float v2y = v2*sin(d2-collisionAngle);
 
-  dx = collisionX*v2x + collisionXTangent*v1y;
-  dy = collisionY*v2x + collisionYTangent*v1y;
+      dx = collisionX*v2x + collisionXTangent*v1y;
+      dy = collisionY*v2x + collisionYTangent*v1y;
 
-  x = collisionPx - 0.5*diameter*collisionX;
-  y = collisionPy - 0.5*diameter*collisionY;
+      x = collisionPx - 0.5*diameter*collisionX;
+      y = collisionPy - 0.5*diameter*collisionY;
 
-  anotherBall.dx = collisionX*v1x + collisionXTangent*v2y;
-  anotherBall.dy = collisionY*v1x + collisionYTangent*v2y;
+      anotherBall.dx = collisionX*v1x + collisionXTangent*v2y;
+      anotherBall.dy = collisionY*v1x + collisionYTangent*v2y;
 
-  anotherBall.x = collisionPx + 0.5*anotherBall.diameter*collisionX;
-  anotherBall.y = collisionPy + 0.5*anotherBall.diameter*collisionY;
-}
+      anotherBall.x = collisionPx + 0.5*anotherBall.diameter*collisionX;
+      anotherBall.y = collisionPy + 0.5*anotherBall.diameter*collisionY;
+    }
 </pre>
 
         <p>
@@ -633,7 +636,7 @@ void draw()
     }
   }
 
-  // Finally move all the balls by one step.
+  // Finally move all the balls by dx and dy by calling the move() method.
   for (Ball ball : balls)
   {
     ball.move();
@@ -650,7 +653,7 @@ void draw()
         <!-- Right column -->
 
         <p>
-          <br><br><br><br>
+          <br/><br/>
         </p>
         <p>
           The outer for loop <code>i</code> counts through each of the balls from 0 to 49. For each ball at position
@@ -680,6 +683,8 @@ void draw()
     <div class="units-row">
       <div class="unit-70">
         <!-- Left column -->
+         <p>Here is the main sketch with <code>setup()</code> and <code>draw()</code>.
+        It includes a global variable definition - an array of <code>Ball</code> objects called <code>balls</code>.</p>
         <pre class="brush: processing; gutter: false; toolbar: false;">Ball[] balls;           // Declare an array of ball objects.
 
 void setup()
@@ -722,6 +727,9 @@ void draw()
   }
 }
 </pre>
+
+<p>Here is the code that defines the <code>Ball</code> class - which by convention we add to a new tab called 'Ball'.</p>
+
 
         <pre class="brush: processing; gutter: false; toolbar: false;">class Ball
 {
@@ -807,6 +815,8 @@ void draw()
   }
 }
 </pre>
+
+      <p>Try it out! And experiment!</p>
       </div> <!-- end of left column -->
 
       <div class="unit-30 annotation">
