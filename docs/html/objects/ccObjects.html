@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CreativeCoding Lecture: Objects &amp; Classes</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Embedded fonts -->
+	<link
+			href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+			rel="stylesheet">
+
+	<!-- Custom layout and style -->
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+	<!-- General browser compatibility handling -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+	<!-- Formatted source code -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+	<!-- Sketch popups and hidden text-->
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+	<!-- JD Extras! -->
+    <link rel="stylesheet" href="https://jsndyks.github.io/cityCreativeCoding/css/creativeCoding.css" type="text/css" />
+    <!-- <link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" /> -->
+    
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+
+        <!-- 
+You can access the [Objects Lecture](https://jsndyks.github.io/cityCreativeCoding/html/objects/bootCamp.objects.lecture.html) outside of _Moodle_ should you wish to do so.                         
+         -->
+
+        <div class="intro">
+            <p>
+                This session introduces the idea of <i>the class</i> and <i>objects</i> created from a class.
+                It shows how this way of organising your code can help you to build sketches that model aspects of the world in meaningful ways. Classes and objects enable you to handle and control multiple items in your sketches very easily.
+            </p>
+
+            <p><strong>By the end of this session, having worked through the notes and exercises, and attended the in-person actvities, you should be able to:</strong></p>
+
+            <ul>
+                <li>Use <i>Processing</i>'s built-in classes such as <code>String</code> and <code>PVector</code>;</li>
+                <li>Access <i>fields</i> stored in objects using the dot operator;</li>
+                <li>Access <i>methods</i> stored in objects using the dot operator;</li>
+                <li>Create your own <b>class</b> (<a href="https://processing.org/reference/class.html"><code>class</code></a>) containing fields and methods;</li>
+                <li>Create multiple <b><a href="https://processing.org/reference/Object.html">objects</a></b> from a class;</li>
+                <li>Refactor code to use classes and objects;</li>
+            </ul>
+
+        </div> <!-- End of intro section -->
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+                <h3>0. Lecture Example - Preparation</h3>
+                <div class="coreTask">
+                    <h5>Sketch Download ...</h5>
+                    <p>In the lecture we will be experimenting with a <i>Robot</i> class - please <b>download</b> it, <b>unzip</b> the file and <b>open</b> it in <i>Processing</i>.</i></p>
+                <ul><li><a href="https://jsndyks.github.io/cityCreativeCoding/html/objects/sketch/robotClasses.zip">robotClasses.zip</a></li></ul>
+                <p>The work we will do with this class is also now documented on this <a href="https://jsndyks.github.io/cityCreativeCoding/html/objects/ccObjects.robots.html">Objects &amp; Classes : Robots</a> page</p>
+                </div>
+        </div>
+        </div>
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+                <h3>1. Using <i>Processing</i>'s classes</h3>
+                <p>
+                    We've used a number of different variable types so far in our sketches, each designed for storing
+                    different types of data. One such variable type was the type <code>String</code>, for storing text
+                    data. In fact, <code>String</code> is a special kind of type known as a <i>class</i>.
+                </p>
+
+                <p>
+                    A class is like a normal variable type on steroids — not only can it be used for storing things, it
+                    also has its own methods for doing stuff with the data it stores. You can access those methods by
+                    using the 'dot operator' appended to the name of the variable. For example:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false; ">String moduleTitle = "Creative Coding";
+println(moduleTitle);
+println(moduleTitle.length());</pre>
+
+                <p>
+                    The first line just creates a new variable of type <code>String</code>. We've named the variable
+                    <code>moduleTitle</code> in this example. The second line just prints the content of that variable,
+                    just as we have done before. The third line calls one of the methods that comes with the
+                    <code>String</code> class, in this case one that counts the number of characters in the string.
+                </p>
+
+                <p>
+                    The output sent to the console from these three lines is ...
+                </p>
+                <pre style="background: #224; color:#e0e0e0;">Creative Coding
+15</pre>
+                ... as there are 15 letters in the text 'Creative Coding' and the <code>length()</code> method that is part of the <code>String</code> class returns the number of characters held in the <code>String</code>.
+
+
+                <p>
+                    The <code>String</code> class has plenty of other useful methods for doing things with text. Here
+                    are just a few of them:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false; highlight: [3,4,6,11,16]">    String moduleTitle = "Creative Coding";
+ 
+    println(moduleTitle.toUpperCase());  // Convert text to upper-case
+    println(moduleTitle.substring(9));   // Extract part of string from 8th character onwards
+        
+    if (moduleTitle.contains("Cod"))
+    {
+        println("Fish related word found!");
+    }
+        
+    if (moduleTitle.equals("Creative Coding"))
+    {
+        println("Upper-case match found!");
+    }
+        
+    if (moduleTitle.equalsIgnoreCase("CREATIVE CODING"))
+    {
+        println("Case insensitive match found!");
+    }
+
+    if (moduleTitle.contains("eat") && moduleTitle.contains("Cod"))
+    {
+        println("Fishy food words found!");
+    }</pre>
+
+                <p>
+                    Producing the following console output:
+                </p>
+
+                <pre style="background: #224; color:#e0e0e0;">CREATIVE CODING
+Coding
+Fish related word found!
+Upper-case match found!
+Case insensitive match found!
+Fishy food words found!</pre>
+
+                <div class="codeTask">
+                  <h5>String Methods</h5>
+                  <p>Try copying and then varying the above code that manipulates Strings - vary the Strings and the parameters used in the methods.</p>
+                  <p>Look up methods available in <code>String</code>s in the <a href="https://processing.org/reference/String.html"><i>Processing</i> Reference</a> documentation and try a new one!</p>
+                </div>
+                <p>
+                    There are plenty of other methods that form part of the <code>String</code> class. See the <a
+                        href="https://processing.org/reference/String.html" target="_blank"><i>Processing</i>
+                        String reference</a> for further details.
+                </p>
+
+                <p>
+                    The important point to take from these examples is that <i>the methods that form part of a class act
+                        on the data made available by that class</i>. The data (text) and the methods that act upon them
+                    (counting number of characters, converting to upper-case etc.) are all bound up in a single entity —
+                    <b>the class</b>.
+                </p>
+
+                <h4>The <code>PVector</code> class</h4>
+
+                <p>
+                    There are many, many classes that form part of the <i>Processing</i> language, and as we shall see later,
+                    you can create your own classes. But for now, one useful new <i>Processing</i> class is the
+                    <code>PVector</code> (see the <a href="https://processing.org/reference/PVector.html"
+                        target="_blank"><i>Processing</i> PVector reference</a>).
+                </p>
+
+                <p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">1</span> - <b>PVector</b> : a useful Processing class</code></p>
+
+                <p>
+                    A <code>PVector</code> is useful because it can store a pair (or a triplet when dealing with 3D
+                    data) of numbers representing coordinates such as those representing a position on screen. Here is a
+                    simple sketch that uses a <code>PVector</code> to draw a line between the centre of the screen and
+                    the mouse position:
+                </p>
+
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <pre class="brush: processing; gutter: false; toolbar: false; highlight: [1,9,16,17,22,23]">PVector screenPos;  // -- Declare a PVector object called 'screenPos' that will store a screen position.
+
+void setup()
+{
+  size(400,400);
+  stroke(150,74,50);
+  fill(150,74,50);
+  strokeWeight(6);
+  screenPos = new PVector(width/2,height/2);    // -- Initialise screenPos - a PVector object - with two values.
+}
+
+void draw()
+{
+  background(243,142,45);
+  // -- Access the 'x' and 'y' fields in the screenPos object and use them in calls to ...
+  circle(screenPos.x,screenPos.y,12);             // -- circle() - to draw a circle
+  line(screenPos.x,screenPos.y,mouseX,mouseY);  // -- line()   - to draw a line
+}
+
+void mousePressed()
+{
+  screenPos.x = mouseX;
+  screenPos.y = mouseY;
+}</pre>
+
+                <div class="figRight" style="width:225">
+                    <figure>
+                        <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/jwo/pVector1", 200, 200, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/pvector1.png");</script>
+                    <figcaption>
+                        Output from simple line sketch<br/><i>(click to activate<br/>then click points on the sketch)</i>
+                    </figcaption>
+                    </figure>
+                </div>
+        
+                <p>
+                    The variable is declared like any other, here in the first line. It is initialised with the special
+                    keyword <code>new</code>, like we did when creating arrays. In the case of <code>PVector</code> we
+                    specify the pair of numbers we wish to store (here, <code>width/2</code> and <code>height/2</code>).
+                    Once created, we can access those two numbers at any point in our code by using the name of the
+                    variable with a <code>.x</code> or <code>.y</code> appended.
+                </p>
+
+                <p>
+                    A class is a description of the types of data that are to be stored and the methods that can be
+                    applied to those data. Using <code>new</code> to initialise a variable from a class is known as
+                    <i>instantiation</i> and the resulting data collection is called an <i>object</i>.
+                    <br /><br />
+                    You can think of a class as a <i>template</i> and objects as instances of the template.
+                    These templates model aspects of the world that we want to include in our sketches: like balls, and desktops, and graphs, and dogs and cats and those <a href="https://www.free80sarcade.com/phoenix.php">aliens that fly down at you</a> in 80s arcade classic <a href="https://en.wikipedia.org/wiki/Phoenix_(1980_video_game)">Phoenix</a>. 
+                </p>
+
+                <p>
+                    Here, <code>PVector</code> is the class and, in our example, <code>screenPos</code> is the object we
+                    have instantiated from it. We can only call methods or extract data values using the dot notation
+                    applied to <i>objects</i> not classes.
+                    Well, usually! There are some exceptions to this rule, but we won't be
+                    considering them during the <code>#CreativeCoding</code> activity.
+                </p>
+
+            </div> <!-- End of left column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+                <p>
+                    One of the main advantages of using classes is that it is very easy to create multiple objects from
+                    the same class (just as we might create multiple numeric variables from the <code>float</code>
+                    type). For example, we could create an array of <code>PVector</code> objects to extend our sketch to
+                    show several lines in response to mouse clicks:
+                </p>
+
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <pre class="brush: processing; gutter: false; toolbar: false;">PVector[] clickedPoints; // -- An array to store all clicked positions.
+int next;                // -- An integer to store the index of the next free (empty) position in the clickedPoints array
+
+void setup()
+{
+  size(400,400);
+  stroke(150,74,50);
+  fill(150,74,50);
+  strokeWeight(6);
+
+  // -- Initialise the array with room for 5 points:
+  clickedPoints = new PVector[5];
+  // -- Add the sketch centre as first point - we are initialising the first element (index 0):
+  clickedPoints[0] = new PVector(width/2,height/2);
+  // -- Increment the position of the next free element by one:
+  next = 1; 
+}
+
+void draw()
+{
+  background(243,142,45);
+
+  // -- Loop through the elements of the array that contain values:
+  for (int i = 0; i &lt; next; ++i)
+  {
+    PVector p = clickedPoints[i];   // -- Store the PVector at the current index in a new local PVector.
+    circle(p.x,p.y,12);             // -- Use the fields in this PVector as the centre of a circle.
+    line(p.x,p.y,mouseX,mouseY);  // -- Use the fields in this PVector as the start of a line (that ends at the cursor).
+  }
+}
+
+// -- When the mouse is pressed ...
+void mousePressed()
+{
+  // -- If we have still got room left in our 'clickedPoints' array ...
+  if (next &lt; clickedPoints.length) {
+    // -- Add a new PVector to the array at the 'next' free position:
+    clickedPoints[next] = new PVector(mouseX,mouseY);  
+
+    // -- Increment the next free position by one:
+    next = next + 1; 
+  }
+}</pre>
+
+<div class="figRight" style="width:225">
+    <figure>
+        <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/jwo/pVector2", 200, 200, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/pvector2.png");</script>
+        <figcaption>
+            Output from the multi-line sketch<br/><i>(click to activate<br/>then click points on the sketch)</i>
+        </figcaption>
+    </figure>
+</div>
+
+                <p>
+                    In the example above, we add a new <code>PVector</code> object to those stored in an array every
+                    time the mouse is clicked, as long as the array is not full.
+                    The <code>draw()</code> method then uses a <code>for</code> loop to iterate over every
+                    <code>PVector</code> object in the array and draws a line from the mouse position to each of those
+                    <code>PVector</code> points in turn.
+                </p>
+
+                <p>
+                    Note also that this example uses <i>Processing</i>'s built-in method —<code>void mousePressed()</code> just
+                    as we have done before when getting our sketch to respond to mouse presses.
+                </p>
+
+                <div class="codeTask" style="clear:both">
+                    <p>Copy the above code and run the sketch.<br/>Compare it to the sketch that we have provided to the right.</p>
+                    <ul><li>What are the differences in the sketch behaviours?</li>
+                        <li>Can you work out how the sketch on the right might be implemented?</li>
+                        <li>Using the code provided above, can you reproduce the sketch on the right?</li>
+                    </ul>
+                </div>
+            </div> <!-- End of left column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+
+                <h3>2. Creating your own classes</h3>
+                <p>
+                    The real power of the <i>Processing</i> language is in the ability to create your own classes that store
+                    data and do stuff with those data. Very cool stuff if you do a bit of creative thinking and have a play with the possibilities.</p>
+                <p> This really is amazing and exciting and gives us phenomenal power.<br/>
+                    We don't just have to rely on the amazing enabling set of classes that come with the language.<br/>
+                    We can make and model absolutely anything that we want to in a class.
+                    All we require is some imagination and some creativity.</p>
+                <p>
+                    To see why creating classes can be so useful, let's consider an extended example of
+                    getting a ball to move about inside our sketch.
+                </p>
+
+
+                <h4>The non-class approach</h4>
+
+                <p>
+                    First, we will create a sketch to show a moving ball without creating any new classes.
+                    You will recognise some of the commands and logic from previous examples, but to make things a
+                    little simpler, we will use the <code>PVector</code> class to store the position (in x and y) and velocity (how much the position is changing in x and y) of the ball:
+                </p>
+
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <pre class="brush: processing; gutter: false; toolbar: false;">PVector position;    // -- Position of the ball.
+PVector velocity;    // -- Amount it moves on each redraw.
+float radius;        // -- Radius of ball.
+color colour;        // -- Colour of ball - using an object called 'colour' that is an instance of the 'color' class. 
+
+void setup()
+{
+  size(400, 300);
+
+  // -- Initialise our variables and objects ...
+  position = new PVector(width/2,height/2);
+  velocity = new PVector(random(-2,2),random(-2,2));
+  radius = 15;
+  colour   = color(214,93,69);
+}
+
+void draw()
+{
+  background(254, 244, 232);
+
+  // -- Draw the ball.
+  noStroke();
+  fill(colour);
+  circle(position.x,position.y,2*radius);
+
+  // -- Update the ball position according to the velocity values.
+  position.x = position.x + velocity.x;
+  position.y = position.y + velocity.y;
+}</pre>
+            </div> <!-- End of left column -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+                <div class="figRight" style="width:225">
+                    <figure>
+                        <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/jwo/ball1", 200, 200, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/ball1.png");</script>
+                        <figcaption>
+                            Moving ball sketch<br/><i>(click to activate)</i>
+                        </figcaption>
+                    </figure>
+                </div>
+        
+                <p>
+                    There's little that's new here, but to recap, we declare four 'global' variables at the top of the
+                    sketch that will store the position of the ball, its velocity (in both the x and y directions), its
+                    radius and its colour. The <code>setup()</code> method initialises the variables with appropriate
+                    values and the <code>draw()</code> method draws the ball. Finally, the last two lines of
+                    <code>draw()</code> update the position variable according to the values stored inside the
+                    <code>velocity</code> object.
+                </p>
+
+                <p>
+                    Remember that because <code>draw()</code> is called 60 times a second, the ball appears to move as
+                    we repeatedly update <code>position</code> by adding the values of <code>velocity</code>. The only
+                    problem we have with the sketch is that there's nothing to tell <i>Processing</i> when the ball reaches the
+                    edge of the sketch window. So as before, we'll add a few more lines to the bottom of
+                    <code>draw()</code> to test whether the updated position of the ball now places it outside the bounds of
+                    the sketch. If it does, we reverse the relevant component of the velocity by multiplying it by -1.
+                </p>
+
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <pre
+                    class="brush: processing; gutter: false; toolbar: false; highlight: [29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49]">PVector position;    // Position of the ball.
+PVector velocity;    // Amount it moves on each redraw.
+float radius;        // Radius of ball.
+color colour;        // Colour of ball.
+
+void setup()
+{
+  size(400, 300);
+
+  position = new PVector(width/2,height/2);
+  velocity = new PVector(random(-2,2),random(-2,2));
+  radius = 15;
+  colour   = color(214,93,69);
+}
+
+void draw()
+{
+  background(254, 244, 232);
+
+  // Draw the ball.
+  noStroke();
+  fill(colour);
+  circle(position.x,position.y,radius*2);
+
+  // Update the ball position according to the velocity values.
+  position.x = position.x + velocity.x;
+  position.y = position.y + velocity.y;
+
+  if (position.x - radius &lt; 0 &amp;&amp; velocity.x &lt; 0)
+  {
+    // -- Escaping to the left, start moving right.
+    velocity.x = -1*velocity.x;
+  }
+  else if (position.x + radius &gt; width &amp;&amp; velocity.x &gt; 0)
+  {
+    // -- Escaping to the right, start moving left.
+    velocity.x = -1*velocity.x;
+  }
+
+  if (position.y - radius &lt; 0 &amp;&amp; velocity.y &lt; 0)
+  {
+    // -- Escaping upwards, start moving down.
+    velocity.y = -1*velocity.y;
+  }
+  else if (position.y + radius &gt; height &amp;&amp; velocity.y &gt; 0)
+  {
+    // -- Escaping downwards, start moving up.
+    velocity.y = -1*velocity.y;
+  }
+}</pre>
+
+                <!--
+				<div class="codeTask">
+					Can you refactor the program above so that the code that draws the ball and the code that moves the ball
+					and checks it is within bounds are each in their own method? The idea is not to change the behaviour of
+					the sketch, but to make the code used to create it more flexible.
+					<br /><br />
+					<i>Hint:</i> You will need to create two new methods called something like <code>void drawBall()</code>
+					and <code>void moveBall()</code> and then transfer the relevant sections of code from the example above
+					into those methods.
+				</div>
+                -->
+                <div class="figCode" style="margin-top:3em">
+                    <figure>
+                        <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/jwo/ball2", 200, 200,
+                        "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/ball2.png");</script>
+                        <figcaption>
+                            Moving ball that bounces<br/>off the edges of the sketch<br/><i>(click to activate)</i>.
+                        </figcaption>
+                    </figure>   
+                </div>
+				<div class="codeTask">
+                    <h5>Bouncing Ball</h5>
+                    <p>Copy the code into a sketch and run it in <i>Processing</i>.</p>
+                    <p>Can you explain why we need both conditions in the <code>IF</code> clause?</p>
+                    <p>What happens if you use </p>
+                    <ol>
+                        <li><code>  circle(position.x,position.y,radius*1);</code></li>
+                        <li><code>  circle(position.x,position.y,radius*4);</code></li>
+                    </ol>
+                    Watch carefully - and can you explain this behaviour?</p>
+                    <p>What happens if you use a <circle>rect()</circle> instead of a <code>circle()</code>?<br/>
+                    Watch carefully - and can you explain this behaviour?</p>
+                </div>
+
+        
+
+            </div> <!-- End of left column -->
+
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+
+                <h4>Refactoring to use classes</h4>
+                <p>
+                    So, is there a problem with the sketch above? It appears to work as we expect, and the code is
+                    relatively simple.
+                </p>
+
+                <p>
+                    The problem is not with the sketch in its current implementation, but rather what we would have to
+                    do in order to extend it. In particular, suppose we wished to show 4 moving balls, as we did
+                    with the travelling circles exercise that we tried earlier in the course.
+                </p>
+
+                <p>
+                    One solution might be to create 4 sets of variables, one for each ball, each storing the
+                    characteristics of a ball (its position, velocity, colour etc.). But that would make the program
+                    rather complicated and error prone. And wouldn't really work if we wished to show 100 or 1000 balls.
+                </p>
+
+                <p>
+                    So the solution is to <i>refactor the code</i>, just as we did when we wished to remove duplicated code in
+                    the <i>Pathfinder</i> example when we introduced <i>methods</i>.
+                    This time, instead of creating new methods to represent the repeated sections of code, we will create a new <i>class</i> to contain the code that we wish to reuse.
+                    When we define a method we can reuse its code by calling it multiple times. As we will see,
+                    when we define a class, we can reuse its code by creating multiple <i>objects</i> from the class
+                    (these objects are said to be <i>instances</i> of the class).
+                    Our <code>Ball</code> class will not
+                    only have its own methods, but will also store the data that characterise a ball.
+                    <br/>Here we define a <code>Ball</code> class:
+                </p>
+
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <pre class="brush: processing; gutter: false; toolbar: false; highlight: [1,2,9,55]">class Ball
+{
+  PVector position;    // Position of the ball.
+  PVector velocity;    // Amount it moves on each redraw.
+  float radius;        // Radius of ball.
+  color colour;        // Colour of ball.
+
+  // -- This 'constructor' method is called when we instantiate a new ball and initialises its state.
+  Ball()
+  {
+    position = new PVector(width/2, height/2);
+    velocity = new PVector(random(-3,3),random(-3,3));
+    radius = 15;
+    colour   = color(214, 93, 69);
+  }
+
+  // -- These are methods associated with any instance of a Ball object.
+  // -- draw() draws the ball at its current position.
+  void draw()
+  {
+    noStroke();
+    fill(colour);
+    circle(position.x, position.y, radius * 2);
+  }
+
+  // -- move() moves the ball according to its current velocity and checks for boundary bounces.
+  void move()
+  {
+    position.x = position.x + velocity.x;
+    position.y = position.y + velocity.y;
+
+    // -- Check for an edge and move the other way if one is detected:
+    if (position.x-radius &lt; 0 &amp;&amp; velocity.x &lt; 0)
+    {
+      // -- Escaping to the left, start moving right.
+      velocity.x = -1*velocity.x;
+    }
+    else if (position.x+radius &gt; width &amp;&amp; velocity.x &gt; 0)
+    {
+      // -- Escaping to the right, start moving left.
+      velocity.x = -1*velocity.x;
+    }
+
+    if (position.y-radius &lt; 0 &amp;&amp; velocity.y &lt; 0)
+    {
+      // -- Escaping upwards, start moving down.
+      velocity.y = -1*velocity.y;
+    }
+    else if (position.y+radius &gt; height &amp;&amp; velocity.y &gt; 0)
+    {
+      // -- Escaping downwards, start moving up.
+      velocity.y = -1*velocity.y;
+    }
+  }
+}</pre>
+                <p>
+                    The first thing to note is that there is very little that is new here. It contains almost exactly
+                    the same code to declare and initialise the variables that represent the ball's position, velocity,
+                    size and colour; the same code to draw the ball and the same code to move it and check for boundary
+                    collisions.
+                </p>
+
+                <p>
+                    The only differences are that we have placed each of those three behaviours (initialisation, drawing
+                    and moving) each in their own method, and that everything is placed within a pair of (highlighted) braces
+                    underneath the line <code>class Ball</code>.
+                </p>
+
+                <div class="tip">
+                    <h5>Making a Class is Easy!</h5>
+                    <p>To create a new class in <i>Processing</i>, simply use the keyword <code>class</code> followed by the name
+                    you wish to give the class and a pair of braces. </p>
+                    <p>All the methods and variables associated with this class are then added within those braces.
+                       The class name itself should start with a capital letter.</p>
+                </div>
+
+                <p>
+                    So what we have created above is a new class that contains a set of variables
+                    (<code>position</code>, <code>velocity</code>, <code>radius</code> and <code>colour</code>) and a
+                    set of methods (<code>Ball()</code>, <code>draw()</code> and <code>move()</code>) that can each do
+                    something with those variables. Variables that are declared like this in a class (<i>outside</i>
+                    any method) are known as <i>fields</i>.
+                </p>
+
+                <p>
+                    The first of those methods — <code>Ball()</code> is an important one. It has no return type (not
+                    even <code>void</code>), it shares the same name as the class itself (also called <code>Ball</code>)
+                    and is known as a <i>constructor</i>. A constructor is a special method that will be called
+                    automatically each time we create an object out of a class. This is a bit like <code>setup()</code>
+                    being automatically called when we first run a sketch. Just like <code>setup()</code>, you should
+                    put any lines of code that do initialisation or setup tasks inside the constructor.
+                    In our example, we initialise the position, velocity, size and colour of the ball in the constructor - our class '<code>setup()</code>'.
+                </p>
+
+                <div class="tip">
+                    <h5>New Class, New Tab ...</h5>
+                    <div class="figRight" style="padding:1em; padding-left:4em">
+                        <img src="https://staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/newTab.png" width="295"
+                            height="128" alt="Creating a new tab in Processing">
+                        </div>
+                        <p>To help keep your code organised, when you write the code for a new class, you can place it in its
+                    own 'tab' in processing.</p><p>To do this, click the small downward pointing triangle near the top of the
+                    coding window and select 'New Tab'.</p>
+                </div>
+
+            </div> <!-- End of left column -->
+
+            <div class="unit-30-cc annotation">
+                <!-- Right column -->
+                <br />
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+                <h4>Creating objects from a class</h4>
+                <p>
+                    Our refactoring is not yet complete because although we have now written a class capable of
+                    representing a ball, we haven't actually created any balls. This is a bit like writing methods in a
+                    sketch, but not actually calling them.
+                </p>
+
+                <p>
+                    To see how to create an object from a class, we need to revisit our main sketch code, which we can
+                    now greatly simplify since most of the hard work is done be the <code>Ball</code> class:
+                </p>
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <pre class="brush: processing; gutter: false; toolbar: false; highlight:[1,6,12,13]">Ball ball1;		// -- Declaration of a ball object from the Ball class.
+
+void setup()
+{
+  size(400, 300);
+  ball1 = new Ball(); // -- Initialization of the Ball called ball1.
+}
+
+void draw()
+{
+  background(254, 244, 232);
+  ball1.draw();  // -- call the draw() method of the Ball ball1 - to draw it.
+  ball1.move();  // -- call the move() method of the Ball ball1 - to move it and check for edges.
+}</pre>
+
+<div class="figRight" style="width:225">
+    <figure>
+        <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/jwo/ball3", 200, 200, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/ball2.png");</script>
+    <figcaption>
+        Moving ball refactored to use<br/>a class and an object.<br/><i>(click to activate)</i>.
+    </figcaption>
+    </figure>
+</div>
+
+                <p>
+                    Our <code>setup()</code> and <code>draw()</code> methods are now much simpler because all the coding
+                    to do the initialisation, drawing and moving is contained in the separate <code>Ball</code> class.
+                </p>
+
+                <p>
+                    What is new here is that in line 1 we have created a variable of type <code>Ball</code> (rather
+                    than, say, <code>float</code> or <code>String</code>) with this declaration.
+                    In the second line of <code>setup()</code> we
+                    then initialise a <code>Ball</code> object (here called <code>ball1</code>, but we could call it
+                    anything we wish, just like any other kind of variable) with the special keyword <code>new</code>.
+                    Once we have created the <code>ball1</code> object, we can call any of its methods by appending a
+                    dot and the method name to the object name. This follows exactly the same rules as we applied when
+                    creating objects from some of <i>Processing</i>'s built-in classes such as <code>String</code> and
+                    <code>PVector</code>.
+                </p>
+
+            </div> <!-- End of left column -->
+
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+                <div class="figRight" style="width:225">
+                    <figure>
+                        <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/jwo/ball4", 200, 200, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/ball4.png");</script>
+                    <figcaption>
+                        4 moving balls using 4 objects.<br/><i>(click to activate)</i>.
+                    </figcaption>
+                    </figure>
+                </div>
+                
+                <p>
+                    Yet, after all this work, our sketch still does exactly the same as the first version without any
+                    classes. The real advantage comes when we wish to create more than one object from the same class.
+                    Remember that we intended to create 4 balls in our sketch. Now that we have a class capable of
+                    representing any ball, all we need to do now is create 4 objects from that single class and ask each
+                    of them to initialise, draw themselves and move:
+                </p>
+
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <pre class="brush: processing; gutter: false; toolbar: false;">Ball ball1;    // -- Declaration of a ball object from the Ball class.
+Ball ball2;   // -- Declaration of another ball object from the Ball class.
+Ball ball3;   // -- Declaration of a third ball object from the Ball class.
+Ball ball4;   // -- Declaration of yet another ball object from the Ball class.
+
+void setup()
+{
+  size(400, 300);
+  ball1 = new Ball();  // -- We need to initialise all four declared Ball objects if we are going to use them in our sketch. 
+  ball2 = new Ball();
+  ball3 = new Ball();
+  ball4 = new Ball();
+}
+
+void draw()
+{
+  background(254, 244, 232);
+
+  // -- draw and move each Ball object in turn by calling its methods:
+  ball1.draw();
+  ball1.move();
+
+  ball2.draw();
+  ball2.move();
+
+  ball3.draw();
+  ball3.move();
+
+  ball4.draw();
+  ball4.move();
+}</pre>
+            </div> <!-- End of left column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+
+                <p>
+                    We can make things a little clearer still by storing those ball objects not as 4 separate variables,
+                    but in a single array, just like we did for <code>PVectors</code> previously:
+                </p>
+                <pre class="brush: processing; gutter: false; toolbar: false;">Ball[] balls;
+
+void setup()
+{
+  size(400, 300);
+
+  balls = new Ball[4];
+  for (int i=0; i&lt;balls.length; i = i+1)
+  {
+    balls[i] = new Ball();
+  }
+}
+
+void draw()
+{
+  background(254, 244, 232);
+  for (int i=0; i &lt; balls.length; i=i+1)
+  {
+    balls[i].draw();
+    balls[i].move();
+  }
+}</pre>
+
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <div class="figCode" style="margin-top:1em">
+                    <figure>
+                        <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/jwo/ball5", 200, 200,
+                        "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/ball5.png");</script>
+                        <figcaption>
+                            Many moving balls using<br/>an array of ball objects.<br/><i>(click to activate)</i>.
+                        </figcaption>
+                    </figure>   
+                </div>
+                        <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <div class="codeTask">
+                    <h5>More Balls Please</h5>
+                    <p>
+                    Modify the example above so that 40 balls rather than just 4 are displayed (see example sketch).
+                    </p>
+                    <p>
+                    <i>Hint:</i> This is an extremely easy task.<br/>
+                    You only have to change one single number in the entire sketch.<br/>
+                    Can you find it?!
+                    </p>
+                </div>
+
+            </div> <!-- End of left column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+
+                <h3>3. Manipulating Objects</h3>
+                <p>
+                    As we have seen, one of the benefits of building a class from which objects may be instantiated is
+                    that it allows us to create many objects quite simply. The other important benefit is that the
+                    characteristics of each of those objects can be independent of all the other ones. So although all
+                    <code>Ball</code> objects have <i>a</i> position, velocity, size and colour, each <code>ball</code>
+                    object can have a different instance of that position, velocity etc. We saw this was the case
+                    because in our example, the velocity of each ball was set to be a random value, which was different
+                    for each ball.
+                </p>
+
+                <p>
+                    We could apply the same principle by setting the radius and colour of each new ball also to be
+                    random, by changing the code in the constructor of <code>Ball</code>:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false; highlight: [11,12];">class Ball
+{
+  // Variable declaration here...
+  // ...
+
+  // Constructor
+  Ball()
+  {
+    position = new PVector(width/2, height/2);
+    velocity = new PVector(random(-2,2),random(-2,2));
+    radius = random(1,25);
+    colour   = color(random(160,230), random(50,110), random(70,120));
+  }
+
+  // Other methods here...
+  // ...
+}</pre>
+
+                <p>
+                    Every time a new ball object is created using <code>new Ball()</code> the code in the constructor
+                    above will initialise the <code>velocity</code>, <code>radius</code> and <code>colour</code> fields
+                    with different random numbers.
+                </p>
+
+                <div class="codeTask">
+                    <h5>More Random Balls</h5>
+                    <p>Use this code snippet to update your <code>Balls</code> class so that the following are initialised with random numbers from within a constrained range:</p>
+                    <ul><li>position</li><li>velocity</li><li>radius</li><li>colour</li></ul>
+                </div>
+
+                <p>
+                    We can also manipulate the values of these fields (also called 'instance variables') directly using
+                    the dot notation. This is exactly what we did with <code>PVector</code> when we manipulated its
+                    <code>.x</code> and <code>.y</code> values. So, for example, we could create a new <code>Ball</code>
+                    object (here called <code>specialBall</code>, but this could be any name you choose) and set its
+                    colour and size to some new values:
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false;">Ball specialBall = new Ball();
+specialBall.radius = 30;
+specialBall.colour = color(100,100,200);</pre>
+
+                <p>
+                    Note that this code would not be placed inside the <code>Ball</code> class, but inside the sketch
+                    that creates <code>Ball</code> objects from the class.
+                </p>
+
+                <p>
+                    We could update the position on a mouse click by adding code that updates the position to the <code>mouseClicked</code> method.
+                </p>
+
+                <pre class="brush: processing; gutter: false; toolbar: false; highlight: [11,12];">
+void mouseClicked() {
+    specialBall.x = mouseY;
+    specialBall.y = mouseX;
+}</pre>
+                <p>Or something like that 😉. Try it!</p>
+
+                <div class="codeTask">
+                    <h5>Sequentially Increasing Instance Variables</h5>
+                    <p>Use the code we provided above to update your <code>Ball</code>s code (not the class)
+                         so that when <code>Ball</code>s are initialised in your sketch the x position and radius of the <code>Ball</code>
+                         increase every time a <code>Ball</code> is initialised:</p>
+                    <ul><li><i>x-position</i> increases from left to right</li><li><i>radius</i> increases from low to high
+                        (small <code>Ball</code>s to the left, big <code>Ball</code>s to the right)</li></ul>
+                </div>
+
+                <p>
+                    As a final example, here is how we might create a set of 40 random moving balls and one special ball
+                    of a different colour, that when it makes contact with any other ball, it 'infects' it by changing
+                    the colour of the infected ball. This is done by using <i>Processing</i>'s <code>dist()</code> method to
+                    calculate the distance between the special ball and each of the others in turn to find out whether they
+                    are less than their two radii apart:
+                </p>
+
+            </div>
+        </div>
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <pre class="brush: processing; gutter: false; toolbar: false;">Ball[] balls;
+Ball specialBall;
+color infectedColour;
+
+void setup()
+{
+  size(500, 500);
+  infectedColour = color(40, 200, 200);
+  balls = new Ball[50];
+  for (int i=0; i&lt;balls.length; i = i+1)
+  {
+    balls[i] = new Ball();
+    balls[i].colour = color(random(150, 220), random(60, 90), random(60, 120));
+    balls[i].radius = random(4, 16);
+  }
+
+  specialBall = new Ball();
+  specialBall.radius = 30;
+  specialBall.colour = infectedColour;
+  specialBall.position.x = 0;
+  specialBall.position.y = 0;
+  specialBall.velocity.x = 0.3;
+  specialBall.velocity.y = 0.1;
+}
+
+void draw()
+{
+  background(254, 244, 232);
+  for (Ball ball : balls) // a for-each loop
+  {
+    ball.draw();
+    ball.move();
+
+    // See if any ball makes contact with special ball.
+    if (dist(specialBall.position.x, specialBall.position.y,
+      ball.position.x, ball.position.y) &lt; specialBall.radius+ball.radius)
+    {
+      ball.colour = infectedColour;
+    }
+  }
+
+  specialBall.draw();
+  specialBall.move();
+}
+</pre>
+
+<div class="figCode" style="margin-top:3em">
+    <figure>
+        <script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/jwo/ball6", 200, 200,
+        "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/ball6.png");</script>
+        <figcaption>
+            One infected ball begins to infect all others.<br/><i>(click to activate)</i>.
+        </figcaption>
+    </figure>   
+</div>
+
+
+<div class="codeTask">
+    <h5>Move the Infected Ball</h5>
+    <p>Copy this code and run the script, then make edits to:</p>
+    <ul>
+        <li>Randomize the initial velocity and position of the specialBall - see <code>setup()</code></li>
+        <li>Move the specialBall to the mouse position when the mouse is clicked - add a <code>mouseClicked()</code> method, after <code>setup()</code> and <code>draw()</code>, to update <code>specialBall.position.x</code> and <code>specialBall.position.y</code> with <code>mouseX</code> and <code>mouseY</code> - hints and code snipppets above!</li>
+    </ul>
+</div>
+            </div> <!-- End of left column -->
+
+            <div class="unit-30-cc annotation">
+                <!-- Right column -->
+                <p>
+            </div> <!-- end of right column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+
+                <h3>4. Practice &amp; Exercises </h3>
+
+                <div class="codeTask">
+                    <h5>Working with <code>String</code> objects</h5>
+                    <p>
+                        Starting with the following template:
+                    </p>
+                        <pre class="brush: processing; gutter: false; toolbar: false;">void setup()
+{
+    String message = "Hello from CreativeCoding on a sunny day in London";
+
+    // Add your code here...
+    // ...
+}</pre>
+                    <p>
+                        Add code to <code>setup()</code> that prints the following to the <i>Processing</i> console:
+                    </p>
+                     <ol start="a" type="a">
+                            <li>The contents of the message as upper-case only.</li>
+                            <li>The contents of the message as lower-case only.</li>
+                            <li>The number of characters in the message.</li>
+                            <li>The character at position 5 in the message. Is this what you expected?</li>
+                            <li>A message that says "<i>Day found</i>" if the message contains the word 'day',
+                                or "<i>No match found</i>" if otherwise.</li>
+                    </ol>
+                    <p>
+                        Note that you should do all of the above using methods found in the <code>String</code> class, not by
+                        calculating them yourself.<br/>
+                        If you need reminding of what methods are available, look at the documentation
+                        for <code>String</code> in the <a href="https://processing.org/reference" target="_blank"><i>Processing</i> Reference</a>.
+                    </p>
+                    <p>
+                        Edit the code so the message is now "<code>Our first two weeks of CreativeCoding are very busy</code>" and check your output from the five sub tasks still works as expected.
+                    </p>
+                </div>
+            
+                <div class="coreTask">
+                    <h5>A Class for Data</h5>
+                    <p>Try making a rudimentary class that might show some of the <b>data</b> that you are collecting.</p>
+                    <p>For example, in <a href="https://www.dear-data.com/by-week/#/week-34-a-week-of-urban-wildlife/">Week 34: A week of urban wildlife</a>,
+                    of the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=791720">Dear Data Project</a>, <i>Giorgia Lupi</i> recorded information about animals that she encountered in urban parks. Some of these were dogs, and they were beautifully and expressively depicted with coloured triangles as shown here:</p>
+                    <figure style="float:none">
+                    <img src="https://jsndyks.github.io/cityCreativeCoding/html/dearData/img/Giorgia_DearData_34_Front.crop.jpg" width="800" height="180"/>
+                    </figure>
+                    <p style="clear:both">
+                    Use your <i>sketchbook</i> - the physical one, the paper one - to think about, and record the characteristics of a class that might depict the data you are recording:
+                    </p>
+                    <ul>
+                        <li>what would it look like - draw a sketch in your sketchbook</li>
+                        <li>what might the <i>fields</i> or <i>instance variables</i> be - how would each object be different according to the data that it depicted?</li>
+                        <li>what methods might the class have - a <code>draw()</code> method, maybe a <code>move()</code> - but anything else?</li>
+                    </ul>
+                    <p>Discuss your ideas with friends, colleagues and teaching staff.</p>
+                </div>
+                <div class="codeTask">
+                    <h5>A Class for Dogs</h5>
+                    <p>
+                    OK - here is a rudimentary example of what we might achieve.<br/>
+                    Check the code that follows and paste it into a sketch as suggested.<br/>
+                    Then run the sketch and do your best to interpret the programme.
+                    </p>
+                    <p>
+                    When you have it running, see whether you can:
+                    </p> 
+                    <ul>
+                        <li>Vary the characteristics of the dogs that are created in <code>keyPressed()</code> and predict the effects of your changes</li>
+                        <li>Make sense of the maths used to position the <code>triangle()</code> and <code>line()</code> methods in the <code>draw()</code> method?</li>
+                        <li>Add some randomness to the <code>new Dog</code> object definition process</li>
+                    </ul>
+                </div>
+
+                <p>
+                    Open a new sketch, call it <i>dogExample</i> or something similar and paste this code into the main sketch:
+                </p>
+<pre class="brush: processing; gutter: false; toolbar: false; ">// -- Dog sketch to show data - inspired by Giorgia Lupi (week 34):
+    // -- https://www.dear-data.com/by-week/#/week-34-a-week-of-urban-wildlife/
+    
+    ArrayList&lt;Dog&gt; dogs = new ArrayList&lt;Dog&gt;();  // &lt;-- our dog objects will be stored in an ArrayList of Dogs
+    boolean isWagging = false;                   // &lt;-- system state variable - do we wag the tails?
+    
+    
+    void setup () {
+      size(1000, 200);
+      textAlign(CENTER);
+      textSize(10);
+    
+      // -- Declare and initialise initial dog ... add it to ArrayList to get things going:
+      PVector pos = new PVector(width/2, height/2);
+      Dog pup = new Dog ("Sammy", pos, 45, color(128, 96, 32, 128), 25, true, 3, 5, 20);
+      dogs.add(pup);
+    }
+    
+      
+    void draw() {
+      background(250);
+    
+      int i=1;                  // &lt;-- counter - used to position dogs in a line (I like tidy dogs)
+     
+      // -- loop through all Dogs in the dogs ArrayList one at a time:
+      for (Dog dog : dogs) {    
+        dog.position.x = 90*i;  // &lt;-- update dog's x position based upon it's position in the ArrayList;
+        if (frameCount ==1) {
+          dog.printFields();    // &lt;-- use this method in Dog class to output information ONCE!
+        }
+        dog.draw();             // &lt;-- draw the dog on the canvas with it's draw() method 
+        i++;
+      }
+    }    
+</pre>
+                <p>
+                    Create a tab called <i>Dog</i> for the code that describes the <code>Dog</code> class, and paste this in.<br/>
+                    Note that this is more sophisticated than anything that you need right now - but we want you to see the ideas, and what is possible, and how this is achieved.<br/>
+                    Building on what you have learned so far will enable you top produce this kind of thing - we are only highlighting approaches that have been introduced and used in <code>#CreativeCoding</code> so far, and putting them together to build functionality.
+                </p>
+<pre class="brush: processing; gutter: false; toolbar: false; ">// -- Dog class to show data - inspired by Giorgia Lupi (week 34):
+// -- https://www.dear-data.com/by-week/#/week-34-a-week-of-urban-wildlife/
+    
+    class Dog {
+    
+      // -- fields, or instance variables - characteristics that are stored in, and vary by, each dog object / instance:
+      String name;      // -- dog's name
+      PVector position; // -- dog's position
+      float size, tail; // -- varying characteristics
+      color colour;     // -- kinda obvious, right?
+      boolean ownerF;   // -- owner is female?
+      int fur;          // -- fur length - constrained to 0-3?
+      int bark;         // -- how much barking - constrained to 0-5?
+      int wagSpeed;     // -- how fast does the tail wag? (60 = once per second)
+    
+    
+      // -- Constructor runs every time the class is initialized
+      Dog (String name, PVector pos, float size, color colour,
+            float tail, boolean ownerF, int fur, int bark, int wag) {
+     
+        // -- Initialise the instance variables with 'this' keyword: 
+        this.position = pos;
+        this.name = name;
+        this.size = size;
+        this.colour = colour;
+        this.tail = tail;
+        this.ownerF = ownerF;
+        this.fur = constrain(fur, 0, 3);   // &lt;-- constrains value to the range 0-3
+        this.bark = constrain(bark, 0, 3); // &lt;-- constrains value to the range 0-5
+        this.wagSpeed = wag;               
+      }
+    
+      // -- Basic output to console:
+      void printFields() {
+        println("My Dog", name, "is:", size, tail, colour, ownerF, fur, bark);
+        println("I am positioned at (", position.x, ",", position.y, ")");
+      }
+    
+      // -- draw that characteristics of the dog based upon the fields or instance variables.
+      void draw() {
+        float x1 = position.x-size/3f;
+        float x2 = position.x;
+        float x3 = position.x+size/3f;
+        float y1 = position.y+size/2f;
+        float y2 = position.y-size/2f;
+        float y3 = y1;
+    
+        stroke(32, 128);  // &lt;-- soft outlines for shapes:
+        strokeWeight(1);
+        fill(colour);                     // &lt;-- the dog's colour!
+        triangle(x1, y1, x2, y2, x3, y3); // &lt;-- the dog's body!
+    
+        // -- woman or man as owner? (as recorded and depicted by Giorgia)
+        if (ownerF) {
+          noFill();
+        } else {
+          fill(32);
+        }
+        circle(x2, y2-10, 5);
+    
+        // -- how furry? (as recorded and almost as depicted by Giorgia)
+        for (int i=0; i&lt;fur; i++) {
+          float yT = y1+2*(i+1);    // &lt;-- calculate y-position of fur symbols
+          line(x1+3, yT, x3-3, yT);
+        }
+    
+        // -- how noisy? (as recorded and almost as depicted by Giorgia)
+        if (bark &gt;0) {
+          strokeWeight(fur/2f);
+          stroke(220, 32, 32, 128);
+          line(x2+4, y2+2, x3+3, y3-2);
+        }
+    
+        // -- add tail : (Giorgia's dogs had no tails)
+        float xTailEnd = x2; // &lt;-- x-position of end of tail.
+        strokeWeight(1);
+        stroke(32, 128);
+        
+        // -- rudimentary tail-wagging capability based on frameCount
+        if (isWagging) {
+          int isEven = frameCount/wagSpeed;        // &lt;-- is tail moving left or right?
+          float tailOffset=0;
+          if (isEven%2==1) {
+            tailOffset = -30+frameCount%wagSpeed;  // &lt;-- where is tail end?
+          } else {
+            tailOffset = 30-frameCount%wagSpeed;   // &lt;-- where is tail end?
+          }
+          xTailEnd = x2+tailOffset*0.25; 
+        }
+        line(x2, y1, xTailEnd, y1+tail);  // -- draw the tail
+    
+        // -- name :
+        fill(64, 200);
+        text(name, x2, y1+45);
+      }
+    }       
+</pre>
+                
+                <p>
+                    Create a tab called <i>interactions</i> for the rather clunky and embarrassing (but functional) <code>keyPressed()</code> method and paste in the following - checking the comments as you do so.<br/>
+                    You will not need to, and are indeed not advised to, create objects in <code>keyPressed()</code> - just do so in <code>setup()</code> - this is solely for effect here. But you will need to use commands of the form ...  <br/>
+                    <code>Class instance = new Class (fields / instance variables) </code><br/>
+                    ... to generate new objects, new instances of your class. So the structure and syntax are useful here.
+                </p>
+                <p>Note that in this code we create a <code>new PVector()</code> object to contain coordinates as we instantiate the <code>new Dog()</code>.</p>
+<pre class="brush: processing; gutter: false; toolbar: false; ">
+    // -- Interactions ... will add dogs to the group!
+    
+    void keyPressed() {
+      // -- flip the isWagging boolean state variable if the space bar is pressed:
+      if (key == ' ') {
+        isWagging = !isWagging;
+      }
+    
+      // -- Add new dogs to the ArrayList when keys are pressed!
+      // -- WARNING - this is a very inefficient way to do things ...
+      // --  we will learn how to change characteristics
+      // --  based upon DATA later in CreativeCoding!
+    
+      if (key == '1') {
+        Dog pup = new Dog ("Hilda", new PVector(100, height/2), 55, color(128, 96, 66, 128), 15, false, 1, 1, 55);
+        dogs.add(pup);
+      }
+    
+      if (key == '2') {
+        Dog pup = new Dog ("Fred", new PVector(100, height/2), 25, color(128, 102, 116, 128), 5, true, 3, 5, 15);
+        dogs.add(pup);
+      }
+    
+      if (key == '3') {
+        Dog pup = new Dog ("Ian", new PVector(100, height/2), 40, color(64, 128, 116, 128), 12, true, 0, 2, 38);
+        dogs.add(pup);
+      }
+    
+      if (key == '4') {
+        Dog pup = new Dog ("Josie", new PVector(100, height/2), 60, color(190, 190, 32, 128), 35, false, 3, 4, 90);
+        dogs.add(pup);
+      }
+    
+      if (key == '5') {
+        Dog pup = new Dog ("Andre", new PVector(100, height/2), 35, color(180, 40, 32, 128), 8, true, 5, 5, 25);
+        dogs.add(pup);
+      }
+    
+      if (key == '6') {
+        Dog pup = new Dog ("Omar", new PVector(100, height/2), 75, color(180, 220, 200, 128), 50, true, 2, 1, 60);
+        dogs.add(pup);
+      }
+    
+      if (key == '7') {
+        Dog pup = new Dog ("Poppy", new PVector(100, height/2), 60, color(240, 240, 32, 128), 40, false, 1, 3, 35);
+        dogs.add(pup);
+      }
+    
+      if (key == '8') {
+        Dog pup = new Dog ("Alma", new PVector(100, height/2), 45, color(240, 220, 220, 128), 20, true, 3, 5, 15);
+        dogs.add(pup);
+      }
+    
+      if (key == '9') {
+        Dog pup = new Dog ("Nell", new PVector(100, height/2), 45, color(220, 220, 240, 128), 22, true, 3, 2, 35);
+        dogs.add(pup);
+      }
+    }
+</pre>
+                
+                <div class="codeTask">
+                    <h5>A Class for You</h5>
+                    <p>
+                      Then, and this is understandably open, and non-urgent ...  
+                    </p>
+                    <ul>
+                        <li>See whether you can use this code and the simple examples that we have studied here, produce a rudimentary class that begins to implement your <i>Class for Data</i> as imagined above</li>
+                    </ul>
+                    <p>
+                        We don't expect too much here - start simple, very simple, just a couple of fields, a constructor and a method that maybe prints out the field value.
+                        Then discuss progress, experiment, embrace failures and celebrate small victories.
+                        One step at a time.
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+
+                <h3>5. Summary and Further Reading</h3>
+
+                <ul>
+                    <li>
+                        A class is a template that describes what data (fields) its objects will contain, and that
+                        provides methods to act upon that data.
+                    </li>
+
+                    <li>
+                        An object is an <i>instance</i> of a class. The data values in each object exist independently
+                        of all other objects created from the same class.
+                    </li>
+
+                    <li>
+                        <i>Processing</i> has many built-in classes from which you can create objects, such as
+                        <code>String</code> and <code>PVector</code>.
+                    </li>
+
+                    <li>
+                        You can create your own classes using the <code>class</code> keyword followed by a name with a
+                        capital letter and a pair of braces within which the data and methods that form the class are
+                        coded. There is one special method called the <i>constructor</i> that will always have the same
+                        name as the class in which it sits and will be used to initialise the data when an object is
+                        created from the class.
+                    </li>
+
+                    <li>
+                        To call the methods of an object, you name the object followed by a dot and the method name. The
+                        method then usually does something with the data stored in the object.
+                    </li>
+
+                    <li>
+                        Classes and objects, like methods, are a way of making your code much more flexible, clearer to
+                        read and easier to maintain.
+                    </li>
+
+                </ul>
+
+                <div class="challenge">
+                    You may find the following helpful if you'd like to find out more about loops, arrays and other
+                    types of collection.
+                    <br /><br />
+
+                    <ul>
+                        <li><a href="https://moodle4.city.ac.uk/mod/page/view.php?id=466630" target="_blank">Bouncing
+                                Balls Example</a> — Using classes to create a sketch full of bouncing balls. This takes the
+                            examples in this session a little bit further by coding behaviour that allows the balls to
+                            bounce off each other.
+                        </li>
+                        <li><a href="https://processing.org/tutorials/objects/" target="_blank">Objects tutorial</a> —
+                            <i>Processing</i> tutorial on classes and objects.</li>
+                    </ul>
+                </div>
+
+            </div> <!-- End of left column -->
+        </div> <!-- End of row -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+
+                <h2>6. Check on Progress</h2>
+                <div class="task">
+                    <p>
+                    To ensure that you have achieved the outcomes associated with this session, consider the following, which
+                    allow you to evaluate your progress.
+                    </p>
+
+                    <div class="checkOutcomes">
+                        <input type="checkbox" id="sa1">
+                        <label for="sa1">Can I use <i>Processing</i>'s <code>String</code> and <code>PVector</code>
+                            classes?</label><br />
+                        <input type="checkbox" id="sa2">
+                        <label for="sa2">Can I call a class's methods by using the dot operator applied to objects created from
+                            a class?</label><br />
+                        <input type="checkbox" id="sa3">
+                        <label for="sa3">Can I access data stored in an object using the dot operator?</label><br />
+                        <input type="checkbox" id="sa4">
+                        <label for="sa4">Can I create a new tab in <i>Processing</i> into which I place the code to create a new
+                            class?</label><br />
+                        <input type="checkbox" id="sa5">
+                        <label for="sa5">Can I refactor code to be more flexible by creating classes that store data and methods
+                            together?</label><br />
+
+                    </div>
+                    <!-- End of checkOutcomes -->
+
+                </div> <!-- End of task -->        
+            </div> <!-- End of left column -->
+        </div> <!-- End of row -->
+
+        <div style="padding-bottom:2em;clear:both" />
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+        <!-- End of content -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

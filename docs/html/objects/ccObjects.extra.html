@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CreativeCoding Extra: Objects &amp; Classes</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Embedded fonts -->
+<link
+    href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+    rel="stylesheet">
+
+<!-- Custom layout and style -->
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+<!-- General browser compatibility handling -->
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+<!-- Formatted source code -->
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+<!-- Sketch popups and hidden text-->
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+<!-- JD Extras! -->
+  <link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" />
+  
+  <!-- iFrame -->
+  <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+    <div id="page">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+
+        <!---
+You can view [this lecture](https://jsndyks.github.io/cityBootCamp/html/objects/bootCamp.objects.exercise.html) outside of _Moodle_ should you wish to.
+       -->
+       <p class="intro">
+            These exercises give you practice at both using <i>Processing</i>'s existing classes such as <code>PVector</code>, as well as creating your own.<br/>
+            And plenty of fun making Robots.
+        </p>
+<!-- 
+        <div class="coreTask">
+        <p><b>Create a "button" class and "button" objects</b></p>
+        
+        <p>We will create a "button" class and then create buttons object from that class.</p>
+        
+        	<ol>
+        		<li>Start the new sketch and write <code>setup()</code> and <code>draw()</code> methods.
+<pre>void setup(){
+	size(800,600);
+}
+
+void draw(){
+  
+}</pre>                    
+                <li>
+                    Create a <b>new tab</b> in <i>Processing</i> and name it "button" (it doesn't matter what you call this). In this tab, declare a class, called "Button". <i>By convention, classes start with a capital letter.</i>
+<pre>class Button {
+
+}</pre>                    
+				<li>
+                    Within in the Button class, declare four variables - <code>x</code>, <code>y</code>, <code>w</code> and <code>h</code> - to describe the position, width and height of the button. Also declare an <code>isOn</code> variable that will be true if the button is its ON state and false if the button is in its OFF state). <i>These instance variables will stored within each object that is created and will be independent of other objects.</i>
+                </li>
+                <li>
+                    In the Button class, write a constructor with no parameters that sets the button's width to 100, its height to 30, places it at the top left of the sketch and sets <code>isOn</code> variable to <code>false</code> (so that new buttons are OFF by default). <i>The constructor is a special method that automatically runs where a new object of the class is created</i>.
+<pre>Button() {
+  //code here
+}</pre>                    
+                    
+                </li>
+                <li>
+                    In the Button class, write a method called <code>display()</code> that draws the button. It should use its instance variables to determine where to draw the rectangular button and how big it should be. If the button is ON it should be coloured blue; otherwise it should be yellow. <i>A class' method will often use the class' instance variables.</i>
+                </li>
+                <li>
+                    In the <b>main</b> sketch tab, declare a variable called <code>button</code> of type <code>Button</code>.
+                <li> In
+                    <code>setup()</code>, initialise <code>button</code> to contain a new button. You need to do it after
+<pre>button = new Button();</pre>                    
+                   <li>In <code>draw()</code>, call the button's display() method
+                    <code>display()</code> method. 
+                </li>
+                <li>Now run your sketch. If all went well, it should display a yellow button at the top left of the sketch window.
+                <li>
+                    Add code in <code>setup()</code> that places the button to the right of its default central position. Check that the button displays where you expect it.
+<pre>button.x=200;</pre>                                        
+				You can also try changing the button's y-position, width and height.
+                </li>
+
+                <li>
+                    Add code in <code>setup()</code> to change the button state to ON by setting the button's <code>isOn</code> to <code>true</code>. Check that the button is now blue.
+                </li>
+                <li>
+                    Create another button. Change its position to one that does not overlap the other button.
+  
+                </li>
+</ol>                
+     
+<p>Now we will use an array of buttons instead of separate variables, because we can then use loops to iterate through all the buttons.
+    
+<ol>           
+                
+                <li>
+                	Remove both button objects you created and remove all references to them. When you run the sketch, no buttons will appear.
+                	<li>Create a global array of 3 (or more) buttons.
+<pre>Button[] buttons = new Button[3];</pre>
+				<li> Create a button in each element of the array and change the position so they are along the top of the sketch and don't overlap. You may wish to have some ON and some OFF.
+<pre>buttons[0] = new Button();
+
+buttons[1] = new Button();
+buttons[1].x=100;
+// ... etc</pre>
+                <li> In <code>draw()</code>, write a for-loop (a for-each loop is best for this task) to iterate over the
+                    array and display each button in turn.
+                </li>
+                <li>Run the sketch. If all went well, you should see all your buttons in the placed you expect.             
+            
+                
+            </ol>
+
+            <p>Finally, we're going to add some interaction. We are going to allow each
+            button state to be toggled ON/OFF by clicking on it with the mouse.</p>
+            <ol>
+                <li> In your Button class, write a new method that checks if the mouse pointer in inside the button. This method checks if the mouse pointer is within (to the right of the left edge, the left of the right edge, below the top edge and above the bottom edge!)
+<pre>boolean containsMouse() {
+  if (mouseX&gt;x && mouseY&gt;y && mouseX&lt;x+w && mouseY&lt;y+h){
+    return true;
+  }
+  else{
+    return false;
+  }
+}</pre>
+                
+                </li>
+                <li> In the main sketch tab, add a <code>mouseClicked()</code> method. In this method, write a for-loop
+                    to iterate over the array, checking whether the mouse is within the button (by calling the button's <code>containsMouse()</code> method) and if it is, toggling its ON/OFF state (turning it ON if it's
+                    OFF or turning it OFF if it's ON).
+<pre>
+void mouseClicked() {
+  //code here
+}
+</pre>
+                </li>
+                <li>Run the sketch. If all went well, you should be able to click the buttons on and off.
+            </ol>
+        </div>
+        <br /><br />
+-->
+
+<!-- 
+        <div class="codeTask">
+            Make a new copy of your 'traveling circles' sketch from Tuesday and this time represent the position of the
+            circles, not with separate <code>float</code> variables such as <code>x</code> and <code>y</code>, but with
+            a <code>PVector</code> object capable of storing a pair of numbers.
+        </div>
+ -->
+
+
+        <div class="challenge">
+          <h5>Make a Robot Class</h5>
+            <p>... and a few Robot instances?<br/>
+              The code below provides a simple start point for creating a sketch that shows moving robots.
+              It is based on the <code>Ball</code> class used in the lecture notes:
+            </p>
+            <pre class="brush: processing; gutter: false; toolbar: false;">Robot robot;
+
+void setup()
+{
+  size(500, 500);
+  robot = new Robot();
+}
+
+void draw()
+{
+  background(255);
+  robot.draw();
+  robot.move();
+}
+</pre>
+<p>And in a new Tab for the <code>Robot</code> class ...</p>
+<pre class="brush: processing; gutter: false; toolbar: false;">class Robot
+{
+  PVector position;   // Position of the robot.
+  PVector velocity;   // Amount it moves on each redraw.
+  float size;         // Size of robot.
+  color colour;       // Colour of robot.
+
+  // Initialises the robot's state.
+  Robot()
+  {
+    position = new PVector(width/2, height/2);
+    velocity = new PVector(random(-2,2),random(-2,2));
+    size     = 30;
+    colour   = color(0, 0, 0);
+  }
+
+  // Draws the robot at its current position.
+  void draw()
+  {
+    noStroke();
+    fill(colour);
+    rect(position.x, position.y, size, size);
+  }
+
+  // Moves the robot according to its current velocity.
+  void move()
+  {
+    position.x = position.x + velocity.x;
+    position.y = position.y + velocity.y;
+
+    if (position.x &lt; 0)
+    {
+      velocity.x = -1 * velocity.x; // If robot at left of sketch move to right.
+    }
+    else if (position.x &gt; width)
+    {
+      velocity.x = -1 * velocity.x; // If robot at right of sketch move to left.
+    }
+
+    if (position.y &lt; 0)
+    {
+      velocity.y = -1 * velocity.y; // If robot at top of sketch move down.
+    }
+    else if (position.y &gt; height)
+    {
+      velocity.y = -1 * velocity.y; // If robot at bottom of sketch move  up.
+    }
+  }
+}</pre>
+<div class="figRight" style="width:225">
+  <figure>
+  <img src="https://staff.city.ac.uk/~jwo/bootcamp2018/lecture06/images/robot.png"
+  width="125" alt="robot symbol"/>
+  <figcaption>
+      A Simple Robot<br/>You can do better!
+  </figcaption>
+  </figure>
+</div>
+          <p>
+            Copy the code provided above into a <i>Processing</i> sketch, placing the <code>Robot</code> class in a new <i>Processing</i> tab.</p>
+          <p>
+            Modify the <code>move()</code> and <code>draw()</code> methods of the <code>Robot</code> class to make a more realistic
+            looking robot that moves more like a robot.
+            For example, instead of a single rectangle, you might show a set of shapes like the image shown.
+          </p>
+          <p>
+            Also, instead of moving diagonally, you might make the movement only up, down, left or right at any one time.
+            <br /><br />
+            Note you should be able to complete this task by only modifying the code inside the <code>Robot</code>
+            class. You shouldn't need to touch the code inside <code>setup()</code> or the main <code>draw()</code>
+            methods.
+            </p>
+        </div>
+
+        <div class="challenge">
+          <h5>Make Many Robots</h5>
+         <p>
+          Modify your robot sketch so that 50 robots move around the screen, not just one.
+         </p>
+         <p>
+          Note: you should be able to do this without making any further modifications to the <code>Robot</code> class.
+          All the necessary changes can be applied outside this class.<br/>
+          You will need to use <i>Groups</i> and <i>Loops</i>.
+        </div>
+
+        <div class="challenge">
+          <h5>Make Interacting Robots</h5>
+          <p>
+            Can you make your robots interact with each other in some way (for example, by creating predator and prey
+            robots)?
+            </p>
+            <p>
+            For some guidance and ideas, see the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=806977"
+                target="_blank">Objects : Bouncing Balls</a> page.
+                </p>
+        </div>
+        <div class="challenge">
+          <h5>Make Data Robots</h5>
+          <p>
+            Can you somehow make your robots represent or depict some of the data that you have been collecting in your <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=795684">Dear Data Diary</a>?<br/>
+            Think about systematically varying their
+            </p>
+            <ul>
+              <li>size</li><li>colour</li><li>shape</li><li>speed</li>
+            </ul>
+        </div>
+
+        <div style="padding-bottom:2em;clear:both" />
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+        <!-- End of content -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>
