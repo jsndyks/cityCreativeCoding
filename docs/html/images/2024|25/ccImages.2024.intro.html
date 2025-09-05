@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CreativeCoding Lecture: Images Intro</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Embedded fonts -->
+	<link
+			href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+			rel="stylesheet">
+
+	<!-- Custom layout and style -->
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+	<!-- General browser compatibility handling -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+	<!-- Formatted source code -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+	<!-- Sketch popups and hidden text-->
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+	<!-- JD Extras! -->
+    <link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" />
+    
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+    <div id="page">
+        <!--
+            <p>
+            This session introduces you to a series of concepts,
+            classes and methods related to <b>digital images</b>,
+            their <em>features</em>, <em>storage</em> and <em>processing</em>.
+            We learn how to use capability provided by <em>Processing</em>
+            to load, display and images.</p>
+            <p>You can access the <a href="https://jsndyks.github.io/cityCreativeCoding/html/images/ccImages.2024.html">Images Lecture</a> outside of <em>Moodle</em> should you wish to do so.</p>
+
+        -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+
+        <div class="intro">
+            <p>This session provides an introduction to digital images, with some contextual information about their composition, structure and use.
+            </p>
+
+            <p><strong>If you read through these notes, attempt the tasks and exercises and use the resources
+                    that we have made available, then you are expected to be able to:</strong>
+            </p>
+
+            <ul>
+                <li>describe uses and quantities of digital images</li>
+                <li>describe the information structure of a digital image</li>
+                <li>know the meaning of terms like <i>pixel</i> and <i>resolution</i> and use these to describe and explain the nature of digital images</li>
+            </ul>
+
+        </div>
+        <!-- End of intro section -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+        <hr>
+        <h3>1. All Kinds of Images</h3>
+
+        <p>Images allow us to record information, communicate, express ourselves and much more.<br/>
+            So let's kick off by having a think about images, Computer Science and <i>Processing</i>, which is what we are using as
+            an enabling technology in <code>#CreativeCoding</code>.
+        </p>
+
+        <hr>
+        <h4>1.1 - How many images in the World?</h4>
+
+        <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                    <a href="https://jsndyks.github.io/cityCreativeCoding/images/internetTrends2019.imageSharing.png"><img
+                        src="https://jsndyks.github.io/cityCreativeCoding/images/internetTrends2019.imageSharing.png"
+                        width="300"/></a>
+                    <figcaption>
+                        <p>An <i>image</i> - showing the number of images shared and taken globally (in 2019).</p>
+                        <p>Source: <a href="https://www.bondcap.com/report/itr19/#view/77">Meeker Report 2019</a>.</p>
+                    </figcaption>
+                </figure>
+                    
+            </div>
+
+            <div class="unit-70-cc">
+                <p>We all use and make images on a daily basis - the World seems to be full of them. But how many are
+                    there?</p>
+
+                <p>Lots.<br />
+                    The influential <a href="https://www.bondcap.com/report/itr19/#view/77">Meeker Report</a> on
+                    <i>Internet Trends</i> suggested that in 2019 well over a billion images were shared every month, and over a
+                    trillion photos taken each year.
+                </p>
+                <p>It's an increasing trend, as shown by the image to the right.</p>
+
+                <p>
+                    Many of these are taken with digital cameras.<br/>
+                    Quite a few of these involve me and my selfies.<br/>
+                    Unsurprisingly, this is also an increasing trend.<br />
+                    Below 👇 we have an image from <a href="https://www.statista.com/chartoftheday/">Statista</a> that shows this
+                    nicely.<br />
+                    And here's another one from <a
+                        href="https://www.businessinsider.com/12-trillion-photos-to-be-taken-in-2017-thanks-to-smartphones-chart-2017-8?r=US&IR=T">Business
+                        Insider</a> that shows the same data in a slightly different way.<br />You see, we even get multiple
+                    images of the same information about images!
+                </p>
+                <table cellspacing="4" cellpadding="4" border="0">
+                    <tr>
+                        <td>
+                            <a href="https://www.statista.com/chart/10913/number-of-photos-taken-worldwide/"
+                                title="Infographic: Smartphones Cause Photography Boom | Statista"><img
+                                    src="https://cdn.statcdn.com/Infographic/images/normal/10913.jpeg"
+                                    alt="Infographic: Smartphones Cause Photography Boom | Statista" width="100%"
+                                    height="auto" style="width: 100%;" /></a>
+                        </td>
+                        <td>
+                            <a href="https://i.insider.com/59a895c679bbfd2b008b73a8?width=1200&format=jpeg&auto=webp"
+                                title="Infographic: Smartphones Cause A Photography Boom | Business Insider"><img
+                                    src="https://i.insider.com/59a895c679bbfd2b008b73a8?width=1200&format=jpeg&auto=webp"
+                                    alt="Infographic: Smartphones Cause A Photography Boom | Business Insider"
+                                    width="100%" height="auto" style="width: 100%;" /></a>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="figCaption">
+                            Source: <a href="https://www.statista.com/chartoftheday/">Statista</a>
+                        </td>
+                        <td class="figCaption">
+                            Source: <a
+                                href="https://www.businessinsider.com/12-trillion-photos-to-be-taken-in-2017-thanks-to-smartphones-chart-2017-8?r=US&IR=T">Mike
+                                Nudelman/Business Insider</a>
+                        </td>
+                    </tr>
+                </table>
+                <p>
+                    People are taking and making images all over the place.
+                    Indeed digital imaging industry experts <a href="https://riseaboveresearch.com/rar-reports/2022-worldwide-image-capture-forecast-2021-2026/">Rise Above Research</a> predicted that <i>1,720,000,000,000</i> digital photos would be taken in 2024</i> according to <a
+                        href="https://news.mylio.com/how-many-photos-taken-in-2022/">Susan Enfield</a>'s blog.</p>
+<!-- 
+                <div class="aside">
+                  Have a think - how did you use (take, make, read, seek) images differently during the COVID-19 lockdowns?
+                </div>
+ -->
+            </div>
+
+        </div>
+
+        <!--img src="https://jsndyks.github.io/cityCreativeCoding/images/uploads14.jpg"-->
+
+        <div class="units-row">
+
+            <div class="unit-70-cc">
+
+                <p>So, how many is that? What would it look like?<br /><br />
+
+                    Well, back in the day, I used to take photos and either (occasionally) develop them on photographic
+                    paper or (when things went digital) print them out, usually at 6x4 inches.<br />
+                    That's 15.25 x 10.16cm, so 155 cm&sup2 per photo.<br />
+                    I'd lay them out on a table to look them through.</p>
+
+                <p>What would it look like if we printed and laid out all the photos taken in the World in a
+                    year?<br /><br />
+
+                    We know that at least 1.5 trillion photos are taken per year.<br/>
+                    If we printed them at 6x4 inches, then laying them out so that they did't overlap would cover 233
+                    trillion cm&sup2.<br />
+
+                    This is <a
+                        href="https://www.thecalculatorsite.com/conversions/area/square-kilometers-to-square-centimeters.php">around
+                        23,250 km&sup2</a>.<br />
+
+                    Greater London is <a href="https://en.wikipedia.org/wiki/London#cite_note-total-2">about 1,500
+                        km&sup2</a> in size.<br />
+                    So a years worth of printed 6x4 inch photos would cover London - 15 deep.</p>
+
+                <p>There are various problems with this idea though.<br/>
+                    Not least of which, my printer takes about 6 seconds to churn out a photo.<br />
+                    Printing all of these pictures would take around 9 trillion seconds.<br />
+                    That's about 285,000 years.<br />
+                    Of continuous printing.<br />
+                    Which is a lot of ink.<br/>
+                    And <a href="https://humanorigins.si.edu/evidence/behavior/stone-tools/middle-stone-age-tools">technology may have changed quite a lot</a> by then.<br/>
+                    I give up.</p>
+
+                <p>Like I said, lots of photos.</p>
+
+            </div>
+
+
+        </div>
+
+        <hr>
+        <h4>1.2 - Images and computing</h4>
+        <div class="units-row">
+            <p>So how do we use images in Computing?<br />
+                Well, there are almost as many ways as there are images.<br />
+                Here are a few examples.</p>
+
+                <div class="unit-30-cc annotation cc-right">
+                <figure>
+                    <a href="http://j.mp/2m5DKtK"><img src="http://j.mp/2m5DKtK" width="400"></a>
+                    <figcaption>
+                        <p>Image Creation to Explore Data:<br />
+                            Visualization showing where and when rental bikes are cycled in London.
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="unit-70-cc">
+
+                <dl>
+                    <dt>Image creation</dt>
+                    <dd>
+                        Generating images, computer graphics
+                        <p>
+                            Examples: Cameras, satellites, telescopes, computer games, movies, data visualization, maps,
+                            art<br />
+                            You can create images that capture the content of the canvas in <i>Processing</i> with the
+                            <a href="https://processing.org/reference/save_.html"><code>save()</code></a> method - which
+                            will generate an image from whatever is drawn on the canvas whenever you call it.<br />E.g.
+                            <a href="https://processing.org/reference/save_.html"><code>save("image.jpg")</code></a>.
+                        </p>
+                        <p>
+                        We create images to show structure in data in our Computer Science research at the <a
+                        href="https://www.gicentre.net/featuredpapers#/woodvisualizing2011/">giCentre</a> - often using
+                    <i>Processing</i> for visualization.<br />
+                    We learn about Data Visualization later in <code style="font-size:80%"><b>#CreativeCoding</b></code>.</p>
+                        <p>During <code>#CreativeCoding</code> you'll be making plenty of images with
+                                <i>Processing</i> and may create an image to share with others at the end of the activity.
+                        </p>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="units-row" style="padding-top:1em">
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                    <a href="https://www.bbc.co.uk/news/world-us-canada-49837590">
+                        <img src="https://ichef.bbci.co.uk/news/660/cpsprodpb/158FD/production/_108971388_f78ca1c2-90be-4469-b343-1ed605c4e688.jpg" width="400">
+                    </a>
+                    <figcaption>
+                        <p>Image processing to 'Doctor' Photos:<br />
+                            BBC news reports on <a href="https://www.bbc.co.uk/news/world-us-canada-49837590">Canada's Green Party editing a photo of Elizabeth May</a>.
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="unit-70-cc">
+                <dl>
+                    <dt>Image processing</dt>
+                    <dd>
+                        Numerically manipulating an image, often outputting another image
+                        <p>
+                            Examples: "Photoshopping" an image to change or enhance content, resizing images, adding a
+                            filter, image compression.</p>
+                        <p>We will see various ways of doing this later on - for now, there's a newsworthy example to
+                                the right.
+                        </p>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="units-row" style="padding-top:1em">
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                    <a href="https://github.com/reyesaldasoro/HeLa-Cell-Segmentation">
+                        <img src="https://raw.githubusercontent.com/reyesaldasoro/HeLa-Cell-Segmentation/master/chapters/Figures/SegmentAnimatedStack_02.png" width="400"></a>
+                        <figcaption>
+                            <p>Image analysis:<br />
+                                Working towards cancer cell detection through <a
+                                    href="https://github.com/reyesaldasoro/HeLa-Cell-Segmentation">Segmentation, Measurement and
+                                    Visualisation of Nuclear Envelope of HeLa Cells observed with Electron Microscope</a>.
+                                    </p>
+                        </figcaption>
+                </figure>
+            </div>
+            <div class="unit-70-cc">
+                <dl>
+                    <dt>Image analysis</dt>
+                    <dd>
+                        Deriving meaning from an image, computer vision
+                        <p>
+                            Examples: Face detection, skeletal tracking (Kinect), medical diagnosis, scientific analysis
+                            (cosmology, cancer detection, high energy physics).</p>
+                        <p>We will only be doing some rudimentary image analysis (see the filtering section) in <code>#CreativeCoding</code>, but what you learn should give you some grounding that will help you understand how this kind of thing might be achieved.</p>
+                        <p>
+                            Here is an example from City academic <i>Carlos Reyes-Aldasoro</i> and Computer Science PhD <i>Cefa Karabag</i>
+                                that involves performing image analysis to identify cancer
+                                cells in images produced by an Electron Microscope.
+                        </p>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+
+                <div class="coreTask">
+                    <h5>Photoshopping</h5>
+                    <p>Check the BBC News story about these pictures of <a
+                            href="https://www.bbc.co.uk/news/world-us-canada-49837590">Elizabeth May</a> - a photograph
+                        and an image that appeared subsequently.</p>
+                    <ol>
+                        <li>Can you spot the differences?</li>
+                        <li>Can you see what has changed in the second image?</li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+
+        <hr>
+        <h3>2. What is an image?</h3>
+        <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                    <figure>
+                        <a href="https://jsndyks.github.io/cityCreativeCoding/images/spaceInvader.jpg"><img
+                            src="https://jsndyks.github.io/cityCreativeCoding/images/spaceInvader.jpg" width="250"></a>
+                        <figcaption>
+                            <p>A Parisian <a href="https://en.wikipedia.org/wiki/Invader_(artist)">Invader</a>.
+                            </p>
+                        </figcaption>
+                    </figure>
+            </div>
+            <div class="unit-70-cc">
+                <p>
+                    For our purposes, an image is a two-dimensional array, or regular grid, of colours.
+                    One can think of these as grid of miniature coloured rectangles positioned next to one another on
+                    the screen.
+                    They are much like a mosaic of tiles, each tile being of a single colour.
+                </p>
+                <p>Mosaics are great - they allow us to create physical images and decorate our floors, bathrooms,
+                    window ledges ...</p>
+                <p>If you look carefully when you visit Paris, you'll see occasional tile mosaics made by <a
+                        href="https://en.wikipedia.org/wiki/Invader_(artist)">Invader</a> and various others who have
+                    followed this idea.
+                </p>
+
+            </div>
+        </div>
+
+        <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                    <a href="https://www.bachor.com/this-is-not-a-pothole-anymore"><img
+                        src="https://static.wixstatic.com/media/23bea2_d5f84fde92c94a4088047c63367d5e09~mv2_d_2448_2448_s_4_2.jpg/v1/fill/w_1156,h_1174,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/23bea2_d5f84fde92c94a4088047c63367d5e09~mv2_d_2448_2448_s_4_2.jpg
+                        " width="250"></a>
+                    <figcaption>
+                        <p style="padding-bottom:0.5em">Literal Street Art, using mosaics,<br/>by <a
+                            href="https://www.bachor.com/this-is-not-a-pothole-anymore">Jim Bachor</a>.
+                    </p>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="unit-70-cc">
+              <p><a href="https://www.bachor.com/">Jim Bachor</a>'s amazing <a href="https://www.bachor.com/pothole-installations-c1g1y">pothole</a> mosaics are gaining some traction too, though, with some exceptions, these tend not to use regular grids.</p>
+            </div>
+        </div>
+
+        <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                    <img src="https://jsndyks.github.io/cityCreativeCoding/images/pixels.png" width="250">
+                    <figcaption>
+                        Pixels!
+                    </figcaption>
+                </figure>
+                    <!---img src="https://jsndyks.github.io/cityCreativeCoding/images/pixels.png"--->
+            </div>
+            <div class="unit-70-cc">
+                <p>
+                    To store regular grid mosaics digitally, we record information about the colour in each tile, and where each tile is positioned in the grid.
+                    The more tiles, the more detail. 
+                </p>
+
+                <p>We don't refer to these individually coloured elements of the image as tiles though.
+                    We refer to them as picture elements - or <b><i>pixels</i></b> for short.
+
+                </p>
+                <p>And you will already have some ideas about how we specify colours digitally.</p>
+                <!--h4>Aside - Image compression</h4-->
+                <!--p><a href="http://www.g2cs.org/media/interactives/image-compression/00.html">http://www.g2cs.org/media/interactives/image-compression/00.html</a>
+      </p-->
+            </div>
+        </div>
+
+        <hr>
+        <div class="units-row">
+            <h4>2.1 - Image resolution</h4>
+            <p>
+                We refer to the number of pixels contained in an image as its <i>resolution</i>.<br />
+                The more pixels, the more detail, the higher resolution.</p>
+    
+            <p>The numbers of pixels in these example images increases from the top left (3x3) to bottom right
+                    (300x300).</p>
+            <p>You should see that there is more detail in the image as we increase the number of pixels used,
+                    thereby increasing the <i>resolution</i> of the image.</p>
+            <p>The white gaps between pixels in these examples are just there to help show the grid structure - we
+                    would remove them when displaying or printing an image.</p>
+
+            <div class="unit-70-cc">
+
+                <table cellspacing="4" cellpadding="4" border="0">
+                    <tr>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage263853.3.png" width="200"
+                                height="200"></td>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage828640.9.png" width="200"
+                                height="200"></td>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage535541.27.png" width="200"
+                                height="200"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage255807.60.png" width="200"
+                                height="200"></td>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage224381.150.png"
+                                width="200" height="200"></td>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage874483.300.png"
+                                width="200" height="200"></td>
+                        <!--td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage854884.600.png" width=200 height=200></td-->
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                    <img src="https://jsndyks.github.io/cityCreativeCoding/images/giffordsCircus.jpg" width="200" height="200" />
+                    <figcaption>
+                        Download by right clicking on the image.
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="unit-70-cc">
+                <p>
+                    Example Image: Here's a high resolution version of the image created when I took a photo of the
+                    circus truck.<br/>
+                    Let's find its resolution.
+                </p>
+                <p>
+                    Total pixels = grid width * grid height (in pixels).
+                </p>
+
+            </div>
+        </div>
+
+        <div class="units-row">
+            <div class="coreTask">
+                <h5>Image Resolution</h5>
+                <p>
+                Download the high resolution image (above right) and save it to your Desktop.<br />
+                Find the resolution by examining the properties of the image file in a file manager.
+            </p>
+            <p>How many pixels are used to store this information?<br/>Can you open the image and zoom in and see the individual pixels?</p>
+            </div>
+    
+            <hr>
+            <h4>2.2 - Dark and light</h4>
+    
+    
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                    <img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage802116.9.png" width="200" height="200"
+                    style="padding-bottom:1em" />
+                    <figcaption>
+                        <p>A simple image made of (9x9) 81 pixels and containing two different colours.<br /></p>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="unit-70-cc">
+                <p>We can create images with cameras, but we have already made some low resolution images
+                    programmatically using <i>Processing</i>.
+                    Remember the grids of shapes we produced when learning about loops?</p>
+                <p>Here is a 9x9 low resolution image of, er ... I dunno ... a black photo frame?<br />
+                    We have a <i>dark</i> colour in some pixels and a <i>light</i> colour in others.</p>
+            </div>
+        </div>
+
+        <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                    <img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage211945.9.png" width="200" height="200"
+                    style="padding-bottom:1em" />
+                    <figcaption>
+                        <p>The same image made of (9x9) 81 pixels but with a grid to show image resolution.<br /></p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="unit-70-cc">
+                <p>You can't really tell that it's using a 9x9 grid like this.</p>
+                <p>So let's show the edges of the grid cells - we will add some grey lines again.</p>
+                <p>This reveals the mosaic.</p>
+
+                <p>Now we can see the gaps between the 81 small mosaic-like tiles - the <i>pixels</i> that make up the
+                    image.</p>
+                    <p>This image of a frame is not particularly exciting, but even with small grids and just two different
+                        colours we can create some recognisable and iconic graphics.<br />
+                        It's surprising how expressive you can be with a simple grid.</p>
+            </div>
+        </div>
+
+            
+        <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                    <img src="https://jsndyks.github.io/cityCreativeCoding/images/invader11.down.png" width="100" height="100"
+                    style=" padding-bottom:1em" />
+                    <img src="https://jsndyks.github.io/cityCreativeCoding/images/invader11.up.png" width="100" height="100"
+                    style="padding-bottom:1em" />
+                    <figcaption>
+                        <p>A pair of simple images made of (11x11) 121 pixels, still containing just two different colours.</p>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="unit-70-cc">
+
+                <p>I spent a good part of my teens interacting with <a
+                        href="https://en.wikipedia.org/wiki/Space_Invaders">11x11 pixel grids containing just a couple of colours</a>.<br />
+                        Remember these guys?<br/>👾</p>
+                        <p>By varying the distribution (pattern, arrangement) of dark and light pixels, we can create many different images, with
+                            different resolutions.</p>
+                        <p>Let's start with another image consisting of a 9x9 grid, but with a different pattern of light and
+                            dark.<br />
+                            As we increase the resolution of the image - from 9x9 to 30x30 to 100x100 to 300x300 pixels -- we can show more detail and eventually interpret this as
+                            a picture of something familiar.<br/>Just about!<br/>Even with just two variations of shade - light and dark.</p>
+            </div>
+        </div>
+
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <p>These images use 9x9, 30x30, 100x100 and 300x300 pixels from left to right.</p>
+                <p>Each pixel contains one of two 'colours' - light or dark.</p>
+
+                <table cellspacing="4" cellpadding="4" border="0">
+                    <tr>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage373116.9.png" width="150"
+                                height="150"></td>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage505940.30.png" width="150"
+                                height="150"></td>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage464307.100.png"
+                                width="150" height="150"></td>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage667495.300.png"
+                                width="150" height="150"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <hr>
+        <h4>2.3 - 256 Shades of grey</h4>
+
+        <p>Extending the <i>range of shades</i> that we use, from a binary light | dark distinction to a sequence of greys, also
+            allows us to increase the amount of information in the image.</p>
+
+            <p>Here we have the same numbers of pixels as in the two-shade images above, but use 256 different shades of grey, rather than two.</p>
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <p>These images again use 9x9, 30x30, 100x100 and 300x300 pixels from left to right.</p>
+                <p>But this time each pixel contains one of 255 shades of grey, from light <code>color(255)</code>
+                    through to dark <code>color(0)</code>.</p>
+                <table cellspacing="4" cellpadding="4" border="0">
+                    <tr>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage224979.9.png" width="150"
+                                height="150"></td>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage310369.30.png" width="150"
+                                height="150"></td>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage155053.100.png"
+                                width="150" height="150"></td>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage587062.300.png"
+                                width="150" height="150"></td>
+                    </tr>
+                </table>
+                <p>In this example our <i>colour resolution</i> has increased from 2 to 256 shades.<br/>
+                    Once again our <i>image resolution</i> increases from left to right.</p>
+            </div>
+        </div>
+
+        <hr>
+        <h4>2.4 - 16 Million Colours</h4>
+
+        <p>We add colour to our images by recording three numbers, rather than just one, for each pixel.
+            These are the amounts of red, green, and blue present at each pixel.
+            Combining these three <i>colour components</i>, or <i>channels</i> as they are sometimes called, allows us
+            to describe colours very precisely.<br />
+            Specifying the red, green and blue components of any colour on a scale of 0-255 allows us to differentiate
+            between 256㎥ colours.
+            That's more than 16 million different colour combinations.
+            This is plenty in most circumstances.
+        </p>
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <p>
+                These images all use a 30x30 grid, so they have a resolution of 900 pixels.<br /><br />
+                On the left we see a full colour image.<br />
+                The other three images show the amounts of red, green and blue stored in each pixel of the image to the
+                left.<br/>Each colour component ranges from 0 to 255.
+            </p>
+                <table cellspacing="4" cellpadding="4" border="0">
+                    <tr>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage122651.30.png" width="150"
+                                height="150"></td>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage758135.30.png" width="150"
+                                height="150"></td>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage530539.30.png" width="150"
+                                height="150"></td>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage382163.30.png" width="150"
+                                height="150"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <p>
+                    Here we have images showing the same photo on a 600x600 grid, so the image resolution here is much higher, with
+                    360,000 pixels in each image.
+                </p>
+                <p>
+                    On the left we see the full colour image once again.
+                </p>
+                    <table cellspacing="4" cellpadding="4" border="0">
+                    <tr>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage388297.600.png"
+                                width="150" height="150"></td>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage751933.600.png"
+                                width="150" height="150"></td>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage683720.600.png"
+                                width="150" height="150"></td>
+                        <td><img src="https://jsndyks.github.io/cityCreativeCoding/images/savedImage231930.600.png"
+                                width="150" height="150"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+
+                <p>I'd like you to study these images in detail and have a think about how we use the colour components
+                    to store information in images. Try the following ...</p>
+            </div>
+        </div>
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+
+                <div class="coreTask">
+                    <h5>Image Colour Components</h5>
+                    <p>Looking at these images, have a think about the following statements that will help you
+                        understand how we store images using colours.<br />
+                        In each case, study the images and decide whether you agree with the statement or not.
+                        <!--Chat to a someone sitting nearby and decide whether you agree with them or not - TRUE of FALSE?-->
+                    </p>
+                    <p>
+                        Chat to a colleague in your group and decide whether you agree with them or not<br />In each case - TRUE of FALSE?</p>
+                    <p>And then try to think, and chat, about why.<br/>Does this apply to all images, or just this one?</p>
+                    <ol>
+                        <li>pink colours contain more green than blue?</li>
+                        <li>you can't see text if you rely on the red colour component?</li>
+                        <li>text is easier to read on higher resolution images?</li>
+                        <li>the paving stones are green?</li>
+                        <li>the white part of the bike contains more green than the green wall?</li>
+                        <li>it's hard to work out which parts of the image are blue from the three colour components,
+                            without looking at the full colour image?</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <h3>3. Image Grid Sketch</h3>
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+
+                <p>We have produced an interactive sketch to try to help you see how we define colours in grids of
+                    different resolutions to create and manipulate images.</p>
+                <p>We'd like you to spend a little time exploring the capabilities of the <i>Image Grid</i> sketch and
+                    its functionality.</p>
+            </div>
+        </div>
+
+        <div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+                <figure>
+                    <script>loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/imageGrid", 300, 300, "https://staff.city.ac.uk/~jwo/bootcamp2019/p5js/imageGrid/screenshot.png");</script>
+                    <figcaption>
+                        Click ImageGrid to run is, and move and enlarge the window in which it appears.
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="unit-70-cc">
+                <p>
+                    <b>Image grid</b><br /><i>Click image to the right to activate it, then stretch the window it appears
+                        in so that you can see the full image.</p>
+                <p>Click and press keys to interact.<br/>Press the 'h' key for help on the keys and their effects as
+                        shown below.</i>
+                </p>
+            </div>
+        </div>
+
+        <div class="units-row">
+            <div class="unit-30-cc annotation cc-right figCore" style="padding-top:4em">
+                <img src="https://jsndyks.github.io/cityCreativeCoding/images/imageGridHelp.png" width="250" />
+                <p>
+                    <br />
+                    <!---<b>Keys to press!</b><br/>--->
+                    <i>Try using these keys to complete the tasks...</i>
+                </p>
+            </div>
+            <div class="unit-70-cc">
+                <div class="coreTask">
+                    <p>Open the <i>Image Grid</i> sketch (above right) and press the 'h' key to get help on the functionality.<br/>
+                        This shows you the various ways that you can interact with the sketch.</p>
+                    <p>Try a few of the keys and remember that you can press 'h' at any time to get help.<br/>
+                    Press 'h' again to remove the help message.</p>
+                    <p>
+                        Then use the functionality of the sketch to :</p>
+                    <ol>
+                        <li>select different images</li>
+                        <li>change resolution</li>
+                        <li>look at the red, green and blue components separately</li>
+                        <li>find areas of an image with <i>dark blue colours</i> and see how they are specified</li>
+                        <li>find areas of an image with <i>light pink colours</i> and see how they are specified</li>
+                        <li>create a low resolution image (small grid) and use the bars 'b' to compare colours and
+                            components</li>
+                        <li>make a lovely black and white mosaic of your favourite lecturer</li>
+                        <li>look again at the questions in the previous task</li>
+                        <li>write down questions that you'd like you ask in the tutorial after your class</li>
+                    </ol>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- End of content -->
+        <hr />
+        <div class="sig">
+            <b>Jason DYKES</b><br />
+            <!-- <i>11 Oct 2021</i> -->
+            <!-- <i>30 Sep 2022</i> -->
+            <!-- <i>20 Sep 2023</i> -->
+            <!-- <i>01 Oct 2023</i> -->
+            <i>09 Nov 2024</i>
+        </div>
+
+
+
+        <div style="padding-bottom:2em;clear:both" />
+            <!--- spacer for iFrame -->
+            <p style="padding-top:1em"><hr/></p>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>
