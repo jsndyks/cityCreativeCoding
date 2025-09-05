@@ -72,14 +72,15 @@
             <p>Use the discussion forum to discuss you progress, blocking points, ideas and robots!</p>
 
 
+
+            <h3>-1. Preparation - Sketches and Coordinates</h3>
+
             <div class="figRight" style="padding:1em; padding-left:4em">
                 <figure>
                 <img src="./img/cc.objects.robotHead.sketch.jpg" width="200" alt="Sketching a Robot"/>
                 </figure>
                 <figcaption style="margin-top:-2.5em">Draw a Robot Head.<br/>Find the variables that allow us to draw it!</figcaption>
             </div>
-
-            <h3>-1. Preparation - Sketches and Coordinates</h3>
 
             <p>Sketch a robot head with four simple shapes - a rectangle, two circles and a line.</p>
             <p>Find the coordinates of the robot head centred around the origin (0,0).<br/>
@@ -169,7 +170,7 @@
     }
 </pre>
 
-            <p>Having define a class we can use it to create one or more <i>objects</i> that are instances of that class.<br/>
+            <p>Having defined a class we can use it to create one or more <i>objects</i> that are instances of that class.<br/>
             So we can now make a Mark1 robot of type <code>RobotMk1</code> just as we would create any variable.
             But this variable is an object and so it is ... "<i>a composite of fields (data) and methods (functions that are a part of the class)</i>". 
             Or at least it could be if we had defined a class with fields and methods, but this class has no data or methods so it's pretty useless.</p>
@@ -181,15 +182,15 @@
             <p>We now have three robots in our sketch, but they don't contain any data that describes them or allows us to differentiate them (variables), or do anything like draw themselves or move (methods).</p>
             <p>But we can easily add this kind of thing now that we can see how easy it is to make a class.</p>
 
-            <div class="figRight" style="padding:1em; padding-left:4em">
+
+            <h3>2. Mark 2 - A Class that Does Something (not much) - the 'Something' Class</h3>
+
+            <div class="figRight" style="padding:1em; padding-left:4em; float:right">
                 <figure>
                 <img src="./img/cc.objects.robotHead.robotMk2.png" width="200" alt="A Robot produced via a method"/>
                 </figure>
                 <figcaption style="margin-top:-2.5em">A Robot Class.<br/>Our RobotMk2 class is very simple,<br/>but at least it draws something!</figcaption>
             </div>
-
-
-            <h3>2. Mark 2 - A Class that Does Something (not much) - the 'Something' Class</h3>
 
             <p>All we do to add <i>data</i> to a <code>class</code> is define it with <i>instance variables</i> or <i>fields</i>.</p>
             <p>These are declared as variables within the <code>class</code> definition, but <i>outside</i> the constructor and any other methods, a little like <i>global variables</i> in our sketches.</p>
@@ -243,6 +244,8 @@ r.draw();</pre>
         r.draw();
     }</pre>
 
+    <h3>3. Mark 3 - A Class that Takes Arguments - the 'Something Else' Class</h3>
+
     <div class="figRight" style="padding:1em; padding-left:4em">
         <figure>
         <img src="./img/cc.objects.robotHead.robotMk3.png" width="200" alt="A Robot produced via a class"/>
@@ -250,9 +253,7 @@ r.draw();</pre>
         <figcaption style="margin-top:-2.5em">A Robot Class.<br/>Our RobotMk3 takes arguments that<br/>allow us to configure instances (objects)!</figcaption>
     </div>
 
-    <h3>3. Mark 3 - A Class that Takes Arguments - the 'Something Else' Class</h3>
-
-            <p>It should now be clear that we can create a more sophisticated looking robot by adding some commands to the <code>draw()</code> method of the class. That's pretty easy, particularly if we use our sketchbook to help, and we do so below with <i>head</i>, <i>eyes</i> and <i>mouth</i> (but still no body) below.</p>
+    <p>It should now be clear that we can create a more sophisticated looking robot by adding some commands to the <code>draw()</code> method of the class. That's pretty easy, particularly if we use our sketchbook to help, and we do so below with <i>head</i>, <i>eyes</i> and <i>mouth</i> (but still no body) below.</p>
 
             <p>But what is new and exciting is that we can pass arguments to our object, to configure it individually, if we define these in the constructor class - just as we do with objects available in <i>Processing</i>like <a href="https://processing.org/reference/PVector.html"><code>PVector</code></a>.</p>
 
@@ -319,6 +320,8 @@ RobotMk3 r2d4 = new RobotMk3(250, 150);</pre>
       r2d4.draw();
     }</pre>
 
+    <h3>4. Mark 4 - A Class with Multiple Arguments and Methods - the 'Something Better' Class</h3>
+
     <div class="figRight" style="padding:1em; padding-left:4em">
         <figure>
         <img src="./img/cc.objects.robotHead.robotMk4.png" width="200" alt="A Robot produced via a class"/>
@@ -326,16 +329,15 @@ RobotMk3 r2d4 = new RobotMk3(250, 150);</pre>
         <figcaption style="margin-top:-2.5em">A Robot Class.<br/>Our RobotMk4 takes four arguments<br/>and contains additional methods<br/>that allow us to configure RobotMk4 objects!</figcaption>
     </div>
 
-    <h3>4. Mark 4 - A Class with Multiple Arguments and Methods - the 'Something Better' Class</h3>
 
-        <p>It should be clear that we can add more characteristics to our objects and give them more behaviours by adding more arguments to the constructor and more methods to the <code>class</code>.</p>
+    <p>It should be clear that we can add more characteristics to our objects and give them more behaviours by adding more arguments to the constructor and more methods to the <code>class</code>.</p>
         <p>The <i>Mark4 Robot</i> is better specified, with four <i>fields</i> that are filled with arguments passed into the class on instantiation and more dynamic - it has a simple <code>move()</code> class.
             The <code>draw()</code> class also adds code that makes the robot <i>blink</i> (<code>circle()</code> or <code>line()</code> for eyes) based upon the current value of <code>frameCount</code>.
             We could add <i>methods</i> to our robot <code>class</code> to make the robot objects make noises, chase other robots, fire lasers ... whatever, and we could add fields to determine blink rate, velocity, movement direction, and various other visual characteristics. We could add more shapes to the <code>draw()</code> method in the <i>RobotMk4</i> class to give the robots a body - legs, wheels, rocket boosters, it's basically down to your needs and imagination! 
             How do you want your robot to be? Or do you want to model something else by creating a different kind of class?</p>
         <p>Here's the more sophisticated <i>RobotMk4</i> <code>class</code>, with four arguments and two methods:</p>
             <pre class="brush: processing; gutter: false; toolbar: false; highlight: [10,11,12,13,14,15,38,39,40,41]">// -- More sophisticated Basic Robot class with multiple arguments (fields, instance variables) ... and methods!
-    // -- OK - this Robot can contain and depict data!
+// -- OK - this Robot can contain and depict (dear) data!
     
     class RobotMk4 {
     
