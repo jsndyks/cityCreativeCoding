@@ -563,7 +563,7 @@ image(img, 0, 0);
                 <script>
                     loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/Tint/", 640, 300, "https://jsndyks.github.io/cityCreativeCoding/images/cabin-dark.png");
                 </script>
-                <figcaption>Click </figcaption>
+                <figcaption>Click to open, widen the sketch, interact!</figcaption>
                 </figure>
             </div>
             <div class="unit-70-cc">
@@ -769,6 +769,7 @@ image(img, 0, 0);
                     <p>Remember that <a href="https://processing.org/reference/image_.html"><code>image()</code></a> allows you to position and size images with arguments 2, 3, 4
                         and 5.</p>
                         <p>Check the <i>Processing</i> documentation for a reminder: <a href="https://processing.org/reference/image_.html"><code>image()</code></a></p>
+                        <p>Use loops to produce more images on the canvas.</p>
                 </div>
                 <div class="challenge">
                     <h5>Challenge - Animated Tint</h5>
@@ -964,11 +965,11 @@ void setup() {
   background(127);
 }
 
-void draw() {                            // -- Get the colour of the PImage
-  color c = img.get(mouseX, mouseY);   // -- called 'img' at cell mouseX,mouseY.
+void draw() {                            
+  color c = img.get(mouseX, mouseY);   // -- Get the colour of the PImage called 'img' at cell mouseX,mouseY.
   fill(c);                              // -- Set fill to this colour.
-  rect(mouseX, mouseY, s, s);          // -- Then draw a rectangle at
-}                                        // -- the mouse position.
+  rect(mouseX, mouseY, s, s);          // -- Then draw a rectangle at the mouse (cursor) position.
+}
 </pre>
                 </div> <!-- End of left column -->
 
@@ -1043,7 +1044,7 @@ println("The lightness in that colour is: "+thisLight);
 
                 <div class="codeTask">
                   <h5>Brightness Variation</h5>
-                    <p>Copy the code and run the sketch from the first example at the top of this section - the one that uses <code>get()</code>.</p>
+                    <p>Copy the code and run the sketch from the first example at the top of this section - the first one that uses <code>get()</code>.</p>
                     <p>Play with the sketch and use what you have learned (and the code provided above, and the
                         documentation on <code>brightness()</code> that you have consulted) to adapt the code so that
                         the size of the rectangles varies:</p>
@@ -1163,7 +1164,7 @@ void draw() {
                         Then, copy the code into <i>Processing</i>.</p>
                     <ul>
                         <li>Use a loop to draw some shapes on the plasma!</li>
-                        <li><a href="https://processing.org/reference/save_.html"><code>save()</code></a> an image of the canvas when a key is pressed</li>
+                        <li>Add code to <a href="https://processing.org/reference/save_.html"><code>save()</code></a> an image of the canvas when a key is pressed</li>
                     </ul>
                 </div>
 
@@ -1239,7 +1240,7 @@ void draw() {
 
         <p>There are a trillion images being taken in the world every year, and there are many more things you could do
             with <i>Processing</i>!</p>
-        <p>Take you time.<br/>Try things out.<br/>Get things wrong.<br/>
+        <p>Take your time.<br/>Try things out.<br/>Get things wrong.<br/>
             Debug systematically.<br/>Understand that it will take time.<br/>Discuss.<br/>Think.<br/>
             Ask
             questions.<br/>Try again.</p>
