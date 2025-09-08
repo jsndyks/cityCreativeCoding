@@ -132,7 +132,7 @@ You can access the [Data Visualization Lecture](https://jsndyks.github.io/cityCr
                 <div class="codeTask">
                     <h5><a href="http://processing.org/reference/loadStrings_.html"
                         target="_blank"><code>loadStrings()</code></a> Example:</h5>
-                    <div class="dataFile"><pre>Nora Gigg,1,4,851,1995,Female,3XL,#b002f7,ngigg0@telenet.co
+                    <div class="dataFile" style="margin-top:-4rem"><pre>Nora Gigg,1,4,851,1995,Female,3XL,#b002f7,ngigg0@telenet.co
 Bobby Montague,0,3,2758,1967,Male,XL,#45ac24,bobbymont@skype.com
 Em Claeskens,6,0,679,1998,Female,M,#0298f0,eclaeskens2@nature.com
 Stephana Schimann,4,1,1620,2010,Female,M,#e6507f,sschimann3@omniture.com
@@ -153,11 +153,13 @@ Zitella Punyer,1,2,2226,2002,Female,M,#d85d42,zpunyerh@elpais.com
 Tamara Mazzia,6,4,2849,1998,Male,L,#41ebd0,tmazziai@datavis.com
 Alfonso Crole,2,4,1151,1965,Male,XS,#39b676,acrolej@archive.org</pre>
                     </div>
+
                     <p>
-                        We will be using a simple data file when live coding in the lecture - <a
+                        We will be using a simple data file, shown here to the right, when live coding in the lecture - <a
                             href="https://jsndyks.github.io/cityCreativeCoding/data/namesData.txt"
                             target="_blank">namesData.txt</a>
                     </p>
+                    <p>It is a text file containing data that are separated on each line by commas - on <i>comma separated value (CSV)</i> form.</p>
                     <p>
                         So please <strong>download this data file in advance</strong>.<br/>
                         You should right-click the link above to download and save a copy.<br />
@@ -219,11 +221,8 @@ Alfonso Crole,2,4,1151,1965,Male,XS,#39b676,acrolej@archive.org</pre>
                         computer.</p>
                 </div>
 
-                <div class="codeTask">
-                    <h5>Splitting a String with <a href="http://processing.org/reference/split_.html"
-                        target="_blank"><code>split()</code></a> Example:</h5>
                 <p>
-                  Now let's use <a href="http://processing.org/reference/split_.html"><code>split()</code></a> to split a line from the <code>lines</code> array into a new array of tokens, each separated by a comma.<br/>
+                  Now let's use <a href="http://processing.org/reference/split_.html"><code>split()</code></a> to split a line from the <code>lines</code> array into a new array of tokens, each separated by a comma. One array of tokens for each line.<br/>
                   This enables us to <em>get at</em> the data by slitting at the commas and loading each <i>String</i> that occurs between the commas into an array.   
                 </p>
                 <pre class="brush: processing; gutter: false; toolbar: false;">
@@ -238,6 +237,12 @@ Alfonso Crole,2,4,1151,1965,Male,XS,#39b676,acrolej@archive.org</pre>
 
 </pre></div>
 
+<div class="codeTask">
+    <h5>Splitting a String with <a href="http://processing.org/reference/split_.html"
+        target="_blank"><code>split()</code></a> Example:</h5>
+
+                <p>Copy the above code into a new sketch and run it.
+                    <br/>Experiment a little.</p>
             </div>
         </div>
 
@@ -313,8 +318,7 @@ Alfonso Crole,2,4,1151,1965,Male,XS,#39b676,acrolej@archive.org</pre>
                     Data visualization is all about making meaningful, informative, readable, graphical representations of <b>data</b>.
                     These data are usually created
                     externally, outside your program, and you write code to read those data into your program and show them
-                    graphically. The data can be of all sorts of things - daily temperatures, Twitter messages, player performance in football matches, Moodle usage statistics, code commits, data generated in real time by sensors in the City or complex model
-                    outputs that might, for example, be predicting patterns of disease.
+                    graphically. The data can be of all sorts of things - daily temperatures, Twitter messages, player performance in football matches, Moodle usage statistics, code commits, data generated in real time by sensors in the urban environment or complex model outputs that might, for example, be predicting patterns of disease.
                 </p>
 
                 <p>
@@ -357,7 +361,7 @@ Alfonso Crole,2,4,1151,1965,Male,XS,#39b676,acrolej@archive.org</pre>
                             media</a>, etc.
                     </li> -->
                     <li><a href="https://informationisbeautiful.net">Information Is Beautiful</a> - including the <a href="http://www.informationisbeautifulawards.com" target="_blank">Information Is Beautiful Awards</a></li>
-                    <li><a href="">Mapping London</a> - including <a href="http://mappinglondon.co.uk/category/data/"
+                    <li><a href="https://mappinglondon.co.uk">Mapping London</a> - including <a href="http://mappinglondon.co.uk/category/data/"
                             target="_blank">Data Browser</a> - e.g. <a
                             href="https://mappinglondon.co.uk/2014/the-football-tribes/">The Football Tribes</a>
                     </li>
@@ -370,11 +374,11 @@ Alfonso Crole,2,4,1151,1965,Male,XS,#39b676,acrolej@archive.org</pre>
 
                 <h4>Example 1 - Personal Activity Tracking</h4>
                 <p>
-                    Ben Fry, one of the original authors of <em>Processing</em>, has founded a visualization company,
+                    Ben Fry, one of the original authors of <em>Processing</em>, founded a visualization company,
                     which is helping <a target="_blank" href="https://fathom.info/projects/">a whole host of clients in
                         government and industry</a> make sense of their data through <em>visualization</em>. Or ...</p>
                         <blockquote>Finding ways to see beyond what you already know</blockquote>
-                    <p>Have a look at some of <em>Fathom</em>'s early work - their <a href="https://fathom.info/yearinnikefuel/">Year in Nike Fuel</a> to see how data from activity trackers have been transformed into meaningful and revealing
+                    <p>Have a look at some of <em>Fathom</em>'s early work - their <a href="https://fathom.info/yearinnikefuel/">Year in Nike Fuel</a> - to see how data from activity trackers have been transformed into meaningful and revealing
                     personal graphics through data visualization.
                 </p>
                 <iframe src="https://player.vimeo.com/video/151097197" width="690" height="387" frameborder="0"
@@ -537,6 +541,7 @@ void draw()
                 <hr class="hrInvisible"/>
                 <!--  -->
                 <div class="codeTask">
+                    <h5>From File to Canvas</h5>
                     <p>Try this code for yourself -- copy it into a sketch from above.</p>
                     <p>Make sure you have a copy of <a href="https://jsndyks.github.io/cityCreativeCoding/data/names.txt"
                             target="_blank">names.txt</a>
@@ -615,14 +620,15 @@ void draw()
         <div class="units-row">
             <div class="unit-70-cc">
                 <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-                <pre class="brush: processing; gutter: false; toolbar: false;">            String[] textLines;  // Lines of text from file.
+                <pre class="brush: processing; gutter: false; toolbar: false;">            String[] textLines;  // -- Lines of text will be loaded into this Array of Strings from file.
             int lineToDisplay;
 
             void setup()
             {
               size(600,400);
+              // -- Use loadStrings() to load text into the textLines array from an online text file:
               textLines = loadStrings("https://jsndyks.github.io/cityCreativeCoding/data/theTimeMachine.txt");
-              lineToDisplay = 142;    // -- See above that loadStrings() will load from an online file
+              lineToDisplay = 142;    
 
               textSize(14);
               fill(0);
@@ -668,7 +674,8 @@ void draw()
                     the position of each line as we did in the first example.
                 </p>
                 <p>
-                    Add this <code>keyPressed()</code> method to skip forward and backward a line with the <span class="key">&lt;</span> and <span class="key">&gt;</span> keys. This works by keys updating the variable <code>lineToDisplay</code>, which is used to determine the array index used to select the currently displayed line.
+                    Add this <code>keyPressed()</code> method to skip forward and backward a line with the <span class="key">&lt;</span> and <span class="key">&gt;</span> keys.
+                    This works by using the keys to update the variable <code>lineToDisplay</code>, which is used to determine the array index used to select the currently displayed line.
                 </p>
                 <p>You can then change the line that is displayed interactively - use the <span class="key">&lt;</span> and
                 <span class="key">&gt;</span> keys to display the book, one paragraph at a time.<br/>
@@ -742,12 +749,12 @@ void draw()
                 <p>
                     For example, each line may be a <em>record</em> about a thing that we are interested in,
                     such as a GPS reading at a particular time, or a day of the week about which we have information.
-                    It may contain multiple pieces of information about the thing, such the thing's position and elevation in the first case, or 
-                    the things maximum heart rate recorded by an activity tracker for each hour of the day in the second.
+                    It may contain multiple pieces of information about the thing, such as the thing's position and elevation in the first case, or 
+                    the thing's maximum heart rate recorded by an activity tracker for each hour of the day in the second.
                     And if these pieces of information about multiple things are in a consistent order then we can compare the things (people, days, whatever).</p>
 
                     <h5>Bike Ride 🚴🏼</h5>
-                    <p>For example, here are the elevations I was at for a short period the other afternoon, while my GPS was tracking me as I rode my bike:</p>
+                    <p>For example, here are the <i>elevations</i> I was at on my bike for particular <i>times</i> during a short period the other afternoon while my GPS was tracking me:</p>
 
                     <pre style="margin-top:1em; margin-bottom:1em">141.3,16:00:01
 141.4,16:00:02
@@ -760,20 +767,22 @@ void draw()
 142.2,16:00:09
 142.3,16:00:10</pre>
 
-                <p>Each row of this data file is a recording made by, and downloaded from, the GPS.
+                <p>Each row of this data file is a recording made by, and downloaded from, the GPS. I can download a CSV file from the GPS app.
                     Each contains an elevation (in metres above sea level) and the time at which the recording was made, separated by a comma. 
                     The data shown above are for the first 10 seconds after 4pm when I was climbing pretty steadily and ascended a whole metre!
                     But the GPS captured data more than 7,000 times over the afternoon and you can see all of the records here:
                 <a href="https://jsndyks.github.io/cityCreativeCoding/data/elevationData.txt" target="_blank">elevationData.txt</a><br/>
 
-                <p>Loading these data into <em>Processing</em> and converting them into graphics is revealing.</p>
+                <p>Loading these data into <em>Processing</em> and converting them into graphics is revealing.
+                These are just <code>line()</code>s positioned in x according to time and with the 4th argument (<i>y2</i>) based on elevation.</p>
 
                 <img src="https://jsndyks.github.io/cityCreativeCoding/images/elevationTime.noColour.png" width="800" height="67"/>
 
                 <p>You don't often see profiles over time. The climbs are lengthened and the descents shortened compared to physical profiles - because I ride quite a lot slower uphill than I descend downhill.
                 This <i>feels</i> much more like the ride itself - with an emphasis on the up, which is where I spend most of my time! 
                 The gaps are at times when the GPS was not tracking me - I was stationary here: having a drink, taking a photo, or in the first case tip-toeing through the house in my cycling cleats to pick up my jacket as I had to turn back and head home to grab it when it started raining!</p>
-                <p>We might use a couple of conditions to colour according to whether I was climbing or ascending, above a certain threshold of gradient.<br/> We can calculate this by looking at successive data values.</p>
+                <p>We might use a couple of conditions in the code (<code>if()</code>) to colour the lines according to whether I was climbing or ascending.<br/> We can calculate this by looking at successive data values. We can add an <code>if()</code> to only colour above a certain threshold of gradient, to highlight the steep parts of the ride.<br/>
+                    This is achieved with <a href="https://processing.org/reference/colorMode_.html"><code>colorMode(HSB)</code></a>, which enables you to define colours according to their <i>Hue</i>, <i>Saturation</i> and <i>Brightness</i>.</p>
                 <img src="https://jsndyks.github.io/cityCreativeCoding/images/elevationTime.upAndDown.Steep.png" width="800" height="67"/>
                 <p>Or for the entire ride, which looks pretty nice.</p>
                 <img src="https://jsndyks.github.io/cityCreativeCoding/images/elevationTime.upAndDown.All.png" width="800" height="67"/>
@@ -804,14 +813,14 @@ Sunday,55,51,49,62,65,62,127,75,77,140,85,89,105,77,61,66,74,71,73,121,86,114,70
                     For example, the words that make up a sentence or the numbers in the kinds of comma separated lists
                     of numbers (or rows of numbers) in the <a href="https://jsndyks.github.io/cityCreativeCoding/data/elevationData.txt" target="_blank">elevation data</a> or the <a href="https://jsndyks.github.io/cityCreativeCoding/data/hourlyBPM.txt"
                     target="_blank">heart rate data</a> shown above.
-                    These elements are often referred to as <i>tokens</i> and the process of extracting them as<i>parsing</i>.
+                    These elements are often referred to as <i>tokens</i> and the process of extracting them as <i>parsing</i>.
                     This is what I did to extract the times and elevations from the <a href="https://jsndyks.github.io/cityCreativeCoding/data/elevationData.txt" target="_blank">elevationData.txt</a>
                     file to convert it into the time profile: I <i>parsed</i> each line of the file, and split it into tokens using the comma as a separator. 
                 </p>
                 <ul>
-                    <li><b>token</b> - part of a longer string that relates to a particular data value;</li>
-                    <li><b>separator</b> - a character or String that separates tokens in longer strings;</li>
-                    <li><b>parsing</b> - the process of extracting tokens from a String - usually involving splitting Strings at separators;</li>
+                    <li><b>token</b> - part of a longer <i>String</i> that relates to a particular data value;</li>
+                    <li><b>separator</b> - a character or <i>String</i> that separates <i>tokens</i> in longer <i>String</i>s;</li>
+                    <li><b>parsing</b> - the process of extracting tokens from a <i>String</i> - usually involving splitting <i>String</i>s at <i>separators</i>;</li>
                 </ul>
 
                 <p>
@@ -836,7 +845,7 @@ Sunday,55,51,49,62,65,62,127,75,77,140,85,89,105,77,61,66,74,71,73,121,86,114,70
                     the <i>separator</i>. These are the tokens!
                 </p>
 
-                <p>Or as the <a href="https://processing.org/reference/split_.html">Processing Reference</a> documentation puts it, <a href="https://processing.org/reference/split_.html"><code>split()</code></a> ...</p>
+                <p>Or as the <a href="https://processing.org/reference/split_.html"><i>Processing Reference Documentation</i></a> puts it, <a href="https://processing.org/reference/split_.html"><code>split()</code></a> ...</p>
                 <blockquote>
                     breaks a String into pieces using a character or string as the delimiter. The delim parameter specifies the character or characters that mark the boundaries between each piece. A String[] array is returned that contains each of the pieces. 
                 </blockquote>
@@ -890,31 +899,31 @@ for (int i=0; i&lt;splitText.length; i++) {
         <div class="units-row">
             <div class="unit-70-cc">
                 <!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-                <pre class="brush: processing; gutter: false; toolbar: false; highlight:[15];">            String textLine;
+                <pre class="brush: processing; gutter: false; toolbar: false; highlight:[15];">String textLine;
 
-            void setup()
-            {
-              size(250,700);
-              textSize(10);
-              textLine = "The night came like the turning out of a lamp, and in another moment came tomorrow. The laboratory grew faint and hazy, then fainter and ever fainter. Tomorrow night came black, then day again, night again, day again, faster and faster still. An eddying murmur filled my ears, and a strange, dumb confusedness descended on my mind.";
-            }
+void setup()
+{
+    size(250,700);
+    textSize(10);
+    textLine = "The night came like the turning out of a lamp, and in another moment came tomorrow. The laboratory grew faint and hazy, then fainter and ever fainter. Tomorrow night came black, then day again, night again, day again, faster and faster still. An eddying murmur filled my ears, and a strange, dumb confusedness descended on my mind.";
+}
 
-            void draw()
-            {
-              background(255);
-              float yPos = 18;
+void draw()
+{
+    background(255);
+    float yPos = 18;
 
-              String[] tokens = split(textLine," ");
+    String[] tokens = split(textLine," ");
 
-              for (String token : tokens)
-              {
-                fill(random(50,200),random(50,200), random(50,200));
-                text(token,10,yPos);
-                yPos = yPos+12;
-              }
+    for (String token : tokens)
+    {
+        fill(random(50,200),random(50,200), random(50,200));
+        text(token,10,yPos);
+        yPos = yPos+12;
+    }
 
-              noLoop();    // Stops the draw() loop from repeating.
-            }</pre>
+    noLoop();    // Stops the draw() loop from repeating.
+}</pre>
             </div>
         </div>
         <div class="unit-30-cc annotation cc-right" style="width:25%">
@@ -1010,28 +1019,28 @@ for (int i=0; i&lt;splitText.length; i++) {
 
                 <pre class="brush: processing; gutter: false; toolbar: false; highlight:[20]">String textLine;
 
-                    void setup()
-                    {
-                      size(400, 200);
-                      noStroke();
-                      fill(250, 110, 10);
-                      textLine = "14,16,18,19,19";    // Daily maximum temperatures in the next 5 days.
-                    }
-                    
-                    void draw()
-                    {
-                      background(255);
-                      float xPos = 30;
-                    
-                      String[] tokens = split(textLine, ",");
-                    
-                      for (String token : tokens)
-                      {
-                        float temperature = float(token);    // Convert text into a number with float().
-                        rect(xPos, 100, 65, temperature);
-                        xPos = xPos + 70;
-                      }
-                    }</pre>
+void setup()
+{
+    size(400, 200);
+    noStroke();
+    fill(250, 110, 10);
+    textLine = "14,16,18,19,19";    // Daily maximum temperatures in the next 5 days.
+}
+
+void draw()
+{
+    background(255);
+    float xPos = 30;
+
+    String[] tokens = split(textLine, ",");
+
+    for (String token : tokens)
+    {
+        float temperature = float(token);    // Convert text into a number with float().
+        rect(xPos, 100, 65, temperature);
+        xPos = xPos + 70;
+    }
+}</pre>
             </div>
         </div>
 
@@ -1162,7 +1171,7 @@ void draw()
       theMaxOfTheRangeYouAreConvertingTo)</pre>
                     <p style="padding-bottom:1em">Copy the two lines of code that follow into a new new <em>Processing</em> sketch
                         and vary the <em>first three arguments</em> to see how the <code>value</code> on the range
-                        <code>sourceRangeMin</code>-<code>sourceRangeMax</code> looks on the target range from <code>0</code> to <code>width</code>.
+                        <code>sourceRangeMin</code> to <code>sourceRangeMax</code> looks when 'mapped' to the target range from <code>0</code> to <code>width</code>.
                     </p>
                     <pre class="brush: processing; gutter: false; toolbar: false; highlight:[21]">float x = map(10, 0,100, 0,width);
 line(x,0, x,height);</pre>
@@ -1362,9 +1371,9 @@ void setup()
     // Split the line into 'values' array separated by a comma
     String[] values = split(textLines[i], ",");
 
-    stations[i]       = values[1]; // -- item 1 is the station name
-    availableBikes[i] = int(values[23]); // -- column no. 23 in the data file is 9am
-    capacities[i]     = int(values[4]);  // -- column no. 4 in the data file is station capacity
+    stations[i]       = values[1];        // -- column no. 1  in each line of the data file is the station name
+    availableBikes[i] = int(values[23]); // -- column no. 23 in each line of the data file is 9am
+    capacities[i]     = int(values[4]);  // -- column no. 4  in each line of the data file is station capacity
   }
 }
 
@@ -1416,8 +1425,8 @@ void draw()
                     </p>
                     <p>Run the sketch and then adapt it to ...</p>
                     <ol>
-                        <li>Show data for 50 stations</li>
-                        <li>Show the data for 5pm</li>
+                        <li>Show data for 50 stations rather than 25</li>
+                        <li>Show the data for 5pm rather than 9am</li>
                         <li>Colour bars in red if there are fewer than 3 bikes available for a station at the particular time.</li>
                     </ol>
                 </div>
@@ -1557,10 +1566,10 @@ void draw()
                     </p>
                     <p>Run the sketch and then adapt it to ...</p>
                     <ol>
-                        <li>Show data for 50 stations</li>
-                        <li>Show the data for 5pm</li>
-                        <li>Colour circles in orange if there are fewer than 3 bikes available for a station at the particular time.</li>
-                        <li>Colour circles in red if the station is at its <a href="https://processing.org/reference/max_.html"><code>max()</code></a> capacity for the day.</li>
+                        <li>Show the data for 5pm;</li>
+                        <li>Colour circles in orange if there are fewer than 3 bikes available for a station at the particular time;</li>
+                        <li>Colour circles in red if the station is at its <a href="https://processing.org/reference/max_.html"><code>max()</code></a> capacity for the day;</li>
+                        <li>Show capacity and bikes docked concurrently - you will need two circles per station;</li>
                     </ol>
                 </div>
 
