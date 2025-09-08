@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CreativeCoding Extra: Data Visualization</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Embedded fonts -->
+	<link
+			href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+			rel="stylesheet">
+
+	<!-- Custom layout and style -->
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+	<!-- General browser compatibility handling -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+	<!-- Formatted source code -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+	<!-- Sketch popups and hidden text-->
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+	<!-- JD Extras! -->
+    <link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" />
+    
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+
+<body>
+    <div id="page">
+
+        <!-- 
+
+            Some optional **Extra Challenges** - to give you some ideas in case you want to do more _data visualization_ (and why wouldn't you?) ...
+
+            You can access the [Data Visualization : Extra](https://jsndyks.github.io/cityCreativeCoding/html/dataVis/ccDataVis.2024.extra.html) challenges outside of _Moodle_ should you wish to do so.
+
+         -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+        <!-- Content below -->
+
+
+        <p class="intro">
+            If you have completed the core and coding tasks in the <a
+                href="https://moodle4.city.ac.uk/mod/page/view.php?id=822874">Data Visualization : Core</a> materials then you
+            have have achieved plenty.<br />
+            But, you want more eh?<br />
+            OK, that's good.<br />
+            If you'd like to try some more <b>optional</b> data visualization challenges and to improve your skills and experience in
+            this area then there are some possibilities for you here.
+        </p>
+
+        <p class="intro">
+            These additional exercises give you practice developing data visualization sketches.
+            The options are almost endless, but considering and attempting some of these challenges may help you develop
+            a Data Visualization project.
+        </p>
+
+        <hr class="hrClear"/>
+
+        <!--div class="tip">
+    <p>
+	 We expect you to show that you can load and use some <b>DATA</b> as part of your project.<br>
+   We'd like to hear about how you do so, and for you explain your use of data in the Friday showcase.
+   </p>
+ </div-->
+
+ <h3>Bike Maps</h3>
+ <p>Build on the <i>Bike Map</i> task in the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=822874">Data Visualization : Core</a> materials to add some interesting and useful interactive features to your sketch.</p>
+
+ <div class="challenge">
+    <h5>Challenge - Adding Interaction to the Cycling Data Scripts</h5>
+        Of course, there are many other things you can usefully do here.<br />
+        See whether you can ...</p>
+    <ol start="5">
+        <li>Show the differences between two times<br />
+            <i>Hint: This will involve calculating differences between two
+                <code>floats</code> that you extract from the array of <code>values</code> and you will
+                end up with negative numbers - but we have thought about how to visualize negative
+                numbers in the lecture.</i></li>
+        <li>Only show stations that have particular names or geographic locations<br />
+            <em>Hint: You'll have to record the station name as a <code>String</code> when you read
+                values from the lines of text.</em>
+        </li>
+        <li>Use squares or bars in the map instead of circles - you could use multiple bars to show a series of times concurrently;</li>
+        <li>Scale the circles (or squares or bars) differently, to make them bigger or smaller;</li>
+    </ol>
+</div>
+
+<div class="challenge">
+    <h5>Challenge - Adding MORE Interaction to the Cycling Data Scripts</h5>
+        Why not make things even MORE interactive?</p>
+    <ol start="9">
+        <li>Can you add an interaction to the bar graph that allows us to scroll up and down through the
+            data file, while always showing data for 25 stations?<br />
+            <em>Hint: you will need to replace the numeric values used to identify the column in which
+                the 9:00am data is stored, and the lines that are used in the loop, with variables that
+                change in response to particular inputs.</em>
+        </li>
+        <li>Can you scale the circles (or squares or bars) differently in response to key presses that
+            make them bigger or smaller;</li>
+        <li>
+            Can you change the time that is shown dynamically, showing data for successive time
+            periods?<br />
+            This could be according to some input (keyboard, mouse) or time (animation)<br />
+            You could do this for the graph or the map.<br />
+            <em>Hint: You will need to read in one or more of the columns containing the number of bikes
+                docked at the station.
+                If you wish to show more than one time of day in the same sketch, you will probably
+                need to store the bike numbers
+                in a 2D array where 1 dimension is the docking station and the other is the time of
+                day.</em>
+        </li>
+    </ol>
+</div>
+
+
+
+        <div class="challenge">
+            <h5>Extra Challenge - Live Bike Data Visualization</h5>
+            <p>The bike scheme data that you have used so far is from <i>2015</i>.</p>
+            <p>
+                <b>Live</b> bike data, showing what is going on across London <i>right now</i> is available from <a
+                    href="https://www.staff.city.ac.uk/~sbbb717/tfl_bikes/latest-tsv.php"
+                    target="_blank">https://www.staff.city.ac.uk/~sbbb717/tfl_bikes/latest-tsv.php</a>.<br/>
+                Copy your solution from the previous task and modify it to use this live data.
+            </p>
+            <p>
+                <i>Hints:</i>
+            </p>
+            <ul>
+                <li>Open the latest data file in a browser to see the structure of the data.
+                </li>
+                <li>You can put the URL directly as the <code>loadStrings()</code> parameter - your sketch will then
+                    always use the latest data!
+                </li>
+                <li>This file is tab - rather than comma - separated. You'll need to use
+                    <code>split(textLines[i], "\t");</code> to split the text on the tab character.<br/>
+                    The <code>\t</code>
+                    represents a tab character in <em>Processing</em>.
+                </li>
+            </ul>
+        </div>
+
+        <div class="challenge">
+            <h5>Extra Challenge - Refactoring Your Visualization</h5>
+            <p>If you have managed all of that, then try designing a <code>DockingStation</code> class that stores the
+                name and other data that relate to the docking station. Refactor your code from the previous tasks so
+                that data from each docking station is stored in a <code>DockingStation</code> object.</p>
+            <p>
+                <i>Hint: </i> Make another tab and put the code that defines the <code>DockingStation</code> class in
+                there. In your main sketch, you'll be able to create objects, store them in an array or
+                <code>ArrayList</code> and display graphical representations of them.
+            </p>
+        </div>
+
+        <h3>Book Graphics</h3>
+
+        <p>You may prefer books to bikes, and so can have fun experimenting with visualization of literature.</p>
+
+        <div class="challenge">
+            <h5>Extra Challenge - Visualizing a Book</h5>
+            <p>You may want to see whether you can visualize a text file.
+                The methods you are using here with small data files can be applied to larger files too.</p>
+            <p>See what you can find at <a href="http://www.gutenberg.org" target="_blank">Project Gutenberg</a>,
+                elsewhere online, or in your own file-space.
+                We will be impressed if you can find patterns in your data - and explain the code that enables you to do
+                this data visualization.</p>
+            <p>
+                See whether you can develop the sketches that you produced when we were considering <em>The Time Machine</em> to show where in the book the terms in a particular phrase occur?
+                Or perhaps try this with key characters in a book you know well.<br />
+                You could apply this approach to find words in a song, or characters in a screenplay.<br />
+                Your solution might look something like this ...</p>
+            <p>
+                <img src="https://jsndyks.github.io/cityCreativeCoding/images/dataVis/darkNight.png" width="800" height="180">
+            </p>
+
+            <p>
+                This kind of sketch might enable you to find patterns in text files that you download, particularly if
+                you add some interactions to change the phrases or characters that you are searching for.<br />
+                For example, you may find data files online, and write sketches in class, that enable you to determine:
+            </p>
+            <ul>
+                <li>When do the terms 'good' and 'bad' appear in a text that you download from <a
+                        href="http://www.gutenberg.org" target="_blank">Project Gutenberg</a>?</li>
+                <li>Which pairs of characters tend to appear together most commonly in the screenplay of <em>Star Wars -
+                        A New Hope</em> ?</li>
+                <li>Just how often did the <em>The Beatles</em> use the term '<em>yeah</em>' in their lyrics and did this vary as time
+                    passed?</li>
+            </ul>
+
+            <p>
+                Consider a <code>Book</code> class that displays the content of a book in interesting ways and enables you to see summaries of the contents, and compare the 'data' in books.
+            </p>
+            <p>Or, be inspired by <a href="https://medium.com/@neuroecology/punctuation-in-novels-8f316d542ec4#.cx4yrsrnv">Adam J Calhoun</a> and his visualization of the <i><a href="https://medium.com/@neuroecology/punctuation-in-novels-8f316d542ec4#.cx4yrsrnv">Punctuation in Novels</a></i>.<br/>
+              <a href="http://www.gutenberg.org" target="_blank">Project Gutenberg</a> provides lots of scope for this kind of thing.</p>
+
+              <!-- <p>
+                <a href=https://jsndyks.github.io/cityCreativeCoding/images/dataVis/punctuation.jpeg"><img src="https://jsndyks.github.io/cityCreativeCoding/images/dataVis/punctuation.jpeg" width="150" height="150"/></a>&nbsp;&nbsp;
+                <a href="https://jsndyks.github.io/cityCreativeCoding/images/dataVis/punctuation.100.png"><img src="https://jsndyks.github.io/cityCreativeCoding/images/dataVis/punctuation.100.png" width="150" height="150"/></a>&nbsp;&nbsp;
+                <a href="https://jsndyks.github.io/cityCreativeCoding/images/dataVis/novels.png"><img src="https://jsndyks.github.io/cityCreativeCoding/images/dataVis/novels.png" width="393" height="150"/></a>
+              </p> -->
+
+              <table cellspacing="4" cellpadding="4" border="0">
+                  <tr>
+                      <td>
+                        <a href="https://jsndyks.github.io/cityCreativeCoding/images/dataVis/punctuation.jpeg"><img src="https://jsndyks.github.io/cityCreativeCoding/images/dataVis/punctuation.jpeg" width="200" height="200"></a>
+                      </td>
+                      <td>
+                        <a href="https://jsndyks.github.io/cityCreativeCoding/images/dataVis/punctuation.100.png"><img src="https://jsndyks.github.io/cityCreativeCoding/images/dataVis/punctuation.100.png" width="200" height="200"></a>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="figCaption">
+                        Punctuation in Blood Meridian by Cormac McCarthy (left) and in Absalom, Absalom! by William Faulkner (right).<br/>
+                          Source: <a href="https://medium.com/@neuroecology/punctuation-in-novels-8f316d542ec4#.cx4yrsrnv">Adam J Calhoun</a>
+                      </td>
+                      <td class="figCaption">
+                        Detail<br/>
+                        Source: <a href="https://medium.com/@neuroecology/punctuation-in-novels-8f316d542ec4#.cx4yrsrnv">Adam J Calhoun</a>
+                      </td>
+                  </tr>
+              </table>
+
+              <table cellspacing="4" cellpadding="4" border="0">
+                        <tr>
+                      <td>
+                        <a href="https://jsndyks.github.io/cityCreativeCoding/images/dataVis/novels.png"><img src="https://jsndyks.github.io/cityCreativeCoding/images/dataVis/novels.png" width="524" height="200"></a>
+                      </td>
+                      </tr>
+                      <tr>
+                      <td class="figCaption">
+                      Heatmap of selected novels: Full stops and question marks and exclamation marks are red.<br/>Commas and quotation marks are green. Semicolons and colons are blue<br/>
+                      Source: <a href="https://medium.com/@neuroecology/punctuation-in-novels-8f316d542ec4#.cx4yrsrnv">Adam J Calhoun</a>
+                      </td>
+                  </tr>
+              </table>
+              <p>Here are some other terms, some punctuation, and some letters as found in <i>The Time Machine</i>.</p>
+              <p>
+                  <img src="https://jsndyks.github.io/cityCreativeCoding/images/dataVis/book.punctuation.png" width="800" height="180">
+              </p>
+              <p>
+                  <img src="https://jsndyks.github.io/cityCreativeCoding/images/dataVis/book.colours.png" width="800" height="180">
+              </p>
+              <p>
+                  <img src="https://jsndyks.github.io/cityCreativeCoding/images/dataVis/book.alphabet.png" width="800" height="400">
+              </p>
+              <p>
+                  You could even create a revealing data set by taking the transcript of one of your lectures and visualize it in different ways ...
+              </p>
+
+        </div>
+
+        <h3>Find Your Own Data</h3>
+
+        <p>If you don't like <i>bikes</i> or <i>books</i>, well find your own data about something that does interest you and do something spectacular!</p>
+
+        <div class="challenge">
+            <h5>Extra Challenge - Find and Visualize Your Own Data</h5>
+            <p>
+                Can you find your own simple dataset to visualize?</p>
+            <p>Search for, or create, a simple text file containing some words
+                or numbers and write a sketch to show them graphically in some way.
+            </p>
+            <p><i>Kaggle</i> is one excellent searchable source of rich and interesting data :</p>
+            <ul>
+                <li><a href="https://www.kaggle.com/datasets">https://www.kaggle.com/datasets</a></li>
+            </ul>
+            <p>Or, maybe you have some data about your running or cycling or code-commits or other activity that you
+                could use and share?</p>
+            <p> ... which takes you straight to the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=795684">Dear Data</a> activity ...</p>
+        </div>
+
+
+
+        <!-- End of content -->
+        <hr />
+        <!-- <div class="sig">
+            <b>Jason DYKES</b><br />
+            <i>08 Oct 2021</i>
+            <i>21 Sep 2023</i>
+            <i>02 Oct 2023</i>
+            <i>05 Oct 2023</i>
+        </div> -->
+        <div style="padding-bottom:2em;clear:both"></div>
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

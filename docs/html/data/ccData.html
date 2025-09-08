@@ -118,7 +118,7 @@
         <p>OK, now we can use the <a href="http://processing.org/reference/loadStrings_.html"><code>loadStrings()</code></a> method to grab the data and put it into an array so that we can access it in our sketch.<br/>Please look at the <a href="http://processing.org/reference/loadStrings_.html"><code>loadStrings()</code></a> reference documentation, which tells us that <a href="http://processing.org/reference/loadStrings_.html"><code>loadStrings()</code></a> :</p>
         <blockquote>Reads the contents of a file and creates a String array of its individual lines.</blockquote>
         <p>So if we create an array of Strings, we can push the output of the <a href="http://processing.org/reference/loadStrings_.html"><code>loadStrings()</code></a> method into it, which will give us an array element for each line of the data file.</p>
-        <p>See below and try this out!</p>
+
         <pre class="brush: processing; gutter: false; toolbar: false;">// -- Global variable is an array of Strings to hold each row of the data file:
 String [] lightData;
 
@@ -135,7 +135,10 @@ void setup () {
     println(lightData[3]);
 }</pre>
 
-    <p>Run this sketch and check the output, which should look something like this ... depending on your data!</p>
+<div class="codeTask" style="padding-bottom:0.25rem; margin-bottom:0.25rem">
+    <h5>Load the Data into an Array with loadStrings()</h5>
+    <p>Run the code provided above in a new <i>Processing</i> sketch and check the output.</p>
+    <p>It should look something like this ... depending on your data!</p>
 
 <pre class="console">The Whole Array ...
 [0] "MON,R,R,R,G,G,R,R,A,G,G,R,,"
@@ -146,6 +149,7 @@ void setup () {
 Individual Array Elements ...
 MON,R,R,R,G,G,R,R,A,G,G,R,,
 THU,G,G,R,G,G,R,,,,,,,</pre>
+</div>
 
         <p>There are a few things to note here ...</p>
         <ol>
@@ -226,6 +230,8 @@ void setup () {
       }
     }</pre>
 
+    <div class="codeTask" style="padding-bottom:0.25rem; margin-bottom:0.25rem">
+        <h5>Split the Data into an Store Each Token in an Array</h5>
         <p>Run the code, and check the output in the <i>Processing</i> console.</p>
 
         <p>It's great that we have the data that was on our NotePad, in a spreadsheet and now in a data structure in our sketch!<br/>
@@ -240,6 +246,8 @@ void setup () {
             Experiment a little to make sure that this makes sense to you.<br/>
             Remember that rows and arrays start at item zero.
         </p>
+    </div>    
+
 
 
         <h5>Show the data on the canvas</h5>
@@ -385,7 +393,7 @@ void keyPressed() {
             </figure>
         </div> <!-- end of 30-cc -->
 
-        <p>If you paste all of this into a <i>Processing</i> sketch then you should see something like the graphic to the right.</p>
+        <p>Having read through the code you should expect it to create something like the graphic to the right.</p>
         <p>The most important thing though is that you can see the relationships between the data in the CSV file, and the graphics and how we get there.
             The highlighted lines in the <code>draw()</code> loop are key to this, so do focus on these above and make sure you get a good sense of what is going on.
         </p>
@@ -422,7 +430,7 @@ void keyPressed() {
         </p>
             <ul><li>Traffic Light Data (bigger) - <a href="./data/trafficLights.big.csv">trafficLights.big.csv</a></li></ul>
  
-        <p>This may give you something that looks a bit like the image to the right if you tweak the scaling and sizing a bit - experiment!<br/>Add some rows and columns, change some values.</p>
+        <p>This may give you something that looks a bit like the image to the right if you tweak the scaling and sizing a bit, by adding some rows and columns, or changing some values.</p>
 
 
         <hr class="hrInvisible"/>
@@ -595,10 +603,6 @@ void keyPressed() {
             }
         </pre>
             
-
-        <p>All of this code should produce an alternative representation of the traffic light observations - one that takes advantage of the numbers by making the radius of the circles for the red lights proportional to the waiting time.</p>
-        
-        <p>This is the first time we have visualized a <i>quantity</i> with a mark that <i>depicts</i> the quantity directly.</p>
         <div class="unit-30-cc annotation cc-right">
             <figure>
                 <script>loadImage('./img/dataSketch.vis.small.num.png', 400, 225, 'Numeric Visualization');</script>
@@ -607,9 +611,21 @@ void keyPressed() {
                 </figcaption>
             </figure>
         </div> <!-- end of 30-cc -->
+    
+        <p>All of this code should produce an alternative representation of the traffic light observations - one that takes advantage of the numbers by making the radius of the circles for the red lights proportional to the waiting time.</p>
+        
+        <p>This is the first time we have visualized a <i>quantity</i> with a mark that <i>depicts</i> the numeric amount directly.</p>
 
         <p>You can use the <code>&lt;</code> <code>&gt;</code> <code>,</code> and <code>.</code> keys to vary things interactively, and also change the sizing and parameters in the code to vary things programatically, but hopefully you will get something that looks a bit like the image to the right.</p>
-        <p>Feel free to experiment by changing the colours, the data and the way in which the information is depicted as you learn.</p>
+
+        <div class="codeTask" style="padding-bottom:0.25rem; margin-bottom:0.25rem">
+            <h5>A Data Visualization Experiment</h5>
+            <p>Copy the code from above and paste it into a new <i>Processing</i> sketch.</p>
+            <p>You will need to download the data or add your own data.</p>
+            <p>Experiment with the code and the data.</p>
+            <p>Feel free to experiment by changing the colours, the data and the way in which the information is depicted as you learn.</p>
+        </div>
+
 
         <hr class="hrInvisible"/>
 
