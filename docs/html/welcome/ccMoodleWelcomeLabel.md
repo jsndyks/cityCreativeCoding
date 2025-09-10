@@ -36,7 +36,10 @@ We will start from the very basics of programming and gradually move into intere
 
 <div style="padding:1em"><img src="https://jsndyks.github.io/cityCreativeCoding/images/ccLogos/cc25.logosx6.moodle.1200.png" width="80%" style="margin-left:10%; margin-right:10%"/></div>
 
-<p>Remember your <i><b>Fib Friend Badge</b></i> - your mission is to find as many others as you can with the same code. Collect their names (in your notebook) and share something meaningful about yourself with them ... and talk about University, <code>CreativeCoding</code> and fun stuff.</p>
+<p>Remember your <i><b>Fib Friend Badge</b></i>.
+There are many different versions.
+Your mission is to find as many others as you can with the same design.
+Collect their names (in your notebook) and share something meaningful about yourself with them ... and talk about University, <code>CreativeCoding</code> and fun stuff.</p>
 
 <hr/>
 
