@@ -23,7 +23,7 @@ We will start from the very basics of programming and gradually move into intere
 
 <!-- <a href="https://jsndyks.github.io/cityCreativeCoding/html/tutors/img/creativeCoding.2024.schedule.v6.png"> -->
 <!-- <div style="padding:1em"><img src="https://jsndyks.github.io/cityCreativeCoding/html/tutors/img/creativeCoding.2024.schedule.v61.png" width="80%" style="margin-left:10%; margin-right:10%"/></div> -->
-<div style="padding:1em"><img src="https://jsndyks.github.io/cityCreativeCoding/html/tutors/img/creativeCoding.2025.schedule.v10.png" width="80%" style="margin-left:10%; margin-right:10%"/></div>
+<div style="padding:1em"><img src="https://jsndyks.github.io/cityCreativeCoding/html/tutors/img/creativeCoding.2025.schedule.v10.png" width="80%" style="margin-left:10%; margin-right:10%; border-radius:0px"/></div>
 <!-- 1163 x 286 -->
 <!-- </a> -->
 
@@ -34,7 +34,7 @@ We will start from the very basics of programming and gradually move into intere
 
 <hr/>
 
-<img style="display: block; margin-left: auto; margin-right: auto; width:95%" src="https://jsndyks.github.io/cityCreativeCoding/images/ccLogos/cc25.logosx6.moodle.1200.png"/>
+<div style="padding:1em"><img src="https://jsndyks.github.io/cityCreativeCoding/images/ccLogos/cc25.logosx6.moodle.1200.png" width="80%" style="margin-left:10%; margin-right:10%"/></div>
 
 <p>Remember your <i><b>Fib Friend Badge</b></i> - your mission is to find as many others as you can with the same code. Collect their names (in your notebook) and share something meaningful about yourself with them ... and talk about University, <code>CreativeCoding</code> and fun stuff.</p>
 
