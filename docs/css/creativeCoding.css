@@ -146,8 +146,8 @@ h3 {padding-top:0.25em; margin-top:1em; border-top:1px dashed #e0e0e0; clear:bot
   font-family: 'Roboto Slab', serif;
 }
 
-.parotTalk {font-size:110%; font-weight:bold; background-color:#f09090; color:#202020; padding:2px; padding-left:0.25em; padding-right:0.25em; margin-right:0px; margin-left:0px} 
-.parotTalkSm {font-size:90%; font-weight:normal; background-color:#f09090; color:#ffffff;} 
+.parotTalk {font-size:100%; font-weight:bold; background-color:#f09090; color:#202020; padding:2px; padding-left:0.25em; padding-right:0.25em; margin-right:0px; margin-left:0px} 
+.parotTalkSm {font-size:100%; font-weight:normal; background-color:#f09090; color:#ffffff;} 
 
 .tutorMedalB {padding:4px; padding-left:1em;padding-right:1em; background-color:#b0602040}
 .tutorMedalS {padding:4px; padding-left:1em;padding-right:1em; background-color:#b0b0b060}
@@ -169,3 +169,4 @@ h3 {padding-top:0.25em; margin-top:1em; border-top:1px dashed #e0e0e0; clear:bot
 .menu {padding:0.15rem; background-color:#f0f0f0; padding-left:1.25rem;padding-right:0.75rem;font-size:80%}
 
 .dataFile {font-size:67%; width:45%; float:right; margin-right:1rem; margin-left:2rem; padding:0.5rem}
+.adviceToStudents {margin-bottom:0.25em}

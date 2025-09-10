@@ -209,7 +209,10 @@
                 </ul>
                 <p>... and then start another cycle until the ask is complete.</p>
 
-                <p>We would like you to try this when you undertake <code>#CreativeCoding</code> tasks.<br/> For example: run this code, and change the five global variables that control the way in which the sketch changes over time. Every time you make a change, go through a PAROT (talk) cycle, and if things did not turn out as you expected, go again into cycle two. Several cycles should help you understand what  each of the global variables do, and how the <i>Processing</i> <code>rect()</code> and <code>frameRate()</code> methods work and how the <code>mouseX</code>, <code>mouseY</code> and <code>frameCount</code> variables vary.</p>
+                <p>We would like you to try this when you undertake <code>#CreativeCoding</code> tasks.<br/> For example: <i>copy this code</i>, into a <i>Processing</i> sketch and <i>run</i> it.<br/>
+                    Change the five global variables that control the way in which the sketch changes over time.<br/>
+                    Every time you make a change, go through a PAROT (talk) cycle, and if things did not turn out as you expected, go again into cycle two.<br/>
+                    Several cycles should help you understand what  each of the global variables do, and how the <i>Processing</i> <code>rect()</code> and <code>frameRate()</code> methods work and how the <code>mouseX</code>, <code>mouseY</code> and <code>frameCount</code> variables vary.</p>
  
 
 <pre class="brush: processing; gutter: false; toolbar: false; highlight: [4,5,6,7,8] ">// -- global variables : Change these FIVE in turn, and in combination.
@@ -245,11 +248,11 @@ void draw() {
     <ul>
         <li>completing a small section of a programme</li>
         <li>completing a larger programme</li>
-        <li>undertaking an assessment</li>
-        <li>taking a module</li>
+        <li>undertaking an assessment (and receiving feedback)</li>
+        <li>taking a whole module</li>
         <li>completing a year of your course</li>
         <li>your whole degree?<i>Maybe, if you go on to do another one?</i></li>
-        <li>life? <i>Now we are getting philosophical</i></li>
+        <li>life? <i>Now we are getting philosophical</i>!</li>
     </ul>
     <p>We encourage you to adopt <b>PAROT Talk</b>, or something similar, as you are experimental, reflective and systematic in your learning.</p>
     <div style="float:right;padding-right:4em">🦜</div>
@@ -269,27 +272,150 @@ void draw() {
         <div class="units-row">
             <!--- Column LEFT --->
             <div class="unit-70">
-            <p><code>#CreativeCoding</code> is based on the materials and approaches used in our <code>#BootCamp</code> activity. For many years we have run a two-week intensive introduction to coding at the start of year 1. But we have changed things a little this time as we redesign our learning activities. <code>#BootCamp</code> as intensive, perhaps <i>too intensive</i>, and we didn't like the lack of time, the negativity around the term, and the lack of clearly defined outputs.</p>
-            <p>Nevertheless, our <code>#BootCamp</code> experiences, and those of former <code>#BootCamp</code> students are worth considering as we begin to learn through <code>#CreativeCoding</code>.</p>
-            <p>I asked some former students who survived <code>#BootCamp</code> what their advice would be for anybody about to start the course.<br/>
-            Here is their guidance and feedback for you:</p>
-            <blockquote style="margin-bottom:0.25em">Start to learn the <b>main concepts of conditions</b> early on in the course:<br/><code>if</code>, <code>while</code>, <code>do ... while</code>, <code>for</code> loops.<br/> This helps immensely in most of the coursework related to Java</blockquote>
-            <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">... and get a hand from teaching staff if you find these concepts challenging.</p>
-            <blockquote style="margin-bottom:0.25em">Try to grasp the notion of <b>classes</b> and <b>objects</b>, but don't worry if you can not, as this is taught several times during the first year.</blockquote>
-            <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">... once again, discuss these concepts with staff as we work through week 1.</p>
-            <blockquote style="margin-bottom:0.25em">If you already have experience of coding then some of the concepts and exercises will seem very simple but its always good to get practice in and <b>try to challenge yourself</b> on some of the tasks. There are always ideas for taking things further - maybe add a new feature or additional aspects to the sketch you are working on.</blockquote>
-            <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">... if you know how to code, just have fun coding new stuff and seeing what <i>Processing</i> and its libraries can do - look for the red 'challenges' to guide you.</p>
-            <blockquote style="margin-bottom:0.25em">To students who don't have experience with coding don't focus too much on getting the math calculations perfect like the size of a shape to be exactly like in the example and focus on <b>understanding what the code is doing and how it works</b>.</blockquote>
-            <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">... yes, we do not need you to copy what we have done exactly. Focus on understanding the concepts and not the detail of replication.</p>
-            <blockquote style="margin-bottom:0.25em">Take time to understand how to read the <i>Processing</i> documentation as being able to read documentation is a very important skill which I felt wasn't really taught. Get a hand with this too! This is especially the case for those who don't have coding experience it often looks like a whole load of gibberish. Students who don't take the time to look and break it down will not be able to use all of this functionality.</blockquote>
-            <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">... the <a href="https://processing.org/reference/"><i>Processing</i> reference material</a> is an essential source, so please take this advice and take time to explore and understand it. As ever, teachers online and in class can help you make sense of this.</p>
+                <h4>#BootCamp</h4>
+                <p><code>#CreativeCoding</code> is based on the materials and approaches used in our <code>#BootCamp</code> activity. For many years we have run a two-week intensive introduction to coding at the start of year 1. But we have changed things a little this time as we redesign our learning activities. <code>#BootCamp</code> as intensive, perhaps <i>too intensive</i>, and we didn't like the lack of time, the negativity around the term, and the lack of clearly defined outputs.</p>
+                <p>Nevertheless, our <code>#BootCamp</code> experiences, and those of former <code>#BootCamp</code> students are worth considering as we begin to learn through <code>#CreativeCoding</code>.</p>
+                <p>We asked some former students who survived <code>#BootCamp</code> what their advice would be for anybody about to start the course.<br/>
+                Here is their guidance and feedback for you:</p>
+                <blockquote class="adviceToStudents">
+                    Start to learn the <b>main concepts of conditions</b> early on in the course:<br/><code>if</code>, <code>while</code>, <code>do ... while</code>, <code>for</code> loops.<br/> This helps immensely in most of the coursework related to Java
+                </blockquote>
+                <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">
+                    ... and get a hand from teaching staff if you find these concepts challenging.
+                </p>
+
+                <blockquote class="adviceToStudents">
+                    Try to grasp the notion of <b>classes</b> and <b>objects</b>, but don't worry if you can not, as this is taught several times during the first year.
+                </blockquote>
+                <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">
+                    ... once again, discuss these challenging but important concepts with staff as we work through week 1.
+                </p>
+
+                <blockquote class="adviceToStudents">
+                    If you already have experience of coding then some of the concepts and exercises will seem very simple but its always good to get practice in and <b>try to challenge yourself</b> on some of the tasks. There are always ideas for taking things further - maybe add a new feature or additional aspects to the sketch you are working on.
+                </blockquote>
+                <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">
+                    ... if you know how to code, just have fun coding new stuff and seeing what <i>Processing</i> and its libraries can do - look for the red 'challenges' to guide you.
+                </p>
+
+                <blockquote class="adviceToStudents">
+                    To students who don't have experience with coding don't focus too much on getting the math calculations perfect like the size of a shape to be exactly like in the example and focus on <b>understanding what the code is doing and how it works</b>.
+                </blockquote>
+                <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">
+                    ... yes, we do not need you to copy what we have done exactly. Focus on understanding the concepts and not the detail of replication.
+                </p>
+
+                <blockquote class="adviceToStudents">
+                    Take time to understand how to read the <i>Processing</i> reference documentation as being able to read documentation is a very important skill which I felt wasn't really taught. Get a hand with this too! This is especially the case for those who don't have coding experience it often looks like a whole load of gibberish. Students who don't take the time to look and break it down will not be able to use all of this functionality.
+                </blockquote>
+                <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">
+                    ... the <a href="https://processing.org/reference/"><i>Processing</i> reference material</a> is an essential source, so please take this advice and take time to explore and understand it. As ever, teachers online and in class can help you make sense of this.
+                </p>
             </div>
 
             <!--- Column RIGHT --->
             <div class="unit-30 annotation">
+                <p style="padding-top:4em">&nbsp;</p>
                 <img src="https://jsndyks.github.io/cityCreativeCoding/html/welcome/img/showcase.IMG_5212.jpeg" width="200" />
                 <p>Students at <code>#BootCamp</code>.</p>
             </div>
+        </div>
+
+        <!--- ROW : FeedBack : CC-->
+        <div class="units-row">
+            <!--- Column LEFT --->
+            <div class="unit-70">
+                <h4>#CreativeCoding</h4>
+
+                <p>Recently, we re-branded and re-scheduled <code>#BootCamp</code> as <code>#CreativeCoding</code> and we asked last year's students to offer advice to this year's students when they had completed the activity.<br/>
+                    Here is some useful advice that those who took <code>#CreativeCoding</code> last year offered to you folks:</p>
+    
+                <blockquote class="adviceToStudents">
+                <b>Just do it.</b></br>
+                How you do something is how you do everything. If you start of being lazy with this and thinking it is boring, that says more about you that it does about the task.<br/>To paraphrase David Foster Wallace: <i>The key to life and success is to be unborable</i>.
+                </blockquote>
+                <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">
+                    ... a nice point - we try our best to inspire and enthuse you, but how exciting and enabling this is, is really down to you.
+                </p>
+
+                <blockquote class="adviceToStudents">
+                <b>I KNOW IT IS NOT ASSESSED BUT!</b><br/>
+                <i>Put in the effort</i>. The same amount you would in any other assessed module.<br/>
+                The critical thinking skills are equally as important, and so are the connections you will make with your fellow coders when doing this project.<br/>
+                Also, don't think that you &quot;<i>have time</i>&quot; later. Before you know it, it's going to be the end of the first term, and you still haven't collected any data! So start now, start small, stay consistent.<br/>
+                I promise you that you will see the difference in a couple of months' time when you are programming in other languages.
+                </blockquote>
+                <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">
+                    ... we're convinced that engaging with <i>Processing</i> now helps with coding later - that's why we put so much effort into <code>#CreativeCoding</code>.
+                </p>
+    
+                <blockquote class="adviceToStudents">
+                Spend as much time as you can <b>playing around</b> with <i>Processing</i>'s different features that can be found in the processing docs.<br/>
+                I ended up doing a lot of the stuff a week before it was taught to us through scouring the docs and seeing what I could do.
+                </blockquote>
+                <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">
+                    ... the materials are released in advance, so you can come to each session knowing how to use the concepts introduced.
+                </p>
+    
+                <blockquote class="adviceToStudents">
+                <b>Do the reading and the data collection ahead of time</b>.
+                    That will give you plenty of time to get ideas on how to execute it later on. And do something you like. Even video games have an insane amount of data to analyse.
+                </blockquote>
+                <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">
+                    ... there are no limits on the data you an collect. Just find something tha interests you and start!
+                </p>
+    
+                <blockquote class="adviceToStudents">
+                <b>Have fun</b>, experiment as much as possible and don't stress too much about it.
+                </blockquote>
+                <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">
+                    ... it's an experimental zone. That should be fun!
+                </p>
+    
+                <blockquote class="adviceToStudents">
+                Try to be creative. <b>Start off simple</b>, and add one thing to that, then do it again and keep going until you can't think anymore.
+                </blockquote>
+                <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">
+                    ... and then sleep. If you can't think anymore ... sleep!
+                </p>
+    
+                <blockquote class="adviceToStudents">
+                    Create sketches in the book given and <b>collect data as early as possible</b>.
+                </blockquote>
+                <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">
+                    ... please use the <i>Nice Notebooks</i>!
+                </p>
+    
+                <blockquote class="adviceToStudents">
+                Start small and experiment. Try simple projects first, then build on them.<br/>
+                <b>Don't be afraid to make mistakes</b> — coding is all about <i>learning by doing</i>.
+                </blockquote>
+                <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">
+                    ... try, fail, think, ask, learn ... be a PAROT!
+                </p>
+    
+                <blockquote class="adviceToStudents">
+                Don't code as much as crazy as it is important to talk to people and understand concepts but mainly <b>build bonds with everyone you can</b> and if you don't understand something it's not cause your not smart it's normally because it's not a way your brain gets it and there's definitely another way of understanding it.
+                </blockquote>
+                <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">
+                    ... work on your allies - connect with colleagues and teaching staff. Learning is collaborative!
+                </p>
+    
+                <blockquote class="adviceToStudents">
+                    <b>Start programming a first draft of your demo sketch early</b>, to allow yourself more time to make it more interesting and complex as you gain new ideas and learn new programming concepts.
+                </blockquote>
+                <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">
+                    ... start very very simple.
+                </p>
+    
+                <blockquote class="adviceToStudents">
+                    <b>Enjoy it</b> since it's short and sweet.
+                </blockquote>
+                <p style="padding-bottom:2em;padding-top:0px;margin-top:0.25em; padding-left:4em">
+                    ... 🍬🐈 !
+                </p>
+            </div>
+
         </div>
 
         <!--- ROW : Intelligence! -->
@@ -299,14 +425,14 @@ void draw() {
             <div class="unit-70">
                 <p>Of course, computers can do all sorts - they can problem solve, find information and write code for you very effectively.</p>
                 <p>OpenAI's <a href="https://chat.openai.com/chat">ChatGPT</a> is very good at writing <i>Processing</i> sketches as you will discover if you try it out or watch the <a href="https://cityuni-my.sharepoint.com/:v:/g/personal/j_dykes_city_ac_uk/EccRuu5vIRBGqzXAOsAv3HQBybcV6pLSINqvHj_L2nDjdQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&e=U6dFbD" target="_new">AI at BootCamp</a> video to the right 👉.</p>
-                <p>I made this last year, and <a href="https://chat.openai.com/chat">ChatGPT</a> has not become any worse at computer programming since then.</p>
-                <p><b>But we'd like you to try to complete the tasks and solve the challenges without using AI please. </b></p>
+                <p>I made this a couple of years ago, and <a href="https://chat.openai.com/chat">ChatGPT</a> has not become any worse at computer programming since then!</p>
+                <p><b>But we'd like you to try to complete the tasks and solve the challenges <i>without using AI</i> please. </b></p>
                   <p>Doing so will give you the skills and outlook that you require to solve more complex challenges as you move through your course.
                     We need to know that you have a grounding, a foundation in the kind of creative computing that we are focussing on here.</p>
-                  <p>So let's keep the AI out of <code>#CreativeCoding</code> - we have plenty of use for it, and to learn about it as we go through the degree course, but you will only succeed in the wider degree if you have the skills and experience that we are trying to give you in year 1. 
+                  <p>So let's keep the AI out of <code>#CreativeCoding</code> - we have plenty of use for it, and to learn about it as we go through the degree course, but you will only succeed in the wider degree if you have the skills and experience that we are trying to help you establish in year 1.<br/> 
                     And that requires you to take the time to complete these task and exercises, think them through, get them wrong, understand them and painstakingly type the code that is required to do this.</p>
                     <p>So, once again - <b> keep the AI out of <code>#CreativeCoding</code> if you want to learn the essentials of coding</b>.<br/>
-                    We think that you do.</p>
+                    We think that you should.</p>
                 </p>
             </div>
 
@@ -328,7 +454,8 @@ https://cityuni-my.sharepoint.com/:v:/g/personal/j_dykes_city_ac_uk/EccRuu5vIRBG
             <!-- <i>28 Sep 2023</i> -->
             <!-- <i>29 Sep 2023</i> -->
             <!-- <i>30 Sep 2023</i> -->
-            <i>29 Sep 2024</i>
+            <!-- <i>29 Sep 2024</i> -->
+            <i>10 Sep 2025</i>
         </div>
 
         <div style="padding-bottom:2em;clear:both"></div>

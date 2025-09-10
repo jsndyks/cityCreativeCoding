@@ -34,7 +34,7 @@ We will start from the very basics of programming and gradually move into intere
 
 <hr/>
 
-<img style="display: block; margin-left: auto; margin-right: auto; width:95%" src="https://jsndyks.github.io/cityCreativeCoding/images/ccLogos/ccLogosx5.row1.png"/>
+<img style="display: block; margin-left: auto; margin-right: auto; width:95%" src="https://jsndyks.github.io/cityCreativeCoding/images/ccLogos/cc25.logosx6.moodle.1200.png"/>
 
 <p>Remember your <i><b>Fib Friend Badge</b></i> - your mission is to find as many others as you can with the same code. Collect their names (in your notebook) and share something meaningful about yourself with them ... and talk about University, <code>CreativeCoding</code> and fun stuff.</p>
 
