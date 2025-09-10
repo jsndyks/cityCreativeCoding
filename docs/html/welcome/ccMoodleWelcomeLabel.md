@@ -36,11 +36,11 @@ We will start from the very basics of programming and gradually move into intere
 
 <img style="display: block; margin-left: auto; margin-right: auto; width:95%" src="https://jsndyks.github.io/cityCreativeCoding/images/ccLogos/ccLogosx5.row1.png"/>
 
-<p>Remember your <i><b>Fib Friend Badge</b></i> - find a couple of people with the same code and share something meaningful about yourself with them ... and talk about University, <code>CreativeCoding</code> and fun stuff.</p>
+<p>Remember your <i><b>Fib Friend Badge</b></i> - your mission is to find as many others as you can with the same code. Collect their names (in your notebook) and share something meaningful about yourself with them ... and talk about University, <code>CreativeCoding</code> and fun stuff.</p>
 
 <hr/>
 
-<p>In <code>#CreativeCoding</code> we will essentially learn <i>Java</i>, and this is a great introduction to the language, But we will rely on an environment called <b>Processing</b> – that will introduce key programming concepts and enable you to create interactive, graphical, animated applications with much less effort than regular Java.</p>
+<p>In <code>#CreativeCoding</code> we will essentially learn <i>Java</i>, and this is a great introduction to the language, But we will rely on an environment called <i>Processing</i> – that will introduce key programming concepts and enable you to create interactive, graphical, animated applications with much less effort than regular Java.</p>
 
 <p><code>#CreativeCoding</code> is <b>not assessed</b>.
 But engaging fully will give you experience, knowledge and skills that will provide important grounding and contribute to your future studies.
@@ -48,12 +48,13 @@ As you start life at University, we want to give you some freedom to experiment 
 We also want you get to know us and your colleagues, and get used to University life through this activity.
 Most importantly, we want you to <b>have some fun</b> with a shared data and coding experience in your first term.</p>
 
-<p>At the end of term, your tutors will provide a short report on your <code>#CreativeCoding</code> activity that they may use in subsequent reference writing: a <b>Creative Coding Commentary</b> that will report on your initiative, participation, creativity, group-work capability in <code>#CreativeCoding</code> and the tutorials </p>
+<p>At the end of term, your tutors will provide a short report on your <code>#CreativeCoding</code> activity that they may use in subsequent reference writing: a <b>Creative Coding Commentary</b> that will report on your initiative, participation, creativity, group-work capability in <code>#CreativeCoding</code> and the tutorials.
+We will also be issuing badges to acknowledged the <i>Creativity</i>, <i>Efforts</i> and <i>Coding Capability</i> of those who complete the <code>#CreativeCoding</code> activity. You can use these on <i>LinkedIn</i> and other social media to show your capabilities.</p>
 <hr/>
 <p><b>Important:</b> We plan to hit the ground running.</p>
 
 <ul>
 <li>We expect you to bring <b>charged laptops</b> to lectures with <i>Processing</i> installed.</li>
-<li>We expect you to have <b>completed the preparation</b> beforehand - the <code>#CreativeCoding</code> Preparation Activities, the Dear Data Diaries work and the GitHub setup are essential preparation</li>
+<li>We expect you to have <b>completed the preparation</b> beforehand - the <i><code>#CreativeCoding</code> Preparation Activities</i>, the <i>Dear Data</i> work and the <i>GitHub setup</i> are essential preparation.</li>
 </ul>
 <p>Details follow ...</p>
