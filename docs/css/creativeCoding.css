@@ -147,7 +147,7 @@ h3 {padding-top:0.25em; margin-top:1em; border-top:1px dashed #e0e0e0; clear:bot
 }
 
 .parotTalk {font-size:110%; font-weight:bold; background-color:#f09090; color:#202020; padding:2px; padding-left:0.25em; padding-right:0.25em; margin-right:0px; margin-left:0px} 
-.parotTalk b {font-size:90%; font-weight:normal; background-color:#f09090; color:#ffffff;} 
+.parotTalkSm {font-size:90%; font-weight:normal; background-color:#f09090; color:#ffffff;} 
 
 .tutorMedalB {padding:4px; padding-left:1em;padding-right:1em; background-color:#b0602040}
 .tutorMedalS {padding:4px; padding-left:1em;padding-right:1em; background-color:#b0b0b060}
