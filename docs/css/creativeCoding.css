@@ -65,7 +65,7 @@
   .codeTask::before {
     background-color: #f0f8ff80;
   }
-  .task,
+
   .ddTask,
   .ddTask::before {
     background-color: #f0f8ff80;
@@ -90,7 +90,7 @@
     content: "{coding task} 🦜";
   }
   .ddTask::before {
-    content: "{Dear Data 100}";
+    content: "Dear Data 100";
   }
   .coreTask::before {
     content: "CORE TASK";
