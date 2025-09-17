@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <span style="font-size: 2.34375rem; font-weight: 700;">Intro to GitHub</span><br>
+</head>
+
+<body>
+<p>Latest version by: <strong><a href="https://www.city.ac.uk/about/people/academics/giacomo-tarroni">Giacomo Tarroni</a></strong></p>
+
+<p>Original materials by: <strong><a href="https://www.city.ac.uk/about/people/academics/radu-jianu">Radu Jianu</a></strong></p>
+
+<p>Date: 20 Sep 2024</p>
+
+<h2 id="toc_1">Understanding Git and GitHub</h2>
+
+<h3 id="toc_2">What's the short story of git and GitHub?</h3>
+
+<p><em>git</em> is an open source versioning software: it allows you to store and back-up the code you write as part of a software project; it will also monitor and record changes you make to your code and allow you to earmark <em>versions</em> of your project - states of your code at a given time. This way, you can track how your project evolves over time (e.g., see changes made between versions), and revert back to a previous version whenever necessary (e.g., if you messed something up).</p>
+
+<p>At the heart of any project is a <em>repository</em> (<em>repo</em> in short) - you can think of this as a folder associated with your project and monitored/managed by <em>git</em>. The repository may contain code, regular text files, images and other project resources. It also contains some hidden files that <em>git</em> uses to manage versions and changes.</p>
+
+<p>A repository can live on your computer or on the web. <em>GitHub</em> provides online space for people who want to create and store repositories (i.e., software projects) online and is configured to work with <em>git</em>. Note the difference between <em>git</em> - the software that implements the versioning control of a project - and <em>GitHub</em> - just an online space where <em>git</em>-managed projects can live.</p>
+
+<p>Sometimes it is desirable to have the same project available in multiple places: on your office machine, on your personal computer, and on <em>GitHub</em> for safe keeping. This can be achieved by "<em>cloning</em>": a project repository that exists somewhere else (for instance on <em>GitHub</em>) can be <em>cloned</em> on your computer. Of course, it is desirable that the different clones of a repository are in sync, that changes to one version are mirrored into the others. This is managed manually with <em>push</em> and <em>pull</em> operations: if you suspect that a change was made to the main repository (ex: on <em>GitHub</em>) you can pull these changes onto your machine; after you make your own changes to the code you push those changes to the main repository.</p>
+
+<p>Finally, what constitutes a 'change' is also managed manually. Since code development is quite messy and involves repeated trial and error we don't want to count any small edit we do as a code change that <em>git</em> should record. Instead, we can choose when to earmark a code-development point as worthy of <em>git</em> management by doing a '<em>commit</em>'. Upon a commit <em>git</em> will essentially save the state of the project at that time and allow you to restore the project to that point a later date if you need to. You can think of this as hitting the save button in Word or Photoshop.</p>
+
+<p>It is important to note that only <em>committed</em> changes can be pushed or pulled from a repository! Thus the typical operations one would do when initiating a change to one's code are:</p>
+
+<ol>
+<li><strong>Pull</strong> potential changes from the main repository into your current working environment. This is only necessary if there's an expectation that someone else might have changed the main repository, either yourself from a different machine or a potential project collaborator.</li>
+<li>Change code and resources of the project as you need.</li>
+<li><strong>Commit</strong> changes you are happy with (might be multiple times during a work session).</li>
+<li><strong>Push</strong> changes to the main repository once done.</li>
+</ol>
+
+<p>It may help you to think of <em>git</em> and <em>GitHub</em> as a more manual analogue to Google Drive or Microsoft One Drive. These services allow you to have synchronized directories on multiple devices and the cloud: files are duplicated across multiple devices and changes made to those files on any device are mirrored onto the others. This is similar to how <em>git/GitHub</em> work with the distinction that changes need to be committed and manually synchronized via pushing and pulling (though changes also need to be saved before Google or Microsoft mirror them across devices). One of the advantages of <em>git</em> is that it allows you to revert your project back to any past commit point. Another one is that it allows multiple developers to work on the same project simultaneously by managing changes through <em>branching</em> and <em>merging</em>, helping to resolve conflicts and keep the project coordinated (something we won't likely experiment with in <em>Creative Coding</em>, but that you will definitely encounter in your career as programmers).</p>
+
+<h3 id="toc_3">Let's imagine a practical scenario</h3>
+
+<p>You want to start a new project on your home computer, so you create a new project '<em>repository</em>' (in short <em>repo</em>) on <em>GitHub</em>. Think of this as an empty directory online. You can't write code on <em>GitHub</em> so this is really just to reserve online space to store and manage your project. You then <em>clone</em> your repository onto your work computer. This will create a directory on your computer that mirrors the one online. You can start adding and modifying code files into that directory. At the end of the day or whenever you are happy with how your project progressed, you <em>commit</em> all changes you've made. This sort of saves those changes and earmarks the state of the project at that time as a version - at this point this only happens on your work computer. You can continue making new changes on your work computer and committing the ones you are happy with. At some point though you will probably want to save all those changes and versions to your online repository too. You run a <em>push</em> command - this will synchronize the two repos; all changes and version you created on your computer will be mirrored onto <em>GitHub</em>.</p>
+
+<p><img src="https://moodle4.city.ac.uk/draftfile.php/254185/user/draft/787229123/Day1.png" alt="" width="1201" height="677" role="presentation" class="img-fluid atto_image_button_text-bottom"><br></p>
+
+<p>Next day you decide to continue the project from work. You can clone your repo on your work computer. This will take the project in its current state and copy it onto your work computer. You can then make changes, commit the ones you are happy with, and at the end of the day push all of them back to GitHub.</p>
+
+<p><img src="https://moodle4.city.ac.uk/draftfile.php/254185/user/draft/787229123/Day2.png" alt="" width="1201" height="677" role="presentation" class="img-fluid atto_image_button_text-bottom"><br></p>
+
+<p>The next day, at home again, you would <em>pull</em> the repo onto your home computer to update your home-version of the repo with all the changes you had made at work the day before. Then you can continue to develop the project in the same way. Notice you didn't have to <em>clone</em> the repo this time, since you already had it on your computer: you simply needed to fetch (<em>pull</em>) the latest changes.</p>
+
+<p><img src="https://moodle4.city.ac.uk/draftfile.php/254185/user/draft/787229123/Day3.png" alt="" width="1201" height="677" role="presentation" class="img-fluid atto_image_button_text-bottom"><br></p>
+
+<h2 id="toc_4">Installing git/GitHub</h2>
+
+<p>Let's now install git/GitHub on your computer.</p>
+
+<ol>
+<li><p><strong>Create a GitHub account linked to your City email address</strong>: Please do not reuse GitHub accounts that you may already have! It is essential that you (create and) use an account that is linked to your City account. Navigate to a <a href="https://www.github.com">www.github.com</a> and follow instructions under the 'Sign Up' button. It should be straightforward: you will need to provide an email, a password, and a username. Make sure to use your City email address and provide a username that resembles your real name: </p>
+
+<p><img src="https://moodle4.city.ac.uk/draftfile.php/254185/user/draft/787229123/create-account.png" alt="" width="399" height="229" role="presentation" class="img-fluid atto_image_button_text-bottom"><br></p></li>
+<li><p><strong>Install GitHub Desktop</strong>: GitHub provides a desktop interface that allows you to interact with GitHub services. To install it navigate to <a href="/download">desktop.github.com</a> and download the installer based on your operating system. Once the download finishes, install the application. In Windows you would launch the downloaded executable file; in Mac OS you would first drag the downloaded file into the Application folder, then double click it there and select open to allow it to run. Finally sign-in with the GitHub credentials you've created in step 1.</p>
+
+<p><img src="https://moodle4.city.ac.uk/draftfile.php/254185/user/draft/787229123/githubdesktop.png" alt="" width="1199" height="725" role="presentation" class="img-fluid atto_image_button_text-bottom"><br></p></li>
+<li><p><strong>Get your basic Github sketch repository by copying a template that we created for you</strong>: Your resulting repository will essentially be a project that lives on GitHub and contains a very basic sketch (Processing code). You will work on similar projects throughout the Creative Coding module. Make sure you are logged into your City Github account on your default browser. Follow the link below and accept the project 'assignment'. This will automatically create a repository called first-sketch-your-github-username for you (after pressing some buttons and refreshing the browser a few times you should ultimately get a confirmation message like the one in the image below).</p>
+
+<p><a href="https://classroom.github.com/a/aofAa1pi">https://classroom.github.com/a/aofAa1pi</a></p>
+
+<p><img src="https://moodle4.city.ac.uk/draftfile.php/254185/user/draft/787229123/accept.png" alt="" width="300" height="166" role="presentation" class="img-fluid atto_image_button_text-bottom">&nbsp;<img src="https://moodle4.city.ac.uk/draftfile.php/254185/user/draft/787229123/accept2.png" alt="" width="300" height="161" role="presentation" class="img-fluid atto_image_button_text-bottom"><br></p>
+
+<p><strong>Copy the link above</strong>. If you then click on it, you should see your online repo with the basic sketch:</p>
+
+<p><img src="https://moodle4.city.ac.uk/draftfile.php/254185/user/draft/787229123/repo.png" alt="" width="800" height="532" role="presentation" class="img-fluid atto_image_button_text-bottom"><br></p></li>
+<li><p><strong>Clone the repo on your computer</strong>: We will now clone this repository onto your computer and ask GitHub Desktop to manage it. Head into GitHub Desktop and select File -&gt; Clone Repository. In the dialog that opens, if there are different options (GitHub.com, GitHub Enterprise, URL, ...) choose the URL option. Then paste the link to your online repo (the link that you just copied above) into the Repository URL box. Adjust the Local Path with a suitable location: we will use this for the whole of Creative Coding. Click the Clone button. In the next dialog, select "for my own purposes". Find the local version of the repo and view it in a File Explorer/Finder window. Its structure should mirror the online version.</p>
+
+<p><img src="https://moodle4.city.ac.uk/draftfile.php/254185/user/draft/787229123/clone.png" alt="" width="1199" height="624" role="presentation" class="img-fluid atto_image_button_text-bottom"><br></p></li>
+<li><p><strong>Lets make our first GitHub-tracked change</strong>: Open coder_info.txt with any text editor. Add your name on the first line and your email on the second. Now it's time to commit this change [meaning: make it an 'official', <em>GitHub-tracked change to our project</em>] and push it to the online repo [meaning: save the change onto the GitHub server too]. So:</p>
+
+<ul>
+<li>Open GitHub Desktop and notice that it has realised we made this change (and maybe others) to the project directory. Add a title for the commit, and click commit. GitHub will make those changes permanent and then remove them from the change-list - they are now 'committed'.</li>
+<li>Next we want to synchronize our local project (and implicitly the changes we just committed) to the online repo. We do so by choosing Repository -&gt; Push.</li>
+</ul>
+
+<p>And now we are done - you can navigate to the online version of your repo and check that the coder_info.txt there contains your name and email!</p>
+
+<p><img src="https://moodle4.city.ac.uk/draftfile.php/254185/user/draft/787229123/edit.png" alt="" width="1200" height="664" role="presentation" class="img-fluid atto_image_button_text-bottom"><br></p></li>
+</ol>
+
+<h2 id="toc_5">Further reading</h2>
+
+<h3 id="toc_6">Branch, fork, merge, pull request...?</h3>
+
+<p>Git is a very complex tool, and while with the above example we have seen the basic <em>clone/pull-commit-push</em> cycle, we have only scratched the surface. Please take your time, in the next few weeks, to delve deeper into GitHub Desktop. You can start from this <a href="https://www.youtube.com/watch?v=8Dd7KRpKeaE">video tutorial</a></p>
+
+<h3 id="toc_7">Git beyond GitHub Desktop</h3>
+
+<p>GitHub Desktop is only one way of using git/GitHub. The most common alternatives are the following:</p>
+
+<ol>
+<li><strong>Using an IDE</strong> (like IntelliJ, PyCharm, Visual Studio Code): most IDEs these days have a way of keeping track of changes to your project and <em>commit-push-pull</em> changes to GitHub. This can be extremely convenient since you will need one less software to do your project development and version control.</li>
+<li><strong>Using the terminal</strong>: git can be typically used directlu with a command line interface (CLI). It might seem complicated, but it's really not that hard, and many software engineers use git this way. You can learn more starting from this <a href="https://www.youtube.com/watch?v=USjZcfj8yxE">video tutorial</a></li>
+</ol>
+</body>
+</html>
