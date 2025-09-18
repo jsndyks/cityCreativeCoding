@@ -128,15 +128,23 @@
         <!-- Hidden code button -->
         <span><a href="#" class="link-show-code">Solution - Catch up Here!</a></span>
         <div class="prettyprint" style="display: none;">
-          <pre class="brush: processing; gutter: false; toolbar: false; highlight: [18]">
+          <p>Here's a method called <code>doNothing</code> that does nothing - the <i>method body</i> contains no instructions to be executed each time our method is used.<br/>
+          So it does nothing when we call it!</p>
+          <pre class="brush: processing; gutter: false; toolbar: false; highlight: [3,4]">
             // -- method 1 : Can you write a method with no content that does nothing?
 
             void doNothing() {
             }
-
-            // -- Call this method in the draw() loop with ... 
-            //    doNothing();                      
           </pre>
+
+          <p>Call this method in the <code>draw()</code> loop with ... </p>
+
+          <pre class="brush: processing; gutter: false; toolbar: false; highlight: [3,4]">
+              doNothing();                      
+          </pre>
+
+          <p>But it won't do anything!<br/>
+          So we need to fill our methods with instructions that do things!</p>
           </div>
 
 
