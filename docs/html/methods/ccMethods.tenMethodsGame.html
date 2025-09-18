@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CreativeCoding Lecture: Ten Methods Game</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Embedded fonts -->
+<link
+    href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+    rel="stylesheet">
+
+<!-- Custom layout and style -->
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+<!-- General browser compatibility handling -->
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+<!-- Formatted source code -->
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+<!-- Sketch popups and hidden text-->
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+<!-- JD Extras! -->
+  <link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" />
+  
+  <!-- iFrame -->
+  <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+
+  <style>
+    h3 {clear:none}
+  </style>
+</head>
+
+<body>
+  <div id="page">
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+<!--     
+    We'd like you to try this exercise in class.
+    Please _attempt each of the exercises_ **before checking the solutions**.
+    Trying things out and _thinking things through_, and _getting things wrong_ before seeing a solution that works is **the best way to learn to code**.
+
+    You can access [this page](https://jsndyks.github.io/cityCreativeCoding/html/art/2023%7C24/copyright.html) outside of _Moodle_ should you wish to do so. 
+  -->
+
+
+    <h2>Ten Methods Game</h2>
+
+    <div class="intro">
+      
+    <p>We are going to run this game as an exercise in class.<br/>
+      A button like the one shown below will give you a partial answer.<br/>
+      But please only use this to 'catch-up' if you fall behind. There is no point in the exercise if you don't try to solve the problem yourself at each stage.
+      Trying, failing, thinking and falling behind are all important parts of learning. So please only use the 'Catch Up!' buttons containing solutions to catch up!
+    </p>
+    <p>
+      Try clicking this one though!<br/>
+      Click the code to select it, double click to select it all, and use <i>copy</i> and <i>paste</i> to get it into your <i>Processing</i> sketch.
+      </p>
+
+      <span><a href="#" class="link-show-code">Solution - Catch up Here!</a></span>
+      <div class="prettyprint" style="display: none;">
+        <pre class="brush: processing; gutter: false; toolbar: false; highlight: [18]">
+          // -- Press these buttons to catch up at each stage.
+          // -- But you will only learn if you attempt to problem solve for yourself.
+          // -- Don't be scared of getting things wrong, be scared of not trying things out.
+          // -- Because trying things out is how you learn, and getting things wrong is inevitable as you do so.
+          // -- And learning, is why you are here.
+          // -- And learning to learn is an important part of learning. 
+        </pre>
+      </div>
+    </div>
+
+    <hr/>
+
+    <h3>0. Basic <i>Processing</i> sketch</h3>
+    <p>Copy this code into a new <i>Processing</i> sketch - it is the basis of your method-making efforts.<br/>
+    Save it with a meaningful name - '<code>tenMethodsGame.pde</code>' or something.</p>
+
+<pre class="brush: processing; gutter: false; toolbar: false; highlight: [12,16]">
+      void setup () {
+  
+        size(300,300);
+        
+        rectMode(CENTER);
+        textAlign(CENTER);
+      }
+      
+      void draw() {
+
+        // -- Call the methods that you write in here...
+
+      }
+
+      // -- Write your methods down here, below this line, outside the setup() and draw() methods.
+</pre>
+
+    <h3>1. method 01 : Can you write a method with no content that does nothing?</h3>
+
+    <p>Use this code as the basis of your sketch, and fill in the eight arguments to <code>quad()</code> that will complete the task.</p>
+    <pre class="brush: processing; gutter: false; toolbar: false; highlight: [18]">
+      void setup()
+      {
+        size(600, 600);
+      }
+      
+      void draw()
+      {
+        background(255);
+        stroke(32);
+        noFill();
+      
+        float xPos   = 100;
+        float yPos   = 100;
+        float sSize  = 100;
+        float sHalf  = sSize/2;
+      
+        quad(
+          // -- add the eight arguments here ...
+        );
+      }
+</pre>
+
+        <!---
+          Click to Show Solution - But Have a Try First! Coding Takes Practice and Requires 'Doing'! 
+          -->
+        <!-- Hidden code button -->
+        <span><a href="#" class="link-show-code">Solution - Catch up Here!</a></span>
+        <div class="prettyprint" style="display: none;">
+          <pre class="brush: processing; gutter: false; toolbar: false; highlight: [18]">
+            quad(
+              // -- add the eight arguments here ...
+              xPos - sHalf, yPos - sHalf,
+              xPos + sHalf, yPos - sHalf,
+              xPos + sHalf, yPos + sHalf,
+              xPos - sHalf, yPos + sHalf
+            );
+          </pre>
+          </div>
+
+<hr/>
+
+
+
+    <!-- End of content -->
+            <hr />
+            <div class="sig">
+                <b>Jason DYKES</b><br />
+                <!-- <i>10 Oct 2022</i> -->
+                <!-- <i>21 Sep 2023</i> -->
+                <!-- <i>02 Oct 2023</i> -->
+                <i>17 Nov 2024</i>
+            </div>
+            <div style="padding-bottom:2em;clear:both" />
+
+<!-- https://i2.wp.com/dam.org/museum/wp-content/uploads/2020/09/Molnar1974DesOrdres1-copy-scaled.jpg -->  
+
+<!--- spacer for iFrame -->
+<p style="padding-top:1em"><hr/></p>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Footer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  </div> <!-- End of page div -->
+  <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>
