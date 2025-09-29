@@ -9,8 +9,9 @@
 - Nice Notebooks : **image - degrees**
 - Academic Autonomy :
   **moodle - lectures - labs**
+  - schedule & gaps;
   **moodle - objectives, tasks (core, extra), colour, summary**
-- Pretty Polly :
+- Pretty Polly (PAROT) :
   **creativeCoding , this lecture**
 - Other Tips :
   NoteTaking, AI, Copying
@@ -19,7 +20,8 @@
 ### 2 - _10_ First Sketch : 25
 
 - rect (boring)
-- rect (original & **form**)
+- rect (original & **form**) - unique, exciting
+	**collective, compassionate coding … be collegiate**
 - circle (boring) _order_
 - circle (missed & **form**) 🦜 <CLAP>
 
@@ -31,7 +33,11 @@
 - shapes **experiment**
 - save ?GitHub? <CLAP>
 
-### 4 - _10_ Colour : 45
+### 4 - _5_ Colour : 40
+
+- pen _background_
+
+### 5 - _5_ Styles : 45
 
 - talk through _The example below_
 - **play** 🦜
@@ -41,6 +47,10 @@
 - **image - flow**
 - talk through _flow example_
 - explain **mouseY**, **mouseY**
+- frameCount, frameRate 
+- frameCount as coords, color
+- x/y reversal game
+- text() remove Background
 
 ### 7 - _05_ Autonomy : 60
 
@@ -48,3 +58,4 @@
 - summary
 - objectives
 - extras
+

@@ -59,7 +59,7 @@
 
 		<ul class="objectives">
 			<li>use <i>Processing's</i>  built-in variables for storing mouse position and sketch size;</li>
-			<li>declare and initialise your own variables;</li>
+			<li>initialise your own variables by declaring them and assigning values;</li>
 			<li>use <code>println()</code> to show the contents of a variable in the <i>Processing</i> console;</li>
 			<li>use variables for storing numbers, text and colours;</li>
 			<li>use appropriate variable scope in your coding design;</li>
@@ -131,7 +131,7 @@ void draw()
 				</p>
 				<p>One is that the position is not that of the <i>mouse</i>, but the <i>cursor</i> and where it appears on the canvas.<br/>Another is that this may be controlled by a number of devises including <i>trackpads</i>, <i>eye gaze</i> and various other things.</p>
 				<p>So maybe <code>cursorX</code> and <code>cursorY</code> are better names.<br/>
-				   You could declare these new variables and instantiate them with <code>mouseX</code> and <code>mouseY</code> at the top of your <code>draw()</code> loop if you felt strongly about this.</p>
+				   You could declare these new variables and initialise them with <code>mouseX</code> and <code>mouseY</code> at the top of your <code>draw()</code> loop if you felt strongly about this.</p>
 
 		</div>
 
@@ -145,7 +145,7 @@ void draw()
 				have considered so far:
 			</p>
 
-			<p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">1</span> - <b>Processing Variables</b> : useful - internally held</code></p>
+			<p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">1</span> - <b>Processing Variables</b> : useful - internally held</code></p>
 
 			<pre class="brush: processing; gutter: false; toolbar: false; ">void setup()
 {
@@ -274,7 +274,7 @@ changeOwed = 10.00 - (totalCost - discount);</pre>
 
 		<div class="unit-30-cc annotation">
 			<!-- Right column -->
-			<p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">2</span> - <b>Declare &amp; Assign</b> : a floating point number</code></p>
+			<p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">2</span> - <b>Declare &amp; Assign</b> : a floating point number</code></p>
 
 
 			<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/variables/img/cc.variableAnatomy.png', 350, 300, 'The components of a variable declaration and initialisation');</script>
@@ -412,14 +412,14 @@ void draw()
 				Here are some examples of other types that you may find useful.
 			</p>
 
-			<p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">3</span> - <b>Variable Types</b> : and playing with trees</code></p>
+			<p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">3</span> - <b>Variable Types</b> : and playing with trees</code></p>
 
 			<h4>The <code>String</code> type</h4>
 
 			<p>
 				If you wish to store some text, such as someone's name, a sentence, a poem or or a book, then you can store the letters that make up the
 				text in a variable type called a <code>String</code> (note the use of the upper-case 'S' - this matters).
-				String variables are declared and initialised just as we did for <code>float</code> types, but instead of
+				String variables are initialised just as we did for <code>float</code> types, but instead of
 				assigning numbers, we assign text in quotation marks that delimit the start and end point of the information that we want to store in the <code>String</code> variable:
 			</p>
 
@@ -581,9 +581,8 @@ void draw()
 			<p>
 				Remember that when using variables in <i>Processing</i> you do two things — you <i>declare</i> the
 				variable, which is when you say what type of variable it is and give it a name; and you
-				<i>initialise</i> it, which is when you assign a value to the variable. One of the reasons why it is
-				important to separate <i>declaration</i> from <i>initialisation</i> is that where a variable is
-				declared determines its <i>scope</i>.
+				<i>assign</i> a value to it.
+				One of the reasons why it is important to separate <i>declaration</i> from <i>assignment</i> is that where a variable is declared determines its <i>scope</i>.
 			</p>
 
 			<p>
@@ -611,18 +610,17 @@ void draw()
 				particular is that it allows <i>Processing</i> to recall the value of the variable each time the method is
 				called (remembering that <code>draw()</code> happens 60 times a second). Changing the value of a
 				variable inside <code>draw()</code> is one way of creating simple animations. The following code
-				draws some text at position (<code>xPos</code>,<code>100</code>) where <code>xPos</code> decreases
-				its value by one every time it is redrawn:
+				draws some text at position (<code>xPosition</code>,<code>100</code>) where <code>xPosition</code> decreases its value by one every time it is redrawn:
 			</p>
 
-			<p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">4</span> - <b>Variable Scope</b> : xPos experiments</code></p>
+			<p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">4</span> - <b>Variable Scope</b> : xPosition experiments</code></p>
 
 		</div>
 	</div>
 	<div class="units-row">
 		<div class="unit-70-cc">
 			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-			<pre class="brush: processing; gutter: false; toolbar: false; highlight: [1,9,18]">float xPos;        // Declare xPos with sketch-wide scope.
+			<pre class="brush: processing; gutter: false; toolbar: false; highlight: [1,9,18]">float xPosition;        // Declare xPosition with sketch-wide scope.
 
 void setup()
 {
@@ -630,33 +628,32 @@ void setup()
   fill(0);
   textSize(48);
 
-  xPos = width;    // Initialise xPos to right of sketch (600);
+  xPosition = width;    // Initialise xPosition to right of sketch (600);
 }
 
 void draw()
 {
   background(255);
   String message = "Hello again Creative Coders...";
-  text(message, xPos, height/2);
+  text(message, xPosition, height/2);
 
-  xPos = xPos - 1;  // Decrease the value of xPos by one on each redraw
+  xPosition = xPosition - 1;  // Decrease the value of xPosition by one on each redraw
 }</pre>
 			<p>
-				The variable <code>xPos</code> is declared as a <code>float</code> in the first line. This allows it
-				to be used at any point in the sketch. It is initialised in the last line of <code>setup()</code>
-				with the value of the width of the sketch (which is 600 in this case). In the <code>draw()</code>
-				method some text is drawn using the current value of <code>xPos</code> (still 600 the first time it
-				is drawn). The last line of <code>draw()</code> then decreases the value stored in <code>xPos</code>
+				The variable <code>xPosition</code> is declared as a <code>float</code> in the first line. This allows it
+				to be used at any point in the sketch. It is initialised with an assignment in the last line of <code>setup()</code>. The value of the width of the sketch is the initial assignment, which is 600 in this case.
+				In the <code>draw()</code>
+				method some text is drawn using the current value of <code>xPosition</code> (still 600 the first time it
+				is drawn). The last line of <code>draw()</code> then decreases the value stored in <code>xPosition</code>
 				by 1. Remembering that <code>draw()</code> is repeatedly called 60 times a second, the text is then
-				redrawn at position <code>xPos</code> which is now 599 before being reduced by one to 598 etc. The
-				result is the text appears to scroll across the screen as <code>xPos</code> gradually decreases in
+				redrawn at position <code>xPosition</code> which is now 599 before being reduced by one to 598 etc. The
+				result is the text appears to scroll across the screen as <code>xPosition</code> gradually decreases in
 				value from 600 down to 0 and beyond.
 			</p>
 
 			<div class="tip">
 				<p>Try to declare variables to be as 'local' as possible in scope.<br/>
-					That is, if a variable is only
-				needed in a single block of code, declare it inside the braces that define that block.</p>
+					That is, if a variable is only needed in a single block of code, declare it inside the braces that define that block.</p>
 			</div>
 
 		</div> <!-- End of left column -->
@@ -742,40 +739,38 @@ void draw()
   fill(0);
   textSize(48);
 
-  float xPos = width/2;    // Initialise xPos to right of sketch (300);
+  float xPosition = width/2;    // Initialise xPosition to right of sketch (300);
 }
 
 void draw()
 {
-  float xPos = width/2;
+  float xPosition = width/2;
   background(255);
   String message = "Hello again Creative Coders...";
-  text(message,xPos,height/2);
+  text(message,xPosition,height/2);
 
-  xPos = xPos - 1;  // Decrease the value of xPos by one on each redraw
+  xPosition = xPosition - 1;  // Decrease the value of xPosition by one on each redraw
 }</pre>
 
 
 			<p>
 				If you copy and run this code in <i>Processing</i> you will notice that your text stays put.
-				This is because the variable <code>xPos</code> in the setup method is not the same as the variable <code>xPos</code> in the draw
+				This is because the variable <code>xPosition</code> in the setup method is not the same as the variable <code>xPosition</code> in the draw
 				method.
 				They are two independent variables declared in different scopes. They are not aware of each other. They just happen to have the same name.
 			</p>
 
 			<p>
 				So why is the text not moving?<br/>
-				Our setup method declares and initializes a variable called <code>xPos</code>.
+				Our setup method declares a variable called <code>xPosition</code> and assigns an initial value to it.
 				However, as soon as our program exits the setup method, this variable ceases to exist.
 			</p>
 
 			<p>
-				Our program will then repeatedly run through the <code>draw()</code> method. Every time our program enters <code>draw()</code>, a
-				new variable <code>xPos</code> is created and initialized. This variable is particular to that <code>draw()</code> run and is
-				discarded when the method exits. The change we make to this <code>xPos</code> is lost together with the variable itself.
-				During the next draw iteration, a brand new instance of <code>xPos</code> will be created and initialized
-				to the same constant value: <code>width/2</code>. Our text will thus be drawn in the same position over and over
-				again.
+				Our program will then repeatedly run through the <code>draw()</code> method. Every time our program enters <code>draw()</code>, a new variable <code>xPosition</code> is created and initialised.
+				This variable is particular to that <code>draw()</code> run and is discarded when the method exits.
+				The change we make to this <code>xPosition</code> is lost together with the variable itself.
+				During the next draw iteration, a brand new instance of <code>xPosition</code> will be created and initialised to the same constant value: <code>width/2</code>. Our text will thus be drawn in the same position over and over again.
 			</p>
 
 			<p>
@@ -783,7 +778,7 @@ void draw()
 				This is called <i><b>variable shadowing</b></i>. Lets look at the following example:
 			</p>
 
-			<pre class="brush: processing; gutter: false; toolbar: false; highlight: [17,19]">float xPos = width; // -- Declare global xPos
+			<pre class="brush: processing; gutter: false; toolbar: false; highlight: [17,19]">float xPosition = width; // -- Declare global xPosition
 
 void setup()
 {
@@ -791,31 +786,31 @@ void setup()
   fill(0);
   textSize(48);
 
-  xPos = width;    // -- Initialise global xPos to right of sketch (600);
+  xPosition = width;    // -- Initialise global xPosition to right of sketch (600);
 }
 
 void draw()
 {
-  float xPos = width; // -- Notice: declare and initialise a local xPos
+  float xPosition = width; // -- Notice: declare and initialise a local xPosition
   background(255);
   String message = "Hello again Creative Coders...";
-  text(message,xPos,height/2);
+  text(message,xPosition,height/2);
 
-  xPos = xPos - 1;  // -- Decrease the value of xPos by one on each redraw
+  xPosition = xPosition - 1;  // -- Decrease the value of xPosition by one on each redraw
 }</pre>
 
 			<p>
-				Notice that here we declare <code>xPos</code> variables twice, once having global scope (at the top of the sketch, outside of any methods)
+				Notice that here we declare <code>xPosition</code> variables twice, once having global scope (at the top of the sketch, outside of any methods)
 				and once in the <code>draw()</code> method.
 				Again, even though the variables have the same name they are different since they
 				are defined in different blocks of code.</p>
 
 			<p>
-				The problem occurs in the draw method where, given their scopes, both <code>xPos</code> variables should be
+				The problem occurs in the draw method where, given their scopes, both <code>xPosition</code> variables should be
 				visible. As such, which variable do the highlighted lines use?</p>
 				<p>The rule is that in such cases the name identifies the variable with the more specific scope
-					(in our case the <code>xPos</code> declared in draw).
-				We say that <code>xPos</code> declared in <code>draw()</code> shadows the global variable with the same name.
+					(in our case the <code>xPosition</code> declared in draw).
+				We say that <code>xPosition</code> declared in <code>draw()</code> shadows the global variable with the same name.
 			</p>
 
 		</div> <!-- End of left column -->
@@ -829,7 +824,7 @@ void draw()
 			<!-- Left column -->
 
 			<h3>5. Practice and Exercises</h3>
-			<p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">5</span> - <b>Autonomy</b> : Exercises - practice 🦜</code></p>
+			<p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">5</span> - <b>Autonomy</b> : Exercises - practice 🦜</code></p>
 
 			<div class="codeTask">
 				<h5>Variable Arithmetic</h5>
@@ -840,9 +835,21 @@ number of bananas: 7
 number of oranges: 6</pre>
 				<p>Use a simple arithmetic expression on the variables to find the total number of fruit and display the result using <code>println()</code>.</p>
 				<p>Change the numbers of fruit and check that your sketch works as expected.</p>
-			
 			</div>
-		
+
+			<br><br>
+
+			<div class="challenge">
+				<h5>Variable Arithmetic Fruit Order</h5>
+				<p>Imagine this number of fruit items is the amount of fruit a student consumes in a week.
+					<br/>Imagine you are planning a week-long residential trip with a number of students and are in charge of fruit orders. Lucky you. 
+				</p>
+				<p>Write an <i>interactive calculator</i> that will show the amount of fruit that you need to order for different numbers of students - with the number of students determined by <code>mouseX</code>. 
+				Use <code>text()</code> to show the numbers of students and the amount of fruit on screen.</p>
+				<p>There are lots of ways to do this - but you should be able to develop a sketch that meets this need.<br/>
+				Remember to chat to those who are nearby about your approach, efforts and solution.</p>
+			</div>
+
 			<br><br>
 		
 			<div class="codeTask">
@@ -851,9 +858,7 @@ number of oranges: 6</pre>
 					<li><p>Write a sketch that draws a circle in the centre of a square window.<br/>
 						Use two variables <code>x</code> and <code>y</code> to specify the position of the circle:</p>
 						<pre class="brush: processing; gutter: false; toolbar: false;">ellipse(x, y, 60, 60);</pre>
-						<p>Remember you have to <i>declare</i> those variables (both with type <code>float</code>) at the top
-						of your sketch and you should initialise them with appropriate values inside <code>setup()</code> so
-						that your circle is positioned correctly when your sketch starts.</p>
+						<p>Remember you have to <i>declare</i> those variables (both with type <code>float</code>) at the top of your sketch and you should initialise them with appropriate values inside <code>setup()</code> so that your circle is positioned correctly when your sketch starts.</p>
 						<p>Run your sketch to check it behaves as expected.</p>
 					</li>
 		
@@ -889,7 +894,7 @@ number of oranges: 6</pre>
 			<!-- Left column -->
 
 			<h3>6. Summary and Further Information</h3>
-			<p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">5</span> - <b>Autonomy</b> : Summary &amp; Objectives</code></p>
+			<p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">6</span> - <b>Autonomy</b> : Summary &amp; Objectives</code></p>
 
 			<ul class="summary">
 				<li> <i>Processing</i> contains a number of its own variables for storing information about the sketch, such as the mouse position and sketch size. </li>
