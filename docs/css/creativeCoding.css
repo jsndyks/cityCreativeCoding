@@ -19,7 +19,7 @@
   .checkOutcomes {padding:1em; margin-left:3em}
 
   .focusON_orig {float:left; padding:0.75em; margin-right:1em; margin-top:0.25em;margin-bottom:1.5em;  color:#b44; background-color:#f84; text-align:right; clear:both; border-right:4px solid #b44; font-size:150%;}
-  .focusON {float:right; padding:0.75em; margin-left:0; margin-top:2.5em;margin-bottom:0.5em;  color:#ddd; background-color:#6AA0CF; text-align:left; clear:both; border-left:4px solid #0070A6; font-size:125%; width:100%}
+  .focusON {clear:both; float:right; padding:0.75em; margin-left:0; margin-top:2.5em;margin-bottom:0.5em;  color:#ddd; background-color:#6AA0CF; text-align:left; clear:both; border-left:4px solid #0070A6; font-size:125%; width:100%}
   .focusNum {font-size:200%; font-weight:bold; color:#C3E9FF;}
   .focusHash {font-size:125%; font-weight:bold; color:#C3E9FF}
   .focusON code {color:#fff;  background-color:#6AA0CF}
