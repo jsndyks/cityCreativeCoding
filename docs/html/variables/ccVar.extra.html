@@ -72,6 +72,43 @@
 	</div>
 
 	<div class="challenge">
+        <h5>Visualizing Frame Rate</h5>
+		<p>Let's make an interactive sketch that allows us to vary the target <a href="https://processing.org/reference/frameRate_.html"><code>frameRate()</code></a> and see whether our computer can achieved this!<br/>
+		This code will use <code>mouseY</code> as the input to a <a href="https://processing.org/reference/frameRate_.html"><code>frameRate()</code></a> call and position a <code>point()</code>at a vertical position that shows the <a href="https://processing.org/reference/frameRate.html"><code>frameRate</code></a> that is achieved.</p>
+		<p>If the <a href="https://processing.org/reference/point_.html"><code>point()</code></a> is not at the same vertical position as the mouse / cursor then we know that the requested <a href="https://processing.org/reference/frameRate_.html"><code>frameRate()</code></a> is not being managed by your computer.</p>
+		<pre class="brush: processing; gutter: false; toolbar: false; ">
+void setup () {
+	size(1000, 500);
+}
+
+void draw() {
+	// -- set target frameRate to be based on vertical position of mouse - lower is faster:
+	frameRate(mouseY);               
+
+	// -- set x to be somewhere between 0 and width as the sketch progresses frame by frame:
+	int x   = frameCount%width;    
+
+	// -- set y to be the current frameRate achieved by the sketch:
+	float y = frameRate;
+
+	// -- draw a point at (x,frameRate) to show current frameRate:
+	point(x, y);
+	
+	// -- output frameCount and frameRate to the console:
+	println(frameCount, frameRate);
+}
+</pre>
+	<p>Try it out.<br/>And try to establish why it doesn't work!</p>
+	<p>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🦜&nbsp;&nbsp;I have made a <b>P</b>lan here and <b>A</b>ttempted to implement it with code.<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🦜&nbsp;&nbsp;You have <b>R</b>un the code ... and <b>O</b>bserved that it does not work.<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🦜&nbsp;&nbsp;Now ... <b>T</b>hink - can you explain what happened, why things went wrong?<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🦜&nbsp;&nbsp;<b>Talk</b> to a colleague and <b>P</b>lan, <b>A</b>ttempt, and <b>R</b>un a revised sketch ... that you should ... <b>O</b>bserve ... and <b>T</b>hink and <b>Talk</b> about ...<br/>
+	</p>
+
+	</div>
+
+	<div class="challenge">
         <h5>Digital Timer</h5>
 		<p>Code a sketch that presents a <i>digital timer</i>, showing the number of hours, minutes and seconds that have elapsed since the sketch
 		started running. Some useful things to know:</p>
