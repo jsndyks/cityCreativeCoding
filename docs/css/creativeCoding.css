@@ -23,7 +23,7 @@
   .focusNum {font-size:200%; font-weight:bold; color:#C3E9FF;}
   .focusHash {font-size:125%; font-weight:bold; color:#C3E9FF}
   .focusON code {color:#fff;  background-color:#6AA0CF}
-  .focusON {display:none}
+  .focusON {display:block}
 
   .focusOFF {display:none; padding:0px; color:#229; background-color:#fff; }
 
