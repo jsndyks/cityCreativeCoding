@@ -1,10 +1,10 @@
-## Plan : Introduction
+# Plan : Introduction
 
-### 0 - _05_ Intro / Induction : 05
+## 0 - Intro / Induction : 05 » 05
 
 - stand up : Find Friend, Share, Fun Plans
 
-### 1 - _10_ Welcome : 15
+## 1 - Welcome : 10 » 15
 
 - Nice Notebooks : **image - degrees**
 - Academic Autonomy :
@@ -17,7 +17,7 @@
   NoteTaking, AI, Copying
   - _it's the journey_
 
-### 2 - _10_ First Sketch : 25
+## 2 - First Sketch : 10 » 25
 
 - rect (boring)
 - rect (original & **form**) - unique, exciting
@@ -27,22 +27,22 @@
 
 ? who used their sketchbooks?
 
-### 3 - _10_ Coordinates : 35
+## 3 - Coordinates : 10 » 35
 
 - location _from top left_
 - shapes **experiment**
 - save ?GitHub? <CLAP>
 
-### 4 - _5_ Colour : 40
+## 4 - Colour : 5 » 40
 
 - pen _background_
 
-### 5 - _5_ Styles : 45
+## 5 - Styles : 5 » 45
 
 - talk through _The example below_
 - **play** 🦜
 
-### 6 - _10_ Setup & Draw : 55
+## 6 - Setup & Draw : 10 » 55
 
 - **image - flow**
 - talk through _flow example_
@@ -52,7 +52,7 @@
 - x/y reversal game
 - text() remove Background
 
-### 7 - _05_ Autonomy : 60
+## 7 - Autonomy : 5 » 60
 
 - exercises
 - summary
