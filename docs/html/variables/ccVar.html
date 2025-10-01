@@ -245,10 +245,10 @@ cost = 1.99;    // This is the variable initialisation.</pre>
 			</p>
 
 
-			<h4>Doing arithmetic on variables</h4>
+			<h4>Doing arithmetic on numeric variables</h4>
 
 			<p>
-				When we assign a value to a variable, <i>Processing</i> will do any arithmetic you ask it to when
+				When we assign a value to a numeric variable, such as a <code>float</code> or <code>int</code>, <i>Processing</i> will do any arithmetic you ask it to when
 				calculating the value. For example
 			</p>
 
@@ -279,7 +279,7 @@ changeOwed = 10.00 - (totalCost - discount);</pre>
 
 
 			<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/variables/img/cc.variableAnatomy.png', 350, 300, 'The components of a variable declaration and initialisation');</script>
-			<p>Declaring and initialising a float variable</p>
+			<p>Initialising a <code>float</code> variable with a declaration and assignment.</p>
 
 
 		</div> <!-- end of right column -->
@@ -307,9 +307,9 @@ void draw()
   background(255);
 
   float centreX = width / 2;
-  float centreY = height / 2;
-  float faceSize = 200;
-  float earSize = 120;
+  float centreY = height / 2;	
+  float faceSize = 200 * 1.0;	// &lt; -- change the multiplier
+  float earSize =  120 * 1.0;   // &lt; -- change the multiplier
 
   ellipse(centreX,centreY,faceSize,faceSize);
   ellipse(centreX-70,centreY-70,earSize,earSize);
@@ -363,8 +363,8 @@ void draw()
 				the 400s in the <code>size()</code> command to different values.</p>
 				<p>Note how whatever you set the size
 				to, the face is always drawn at the centre of the sketch.</p>
-				<p>You can also change the value of
-				<code>faceSize</code> and <code>earSize</code> to change the proportions used in drawing the shape.</p>
+				<p>You can also change the value of the multipliers in the 
+				<code>faceSize</code> and <code>earSize</code> instantiations to change the proportions used in drawing the shape.</p>
 			</div>
 
 		</div> <!-- End of left column -->

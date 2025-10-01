@@ -29,7 +29,8 @@
 
     <!-- JD Extras! -->
     <link rel="stylesheet" href="https://jsndyks.github.io/cityCreativeCoding/css/creativeCoding.css" type="text/css" />
-    
+	<link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" />
+
     <!-- iFrame -->
     <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
  
@@ -43,7 +44,7 @@
 
 	<!---
 	Example 'stickers' to add to lectures for delivery - replace class with focusOFF when complete:
-	<p class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">5</span> - <b>Summary</b> : mouse (cursor) variables &amp; methods in Processing</code></p>
+	<p class="focusON"><code><span class="focusHash">#</span><span class="focusNum">5</span> - <b>Summary</b> : mouse (cursor) variables &amp; methods in Processing</code></p>
 	<p class="focusLecture"><code><span class="focusHash">#</span><span class="focusNum">5</span></code></p>
 	-->
 
@@ -75,7 +76,7 @@
 
 	<div class="units-row">
 		<div class="unit-70-cc">
-			<div class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">1</span> - <b>Welcome</b> : Academic Autonomy</code></div>
+			<div class="focusON"><code><span class="focusHash">#</span><span class="focusNum">1</span> - <b>Welcome</b> : Academic Autonomy</code></div>
 
 			<!-- Left column -->
 			<h3>1. How to use these pages</h3>
@@ -239,12 +240,15 @@ void draw()
 				But first let's start with something simple.
 			</p>
 
-			<div class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">2</span> - <b>First Sketch</b> : Boring Rectangle</code></div>
+			<div class="focusON"><code><span class="focusHash">#</span><span class="focusNum">2</span> - <b>First Sketch</b> : Boring Rectangle</code></div>
 
 			<div class="codeTask">
 				<h5>A Rather Boring Rectangle</h5>
 				<p>Start <i>Processing</i> and type the following line of code.</p>
-				<pre class="brush: processing; gutter: false; toolbar: false; ">rect(20,30,70,35);</pre>
+				<pre class="brush: processing; gutter: false; toolbar: false; ">
+// -- Click here to copy this tiny piece of code.
+rect(20,30,70,35);
+</pre>
 				<div style="float:right; padding:4px; border:dashed 1px #a0a0a0; margin:12px"/> <img src="https://jsndyks.github.io/cityCreativeCoding/html/intro/img/cc.runButton.png" width="42" height="42"/></div>
 
 				<p>Then press the 'Run' button to execute the instructions and show your sketch - it's the right-pointing triangle, and might look a bit like this 👉.</p>
@@ -325,7 +329,9 @@ void draw()
 		<div class="unit-70-cc">
 			<!-- Left column -->
 
-			<pre class="brush: processing; gutter: false; toolbar: false; ">rect(20,30,70,35);
+			<pre class="brush: processing; gutter: false; toolbar: false; ">
+// -- Two commands - each draws a shape on the canvas:
+rect(20,30,70,35);
 circle(62,60,40);</pre>
 				
 				
@@ -502,7 +508,7 @@ circle(62,60,40);</pre>
 
 		</div> <!-- End of left column -->
 
-		<div class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">3</span> - <b>Coordinates</b> : Fun with Shapes</code></div>
+		<div class="focusON"><code><span class="focusHash">#</span><span class="focusNum">3</span> - <b>Coordinates</b> : Fun with Shapes</code></div>
 
 		<div class="unit-30-cc annotation">
 			<!-- Right column -->
@@ -597,7 +603,7 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 				<p>This is a nice example of the effects of the order of our commands on our sketches. Remember: <b>Commands are run in the order in which we issue the program instructions</b> (see above).</p>
 			</div>
 
-			<div class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">4</span> - <b>Colour</b> : Fun with Colour </code></div>
+			<div class="focusON"><code><span class="focusHash">#</span><span class="focusNum">4</span> - <b>Colour</b> : Fun with Colour </code></div>
 
 			<p>
 				Both the <a href="https://processing.org/reference/stroke_.html" target="_blank">stroke()</a> and
@@ -644,6 +650,7 @@ quad(30,20, 150,50, 110,110, 40,90);</pre>
 			</p>
 
 			<pre class="brush: processing; gutter: false; toolbar: false; ">
+// -- Set the background colour of the canvas - and clear the canvas:
 background(200,200,255);
 			</pre>
 
@@ -671,7 +678,7 @@ background(200,200,255);
 				The example below shows how the various style settings might be applied to our simple set of shapes:
 			</p>
 
-			<div class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">5</span> - <b>Colour</b> : Fun with Styles</code></div>
+			<div class="focusON"><code><span class="focusHash">#</span><span class="focusNum">5</span> - <b>Colour</b> : Fun with Styles</code></div>
 
 		</div>
 	</div>
@@ -679,7 +686,8 @@ background(200,200,255);
 		<div class="unit-70-cc">
 			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-			<pre class="brush: processing; gutter: false; toolbar: false; ">size(400, 300);          // Sketch is 400 pixels wide and 300 tall.
+			<pre class="brush: processing; gutter: false; toolbar: false; ">
+size(400, 300);          // Sketch is 400 pixels wide and 300 tall.
 background(254,232,134); // Yellow background colour.
 
 strokeWeight(4);         // Thick outline
@@ -796,9 +804,9 @@ void draw()
 				Here, for example is code to draw a red rectangle on a yellow background using the <code>setup()</code> and <code>draw()</code> methods:
 			</p>
 
-			<!-- <div class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">5</span> - <b>There is no FIVE!</b> : (you killed it on the train))</code></div> -->
+			<!-- <div class="focusON"><code><span class="focusHash">#</span><span class="focusNum">5</span> - <b>There is no FIVE!</b> : (you killed it on the train))</code></div> -->
 
-			<div class="focusOFF"><code><span class="focusHash">#</span><span class="focusNum">6</span> - <b>Movement - Setup &amp; Draw</b> : PAROT approach 🦜</code></div>
+			<div class="focusON"><code><span class="focusHash">#</span><span class="focusNum">6</span> - <b>Movement - Setup &amp; Draw</b> : PAROT approach 🦜</code></div>
 
 			<pre class="brush: processing; gutter: false; toolbar: false; ">void setup()
 {
