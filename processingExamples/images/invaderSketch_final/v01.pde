@@ -14,7 +14,7 @@ void draw() {
 
   // -- change the image:
   int changes = 3;                // interactive : changes = 2*mouseX/width;
-  int ischangesOdd = changes%2;   // interactive : x = mouseX;
+  int ischangesOdd = changes%2;   // interactive : x = mouseX; 8!
 
   if (ischangesOdd == 0) {
     image(invader1, 0, 0, iSize, iSize);

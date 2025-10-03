@@ -19,9 +19,9 @@ void draw() {
 
   // -- change the image:
   int changes = frameCount/framesPerChange;
-  int ischangesOdd = changes%2;    
+  int isChangesOdd = changes%2;    
 
-  if (ischangesOdd == 0) {
+  if (isChangesOdd == 0) {
     image(invader1, x, 0, iSize, iSize);
   } else {
     image(invader2, x, 0, iSize, iSize);

@@ -39,10 +39,10 @@ void draw() {
   int changes = progress/framesPerChange;
   text("changes: "+changes, 10, 240);
 
-  int ischangesOdd = changes%2;    
-  text("ischangesOdd: "+ischangesOdd, 10, 270);
+  int isChangesOdd = changes%2;    
+  text("isChangesOdd: "+isChangesOdd, 10, 270);
 
-  if (ischangesOdd == 0) {
+  if (isChangesOdd == 0) {
     image(invader1, x, row*iSize, iSize, iSize);
   } else {
     image(invader2, x, row*iSize, iSize, iSize);
