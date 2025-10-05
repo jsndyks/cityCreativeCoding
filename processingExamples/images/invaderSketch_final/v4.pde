@@ -18,10 +18,11 @@ void draw() {
   background(255);
 
   text("frameCount: "+frameCount, 10, 120);
+  text("frameRate: "+frameRate, 10, 150);
 
   // -- change the position of the image :
   row = frameCount/width;
-  text("row: "+row, 10, 150);
+  text("row: "+row, 10, 180);
 
   if (row%2 == 0) {
     x = frameCount%width;
@@ -31,10 +32,10 @@ void draw() {
 
   // -- change the image:
   int changes = frameCount/framesPerChange;
-  text("changes: "+changes, 10, 180);
+  text("changes: "+changes, 10, 210);
 
   int isChangesOdd = changes%2;    
-  text("isChangesOdd: "+isChangesOdd, 10, 210);
+  text("isChangesOdd: "+isChangesOdd, 10, 240);
 
   if (isChangesOdd == 0) {
     image(invader1, x, row*iSize, iSize, iSize);
