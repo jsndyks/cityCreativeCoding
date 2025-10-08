@@ -198,37 +198,37 @@ void setup () {
         
         <pre class="brush: processing; gutter: false; toolbar: false; highlight:[27]">// 2D Array example ...
 
-    // -- Global variables ...
-    // -- An array of Strings to hold each row of the data file:
-    String [] lightData;
-    // -- A 2D array of strings to hold each data item in a separate array element
-    String [][] data;  // &lt;-- first dimension is the row of spreadsheet, or line of file, second is column or token number 
-    
-    void setup () {
-      // -- load the data from the file into an array of Strings with loadStrings():
-      lightData = loadStrings("trafficLights.csv");
-    
-      // -- initialise the data array, to contain an array for each line of the data file:
-      data = new String [lightData.length][];
-    
-      // -- loop through each line of our data array in turn:
-      for (int i=0; i&lt; lightData.length; i++) {
-    
-        // -- a local variable (an array of Strings) into which we put the output of split():
-        String [] dataItems = split(lightData[i], ","); // &lt;-- splitting the line at each comma
-    
-        // -- we need to initialise each element of the data array now we know how many items are in the line:
-        data [i] = new String [dataItems.length];
-    
-        // -- loop through each comma separated item in the line and put each data item into the appropriate array element:
-        for (int d=0; d&lt; dataItems.length; d++) {
-          data[i][d] = dataItems[d]; // &lt;-- 'i' is the data line (row), 'd' is the data element number (column)
-          
-          // -- check what is going on in the console - so that we know what is what:
-          println(i, d, dataItems[d]); // &lt;-- print out the values of the important variables!
-        }
-      }
-    }</pre>
+// -- Global variables ...
+// -- An array of Strings to hold each row of the data file:
+String [] lightData;
+// -- A 2D array of strings to hold each data item in a separate array element
+String [][] data;  // &lt;-- first dimension is the row of spreadsheet, or line of file, second is column or token number 
+
+void setup () {
+    // -- load the data from the file into an array of Strings with loadStrings():
+    lightData = loadStrings("trafficLights.csv");
+
+    // -- initialise the data array, to contain an array for each line of the data file:
+    data = new String [lightData.length][];
+
+    // -- loop through each line of our data array in turn:
+    for (int i=0; i&lt; lightData.length; i++) {
+
+    // -- a local variable (an array of Strings) into which we put the output of split():
+    String [] dataItems = split(lightData[i], ","); // &lt;-- splitting the line at each comma
+
+    // -- we need to initialise each element of the data array now we know how many items are in the line:
+    data [i] = new String [dataItems.length];
+
+    // -- loop through each comma separated item in the line and put each data item into the appropriate array element:
+    for (int d=0; d&lt; dataItems.length; d++) {
+        data[i][d] = dataItems[d]; // &lt;-- 'i' is the data line (row), 'd' is the data element number (column)
+        
+        // -- check what is going on in the console - so that we know what is what:
+        println(i, d, dataItems[d]); // &lt;-- print out the values of the important variables!
+    }
+    }
+}</pre>
 
     <div class="codeTask" style="padding-bottom:0.25rem; margin-bottom:0.25rem">
         <h5>Split the Data into an Store Each Token in an Array</h5>
