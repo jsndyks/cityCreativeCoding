@@ -51,23 +51,32 @@
         <div class="units-row">
 
             <p>
-                This page involves a little preparation and then uses 5 different ways of creating a simple robot in processing:
+                This page involves a little preparation and then uses 6 different ways of creating a simple robot with a <i>Processing</i> class.
+            </p>
+            <p>
+                First, some preparation ...
             </p>
             <ol start="-1">
-                <li style="padding-bottom:0.5em"><b>Preparation</b> - some sketching to establish the coordinates and characteristics of a simple representation of a robot</li>
-                <li style="padding-bottom:0.5em"><b>Methods</b> - we use a <i>method</i> to draw a robot using a series of shapes based these coordinates and characteristics - just like we have done before</li>
-                <li style="padding-bottom:0.5em"><b>A Mark 1 Robot</b> - <code>RobotMk1</code>: the simplest class we can write, that does nothing at all, but shows the syntax you use for creating a class and then declaring and instantiating an object that is of this type. You see - it's super easy!</li>
-                <li style="padding-bottom:0.5em"><b>A Mark 2 Robot</b> - <code>RobotMk2</code>: this class contains a little data and has a method that enables an instantiated object to draw itself if called. Adds a behaviour!</li>
-                <li style="padding-bottom:0.5em"><b>A Mark 3 Robot</b> - <code>RobotMk3</code>: a basic class that adds a little more - these robots have more features when drawn and can be instantiated with arguments, meaning that each object can hold data, data that is specific to that instance of the class. So we can have multiple robots that have different characteristics as defined on their instantiation with this class. Data objects!</li>
-                <li style="padding-bottom:0.5em"><b>A Mark 4 Robot</b> - <code>RobotMk4</code>: the most sophisticated class that involves four fields in which data are stored and two methods that capture robot behaviours <code>move()</code> and <code>draw()</code>, both of which involve some animation.</li>
-                <!-- <li style="padding-bottom:0.5em"><b>Correction</b> - finally I explain, having had some feedback from a keen-eyed first year (<i>thank-you!</ßi>), why I was unable to get the final sketch to work in class ... it was all about <i>scope</i>!</li> -->
+                <li style="padding-bottom:0.5em"><b style="color:#904040">Preparation</b> - some sketching to establish the coordinates and characteristics of a simple representation of a robot</li>
+                <li style="padding-bottom:0.5em"><b style="color:#904040">Methods</b> - we use a <i>method</i> to draw a robot using a series of shapes based these coordinates and characteristics - just like we have done before</li>
             </ol>
-            <p>We would like you to try each of the examples to get the hand of creating classes and using objects in your code.</p>
+            <p>And then some classes ...</p>
+            <ol>
+                <li style="padding-bottom:0.5em"><b style="color:#904040">A Mark 1 Robot</b> - <code>RobotMk1</code>: the simplest class we can write, that does nothing at all, but shows the syntax you use for creating a class and then declaring and instantiating an object that is of this type. You see - it's super easy!</li>
+                <li style="padding-bottom:0.5em"><b style="color:#904040">A Mark 2 Robot</b> - <code>RobotMk2</code>: this class contains a little data and has a method that enables an instantiated object to draw itself if called. Adds a behaviour!</li>
+                <li style="padding-bottom:0.5em"><b style="color:#904040">A Mark 3 Robot</b> - <code>RobotMk3</code>: a basic class that adds a little more - these robots have more features when drawn and can be instantiated with arguments, meaning that each object can hold data, data that is specific to that instance of the class. So we can have multiple robots that have different characteristics as defined on their instantiation with this class. Data objects!</li>
+                <li style="padding-bottom:0.5em"><b style="color:#904040">A Mark 4 Robot</b> - <code>RobotMk4</code>: a more sophisticated class that involves four fields in which data are stored and two methods that capture robot behaviours <code>move()</code> and <code>draw()</code>, both of which involve some animation.</li>
+                <li style="padding-bottom:0.5em"><b style="color:#904040">A Mark 5 Robot</b> - <code>RobotMk5</code>: we add a name and a <code>isMouseIn()</code> method that adds some interaction.</li>
+                <li style="padding-bottom:0.5em"><b style="color:#904040">A Mark 6 Robot</b> - <code>RobotMk6</code>: the most sophisticated class that adds an <code>isActive</code> field so that we can switch robots off!</li>
+                <!-- <li style="padding-bottom:0.5em"><b style="color:#904040">Correction</b> - finally I explain, having had some feedback from a keen-eyed first year (<i>thank-you!</ßi>), why I was unable to get the final sketch to work in class ... it was all about <i>scope</i>!</li> -->
+            </ol>
+            <p>We would like you to try each of the examples to get the hang of creating classes and using objects in your code.</p>
             <p>
                 All of the code that is used is available on the page below, so you can copy this into a <i>Processing</i> sketch to see how it works, and also in a single <i>Processing</i> sketch, that you should download.
             </p>
             <ul>
-                <li><a href="https://jsndyks.github.io/cityCreativeCoding/html/objects/sketch/robotClasses.zip">robotClasses.zip</a> - download, unzip, edit and run.<br/>The script contains 4 different classes that define robot objects of increasing complexity from <code>RobotMk1</code> to <code>RobotMk4</code>.<br/> Check the <i>notes</i> tab in the script and use these to declare and instantiate different robot classes as shown below when you run the script.</li>
+                <li><a href="https://jsndyks.github.io/cityCreativeCoding/html/objects/sketch/robotClasses.zip">robotClasses.zip</a> - download, unzip, edit and run.<br/>The script contains 4 different classes that define robot objects of increasing complexity from <code>RobotMk1</code> to <code>RobotMk4</code>.<br/> Check the <i>notes</i> tab in the script and use these to declare and instantiate different robot classes as shown below when you run the script.<br/>
+                For the final two robot classes ... the code is below.</li>
             </ul>
             <p>Use the discussion forum to discuss you progress, blocking points, ideas and robots!</p>
 
@@ -84,23 +93,62 @@
 
             <p>Sketch a robot head with four simple shapes - a rectangle, two circles and a line.</p>
             <p>Find the coordinates of the robot head centred around the origin (0,0).<br/>
-            Note that in this sketch, for no sensible reason at all, other than that I kinda forgot when I drew it ... we are using <i>standard coordinates</i>. Of course, in <i>Processing</i> the vertical <i>Y-axis</i> increases from top to bottom.</p>
+            Note that in this sketch, for no sensible reason at all, other than that I kinda forgot when I drew it ... we are using <i>standard coordinates</i>.
+            Of course, in <i>Processing</i> the vertical <i>Y-axis</i> increases from top to bottom with the origin at the <i>top-left</i>.</p>
             <p>Use the coordinates to determine these <i>six key variables</i> that allow us to draw the head ...</p>
             <ul>
-                <li><code>float headWide</code></li>
+                <!-- <li><code>float headWide</code></li>
                 <li><code>float headHigh</code></li>
                 <li><code>float eyeDistance</code></li>
                 <li><code>float eyeRadius</code></li>
                 <li><code>float mouthLong</code></li>
-                <li><code>float mouthDown</code></li>
+                <li><code>float mouthDown</code></li> -->
+                <li><code>float x, y;</code> -- Position of the Robot</li>
+                <li><code>float wide, high;</code> -- Width and height of Robot's head</li>
+                <li><code>float eyeD, eyeR;</code> -- Eye characteristics - distance between eyes and eye radius</li>
+                <li><code>float mLong, mDown;</code> -- Mouth characteristics - length and distance down from centre of head</li>
+
             </ul>
+            <p><b>Write them down in your sketch book.</b></p>
 
             <h3>0. Methods - A Collection of Shapes</h3>
 
-            <p>Let's use this information as a series of arguments to a <i>method</i> that will draw the Robot.</p>
+            <p>Let's initialise some global variables that hold this information and then use it as a series of arguments to a <i>method</i> that will draw the Robot.</p>
             <p>We have done this kind of thing before when creating <i>Trees</i> and <i>Roundels</i> and things as we introduced <i>methods</i>.</p>
+            <p>Here are the <i>global variables</i> that we declare at the top of the sketch outside of any methods so that they have scope throughout the sketch...</p>
+            <pre class="brush: processing; gutter: false; toolbar: false;">// -- declare global variables:
+float x, y;               // -- Position of the Robot
+float wide, high;      // -- Width and height of Robot's head
+float eyeD, eyeR;      // -- Eye characteristics - distance between eyes and eye radius
+float mLong, mDown;   // -- Mouth characteristics - length and distance down from centre of head
+</pre>
 
+<p>Then let's assign our values - the ones you noted in the sketchbook - to these variables that describe the Robot's characteristics.
+    We do this in <code>setup()</code> where we also define the <code>size()</code> of the canvas and set <code>rectMode()</code> for our sketch:</p>
+<pre class="brush: processing; gutter: false; toolbar: false;">// -- assign values to the globals once in setup() :
+
+void setup () {
+
+    // -- set the canvas size:
+    size(800,800);
+
+    // -- Robot characteristics:
+    x = width/2;
+    y = height/2;
+    wide = 140;
+    high = 60;
+    eyeD = 80;
+    eyeR = 12;
+    mLong = 100;
+    mDown = 20;  // -- from the centre of the head as implemented below
+
+    // -- Make sure that any rectangles are centred on the first two arguments we give to rect();
+    rectMode(CENTER); 
+}
+</pre>
+            <p>And the method that re-creates your pencil sketch in a <i>Processing</i> sketch will look something like this ...</p>
             <pre class="brush: processing; gutter: false; toolbar: false;">  // -- drawRobot method:
+
     void drawRobot (float x, float y, float headWide, float headHigh,
         float eyeDist, float eyeRad, float mouthLong, float mouthDown) {
         
@@ -121,10 +169,29 @@
     }
             </pre>
 
-            <p>Declare and initialise variables to contain your data, and then add a call to this <i>method</i> in the <code>draw()</code> <i>method</i> of your sketch, to draw the robot.</p>
-            <pre class="brush: processing; gutter: false; toolbar: false;">// -- Method approach to drawing:
+            <p>If you have declared and initialised variables to contain your data, and then add a call to this <i>method</i> in the <code>draw()</code> <i>method</i> of your sketch, with some values for <code>x</code> and <code>y</code> - try integers as above, or something interactive like <code>mouseX,mouseY</code> - then the sketch should draw the robot.</p>
+            <pre class="brush: processing; gutter: false; toolbar: false;highlight: [7]">// -- Method approach to drawing:
+
+void draw () {
+
+    background(250);
+
     drawRobot(x,y, wide,high, eyeD, eyeR, mLong, mDown);
-            </pre>
+}            </pre>
+
+
+            <p>So, we can draw a robot, and we could draw more with different configurations by calling the <i>method</i> again with different input parameters.</p>
+
+            <pre class="brush: processing; gutter: false; toolbar: false;">// -- Method approach to drawing:
+  drawRobot(x,y, wide,high, eyeD, eyeR, mLong, mDown);
+  drawRobot(x+150,y, wide,high, eyeD, eyeR, mLong, mDown);
+  drawRobot(x,y+120, wide/2,high/2, eyeD/3, eyeR, mLong/2, mDown/1.5);
+  drawRobot(x+150,y+120, wide/2,high/2, eyeD/2, eyeR/3, mLong/3, mDown/2.5);
+
+  // -- Draw robots with parameters that vary in a loop:
+  for (int i=100; i&lt;width; i+=100) {
+    drawRobot(i, y-120, wide/2, high/2, i/100*eyeD/3, 2+i/100, mLong/3-2*i/100, mDown/2.5);
+  }</pre>
 
             <div class="figRight" style="padding:1em; padding-left:4em">
                 <figure>
@@ -133,28 +200,20 @@
                 <figcaption style="margin-top:-2.5em">Using a Method.<br/>We can draw a collection of shapes<br/>that are configured by method parameters.</figcaption>
             </div>
 
+            <p>We can fill our canvas with variously configured collections of simple shapes that look like simple robots.</p>
 
-            <p>So, we can draw a robot, and we could draw more with different configurations by calling the <i>method</i> again with different input parameters. We could even relate this to interactions with <code>mouseX</code> and <code>mouseY</code> as input parameters, or add animation with <code>frameCount%width</code> as a position parameter ...</p>
+            <p>We could even relate this to interactions with <code>mouseX</code> and <code>mouseY</code> as input parameters, or add animation with <code>frameCount%width</code> as a position parameter ... you may want to try this!</p>
 
-            <pre class="brush: processing; gutter: false; toolbar: false;">// -- Method approach to drawing:
-  drawRobot(x,y, wide,high, eyeD, eyeR, mLong, mDown);
-  drawRobot(x+150,y, wide,high, eyeD, eyeR, mLong, mDown);
-  drawRobot(x,y+120, wide/2,high/2, eyeD/3, eyeR, mLong/2, mDown/1.5);
-  drawRobot(x+150,y+120, wide/2,high/2, eyeD/2, eyeR/3, mLong/3, mDown/2.5);
-  for (int i=100; i&lt;width; i+=100) {
-    drawRobot(i,y-120, wide/2,high/2, i/100*eyeD/3, eyeR/4, mLong/3, mDown/2.5);
-  }</pre>
-
-              <p>But... this is <i>just a collection of shapes</i>. Our robot does not have behaviours.</p>
+            <p>But... this is <i>just a collection of shapes</i>.<br/>Our robot does not have behaviours.</p>
 
 
             <h3>1. Mark 1 - The Simplest 'Nothing' Class</h3>
 
             <p>So let's create a robot <i>class</i>, which will enable us to address this.
-                Remember that the <i>Processing</i> documentation helpfully and effectively defines a <a href="https://processing.org/reference/class.html"><code>class</code></a> as:</p>
+                Remember that the <i>Processing</i> documentation helpfully and effectively defines a <code><a href="https://processing.org/reference/class.html">class</a></code> as:</p>
             <blockquote>a composite of fields (data) and methods (functions that are a part of the class) which may be instantiated as objects.</blockquote>
 
-            <p>We use the <a href="https://processing.org/reference/class.html"><code>class</code></a> keyword to define one of these composites, and here's the simplest example I can come up with of a robot class that takes advantage of this <i>Processing</i> capability and uses the expected syntax:</p>
+            <p>We use the <code><a href="https://processing.org/reference/class.html">class</a></code> keyword to define one of these composites, and here's the simplest example I can come up with of a robot class that takes advantage of this <i>Processing</i> capability and uses the expected syntax:</p>
 
             <pre class="brush: processing; gutter: false; toolbar: false;">// -- Very Basic Robot class that does ... er ... nothing!
 // -- Useless!
@@ -173,8 +232,8 @@
             <p>Having defined a class we can use it to create one or more <i>objects</i> that are instances of that class.<br/>
             So we can now make a Mark1 robot of type <code>RobotMk1</code> just as we would create any variable.
             But this variable is an object and so it is ... "<i>a composite of fields (data) and methods (functions that are a part of the class)</i>". 
-            Or at least it could be if we had defined a class with fields and methods, but this class has no data or methods so it's pretty useless.</p>
-            <p>We can still declare and instantiate variables of this type though. Try adding the class to your sketch in a new tab titled <i>RobotMk1</i> and declaring an instance or two in <code>setup()</code> to see that it is possible:</p>
+            Or at least it could be if we had defined a class with fields and methods, but this current class, our <i>Mark 1</i> basic robot, has no data or methods so it's pretty useless.</p>
+            <p>We can still declare and instantiate variables of this type though.<br/>Try adding the class to your sketch in a new tab titled <i>RobotMk1</i> and declaring an instance or two in <code>setup()</code> to see that it is possible:</p>
             <pre class="brush: processing; gutter: false; toolbar: false;">// -- Very Basic Robot class that does ... er ... nothing!
     RobotMk1 r  = new RobotMk1();
     RobotMk1 r2 = new RobotMk1();
@@ -375,19 +434,19 @@ RobotMk3 r2d4 = new RobotMk3(250, 150);</pre>
         // -- move down - a second method encodes a very basic example of simple (constrained) movement!
         void move() {
             this.y=this.y+random(-1,2); // &lt;-- move down with a stuttering jitter!
-            this.y=constrain(this.y,0,height-high/2-5);  // &gt;-- stop 5px from bottom of screen
+            this.y=constrain(this.y,0,height-high/2-5);  // &lt;-- stop 5px from bottom of screen
         }
     }</pre>
 
             <p>
-            We can declare and instantiate these <i>Mark4 Robots</i> in the same way that we have done previously, but we need four arguments this time to fill the <code>x</code>, <code>y</code>, <code>wide</code> and <code>high</code> fields of the objects we create.<br/>
+            We can declare and assign data to these <i>Mark4 Robots</i> in the same way that we have done previously, but we need four arguments this time to fill the <code>x</code>, <code>y</code>, <code>wide</code> and <code>high</code> fields of the objects we create.<br/>
             A good way to do this is to declare the robots at the top of the script as globals:    
             </p>
             <pre class="brush: processing; gutter: false; toolbar: false; highlight: [2]">// -- Declare the Mark4 robots as globals at the top of the script: 
   RobotMk4 r2d1, r2d2, r2d3;</pre>
 
             <p>
-                Then instantiate them with data values in <code>setup()</code>.
+                Then instantiate them by assigning data values in <code>setup()</code>.
             </p>
 
   <pre class="brush: processing; gutter: false; toolbar: false; highlight: [2,3,4]">// -- Instantiate the Mark4 robots - passing 4 arguments that fill their fields:
@@ -410,6 +469,290 @@ RobotMk3 r2d4 = new RobotMk3(250, 150);</pre>
     r2d3.draw();
     r2d3.move();
   }</pre>
+
+              <p>
+                This gives you plenty of capability!<br/>
+                Enjoy making and creating with <code>classes</code> - be imaginative.<br/>
+                Enjoy thinking about, discussing and learning from your errors, thank those who help you out and enjoy your robots!</p>
+            <p>🤖</p>
+
+            <hr/>
+            
+            <div class="challenge">
+                <h5>More Impressive Robots</h5>
+                <p>
+                    That's plenty for now!<br/>
+                But, if you want to know more ... try the following examples, which take things a little further.<br/>
+                It's not too hard, and builds gently on what we have learned above, taking advantage of classes to add interaction and more behaviours.
+                </p>
+            </div>                    
+
+
+  <!--- INTERACTION --->
+
+      <h3>5. Mark 5 - A Class with Interaction</h3>
+
+      <div class="figRight" style="padding:1em; padding-left:4em">
+        <figure>
+        <img src="./img/cc.objects.robotHead.robotMk5.png" width="200" alt="A Robot produced via a class"/>
+        </figure>
+        <figcaption style="margin-top:-2.5em">A Robot Class.<br/>Our RobotMk5 class has a method<br/>that checks where the mouse is<br/>and acts accordingly.</figcaption>
+    </div>
+
+    <p>
+        Our <i>RobotMk5</i> <code>class</code> adds ...
+    </p>
+    <ul>
+        <li>a <code>name</code> field of type <code>String</code> to give our robots identity</li>
+        <li>a <code>mouseIn</code> field of type <code>Boolean</code> that records whether the mouse is inside the robot</li>
+        <li>an <code>isMouseIn()</code> method to establish this</li>
+        <li>an additional decision statement that changes the <code>draw()</code> behaviour according to this - with a highlight colour and a name label added using <code>text()</code>.</li>
+    </ul>
+
+    <!-- Hidden code button -->
+    <span><a href="#" class="link-show-code">RobotMk5 Class Code</a></span>
+    <div class="prettyprint" style="display: none;">
+        <pre class="brush: processing; gutter: false; toolbar: false; highlight: []">
+// -- A New Robot Class - now with interaction! 
+// -- Copy this into a new tab in your robot sketch.
+
+class RobotMk5 {
+
+  float x, y;
+  float wide, high;
+  boolean mouseIn;
+  String name;
+
+  // -- Fields have the same names as arguments, so use the 'this' prefix to differentiate:
+  RobotMk5 (float x, float y, float wide, float high, String name) {
+    this.x = x;
+    this.y = y;
+    this.wide = wide;
+    this.high = high;
+    this.name = name;
+    mouseIn = false;  // -- is the mouse inside the robot? Not on instantiation.
+  }
+
+  void draw() {
+    // -- draw the head:
+    fill(200);
+    if (mouseIn) {
+      fill(32);
+      textSize(12);
+      textAlign(CENTER);
+      text(name, x, y-high/2-10);
+      fill(255, 64, 32, 200);
+    }
+    strokeWeight(1);
+    rect(x, y, wide, high);
+    fill(32);
+
+    // -- animation : blink?
+    if (frameCount%60 &lt;5) {
+      line(x-8, y-2, x-4, y-2);
+      line(x+8, y-2, x+4, y-2);
+    } else {
+      circle(x-6, y-2, 4);
+      circle(x+6, y-2, 4);
+    }
+
+    // -- draw the mouth:
+    line(x-10, y+6, x+10, y+6);
+  }
+
+  // -- move down - a second method encodes a very basic example of simple (constrained) movement!
+  void move() {
+    this.y=this.y+random(-1, 2);                    // &lt;-- move down with a stuttering jitter!
+    this.y=constrain(this.y, 0, height-high/2-5);  // &lt;-- stop 5px from bottom of screen
+    if (this.y >= height-high/2-10) {
+      this.x=this.x+random(-1, 2.5);                // &lt;-- move along with a stuttering jitter!
+      this.x=int(this.x)%width;                    // &lt;-- some maths to keep x in the range 0-width
+    }
+  }
+
+  // -- check whether the mouse is within the left, right, top and bottom edged of the rectangle:
+  void isMouseIn() {
+    if (mouseX &gt; x-wide*0.5 && mouseX &lt; x+wide*0.5 && mouseY &gt; y-high*0.5 && mouseY &lt; y+high*0.5) {
+      // -- update the field in the object that stores this information if so:
+      mouseIn = true;
+    } else {
+      // -- otherwise ...
+      mouseIn = false;
+    }
+  }
+}</pre>
+    </div>
+
+    <p>We can define <i>RobotMk5</i> objects as globals with ...</p>
+  <pre class="brush: processing; gutter: false; toolbar: false; highlight: [3]">// -- Declare RobotMk5 objects:
+
+RobotMk5 r5d1, r5d2, r5d3, r5d4;
+</pre>
+<p>Assign data to them in <code>setup()</code> ...</p>
+  <pre class="brush: processing; gutter: false; toolbar: false; highlight: [3,4,5,6]">
+  // -- Instantiate the Mark5 robots - passing 5 arguments that fill their fields:
+
+  r5d1 = new RobotMk5(80, 50, wide, high, "Riyad");
+  r5d2 = new RobotMk5(160, 40, wide, high, "Kasper");
+  r5d3 = new RobotMk5(240, 30, wide, high, "Jamie");
+  r5d4 = new RobotMk5(320, 20, wide, high, "Wes");</pre>
+
+  <p>
+    And then make sure that we call the methods that check, draw and move them in the main <code>draw()</code> loop of the sketch:
+  </p>
+  <pre class="brush: processing; gutter: false; toolbar: false; highlight: []">
+  // -- Check, show and move the robots in turn in the main draw() loop.
+  // -- Call the isMouseIn(), draw() and move() methods of each of the robot objects in turn: 
+
+  r5d1.isMouseIn();
+  r5d1.draw();
+  r5d1.move();
+  
+  r5d2.isMouseIn();
+  r5d2.draw();
+  r5d2.move();
+  
+  r5d3.isMouseIn();
+  r5d3.draw();
+  r5d3.move();
+  
+  r5d4.isMouseIn();
+  r5d4.draw();
+  r5d4.move();</pre>
+
+
+  <!--- LOOPS --->
+
+      <h3>6. Mark 6 - Groups of Robots</h3>
+
+      <div class="figRight" style="padding:1em; padding-left:4em">
+        <figure>
+        <img src="./img/cc.objects.robotHead.robotMk6.png" width="200" alt="A Robot produced via a class"/>
+        </figure>
+        <figcaption style="margin-top:-2.5em">A Robot Class.<br/>Our RobotMk6 class only draws<br/>active robots and enables you to<br/>switch robots off with a click.</figcaption>
+    </div>
+
+    <p>When we start repeating code like this you should be thinking about some refactoring.<br/>
+    You should be thinking about groups and loops!<br/>
+    Well, that's good as we can have <a href="https://processing.org/reference/Array.html"><code>arrays</code></a> and <a href="https://processing.org/reference/ArrayList.html"><code>ArrayLists</code></a> of robots, just as we can <code>Strings</code>, <code>PImages</code> and <code>PVectors</code>.</p>
+
+    <p>Here we create an array of 100 <i>RobotMk6</i> objects using an updated <code>class</code> that adds ...
+    </p>
+    <ul>
+        <li>a <code>num</code> field of type <code>int</code> to give the robot a number that we can use to affect its behaviour - see the <code>move()</code> method</li>
+        <li>an <code>isActive</code> field of type <code>Boolean</code> that records whether the we want to draw the robot or not</li>
+        <li>a <code>mousePressed</code> check in the <code>isMouseIn()</code> method to establish whether we switch the robot off</li>
+        <li>many more robots to show the scope of this kind of capability!</li>
+    </ul>
+
+        <!-- Hidden code button -->
+    <span><a href="#" class="link-show-code">RobotMk6 Class Code</a></span>
+    <div class="prettyprint" style="display: none;">
+        <pre class="brush: processing; gutter: false; toolbar: false; highlight: [4,5,11]">
+// -- Some added functionality in a Mark 6 robot.
+// -- Copy this code into a new tab in your robot sketch and try some RobotMk6 objects.
+
+class RobotMk6 {
+
+  float x, y;
+  float wide, high;
+  boolean mouseIn, isActive;
+  String name;
+  int num;
+
+  // -- Fields have the same names as arguments, so use the 'this' prefix to differentiate:
+  RobotMk6 (float x, float y, float wide, float high, String name, int num) {
+    this.x = x;
+    this.y = y;
+    this.wide = wide;
+    this.high = high;
+    this.name = name;
+    this.num = num;
+    mouseIn = false;  // -- is the mouse inside the robot?
+    isActive = true;  // -- is the robot active?
+  }
+
+  void draw() {
+    // -- only draw active robots!
+    if (!isActive) return;
+
+    // -- draw the head:
+    fill(200);
+    if (mouseIn) {
+      fill(32);
+      textSize(12);
+      textAlign(CENTER);
+      text(name, x, y-high/2-10);
+      fill(255, 64, 32, 200);
+    }
+    strokeWeight(1);
+    rect(x, y, wide, high);
+    fill(32);
+
+    // -- animation : blink?
+    if (frameCount%60 &lt;5) {
+      line(x-8, y-2, x-4, y-2);
+      line(x+8, y-2, x+4, y-2);
+    } else {
+      circle(x-6, y-2, 4);
+      circle(x+6, y-2, 4);
+    }
+
+    // -- draw the mouth:
+    line(x-10, y+6, x+10, y+6);
+  }
+
+  // -- move down - a second method encodes a very basic example of simple (constrained) movement!
+  void move() {
+    this.y=this.y+random(-1, 2)+random(-1, 2)*num/50;        // &lt;-- move down with a stuttering jitter!
+    this.y=constrain(this.y, 0, height-high/2-5);  // &lt;-- stop 5px from bottom of screen
+    if (this.y &gt;= height-high/2-10) {
+      this.x=this.x+random(-1, 2.5); // &lt;-- move along with a stuttering jitter!
+      this.x=int(this.x)%width; // &lt;-- keep x in the range 0-width
+    }
+  }
+
+  void isMouseIn() {
+    // -- check&gt;> x-wide*0.5 && mouseX &lt; x+wide*0.5 && mouseY &gt; y-high*0.5 && mouseY &lt; y+high*0.5) {
+      // -- update the field in the object that stores this information if so:
+      mouseIn = true;
+      if (mousePressed) {
+        isActive = false; // -- change active status if mouse is pressed as determined by Processing internal variable
+      }
+    } else {
+      // -- otherwise ...
+      mouseIn = false;
+    }
+  }
+}</pre>
+    </div>
+
+        <p>This time, let's use an array to declare <i>RobotMk6</i> objects as globals ...</p>
+  <pre class="brush: processing; gutter: false; toolbar: false; highlight: [3]">// -- Declare an Array of 100 RobotMk6 objects:
+
+RobotMk6 robots [] = new RobotMk6[100];
+</pre>
+<p>Assign data to these objects in <code>setup()</code> ...</p>
+  <pre class="brush: processing; gutter: false; toolbar: false; highlight: [5]">
+  // -- Instantiate the Mark6 robots - passing 6 arguments that fill their fields:
+
+  for (int i=0; i&lt;robots.length; i++) {
+    // -- Fill each element of the array, with some randomness and names based on robot numbers:
+    robots[i] = new RobotMk6(random(width*0.1, width*0.9), random(0, 50), random(20, 40), random(20, 30), "R"+i, i);
+  }</pre>
+
+  <p>
+    It's easy to loop through the array and call the methods that check, draw and move the robots in the main <code>draw()</code> loop of our sketch:
+  </p>
+  <pre class="brush: processing; gutter: false; toolbar: false; highlight: [3,4,5]">
+  for (RobotMk6 r : robots) {
+    // -- for each robot in the array, in turn ...
+    r.isMouseIn();
+    r.draw();
+    r.move();
+  }</pre>
+
+  <p>Try 200 robots, or 1000!</p>
 
 <!--   
           <h3>5. Scope, Mistake, Confusion, Error - Correction!</h3>
@@ -446,9 +789,6 @@ RobotMk3 r2d4 = new RobotMk3(250, 150);</pre>
                 We all make multiple errors in our programs and scripts as we write them, and working our how to react to them is absolutely key in our efforts to successful coding, and learning how to code.<br/>
                 Enjoy making and creating with <code>classes</code>, enjoy learning from your errors, thank those who help you out and enjoy your robots!</p>
  -->
-            <p>Enjoy making and creating with <code>classes</code> - be imaginative.<br/>
-    Enjoy thinking about, discussing and learning from your errors, thank those who help you out and enjoy your robots!</p>
-            <p>🤖</p>
         </div> <!-- End of row -->
 
 
