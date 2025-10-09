@@ -1,56 +1,26 @@
-# DATA 08/10/2025
+# DATA 09/10/2025
 
+## 1. map() :                             10 - 00 » 10
 
-* map()
-* loadStrings()
-* split
+> println();
+> line();
+> map ();
+> stroke();
 
-## 1. INTRO - 05 - 00 » 05
+## 2. loadStrings(01,02) :  **DO**        10 - 10 » 20
 
-> Outcomes
-> Data Collection Page
+> _get Data file_
+> Array
+* split;
+* float();
+> Text
 
-    - paper / notebook
-    - Ummm / photo
+## 3. loadStrings(03,04) :  **WATCH**     10 - 20 » 30
+> Line
+> File
 
-## 2. CSV - **5-10**
+## 4. dataObjects :                       10 - 30 » 40
 
-- **DO** download Traffic Lights
-- open
-
-## 3. DATA PROCESSING - **10-15**
-
-- _loadStrings()_ >> definition & sketch
-- _split()_ >> definition & sketch
-- _2D Array_ sketch
-
-## 4. DATA DISPLAY - **15-25**
-
-# _Show the data on the canvas_
-
-- show sketch (4 parts)
-- trafficLights.big.csv
-
-## 5. NUMBERS - **25-35**
-
-- map()
-- trafficLights.big.csv
-- trafficLights.big.numbers.csv
-
-## 6. MAP() - **35-40**
-
-# _1.2 Scaling Values from One Range to Another_
-
-- Proc Doc
-- _example sketch_
-
-## 7. OBJECTS - **40-50**
-
-- _NO dates or times_
-- _class_ - **break it down**
-- _sketch_ - **break it down**
-- **DO** run the sketch
-
-## 8. FEEDBACK - **50-55**
-
-- **DO** _dataSketchFeedback.pde_
+> f, z, j, j, h, z
+> _someData.RGB.csv_
+> space
