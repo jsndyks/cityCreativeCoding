@@ -24,3 +24,6 @@
 > f, z, j, j, h, z
 > _someData.RGB.csv_
 > space
+
+## 5. dearData100 :                       10 - 40 » 50
+
