@@ -1,6 +1,6 @@
 # DATA 09/10/2025
 
-## 1. map() :                             10 - 00 » 10
+## 1. map() : **DO CLOCK**                 10 - 00 » 10
 
 > println();
 > line();
@@ -16,6 +16,7 @@
 > Text
 
 ## 3. loadStrings(03,04) :  **WATCH**     10 - 20 » 30
+
 > Line
 > File
 
@@ -26,4 +27,8 @@
 > space
 
 ## 5. dearData100 :                       10 - 40 » 50
+
+> Task
+> Creativity
+> Wrap-Up
 
