@@ -72,6 +72,23 @@
         <p>We're going to look at ways of getting <i>data</i> into your sketches here, and will build upon some of the ways of collecting <i>data</i> that you may have embarked upon. A few are described on the <a href="https://jsndyks.github.io/cityCreativeCoding/html/dearData/ccDataCollection.html">Data Collection</a> page, and we will use some of these to demonstrate.
         </p>
 
+        <h3>0. Lecture Preparation</h3>
+
+        <p>
+            We will be using this data set in class - so please download it and drag it into a <i>Processing</i> sketch with this content ...
+        </p>
+        <ul>
+            <li><b>download</b> this text file containing <i>comma separated values</i> : <a href="https://jsndyks.github.io/cityCreativeCoding/html/data/data/someData.csv">someData.csv</a></li>
+        </ul>
+
+<pre class="brush: processing; gutter: false; toolbar: false;">// -- Global variable is an array of Strings to hold each row of the data file:
+String [] lines = loadStrings("someData.csv");
+println(lines.length);
+
+println(lines[1]);
+println(lines[2]);
+</pre>  
+
         <!-- Traffic Lights : Paper -->
 
         <h3>1. From Paper to Canvas</h3>
