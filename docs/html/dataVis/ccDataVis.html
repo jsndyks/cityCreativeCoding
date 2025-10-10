@@ -246,9 +246,58 @@ Alfonso Crole,2,4,1151,1965,Male,XS,#39b676,acrolej@archive.org</pre>
             </div>
         </div>
 
+        <div class="units-row" style="padding-top:3em">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+                <p>So far, so good - you have data and are reading it into a sketch that responds to the data.</p>
+                <p>Let's build this sketch a little, to process and display the data in different ways.</p>
+
+            </div>
+        </div>
+
+        <div class="units-row">
+            <div class="unit-70-cc">
+                <!-- Left column -->
+
+
+                <div class="codeTask">
+                    <h5>Skeleton Split Sketch:</h5>
+                    <p>Download the following skeleton code as the basis of your sketch.</p>
+                    <ul>
+                        <li>skeleton sketch and data - <a
+                                href="https://jsndyks.github.io/cityCreativeCoding/data/namesData.zip">namesData.zip</a></li>
+                    </ul>
+                    <p>Unzip the archive and run the sketch and then extend it so that it will...</p>
+                    <ol>
+                        <li>print <i>every other line</i> of the data file from top to bottom;</li>
+                        <li>print each line of the data file <i>from bottom to top</i>;</li>
+                        <!-- <li>use <code>text()</code> the put each line of text on the canvas;
+                            <br />&nbsp;&nbsp;&nbsp;&nbsp;(<i>You'll need to increase the <b>y position</b> of the text
+                                each time the loop is executed</i>)
+                        </li> -->
+                    </ol>
+                </div>
+                <p>Everything else that we do in this session will build upon this basic idea:</p>
+                <ol>
+                    <li>load text from a file into an array of strings</li>
+                    <li>access lines of text from the elements of the array that contains each line of the data file</li>
+                    <li>split each line into separate text Strings</li>
+                    <li>use the Strings in your sketch</li>
+                </ol>
+                <p>We will <b>soon</b> learn to ...</p>
+                <ol start="5">
+                    <li>convert these strings into numbers</li>
+                    <li>transform these numbers into positions on the canvas</li>
+                </ol>
+                <p>This will enable us to load data from a file somewhere on our computers, and then process this data
+                    to effect what we display in our sketches.<br />
+                    That's <b>data visualization</b>.<br />
+                    Well, a good part of it anyway!<br/> 
+                    <!-- So let's look at some! -->
+                </p>
         <!--- Add Book Here -->
         <h5>BookVis</h5>
-        <p>I would also like you to copy this code into a sketch:</p>
+        <p>I would also like you to copy this code into a sketch for use in the Lecture on Data Vis:</p>
 <pre class="brush: processing; gutter: false; toolbar: false;">
 String [] dataFile;  // -- Lines of text will be loaded into this Array of Strings from file.
 int lineToShow;
@@ -299,54 +348,8 @@ void mouseMoved() {
 
 <p>We will be loading a text file containing <a href="https://jsndyks.github.io/cityCreativeCoding/data/theTimeMachine.txt">'The Time Machine'</a>, so please download this and drag it into your sketch.</p>
 
-        <div class="units-row" style="padding-top:3em">
-            <div class="unit-70-cc">
-                <!-- Left column -->
-                <p>So far, so good - you have data and are reading it into a sketch that responds to the data.</p>
-                <p>Let's build this sketch a little, to process and display the data in different ways.</p>
-
-            </div>
-        </div>
-
-        <div class="units-row">
-            <div class="unit-70-cc">
-                <!-- Left column -->
 
 
-                <div class="codeTask">
-                    <h5>Skeleton Split Sketch:</h5>
-                    <p>Download the following skeleton code as the basis of your sketch.</p>
-                    <ul>
-                        <li>skeleton sketch and data - <a
-                                href="https://jsndyks.github.io/cityCreativeCoding/data/namesData.zip">namesData.zip</a></li>
-                    </ul>
-                    <p>Unzip the archive and run the sketch and then extend it so that it will...</p>
-                    <ol>
-                        <li>print <i>every other line</i> of the data file from top to bottom;</li>
-                        <li>print each line of the data file <i>from bottom to top</i>;</li>
-                        <!-- <li>use <code>text()</code> the put each line of text on the canvas;
-                            <br />&nbsp;&nbsp;&nbsp;&nbsp;(<i>You'll need to increase the <b>y position</b> of the text
-                                each time the loop is executed</i>)
-                        </li> -->
-                    </ol>
-                </div>
-                <p>Everything else that we do in this session will build upon this basic idea:</p>
-                <ol>
-                    <li>load text from a file into an array of strings</li>
-                    <li>access lines of text from the elements of the array that contains each line of the data file</li>
-                    <li>split each line into separate text Strings</li>
-                    <li>use the Strings in your sketch</li>
-                </ol>
-                <p>We will <b>soon</b> learn to ...</p>
-                <ol start="5">
-                    <li>convert these strings into numbers</li>
-                    <li>transform these numbers into positions on the canvas</li>
-                </ol>
-                <p>This will enable us to load data from a file somewhere on our computers, and then process this data
-                    to effect what we display in our sketches.<br />
-                    That's <b>data visualization</b>.<br />
-                    Well, a good part of it anyway!<br/> 
-                    So let's look at some!</p>
             </div>
         </div>
 
