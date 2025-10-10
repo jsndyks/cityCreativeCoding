@@ -132,7 +132,7 @@ You can access the [Data Visualization Lecture](https://jsndyks.github.io/cityCr
                 <div class="codeTask">
                     <h5><a href="http://processing.org/reference/loadStrings_.html"
                         target="_blank"><code>loadStrings()</code></a> Example:</h5>
-                    <div class="dataFile" style="margin-top:-4rem"><pre>Nora Gigg,1,4,851,1995,Female,3XL,#b002f7,ngigg0@telenet.co
+                    <div class="dataFile" style="margin-top:0rem"><pre>Nora Gigg,1,4,851,1995,Female,3XL,#b002f7,ngigg0@telenet.co
 Bobby Montague,0,3,2758,1967,Male,XL,#45ac24,bobbymont@skype.com
 Em Claeskens,6,0,679,1998,Female,M,#0298f0,eclaeskens2@nature.com
 Stephana Schimann,4,1,1620,2010,Female,M,#e6507f,sschimann3@omniture.com
@@ -245,6 +245,59 @@ Alfonso Crole,2,4,1151,1965,Male,XS,#39b676,acrolej@archive.org</pre>
                     <br/>Experiment a little.</p>
             </div>
         </div>
+
+        <!--- Add Book Here -->
+        <h5>BookVis</h5>
+        <p>I would also like you to copy this code into a sketch:</p>
+<pre class="brush: processing; gutter: false; toolbar: false;">
+String [] dataFile;  // -- Lines of text will be loaded into this Array of Strings from file.
+int lineToShow;
+ 
+void setup()
+{
+  size(600,900);
+  // -- Use loadStrings() to load text into the dataFile array from an online text file:
+  dataFile = loadStrings("https://jsndyks.github.io/cityCreativeCoding/data/theTimeMachine.txt");
+  lineToShow = 0;    
+ 
+  textSize(14);
+  fill(0);
+}
+ 
+void draw()
+{
+  background(255);
+  
+  println(dataFile[lineToShow]);
+  text(dataFile[lineToShow],  100,5,  width-110,height-10);
+  noLoop();
+}
+
+void mouseMoved() {
+  float lineFromMouseY = map(mouseY, 0,height, 0,dataFile.length);
+  lineToShow = int(lineFromMouseY);
+  loop();
+}</pre>
+        <p>And ... these extra commands to add in during the lecture!</p>        
+<pre class="brush: processing; gutter: false; toolbar: false;">
+// -- 1: show bars - add this to the draw() loop:
+  int i=0;
+  for (String line : dataFile) {
+    float x = map(line.length(), 0,2500, 5,width-5);
+    float y = map(i, 0,dataFile.length, 0,height);
+    line(5,y, x,y);
+    i++;
+  }
+  
+// -- 2 : change colour - add this just before the 'line' statement:
+    if (line.contains("onster")) {
+      stroke(255,32,32);
+    } else {
+      stroke(32);
+    }
+</pre>
+
+<p>We will be loading a text file containing <a href="https://jsndyks.github.io/cityCreativeCoding/data/theTimeMachine.txt">'The Time Machine'</a>, so please download this and drag it into your sketch.</p>
 
         <div class="units-row" style="padding-top:3em">
             <div class="unit-70-cc">
@@ -383,8 +436,10 @@ Alfonso Crole,2,4,1151,1965,Male,XS,#39b676,acrolej@archive.org</pre>
                 </p>
                 <iframe src="https://player.vimeo.com/video/151097197" width="690" height="387" frameborder="0"
                     webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-                <i>Year in Nike Fuel</i> by <a href="https://fathom.info/yearinnikefuel/" target="_blank">Fathom </a>.
-                <!---iframe src="https://player.vimeo.com/video/151097197?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe--->
+                    <p>
+                    <i>Year in Nike Fuel</i> by <a href="https://fathom.info/yearinnikefuel/" target="_blank">Fathom </a>.
+                    <!---iframe src="https://player.vimeo.com/video/151097197?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe--->
+                    </p>
 
                 <!---
 					<h4>Rise of Empires</h4>
