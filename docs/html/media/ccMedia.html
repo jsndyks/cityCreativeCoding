@@ -66,7 +66,11 @@ You can access [this page](https://jsndyks.github.io/cityBootCamp/html/art/2023%
 
 			<ul>
 				<li>import libraries into <i>Processing</i>;</li>
-				<li>play audio files involving (for example) <i>samples</i> and <i>songs</i> in your sketches;</li>
+				<li>play audio files involving (for example) <i>samples</i> and <i>songs</i> in your sketches.</li>
+			</ul>
+			<p><strong>If you are interested and try the <i>extra challenges</i> you will be able to :</strong></p>
+
+			<ul>
 				<li>play <i>videos</i> in your sketches and control their size and position.</li>
 			</ul>
 
@@ -651,26 +655,28 @@ void movieEvent(Movie videoBuffer)
 
 				<h4>Controlling the size and position of a video display</h4>
 
-				<p>
-					We can build some quite interesting display designs with videos because once a video is read, it can
-					be displayed as many times as you wish and at any size. For example, the sketch below is exactly the
-					same as our simple video sketch above except for the highlighted lines that this time use two nested
-					loops to display 25 copies of the same video:
-				</p>
-
 			</div>
 		</div>
 		<div class="units-row">
 			<div class="unit-30-cc annotation cc-right">
 				<!-- Right column -->
 				<figure>
-				<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/media/img/cc.sound.tvWall.png', 300, 200, 'TV Wall');</script>
+				<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/media/img/cc.video.tvWall.png', 400, 200, 'TV Wall');</script>
 					<figcaption>
 					<p>Image from the TV Wall sketch <i>(click to enlarge)</i></p>
 					</figcaption>
 				</figure>
 			</div> <!-- end of right column -->
 			<div class="unit-70-cc">
+				<p>
+					We can build some quite interesting display designs with videos because once a video is read, it can
+					be displayed as many times as you wish and at any size.</p>
+				<p>
+					For example, the sketch below is exactly the
+					same as our simple video sketch above except for the highlighted lines that this time use two nested
+					loops to display 25 copies of the same video:
+				</p>
+
 				<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 				<div style="width:42em" >
 					<pre class="brush: processing; gutter: false; toolbar: false; highlight: [16,17,18,19,20,21,22]">
@@ -713,9 +719,10 @@ void movieEvent(Movie videoBuffer)
 
 				<p>
 					The final example below shows how the position of the video can move randomly using the
-					<code>noise()</code> command, just as we did with the moving circle at the start of this session.
-					Additionally, we use the <code>tint()</code> command to make the video display transparent (you will
-					learn more about this in the session on image processing).
+					<code>noise()</code> command.<br/>
+					Additionally, we use the <code>tint()</code> command to make the video display partially transparent.
+					 <!-- (you will
+					learn more about this in the session on image processing). -->
 				</p>
 
 			</div>
@@ -839,6 +846,8 @@ void movieEvent(Movie videoBuffer)
 						<input style="padding:2em" type="checkbox" id="sa3" /> <label style="padding:2em" for="sa3">I can load and display a video file using the <code>Movie</code> class?</label><br />
 						<input style="padding:2em" type="checkbox" id="sa4" /> <label style="padding:2em" for="sa4">I can alter the size, position and appearance of a video file?</label><br />
 					</div> <!-- End of checkOutcomes -->
+
+				<p>The <i>video</i> outcome is supported by the <i>Extra Challenge</i> notes, tasks and resources.</p>
 				</div> <!-- End of task -->
 
 			</div>
