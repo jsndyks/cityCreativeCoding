@@ -90,6 +90,8 @@ You can access [this page](https://jsndyks.github.io/cityBootCamp/html/art/2023%
 						href="https://processing.org/reference/libraries/" target="_blank"><i>Processing</i> library
 						documentation</a>.
 				</p>
+                <h4>Sound Library</h4>
+
 			</div>
 		</div>
 
@@ -98,28 +100,33 @@ You can access [this page](https://jsndyks.github.io/cityBootCamp/html/art/2023%
 			<div class="unit-30-cc annotation cc-right">
 				<!-- Right column -->
             <figure>
-                <img src="https://jsndyks.github.io/cityCreativeCoding/html/media/img/cc.sound.install.png" width="450" />
+				<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/media/img/cc.sound.install.png', 400, 250, 'Sound Library');</script>
                 <figcaption>     
-                    <p>Installing the <i>Sound</i> library should look something like this.</p>
+                    <p>Installing the <i>Sound</i> library should look something like this.<br/>(Click for details)</p>
 				</figcaption>
             </figure>
 			</div> <!-- end of right column -->
 			<div class="unit-70-cc">
 				
-                <h4>Sound Library</h4>
-
 				<p>
 					To work with sound in your sketches, one of the most accessible and powerful libraries to work with is the <a
 						href="https://processing.org/reference/libraries/sound/index.html" target="_blank"><i>Processing</i>
 						Sound library</a>. To install the library, select the
 					<code>Sketch-&gt;Import Library -&gt; Manage Libraries</code> menu item and filter for <code>Sound</code>.
 					You should see <i>Sound</i> authored by <i>The <i>Processing</i> Foundation</i>.
-					Install it.
-					You only need do this once to store the library on your computer.
-					It contains functionality to play sound files (e.g. samples or MP3 music files),
-					generate synthesised sounds and monitor sound input.
 				</p>
 
+				
+				<div class="coreTask" style="clear:both">
+					<h5>Install the 'Sound' Library</h5>
+
+					<p>Install it.<br/>
+					You only need do this once to store the library on your computer.<br/>
+					The library contains functionality to play sound files (e.g. samples or MP3 music files),
+					generate synthesised sounds and monitor sound input.
+					</p>
+				</div>
+				
 				<p>
 					To see how to use the sound library, let's consider a simple sketch that plays some sound samples
 					whenever certain keys are pressed:
@@ -132,9 +139,9 @@ You can access [this page](https://jsndyks.github.io/cityBootCamp/html/art/2023%
 				<!-- Right column -->
 				<figure>
 
-				<script>loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/drumkit", 250, 250, "https://staff.city.ac.uk/~jwo/bootcamp2019/p5js/drumkit/screenshot.png");</script>
+				<script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/drumkit", 300, 300, "https://jsndyks.github.io/cityCreativeCoding/html/media/img/cc.sound.drumKit.png");</script>
 				<figcaption>
-				<p>Keyboard activated drum kit<i> (click to activate)</i></p>
+				<p>Keyboard activated drum kit<i> (Click to activate)</i></p>
 			</figcaption>
 				</figure>
 			</div> <!-- end of right column -->
@@ -163,7 +170,7 @@ void draw()
   noLoop();		// Stops Processing from redrawing at 60 fps.
 }
 
-// Add interactions rto play sound on key presses:
+// Add interactions to play sound on key presses:
 void keyPressed()
 {
   if (key == ' ')
@@ -192,6 +199,13 @@ void keyPressed()
 			<div class="unit-70-cc">
 				<!-- Left column -->
 
+				<div class="coreTask" style="clear:both">
+					<h5>Try a Drum Kit</h5>
+
+					<p>Try the '<i>keyboard activated drum kit</i>' example above and have a play with the sketch as you look through the code.
+					</p>
+				</div>
+
 
 				<p>
 					In terms of programming, there is very little that is new here. What you may not have seen
@@ -215,14 +229,14 @@ void keyPressed()
 				</p>
 
 				<div class="tip">
-					<h5>Tip:</h5>
+					<h5>Tip: Drag Files into Your Sketch Folder</h5>
 					If you are going to work with sound files, you need to place them in to your sketch somehow. The
 					easiest way is to drag the file with the mouse into the <i>Processing</i> code window. This will create a
 					local copy of the dragged file that sits inside a <code>data</code> folder in the sketch location.<br/>
 					You can always find the location in a file viewer with <code>CTRL-K</code> or <code>COMMAND-K</code>.
 					<br /><br />
 					To run the drum kit sketch above, you will need to drag three sample files, one for each drum/cymbal
-					type into the sketch. You can download those three sample files, all of which are available for use under
+					type into the sketch.<br/>You can download those three sample files, all of which are available for use under
 					creative commons licenses, by right-clicking them here:
 					<br /><br />
 					<ul>
@@ -240,6 +254,27 @@ void keyPressed()
 					cymbal sounds respectively.
 				</p>
 
+				<div class="codeTask" style="clear:both">
+					<h5>Create a Drum Kit</h5>
+
+					<p>Copy the code from above and try your sketch!<br/>
+						See how many people you can annoy with interactive sound. 
+					</p>
+					Can you ...
+					<ol type="i">
+						<li>add an <i>interaction</i> to make the <b>kick drum play</b>?</li>
+						<li>add an <i>interaction</i> to play <b>two sounds concurrently</b>?</li>
+						<li>find and download another <i>drum sound</i> and then ...<br/>
+							add a <code>SoundFile</code> object to hold it and an additional <i>interaction</i> to <b>play this new sound</b> on a different key press?</li>
+					</ol>
+					<p>
+						You can find interesting drum and other sounds at <a href="https://mixkit.co/free-sound-effects/drum/">Mixkit</a>, which are available for use in your sketches under a <a href="https://mixkit.co/license/#sfxFree">Mixkit Sound Effects Free License</a>.<br/>
+						Remember to download the files and drag them into your <i>Processing</i> sketch.
+					</p>
+				</div>
+
+				<h4>Sound Sequencing</h4>
+
 			</div> <!-- End of left column -->
 
 		</div> <!-- End of row -->
@@ -251,10 +286,10 @@ void keyPressed()
 			<div class="unit-30-cc annotation cc-right">
 				<!-- Right column -->
 				<figure>
-					<script>loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/stepSequencer", 600, 400, "https://staff.city.ac.uk/~jwo/bootcamp2019/p5js/stepSequencer/screenshot.png");</script>
+					<script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/stepSequencer", 300, 400, "https://jsndyks.github.io/cityCreativeCoding/html/media/img/cc.sound.stepSequencer.png");</script>
 					<figcaption>     
 						<p>
-							Drum kit sequencer - click to activate, resize window to see the full sketch.</p>
+							<b>Drum kit sequencer</b> - click to activate, resize window to see the full sketch.</p>
 							Use space to start; 1-5 for preset rhythms; click cell/track to toggle sounds on and off.</i>
 						</p>
 							</figcaption>
@@ -266,9 +301,8 @@ void keyPressed()
 				<!-- Left column -->
 
 				<p>
-					While we can use <i>interaction</i> to trigger the drum samples, you might want to code the times when samples are
-					played within your sketch itself. Or perhaps mix interaction and pre-coded sample triggers.
-					In the example to the right we use <i>Processing</i> to create a simple drum machine.
+					While we can use <i>interaction</i> to trigger the drum samples, we might want to create repeating rhythms by specifying the times when samples are played within our sketches. Or perhaps we could mix interaction and pre-coded sample triggers.
+					In the example to the right we use <i>Processing</i> to create a simple drum machine. Give it a go!
 				</p>
 
 				<p>
@@ -309,7 +343,7 @@ void keyPressed()
 
 				<p>
 					The example below shows a simple sound player that allows a song to be played and paused. It does
-					this by keeping track of whether the song is being played or not with a Boolean variable
+					this by keeping track of whether the song is being played or not with a Boolean system state variable
 					<code>isPlaying</code> and calls the methods from the sound library, <code>play()</code> and
 					<code>pause()</code> to turn the music on and off.
 				</p>
@@ -375,7 +409,7 @@ void keyPressed()
 			<div class="unit-30-cc annotation cc-right">
 				<!-- Right column -->
 				 <figure>
-				<script>loadImage('https://staff.city.ac.uk/~jwo/bootcamp2020/lecture11ArtAndMedia/images/soundVis.png', 400, 250, 'Sound visualizer');</script>
+				<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/media/img/cc.sound.soundVis.png', 400, 250, 'Sound visualizer');</script>
 				<figcaption>
 					<p>Sample output from the sound visualizer</p>
 				</figcaption>
@@ -619,7 +653,7 @@ void movieEvent(Movie videoBuffer)
 			<div class="unit-30-cc annotation cc-right">
 				<!-- Right column -->
 				<figure>
-				<script>loadImage('https://staff.city.ac.uk/~jwo/bootcamp2020/lecture11ArtAndMedia/images/tvWall.png', 300, 200, 'TV Wall');</script>
+				<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/media/img/cc.sound.tvWall.png', 300, 200, 'TV Wall');</script>
 					<figcaption>
 					<p>Image from the TV Wall sketch <i>(click to enlarge)</i></p>
 					</figcaption>
