@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CreativeCoding Extra: Art</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Embedded fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom layout and style -->
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+    <link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+    <!-- General browser compatibility handling -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Formatted source code -->
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+    <script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+    <!-- Sketch popups and hidden text-->
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+    <script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+  <!-- JD Extras! -->
+    <link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" />
+    
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+  <div id="page">
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <!-- 
+_Some **extra challenges** for those who want to work with sound and video_
+
+You can access [this page](https://jsndyks.github.io/cityBootCamp/html/art/2023%7C24/bootCamp.art.2023.exercises.html) outside of _Moodle_ should you wish to do so. 
+
+ -->
+
+ <p>
+      These exercises give you practice working with sound and video media from an artistic perspective.
+    </p>
+
+    <div class="tip">
+        <p><b>TIP : This is optional activity!</b></p>
+      <p>These tasks give you some good practice in applying some of the programming skills you have been developing in <code>#CreativeCoding</code>.</p>
+    </div>
+
+    <br />
+
+
+    <div class="challenge">
+      <h4>1. More Random, More Interesting?</h4>
+      <p>Take any sketch you have written so far and introduce some new or extra randomness to its design.</p>
+      <p>Try experimenting with controlling different aspects of the design with random numbers (e.g. size, colour or position
+      of shapes).</p>
+      <p>Remember you can use <code>random()</code> and or <code>noise()</code> to generate random numbers.
+        See the <i>Randomness</i> section in the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=968090">Art : Core</a> materials for more detail.</p>
+    </div>
+
+    <br /><br />
+
+    <div class="challenge">
+      <h4>2. Noisy Balls</h4>
+      <p>Enhance the Bouncing Ball sketch from the <em>Objects &amp; Classes</em> lecture (reproduced below, but feel free to use your own if you prefer), so that the ball makes a <i>random</i> noise when it changes direction after hitting the edge of the sketch.</p>
+      <p>
+      <i>Hint:</i> You will need to use the <a href="https://processing.org/reference/libraries/sound/index.html"
+        target="_blank"><i>Processing</i> sound library</a> as shown in the lecture notes to load, store and trigger a sample.</p>
+ 
+      <h5>The main sketch</h5>
+
+      <pre class="brush: processing; gutter: false; toolbar: false;">
+Ball ball;
+
+void setup()
+{
+  size(400, 300);
+  ball = new Ball();
+}
+
+void draw()
+{
+  background(254, 244, 232);
+  ball.draw();
+  ball.move();
+}</pre>
+
+
+      <h5>The Ball class</h5>
+
+
+      <pre class="brush: processing; gutter: false; toolbar: false;">
+class Ball
+{
+  PVector position;    // Position of the ball.
+  PVector velocity;    // Amount it moves on each redraw.
+  float diameter;      // Size of ball.
+  color colour;        // Colour of ball.
+
+  // Initialises the ball's state.
+  Ball()
+  {
+    position = new PVector(width/2, height/2);
+    velocity = new PVector(random(-2,2),random(-2,2));
+    diameter = 30;
+    colour   = color(214, 93, 69);
+  }
+
+  // Draws the ball at its current position.
+  void draw()
+  {
+    noStroke();
+    fill(colour);
+    circle(position.x, position.y, diameter);
+  }
+
+  // Moves the ball according to its current velocity.
+  void move()
+  {
+    position.x = position.x + velocity.x;
+    position.y = position.y + velocity.y;
+
+    if (position.x &lt; diameter/2)
+    {
+      velocity.x = -1 * velocity.x; // If we are left of sketch move ball right.
+    }
+    else if (position.x &gt; width-diameter/2)
+    {
+      velocity.x = -1 * velocity.x; // If we are right of sketch move ball left.
+    }
+
+    if (position.y &lt; diameter/2)
+    {
+      velocity.y = -1 * velocity.y; // If we are at top of sketch move ball down.
+    }
+    else if (position.y &gt; height-diameter/2)
+    {
+      velocity.y = -1 * velocity.y; // If we are at bottom of sketch move ball up.
+    }
+  }
+}</pre>
+
+      Can you extend the noisy ball sketch so it works with multiple balls?
+      <br /><br />
+      <iframe src="https://player.vimeo.com/video/107999531" width="400" height="402" frameborder="0"
+        webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </div>
+
+    <br /><br />
+
+    <div class="challenge">
+        <h4>3. Audio Visual</h4>
+        <p>
+      Create some form of display that responds to the sound levels of an audio track.</p>
+      <p>You can use the '<i>Responding to Sound</i>'
+      example from the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=968090">Art : Core</a> notes as the basis of your sketch.</p>
+    <p>What type of graphics you create in response to the sound signal is up to you.
+    </p>
+      <p>This could form the start point for your demo if the idea of a sound visualizer interests you.</p>
+    </div>
+
+    <br /><br />
+
+    <div class="challenge">
+      <h4>4. Moving Movie</h4>
+      <p>Display a video file so that its position moves with the mouse.</p>
+      <p>You can use any video file you like, but try not to make it too large otherwise your sketch may load very slowly.
+      </p>
+      <p>Use your creativity and some <i>randomness</i> to make something edpressive that look and sounds interesting.</p>
+      <p><i>Hint:</i> You can use the simple video sketch in the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=968090">Art : Core</a> materials as the basis for this exercise but
+      you will need to use the 5 parameter version of <code><a href="https://processing.org/reference/image_.html"
+        target="_blank">image()</a></code> to set both the position of the video display and to make the video size smaller
+      than the sketch dimensions.</p>
+    </div>
+
+    <br /><br />
+
+    <h2>Check on Progress</h2>
+    <div class="task">
+      If you want to create a demo with sound, video and randomness, check that each of the following are the case:
+      <br /><br />
+
+      <div class="checkOutcomes">
+        <input style="padding:2em" type="checkbox" id="sa1" /> <label style="padding:2em" for="sa1">I can use both <code>random()</code> and <code>noise()</code> to generate randomness in my sketches?</label><br />
+        <input style="padding:2em" type="checkbox" id="sa2" /> <label style="padding:2em" for="sa2">I can load and trigger a sound sample with the <i>Processing</i> sound library?</label><br />
+        <input style="padding:2em" type="checkbox" id="sa3" /> <label style="padding:2em" for="sa3">I can load and display a video file using the <code>Movie</code> class?</label><br />
+        <input style="padding:2em" type="checkbox" id="sa4" /> <label style="padding:2em" for="sa4">I can alter the size, position and appearance of a video file?</label><br />
+      </div> <!-- End of checkOutcomes -->
+    </div> <!-- End of task -->
+
+    <hr />
+    <div class="sig">
+        <b>Jason DYKES</b><br />
+        <!-- <i>10 Oct 2022</i> -->
+        <!-- <i>02 Oct 2023</i> -->
+        <i>21 Oct 2025</i>
+    </div>
+
+    <div style="padding-bottom:2em;clear:both" />
+    <!--- spacer for iFrame -->
+    <p style="padding-top:1em"><hr/></p>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Footer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  </div> <!-- End of page div -->
+  <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

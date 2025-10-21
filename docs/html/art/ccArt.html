@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CreativeCoding Lecture: Art</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Embedded fonts -->
+	<link
+			href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+			rel="stylesheet">
+
+	<!-- Custom layout and style -->
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+	<!-- General browser compatibility handling -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+	<!-- Formatted source code -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+	<!-- Sketch popups and hidden text-->
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+	<!-- JD Extras! -->
+    <link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" />
+    
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+	<div id="page">
+
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+		<!-- Content below -->
+		
+		<!-- 
+We look at the way in which we can use randomness, sound and video to develop the expressiveness of our sketches.
+
+Be sure to download the _**[Example Sound Files](https://moodle4.city.ac.uk/mod/resource/view.php?id=420931)**_ and complete the _**[Processing Sound Test](https://moodle4.city.ac.uk/mod/page/view.php?id=420930)**_ before class.
+
+You can access [this page](https://jsndyks.github.io/cityBootCamp/html/art/2023%7C24/bootCamp.art.2023.lecture.html) outside of _Moodle_ should you wish to do so. 
+		 -->
+
+		<div class="intro">
+
+
+			<p>
+				This session shows you how you can apply some of your recently developed programming skills to be more
+				<i>artistically expressive</i>.
+				It demonstrates how randomness can be used to generate patterns that have interesting and aesthetic quality.
+			</p>
+
+			<p><strong>Having worked through these resources and attending lectures and classes you should be able to:</strong></p>
+
+			<ul>
+				<li>Use randomness in your sketches to add visual interest and variety;</li>
+				<li>Use existing content in your work in ways that clearly identify its scope and origins in ways that are transparent, in line with any copyright or licensing restrictions, and that make the original source easily accessible to anybody reading or using your work;</li>
+				<!--li>play videos in your sketches and control their size and position.</li-->
+			</ul>
+
+		</div> <!-- End of intro section -->
+
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+		<div class="units-row">
+			<div class="unit-70-cc">
+				<!-- Left column -->
+				<h3>1. Art, Artists and Computer Science</h3>
+
+			</div>
+		</div>
+		<div class="units-row">
+			<div class="unit-70-cc">
+				<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+				<p>
+					As students who have come to University to study for a degree in the Department of
+					Computer Science, you may be wondering what has art got to do with your studies.
+					Perhaps you have arrived here with qualifications in the sciences, mathematics or technology.
+					As you learn and enhance your coding skills, most of your effort is likely to be in developing a structured, logical way of thinking.
+					You will learn new technical skills, new programming constructions and approaches.
+					You will learn to apply those skills in a systematic and rigorous way.
+				</p>
+
+				<p>
+					Yet there is also a space for creative thinking and expression, and this <code>#CreativeCoding</code> activity is intended to help you with this.
+					Sometimes this might have very direct application such as in the development of a game or ideas for a new apps.
+					But creative thinking can also help in problem solving, in developing your own 'voice' or approach to computer science.
+					In this session we will look at some of the ways people have mixed art with computer science to express themselves creatively as well as expand the range of tools available to you in <i>Processing</i> to express yourself.
+					We encourage you to be inspired and to experiment.
+				</p>
+
+				<div class="aside">
+					<h5>What does it mean to be expressive?</h5>
+					<p>
+						Really what we mean here is that we want you to produce outputs (sketches) that are <i>personal</i> - your work should be something that is meaningful <i>to you</i>.<br/>
+						Something that you like, that feels right, that feels like it has some of you in it.<br/>
+						It might capture your emotions, reflect your personal style preferences, perhaps countering expected styles or conventions. Be different. Do things your way.</p>
+					<p>
+						We are really trying to encourage you to be spontaneous and to experiment, to try things out and see which results you like, which feel right as you explore possibilities and ideas without constraints and see where you get.<br/>
+						Where and when do you get somewhere that contains some of your personality, that you are pleased with, that feels good to you?<br/>
+						You'll know when you get there.
+					</p>
+						
+				</div>
+				<p>
+					For an enlightening account of this blend of 'computer science thinking' and expressive visual art,
+					have a read of this 2020 <a
+						href="https://www.artnome.com/news/2020/8/24/interview-with-generative-artist-jared-tarbell"
+						target="_blank">Interview With Generative Artist Jared Tarbell</a> who produced many artworks with <i>Processing</i>, including <i>Substrate</i> shown below.
+				</p>
+
+				<figure>
+					<script>loadImage('https://staff.city.ac.uk/~jwo/bootcamp2020/lecture11ArtAndMedia/images/substrate.jpg', 600, 600, 'Variation on Substrate by Jared Tarbell');</script>
+				<figcaption>     
+					<p>Curved variation on 'Substrate' by Jared Tarbell <i>(click to enlarge)</i></p>
+                </figcaption>
+				</figure>
+
+				<p>
+					You can play with <a href="https://openprocessing.org/sketch/2374070/">Substrate</a> and manipulate it online at <a href="https://openprocessing.org">OpenProcessing.org</a>.
+				</p>
+
+
+				<p>
+					<i>Processing</i> was originally created for the purpose of providing artists with access to the
+					computational space - the digital materials with which they could express themselves.
+					If you watched the <a href="https://bit.ly/helloWorldProcessing" target="_blank">Hello World! <i>Processing</i> documentary</a>, you will have heard <i>Casey Reas</i>, one of the original designers of <i>Processing</i>, explain that the idea was to allow new programmers to create a
+					'sketch book' of quickly generated programs that could explore different ideas.
+					This digital sketchbook provides a medium for the programmer similar to a painter's oil and canvas.
+					We have encouraged you to create something similar - a portfolio of activity, sketches, ideas, progress on <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=795676">GitHub</a>.
+				</p>
+
+				<p>
+					There are many wonderful examples that reveal how programmers and artists have mixed the rigour of programming with the creativity of design, artistic expression and experimentation with <i>Processing</i>:
+				</p>
+
+				<ul>
+					<li><a href="https://fyprocessing.tumblr.com" target="_blank">For Your <i>Processing</i></a> &mdash; A
+						curated list of interesting sketches created in <i>Processing</i> - find one that you like, find one that you don't like, find one that somebody you are chatting with disagrees with you about!</li>
+					<li><a href="http://www.generative-gestaltung.de/2/" target="_blank">Generative Design</a>
+						&mdash; Collection of example <i>Processing</i> scripts (<i>p5.js</i>) to support the (second edition) book 'Generative Design'.</li>
+					<li><a href="http://www.complexification.net/gallery/" target="_blank">Gallery of Computation</a>
+						&mdash; Jared Tarbell's beautiful sketches created with <i>Processing</i>, along with <a href="https://www.infinite.center" target="_blank">Infinite Center</a>, his current collection or work.</li>
+					<li><a href="https://openprocessing.org" target="_blank">openProcessing.org</a> &mdash; A huge
+						collection of shared <i>Processing</i> sketches.</li>
+					<li><a href="https://gist.github.com/beesandbombs" target="_blank">Bees and Bombs</a> &mdash;
+						<i>Processing</i> examples with an emphasis on geometric animations and optical illusions.</li>
+				</ul>
+
+				<figure>
+				<table style="width: 90%; margin: 0 auto; border-collapse: collapse; text-align: center;">
+					<tr>
+						<td style="width: 20%; height: 100px;"><img src="./images/generativeDesign/generativeDesign.2.1.1.04.v1.png" alt="1-1" style="width: 100%; height: auto;"></td>
+						<!-- <td style="width: 20%; height: 100px;"><img src="./images/generativeDesign/generativeDesign.2.1.3.01.v1.png" alt="1-1" style="width: 100%; height: auto;"></td> -->
+					  <td style="width: 20%; height: 100px;"><img src="./images/generativeDesign/generativeDesign.2.1.2.02.v1.png" alt="1-2" style="width: 100%; height: auto;"></td>
+					  <td style="width: 20%; height: 100px;"><img src="./images/generativeDesign/generativeDesign.2.1.2.03.v2.png" alt="1-3" style="width: 100%; height: auto;"></td>
+					  <td style="width: 20%; height: 100px;"><img src="./images/generativeDesign/generativeDesign.2.1.2.01.v1.png" alt="1-4" style="width: 100%; height: auto;"></td>
+					  <td style="width: 20%; height: 100px;"><img src="./images/generativeDesign/generativeDesign.2.1.1.01.v1.png" alt="1-5" style="width: 100%; height: auto;"></td>
+					</tr>
+					<tr>
+						<td style="width: 20%; height: 100px;"><img src="./images/generativeDesign/generativeDesign.2.1.1.04.v2.png" alt="1-1" style="width: 100%; height: auto;"></td>
+						<!-- <td style="width: 20%; height: 100px;"><img src="./images/generativeDesign/generativeDesign.2.1.3.01.v2.png" alt="2-1" style="width: 100%; height: auto;"></td> -->
+					  <td style="width: 20%; height: 100px;"><img src="./images/generativeDesign/generativeDesign.2.1.2.02.v2.png" alt="2-2" style="width: 100%; height: auto;"></td>
+					  <td style="width: 20%; height: 100px;"><img src="./images/generativeDesign/generativeDesign.2.1.2.03.v1.png" alt="2-3" style="width: 100%; height: auto;"></td>
+					  <td style="width: 20%; height: 100px;"><img src="./images/generativeDesign/generativeDesign.2.1.2.01.v2.png" alt="2-4" style="width: 100%; height: auto;"></td>
+					  <td style="width: 20%; height: 100px;"><img src="./images/generativeDesign/generativeDesign.2.1.1.01.v2.png" alt="2-5" style="width: 100%; height: auto;"></td>
+					</tr>
+				  </table>
+				  <figcaption>     
+					<p>Compelling geometric examples from the second edition of <a href="http://www.generative-gestaltung.de/2/" target="_blank">Generative Design</a>.</p>
+                </figcaption>
+				</figure>
+
+				  
+                <div class="coreTask">
+                    <h5><i>Processing</i> Art Examples</h5>
+                    <p>Multiple examples of inspiring art are hidden in the pages to which we link above.</p>
+					<p>They use approaches that are accessible you - the methods and syntax that you have been learning in <code>#CreativeCoding</code>.</p>
+					<p><b>Spend 15 minutes</b> following links, interacting, pasting code, trying things out and seeing whether you can relate what is being done to the functionality that you have learned about. <i>Really</i>, stop reading and spend 15 minutes, searching, playing, experimenting and being spontaneous with these pages.</p>
+					<p>Then think about how you may be able to <i>Merge</i> some of these ideas with your data to make interesting and expressive data representations in creative ways.</p>
+                </div>
+				
+				<h4><i>Processing</i> and <i>p5.js</i></h4>
+
+				<p>You may have noticed that some of these examples were developed in <i>Processing</i>, while others made reference to (and were indeed developed in) <a href="https://p5js.org/"><i>p5.js</i></a>.<br/>So, what's going on there then?</p>
+				<p>Well, <a href="https://p5js.org/"><i>p5.js</i></a> is effectively a <i>JavaScript</i> implementation of <i>Processing</i>, a version of <i>Processing</i> that is designed for the web, and while they differ a little, they are so similar that knowing one (for example the <i>Java</i>-based <i>Processing</i> that we have been using in <code>#CreativeCoding</code>) will mean that you can easily write code in the other.</p>
+
+				<p>
+					<i>Processing</i> and <a href="https://p5js.org/"><i>p5.js</i></a> are both tools for creative coding, but they differ in platform, purpose and in some of their linguistic detail - the syntax varies in places.</p>
+				<p>
+					<i>Processing</i> was the original project and is Java-based. It provides a high-level programming language that is Java compatible (you can add Java commands to your sketches if you know them) and accessed and run through a standalone desktop application.
+					Code is written in Java or a Java-like syntax and produces standalone applications or sketches.
+				</p>
+				<p>
+					<a href="https://p5js.org/"><i>p5.js</i></a> is a JavaScript library that mimics <i>Processing</i>'s style and functionality, so if you know one, you'll know the other. But it works well for browser-based creative coding and is particularly suited for web development. It is great for creating and sharing interactive maps, visualizations and graphical sketches that run directly in a browser, leveraging web technologies like HTML and CSS. While perhaps a little less suited for heavy computations than <i>Processing</i>, <a href="https://p5js.org/"><i>p5.js</i></a> is great for creating and distributing web-based art and visualization projects, and the amazing optimization that is going on in the browser world means that JavaScript based computation is increasingly rapid and impressive.
+				</p>
+
+				<h4>Copyright, plagiarism and inspiration</h4>
+
+				<p>
+					Browsing the internet for examples of what others have done with <i>Processing</i> can be an effective way
+					of gaining inspiration for your own work and getting a sense of programming possibilities. However
+					you must be aware of two important rules when making use of the works of others:
+				</p>
+
+				<p>
+					Firstly, <b>do not infringe copyright</b>. If you wish to use, for example, a sample from someone's
+					musical creation, you must check whether there are copyright restrictions placed on the work that would prevent you from doing this?
+					It is important to understand and respect copyright because you have a moral and legal obligation to do so and because it will enable you to protect your own work should you create something original.
+				</p>
+				
+			</div> <!-- End of left column -->
+
+		</div> <!-- End of row -->
+			
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+		<div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+				<figure>
+					<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/art/images/copyrightDesignsAndPatentsAct.1988.32.crop.png', 300, 300, 'The Copyright, Designs and Patents Act of 1988');</script>
+					<figcaption>     
+						<p>The <a href="https://www.legislation.gov.uk/ukpga/1988/48/section/32">Copyright, Designs and Patents Act of 1988</a> contains an important section dealing with permitted use of copyrighted material for education.</p>
+					</figcaption>
+				</figure>
+			</div>	
+			<div class="unit-70-cc">
+		
+				<p>
+					Under <a href="https://www.legislation.gov.uk/ukpga/1988/48/section/32">The Copyright, Designs and Patents Act, 1988</a>, Section 32(2) of the Act allows copying of a
+					sound recording, film or broadcast provided the copying is:</p>
+                    <ul>
+                        <li> (i) done by a person giving or receiving instruction, and</li>
+                        <li>(ii) accompanied by a sufficient acknowledgement</li>
+                    </ul> 
+                    <p>
+                    So this means that in practice, you can use copyrighted material for learning purposes within the constraints of your University education, but must not share copyrighted materials more widely or use them for other purposes.
+				</p>
+
+				<p>
+					A safer approach to using media created by others is to use materials that have licenses that permit or encourage sharing. In particular, media distributed under the <a
+					href="https://creativecommons.org" target="_blank">creative commons</a> (cc) is a good source that should give you access to lots of resources under copyright rules that are not restrictive.
+					A useful site for searching for creative commons material is
+					<a href="https://search.creativecommons.org" target="_blank">search.creativecommons.org</a>.
+				</p>
+
+				<p>
+					Secondly, <b>do not plagiarise others' work</b>. Plagiarism means copying someone else's work, such as their code, or design <i>without making it clear that it is their work, not your own</i>. In other words, if you use someone else's work as a basis for your own, you <b>must</b> make it clear, through explicit attribution, where that source material came from <b>and</b> make it easy for the reader to know what is your own work and what belongs to others.</p>
+				<blockquote>
+					<b>IMPORTANTLY:</b> it is your job as the producer of original work that draws upon the existing work of others
+					to make this totally transparent, and to make is <b>as easy as possible</b> for the reader to find and access the existing work upon which your contribution is based. 
+				</blockquote>
+				<p>
+					Doing this thoroughly is essential as it is required by law. 
+					It is sometimes a little <a href="https://en.wikipedia.org/wiki/Harder_Than_You_Think">Harder Than You Think</a>, but this should not deter you from spending as much time and effort as it takes to fully reference the scope and origins of all work that you use in anything that you create. This is an important responsibility, and an essential part of being a successful and socially responsible University student, and also a legal condition of your use of copyrighted material.<br/> And, well ... <i>it's a beautiful thing</i>.
+				</p>
+				<p>	In terms of <code>#CreativeCoding</code> or indeed any other coding, 
+					apart from being morally and ethically wrong, copying others' material without understanding exactly how it works is a very poor way of learning and is unlikely to make you a better programmer.
+				</p>
+
+                <div class="aside">
+                    <h4>Important Acknowledgment : Prof. Jo Wood</h4>
+
+                <p>At this point it is wise to make it clear that while <em>Jason Dykes</em> is leading this session, 
+                    the materials were originally developed by <b>Jo Wood</b>.</p>
+                <p>What we are looking at today is very much in Jo's inimitable image.</p>
+                <p><b>The art, examples, code and ideas are all Jo's.</b></p>
+                <p>
+                    Jason has permission from Jo to adapt these materials a little to suit his style and present them to you.<br/>
+           		    But the <em>credit</em> is very definitely with Jo whose, knowledge, ideas and art are the inspiring basis for this session.
+				</p>
+				<p>
+					Indeed, Jo Wood was the brains and creative force behind our <code>CodingBootCamp</code> activity upon which <code>#CreativeCoding</code> is largely based - so if you are learning anything in here, it's predominantly down to Jo. Do feel free to let him know that his efforts are appreciated!
+				</p>
+                </div>  
+
+					<figure>
+						<script>loadImage('https://staff.city.ac.uk/~jwo/bootcamp2020/lecture11ArtAndMedia/images/beckettSketch.jpg', 600, 600, 'Beckett sketch detail');</script>
+					<figcaption>     
+						<p>Beckett sketch detail by Jo Wood, generated entirely in <i>Processing</i>.
+							See <a
+							href="https://www.gicentre.net/blog/2014/9/1/a-visual-turing-test" target="_blank">this blog</a> for details on how it was produced.</p>
+					</figcaption>
+					</figure>
+
+					<div class="coreTask">
+						<h5>Copyright Discussion &amp; Examples</h5>
+						<p>We have produced some guidance and examples relating to <i>Copyright</i> on an additional page.<br/>
+						   We would like you to read it thoroughly and thought through the issues.</p>
+						   <ul><li><a href="https://moodle4.city.ac.uk/mod/page/view.php?id=781811">Copyright Discussion &amp; Examples</a></li></ul>
+						<p>Once you have done so,  and perhaps tried the web sites and sketches, please continue on with ...<br/>&nbsp;&nbsp;&nbsp;&nbsp;<i>Randomness</i></p>
+					</div>
+						
+			</div> <!-- End of left column -->
+
+<!-- 
+				<script>loadImage('https://staff.city.ac.uk/~jwo/bootcamp2020/lecture11ArtAndMedia/images/soundSculpture.jpg', 605, 457, 'Unnamed sound sculpture');</script>
+				<p>Sound sculpture by 'We Are ChopChop'</p>
+ -->
+		</div> <!-- End of row -->
+
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+		<div class="units-row">
+			<div class="unit-70-cc">
+				<!-- Left column -->
+
+				<h3>2. Randomness</h3>
+				<p>
+					Adding some randomness to your sketches is one way of adding visual interest and originality.
+					We've seen several examples of this already, such as when we generated moving balls that had a random velocity. The <i>Processing</i> method
+					<code><a href="https://processing.org/reference/random_.html" target="_blank">random()</a></code> is
+					a handy way of generating the random numbers we might use in our sketches. It normally takes two
+					parameters specifying the range of numbers from which a random value is generated. For example:
+				<pre class="brush: processing; gutter: false; toolbar: false;">float xPosition = random(7,101);</pre>
+				would generate a random number somewhere between 7 and 101 and store that number inside the variable
+				<code>xPosition</code>.
+				</p>
+
+				<p>
+					To see how just a little randomness can add interest to a sketch, let's consider the following
+					simple sketch that draws 8 squares in a row. This is very similar to the squares example we have
+					seen before, but in this case we will use the
+					<code><a href="https://processing.org/reference/quad_.html" target="_blank">quad()</a></code> rather
+					than the
+					<code><a href="https://processing.org/reference/rect_.html" target="_blank">rect()</a></code>
+					method. <code>quad()</code> takes 4 pairs of parameters, each identifying the position of a corner
+					of the shape. We use a simple for loop to draw 8 of these squares, each with a width and height of
+					90 pixels (stored inside the variable <code>sSize</code>):
+				</p>
+
+			</div>
+		</div>
+		<div class="units-row">
+            <div class="unit-30-cc annotation cc-right">
+				<figure>
+					<script>loadImage('https://staff.city.ac.uk/~jwo/bootcamp2020/lecture11ArtAndMedia/images/quadVertices.png', 300, 300, 'quad() corner positions');</script>
+					<figcaption>     
+						<p>quad() corner positions</p>
+					</figcaption>
+				</figure>
+			</div>	
+
+			<div class="unit-70-cc">
+				<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<div style="width:42em" >
+
+				<pre class="brush: processing; gutter: false; toolbar: false;">void setup()
+{
+  size(860, 200);
+}
+
+void draw()
+{
+  background(255);
+  noStroke();
+  fill(0,0,200,100); // Transparent blue
+
+  float xPos   = 40;
+  float yPos   = 50;
+  float sSize  = 90;
+
+  for (int i=0; i&lt;8; i=i+1)
+  {
+    quad(xPos,         yPos,
+         xPos + sSize, yPos,
+         xPos + sSize, yPos + sSize,
+         xPos,         yPos + sSize);
+
+    xPos = xPos + 100;
+  }
+}</pre></div>
+
+<figure>
+	<img src="https://staff.city.ac.uk/~jwo/bootcamp2020/lecture11ArtAndMedia/images/regularSquares.png"
+	width="600" height="200" alt="8 squares" />
+<figcaption>     
+		<p>Eight squares.</p>
+	</figcaption>
+</figure>
+
+			</div> <!-- End of left column -->
+		</div> <!-- End of row -->
+
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+		<div class="units-row">
+			<div class="unit-70-cc">
+				<!-- Left column -->
+
+
+				<p>
+					The reason we have used <code>quad()</code> rather than <code>rect()</code> in this example is that
+					it allows us to control the position of each corner of each square independently. This is where we
+					can add a simple random number to the position of each:
+				</p>
+
+				<div style="width:42em" >
+				<pre class="brush: processing; gutter: false; toolbar: false;">
+for (int i=0; i&lt;8; i=i+1)
+{
+  quad(xPos + random(-10,10),         yPos + random(-10,10),
+       xPos + sSize + random(-10,10), yPos + random(-10,10),
+       xPos + sSize + random(-10,10), yPos + sSize + random(-10,10),
+       xPos + random(-10,10),         yPos + sSize + random(-10,10));
+
+  xPos = xPos + 100;
+}</pre></div>
+
+				<figure>
+					<img src="https://staff.city.ac.uk/~jwo/bootcamp2020/lecture11ArtAndMedia/images/randomSquares.png"
+					width="600" height="200" alt="8 squares" />
+				<figcaption>     
+						<p>Randomly varying the positions of quad() vertices away from the corners of the squares.<br/>
+						This produces an interesting effect.</p>
+					</figcaption>
+				</figure>
+
+
+			</div>
+		</div>
+		<div class="units-row">
+			<div class="unit-70-cc">
+				<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<p>
+					The only changes made to the sketch are to add <code>random(-10,10)</code> to each x and y position
+					for each corner. If you were to run the sketch though, the result might be a little unexpected
+					(click the sketch below).
+				</p>
+				<figure>
+					<script>loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/randSquares", 600, 600, "https://staff.city.ac.uk/~jwo/bootcamp2020/lecture11ArtAndMedia/images/jigglingSquares.png");</script>
+					<figcaption>     
+						<p>Jiggling random squares<i> (click to activate)</i></p>
+					</figcaption>
+				</figure>
+
+
+				<p>
+					The squares appear to wobble about rather than produce the static irregular shapes we might have
+					expected. This is because as the <code>draw()</code> loop repeats 60 times every second, new random
+					numbers are generated which are then used to reposition each square's corner points.
+				</p>
+
+				<p>
+					This may be a desirable outcome depending on what you are trying to achieve, but if you want your
+					shapes to stay still, you have a number of choices. The first might be to stop the sketch from
+					repeating the <code>draw()</code> code. We can turn off the 60 times a second repetition with a
+					single simple command <code>noLoop()</code>. This is a nice simple option, but has the disadvantage
+					that if we want other parts of our sketch to move, turning off the looping in <code>draw()</code>
+					will prevent this.
+				</p>
+
+				<p>
+					An alternative is that we can force <i>Processing</i> to generate <i>the same set of random numbers</i> each time
+					the <code>draw()</code> loop is called. This can be achieved using the
+					<code><a href="https://processing.org/reference/randomSeed_.html" target="_blank">randomSeed()</a></code>
+					method. For example, including the line ...
+				<pre class="brush: processing; gutter: false; toolbar: false;">randomSeed(1234);</pre> at the start of
+				<code>draw()</code> will generate the same sequence of random numbers every time <code>draw()</code> is
+				called. You can change the number <code>1234</code> to whatever you like and each seed value will
+				generate its own unique sequence of random numbers. This is a useful way of providing the same sequence
+				of random numbers every time you run your sketch, and each time the <code>draw()</code> loop is called, thereby stopping a wobble if that's not the effect that you are looking for.
+				</p>
+
+
+				<!--
+				<div class="tip">
+					To see some examples of how you might extend the idea of randomly shifting the corners or appearance
+					of shapes you may wish to look at the <a
+						href="https://moodle4.city.ac.uk/mod/page/view.php?id=420962">Tile Generator project
+						suggestions</a>. Below, for example, the same idea of making small random changes to the
+					positions of regularly spaced shapes is used to create a set of cubes that look as if they were
+					hand-drawn (using the <a href="https://www.gicentre.net/software#/handy/" target="_blank">Handy
+						sketch library for <i>Processing</i></a>):
+					<br /><br />
+					<img src="https://staff.city.ac.uk/~jwo/bootcamp2020/lecture11ArtAndMedia/images/pencilCubes.jpg"
+						width="762" height="277" alt="Pencil cubes" />
+				</div>
+				 -->
+			</div> <!-- End of left column -->
+
+		</div> <!-- End of row -->
+
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+		<div class="units-row">
+			<div class="unit-70-cc">
+				<!-- Left column -->
+
+				<h4>Other forms of Randomness</h4>
+
+				<p>
+					The <code>random()</code> function is very simple to use and works in many different situations. One
+					of its drawbacks for using this method for drawing is that every time a new random number is
+					generated, the new number is completely independent of the one before it. This means that if, say,
+					position of a shape is set using <code>random()</code>, it can appear to jump around the screen in a
+					very distracting way:
+				</p>
+
+			</div>
+		</div>
+		<div class="units-row">
+			<div class="unit-30-cc annotation cc-right">
+				<!-- Right column -->
+					<figure>
+						<script>loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/randCircles1", 300, 300, "https://staff.city.ac.uk/~jwo/bootcamp2020/lecture11ArtAndMedia/images/randomCircles.png");</script>
+						<figcaption>     
+							<p>Randomly positioned circles using random()<i> (click to activate)</i></p>
+						</figcaption>
+					</figure>
+			</div> <!-- end of right column -->
+
+			<div class="unit-70-cc">
+				<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<div style="width:42em" >
+					<pre class="brush: processing; gutter: false; toolbar: false;">
+void setup()
+{
+  size(400,400);
+  fill(0,0,100);
+  noStroke();
+}
+
+void draw()
+{
+  background(255);
+  float xPos = random(0,width);
+  float yPos = random(0,height);
+  circle(xPos,yPos,50);
+}</pre></div>
+
+			</div> <!-- End of left column -->
+		</div> <!-- End of row -->
+
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+		<div class="units-row">
+			<div class="unit-70-cc">
+				<!-- Left column -->
+
+				<p>
+					An alternative is to use <i>Processing</i>'s <code>noise()</code> method instead of <code>random()</code>.
+					This also generates random numbers, but in this case, each subsequent random number can be made to
+					be a little similar to the previous one in the sequence. To see how this works, see the <code><a
+						href="https://processing.org/reference/noise_.html" target="_blank">noise()</code></a> reference page.
+				</p>
+
+				<p>
+					Although <code>noise()</code> can produce random numbers (between 0 and 1), it takes one or more
+					parameters and will produce the <i>same random number for any given parameter value</i>. But if we
+					provide something like the <code>frameCount</code> as a parameter, we can make that random number
+					change slowly on each redraw.
+				</p>
+
+				<p>
+					Below is a simple modification to the randomly positioned circle sketch that uses
+					<code>noise()</code> instead of <code>random()</code> to generate a much more smooth random
+					movement - each random number is somewhat similar to the previous one in the sequence.
+				</p>
+
+			</div>
+		</div>
+		<div class="units-row">
+			<div class="unit-30-cc annotation cc-right">
+				<!-- Right column -->
+					<figure>
+						<script>loadSketch("https://staff.city.ac.uk/~jwo/bootcamp2021/p5js/randCircles2", 300, 300, "https://staff.city.ac.uk/~jwo/bootcamp2020/lecture11ArtAndMedia/images/noiseCircles.png");</script>
+						<figcaption>     
+							<p>Randomly positioned circles using noise()<i> (click to activate)</i></p>
+						</figcaption>
+					</figure>
+			</div> <!-- end of right column -->
+
+			<div class="unit-70-cc">
+				<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+				<div style="width:42em" >
+					<pre class="brush: processing; gutter: false; toolbar: false;">
+void setup()
+{
+  size(400,400);
+  fill(0,0,100);
+  noStroke();
+}
+ 
+void draw()
+{
+  background(255);
+ 
+  float smoothness = 0.05;   // Try changing this number between 0 and 1.
+  
+  // -- After you have run the sketch, try this interaction and move the cursor : 
+  // -- frameCount is not changing here, just the extent to which each subsequent noise() value is related to the previous one:
+  // smoothness = map(mouseX, 0,width, 0,0.05);
+
+  float xPos = noise(frameCount*smoothness,0)*width;
+  float yPos = noise(frameCount*smoothness,1)*height;
+  circle(xPos,yPos,50);
+}</pre></div>
+
+				<p>
+					For further details and inspiration for using structured randomness, see these tips on different forms of
+					<a href="https://moodle4.city.ac.uk/mod/page/view.php?id=464458">randomness</a> and how you might use them in your sketches.
+				</p>
+
+
+			</div> <!-- End of left column -->
+		</div> <!-- End of row -->
+
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+		<div class="units-row">
+			<div class="unit-70-cc">
+				<!-- Left column -->
+
+				<h3>3. Generative Art : Deconstruction / Reconstruction</h3>
+
+				<p><a href="https://en.wikipedia.org/wiki/Vera_Moln%C3%A1r">Vera Molnár</a> began working with computers in 1968 and established herself as pioneer of algorithmic art by programming pen plotters in Basic and Fortran.</p>
+
+				<p><a href="https://dam.org/museum/artists_ui/artists/molnar-vera/">Her work</a> is showcased in the <a href="https://dam.org/museum/">Digital Art Museum</a>, and I really enjoyed an exhibition hosted at <a href="https://www.dagstuhl.de/en/about-dagstuhl/kunst/">Schloss Dagstuhl</a> when I was staying in the castle for a workshop in the summer of 2022.</p>
+					
+				<p>I find the <a href="https://dam.org/museum/artists_ui/artists/molnar-vera/des-ordres/">Des Ordres</a> - "<em>some order</em>" and perhaps "<em>disorder</em>" - exhibit particularly compelling.</p>
+
+				<p>The <a href="https://dam.org/museum/">Digital Art Museum</a> describes these pieces as involving ...</p>
+					<blockquote>a pattern of concentric squares which is randomly disrupted
+						in order to highlight the contrast between order and disorder
+						and create tensions in the orthogonal structure,
+						as if the squares were subject to a vibrating force
+				</blockquote>
+
+				<p>Back in 2022, Vera was in her late 90s, and I have used her work to inspire teaching ever since. 
+				   Sadly, she died in late 2023 just before her 100th birthday.
+				   This short <a href="https://www.artsy.net/article/artsy-editorial-generative-art-pioneer-vera-molnar-died-aged-99">obituary from Artsy</a> is one of many that confirms and celebrates her vital role in "<i>exploring the relationship between technology and art</i>". She was a truly inspiring pioneer in using computers for creative self-expression.
+				   I hope that she can inspire you.</p>
+
+				<p>Given what we know about <i>Processing</i> and randomness, we would like to see whether we can work out how Vera was experimenting in some of her work, and how she might have been using algorithms to explore form and produce work. <br/>
+				We are going to ...</p>
+
+				<!--- ToDo -->
+				<ul>
+					<li>write a method to draw a square</li>
+					<li>add some randomness to its corner positions</li>
+					<li>draw squares within squares</li>
+					<li>use randomness to omit some of the squares within squares</li>
+					<li>create a grid of randomly varying squares within squares</li>
+				</ul>
+
+				<p>We are doing so to practice using <i>Processing</i>, honing our skill, developing our knowledge, and to see whether we can find ways of using randomness and form to <i>find our voice</i> and be expressive in ways that are satisfying and meaningful. Basically, let's play and see whether we can make stuff that we like the look of.</p>
+					
+				<p><b>Let's see whether we can recreate some of this ordered disorder using our <em>Processing</em> skills</b>...<br/>
+					  and whether we learn anything about order, disorder, aesthetic, what Vera was doing and perhaps <em>Processing</em> in the process.
+				</p>
+				
+					
+				<p>Note that we hope to run this exercise in the in person lecture, so this is a chance to return to it, or complete it if you did not attend in class.</p>
+
+		<!-- Vera Molnár -->
+
+		<div class="codeTask">
+				<h5>Vera Molnár - (Des) Ordres</h5>
+
+				<!-- <p><a href="https://dam.org/museum/artists_ui/artists/molnar-vera/">Her work</a> is showcased in the <a href="https://dam.org/museum/">Digital Art Museum</a>, and the <a href="https://dam.org/museum/artists_ui/artists/molnar-vera/des-ordres/">Des Ordres</a> pieces are particularly compelling.</p> -->
+			  
+				<p><b>Can you recreate some of the ordered disorder in <a href="https://dam.org/museum/artists_ui/artists/molnar-vera/des-ordres/">Des Ordres</a> using your <em>Processing</em> skills</b>...<br/>
+				  and does this enable you to learn anything about order, disorder, aesthetic, what Vera was doing and perhaps <em>Processing</em> in the process?</p>
+				  <ul><li><a href="https://moodle4.city.ac.uk/mod/page/view.php?id=781810">Vera Molnár Digital Art Exercise</a></li></ul>
+			</div>
+		</div>
+
+		<p>Be sure to make some notes, do some sketching and reflect on how these ideas and what you have learned might be applicable to your efforts to represent data in interesting and creative ways in your <i>Dear Data</i> efforts.</i></p>
+
+		<figure>
+			<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/art/images/vera.143936.LARGE.24x12.png', 600, 600, 'Des Ordres in Processing');</script>
+		<figcaption>     
+			<p>Output from a sketch inspired by Vera Molnár's <a href="https://dam.org/museum/artists_ui/artists/molnar-vera/des-ordres/">Des Ordres</a>.</p>
+		</figcaption>
+		</figure>
+
+		
+
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+		<div class="units-row">
+			<div class="unit-70-cc">
+				<!-- Left column -->
+				<h3>4. Summary</h3>
+				<ul>
+					<li>
+						<i>Processing</i> offers many ways of being creative in your design and generating artistic sketches
+						that express that creativity.
+					</li>
+
+					<li>
+						Be inspired by some of the amazing work that is available, but be sure to understand and comply with and celebrate copyright law as you legitimately build upon the work and ideas of others.
+					</li>
+
+					<li>
+						Adding some randomness to your sketch is one way of adding visual interest and variety to your
+						sketch design as you try to find your voice, and express yourself in your sketches.
+					</li>
+
+					<li>
+						Take care when using other people's content in your own sketches that you are not infringing
+						copyright and that you avoid plagiarism by always citing the sources of any material not your
+						own - it is your responsibility to identify this clearly and make it as easy as possible for the reader to access the original source.
+					</li>
+				</ul>
+
+<!-- 
+				<div class="homework">
+					You may find the following helpful if you'd like to find out more about art and media with
+					<i>Processing</i>.
+					<br /><br />
+					<ul>
+						<li><a href="https://moodle4.city.ac.uk/mod/page/view.php?id=420962" target="_blank">Tile generator</a> &mdash; demo ideas.</li>
+						<li><a href="https://moodle4.city.ac.uk/mod/page/view.php?id=420947" target="_blank">Generative art</a> &mdash; demo ideas.</li>
+						<li><a href="https://moodle4.city.ac.uk/mod/page/view.php?id=420960" target="_blank">Step Sequencer</a> &mdash; demo ideas.</li>
+						<li><a href="https://moodle4.city.ac.uk/mod/page/view.php?id=464458" target="_blank">Adding randomness to a sketch</a> &mdash; Randomness and getting started with generative
+							design.</li>
+						<li><a href="https://processing.org/reference/libraries/sound/" target="_blank"><i>Processing</i> Sound library</a> &mdash; Library for reading, playing, generating and monitoring sound.</li>
+						<li><a href="https://processing.org/reference/libraries/video/index.html" target="_blank"><i>Processing</i>'s video library</a> &mdash; Details of how to use the
+							<code>Movie</code> class to manipulate videos in your sketches.
+						</li>
+					</ul>
+				</div>
+ -->
+
+			</div> <!-- End of left column -->
+
+		</div> <!-- End of row -->
+<!-- 		
+		<div class="sig">
+			<b>Jason DYKES</b><br />
+			<i>02 Oct 2023</i>
+		</div>
+ -->
+		<div style="padding-bottom:2em;clear:both" />
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+		<!-- End of content -->
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	</div> <!-- End of page div -->
+	<script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>
