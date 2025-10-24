@@ -27,11 +27,10 @@ The data should be about you, and interesting to you, but should not identify yo
 
 So if we look at the [visualizations here](https://www.dear-data.com/week-34-a-week-of-urban-wildlife/) we know what was seen, but can't work out who saw it.
 
-A visualization about the times and types of bananas that somebody consumed tells us about their behaviour (they tend to eat ripe bananas at the end of the week and never eat more than 5 bananas in a day) but **not who** they are.
-They are not identifiable from the data.
+A visualization about the times and types of bananas that somebody consumed tells us about their behaviour (they tend to eat ripe bananas at the end of the week and never eat more than 5 bananas in a day) but **not who** they are.<br/>_They are not identifiable from the data._
 
 So avoid names, addresses and other data items that could reveal your identity or that of others.
-And **avoid combinations** in data  - if your data contains your _street name_, your _grandma's first name_ and your _dog's name_ ... well you might well be the only person with a Grandma called _Bettie_ and a dog called _JamieVardy_ on your street, right? You have identified yourself.
+And **avoid combinations** in data  - if your data contains your _street name_, your _grandma's first name_ and your _dog's name_ ... well you might well be the only person with a Grandma called _Bettie_ and a dog called _JamieVardy_ on your street, right?<br/>_You have identified yourself!_
 
 Have a look at the [Dear Data weeks](https://www.dear-data.com/by-week/) and see whether the visualizations themselves ever reveal _the author's identities_.<br/>The addresses (redacted - good idea) and comments on the legends often do, but the visualizations themselves, wisely, tend not to.
 
