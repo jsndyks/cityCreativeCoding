@@ -59,9 +59,9 @@ So something that is a bit like the [Dear Data Weeks](https://www.dear-data.com/
 
 I am currently recording every time I eat a banana - the time of day and some of the banana characteristics:
 
- - how big it was;
- - how green - brown it was;
- - what I was doing (I'm often on a bike when eating a banana)
+ - _how big it was;_
+ - _how green - brown it was;_
+ - _what I was doing (I'm often on a bike when eating a banana)_
 
  ... which might result in some interesting visualization options.
 
@@ -74,24 +74,24 @@ Somebody was talking about recording the clouds they saw - nice idea, but limit 
 
 And be original by specialising, by adding a modification, a twist or by combining:
 
- - what could I hear?
- - how was I feeling?
- - what did the clouds remind me of?
- - maybe take a photo?
+ - _how was I feeling?_ (Dreamy)
+ - _what did the clouds remind me of?_ (Elephants?)
+ - _what could I hear?_ (Traffic? Elephants?!)
+ - _maybe take a photo?_ (PImage?)
 
 Whatever!<br/>
 Just try to enjoy it.
 
 J.
 
-🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌<br/>
-🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌<br/>
-🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌<br/>
-🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌<br/>
-🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌<br/>
-🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌<br/>
-🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌<br/>
-🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌<br/>
-🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌<br/>
-🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌<br/>
+🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌
+🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌
+🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌
+🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌
+🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌
+🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌
+🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌
+🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌
+🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌
+🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌
 
