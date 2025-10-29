@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CreativeCoding Extra: 3D Graphics</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Embedded fonts -->
+<link
+    href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+    rel="stylesheet">
+
+<!-- Custom layout and style -->
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+<!-- General browser compatibility handling -->
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+<!-- Formatted source code -->
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+<!-- Sketch popups and hidden text-->
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+<!-- JD Extras! -->
+  <link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" />
+  
+  <!-- iFrame -->
+  <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+    <div id="page">
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!--
+You can access [this page](https://jsndyks.github.io/cityBootCamp/html/3d/bootCamp.3d.exercise.html) outside of _Moodle_ should you wish to do so. 
+		 -->
+
+        <p class="intro">
+            These challenges are <b>optional additional exercises</b>, but they will consolidate the learning that you have achieved in the 
+            all of the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=816847">3D Graphics : Core</a> lecture.
+        </p>
+        <p class="intro">
+            If you choose to attempt them they will give you some good practice in understanding the way
+            coordinate systems and transformations work in computing environments.
+        </p>
+        <p class="intro">
+            We encourage you to use the <a href="https://moodle4.city.ac.uk/mod/forum/view.php?id=800835">Discussion Forum</a> to discuss your efforts, and those of your colleagues, and will contribute to help you with key concepts as you develop your <i>Box City</i>.
+        </p>
+
+<!-- Was Core! -->
+ 	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+			<h3>1. Voxeliser</h3>
+		</div>
+	</div>
+	<div class="units-row">
+		<div class="unit-30-cc annotation cc-right">
+			<!-- Right column -->
+			<img src="https://gicentre.github.io/data/images/lovelace.jpg" width="200" alt="Input image">
+			<p>Input image used in<br/>the Voxeliser sketch.</p>
+
+			<script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/jwo/voxeliser", 200, 200, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/voxeliser.jpg");</script>
+			<p>Voxeliser<br/>(click on image to activate).</p>
+		</div> <!-- end of right column -->
+		<div class="unit-70-cc">
+			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<p>
+				You have learned about using images in <i>Processing</i> with <code>PImage</code>.</p>
+			<p>The next example reads colours from an image, with the <code>PImage.get()</code> method, and renders them as coloured cubes (also known as <i>voxels</i>) in 3D space.</p>
+			<p>A colour <code>pixelColour</code> is taken from an image in a doubly-nested loop.
+				The brightness of a pixel is determined using the <code>brightness()</code> method in <i>Processing</i> and stored in the variable <code>a</code>.
+				This will range from 0 (darkest) to 255 (brightest).</p>
+			<p>Voxels rotate with a speed based on the value of <code>a</code>,
+				and translate along the z axis based on both the value of <code>a</code> and the vertical position of the mouse.</p>
+			<p>The code shows an example of using <code>pushMatrix</code> and <code>popMatrix</code> so that
+				the transformation applied before drawing one voxel does not affect any other voxel.
+			</p>
+
+			<pre class="brush: processing; gutter: false; toolbar: false; ">
+        PImage img;
+
+        void setup()
+        {
+          size(500, 500, P3D);
+          img = loadImage("https://gicentre.github.io/data/images/lovelace.jpg");
+        }
+
+        void draw()
+        {
+          background(255);
+          int s = 8;    // Sample rate of pixels (s=8 -&gt; 1 in 8 pixels shown)
+
+          // Centre view on image
+          translate((width-img.width)/2,(height-img.height)/2,0);
+          rotateY(radians(30));
+
+          for (int y = 0; y &lt; img.height; y+= s)
+          {
+            for (int x = 0; x &lt; img.width; x+= s)
+            {
+              color pixelColour = img.get(x, y);
+              fill(pixelColour);
+
+              pushMatrix();
+                float f = map(mouseY,0,height,-5,5);
+                float a = brightness(pixelColour);
+                translate(x, y, f*a);
+                rotateY(a*radians(millis()/500.0));
+                box((int) (s*0.75));
+              popMatrix();
+            }
+          }
+        }</pre>
+
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+			<h3>2. Other Shapes</h3>
+			<p>
+				Although you can do a lot with spheres and boxes, <i>Processing</i> provides other ways to use shapes in
+				3D.<br/>For example, the following methods can be used with 3D (x, y, z) coordinates:
+			</p>
+			<ul>
+				<li>
+					<code><a href="https://processing.org/reference/point_.html" target="_new">point()</a></code>
+				</li>
+				<li>
+					<code><a href="https://processing.org/reference/line_.html" target="_new">line()</a></code>
+				</li>
+				<li>
+					<code><a href="https://processing.org/reference/curve_.html" target="_new">curve()</a></code>
+				</li>
+				<li>
+					<code><a href="https://processing.org/reference/bezier_.html" target="_new">bezier()</a></code>
+				</li>
+				<li>
+					<code><a href="https://processing.org/reference/text_.html" target="_new">text()</a></code>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="units-row">
+		<div class="unit-30-cc annotation cc-right">
+			<!-- Right column -->
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/rotatedText.png', 200, 150, 'Rotating text');</script>
+			<p>Rotating text.</p>
+		</div> <!-- end of right column -->
+		<div class="unit-70-cc">
+			<p>
+				You can use these methods in numerous ways to create 3D applications.</p>
+				<p>As a simple example, the
+				following program creates some text, and rotates it around the y axis. A call to
+				<code>background()</code> in <code>draw()</code> isn't made so the graphics accumulate each time the
+				text is rendered.
+			</p>
+			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<pre class="brush: processing; gutter: false; toolbar: false; ">
+void setup()
+{
+  size(640, 480, P3D);
+  background(255);
+}
+ 
+void draw()
+{
+  textSize(24+millis()/1000.0);
+  fill(180, 25, 25, 50);
+  translate(width/2, height/2);
+ 
+  rotateY(-radians(millis()/10.0));
+  text("Creative", 100, -40, 0);
+  text("Coding", 100, 40, 0);
+}</pre>
+			<p>
+				Note this example does not use <code>pushMatrix()</code> and <code>popMatrix()</code>, so the
+				rotation and translation is applied to both text objects that are each drawn to different positions
+				on the screen.
+			</p>
+
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+
+			<h3>3. Making Your Own 3D Shapes</h3>
+
+		</div>
+	</div>
+	<div class="units-row">
+		<div class="unit-30-cc annotation cc-right">
+			<!-- Right column -->
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/tetrahedron.png', 200, 167, 'Tetrahedron as a custom shape');</script>
+			<p>
+				A tetrahedron as a custom shape<br/>made up of triangles.
+			</p>
+
+
+		</div> <!-- end of right column -->
+		<div class="unit-70-cc">
+			<p>
+				You can make your own 3D shapes too.</p>
+			<p> This can be achieved by calling <code>beginShape()</code>,
+				specifying 3D vertices, followed by a call to <code>endShape()</code>.</p>
+			<p>The method <code>beginShape()</code> takes a single optional parameter, the type of shape. Common shape types
+				are <code>TRIANGLES</code> for triangles (three sided polygons), or <code>QUADS</code> for
+				quadrilaterals (four sided polygons). If no shape type is provided, <i>Processing</i> assumes the shape is
+				a general polygon.</p>
+			<p>Then, you can provide a set of 3D vertices. <i>Processing</i> will group the vertices
+				based on the shape type. For example, if the shape type is <code>TRIANGLES</code>, <i>Processing</i> will
+				group every three vertices to form a triangle.</p>
+			<p>Finally, when you are done specifying vertices, you
+				call <code>endShape()</code>.
+				</p>
+			<p>An example of forming a tetrahedron (four sided pyramid) composed of
+				four triangles is given below.
+			</p>
+			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<pre class="brush: processing; gutter: false; toolbar: false; ">
+void setup()
+{
+  size(600,500,P3D);
+}
+
+void draw()
+{
+  background(0);
+  fill(255);
+  translate(width/2, height/2, 190);
+
+  rotateX(radians(-mouseY-height/2));
+  rotateY(radians(mouseX-width/2));
+
+  beginShape(TRIANGLES);
+
+    vertex(0, 0, 100);
+    vertex(-100, 100, 0);
+    vertex(100, 100, 0);
+
+    vertex(0, 0, 100);
+    vertex(100, 100, 0);
+    vertex(0, -100, 0);
+
+    vertex(0, 0, 100);
+    vertex(0, -100, 0);
+    vertex(-100, 100, 0);
+
+    vertex(-100, 100, 0);
+    vertex(100, 100, 0);
+    vertex(0, -100, 0);
+
+  endShape();
+}</pre>
+
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-30-cc annotation cc-right">
+			<!-- Right column -->
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/tetrahedronColoured.png', 200, 167, 'Tetrahedron with coloured vertices');</script>
+			<p>
+				A tetrahedron with coloured vertices.
+			</p>
+
+
+		</div> <!-- end of right column -->
+		<div class="unit-70-cc">
+			<p>
+				You can set the colours of the the shape with <code>fill()</code> and <code>stroke()</code>
+				just like you can with 2D shapes, but additionally you can set the colours of individual
+				vertices of a 3D shape and <i>Processing</i> will <i>interpolate</i> between the colours
+				at each vertex.
+			</p>
+
+			<p>
+				Here's a modification of the tetrahedron with the addition of red and blue fill colours
+				around the vertices.
+			</p>
+			<p>Note how, just like a 2D sketch, once a colour is set, that colour
+				will be used until another colour is set later on in the draw loop.
+			</p>
+			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<pre class="brush: processing; gutter: false; toolbar: false; ">
+          void setup()
+          {
+            size(600,500,P3D);
+          }
+
+          void draw()
+          {
+            background(0);
+            translate(width/2, height/2, 190);
+
+            rotateX(radians(-mouseY-height/2));
+            rotateY(radians(mouseX-width/2));
+
+            beginShape(TRIANGLES);
+
+              fill(255,0,0);
+              vertex(0, 0, 100);
+              fill(0,0,255);
+              vertex(-100, 100, 0);
+              vertex(100, 100, 0);
+
+              fill(255,0,0);
+              vertex(0, 0, 100);
+              fill(0,0,255);
+              vertex(100, 100, 0);
+              vertex(0, -100, 0);
+
+              fill(255,0,0);
+              vertex(0, 0, 100);
+              fill(0,0,255);
+              vertex(0, -100, 0);
+              vertex(-100, 100, 0);
+
+              vertex(-100, 100, 0);
+              vertex(100, 100, 0);
+              vertex(0, -100, 0);
+
+            endShape();
+          }</pre>
+
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+
+			<h3>4. Even More Shapes</h3>
+		</div>
+	</div>
+	<div class="units-row">
+		<div class="unit-30-cc annotation cc-right">
+			<!-- Right column -->
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/hand.png', 200, 200, 'Hand.obj file rendered as a PShape');</script>
+			<p>
+				Hand '.obj' file rendered<br/>as a <code>PShape</code>.
+			</p>
+
+
+		</div> <!-- end of right column -->
+		<div class="unit-70-cc">
+			<p>
+				For more complex shapes, the
+				<code><a href="https://processing.org/reference/PShape.html" target="_blank">PShape</a></code> class
+				can be used to load OBJ files. An OBJ file uses a standard text format to represent complex geometry
+				such as buildings, people, cars etc.
+			</p>
+			<p>
+				For example the <a
+					href="https://www.turbosquid.com/Search/3D-Models/free/hand" target="_blank">hand.obj</a> file
+				was used to show the transformed hands above and can be loaded and displayed in <i>Processing</i> as
+				follows:
+			</p>
+			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<pre class="brush: processing; gutter: false; toolbar: false; ">PShape hand;    // Stores the complex geometry.
+
+public void setup()
+{
+  size(500, 500, P3D);
+  hand = loadShape("Hand.obj");    // Load .obj file.
+}
+
+public void draw()
+{
+  background(255);
+  lights();
+
+  // Viewing transformation.
+  translate(width/2, height/2, 180);
+
+  // Draws the .obj feature.
+  shape(hand);
+}</pre>
+
+			<p>
+				If you would like to run the sketch above, make sure you drag the <a
+					href="https://gicentre.github.io/data/object3d/Hand.obj" target="_blank">hand.obj</a> file into
+				your sketch before running it.
+			</p>
+
+		<h3>5. Shading</h3>
+
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-30-cc annotation cc-right">
+			<!-- Right column -->
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/lightSphere1.png', 200, 200, 'Red sphere with lights off');</script>
+			<p>
+				Red sphere with lights off.
+			</p>
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/lightSphere2.png', 200, 200, 'Red sphere with lights on');</script>
+			<p>
+				Red sphere with lights on.
+			</p>
+
+
+		</div> <!-- end of right column -->
+		<div class="unit-70-cc">
+			<!-- Left column -->
+			<p>
+				You may have wondered where the shadows on the hand above have come from. They are not stored
+				directly in the .obj file, but rather they are calculated in <i>Processing</i> based on the geometry of the
+				3D surface and the lighting conditions you set in your sketch.
+			</p>
+
+			<p>
+				The P3D renderer allows manipulation of the lights and materials in the scene. These are used to
+				convey <i>shading</i>, that is, gradations in colour that provide an illusion of depth. Lighting
+				refers to the light sources that are illuminating the objects. Just like in the real world, a light
+				source may have properties, like a position and colour. However, the colour one observes for a
+				surface depends not only on the properties of the lights but also the material, which describes how
+				the light reflects off the surface.
+			</p>
+
+			<p>
+				<i>Processing</i> can make this very simple, however. To turn the default lighting (and materials) on,
+				simply call <code>lights()</code> in the <code>draw()</code> method of your sketch. One line of code
+				&ndash; how easy is that?!
+			</p>
+
+			<p>
+				Notice how the three dimensional shape of the sphere is not apparent until lighting is enabled.
+			</p>
+
+			<p>
+				In many cases the default lighting and materials will be sufficient for your scene. However,
+				<i>Processing</i> makes it possible for you to control these more precisely. There are four different types
+				of lights (ambient, directional, point light, and spotlight), each with parameters like the light
+				colour. In addition, there are five different material properties (ambient, diffuse, specular,
+				emissive) reflectance as well as the shininess. Covering all these different properties and
+				combinations is beyond the scope of this session so we'll just touch on a couple of them &mdash;
+				directional light and specular reflectance. But do feel free to experiment with the other lighting
+				and surface materials.
+			</p>
+
+			<p>
+				A <b>directional light</b> is a light source that has no position, only a direction. This is a
+				useful to model a light source that is far away such as the sun. The light rays that reach a surface
+				can be considered parallel. In <i>Processing</i>, we can include a directional light in the scene by
+				calling the <code>directionalLight(r, g, b, x, y, z)</code> method. The <code>r</code>,
+				<code>g</code>, and <code>b</code> parameters give the light source colour, and the <code>x</code>,
+				<code>y</code>, <code>z</code> parameters give the direction the light is going.
+			</p>
+
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-30-cc annotation cc-right">
+			<!-- Right column -->
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/Apple.png', 200, 200, 'Specular reflection');</script>
+			<p>A surface with a specular highlight</p>
+		</div> <!-- end of right column -->
+		<div class="unit-70-cc">
+			<!-- Left column -->
+			<p>
+				The diffuse colour of the surface is given by the <code>fill</code> colour. You can think of this as
+				the main colour of the object. However, in the real world, some objects exhibit <b>specular
+				reflection</b>, where the light source of the scene is reflected off the surface. Consider the
+				apple shown to the right; the white light is reflected off the surface, creating a specular
+				highlight that appears white, even though the apple is red.
+			</p>
+
+			<p>
+				In <i>Processing</i> we can produce such an effect using by including a specular component to the light and
+				material. The method <code>lightSpecular(r, g, b)</code> will include a specular colour (given by
+				<code>r</code>, <code>g</code>, <code>b</code>) to the light source. We can control how this
+				specular light is reflected off the surface by calling the method <code>specular(r,g,b)</code>,
+				where <code>r</code>, <code>g</code>, <code>b</code> describe the amount of light reflected in the
+				red, green, and blue channels. Finally, the shininess controls the size of specular highlight,
+				describing how glossy the surface appears. Objects that are very shiny have small, focussed specular
+				highlights. In <i>Processing</i>, the method <code>shininess(shine)</code> is used to control this level of
+				gloss, and the <code>shine</code> parameter ranges from 0 to 255.
+			</p>
+
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+			<p>
+				The following <i>Processing</i> sketch shows the effect of adding specular highlights and directional light
+				to a scene.
+			</p>
+		</div>
+	</div>
+	<div class="units-row">
+		<div class="unit-30-cc annotation cc-right">
+			<!-- Right column -->
+			<script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/jwo/ballLight", 200, 200, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/lightSphere3.png");</script>
+			<p>Lights (click on image to activate,<br/>then click again on the image<br/>to cycle between options).</p>
+		</div> <!-- end of right column -->
+		<div class="unit-70-cc">
+			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<pre class="brush: processing; gutter: false; toolbar: false; ">int option;
+
+void setup()
+{
+  size(400,400, P3D);
+  noStroke();
+  fill(255, 0, 0);
+}
+
+void draw()
+{
+  background(255);
+
+  if (option == 1)
+  {
+     lights();		// Lights on
+  }
+  else if (option == 2)
+  {
+     // Custom lighting
+     lightSpecular(200, 200, 200);
+     specular(255, 255, 255);
+     shininess(25);
+     float hw = width /2;
+     float hh = height /2;
+     directionalLight(255, 255, 255, -(mouseX-hw)/hw, -(mouseY-hh)/hh, -1);
+  }
+  translate(width/2, height/2, 0);
+  sphere(150);
+}
+void mouseClicked()
+{
+  option++;
+  if (option &gt; 2)
+  {
+    option = 0;
+  }
+}</pre>
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+			<h3>6. Texture Mapping</h3>
+		</div>
+	</div>
+	<div class="units-row">
+		<div class="unit-30-cc annotation cc-right">
+			<!-- Right column -->
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/uv.png', 238, 178, 'Texture coordinates');</script>
+			<p>Texture coordinates (u, v).</p>
+		</div> <!-- end of right column -->
+		<div class="unit-70-cc">
+			<p>
+				In many cases, rendering a shape with a single colour is sufficient, but sometimes you might want to
+				apply an image instead. In <i>texture mapping</i>, you can transfer colours from an image (also
+				known as a <i>texture</i>) onto the surface, composed of polygons.
+			</p>
+			<img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/TextureMapping.png"
+				 width="800" alt="Texture mapping" />
+			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<p>
+				A convenient way to think about texture mapping is that it is similar to wall papering. You have a
+				2D image (wallpaper) that you'd like to cut out and paste onto a 3D surface (the wall). In texture
+				mapping, you use <i>texture coordinates</i> to select the portion of the image to be transferred to
+				the surface. In <i>Processing</i>, you refer to texture coordinates as <i>uv</i> coordinates, as they
+				describe a 2D coordinate system of the image that describe two axes at right angles, just as normal
+				geometric axes are labelled x- and y-axes. Normally, texture coordinates are normalised so that the
+				u and v coordinates range between 0 and 1.
+			</p>
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-30-cc annotation cc-right">
+			<!-- Right column -->
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/TextureQuad.png', 200, 200, 'Texture coordinates for a quad');</script>
+			<p>Texture coordinates for a quad.</p>
+		</div> <!-- end of right column -->
+		<div class="unit-70-cc">
+			<!-- Left column -->
+			<p>
+				Specifying texture coordinates depends on the application. For example, if you're texture mapping a
+				cube, it may be natural to have a complete copy of the image on each side of the cube. In this case,
+				each quad forming a side of the cube would have texture coordinates span the entire image. An
+				example is shown below. Indeed, in <i>Processing</i>, if you look at the TextureCube
+				(File-&raquo;Examples-&raquo;Topics-&raquo;Textures-&raquo;TextureCube) example, it textures each side of the cube like this.
+			</p>
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+			<p>
+				To do texture mapping, you'll require an image. This can be loaded with the standard
+				<code>loadImage()</code> command. Texture coordinates are provided using the
+				<code>vertex(x, y, z, u, v)</code> command. Each vertex has a position in xyz space, and a texture
+				coordinate in uv space. In addition, you must call <code>texture()</code> to let <i>Processing</i> know
+				which image you intend to use when texture mapping. The code below provides an example of doing
+				texture mapping by creating a regular mesh with equally spaced vertices in x and y. However, the z
+				value of each vertex is based on <i>Perlin noise</i>. The calls to <code>vertex()</code> include
+				texture coordinates that span values between 0 and 1, transferring a single copy of the image onto
+				the surface. Since the underlying geometry is changing, it distorts the appearance of the image on
+				the surface. Funhouse effect!
+			</p>
+
+			<h4>Distorto</h4>
+
+		</div>
+	</div>
+	<div class="units-row">
+		<div class="unit-30-cc annotation cc-right">
+			<!-- Right column -->
+			<script>loadSketch("https://jsndyks.github.io/cityCreativeCoding/p5js/jwo/distorto", 200, 200, "https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/distorto.png");</script>
+
+			<p>Distorto sketch -  click to activate.</p>
+		</div> <!-- end of right column -->
+		<div class="unit-70-cc">
+
+			<i>Distorto</i> texture maps a surface, and uses Perlin noise to distort the surface geometry, producing interesting effects.
+							<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<pre class="brush: processing; gutter: false; toolbar: false; ">PImage image;
+
+void setup()
+{
+  size(640, 480, P3D);
+  image = loadImage("lovelace.jpg");
+}
+
+void draw()
+{
+  background(255);
+  stroke(255);
+  translate(width/2, height/2, -200);
+
+  rotateX(radians(mouseY));
+  int  d = 16;                 // spacing of vertices
+  float s = 0.003;
+  float t = millis() / 5000.0; // Deformation rate
+  float w = width;
+  float h = height;
+
+  for (int x = 0; x &lt; width; x += d)
+  {
+    for (int y = 0; y &lt; height; y += d)
+    {
+      float z1 = (noise(x*s,y*s,t) - 0.5) * w;
+      float z2 = (noise((x+d)*s,y*s,t) - 0.5) * w;
+      float z3 = (noise((x+d)*s,(y+d)*s,t) - 0.5) * w;
+      float z4 = (noise(x*s,(y+d)*s,t) - 0.5) * w;
+
+      beginShape(QUADS);
+        textureMode(NORMAL);
+        texture(image);
+        vertex(x-w/2,   y-h/2,   z1, x/w,      y/h);
+        vertex(x+d-w/2, y-h/2,   z2, (x+d)/w,  y/h);
+        vertex(x+d-w/2, y+d-h/2, z3, (x+d)/w, (y+d)/h);
+        vertex(x-w/2,   y+d-h/2, z4, x/w,     (y+d)/h);
+      endShape();
+    }
+  }
+}</pre>
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+<!-- 
+        <div class="codeTask">
+            <h3>Task : 3D face</h3>
+            <p>
+                In this task, you will construct a 3D face using spheres and boxes.<br/>You will then rotate the face and
+                have its eyes change colour when the mouse is clicked.
+            </p>
+
+            <table>
+                <tr>
+                    <td><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/face1.png"
+                            width="300" height="200" alt="face1" /></td>
+                    <td><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/face2.png"
+                            width="300" height="200" alt="face2" /></td>
+                </tr>
+            </table>
+
+            <ol>
+                <li>
+                    Using boxes and spheres, construct a face, consisting of two spheres for the eyes and elongated
+                    boxes for the nose and mouth. For this task, it might be helpful to think about the coordinate
+                    system in which the shapes are placed. Recommendation: place one eye at (-100, -100, 0) and the
+                    other at (100, -100, 0). For the nose, draw a box centred at (0,0,0) and elongated in the vertical
+                    (y) direction. For the mouth draw a box stretched along the horizontal (x) direction and translated
+                    along the positive y axis.
+                </li>
+                <li>Have the face rotate about the y axis, based on horizontal mouse movement.</li>
+                <li>Change the eye colour to blue when the user presses the mouse.</li>
+            </ol>
+        </div> 
+         -->
+
+<!-- 
+        <div class="challenge">
+            <ol start="4">
+                <li>How might you replace the elongated box used for the mouth to show a smile?</li>
+            </ol>
+        </div> 
+        <br /><br />
+  -->
+
+
+        <div class="challenge">
+            <h5>Challenge : Box City</h5>
+            <p>
+                In this task, you will construct 2D array of boxes that resembles a skyline.<br/>
+                You will then animate the boxes using Perlin noise.
+            </p>
+
+            <ol>
+                <li>
+                    Copy the following code into a new Processing sketch.
+                    <br /><br />
+                    <pre class="brush: processing; gutter: false; toolbar: false; ">
+void setup()
+{
+  size(640, 480, P3D);
+}
+void draw()
+{
+  background(0);
+  stroke(255, 255, 0);
+  fill(200, 200, 0);
+  lights();
+
+  translate(width/2, height/2, 0);
+  rotateX(radians(45));
+  rotateZ(radians(-mouseX));
+  translate(-200, -200, 0);
+
+  float d = 100;
+
+  // Insert your code here
+
+}
+        </pre>
+                </li>
+
+                <li>
+                    Below the comment that says 'Insert your code here', create a doubly-nested <code>for</code>loop
+                    over x and y. For each loop, initialise the integer variable to 0, set the condition to the variable
+                    being less than 400, and for the increment, advance the variable by 20. We'll be rendering boxes on
+                    a grid that is 20 x 20 units.
+                </li>
+                <li>
+                    Inside the inner loop, make a matching call to <code>pushMatrix()</code> and
+                    <code>popMatrix()</code>.
+                </li>
+                <li>
+                    After the call to <code>pushMatrix()</code>, draw a box that has width of 15 units, a height of 15
+                    units, and depth of <code>d</code> units, where <code>d</code> is given in the code.
+                </li>
+
+                <li>
+                    Run the program. You should see a single box as shown below.
+                    <br />
+                    <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/boxCity0.png"
+                        width="320" height="240" alt="Box City initial attempt">
+                    <br />
+                    What is happening is all the boxes are being rendered at the same place, then rotated based on mouse
+                    movement. How can you move the boxes so they don't overlap to achieve the result below?
+                    <br />
+                    <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/boxCity1.png"
+                        width="320" height="240" alt="Box City first grid attempt">
+                </li>
+
+                <li>
+                    In the innermost loop, use <a href="https://processing.org/reference/noise_.html"
+                        target="_blank">Perlin noise method</a> to change the value of <code>d</code> of each box, based
+                    on the variables <code>x</code> and <code>y</code>. You may find it helpful to multiply the values
+                    of <code>x</code> and <code>y</code> by a small number, like 0.01. Also, multiply the output of the
+                    Perlin noise value by a number like 200, to make the box taller. Run your program to check it
+                    produces results similar to those shown below (the random numbers will be different each time, so
+                    the shape of the box city will not exactly match that shown here):
+                    <br />
+                    <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/boxCity2.png"
+                        width="320" height="240" alt="Box City second grid attempt">
+                </li>
+                <li>
+                    Now try setting <code>d = 1000*pow(noise(0.01*x, 0.01*y), 5);</code>. Notice the effect. What is
+                    this code doing?
+                    <br />
+                    <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/boxCity3.png"
+                        width="320" height="240" alt="Box City third grid attempt">
+                </li>
+                <li>
+                    Using the elapsed time (measured by <code>millis()</code>), pass a third argument in to the noise
+                    method. This should create an animation. You may want to multiply the value returned by
+                    <code>millis()</code>by a small number, like 0.001.
+                </li>
+            </ol>
+        </div> <!-- End of task -->
+
+
+        <div class="challenge">
+            <h5>Challenge : Enhanced Box City</h5>
+            <ol start="9">
+                <li>Try enhancing your city by adding texture images to the building boxes.<br/>
+                    Think creatively and experiment with developing your city model in other ways.<br/>
+                    Have fun trying things out!
+                    <br />
+                    <img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/boxCity4.png"
+                        width="640" height="480" alt="Box City with textures">
+                </li>
+            </ol>
+        </div> <!-- End of task -->
+
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Footer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- End of page div -->
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>

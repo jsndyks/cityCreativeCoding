@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CreativeCoding Lecture: 3D Graphics</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Embedded fonts -->
+	<link
+			href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+			rel="stylesheet">
+
+	<!-- Custom layout and style -->
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+	<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+	<!-- General browser compatibility handling -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+	<!-- Formatted source code -->
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+	<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+	<!-- Sketch popups and hidden text-->
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+	<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+	<!-- JD Extras! -->
+    <link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" />
+    
+    <!-- iFrame -->
+    <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+
+<body>
+    <div id="page">
+
+        <!--
+You can access [these Lecture Notes](https://jsndyks.github.io/cityBootCamp/html/3d/bootCamp.3d.lecture.html) outside of _Moodle_ should you wish to do so. 
+		 -->
+
+         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!-- TITLE HEADING OF PAGE SHOULD BE VIA MOODLE, NOT HERE -->
+	<!-- Add summary sentence or two below, which will act as an easy introduction -->
+
+	<div class="intro">
+
+		<p>
+			In this session, you will learn how to program 3D graphics in <i>Processing</i>.
+		</p>
+
+		<p><strong>By the end of this session you should be able to:</strong></p>
+
+		<ul>
+			<li>Create sketches in <i>Processing</i> using the P3D renderer.</li>
+			<li>Draw 3D objects using the built-in shapes as well as your own custom shapes.</li>
+			<li>Use transformations to translate, rotate, and scale objects.</li>
+			<li>Apply lighting and texture mapping.</li>
+		</ul>
+
+	</div> <!-- End of intro section -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+			<h3>1. Motivation</h3>
+			<p>
+				So far all the graphics you have developed in <i>Processing</i> have been rather flat - we have limited ourselves to 2D:
+			<ul>
+				<li>Built-in shapes: <code>ellipse</code>, <code>triangle</code>, <code>rect</code>, and more</li>
+				<li>Programmer-defined shapes: <code>beginShape</code>, <code>vertex</code>, <code>endShape</code>
+				</li>
+				<li>Images</li>
+			</ul>
+			These techniques are very powerful, and can be used in countless ways to create engaging applications.
+			<br />
+			<img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/apps.png" height="450"
+				 alt="Example 2D sketches" />
+			<br />
+			But we live in a 3D world &mdash; you may be wondering, &quot;<i>Is it possible to do 3D graphics in
+			<i>Processing</i>?</i>&quot;<br/>The answer is "<i>Yes</i>"!
+			</p>
+
+		</div> <!-- End of left column -->
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-30-cc annotation cc-right">
+			<!-- Right column -->
+			<img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/xy.png" width="200"
+				 alt="2D coordinate system">
+			<p>
+				The 2D coordinate system used<br/>in <i>Processing</i>.
+			</p>
+
+		</div> <!-- end of right column -->
+		<div class="unit-70-cc">
+			<!-- Left column -->
+			<h3>2. Going from 2D to 3D</h3>
+			<p>
+				Until now you have used 2D coordinates to describe a position (in pixels):
+			<ul>
+				<li><code>x</code> for horizontal</li>
+				<li><code>y</code> for vertical</li>
+			</ul>
+			</p>
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-30-cc annotation cc-right">
+			<!-- Right column -->
+			<img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/xyz.png" width="200"
+				 alt="3D coordinates">
+			<p>
+				The 3D coordinate system used<br/>in <i>Processing</i>'s P3D render mode.
+			</p>
+		</div> <!-- end of right column -->
+		<div class="unit-70-cc">
+			<!-- Left column -->
+			<p>
+				In 3D space, a third axis is used to represent the <i>depth</i> of a point, to describe how far away
+				the point is located. The 3D coordinate system used in <i>Processing</i> has
+			<ul>
+				<li><code>x</code> for horizontal</li>
+				<li><code>y</code> for vertical</li>
+				<li><code>z</code> for depth</li>
+			</ul>
+			Notice how the values along the z-axis become more negative as they move away from you and positive if
+			they 'float' in front of the screen. The <b>origin</b> is the point in 3D space where the axes
+			intersect. By definition it has coordinates (0, 0, 0) in 3D space. It is important you are
+			comfortable with the idea of the origin - the point at which our axes have zero values - as we will be
+			using it extensively when thinking about transformation a little later in this session.
+			</p>
+
+
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+			<h3>3. <i>Processing</i> Render Modes and OpenGL</h3>
+			<p>
+				<i>Processing</i> has several <i>render modes</i>, which can be set when the <code>size()</code> method is called
+				in <code>setup()</code>. These are:
+			<ul>
+				<li>The default renderer, providing 2D graphics (this is what you have used up until now)</li>
+				<li>The <code>P2D</code> renderer, providing 2D graphics using OpenGL</li>
+				<li>The <code>FX2D</code> renderer &mdash; for 2D graphics with high quality output.</li>
+				<li>The <code>PDF</code> renderer, used to create Adobe portable document vector graphics that can
+					be scaled to any size</li>
+				<li>The <code>P3D</code> renderer, providing 3D graphics using OpenGL</li>
+			</ul>
+			</p>
+
+			<p>
+				To program 3D graphics you <b>must use the <code>P3D</code> renderer</b> when setting up the sketch.<br/>
+				This is easily achieved by passing in <code>P3D</code> as the third argument to <code>size()</code>,
+				as shown below.
+			</p>
+			<pre class="brush: processing; gutter: false; toolbar: false; ">
+void setup()
+{
+  size(640, 480, P3D);
+}</pre>
+			<p>
+				This instructs <i>Processing</i> to create a sketch with a window capable of 3D graphics.
+			</p>
+
+		</div> <!-- End of left column -->
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+			<p>
+				At this point, you may be wondering "<i>What is OpenGL?</i>"<br/>
+				OpenGL stands for <i><b><i>Open</i></b> <b><i>G</i></b>raphics <b><i>L</i></b>ibrary</i>.
+				It is a software interface to the graphics hardware - so you can write code that will take advantage of facilities in your computer that are designed specifically for producing graphics.
+				Many consumer electronic devices, including desktop computers, laptops, tablets, mobile
+				phones, and satnav systems have dedicated graphics hardware to provide acceleration for 2D and 3D
+				graphics. OpenGL is used in numerous applications, such as real-time computer games, computer-aided
+				design (CAD) software, and much more.
+			</p>
+
+			<table>
+				<tr>
+					<td><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/minecraft.png"
+							 height="250" alt="Minecraft"></td>
+					<td><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/CAD.png"
+							 height="250" alt="CAD software"></td>
+					<td><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/googleEarth.png"
+							 height="250" alt="Google Earth"></td>
+				</tr>
+				<tr>
+					<td align="center">Minecraft</td>
+					<td align="center">CAD software</td>
+					<td align="center">Google Earth</td>
+				</tr>
+			</table>
+			<p>
+				For example, the applications above rely on OpenGL for accelerated 3D graphics.<br /><br />
+			</p>
+
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+			<h3>4. Built-in 3D Shapes</h3>
+		</div>
+	</div>
+	<div class="units-row">
+		<div class="unit-30-cc annotation cc-right">
+			<!-- Right column -->
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/sphere.png', 300, 250, 'Simple sphere rendered in P3D');</script>
+			<p>
+				A sphere of radius 200<br/>rendered to the sketch window.
+			</p>
+		</div> <!-- end of right column -->
+		<div class="unit-70-cc">
+			<p>
+				<i>Processing</i> provides built-in 3D shapes you can use in your sketch. For example,
+				<code>sphere()</code> takes one argument, the sphere radius, and draws a sphere centred at the
+				origin (0,0,0). In the example below, a sphere with a radius of 200 is drawn. Note that the origin
+				is translated (moved) to the centre of the window using a call to <code>translate()</code>.
+				Moving the origin in this way causes the sphere centred on the origin in its new position to moves.
+				This is a type of <i>transformation</i>, and will be discussed later in this session.
+			</p>
+
+			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+			<pre class="brush: processing; gutter: false; toolbar: false; ">
+          void setup()
+          {
+            size(600, 500, P3D);
+          }
+          void draw()
+          {
+            background(0);
+            translate(width/2, height/2, 0);
+            sphere(200);
+
+            noLoop();  // As sketch doesn't change, no need to repeat drawing loop.
+          }</pre>
+
+
+			<div class="codeTask">
+				<p>If you were not to include the <code>translate</code> command in the sketch above, what do you think
+				the output would look like?</p>
+				<p>Try to answer this without running the sketch.</p>
+				<p>Then confirm by commenting out the <code>translate</code> line and running the sketch.</p>
+			</div>
+
+
+			<p>
+				<i>Processing</i> makes writing 3D sketches easy by allowing the things you learned previously about
+				colour, stroke, and fill to be applied to to 3D shapes too.
+			</p>
+
+			<div class="codeTask">
+				<p>
+				Which figure does the code below produce? A, B, C or D?
+				</p>
+
+				<pre class="brush: processing; gutter: false; toolbar: false; ">
+                void setup()
+                {
+                  size(600, 500, P3D);
+                }
+                void draw()
+                {
+                  background(0);
+                  noFill();
+                  stroke(255, 100, 100);
+                  translate(width/2, height/2, 0);
+                  sphere(200);
+                  noLoop();
+                }
+            </pre>
+				<table>
+					<tr>
+						<td><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/sphereA.png"
+								 width="150" height="125" alt="Sphere A"></td>
+						<td><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/sphereB.png"
+								 width="150" height="125" alt="Sphere B"></td>
+						<td><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/sphereC.png"
+								 width="150" height="125" alt="Sphere C"></td>
+						<td><img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/sphereD.png"
+								 width="150" height="125" alt="Sphere D"></td>
+					</tr>
+				</table>
+
+				<p>After making your guess, copy the code into <i>Processing</i> and run the sketch to see whether you were
+				correct.</p>
+				<p>What effect does setting the fill and stroke colours have on the sphere?</p>
+				<p>What happens when you set the fill colour to the same as the background?</p>
+			</div> <!-- End of task -->
+
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-30-cc annotation cc-right">
+			<!-- Right column -->
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/boxA.png', 300, 250, 'Simple cube of dimension 200');</script>
+			<p>
+				A simple box of dimensions 200<br/>(width=200, height=200, depth=200).
+			</p>
+
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/boxB.png', 300, 250, 'Simple box of dimensions (200,150,100)');</script>
+			<p>
+				A box of dimensions width=200, height=150, depth=100.
+			</p>
+		</div> <!-- end of right column -->
+		<div class="unit-70-cc">
+			<!-- Left column -->
+			<p>
+				Another built-in 3D shape is <code>box()</code>. If <code>box()</code> receives one parameter, it
+				draws a cube. If <code>box</code> received three parameters, a box with different width, height, and
+				depth is possible.
+			</p>
+
+			<table>
+				<tr>
+					<td align="center"><b>Cube</b></td>
+					<td align="center"><b>Box</b></td>
+				</tr>
+				<tr>
+					<td>
+                            <pre class="brush: processing; gutter: false; toolbar: false; ">
+translate(width/2, height/2, 0);
+rotateX(radians(-30));
+rotateY(radians(45));
+box(200);</pre>
+					</td>
+					<td>
+                            <pre class="brush: processing; gutter: false; toolbar: false; ">
+translate(width/2, height/2, 0);
+rotateX(radians(-30));
+rotateY(radians(45));
+box(200,150,100);</pre>
+					</td>
+				</tr>
+			</table>
+
+			<p>
+				You will notice that in both box images to the right we are viewing the box as if slightly from
+				above looking at one corner.</p>
+				<p>This is achieved by rotating the coordinate system 45 degrees around
+				the Y (vertical) axis and down 30 degrees around the X (horizontal) axis.</p>
+				<p>This produces an effect as
+				if we have moved an imaginary camera around the scene to point down at the box looking at one
+				corner.</p>
+				<p>To understand how to control this viewpoint, we need to understand a little more about
+				<i>transformations</i>.
+			</p>
+
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+
+			<h3>5. 3D Transformations</h3>
+			<p>
+				Being able to draw 3D shapes is great, but typically you will require a way of setting their
+				position, orientation, and size. This is done using <i>transformations</i>. In <i>Processing</i>, there are
+				three transformations (translation, rotation, and scaling) that are commonly used. To illustrate how
+				they can be applied, we will draw a hand object centred at the origin of the 3D coordinate system:
+				<br />
+				<img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/handOrigin.png"
+					 width="400" height="400" alt="Untransformed hand" />
+				<br />
+				The key to understanding how transformations work is to appreciate that they apply to the
+				<i>coordinate system</i> so that we do not have to explicitly change the values we use to position
+				shapes on the screen.
+			</p>
+
+			<ol>
+				<li><b>Translation</b> moves the origin of the coordinate system from one location to another. In
+					<i>Processing</i> this is achieved using the method <code>translate(x, y, z)</code>, where
+					<code>x</code>, <code>y</code>, and <code>z</code> are the amounts the origin should be moved
+					along the x, y, and z axes respectively.</p>
+					<p>For example, in the figure below, the origin (the starting point of our coordinate system),
+					has been shifted 200 units along the x-axis, effectively moving the hand 200 units right.
+					Importantly, note that it is still being drawn around the coordinate (0,0,0), but this new origin is now 200 units further right
+					than its original position shown as grey lines.
+					This origin shift can be achieved in <i>Processing</i> with the call <code>translate(200, 0, 0)</code>.
+					The two '0' values indicate we are not shifting in the Y or Z directions.
+					<br />
+					<img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/handTranslate.png"
+						 width="600"  alt="Translated hand" />
+					<br />
+					In a 3D <i>Processing</i> sketch, we often put <code>translate(width/2, height/2, 0);</code> as the
+					first transformation in a <code>draw()</code> method. This shifts the origin of the coordinate
+					system to the centre of the screen making it easier to position objects within the 3D
+					scene.
+					<br /><br />
+				</li>
+
+				<li><b>Rotation</b> rotates the coordinate system. <i>Processing</i> provides four methods to perform
+					rotation, based on the axis of rotation.
+					<ul>
+						<li><code>rotateX(angle)</code> will rotate an object around the x-axis, by an angle given
+							by <code>angle</code>.</li>
+						<li><code>rotateY(angle)</code> will rotate an object around the y-axis, by an angle given
+							by <code>angle</code>.</li>
+						<li><code>rotateZ(angle)</code> will rotate an object around the z-axis, by an angle given
+							by <code>angle</code>.</li>
+						<li><code>rotate(angle, x, y, z)</code> will rotate an object around an axis pointing in the
+							direction (x, y, z), by an angle given by <code>angle</code>.</li>
+					</ul>
+					<br />
+					Positive angles represent a clockwise rotation around the axis when viewing the positive axis
+					pointing towards you. For example, the following images rotate the coordinate system 40 degrees
+					about the X, the Y and the Z axes respectively.
+					<br />
+					<img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/handRotateX.png"
+						 width="400" height="250" alt="Rotation around the X axis" />
+					<br />
+					<img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/handRotateY.png"
+						 width="400" height="250" alt="Rotation around the Y axis" />
+					<br />
+					<img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/handRotateZ.png"
+						 width="400" height="250" alt="Rotation around the Z axis" />
+					<br />
+					To rotate in an anti-clockwise direction, you can provide a negative rotation angle. The
+					rotation angle is specified in <i>radians</i>, not degrees. Note that in <i>Processing</i>, you can
+					convert from degrees to radians using the <code>radians()</code> method. For example,
+					<code>rotateX(radians(-40));</code> would rotate the coordinate system 40 degrees anti-clockwise
+					around the X-axis.
+					<br /><br />
+				</li>
+
+				<li><b>Scaling</b> makes the coordinate system (and anything drawn in it) bigger or smaller. Scaling
+					is done relative to the origin. When doing 3D graphics, there are two ways you can call the
+					<code>scale()</code> method.
+					<ul>
+						<li>
+							<code>scale(s)</code> will apply a uniform scaling to the coordinate system based on
+							scaling factor <code>s</code>. A scaling factor of 1 does not change the size of
+							anything. A scaling factor of 2, for example, will make everything twice as long along
+							all axes (i.e. twice as wide, twice as tall and twice as deep, making the volume of any
+							object eight times the size of the original). A scaling factor of 0.5 will make it half
+							as big along all the axes.
+							<br />
+							<img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/handScaleA.png"
+								 width="400" height="250" alt="Scaling of 0.5 along all axes" />
+						</li>
+						<li>
+							<code>scale(sx, sy, sz)</code> will apply separate scaling factors along the x, y, and z
+							axes based on scaling factors <code>sx</code>, <code>sy</code>, and <code>sz</code>.
+						</li>
+						<br />
+						<img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/handScaleB.png"
+							 width="400" height="250" alt="Scaling of 0.5 along all axes" />
+					</ul>
+				</li>
+			</ol>
+
+
+			<div class="task">
+				Question: what kind of shape would you expect to see based on the following code?
+				<br /><br />
+				<pre class="brush: processing; gutter: false; toolbar: false; ">
+scale(0.5, 1, 0.5);
+sphere(100);</pre>
+			</div>
+
+			<br />
+			<div class="tip">
+				Just like <code>fill()</code> and <code>stroke()</code>, you should apply transformations
+				<i>before</i> rendering the object. For example,
+				<pre class="brush: processing; gutter: false; toolbar: false; ">
+           translate(100, 0, 0);
+           sphere(100);
+        </pre>
+				will translate the coordinate system and then render the sphere in the new coordinate space.
+				However,
+				<br /><br />
+				<pre class="brush: processing; gutter: false; toolbar: false; ">
+           sphere(100);
+           translate(100, 0, 0);
+        </pre>
+				is likely to be a coding error since the sphere is rendered before the call to
+				<code>translate</code> is made and therefore will not be affected by the change in coordinate space.
+			</div>
+			<br />
+			<div class="codeTask">
+				<h5>Animate a sphere</h5>
+				<p>
+				Copy the code below into a <i>Processing</i> sketch and run it.<br/>
+				You should see a red sphere rendered to the centre of the window.
+				</p>
+				
+				<p>Now make some changes!<br/>
+					<b>Before</b> the call to <code>sphere()</code>, make a call to
+				<code>rotateY()</code>.<br/> Base the rotation angle on the x-position of the mouse, i.e.
+				<code>mouseX</code>.<br/>
+				You may wish to convert <code>mouseX</code> to radians.
+				</p>
+				<pre class="brush: processing; gutter: false; toolbar: false; ">
+void setup()
+{
+  size(640, 480, P3D);
+}
+
+void draw()
+{
+  translate(width/2, height/2, 0);
+  background(0);
+  fill(255, 0, 0);
+  sphere(100);
+}</pre>
+				Try rotating about a different axis, like the x or z axis. You could also try scaling the sphere.
+			</div>
+
+			<p>
+				Note: Any transformations are cleared each time <code>draw()</code> is called. This means that
+				although <i>Processing</i> may be calling <code>draw()</code> 60 times every second, the same set of
+				transformations will be applied to the original coordinate system each time.
+				Essentially the coordinate system is re-set at the top of each call to <code>draw()</code>.
+			</p>
+<!-- 
+			<div class="challenge">
+				Create a sketch that rotates a sphere automatically without having to move the mouse.
+			</div>
+ -->
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+			<h3>6. Composite Transformations</h3>
+			<p>
+				Calls to <code>rotate()</code>, <code>translate()</code>, and <code>scale()</code> can be combined
+				to form a <i>composite</i> transformation. When doing composite transformations, care must be taken,
+				as in most cases <b>order matters</b>. For example, rotation, followed by translation, will give a
+				different result than translation followed by rotation.
+				<br /><br />
+				<img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/compositeA.png"
+					 width="650" height="275" alt="Translation followed by rotation" />
+
+				<br /><br />
+				<img src="https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/compositeB.png"
+					 width="650" height="275" alt="Rotation followed by translation" />
+			</p>
+			<p>
+			If you want an object to rotate about <b>its centre</b>, call the transformations in this order:</p>
+			<ul>
+				<li><code>translate</code> origin to centre of object, <b>then</b></li>
+				<li><code>rotate</code> object, <b>then</b> if you need to, </li>
+				<li><code>scale</code></li>
+			</ul>
+		</div>
+	</div>
+	<div class="units-row">
+		<div class="unit-30-cc annotation cc-right">
+			<!-- Right column -->
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/rotatingEllipsoid.png', 320, 240, 'Rotating ellipsoid');</script>
+			<p>
+				Rotating ellipsoid created by<br/>translating to the right,<br/> rotating and then scaling the Y-axis.
+			</p>
+		</div> <!-- end of right column -->
+		<div class="unit-70-cc">
+			<p>
+				If instead you want an object to rotate about the <b>origin</b>, call the transformations in this order:</p>
+				<ul>
+					<li><code>rotate</code> object, <b>then</b> if you need to,</li>
+					<li><code>translate</code>, <b>then</b> if you need to,</li>
+					<li><code>scale</code></li>
+				</ul>
+				<p>
+				For example, the following code will produce an ellipsoid, rotating about its centre but shifted to
+				the right.
+			</p>
+			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+			<pre class="brush: processing; gutter: false; toolbar: false; ">
+float angle;
+
+void setup()
+{
+  size(640, 480, P3D);
+}
+
+void draw()
+{
+  background(252,239,232);
+  noFill();
+  stroke(147,86,55);
+  translate(width/2, height/2, 0);  // Centre the view.
+
+  // Transform the coordinate space.
+  translate(150, 0, 0);     // Shift it right
+  rotateY(radians(angle));  // Rotate about its centre
+  scale(1, 2, 1);           // Stretch it on along the y-axis
+
+  sphere(100);              // Now draw after transformations.
+
+  angle = angle + 1;        // Increase angle by 1 degree on every redraw.
+}</pre>
+			<div class="codeTask">
+				<p>
+				Can you predict the effect of swapping the order of the lines <code>translate(150, 0, 0);</code> and
+				<code>rotateY(radians(angle));</code> in the example above?
+				</p>
+				<p>
+				Try editing the code to see whether you are correct.
+				</p>
+			</div>
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+			<h3>7. Pushing and Popping</h3>
+			<p>
+				Every time you do a rotation, translation, or scaling, the information required to do the
+				transformation is composited into a single table of numbers. This table, or <i>matrix</i>, has only
+				a few rows and columns, yet contains all the information needed to do any series of transformations.
+				The matrix is applied to the coordinate space before rendering objects.
+			</p>
+
+
+		</div>
+	</div>
+	<div class="units-row">
+		<div class="unit-30-cc annotation cc-right">
+			<!-- Right column -->
+			<script>loadImage('https://www.staff.city.ac.uk/~jwo/bootcamp2018/lecture12ThreeDee/images/rotatingEllipsoids.png', 320, 240, 'Rotating ellipsoid');</script>
+			<p>
+				Two rotating ellipsoids each<br/>with their own transformations.
+			</p>
+		</div> <!-- end of right column -->
+		<div class="unit-70-cc">
+			<p>
+				If you're rending multiple 3D objects, it is common that you may wish to apply different
+				transformations before rendering each of them. To do this efficiently, it is often useful to
+				<i>push</i> and <i>pop</i> the transformation to and from a <i>stack</i>.
+			</p>
+			<ul>
+				<li><code>pushMatrix()</code> saves the current transformation.</li>
+				<li><code>popMatrix()</code> restores the previously saved transformation.</li>
+			</ul>
+			<p>
+				To see how pushing and popping transformations can be used to transform two different objects,
+				consider the following example that renders two spinning ellipsoids, each translated to different
+				parts of the screen.
+			</p>
+			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<pre class="brush: processing; gutter: false; toolbar: false; highlight:[16,21,24,29]">
+float angle;
+
+void setup()
+{
+  size(640, 480, P3D);
+}
+
+void draw()
+{
+  background(252,239,232);
+  noFill();
+  stroke(147,86,55);
+  translate(width/2, height/2, 0);  // Centre the view.
+
+  // Transform the first sphere to the right.
+  pushMatrix();                // Store the current transformation settings.
+    translate(150, 0, 0);      // Shift it right
+    rotateY(radians(angle));  // Rotate about its centre
+    scale(1, 2, 1);            // Stretch it on along the y-axis
+    sphere(100);               // Draw the first sphere.
+  popMatrix();                 // Restore the previous transformation settings.
+
+  // Transform the second sphere to the left.
+  pushMatrix();                // Store the current transformation settings.
+    translate(-130, 0, 0);     // Shift it left
+    rotateX(radians(angle));  // Rotate vertically about its centre
+    scale(1, 2, 1);            // Stretch it on along the y-axis
+    sphere(100);               // Draw the second sphere.
+  popMatrix();                 // Restore the previous transformation settings.
+
+  angle = angle + 1;           // Increase angle by 1 degree on every redraw.
+}</pre>
+
+			<div class="codeTask">
+				<p>
+				What do you think would happen if you remove all the <code>pushMatrix()</code> and
+				<code>popMatrix()</code> calls?
+				</p>
+				<p>
+				Try copying the code above into a sketch and running it both with
+				and without the pushing and popping to see if you are correct.
+				</p>
+			</div>
+
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+			<h3>8. Summary and Further Resources</h3>
+			<ul>
+				<li>You can program 3D computer graphics in <i>Processing</i> using the <code>P3D</code> renderer. 3D
+					graphics includes another dimension <code>z</code> representing depth.</li>
+				<li>The <code>P3D</code>renderer uses OpenGL for accelerated graphics.</li>
+				<li>There are many ways to make 3D shapes, including using built-in shapes like <code>box</code> or
+					<code>sphere</code> and making your own custom shapes with vertices.
+				</li>
+				<li>3D transformations are commonly used to translate, rotate, and/or scale an object in 3D space.
+				</li>
+				<li>Advanced effects like lighting and texture mapping are supported in <i>Processing</i>, and can be used
+					to create interesting effects and applications.<br/>
+					These are introduced on the  <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=968080">3D Graphics : Extra</a> page.</li>
+				<li>The <i>Processing</i> website also has a very good tutorial on 3D graphics: <a
+						href="https://processing.org/tutorials/p3d/" target="_blank">
+					https://processing.org/tutorials/p3d/</a> - it's well worth spending time here if you are going 3D!</li>
+			</ul>
+
+			<div class="challenge">
+				<h5>Additional 3D Graphics Capabilities and Possibilities</h5>
+				<p>
+				<i>Processing</i> has impressive additional capabilities for 3D graphics that enable you to create interesting, expressive graphics.   
+				</p>
+				<p>
+				If you have enjoyed the basics, do check the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=968080">3D Graphics : Extra</a> page to learn more, including:
+				</p>
+				<ul>
+					<li>more complex and composite shapes</li>
+					<li>loading shape data</li>
+					<li>lighting effects</li>
+					<li>shading</li>
+					<li>texture mapping</li>
+				</ul>
+			</div>
+
+		</div> <!-- End of left column -->
+	</div> <!-- End of row -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<h3>9. Check on Progress</h3>
+
+		<p>
+		To ensure that you have achieved the outcomes associated with this session, consider the following, which
+		allow you to evaluate your progress.
+		</p>
+
+		<div class="checkOutcomes">
+			<input type="checkbox" id="sa1" style="padding:2em"> <label for="sa1">Can I draw simple 3D shapes such as spheres and
+				boxes?</label><br />
+			<input type="checkbox" id="sa2" style="padding:2em"> <label for="sa2">Do I understand how to program transformations to
+				rotate, translate, and scale objects?</label><br />
+			<input type="checkbox" id="sa3" style="padding:2em"> <label for="sa3">Can I change the visual appearance of 3D shapes such
+				as their fill colour and enable shading by turning on the lights?</label><br />
+			<input type="checkbox" id="sa4" style="padding:2em"> <label for="sa4">Can I create a simple 3D sketch that responds to mouse movement?</label><br />
+		</div> <!-- End of checkOutcomes -->
+
+	</div> <!-- End of left column -->
+</div> <!-- End of row -->
+
+
+        <!--- spacer for iFrame -->
+        <p style="padding-top:1em"><hr/></p>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Footer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+</div> <!-- End of page div -->
+<script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>
