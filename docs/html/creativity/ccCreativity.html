@@ -38,7 +38,7 @@
     <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
     <style>
         .dearDataLo {margin-left:10%; padding:1em; padding-left:2%; font-size:100%; color:#999;border-left:1px solid #9998;background-color:#9991; width:80%}
-        .dearData {margin-left:10%;  padding:1em; padding-left:2%; font-size:100%; color:#944; border-left:1px solid #9448; background-color:#9441; width:80%}
+        .dearData   {margin-left:10%;  padding:1em; padding-left:2%; font-size:100%; color:#804040; border-left:1px solid #b448; background-color:#ffffe0; width:80%}
     </style>
 </head>
 
@@ -50,11 +50,11 @@
 
         <div class="intro">
 
-            <p>This page provides details of the <i>Dear Data 100</i> activity that you have been asked to work on and summarises some of what was / will be discussed in the final lecture on 'Creativity'.
+            <p>This page provides details of the <i>Dear Data 100</i> activity that you have been asked to work on and summarises some of what was / will be discussed in the session on 'Creativity'.
             </p>
             <p>
-                It is not a complete record of all that was / will be discussed in a somewhat unstructured lecture in which little new content featured.
-                The lecture was / will be a summary, a send-off and an attempt to inspire. 
+                It is not a complete record of all that was / will be discussed in a somewhat unstructured lecture that features little new content.
+                <!-- The lecture was / will be a summary, a send-off and an attempt to inspire.  -->
             </p>
 
         </div>
@@ -66,7 +66,7 @@
 
         <!-- Traffic Lights : Paper -->
 
-        <h3>1. Dear Data Sketch</h3>
+        <h3>1. Dear Data 100 - a Demo Sketch</h3>
 
 <!-- 
         <div class="unit-30-cc annotation cc-right">
@@ -89,6 +89,7 @@
             through at least 100 observations
         </div>
 
+        
         <p>We hope that you will do this ...</p>
         <div class="dearData">
             in creative &amp; expressive ways <br/>
@@ -102,18 +103,24 @@
 
         <p>Maybe just a little!</p>
         
-        <p>Those are the key requirements, it's as simple as that!<br/>But additionally ...<br/>
-            We would like the sketch to be  ...</p>
+        <p>Those are the key requirements, it's as simple as that!
+            <br/>Be as whacky and crazy, or as solemn and staid as you like - just express yourself in ways that make sense to you.
+            Do something useful for and interesting to you.
+            <br/>But ... we would like the sketch to be  ...</p>
         <div class="dearDataLo" class="lowlight">
             inspired by the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=967983">Dear Data Project</a>.
         </div>
 
-        <p>It should give you ideas, contribute to your creative thinking, energise you, not constrain you.</p>
+        <p><i>Dear Data</i> should give you ideas about the diverse ways in which we can represent data with graphics, and about the kinds of data you can collect.
+            We hope that you will study it and use it to contribute to your creative thinking. Use <i>Dear Data</i> to energise you, not constrain you.
+            Look at how varied Giorgia &amp; Stefanie were about their approach to data and data visualization.</p>
 
-        <p>We would like to see you using the coding constructs and capabilities that we have introduced, including  ...</p>
+        <p>We would like to see you using the coding constructs and capabilities that we have introduced in <code>#CreativeCoding</code>, including  ...</p>
             <div class="dearDataLo" class="lowlight">
                 <i>Methods</i>, <i>Classes (and Objects)</i>, <i>Interaction</i>, and perhaps <i>Sound and / or Video</i> 
         </div>
+
+        <p>So use the demo to practice developing a simple sketch that incorporates these ideas - allowing you to learn about and use these concepts.</p>
 
         <p>We also encourage you to  ...</p>
         <div class="dearDataLo" class="lowlight">
@@ -124,20 +131,20 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;don't worry about anything;<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;take this wherever you want it to go;<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;have fun;<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;not go crazy<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;not go crazy <sup>*</sup><br/>
         </div>
 
-        <p>
-            <i style="font-size:80%; color:#666;">(by which we mean - put a reasonable amount of work into this, and make sure that other commitments, sleep, nutrition, relationships, exercise, keeping up with The Great British Bake-Off as it reaches its unimaginably tense and pulsatingly exciting denouement, are not compromised)</i>;
+        <p style="padding-left:12rem; padding-right:4rem">
+            <i style="font-size:80%; color:#666;">* by which we mean - put a reasonable amount of work into this, and make sure that other commitments, sleep, nutrition, relationships, exercise, keeping up with The Great British Bake-Off as it reaches its unimaginably tense and pulsatingly exciting denouement, are not compromised</i>;
         </p>
 
         <p>That's it - <b>see what you can do</b>.</p>
 
         <hr class="hrInvisible"/>
 
-        <h3>2. Data Depiction and Generative Design</h3>
+        <h3>2. Creative Data Depiction and Generative Design</h3>
 
-        <p>I want to think a little about creativity, generative art and data depiction in today's lecture.</p>
+        <p>I want to think a little about <i>creativity</i>, <i>generative art</i> and <i>data depiction</i> to bring things together a little.</p>
         <p>For now - here is some code to try out:</p>
         <pre class="brush: processing; gutter: false; toolbar: false; highlight:[1,2]">
             // -- Generative Design Grid
@@ -207,17 +214,37 @@
             </figure>
             <p>
                 I'd like you to think about the <i>information carrying capacity</i> of these graphics.<br/>
-                They all have similar structure, and are generated by the same algorithm.<br/>And yet they vary in many ways, and might vary in others - such as
+                How can we represent numbers in this graphic form?<br/>
+                All of the graphics have similar structure, and are generated by the same algorithm.<br/>
+                And yet they vary in many ways, and might vary in others - such as
                 where they are positioned, their colour, their size, the line pattern (dashed, dotted, etc.)</p>
             <div class="coreTask">
             <h5>Patterns and Data Depiction</h5>
-            <p>If you captured this kind of pattern in a <code>class</code>, say a <code>RotatingGrid</code>, how many fields do you think you could add to the class that might then be used for data depiction, to visually differentiate different instances (objects) of the class?</p>
+            <p>If you captured (coded) this kind of pattern in a <code>class</code>, say a <code>RotatingGrid</code>, how many fields do you think you could add to the class that might then be used for data depiction, to visually differentiate different instances (objects) of the class?</p>
 
+            <p>Then think about other visual forms that you might be able to vary interestingly to represent information - some that you have seen, some that you have not:</p>
+            <ul><li>Dogs, Elephants, Flowers, Letters, Cars, Coffee Cups, Stars, Bananas, Rectangles, Leaves, Robots, PImages, Croissants, Lines, Underground Signs, Faces, Jumpers?</li>
+            <li>Funny little spidery monsters?</li>
+            </ul>
         </div>
+
+
+            <figure>
+				<table style="width: 90%; margin: 0 auto; border-collapse: collapse; text-align: center;">
+					<tr>  
+                      <td style="width: 90%; height: 100px;"><a href="https://unsplash.com/photos/white-and-gray-illustration-73LVfWy-t0A"><img src="./img/cc.spideryMonsters.png" alt="1-1" style="width: 100%; height: auto;"></a></td>
+					</tr>
+				  </table>
+				  <figcaption>     
+					<p>Funny little spidery monsters that I came across on <a href="https://unsplash.com">Unsplash</a>, with different visual characteristics. How do they vary?<br/>
+                    Credit: <a href="https://unsplash.com/@ninjason">Jason Leung</a>, Source : <a href="https://unsplash.com/photos/white-and-gray-illustration-73LVfWy-t0A">Unsplash</a><br/>
+                    Published on March 24, 2018; Canon, EOS 80D; Free to use under the <a href="https://unsplash.com/license">Unsplash License</a>.</p>
+                </figcaption>
+            </figure>
 
         <hr class="hrInvisible"/>
 
-        <h3>3. (Dear Data Diary) Design Process ...</h3>
+        <h3>3. Creative (Dear Data 100) Design Process ...</h3>
 
         <p>I want to say something about <i>Design Process</i> and the way that we hope and expect you to use your data and ideas in the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=967984"><i>Dear Data 100</i></a> demo.</p>
         <p>Remember that in <i>Dear Data</i>, Giorgia Lupi and Stefanie Posavec see data as an informative inspiring starting point for play and expression that helps us (you) engage with the world ...</p>
@@ -232,10 +259,12 @@
                 </figure>
             <!-- </div> -->
 
-            <p>So we want you to be experimental, play with data and your <i>Processing</i> skills and knowledge to experiment.
+            <p>So we want you to be experimental, play with data and your <i>Processing</i> skills and knowledge to learn and figure out what works and what doesn't.
                 Be inspired by what you see in the various examples that you have engaged with, in the module and elsewhere, to try things out.
-                Sketch in your <i>Notes &amp; Sketches</i> books, and play with the code to see what happens as you try to depict dat in interesting ways.</p>
-            <p>In the <a href="https://moodle4.city.ac.uk/mod/url/view.php?id=836206">Creativity : Lecture</a> I introduce Damien Newman's <i>Design Squiggle</i> in an unmissable segment from <code>13:50 - 16:30</code>. </p>
+                Sketch in your <i>Notes &amp; Sketches</i> books, and play with the code to see what happens as you try to depict data in different ways - and work out which are interesting.
+            </p>
+            <p>Damien Newman's <i>Design Squiggle</i> in often used to capture the directed chaos of iterative design, and we would like you to design and develop your <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=967984">Dear Data 100</a> demo sketches. Embrace the experimental - see what happens. Let the design process lead you to something that feels interesting.
+            </p>
 
         <!-- 13:50 - 16:30 https://moodle4.city.ac.uk/mod/url/view.php?id=836206 -->
 
@@ -251,16 +280,16 @@
                         </figcaption>
                     </figure>
         
-                <p>This is intended to capture the chaos and refinement of the design process when your ultimate output is unknown - exactly what we are doing here in <i>Dear Data</i> sketching.</p>
+                <p>The <i>Design Squiggle</i> is intended to capture the chaos and refinement of the design process when your ultimate output is unknown - exactly what we are doing here in <i>Dear Data</i> sketching.</p>
                 <p>Newman talks about moving from <i>Uncertainty</i> at the start of the process (left) to <i>Clarity &amp; Focus</i> at the end (right), but the path is by no means smooth (squiggle)!</p>
                 <p>He uses the terms <i>Abstract</i> -> <i>Concept</i> -> <i>Design</i> to capture the process as we move (chaotically, unexpectedly, non-linearly) from left to right.</p>
-                <p>As I consider all of this to be '<i>design</i>' (verb) ... that results in a '<i>design</i>' (noun), I prefer to use the terms <i>Brainstorming</i> -> <i>Refining</i> -> <i>Finishing</i> to describe ways that the design process might follow the squiggle to generate an interesting design, rather than <i>Abstract</i> -> <i>Concept</i> -> <i>Design</i>.
-                And in your <i>Dear Data 100</i> sketch you may only get as far as the brainstorming and produce a part-sketch that is incomplete and best used as the basis for better ideas.
+                <p>As I consider all of this to be '<i>design</i>' (verb) process ... that results in a '<i>design</i>' (noun) artefacts, I prefer to use the terms <i>Brainstorming</i> -> <i>Refining</i> -> <i>Finishing</i> to describe ways that the design process might follow the squiggle to generate an interesting design, rather than <i>Abstract</i> -> <i>Concept</i> -> <i>Design</i>.
+                And in your <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=967984">Dear Data 100</a> demo sketch you may only get as far as the brainstorming and produce a part-sketch that is incomplete and best used as the basis for better ideas.
                 That's OK! That's progress! That's learning!</p>
 
                 <p>You may have noticed above that I used the phrase: <i>when your ultimate output is unknown</i>.<br/>
                 This is an important part of this task and the <code>#CreativeCoding</code> activity.
-                We said at the outset that we are trying to promote and give you experience of a means of learning and a form of activity that may not be typical of your experience at school. We are not providing model answers. We are presenting the notion that each student has a perfectly viable different good answer that meets the needs of the activity. We know that you are good at producing a solution when given an example and that you have been trained to do this. Here we are giving you material, skills, knowledge, instructions, a vague specification and the space to do something that brings these things together into a unique solution that you have designed. So, there is no model answer, there are just answers, and many of them. This kind of creative problem solving is a useful capability to have and is much in demand.</p>
+                We said at the outset that we are trying to promote and give you experience of a means of learning and a form of activity that may not be typical of your experience at school. We are not providing model answers. We are presenting the notion that each student has a perfectly viable different good answer that meets the needs of the activity. We know that you are good at producing a solution when given an example and that you have been trained to do this. Here we are giving you material, skills, knowledge, instructions, a vague specification and the space to do something that brings these things together into a unique solution that you have designed. So, there is no model answer, there are just answers, and many of them. We expect (and indeed hope for) all sorts of diverse submissions that are only constrained by your imagination. This kind of creative problem solving is a useful capability to have and is much in demand.</p>
 
                 <figure>
                     <table style="width: 100%; margin: 0 auto; border-collapse: collapse; text-align: center;">
@@ -270,17 +299,20 @@
                         </tr> 
                     </table>
                     <figcaption>
-                        Alternative ways of specifying a solution: top down, with a target (left); bottom up, with some guidelines (right).
+                        Alternative ways of specifying a solution: top down, with a target and model solution (left); bottom up, with some guidelines and ideas that develop from them(right).
                     </figcaption>
                 </figure>
 
                 <p>These sketches try to show how this works diagrammatically, building a little on <i>The Design Squiggle</i> but moving from bottom to top instead of left to right, and there is a reason for this!</p>
-                <p>On the left we see a 'Model Answer' approach. We provide a solution, at the top, and ask you to achieve it. The boxes at the bottom are students, efforts. The arrows show progress. What we find, unsurprisingly, when we use this model, is that most students converge to the same model answer. We find that this happens even if we have an open task, and even if we suggest some solutions through which it might be achieved. Most students will, perhaps understandably, converge to a piece of work that is very heavily based upon one of the examples.</p>
-                <p>On the right we see the 'Idea Specification' approach. This is the one where we tell you what we want (see Section 1 above) at the outset, equip you with the skills and experience and capability to work on it (see <code>#CreativeCoding</code> activity) and ask you to come up with something that fits. People (the boxes at the bottom once again) make progress towards a unique solution (something at the top of the page) in a non-linear way and might end up somewhere unexpected. There is less convergence, and more likelihood of different, new and creative outputs. We see alternative emphases, preferences and approaches that address the task in different ways. 
+                <p>On the left we see a 'Model Answer' approach. We provide a solution, at the top, and ask you to achieve it. The boxes at the bottom are students, efforts. The arrows show progress. What we find, unsurprisingly, when we use this model, is that most students _converge_ to the same model answer. We find that this happens even if we have an open task, and even if we suggest some solutions through which it might be achieved. Most students will, perhaps understandably, converge to a piece of work that is very heavily based upon one of the examples. There is safety in this and when marks and progression and your degree are at stake - well, safety first is understandable. But a few of us have noticed that this limits creativity, the kind of creativity that employers seek.</p>
 
-                This approach has its costs and challenges.
-                Some people may get a little lost, and the solutions that are produced are varied in terms of complexity, focus, approach, satisfaction, success and pretty much any other criteria we might think of. We end up with a diverse set of outputs. Now this activity is about creativity so we expect you to be creative and help you with some ideas and processes to support this - see the <a href="https://moodle4.city.ac.uk/mod/url/view.php?id=836206">Creativity : Lecture</a> in which I explain and use (re-interpret and modify) the SCAMPER from <code>08:00 - 13:50</code>.</p>
-                <p>Now, we understand that this bottom up approach, in which we specify what we are looking for without the comfort of a known target against which to check your efforts, is hard, and risky and there is no guarantee that you will get anywhere at all. This is why <code>#CreativeCoding</code> is voluntary, not graded, bears no credit and as such offers a risk-free space in which to try this approach, an approach in which you produce something original that is specific to you. We think it's important. We are making it safe. While the activity is <i>pointless</i> in terms of grades, we think that it's far from <i>worthless</i> in terms of experience, learning and opportunity. And there are some tangible rewards too: <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=817952">What's the Point?</a></p>
+                <p>On the right we see the 'Idea Specification' approach. This is the one where we tell you what we want (see Section 1 above) at the outset, equip you with the skills and experience and capability to work on it (see <code>#CreativeCoding</code> activity) and ask you to come up with something that fits. People (the boxes at the bottom once again) make progress in their own way and at their own pace towards a <i>unique solution</i> (something at the top of the page) in a non-linear way and might end up somewhere unexpected. There is less convergence, and more likelihood of different, new and creative outputs. We see alternative emphases, preferences and approaches that address the task in different ways. We see the kind of diversity that is so important to progress.
+
+                This 'Idea Specification' approach has its costs and challenges.
+                Some people may get a little lost, and the solutions that are produced are varied in terms of complexity, focus, approach, satisfaction, success and pretty much any other criteria we might think of. We end up with a diverse set of outputs. Now this activity is about creativity so we expect you to be creative and help you with some ideas and processes to support this.
+                <!-- - see the <a href="https://moodle4.city.ac.uk/mod/url/view.php?id=836206">Creativity : Lecture</a> in which I explain and use (re-interpret and modify) the SCAMPER from <code>08:00 - 13:50</code>. -->
+                </p>
+                <p>Now, we understand that this bottom up approach, in which we specify what we are looking for and ask you to work without the comfort of a known target against which to check your efforts, is hard, and risky and there is no guarantee that you will get anywhere at all. This is why <code>#CreativeCoding</code> is voluntary, not graded, bears no credit and as such offers a risk-free space in which to try this approach, an approach in which you produce something original that is specific to you. We think it's important. We are making it safe. While the activity is <i>pointless</i> in terms of grades, we think that it's far from <i>worthless</i> in terms of experience, learning and opportunity. And there are some tangible rewards too: <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=967976">What's the Point?</a></p>
 
                 <p>Or maybe it's not that hard?<br/>
                 See (and read and consider and discuss) <a href="https://rl.talis.com/3/city/items/4551ab37-962c-400e-aba3-5053d168fd75.html">Dear Data - To DRAW is to REMEMBER</a>, which is flagged as <i>Essential Reading</i> on the <a href="https://rl.talis.com/3/city/lists/C2D88FE1-918A-7FAF-AB7A-A2E0EC9BB741.html">Reading List</a>.</p>
@@ -289,15 +321,19 @@
 
         <!-- Data Dogs -->
 
-        <h3>4. Data Dogs</h3>
+        <h3>4. Dear Data Dogs</h3>
 
         <p>Having said all of that we understand the need to demonstrate some of the ways in which the things you are learning can be put together to begin to address the task in hand. One of the important concepts that we want you to consider and use is the <code>class</code> capability in <i>Processing</i>.
         Classes enable  us to define and instantiate <i>objects</i> that hold and depict data about particular phenomena - such as the ones that you are recording data about.<br/>
-        We provide a simple example of how this might be achieved in the progressively sophisticated <i>Robot</i> classes presented in <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=811315">Objects : Robots</a>.
+        We provide a simple example of how this might be achieved in the progressively sophisticated <i>Robot</i> classes presented in <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=968054">Objects : Robots</a>.<br/>
         But you could create any kind of objects to capture and display your data.</p>
 
-        <p>Here's another one that you will remember from the <a href="https://moodle4.city.ac.uk/mod/url/view.php?id=836206">Creativity : Lecture</a>.
-            I spent 5 minutes (<code>24:54 - 30:00</code>) presenting some code that captures data in a <i>class</i> and uses <i>objects</i> that contain drawing <i>methods</i> to depict data in interesting and original ways. The code is based upon a modification of <a href="https://www.dear-data.com/by-week/#/week-34-a-week-of-urban-wildlife/">Week 34 : A week of urban wildlife</a>: <i>Data Dogs</i>!
+        <p>Here's another example.
+            <!-- one that you will remember from the <a href="https://moodle4.city.ac.uk/mod/url/view.php?id=836206">Creativity : Lecture</a>.
+            I spent 5 minutes (<code>24:54 - 30:00</code>) presenting -->
+            It's some code that captures data in a <i>class</i> and uses <i>objects</i> that contain drawing <i>methods</i> to depict data in (what I might claim to be) interesting and original ways. Well, they were original when Giorgia Lupi sketched them on the front of a postcard, and I have decided to <i>modify</i> them a little for the digital context.
+
+            The code is based the <a href="https://www.dear-data.com/by-week/#/week-34-a-week-of-urban-wildlife/">Week 34 : A week of urban wildlife</a>: and specifies a class of <i>Data Dogs</i> from which we can generate varies instances (objects).
         </p>
 
             <figure>
@@ -314,10 +350,11 @@
                 </figcaption>
             </figure>
 
-        <p>You can watch the <a href="https://moodle4.city.ac.uk/mod/url/view.php?id=836206">Creativity : Lecture</a> (<code>24:54 - 30:00</code>) to see how this all works, but basically...</p>
+        <!-- <p>You can watch the <a href="https://moodle4.city.ac.uk/mod/url/view.php?id=836206">Creativity : Lecture</a> (<code>24:54 - 30:00</code>) to see how this all works, but basically...</p> -->
 
 
-        <p>I have a tab containing the globals, setup() and draw().</p>
+        <p>In short, the sketch has <i>five tabs</i>, and you can download (copy and paste) the context of each tab in turn below to recreate the sketch.</p>
+        <p>The first a tab containing the globals, <code>setup()</code> and <code>draw()</code>.</p>
             &nbsp;&nbsp;&raquo;&nbsp;&nbsp;Code : <code>dataDogs.pde</code>&nbsp;&nbsp;<span><a href="#" class="link-show-code">Show code</a></span>
             <div class="prettyprint" style="display: none;">
                 <pre class="brush: processing; gutter: false; toolbar: false; highlight: [1,2]">
@@ -378,7 +415,7 @@ void draw() {
     }
 }</pre></div>
 
-            <p>A second tab contains the Dog class, with fields, a constructor and methods to draw() (canvas) and print() (console) characteristics of the object.</p>
+            <p>A second tab contains the Dog class, with fields, a constructor and methods to <code>draw()</code> (canvas) and <code>print()</code> (console) characteristics of the object.</p>
             &nbsp;&nbsp;&raquo;&nbsp;&nbsp;Code : <code>Dog</code>&nbsp;&nbsp;<span><a href="#" class="link-show-code">Show code</a></span>
             <div class="prettyprint" style="display: none;">
                 <pre class="brush: processing; gutter: false; toolbar: false; highlight: [1,2]">// -- Dog class to show data - inspired by Giorgia Lupi (week 34):
@@ -543,7 +580,7 @@ class Dog {
     }
 }</pre></div>
 
-            <p>I have an 'interaction' tab in which I define reactions to events - just keyPressed() in this case.</p>
+            <p>I have an 'interaction' tab in which I define reactions to events - just <code>keyPressed()</code> in this case.</p>
             &nbsp;&nbsp;&raquo;&nbsp;&nbsp;Code : <code>interaction</code>&nbsp;&nbsp;<span><a href="#" class="link-show-code">Show code</a></span>
             <div class="prettyprint" style="display: none;">
                 <pre class="brush: processing; gutter: false; toolbar: false; highlight: [2]">
@@ -615,7 +652,7 @@ void keyPressed() {
     }
 }</pre></div>
 
-            <p>I put code that I have acquired from existing sources in a tab with the named author - 'Kornel Kisielewicz' in this case - to make it absolutely clear of that this is not original code and to make it easy toi find and confirm the original source.</p>
+            <p>I put code that I have acquired from existing sources in a tab with the named author - '<i>Kornel Kisielewicz</i>' in this case - to make it absolutely clear of that this is not original code and to make it easy to find and confirm the original source.</p>
             &nbsp;&nbsp;&raquo;&nbsp;&nbsp;Code : <code>kornel kisielewicz</code>&nbsp;&nbsp;<span><a href="#" class="link-show-code">Show code</a></span>
             <div class="prettyprint" style="display: none;">
                 <pre class="brush: processing; gutter: false; toolbar: false; highlight: [1,2,4,5]">// -- Triangle Code from Kornel Kisielewicz
@@ -692,8 +729,8 @@ void showLicenses() {
             <p>However, I have not provided the sound files, so you'll need to get some wild sounds of howling and barking, or use the example sounds that we provided in the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=781805">Processing Sound Test</a> to hear anything.</p>
         
             <p>Here are the names, URLs and licenses of the files I used should you want to get hold of them.<br/>
-            This file needs to go in the 'data' folder to make the sketch work.<br/>
-            To be honest, I suggest you have fun finding some other sounds instead : <i>MODIFY</i>!</p>
+            This file needs to go in the 'data' folder to make the sketch work.</p>
+
             &nbsp;&nbsp;&raquo;&nbsp;&nbsp;Code : <code>./data/dogSoundLicenses.txt</code>&nbsp;&nbsp;<span><a href="#" class="link-show-code">Show code</a></span>
             <div class="prettyprint" style="display: none;">
                 <pre class="brush: processing; gutter: false; toolbar: false; highlight: [18]">Dog barking, 15m distance by AtoMediaDesign|https://freesound.org/s/649020/|License: Attribution 4.0
@@ -710,10 +747,36 @@ dog_barking.wav by praesius|https://freesound.org/s/107190/|License: Attribution
 Midsized Dog Bark 01 by noctaro|https://freesound.org/s/242402/|License: Attribution 4.0</pre>
             </div>
 
-            <p>Hopefully this gives you some ideas, you may want to try to get it working, but the main intent here it to show you that we can combine programming concepts and data in ways that are inspired by, but differentiable from, existing efforts, to produce something interesting and original: <i>Combine</i>, <i>Adapt</i>, <i>Substitute</i>.</p>
+            <p>
+                And you will need to accurately list all of the sound files in the <code>soundFiles</code> global variable too:
+            </p>
+
+                            <pre class="brush: processing; gutter: false; toolbar: false; highlight: [8]">
+// -- Dog sketch to show data - inspired by Giorgia Lupi (week 34):
+// -- https://www.dear-data.com/by-week/#/week-34-a-week-of-urban-wildlife/
+ 
+// -- We will need the Processing sound libraries - see 'Media : Core' notes on Moodle
+import processing.sound.*;   
+ 
+// -- Let's keep the sound file names in an array of Strings : should auto detect them in the future: 
+String [] soundFiles = {"mixkit-dog-barking-twice-1.wav", "mixkit-happy-puppy-barks-741.wav", "mixkit-medium-size-angry-dog-bark-54.wav", "277058__kwahmah_02__single-dog-bark.wav", "372524__glitchedtones__dog-shih-tzu-bark-single-01.wav", "420449__mrthenoronha__barking-2.wav", "502655__joviansounds__single-dog-bark-king-charles-spaniel.wav", "699822__8bitmyketison__dog-bark.wav", "368009__trngle__meow-1.wav", "242402__noctaro__midsized-dog-bark-01.wav"};
+
+// etc ...
+</pre>
+
+            <p>
+            To be honest, I suggest you have fun finding some other sounds instead - perhaps on <a href="https://mixkit.co/free-sound-effects/dog/">MixKit</a> or another sound archive that has samples available with rights that suit your intended use: <i>MODIFY</i>!<br/>
+            And update <code>soundFiles</code> when you do so!</p>
+
+            <p>Hopefully this gives you some ideas, and you may want to try to get the sketch working. 
+                However, the main intent here it to show you that we can combine programming concepts and data in ways that are inspired by, but differentiable from, existing efforts, to produce something interesting and original:</p>
+                <ul><li> <i>Combine</i>, <i>Adapt</i>, <i>Substitute</i>, <i>Modify</i></li></ul>
+            <p>Have fun giving it a go!</p>
 
             <hr class="hrInvisible"/>
 
+
+<!--             
         <h3>5. And The Rest ...</h3>
 
         <p>The rest of the lecture was a bunch of tips and examples, ways to try to inspire you into being expressive and creative in your <code>#CreativeCoding</code> efforts.</p>
@@ -739,7 +802,7 @@ Midsized Dog Bark 01 by noctaro|https://freesound.org/s/242402/|License: Attribu
 			<b>Jason DYKES</b><br />
 			<i>20 Nov 2024</i><br/>
 			<i>05 Dec 2024</i><br/>
-		</div>
+		</div> -->
 
   
 
