@@ -491,8 +491,9 @@ for (int i=0; i&lt;8; i=i+1)
 				</div>
 				 -->
 
-				 <p>Here is some more code that adds a little more variation to the randomness with some interaction.</p>
-<pre class="brush: processing; gutter: false; toolbar: false;">
+				 <p>Here is some more code that adds a little more variation to the randomness with some interaction.<br/>
+				The key changes are highlighted.</p>
+<pre class="brush: processing; gutter: false; toolbar: false;highlight:[1,14,15,16,22,26,27,28,29,35,36,37]">
 boolean shake = true;  // -- Do we want the rectangles to jitter?
 
 void setup()
@@ -528,14 +529,14 @@ void draw()
 }
 
 void mouseClicked () {
-  shake = !shake;
+  shake = !shake;  // &lt;-- change the boolean value to the inverse on a mouse click 
 }</pre>
 
 		<div class="codeTask">
 				<h5>Interactive Random</h5>
 				<p>Have a look at the code provided above, which extends the previous examples.</p>
-				<p>Try to interpret it and predict what will happen when you run the code.</p>
-				<p>Click and move the mouse to see whether you were right.</p>
+				<p>Try to interpret it and predict what will happen when you run the code, <i>before you run the code</i>.</p>
+				<p>Click and move the mouse to see whether you were correct, or partly correct.</p>
 				<p>Modify the code - particularly the numbers - to see and understand the effects.</p>
 		</div>
 
