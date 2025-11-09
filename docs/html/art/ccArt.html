@@ -468,7 +468,7 @@ for (int i=0; i&lt;8; i=i+1)
 					the <code>draw()</code> loop is called. This can be achieved using the
 					<code><a href="https://processing.org/reference/randomSeed_.html" target="_blank">randomSeed()</a></code>
 					method. For example, including the line ...
-				<pre class="brush: processing; gutter: false; toolbar: false;">randomSeed(1234);</pre> at the start of
+				<pre class="brush: processing; gutter: false; toolbar: false;">randomSeed(1234);</pre> ... at the start of
 				<code>draw()</code> will generate the same sequence of random numbers every time <code>draw()</code> is
 				called. You can change the number <code>1234</code> to whatever you like and each seed value will
 				generate its own unique sequence of random numbers. This is a useful way of providing the same sequence
@@ -490,7 +490,56 @@ for (int i=0; i&lt;8; i=i+1)
 						width="762" height="277" alt="Pencil cubes" />
 				</div>
 				 -->
-			</div> <!-- End of left column -->
+
+				 <p>Here is some more code that adds a little more variation to the randomness with some interaction.</p>
+<pre class="brush: processing; gutter: false; toolbar: false;">
+boolean shake = true;  // -- Do we want the rectangles to jitter?
+
+void setup()
+{
+  size(860, 200);
+}
+
+void draw()
+{
+  background(255);
+  noStroke();
+  fill(0, 0, 200, 100); // -- Semi-transparent blue
+  
+  if (!shake) {
+    randomSeed(224846);  // -- The number here is not important
+  }
+
+  float xPos   = 40;
+  float yPos   = 50;
+  float sSize  = 90;
+  // -- Make random range dependent upon x position of mouse
+  float rnd    = map(mouseX, 0, width, 0,sSize);
+
+  for (int i=0; i&lt;8; i=i+1)
+  {
+    quad(xPos + random(-rnd, rnd), yPos + random(-rnd, rnd),
+      xPos + sSize + random(-rnd, rnd), yPos + random(-rnd, rnd),
+      xPos + sSize + random(-rnd, rnd), yPos + sSize + random(-rnd, rnd),
+      xPos + random(-rnd, rnd), yPos + sSize + random(-rnd, rnd));
+
+    xPos = xPos + 100;
+  }
+}
+
+void mouseClicked () {
+  shake = !shake;
+}</pre>
+
+		<div class="codeTask">
+				<h5>Interactive Random</h5>
+				<p>Have a look at the code provided above, which extends the previous examples.</p>
+				<p>Try to interpret it and predict what will happen when you run the code.</p>
+				<p>Click and move the mouse to see whether you were right.</p>
+				<p>Modify the code - particularly the numbers - to see and understand the effects.</p>
+		</div>
+
+				</div> <!-- End of left column -->
 
 		</div> <!-- End of row -->
 
