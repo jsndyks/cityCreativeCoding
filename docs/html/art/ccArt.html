@@ -519,10 +519,10 @@ void draw()
 
   for (int i=0; i&lt;8; i=i+1)
   {
-    quad(xPos + random(-rnd, rnd), yPos + random(-rnd, rnd),
-      xPos + sSize + random(-rnd, rnd), yPos + random(-rnd, rnd),
-      xPos + sSize + random(-rnd, rnd), yPos + sSize + random(-rnd, rnd),
-      xPos + random(-rnd, rnd), yPos + sSize + random(-rnd, rnd));
+    quad(xPos         + random(-rnd, rnd), yPos         + random(-rnd, rnd),
+         xPos + sSize + random(-rnd, rnd), yPos         + random(-rnd, rnd),
+         xPos + sSize + random(-rnd, rnd), yPos + sSize + random(-rnd, rnd),
+         xPos         + random(-rnd, rnd), yPos + sSize + random(-rnd, rnd));
 
     xPos = xPos + 100;
   }
