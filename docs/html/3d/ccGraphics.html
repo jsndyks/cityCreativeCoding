@@ -738,6 +738,140 @@ void draw()
 
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+	
+	<div class="units-row">
+		<div class="unit-30-cc annotation cc-right">
+			<!-- Right column -->
+			<script>loadImage('https://jsndyks.github.io/cityCreativeCoding/html/3d/img/rotatingEllipsoids.png', 320, 240, 'Rotating ellipsoid');</script>
+			<p>
+				Two rotating ellipsoids each<br/>with their own transformations.
+			</p>
+		</div> <!-- end of right column -->
+		<div class="unit-70-cc">
+			<p>
+				If you're rending multiple 3D objects, it is common that you may wish to apply different
+				transformations before rendering each of them. To do this efficiently, it is often useful to
+				<i>push</i> and <i>pop</i> the transformation to and from a <i>stack</i>.
+			</p>
+			<ul>
+				<li><code>pushMatrix()</code> saves the current transformation.</li>
+				<li><code>popMatrix()</code> restores the previously saved transformation.</li>
+			</ul>
+			<p>
+				To see how pushing and popping transformations can be used to transform two different objects,
+				consider the following example that renders two spinning ellipsoids, each translated to different
+				parts of the screen.
+			</p>
+			<!-- Row break ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<pre class="brush: processing; gutter: false; toolbar: false; highlight:[16,21,24,29]">
+float angle;
+
+void setup()
+{
+  size(640, 480, P3D);
+}
+
+void draw()
+{
+  background(252,239,232);
+  noFill();
+  stroke(147,86,55);
+  translate(width/2, height/2, 0);  // Centre the view.
+
+  // Transform the first sphere to the right.
+  pushMatrix();                // Store the current transformation settings.
+    translate(150, 0, 0);      // Shift it right
+    rotateY(radians(angle));  // Rotate about its centre
+    scale(1, 2, 1);            // Stretch it on along the y-axis
+    sphere(100);               // Draw the first sphere.
+  popMatrix();                 // Restore the previous transformation settings.
+
+  // Transform the second sphere to the left.
+  pushMatrix();                // Store the current transformation settings.
+    translate(-130, 0, 0);     // Shift it left
+    rotateX(radians(angle));  // Rotate vertically about its centre
+    scale(1, 2, 1);            // Stretch it on along the y-axis
+    sphere(100);               // Draw the second sphere.
+  popMatrix();                 // Restore the previous transformation settings.
+
+  angle = angle + 1;           // Increase angle by 1 degree on every redraw.
+}</pre>
+
+			<div class="codeTask">
+				<p>
+				What do you think would happen if you remove all the <code>pushMatrix()</code> and
+				<code>popMatrix()</code> calls?
+				</p>
+				<p>
+				Try copying the code above into a sketch and running it both with
+				and without the pushing and popping to see if you are correct.
+				</p>
+			</div>
+
+		</div> <!-- End of left column -->
+
+	</div> <!-- End of row -->
+
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<div class="units-row">
+		<div class="unit-70-cc">
+			<!-- Left column -->
+			<h3>8. 3D Art</h3>
+			<p>
+				All of this capability allows us to express ourselves with artistic flourish, or by representing data in three dimensions, or perhaps a bit of both! 
+			</p>
+
+			<p>
+				There are all sorts of artists using <i>Processing</i> and in many cases the <code>P3D</code> renderer is at the heart of this. I am a fan of <a href="https://openprocessing.org/user/224308/#sketches">kusakari</a>, a generative artist from Tokyo who exhibits and shares on <a href="https://openprocessing.org/">OpenProcessing</a>, in an inspiring sketchbook that is packed with beautiful ideas developed in beautiful code. ❤️
+			</p>
+
+			<div width="80%" style="margin:2rem; padding-left:2.5%">
+			<img 
+				src="./img/cc.kusakariSketchBook.png" height="450"
+				 alt="Example sketches from Kusakari" />
+				 <p><i>Example sketches from <a href="https://openprocessing.org/user/224308/#sketches">kusakari</a></i>.</p>
+			</div>
+
+			<p>For example ...</p>
+
+			<ul>
+				<li><code><a href="https://openprocessing.org/sketch/942962">0102</a></code> - with its rapidly energising flows of coloured blocks</li>
+				<li><code><a href="https://openprocessing.org/sketch/1101772">0255</a></code> - with its eerily pulsating connected tubes</li>
+				<li><code><a href="https://openprocessing.org/sketch/1078715">0246</a></code> - a rainbow ring of platforms that dip and dive</li>
+				<li><code><a href="https://openprocessing.org/sketch/1020300">0195</a></code> - a shattered egg that waves</li>
+				<li><code><a href="https://openprocessing.org/sketch/920065">0053</a></code> - a contorting blanket of ink that surges with intent</li>
+				<li><code><a href="https://openprocessing.org/sketch/1780432">0637</a></code> - a majestic empty city of angles in which architecture and jungle are impossible to disentangle</li>
+			</ul>
+			<p>Most of these examples regenerate when they are clicked. Alternatively, press the <i>refresh</i> button!</p>
+			<p>All of them are editable - click <code>&nbsp;&nbsp;&lt;/&gt;&nbsp;&nbsp;</code> and change the parameters to see the effects, read the code to get a sense of how these intriguing forms are generated.<br/>
+			You don;t need to understand it all (I don't) to be able to make modifications and use some of these in your own work (I do).</p>
+
+			<div class="coreTask">
+				<h5>3D Kusakari</h5>
+				<p>Check <a href="https://openprocessing.org/user/224308/#sketches">kusakari</a>'s sketches and find examples of generative art that use <b>3D graphics</b>.</p>
+				<p>Find your favourite and sketch a few notes about the ideas it gives you.</p>
+				<p>Then think about whether you can use <b>SCAMPER</b> to apply any of these ideas to your work:</p>
+				<ul>
+					<li><b>A</b>dapt</li>
+					<li><b>C</b>ombine</li>
+					<li><b>M</b>odify</li>
+					<li><b>P</b>ut to Another Use</li>
+				</ul>
+				<p>Can you use any of these ideas or thoughts to display the data that you are collecting creatively, originally?</p>
+
+			</div>
+
+			<div class="codeTask">
+				<h5>Modify Kusakari</h5>
+				<p>Click the <code>&nbsp;&nbsp;&lt;/&gt;&nbsp;&nbsp;</code> button at the top of your favourite <a href="https://openprocessing.org/user/224308/#sketches">kusakari</a>, and change some parameters.</p>
+				<p>See what happens.</p>
+				<p>Try to read the code and predict the changes.<br/>Perhaps this coding experience will help you refine the ideas that you are developing.</p>
+			</div>
+
+
+		</div>
+	</div>
 
 
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -747,7 +881,7 @@ void draw()
 	<div class="units-row">
 		<div class="unit-70-cc">
 			<!-- Left column -->
-			<h3>8. Summary and Further Resources</h3>
+			<h3>9. Summary and Further Resources</h3>
 			<ul>
 				<li>You can program 3D computer graphics in <i>Processing</i> using the <code>P3D</code> renderer. 3D
 					graphics includes another dimension <code>z</code> representing depth.</li>
@@ -787,7 +921,7 @@ void draw()
 
 	<div class="units-row">
 		<div class="unit-70-cc">
-			<h3>9. Check on Progress</h3>
+			<h3>10. Check on Progress</h3>
 
 		<p>
 		To ensure that you have achieved the outcomes associated with this session, consider the following, which
