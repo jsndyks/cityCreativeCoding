@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CreativeCoding Lecture: 3d Graphics Challenge / Game</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Embedded fonts -->
+<link
+    href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Shadows+Into+Light|Source+Code+Pro&display=swap"
+    rel="stylesheet">
+
+<!-- Custom layout and style -->
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shCore.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/shThemeDefault.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/kube.min.css" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/master.css?rnd=123" type="text/css" />
+<link rel="stylesheet" href="https://www.staff.city.ac.uk/~jwo/moodle/css/highslide.css" type="text/css" />
+
+<!-- General browser compatibility handling -->
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/jquery-3.1.0.slim.min.js"></script>
+
+<!-- Formatted source code -->
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shCore.js"></script>
+<script type="text/javascript" src="https://www.staff.city.ac.uk/~jwo/moodle/js/shBrushProcessing.js"></script>
+
+<!-- Sketch popups and hidden text-->
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-with-html.packed.js"></script>
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/highslide-cfg.js"></script>
+<script src="https://www.staff.city.ac.uk/~jwo/moodle/js/master.js"></script>
+
+<!-- JD Extras! -->
+  <link rel="stylesheet" href="../../css/creativeCoding.css" type="text/css" />
+  
+  <!-- iFrame -->
+  <script type="text/javascript" src="https://jsndyks.github.io/cityCreativeCoding/js/iframeResizer.contentWindow.min.js"></script>
+
+  <style>
+    h3 {clear:none;}
+    .icon {padding:0px; border:solid 1px #f0f0f0; border-bottom:solid 1px #c0c0c0; border-right:solid 1px #c0c0c0; margin-right:5rem}
+    h3,.icon {margin-top:32rem;}
+    hr .clear {clear:both; display:none}
+  </style>
+</head>
+
+<body>
+  <div id="page">
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Main content ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+<!--     
+    We'd like you to try this exercise in class.
+    Please _attempt each of the exercises_ **before checking the solutions**.
+    Trying things out and _thinking things through_, and _getting things wrong_ before seeing a solution that works is **the best way to learn to code**.
+
+    You can access [this page](https://jsndyks.github.io/cityCreativeCoding/html/art/2023%7C24/copyright.html) outside of _Moodle_ should you wish to do so. 
+  -->
+
+
+    <h2>3d Graphics : Challenge / Game</h2>
+
+    <div>
+      
+    </div>
+    
+    <hr/>
+    <p>We will run this exercise in class, and so a solution is added for each stage of the challenge / game.<br/>
+      A button like the one shown below will give you a solution.<br/>
+      But please only use this to 'catch-up' if you fall behind. There is no point in the exercise if you don't <i>try to solve the problem yourself</i> at each stage.
+      The idea is not to get the challenge right, or solve it quickly, btu to learn through trying.<br/>
+      Trying, failing, thinking and falling behind are all important parts of learning. So please only use the 'Catch Up!' buttons containing solutions to catch up!
+    </p>
+    <p>
+      Try clicking this first one now though!<br/>
+      Click the code to select it, double click to select it all, and use <i>copy</i> and <i>paste</i> to get it into your <i>Processing</i> sketch.
+      </p>
+
+      <span><a href="#" class="link-show-code">Solution - Catch up Here!</a></span>
+      <div class="prettyprint" style="display: none;">
+        <pre class="brush: processing; gutter: false; toolbar: false; highlight: [8]">
+          // -- Press these buttons to catch up at each stage.
+          // -- But you will only learn if you attempt to problem solve for yourself.
+          // -- Don't be scared of getting things wrong, be scared of not trying things out.
+          // -- Because trying things out is how you learn, and getting things wrong is inevitable as you do so.
+          // -- And learning, is why you are here.
+          // -- And learning to learn is an important part of learning. 
+
+          // -- So, only click these buttons after you have attempted each challenge!
+        </pre>
+        </div>
+
+    <hr class="clear"/>
+
+
+<!--- --- TEST 1 --- -->
+
+<div style="float:right; padding-left:1em;padding-bottom:1em;padding-top:2em">
+    <img class="icon" src="./img/game/cc3D.example01.png" width=150/>
+</div>
+
+    <h3>1. Draw a Square </h3>
+
+<p>Update the following <i>Processing</i> sketch to draw a <i>square</i> using the <code><a href="https://processing.org/reference/rect_.html">rect()</a></code> method.</p>
+<p>It should be <code>200</code> x <code>200</code> in size and positioned at the top left of a <code>600</code> x <code>600</code> canvas.<br/>
+ Colour it in your favourite <code><a href="https://processing.org/reference/fill_.html">fill()</a></code> <code><a href="https://processing.org/reference/color_.html">color()</a></code>.</p>
+<p>Your output should look something like the image to the right 👉.</p>
+<pre class="brush: processing; gutter: false; toolbar: false; highlight: [11]">
+void setup () {
+  size(600,600);
+  noStroke();
+}
+
+void draw() {
+  background(255);
+  fill(128,32,32);  // &lt;-- change the colour!
+  
+  // -- Draw the square here with rect():
+
+}</pre>
+
+<!-- Hidden code button -->
+<span><a href="#" class="link-show-code">Solution - Catch up Here!</a></span>
+<div class="prettyprint" style="display: none;">
+<pre class="brush: processing; gutter: false; toolbar: false; highlight: [1]">
+  rect(0,0,200,200);
+</pre>
+</div>
+
+    <hr class="clear"/>
+
+<!--- --- TEST 2 --- -->
+
+<div style="float:right; padding-left:1em;padding-bottom:1em;padding-top:2em">
+    <img class="icon" src="./img/game/cc3D.example02.png" width=150/>
+</div>
+
+<h3>2. Centre the Square </h3>
+
+<p>Without changing the <code>rect()</code> parameters, make the square <i>appear in the centre</i> of the canvas.</p>
+<p><i>Hint</i>: Look up the <code><a href="https://processing.org/reference/translate_.html">translate()</a></code> method in the <i>Processing</i> Reference Documentation.</p>
+
+<!-- Hidden code button -->
+<span><a href="#" class="link-show-code">Solution - Catch up Here!</a></span>
+<div class="prettyprint" style="display: none;">
+<pre class="brush: processing; gutter: false; toolbar: false; highlight: [11]">
+  // -- The hard-coded way:
+  translate(200,200);
+
+  // -- The half hard-coded way:
+  translate(width/2-100,height/2-100);
+
+  // -- The way that is a bit more flexible:
+  rectMode(CENTER);  // <-- this should really go in setup();
+  translate(width/2, height/2);
+  
+  // -- Use any of these three ways - just one of them!</pre>
+</div>
+
+<hr class="clear"/>
+
+<!--- --- TEST 3 --- -->
+
+<div style="float:right; padding-left:1em;padding-bottom:1em;padding-top:2em">
+    <img class="icon" src="./img/game/cc3D.example03.png" width=150/>
+</div>
+
+<h3>3. Shrink the Square </h3>
+
+<p>Without changing the <code>rect()</code> parameters, make the square <i>appear smaller</i> on the canvas.</p>
+<p>The square should be <i>one quarter</i> of its original size.</p>
+<p><i>Hint</i>: Look up the <code><a href="https://processing.org/reference/scale_.html">scale()</a></code> method in the <i>Processing</i> Reference Documentation.</p>
+
+<!-- Hidden code button -->
+<span><a href="#" class="link-show-code">Solution - Catch up Here!</a></span>
+<div class="prettyprint" style="display: none;">
+<pre class="brush: processing; gutter: false; toolbar: false; highlight: [2]">
+  // -- Add scale() after the translation to scale about the new origin:
+  scale(0.5);
+</pre>
+</div>
+
+<hr class="clear"/>
+
+
+<!--- --- TEST 4 --- -->
+
+<div style="float:right; padding-left:1em;padding-bottom:1em;padding-top:2em">
+    <img class="icon" src="./img/game/cc3D.example04.png" width=150/>
+</div>
+
+<h3>4. Add a Square </h3>
+
+<p>Add a second square of the same size as the original, <i>to the right</i> of the existing square.</p>
+
+<!-- Hidden code button -->
+<span><a href="#" class="link-show-code">Solution - Catch up Here!</a></span>
+<div class="prettyprint" style="display: none;">
+<pre class="brush: processing; gutter: false; toolbar: false; highlight: [2]">
+  // -- Remember - the origin has been moved to the centre of the canvas with translate() :
+  rect(300,0,200,200);
+</pre>
+</div>
+
+<hr class="clear"/>
+
+<!--- --- TEST 5 --- -->
+
+<div style="float:right; padding-left:1em;padding-bottom:1em;padding-top:2em">
+    <img class="icon" src="./img/game/cc3D.example05.png" width=150/>
+</div>
+
+<h3>5. Rotate the Squares </h3>
+
+<p>Rotate the squares, <i>45 degrees clockwise</i>.</p>
+<p><i>Hint</i>: Look up the <code><a href="https://processing.org/reference/rotate_.html">rotate()</a></code> method in the <i>Processing</i> Reference Documentation.</p>
+
+<!-- Hidden code button -->
+<span><a href="#" class="link-show-code">Solution - Catch up Here!</a></span>
+<div class="prettyprint" style="display: none;">
+<pre class="brush: processing; gutter: false; toolbar: false; highlight: [10]">
+  // -- Using radians:
+  rotate(QUARTER_PI);
+
+  // -- Using radians in a different way:
+  rotate(PI/4);
+
+  // -- Converting from degrees:
+  rotate(radians(45));
+
+  // -- Use any of these three ways - just one of them!
+</pre>
+</div>
+
+<hr class="clear"/>
+
+<!--- --- TEST 6 --- -->
+
+<div style="float:right; padding-left:1em;padding-bottom:1em;padding-top:2em">
+    <img class="icon" src="./img/game/cc3D.example06.png" width=150/>
+</div>
+
+<h3>6. Animate the Squares </h3>
+
+<p>Animate the squares, <i>to move in a circle around the centre</i>.</p>
+<p><i>Hint</i>: Use <code><a href="https://processing.org/reference/frameCount.html">frameCount</a></code>, which is described in the <i>Processing</i> Reference Documentation, to vary the rotation used when you <code><a href="https://processing.org/reference/rotate_.html">rotate()</a></code>.</p>
+
+<!-- Hidden code button -->
+<span><a href="#" class="link-show-code">Solution - Catch up Here!</a></span>
+<div class="prettyprint" style="display: none;">
+<pre class="brush: processing; gutter: false; toolbar: false; highlight: [7]">
+  // -- Using radians:
+  rotate(QUARTER_PI * frameCount/60);
+
+  // -- Converting from degrees:
+  rotate(radians(frameCount * 1));
+
+  // -- Something like this should work - try varying the denominator / multiplier!</pre>
+</div>
+
+<hr class="clear"/>
+
+
+
+<!--- --- TEST 7 --- -->
+
+<div style="float:right; padding-left:1em;padding-bottom:1em;padding-top:2em">
+    <img class="icon" src="./img/game/cc3D.example07.png" width=150/>
+</div>
+
+<h3>7. Make only the First Square Rotate </h3>
+
+<p>OK, so we want to animate the first square, <i>but not the second square</i>!</p>
+<p><i>Hint</i>: Use <code><a href="https://processing.org/reference/pushMatrix_.html">pushMatrix</a></code> and <code><a href="https://processing.org/reference/popMatrix_.html">popMatrix</a></code>, which are described in the <i>Processing</i> Reference Documentation, to vary the coordinate system used in your sketch as it progresses.</p>
+
+<!-- Hidden code button -->
+<span><a href="#" class="link-show-code">Solution - Catch up Here!</a></span>
+<div class="prettyprint" style="display: none;">
+<pre class="brush: processing; gutter: false; toolbar: false; highlight: [4,12]">
+  // -- Add scale() after the translation to scale about the new origin:
+  scale(0.5);
+
+  pushMatrix();  // &lt;-- save the current coordinate system
+  
+  // -- Rotate the coordinate system according to frameCount:
+  rotate(radians(frameCount));
+
+  // -- Draw the rectangle here:
+  rect(0,0,200,200);
+  
+  popMatrix();  // &lt;-- return to the previous coordinate system (the one we pushed)
+                //  -- This basically removes the rotation before we draw the second rect. 
+  
+  // -- Remember - the origin has been moved to the centre of the canvas with translate() :
+  rect(300,0,200,200);
+</pre>
+</div>
+
+<hr class="clear"/>
+
+<!--- --- TEST 8 --- -->
+
+<div style="float:right; padding-left:1em;padding-bottom:1em;padding-top:2em">
+    <img class="icon" src="./img/game/cc3D.example08.png" width=150/>
+</div>
+
+<h3>8. Draw a Sphere </h3>
+
+<p>Let's start a new sketch and draw a <code><a href="https://processing.org/reference/sphere_.html">sphere</a></code>.</p>
+<p>Look at the <i>Built-in 3D Shapes</i> section of <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=968079">3D Graphics : Core</a> materials for code that you can use to do so.</p>
+<p>Change the colour and perhaps add <a href="https://processing.org/reference/lights_.html"<code>lights()</code></a>.</p>
+
+<!-- Hidden code button -->
+<span><a href="#" class="link-show-code">Solution - Catch up Here!</a></span>
+<div class="prettyprint" style="display: none;">
+<pre class="brush: processing; gutter: false; toolbar: false; highlight: [2,11,12]">
+void setup () {
+  size(600,600,P3D);  // &lt;-- You will need to use the P3D graphics renderer when defining the canvas
+}
+
+void draw() {
+  background(255);
+  fill(128,255,200);
+  
+  translate(width/2, height/2, 0);
+  
+  lights();      // &lt;-- add some default lighting
+  sphere(200);   // &lt;-- draw a sphere with radius of 200 pixels
+
+}</pre>
+</div>
+
+<hr class="clear"/>
+
+<!--- --- TEST 9 --- -->
+
+<div style="float:right; padding-left:1em;padding-bottom:1em;padding-top:2em">
+    <img class="icon" src="./img/game/cc3D.example09.png" width=150/>
+</div>
+
+<h3>9. Spin the Sphere </h3>
+
+<p>Make the <code><a href="https://processing.org/reference/sphere_.html">sphere</a></code> rotate about its centre <i>as the mouse moves left and right</i>.</p>
+<p><i>Hint</i>: Consult the the <i>Processing</i> Reference Documentation on <code><a href="https://processing.org/reference/rotateX_.html">rotateX()</a></code>,  <code><a href="https://processing.org/reference/rotateY_.html">rotateY()</a></code> and <code><a href="https://processing.org/reference/rotateZ_.html">rotateZ()</a></code>.</p>
+
+<!-- Hidden code button -->
+<span><a href="#" class="link-show-code">Solution - Catch up Here!</a></span>
+<div class="prettyprint" style="display: none;">
+<pre class="brush: processing; gutter: false; toolbar: false; highlight: [4,5]">
+  // -- I use the map() function for this one.
+  // -- It returns a value between 0 and TWO_PI from an input between 0 and width, and 0 and height
+  // --  depending upon where the mouse is.
+  rotateY( map(mouseX, 0,height, 0,TWO_PI) );
+  rotateX( map(mouseY, 0,width, 0,TWO_PI) );
+</pre>
+</div>
+
+<hr class="clear"/>
+
+<!--- --- TEST 10 --- -->
+
+<div style="float:right; padding-left:1em;padding-bottom:1em;padding-top:2em">
+    <img class="icon" src="./img/game/cc3D.example10.png" width=150/>
+</div>
+
+<h3>10. Animate the Sphere </h3>
+
+<p>Make the <code><a href="https://processing.org/reference/sphere_.html">sphere</a></code> spin continually <i>about its centre</i>.</p>
+
+<!-- Hidden code button -->
+<span><a href="#" class="link-show-code">Solution - Catch up Here!</a></span>
+<div class="prettyprint" style="display: none;">
+<pre class="brush: processing; gutter: false; toolbar: false; highlight: [2,3,4]">
+  // -- Perhaps try something like this, before you call sphere()?
+  rotateX ( radians(frameCount * 0.2) );
+  rotateY ( radians(frameCount * 1.8) );
+  rotateZ ( radians(frameCount * 0.6) );
+  // -- Play with the numbers to see their effects!
+</pre>
+</div>
+
+<hr class="clear"/>
+
+<!--- --- TEST 11 --- -->
+
+<div style="float:right; padding-left:1em;padding-bottom:1em;padding-top:2em">
+    <img class="icon" src="./img/game/cc3D.example11.png" width=150/>
+</div>
+
+<h3>11. Animate more Spheres </h3>
+
+<p>Add some more <code><a href="https://processing.org/reference/sphere_.html">sphere</a>s</code> and use different transformations and scalings to <i>move them independently</i>.</p>
+<p>Use the <code><a href="https://processing.org/reference/random_.html">random()</a> or <a href="https://processing.org/reference/noise_.html"><code>noise()</code></a></code> methods to vary their sizes and colours - just experiment!</p>
+<p><i>Hint</i>: Use <code><a href="https://processing.org/reference/pushMatrix_.html">pushMatrix</a></code> and <code><a href="https://processing.org/reference/popMatrix_.html">popMatrix</a></code>, which are described in the <i>Processing</i> Reference Documentation, to help with independent movement.</p>
+
+
+<!-- Hidden code button -->
+<span><a href="#" class="link-show-code">Solution - Catch up Here!</a></span>
+<div class="prettyprint" style="display: none;">
+<pre class="brush: processing; gutter: false; toolbar: false; highlight: [1]">
+// -- This is what I cam up with - but try your own ideas: EXPERIMENT!
+void setup () {
+  size(600, 600, P3D);  // &lt;-- You will need to use the P3D graphics renderer when defining the canvas
+  stroke(32, 64);
+}
+
+void draw() {
+  background(255);
+
+  lights();      // &lt;-- add some default lighting
+
+  // -- Three noise values - structured partly random numbers between 0 and 1 - to add some variation: 
+  float n1 = noise(frameCount*0.0100);  // &lt;-- successive numbers are somewhat alike
+  float n2 = noise(frameCount*0.0050);  // &lt;-- successive numbers are more alike
+  float n3 = noise(frameCount*0.0025);  // &lt;-- successive numbers are even more alike
+
+  translate(width/2, height/2, 0);
+
+  pushMatrix(); // &lt;-- add this coordinate space to the stack
+
+  // -- Perhaps try something like this, before you call sphere()?
+  rotateX ( radians(frameCount * 0.2) );
+  rotateY ( radians(frameCount * 1.8) );
+  rotateZ ( radians(frameCount * 0.6) );
+  // -- Play with the numbers to see their effects!
+
+  // -- Use the noise to generate colour components in specified ranges:
+  fill(map(n2, 0, 1, 64, 255), map(n1, 0, 1, 128, 255), map(n3, 0, 1, 32, 200));
+  sphere(50+n1*50);   // &lt;-- sphere has radius that varies with noise
+
+  popMatrix(); // &lt;-- return to the previous coordinate space
+  
+  pushMatrix();// &lt;-- store it so that we can return back!
+
+  rotateY ( radians(frameCount * 0.3) );
+  rotateZ ( radians(frameCount * 1.2) );
+  translate(width*0.2, width*0.15);
+
+  // -- Perhaps try something like this, before you call the next sphere()?
+  rotateY ( radians(frameCount * 0.8) );
+  rotateZ ( radians(frameCount * -0.9) );
+  // -- Play with the numbers to see their effects!
+
+  // -- Use the noise to generate colour components in specified ranges:
+  fill(map(n3, 0, 1, 64, 255), map(n1, 0, 1, 32, 200), map(n3, 0, 1, 32, 200));
+  sphere(50);   // &lt;-- sphere has radius of 50 pixels
+
+  popMatrix(); // &lt;-- return to the previous coordinate space
+
+  // -- Perhaps try something like this, before you call the next sphere()?
+  rotateX( radians(frameCount *-0.9) );
+  rotateY( radians(frameCount * 1.1) );
+  rotateZ( radians(frameCount * 3.4) );
+  translate(width*0.25, width*0.2);
+  // -- Play with the numbers to see their effects!
+
+  // -- Use the noise to generate colour components in specified ranges:
+  fill(map(n1, 0, 1, 32, 255), map(n2, 0, 1, 32, 255), map(n3, 0, 1, 32, 255));
+  sphere(50+n2*50);   // &lt;-- sphere has radius that varies with noise
+}
+</pre>
+</div>
+
+<hr class="clear"/>
+
+<!--- --- TEST 12 --- -->
+
+<div style="float:right; padding-left:1em;padding-bottom:1em;padding-top:2em">
+    <img class="icon" src="./img/game/cc3D.kusakari.png" width=150/>
+</div>
+
+<h3>12. Be Creative! </h3>
+
+<p>Impress the people sitting behind you (<i>tough luck back row</i>) by using the <a href="https://processing.org/reference/sphere_.html">sphere()</a> and <a href="https://processing.org/reference/box_.html"><code>box()</code></a> primitives, along with associated transformations, to generate complex and interesting 3D scenes.</p>
+
+<p>Be inspired by examples that you find in the <a href="https://processing.org/examples/"><i>Processing Examples</i></a>, or at <a href="https://openprocessing.org/">https://openprocessing.org/</a>.<br/>(<i>such as Simon Greenwold's <a href="https://processing.org/examples/mixturegrid.html">Mixture Grid</a></i> or <a href="https://openprocessing.org/user/224308#sketches">kusakari</a>'s <a href="https://openprocessing.org/sketch/1780432">0637</a>, which we see to the right.</p>
+
+
+<p>Try some of the following ...</p>
+<ul>
+    <li>Vary the positions and sizes of 3d primitives according to data that you read from file with <a href="https://processing.org/reference/loadStrings_.html"><code>loadStrings()</code></a>;</li>
+    <li>Use <a href="https://processing.org/reference/beginShape_.html"><code>beginShape()</code></a> and <a href="https://processing.org/reference/endShape_.html"><code>endShape()</code></a>to create different geometries;</li>
+    <li>Use <a href="https://processing.org/reference/texture_.html"><code>texture()</code></a> to add images to your primitives;</a></li>
+    <li>Experiment with <a href="https://processing.org/examples#basics-lights">lights</a> to create impressive effects;</li>
+</ul>
+<p>... and other things that seem interesting.</p>
+
+<!-- Hidden code button -->
+<span><a href="#" class="link-show-code">Solution - Catch up Here!</a></span>
+<div class="prettyprint" style="display: none;">
+<pre class="brush: processing; gutter: false; toolbar: false; highlight: [1]">
+// -- No solutions here, but post and discuss ideas and experiments on the discussion boards.
+</pre>
+</div>
+
+<hr class="clear"/>
+
+
+<!--- End of game --->
+
+<hr/>
+
+    <!-- End of content -->
+            <hr />
+            <div class="sig">
+                <b>Jason DYKES</b><br />
+                <i>15 Nov 2025</i>
+            </div>
+            <div style="padding-bottom:2em;clear:both" />
+
+<!-- https://i2.wp.com/dam.org/museum/wp-content/uploads/2020/09/Molnar1974DesOrdres1-copy-scaled.jpg -->  
+
+<!--- spacer for iFrame -->
+<p style="padding-top:1em"><hr/></p>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Footer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  </div> <!-- End of page div -->
+  <script type="text/javascript">SyntaxHighlighter.all()</script>
+</body>
+
+</html>
