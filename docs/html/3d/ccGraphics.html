@@ -88,12 +88,16 @@ You can access [these Lecture Notes](https://jsndyks.github.io/cityBootCamp/html
 			<i>Processing</i>?</i>&quot;<br/>The answer is "<i>Yes</i>"!
 			</p>
 
+
 		</div> <!-- End of left column -->
 	</div> <!-- End of row -->
 
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 	<div class="units-row">
+
+		<h3>2. Going from 2D to 3D</h3>
+
 		<div class="unit-30-cc annotation cc-right">
 			<!-- Right column -->
 			<img src="https://jsndyks.github.io/cityCreativeCoding/html/3d/img/xy.png" width="200"
@@ -105,7 +109,6 @@ You can access [these Lecture Notes](https://jsndyks.github.io/cityBootCamp/html
 		</div> <!-- end of right column -->
 		<div class="unit-70-cc">
 			<!-- Left column -->
-			<h3>2. Going from 2D to 3D</h3>
 			<p>
 				Until now you have used 2D coordinates to describe a position (in pixels):
 			<ul>
@@ -232,23 +235,31 @@ void setup()
 				For example ...
 			</p>
 			<pre class="brush: processing; gutter: false; toolbar: false; ">
-  // -- Add at top of draw() loop to give 3D control on mousePress:
-  if (mouseX>0 && mouseY >0 && mousePressed) {
-    rotateX(radians(map(mouseY, 0, width, -90, 90)));
-    rotateY(radians(map(mouseX, 0, width, -90, 90)));
-  }
+
+    // -- Add this condition at top of draw() loop to give 3D control on mousePress:
+  
+		if (mouseX>0 && mouseY >0 && mousePressed) {
+			rotateX(radians(map(mouseY, 0, width, -90, 90)));
+			rotateY(radians(map(mouseX, 0, width, -90, 90)));
+		}
 			</pre>
 
 			<p>
-				Let's try the latter, as shown in the above code snippet, with a quick exercise to get us going ...
+				Let's not worry about <code><a href="https://processing.org/reference/camera_.html">camera()</a></code> for now, we will keep our viewing position fixed.<br/>
+				Let's try the latter, some <i>rotation</i> of the shapes that we plot on the canvas, as shown in the above code snippet, with a quick exercise to get us going ...
 			</p>
 
 			<div class="codeTask">
-				<h5>Hang On - My Sketches are 3D!</h5>
+				<h5>Hang On - You Mean My Sketches are Actually 3D!</h5>
+				<p>Well they are if you render them in a 3D renderer!</p>
 				<p>Open a sketch - one of your favourites from your sketchbook.<br/>
-				Make a copy with '<i>Save As...</i>', but add '3D' to the name, so <i>underground.pde</i> is copied into a new sketch with the same content called <i>underground3D.pde</i>.</p>
-				<p>Add '<code>P3D</code>' as a third parameter to <code>size()</code>. This gives you an <i>OpenGL</i> 3D canvas.</p>
-				<p>Add the code snippet above to the top of the <code>draw()</code> loop - anywhere before you start plotting shapes and images and text and things - and you should have interactive control of the sketch.</p>
+				Make a copy with '<i>Save As...</i>', but add '3D' to the name, so '<i>underground.pde</i>' is copied into a new sketch with the same content called '<i>underground3D.pde</i>' ... or whatever!</p>
+				<p>Edit this new sketch with two additions:</p>
+				<ol>
+					<li>add '<code>P3D</code>' as a third parameter to <code>size()</code>. This gives you an <i>OpenGL</i> 3D canvas;</li>
+					<li>add the code snippet above to the top of the <code>draw()</code> loop - anywhere before you start plotting shapes and images and text and things</li>
+				</ol>
+				<p>You should have interactive control of the sketch. Give it a try!</p>
 
 			</div>
 
