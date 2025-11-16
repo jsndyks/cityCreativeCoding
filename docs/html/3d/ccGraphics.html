@@ -217,8 +217,47 @@ void setup()
 				</tr>
 			</table>
 			<p>
-				For example, the applications above rely on OpenGL for accelerated 3D graphics.<br /><br />
+				For example, the applications above rely on OpenGL for accelerated 3D graphics.
 			</p>
+
+			<p>
+				And you may be wondering how you can use 3D in your existing sketches.<br/>
+				Well, it should be pretty easy!<br/>
+				First, just make sure you call the <code>P3D</code> renderer in <code>size()</code>.<br/>
+				This is pretty much what we did above with the new third argument to specify the rendered that we want to use - <code>size(640, 480, P3D);</code>.<br/>
+				The default renderer is 2D, but this option to <code>size()</code> renders your graphics in a 3D space.
+			</p>
+			<p>
+				Then you either move the position you are looking from with <code><a href="https://processing.org/reference/camera_.html">camera()</a></code> or <i>transform</i> the coordinate space that you are plotting into with, say, <code><a href="https://processing.org/reference/rotate_.html">rotate()</a></code>.<br/>
+				For example ...
+			</p>
+			<pre class="brush: processing; gutter: false; toolbar: false; ">
+  // -- Add at top of draw() loop to give 3D control on mousePress:
+  if (mouseX>0 && mouseY >0 && mousePressed) {
+    rotateX(radians(map(mouseY, 0, width, -90, 90)));
+    rotateY(radians(map(mouseX, 0, width, -90, 90)));
+  }
+			</pre>
+
+			<p>
+				Let's try the latter, as shown in the above code snippet, with a quick exercise to get us going ...
+			</p>
+
+			<div class="codeTask">
+				<h5>Hang On - My Sketches are 3D!</h5>
+				<p>Open a sketch - one of your favourites from your sketchbook.<br/>
+				Make a copy with '<i>Save As...</i>', but add '3D' to the name, so <i>underground.pde</i> is copied into a new sketch with the same content called <i>underground3D.pde</i>.</p>
+				<p>Add '<code>P3D</code>' as a third parameter to <code>size()</code>. This gives you an <i>OpenGL</i> 3D canvas.</p>
+				<p>Add the code snippet above to the top of the <code>draw()</code> loop - anywhere before you start plotting shapes and images and text and things - and you should have interactive control of the sketch.</p>
+
+			</div>
+
+			<p>There are lots of useful <a href="https://processing.org/examples/rotate.html">Rotation Examples</a> to try in the <i>Processing Documentation</i>, and we will focus on <a href="https://processing.org/reference/rotate_.html"><code>rotate()</code></a> and its 3D equivalents - 
+				<a href="https://processing.org/reference/rotateX_.html"><code>rotateX()</code></a>,
+				<a href="https://processing.org/reference/rotateY_.html"><code>rotateY()</code></a> and 
+				<a href="https://processing.org/reference/rotateZ_.html"><code>rotateZ()</code></a> -
+			
+				and <a href="https://processing.org/reference/translate_.html"><code>translate()</code></a> below.</p>
 
 		</div> <!-- End of left column -->
 
@@ -341,9 +380,10 @@ void setup()
 		<div class="unit-70-cc">
 			<!-- Left column -->
 			<p>
-				Another built-in 3D shape is <code>box()</code>. If <code>box()</code> receives one parameter, it
-				draws a cube. If <code>box</code> received three parameters, a box with different width, height, and
-				depth is possible.
+				Another built-in 3D shape is <code>box()</code>.
+				</p>
+			<p> If <code>box()</code> receives one parameter, it draws a cube.
+				If <code>box</code> received three parameters, a box with different width, height, and depth is possible.
 			</p>
 
 			<table>
