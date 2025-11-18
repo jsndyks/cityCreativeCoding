@@ -64,15 +64,91 @@
 
         <hr>
 
-        <!-- Data Dogs -->
+        <!-- Noise -->
 
-        <h3>1. Wobblers</h3>
+        <h3>1. Noise</h3>
+
+        <p>I didn't explain <code><a href="https://processing.org/reference/noise_.html">noise()</a></code> very well in class. It returns a value between 0 and 1, but each successive value is informed by / related to the last.</p>
+        <p>
+        The extent of this relationship depends upon how similar the successive parameters to noise are - more similar gives a more related random number, less similar gives a less related one. Probably!
+        </p>
+        <p> 
+        Do have a look at the documentation and examples online. And have a play with this simple sketch that uses <code><a href="https://processing.org/reference/noise_.html">noise()</a></code> in two dimensions to vary the position of a shape.</p>
+
+<pre class="brush: processing; gutter: false; toolbar: false; highlight: [12,13]">
+float scaleFactor;
+
+void setup () {
+  size(800,800);
+  background(250);
+  
+  scaleFactor = 0.01;  // <-- vary this!
+}
+
+void draw() {
+  
+  float x = width * noise(frameCount*scaleFactor, 0);
+  float y = height * noise(0, frameCount*scaleFactor);
+  
+  circle(x,y,25); 
+}</pre>
+
+        <div class="codeTask">
+            <h5>Noise for Two Dimensions</h5>
+            <p>Try the code provided above in a new sketch and vary <code>scaleFactor</code>.</p>
+            <p>The smaller the steps between the values of the parameters given to successive calls to <code><a href="https://processing.org/reference/noise_.html">noise()</a></code> the more alike successive values are likely to be.</p>
+        </div>
+
+        <p>Here is an additional example that varies <code>scaleFactor</code> interactively and uses the randomness to change colours too.</p>
+
+<pre class="brush: processing; gutter: false; toolbar: false; highlight: [16,17]">
+float scaleFactor;
+
+void setup () {
+  size(800,800);
+  background(250);
+  
+  stroke(64,64);
+  
+  scaleFactor = 0.01;  // <-- vary this!
+}
+
+void draw() {
+  
+  scaleFactor = map(mouseX, 0,width, 0.005,0.05);
+  
+  float nX = noise(frameCount*scaleFactor, 0);
+  float nY = noise(0, frameCount*scaleFactor);
+  
+  float x = width  * nX;
+  float y = height * nY;
+  
+  fill(nX*255,nY*255,200,128);
+  
+  circle(x,y,25); 
+}</pre>
+
+        <p>See the excellent page on <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=968160">Randomness</a> for a more thorough explanation.</p>
+
+        <!-- Wobblers -->
+
+        <h3>2. Wobblers</h3>
 
         <p>We have been inspired by <a href="https://openprocessing.org/user/224308/#sketches">kusakari</a> and the wonderful sketches available on  <a href="https://openprocessing.org/">OpenProcessing</a>.<br/>Have a look at this one ...</p>
 
         <ul>
-				<li><code><a href="https://openprocessing.org/sketch/1975272" target="_new">0661</a></code> - a grid of pulsating coloured scales</li>
+				<li><code><a href="https://openprocessing.org/sketch/1975272" target="_new">0661</a></code> - a grid of pulsating coloured scales, or ... errr ... 'wobblers'</li>
         </ul>
+            <figure>
+                <table style="width: 100%; margin: 0 auto; border-collapse: collapse; text-align: center;">
+                    <tr>  
+                        <td style="width: 100%; height: 100px;"><img src="./img/cc.kusakari.0661.png" alt="top" style="width: 100%; height: auto;"></td>
+                    </tr>
+                </table>
+            <figcaption>
+                    More inspiring digital art from <i>kusakari</i>.
+                </figcaption>
+            </figure>
 
         <p>
             Now let's have a think about it ...
@@ -89,22 +165,32 @@
             </ol>
         </div>
 
-        <div class="coreTask">
+        <div class="codeTask">
             <h5>Wobbler Sketch</h5>
             <p>
-                I have tried to implement something similar: <a href="">weekWobblers.zip</a>
+                I have tried to implement something similar in a <i>Processing</i> sketch that includes a <code>Wobbler</code> class : <a href="http://jsndyks.github.io/cityCreativeCoding/html/denouement/pde/weekWobblers.zip">weekWobblers.zip</a>
             </p>
             <p>
                 Download it, unzip it, have a look and have a play!
             </p>
+        </div>
 
+        <p>
+            Hopefully this will give you a model that brings together some of the ideas that we have been focusing on :
+        </p>
+
+        <ul>
+            <li>reading data from file</li>
+            <li>creating a class that contains and depicts data</li>
+            <li>animation and randomness</li>
+        </ul>
 
         
 
 
         <!-- Data Dogs -->
 
-        <h3>4. Dear Data Dogs</h3>
+        <h3>3. Dear Data Dogs</h3>
 
         <p>Having said all of that we understand the need to demonstrate some of the ways in which the things you are learning can be put together to begin to address the task in hand. One of the important concepts that we want you to consider and use is the <code>class</code> capability in <i>Processing</i>.
         Classes enable  us to define and instantiate <i>objects</i> that hold and depict data about particular phenomena - such as the ones that you are recording data about.<br/>
@@ -136,7 +222,7 @@
         <!-- <p>You can watch the <a href="https://moodle4.city.ac.uk/mod/url/view.php?id=836206">Creativity : Lecture</a> (<code>24:54 - 30:00</code>) to see how this all works, but basically...</p> -->
 
 
-        <p>In short, the sketch has <i>five tabs</i>, and you can download (copy and paste) the context of each tab in turn below to recreate the sketch.</p>
+        <p>In short, the sketch has <i>six tabs</i>, and you can download (copy and paste) the context of each tab in turn below to recreate the sketch.</p>
         <p>The first a tab containing the globals, <code>setup()</code> and <code>draw()</code>.</p>
             &nbsp;&nbsp;&raquo;&nbsp;&nbsp;Code : <code>dataDogs.pde</code>&nbsp;&nbsp;<span><a href="#" class="link-show-code">Show code</a></span>
             <div class="prettyprint" style="display: none;">
@@ -524,9 +610,9 @@ void showLicenses() {
             <p>If you want the code to work, then try using the arrangement shown below, with a tab for each code example.</p>
                             <!-- Creative Process -->
                             <figure>
-                                <img src="./img/cc.dogPDE.jpg" width="900" />
+                                <img src="./img/cc.dogPDE.png" width="900" />
                                 <figcaption>
-                                    The five code examples provided above are arranged in tabs in a single <i>Processing</i> sketch. 
+                                    The six code examples provided above are arranged in tabs in a single <i>Processing</i> sketch. You will need to add the data files (see below) and download the sound files to make it work. Put them in the 'data' folder of the sketch.
                                 </figcaption>
                             </figure>
             <p>However, I have not provided the sound files, so you'll need to get some wild sounds of howling and barking, or use the example sounds that we provided in the <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=781805">Processing Sound Test</a> to hear anything.</p>
@@ -588,7 +674,7 @@ String [] soundFiles = {"mixkit-dog-barking-twice-1.wav", "mixkit-happy-puppy-ba
 
             <p>
             To be honest, I suggest you have fun finding some other sounds instead - perhaps on <a href="https://mixkit.co/free-sound-effects/dog/">MixKit</a> or another sound archive that has samples available with rights that suit your intended use: <i>MODIFY</i>!<br/>
-            And update <code>soundFiles</code> when you do so!</p>
+            And update the value of <code>soundFiles</code> when you do so!</p>
 
             <p>Hopefully this gives you some ideas, and you may want to try to get the sketch working. 
                 However, the main intent here it to show you that we can combine programming concepts and data in ways that are inspired by, but differentiable from, existing efforts, to produce something interesting and original:</p>
