@@ -132,7 +132,30 @@ void draw() {
   circle(x,y,25); 
 }</pre>
 
-        <p>See the excellent page on <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=968160">Randomness</a> for a more thorough explanation.</p>
+        <p>Of course there is nothing to say that we have to draw a circle at the noise-generated position.
+            We could use this position as the moving point of a triangle with two fixed points.<br/>Try replacing the <code>circle()</code> with this. 
+        </p>
+
+<pre class="brush: processing; gutter: false; toolbar: false; highlight: [3]">
+&nbsp;
+  //   circle(x,y,25); 
+  triangle(0,0,  width,0,  x,y);
+&nbsp;
+</pre>
+
+        <p>Or two triangles with different base points and colours - try this. 
+        </p>
+
+<pre class="brush: processing; gutter: false; toolbar: false; highlight: [4,5]">
+&nbsp;
+  //   circle(x,y,25); 
+  triangle(0,0,  width,0,  x,y);
+  fill(128,nX*255,nY*255,128);
+  triangle(width,0,  width,height, x,y);
+&nbsp;
+</pre>
+
+        <p>Experiment!<br/> And see the excellent page on <a href="https://moodle4.city.ac.uk/mod/page/view.php?id=968160">Randomness</a> for a more thorough explanation.</p>
 
         <!-- Wobblers -->
 
