@@ -4,6 +4,8 @@
 |3|09|01|Cheers|false|-2|IMG_1012.jpg
 |3|10|17|Ta|true|4|IMG_1016.jpg|
 
+### Submission Instructions
+
 Your submission must contain <b>uploaded files</b> and <b>online text</b> as follows ...
 
 <b>Online Text</b>
