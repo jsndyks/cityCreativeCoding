@@ -181,6 +181,10 @@ h3 {padding-top:0.25em; margin-top:1em; border-top:1px dashed #e0e0e0; clear:bot
 .dataFile {font-size:67%; width:45%; float:right; margin-right:1rem; margin-left:2rem; padding:0.5rem}
 .adviceToStudents {margin-bottom:0.25em}
 
+.qAndA {padding:1rem;}
+.qAndA-Q {padding:0.5rem;background-color:#fefe90}
+.qAndA-A {padding:0.5rem; padding-left:3rem; background-color:#fefefe}
+
 /* -- task magic --*/
 .ddTask::before,
 .ddTask {
