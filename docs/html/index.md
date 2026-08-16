@@ -23,4 +23,5 @@
 
 <style>
     td {vertical-align:top}
+    .footer, h1 {display:none}
     </style>
