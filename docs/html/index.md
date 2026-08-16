@@ -1,7 +1,7 @@
-# CreativeCoding Index
+## CreativeCoding 2026 : Page Index
 
-|session|&nbsp;&nbsp;|pages|
-|-:|-|-|
+|session|title|pages|
+|-:|-|:-|
 |01|**Intro**|[ccIntro.html](intro/ccIntro.html)<br/>[ccIntro.extra.html](intro/ccIntro.extra.html)
 |02|**Variables**|[ccVar.html](variables/ccVar.html)<br/>[ccVar.extra.html](variables/ccVar.extra.html)
 |03|**Interaction**|[ccInt.html](interaction/ccInt.html)<br/>[ccInt.extra.html](interaction/ccInt.extra.html)
